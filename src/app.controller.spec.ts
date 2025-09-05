@@ -21,12 +21,14 @@ describe('AppController', () => {
 
   describe('getResponse', () => {
     it('should return mocked API response', async () => {
+      // Mock global.fetch function
       global.fetch = jest.fn().mockResolvedValue({
-        json: jest.fn().mockResolvedValue('Hello World!'),
+        json: jest.fn().mockResolvedValue({ message: 'Hello World!' }), // Mock json method
       } as any);
 
       const result = await appController.getResponse('any question');
-      expect(result).toBe('Hello World!');
+      expect(result).toEqual({ message: 'Hello World!' }); // Check if result matches the mock
+      expect(fetch).toHaveBeenCalledTimes(1); // Ensure fetch was called once
     });
   });
 });
