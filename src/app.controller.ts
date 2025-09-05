@@ -1,12 +1,33 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, Query } from '@nestjs/common';
+import { AppConfigService } from './app-config.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appConfigService: AppConfigService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get('/openrouter')
+  async getResponse(@Query('question') question: string): Promise<string> {
+    const completions = await fetch(
+      'https://openrouter.ai/api/v1/chat/completions',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${this.appConfigService.openRouterApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'openai/gpt-oss-20b:free',
+          messages: [
+            {
+              role: 'user',
+              content: question,
+            },
+          ],
+        }),
+      },
+    );
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return await completions.json();
   }
 }
