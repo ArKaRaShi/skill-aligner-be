@@ -1,0 +1,42 @@
+services:
+  app:
+    build:
+      context: .
+      target: runtime-dev
+    container_name: career-skill-aligner-app-dev
+    env_file: .env
+    ports:
+      - '3001:3001'
+    volumes:
+      - ./src:/app/src # live code onlymount for development
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  db:
+    image: postgres:16-alpine
+    container_name: career-skill-aligner-db-dev
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password123
+    volumes:
+      - pgdata_dev:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U user -d appdb']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks:
+      - app-network
+
+volumes:
+  pgdata_dev:
+
+networks:
+  app-network:
+    driver: bridge
