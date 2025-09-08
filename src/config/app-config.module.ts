@@ -1,15 +1,16 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppConfigService } from './app-config.service';
-import { appValidationSchema } from './app-validation.schema';
+import { appConfigValidationSchema } from './app-config-validation.schema';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      validationSchema: appValidationSchema,
+      validationSchema: appConfigValidationSchema,
       validationOptions: {
         abortEarly: true,
+        convert: true,
       },
     }),
   ],

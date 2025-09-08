@@ -1,13 +1,13 @@
 import Joi from 'joi';
 import { AppConfigDefault } from './app-config.constant';
 
-export const appValidationSchema = Joi.object({
+export const appConfigValidationSchema = Joi.object({
   NODE_ENV: Joi.string()
-    .valid('development', 'production', 'test', 'provision')
+    .valid('development', 'production', 'test')
     .default(AppConfigDefault.NODE_ENV)
     .messages({
       'string.base': `"NODE_ENV" should be a type of 'text'`,
-      'any.only': `"NODE_ENV" must be one of [development, production, test, provision]`,
+      'any.only': `"NODE_ENV" must be one of [development, production, test]`,
       'any.required': `"NODE_ENV" is a required field`,
     }),
 
