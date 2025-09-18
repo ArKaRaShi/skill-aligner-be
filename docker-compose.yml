@@ -4,9 +4,11 @@ services:
       context: .
       target: runtime-dev
     container_name: career-skill-aligner-app-dev
-    env_file: .env
+    env_file:
+      -.env.docker.local
     ports:
-      - '3001:3001'
+      - '3001:3001' # main app
+      - '5555:5555' # for prisma studio
     volumes:
       - ./src:/app/src # live code onlymount for development
     depends_on:
@@ -25,7 +27,7 @@ services:
     volumes:
       - pgdata_dev:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - '5433:5432' # Avoid using 5432 to prevent conflicts with local installations
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U user -d appdb']
       interval: 5s
