@@ -9,12 +9,15 @@
 FROM node:24.4.0-alpine AS base
 WORKDIR /app
 # Only package files first -> best cache hits for npm ci
-COPY package*.json ./
+COPY --chown=node:node package*.json ./
 # Build inputs (no .env, no docs, no tests)
-COPY tsconfig*.json ./
-COPY src/ src/
-# COPY prisma/schema.prisma prisma/schema.prisma
-# COPY prisma/migrations prisma/migrations  
+COPY --chown=node:node tsconfig*.json ./
+COPY --chown=node:node src/ src/
+COPY --chown=node:node prisma/ prisma/
+
+
+
+
 
 # ============================
 # STAGE: deps-prod  (install prod deps only)
@@ -23,9 +26,11 @@ COPY src/ src/
 # ============================
 FROM node:24.4.0-alpine AS deps-prod
 WORKDIR /app
-COPY --from=base /app/package*.json ./
-RUN npm ci --omit=dev
-COPY --from=base /app ./
+COPY --chown=node:node --from=base /app/package*.json ./
+# upgrade npm
+RUN npm install -g npm@latest
+RUN npm ci --omit=dev --ignore-scripts
+COPY --chown=node:node --from=base /app ./
 
 # ============================
 # STAGE: deps-dev  (install full deps)
@@ -34,9 +39,11 @@ COPY --from=base /app ./
 # ============================
 FROM node:24.4.0-alpine AS deps-dev
 WORKDIR /app
-COPY --from=base /app/package*.json ./
+COPY --chown=node:node --from=base /app/package*.json ./
+# upgrade npm
+RUN npm install -g npm@latest
 RUN npm ci
-COPY --from=base /app ./
+COPY --chown=node:node --from=base /app ./
 
 
 # ============================
@@ -47,13 +54,12 @@ COPY --from=base /app ./
 FROM node:24.4.0-alpine AS builder-prod
 WORKDIR /app
 # Use full deps for build
-COPY --from=deps-dev /app/node_modules ./node_modules
+COPY --chown=node:node --from=deps-dev /app/node_modules ./node_modules
 # Bring source (allowlisted) from base
-COPY --from=base /app ./
+COPY --chown=node:node --from=base /app ./
 
-# Build your app and generate Prisma client
-RUN npm run build 
-# RUN npx prisma generate
+# Build your app 
+RUN npm run build && npx prisma generate
 
 # ============================
 # STAGE: runtime-prod  (final production image)  ← used when you target runtime-prod
@@ -71,13 +77,14 @@ ENV APP_DEBUG=false
 ENV NODE_ENV=production
 
 # Prod deps only
-COPY --from=deps-prod /app/node_modules ./node_modules
+COPY --chown=node:node --from=deps-prod /app/node_modules ./node_modules
 # Compiled JS only
-COPY --from=builder-prod /app/dist ./dist
+COPY --chown=node:node --from=builder-prod /app/dist ./dist
 # If migrations are needed at runtime, bring them:
-# COPY --from=base /app/prisma/migrations ./prisma/migrations
-# Prisma client (generated in builder)
-# COPY --from=builder-prod /app/node_modules/.prisma ./node_modules/.prisma
+COPY --chown=node:node --from=base /app/prisma/migrations ./prisma/migrations
+# If you need the Prisma client, uncomment this line:
+COPY --chown=node:node --from=builder-prod /app/node_modules/.prisma ./node_modules/.prisma
+
 
 EXPOSE 3001
 CMD ["node", "dist/main.js"]
@@ -93,9 +100,11 @@ ENV APP_DEBUG=true
 ENV NODE_ENV=development
 
 # Full deps for dev (nodemon, etc)
-COPY --from=deps-dev /app/node_modules ./node_modules
+COPY --chown=node:node --from=deps-dev /app/node_modules ./node_modules
 # Keep sources + tsconfigs for watch mode
-COPY --from=base /app ./
+COPY --chown=node:node --from=base /app ./
 
+# Generate Prisma client
+RUN npx prisma generate
 EXPOSE 3001
 CMD ["npm", "run", "start:dev"]
