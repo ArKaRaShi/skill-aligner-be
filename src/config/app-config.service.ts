@@ -24,6 +24,13 @@ export class AppConfigService {
     );
   }
 
+  get openAiApiKey(): string {
+    return (
+      this.configService.get('OPENAI_API_KEY') ??
+      AppConfigDefault.OPENAI_API_KEY
+    );
+  }
+
   get openRouterApiKey(): string {
     return (
       this.configService.get('OPENROUTER_API_KEY') ??
