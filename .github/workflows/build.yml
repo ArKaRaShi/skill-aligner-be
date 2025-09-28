@@ -1,26 +1,31 @@
 name: Build
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-    sonarqube:
-        name: SonarQube
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-                  
-            - name: Install dependencies
-              run: npm install
+  sonarqube:
+    name: SonarQube
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
-            - name: Test and coverage
-              run: npm run test:cov
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 1.2.22
 
-            - name: SonarQube Scan
-              uses: SonarSource/sonarqube-scan-action@v5
-              env:
-                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Test and coverage
+        run: bun run test:cov
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
