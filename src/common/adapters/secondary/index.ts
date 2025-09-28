@@ -1,3 +1,3 @@
-import { PrismaModule } from './prisma/prisma.module';
+import { PrismaModule } from 'src/common/adapters/secondary/prisma/prisma.module';
 
 export const CommonSecondaryAdapterModules = [PrismaModule];

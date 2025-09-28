@@ -87,7 +87,7 @@ export class AppController {
     return await completions.json();
   }
 
-  @Get('/openai')
+  @Get('/agent')
   async getOpenAiResponse(
     @Query('question') question: string,
   ): Promise<string> {
