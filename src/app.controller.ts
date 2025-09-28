@@ -1,12 +1,13 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { AppConfigService } from './config/app-config.service';
-import { Experimental_Agent as Agent, stepCountIs, tool } from 'ai';
+
 import {
   createOpenRouter,
   OpenRouterProvider,
 } from '@openrouter/ai-sdk-provider';
-
+import { Experimental_Agent as Agent, stepCountIs, tool } from 'ai';
 import { z } from 'zod';
+
+import { AppConfigService } from './config/app-config.service';
 
 export const weatherTool = tool({
   description: 'Get the weather in a location',

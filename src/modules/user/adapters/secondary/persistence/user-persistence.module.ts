@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { UserPrismaRepository } from './prisma/user-prisma.repository';
 import { I_USER_REPOSITORY_TOKEN } from 'src/modules/user/core/application/ports/inject-token.constant';
+
+import { UserPrismaRepository } from './prisma/user-prisma.repository';
 
 @Module({
   providers: [

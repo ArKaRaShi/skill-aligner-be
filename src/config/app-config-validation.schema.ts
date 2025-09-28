@@ -1,4 +1,5 @@
 import Joi from 'joi';
+
 import { AppConfigDefault } from './app-config.constant';
 
 export const appConfigValidationSchema = Joi.object({
