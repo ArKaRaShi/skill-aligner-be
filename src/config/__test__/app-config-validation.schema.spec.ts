@@ -126,6 +126,30 @@ describe('appConfigValidationSchema', () => {
     });
   });
 
+  describe('OPENAI_API_KEY validation', () => {
+    it('should allow non-empty string values', () => {
+      const { error } = appConfigValidationSchema.validate({
+        ...validRequiredFields,
+      } as ValidationConfig);
+      expect(error).toBeUndefined();
+    });
+
+    it('should reject empty strings', () => {
+      const { error } = appConfigValidationSchema.validate({
+        DATABASE_URL: validRequiredFields.DATABASE_URL,
+        OPENAI_API_KEY: '',
+      } as ValidationConfig);
+      expect(error?.message).toBe('"OPENAI_API_KEY" cannot be an empty field');
+    });
+
+    it('should require OPENAI_API_KEY to be provided', () => {
+      const { error } = appConfigValidationSchema.validate({
+        DATABASE_URL: validRequiredFields.DATABASE_URL,
+      } as ValidationConfig);
+      expect(error?.message).toBe('"OPENAI_API_KEY" is a required field');
+    });
+  });
+
   describe('OPENROUTER_API_KEY validation', () => {
     it('should allow non-empty string values', () => {
       const { error } = appConfigValidationSchema.validate({

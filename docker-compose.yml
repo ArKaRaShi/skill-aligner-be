@@ -5,7 +5,7 @@ services:
       target: runtime-dev
     container_name: career-skill-aligner-app-dev
     env_file:
-      -.env.docker.local
+      - .env.docker.local
     ports:
       - '3001:3001' # main app
       - '5555:5555' # for prisma studio
