@@ -1,4 +1,21 @@
 {
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "<BUILTIN_MODULES>",
+    "@nestjs/(.*)",
+    "@prisma/.*",
+    "<THIRD_PARTY_MODULES>",
+    "^src/config/.*",
+    "^src/common/.*",
+    "^src/modules/.*",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["typescript", "classProperties", "decorators-legacy"],
+  "importOrderCaseInsensitive": true,
+  "printWidth": 80,
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "endOfLine": "lf"
 }
