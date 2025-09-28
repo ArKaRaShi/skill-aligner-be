@@ -1,4 +1,5 @@
 import Joi from 'joi';
+
 import { AppConfigDefault } from './app-config.constant';
 
 export const appConfigValidationSchema = Joi.object({
@@ -26,6 +27,12 @@ export const appConfigValidationSchema = Joi.object({
     'string.base': `"DATABASE_URL" should be a type of 'text'`,
     'string.uri': `"DATABASE_URL" must be a valid URI`,
     'any.required': `"DATABASE_URL" is a required field`,
+  }),
+
+  OPENAI_API_KEY: Joi.string().required().messages({
+    'string.base': `"OPENAI_API_KEY" should be a type of 'text'`,
+    'string.empty': `"OPENAI_API_KEY" cannot be an empty field`,
+    'any.required': `"OPENAI_API_KEY" is a required field`,
   }),
 
   OPENROUTER_API_KEY: Joi.string().required().messages({

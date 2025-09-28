@@ -1,6 +1,7 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { AppConfigService } from '../app-config.service';
 import { ConfigService } from '@nestjs/config';
+import { Test, TestingModule } from '@nestjs/testing';
+
+import { AppConfigService } from '../app-config.service';
 
 describe('AppConfigService', () => {
   let appConfigService: AppConfigService;
@@ -115,6 +116,29 @@ describe('AppConfigService', () => {
       const result = appConfigService.databaseUrl;
       expect(result).toBe('');
       expect(spy).toHaveBeenCalledWith('DATABASE_URL');
+
+      spy.mockRestore();
+    });
+  });
+
+  describe('openAiApiKey', () => {
+    it('should return OPENAI_API_KEY from config', () => {
+      const spy = jest
+        .spyOn(configService, 'get')
+        .mockReturnValue('fake-api-key');
+      const key = appConfigService.openAiApiKey;
+      expect(key).toBe('fake-api-key');
+      expect(spy).toHaveBeenCalledWith('OPENAI_API_KEY');
+
+      spy.mockRestore();
+    });
+
+    it('should return default OPENAI_API_KEY when config value is undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const key = appConfigService.openAiApiKey;
+      expect(key).toBe('');
+      expect(spy).toHaveBeenCalledWith('OPENAI_API_KEY');
 
       spy.mockRestore();
     });

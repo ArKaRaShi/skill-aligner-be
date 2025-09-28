@@ -1,4 +1,5 @@
 import { Prisma, User as PrismaUser } from '@prisma/client';
+
 import { User as UserEntity } from 'src/modules/user/core/domain/entities/user.entity';
 
 export class UserPrismaMapper {

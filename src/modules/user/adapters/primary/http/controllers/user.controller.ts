@@ -4,6 +4,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { BaseResponseDto } from 'src/common/adapters/primary/dto/responses/base.response.dto';
 
 import { UserApplicationFacade } from 'src/modules/user/core/application/user-application.facade';
+
 import { RegisterUserRequestDto } from '../dto/requests';
 import { UserResponseDto } from '../dto/responses';
 import { RegisterUserTransformer } from '../transformers/register-user.transformer';

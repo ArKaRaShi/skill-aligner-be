@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+
 import { AppConfigDefault } from './app-config.constant';
 
 @Injectable()
@@ -21,6 +22,13 @@ export class AppConfigService {
   get databaseUrl(): string {
     return (
       this.configService.get('DATABASE_URL') ?? AppConfigDefault.DATABASE_URL
+    );
+  }
+
+  get openAiApiKey(): string {
+    return (
+      this.configService.get('OPENAI_API_KEY') ??
+      AppConfigDefault.OPENAI_API_KEY
     );
   }
 

@@ -1,4 +1,5 @@
 import { RegisterUserResultDto } from 'src/modules/user/core/application/dto/result';
+
 import { UserResponseDto } from '../dto/responses';
 
 /**

@@ -4,5 +4,7 @@ export const AppConfigDefault = {
   PORT: 3001,
 
   DATABASE_URL: '',
+
+  OPENAI_API_KEY: '',
   OPENROUTER_API_KEY: '',
 };

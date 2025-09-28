@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { RegisterUserUseCase } from './use-cases/register-user.use-case';
+
 import { RegisterUserCommandDto } from './dto/command';
 import { RegisterUserResultDto } from './dto/result';
+import { RegisterUserUseCase } from './use-cases/register-user.use-case';
 
 @Injectable()
 export class UserApplicationFacade {

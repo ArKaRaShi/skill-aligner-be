@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import { Identifier } from 'src/common/domain/types/identifier';
+
 import { EmailRule } from '../rules/email.rule';
 
 type UserProps = {
