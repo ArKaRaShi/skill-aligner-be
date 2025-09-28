@@ -4,7 +4,7 @@ import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
 
 import { User } from '../../domain/entities/user.entity';
 import { RegisterUserCommandDto } from '../dto/command';
-import { IUserRepository } from '../ports/i-user.repository';
+import type { IUserRepository } from '../ports/i-user.repository';
 import { I_USER_REPOSITORY_TOKEN } from '../ports/inject-token.constant';
 
 @Injectable()

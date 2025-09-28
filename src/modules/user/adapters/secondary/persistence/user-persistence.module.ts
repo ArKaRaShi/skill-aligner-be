@@ -8,8 +8,6 @@ import { UserPrismaRepository } from './prisma/user-prisma.repository';
   providers: [
     { provide: I_USER_REPOSITORY_TOKEN, useClass: UserPrismaRepository },
   ],
-  exports: [
-    { provide: I_USER_REPOSITORY_TOKEN, useClass: UserPrismaRepository },
-  ],
+  exports: [I_USER_REPOSITORY_TOKEN],
 })
 export class UserPersistenceModule {}
