@@ -18,7 +18,7 @@ services:
       - app-network
 
   db:
-    image: postgres:16-alpine
+    image: pgvector/pgvector:pg16
     container_name: career-skill-aligner-db-dev
     environment:
       POSTGRES_DB: appdb

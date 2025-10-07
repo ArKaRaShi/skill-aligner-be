@@ -1,0 +1,105 @@
+[
+  {
+    "skill": "Problem-solving",
+    "gsc": {
+      "knowledge": 3,
+      "activeCognition": 4,
+      "conation": 3,
+      "affection": 3,
+      "sensoryMotorAbilities": 1
+    },
+    "llm_classified_category": "soft",
+    "category": "soft",
+    "matches": true
+  },
+  {
+    "skill": "Organizational skills",
+    "gsc": {
+      "knowledge": 3,
+      "activeCognition": 3,
+      "conation": 3,
+      "affection": 1,
+      "sensoryMotorAbilities": 2
+    },
+    "llm_classified_category": "soft",
+    "category": "uncertain",
+    "matches": false
+  },
+  {
+    "skill": "Test planning",
+    "gsc": {
+      "knowledge": 4,
+      "activeCognition": 4,
+      "conation": 3,
+      "affection": 3,
+      "sensoryMotorAbilities": 2
+    },
+    "llm_classified_category": "hard",
+    "category": "uncertain",
+    "matches": false
+  },
+  {
+    "skill": "Oral communication",
+    "gsc": {
+      "knowledge": 3,
+      "activeCognition": 3,
+      "conation": 3,
+      "affection": 4,
+      "sensoryMotorAbilities": 2
+    },
+    "llmLabeledCategory": "soft",
+    "heuristicLabeledCategory": "soft",
+    "agreement": true,
+    "hardScore": 2.7058823529411766,
+    "softScore": 3.2941176470588234,
+    "diff": 0.5882352941176467
+  },
+  {
+    "skill": "negotiate with stakeholders",
+    "gsc": {
+      "knowledge": 4,
+      "activeCognition": 4,
+      "conation": 4,
+      "affection": 5,
+      "sensoryMotorAbilities": 1
+    },
+    "llmLabeledCategory": "soft",
+    "heuristicLabeledCategory": "soft",
+    "agreement": true,
+    "hardScore": 3.0000000000000004,
+    "softScore": 4.1764705882352935,
+    "diff": 1.176470588235293
+  },
+  {
+    "skill": "cooperate in agreement with stakeholders",
+    "gsc": {
+      "knowledge": 4,
+      "activeCognition": 4,
+      "conation": 4,
+      "affection": 5,
+      "sensoryMotorAbilities": 1
+    },
+    "llmLabeledCategory": "soft",
+    "heuristicLabeledCategory": "soft",
+    "agreement": true,
+    "hardScore": 3.0000000000000004,
+    "softScore": 4.1764705882352935,
+    "diff": 1.176470588235293
+  },
+  {
+    "skill": "imprint visionary aspirations into the business management",
+    "gsc": {
+      "knowledge": 4,
+      "activeCognition": 5,
+      "conation": 4,
+      "affection": 4,
+      "sensoryMotorAbilities": 1
+    },
+    "llmLabeledCategory": "soft",
+    "heuristicLabeledCategory": "soft",
+    "agreement": true,
+    "hardScore": 3.11764705882353,
+    "softScore": 3.999999999999999,
+    "diff": 0.8823529411764692
+  }
+]

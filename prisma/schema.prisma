@@ -1,12 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client-js"
-  output   = "../node_modules/.prisma/client"
+  provider      = "prisma-client-js"
+  output        = "../node_modules/.prisma/client"
   binaryTargets = ["native", "debian-openssl-3.0.x", "linux-arm64-openssl-3.0.x"]
 }
 
@@ -16,11 +10,42 @@ datasource db {
 }
 
 model User {
-  id            String         @id @db.Uuid
-  email         String         @unique // Application should lowercase before save
-
-  createdAt     DateTime       @default(now())     @map("created_at")
-  updatedAt     DateTime       @updatedAt          @map("updated_at")
+  id        String   @id @db.Uuid
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("users")
+}
+
+model Course {
+  id                     String                  @id @db.Uuid
+  campusCode             String                  @map("campus_code")
+  facultyCode            String                  @map("faculty_code")
+  academicYear           Int                     @map("academic_year")
+  semester               Int                     @map("semester")
+  subjectCode            String                  @map("subject_code")
+  subjectNameTh          String                  @map("subject_name_th")
+  createdAt              DateTime                @default(now()) @map("created_at")
+  updatedAt              DateTime                @updatedAt @map("updated_at")
+  courseLearningOutcomes CourseLearningOutcome[]
+
+  @@unique([campusCode, facultyCode, academicYear, subjectCode, semester], name: "unique_course")
+  @@map("courses")
+}
+
+model CourseLearningOutcome {
+  id        String                @id @db.Uuid
+  cloNo     Int                   @map("clo_no")
+  cloNameTh String                @map("clo_name_th")
+  createdAt DateTime              @default(now()) @map("created_at")
+  updatedAt DateTime              @updatedAt @map("updated_at")
+
+  embedding Unsupported("vector(768)")
+
+  courseId  String                @map("course_id") @db.Uuid
+  course    Course                @relation(fields: [courseId], references: [id])
+
+  @@unique([courseId, cloNo], name: "unique_course_clo")
+  @@map("course_learning_outcomes")
 }
