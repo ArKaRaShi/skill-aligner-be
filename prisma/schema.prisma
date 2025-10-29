@@ -18,102 +18,146 @@ model User {
   @@map("users")
 }
 
-enum SourceType {
-  SYNTHESIZED
-  EXTERNAL
+// enum SourceType {
+//   SYNTHESIZED
+//   EXTERNAL
+// }
+
+// enum SkillCategory {
+//   SOFT
+//   HARD
+//   UNCERTAIN
+// }
+
+// model Skill {
+//   id                 String                     @id @db.Uuid
+//   skillNameEn        String                     @unique @map("skill_name_en")
+//   skillDescriptionEn String                     @map("skill_description_en")
+//   skillCategory      SkillCategory              @map("skill_category")
+//   sourceName         String                     @map("source_name")
+//   sourceType         SourceType                 @map("source_type")
+//   metadata           Json?
+//   createdAt          DateTime                   @default(now()) @map("created_at")
+//   updatedAt          DateTime                   @updatedAt @map("updated_at")
+//   embeddingEn        Unsupported("vector(768)")
+//   occupationSkills   OccupationSkill[]
+
+//   @@map("skills")
+// }
+
+// model OccupationSkill {
+//   id           String     @id @db.Uuid
+//   occupationId String     @map("occupation_id") @db.Uuid
+//   occupation   Occupation @relation(fields: [occupationId], references: [id])
+//   skillId      String     @map("skill_id") @db.Uuid
+//   skill        Skill      @relation(fields: [skillId], references: [id])
+//   metadata     Json?
+//   createdAt    DateTime   @default(now()) @map("created_at")
+
+//   @@unique([occupationId, skillId], name: "unique_occupation_skill")
+//   @@map("occupation_skills")
+// }
+
+// model Occupation {
+//   id               String            @id @db.Uuid
+//   occupationNameEn String            @map("occupation_name_en")
+//   descriptionEn    String            @map("description_en")
+//   sourceName       String            @map("source_name")
+//   sourceType       SourceType        @map("source_type")
+//   createdAt        DateTime          @default(now()) @map("created_at")
+//   updatedAt        DateTime          @updatedAt @map("updated_at")
+//   metadata         Json?
+//   clusterId        String            @map("cluster_id") @db.Uuid
+//   cluster          Cluster           @relation(fields: [clusterId], references: [id])
+//   occupationSkills OccupationSkill[]
+
+//   @@map("occupations")
+// }
+
+// model Cluster {
+//   id            String       @id @db.Uuid
+//   clusterNameEn String       @unique @map("cluster_name")
+//   sourceName    String       @map("source_name")
+//   sourceType    SourceType   @map("source_type")
+//   createdAt     DateTime     @default(now()) @map("created_at")
+//   updatedAt     DateTime     @updatedAt @map("updated_at")
+//   metadata      Json?
+//   occupations   Occupation[]
+
+//   @@map("clusters")
+// }
+
+model Campus {
+  id        String   @id @db.Uuid
+  code      String   @unique
+  nameTh    String?  @map("name_th")
+  nameEn    String?  @map("name_en")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  courses   Course[]
+
+  @@map("campuses")
 }
 
-enum SkillCategory {
-  SOFT
-  HARD
-  UNCERTAIN
-}
+model Faculty {
+  id        String   @id @db.Uuid
+  code      String   @unique
+  nameTh    String?  @map("name_th")
+  nameEn    String?  @map("name_en")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  courses   Course[]
 
-model Skill {
-  id                 String                     @id @db.Uuid
-  skillNameEn        String                     @unique @map("skill_name_en")
-  skillDescriptionEn String                     @map("skill_description_en")
-  skillCategory      SkillCategory              @map("skill_category")
-  sourceName         String                     @map("source_name")
-  sourceType         SourceType                 @map("source_type")
-  metadata           Json?
-  createdAt          DateTime                   @default(now()) @map("created_at")
-  updatedAt          DateTime                   @updatedAt @map("updated_at")
-  embeddingEn        Unsupported("vector(768)")
-  occupationSkills   OccupationSkill[]
-
-  @@map("skills")
-}
-
-model OccupationSkill {
-  id           String     @id @db.Uuid
-  occupationId String     @map("occupation_id") @db.Uuid
-  occupation   Occupation @relation(fields: [occupationId], references: [id])
-  skillId      String     @map("skill_id") @db.Uuid
-  skill        Skill      @relation(fields: [skillId], references: [id])
-  metadata     Json?
-  createdAt    DateTime   @default(now()) @map("created_at")
-
-  @@unique([occupationId, skillId], name: "unique_occupation_skill")
-  @@map("occupation_skills")
-}
-
-model Occupation {
-  id               String            @id @db.Uuid
-  occupationNameEn String            @map("occupation_name_en")
-  descriptionEn    String            @map("description_en")
-  sourceName       String            @map("source_name")
-  sourceType       SourceType        @map("source_type")
-  createdAt        DateTime          @default(now()) @map("created_at")
-  updatedAt        DateTime          @updatedAt @map("updated_at")
-  metadata         Json?
-  clusterId        String            @map("cluster_id") @db.Uuid
-  cluster          Cluster           @relation(fields: [clusterId], references: [id])
-  occupationSkills OccupationSkill[]
-
-  @@map("occupations")
-}
-
-model Cluster {
-  id            String       @id @db.Uuid
-  clusterNameEn String       @unique @map("cluster_name")
-  sourceName    String       @map("source_name")
-  sourceType    SourceType   @map("source_type")
-  createdAt     DateTime     @default(now()) @map("created_at")
-  updatedAt     DateTime     @updatedAt @map("updated_at")
-  metadata      Json?
-  occupations   Occupation[]
-
-  @@map("clusters")
+  @@map("faculties")
 }
 
 model Course {
-  id                     String                  @id @db.Uuid
-  campusCode             String                  @map("campus_code")
-  facultyCode            String                  @map("faculty_code")
-  academicYear           Int                     @map("academic_year")
-  semester               Int                     @map("semester")
-  subjectCode            String                  @map("subject_code")
-  subjectNameTh          String                  @map("subject_name_th")
-  createdAt              DateTime                @default(now()) @map("created_at")
-  updatedAt              DateTime                @updatedAt @map("updated_at")
-  courseLearningOutcomes CourseLearningOutcome[]
+  id                     String      @id @db.Uuid
+  campusId               String?     @map("campus_id") @db.Uuid
+  campus                 Campus?     @relation(fields: [campusId], references: [id])
+  facultyId              String?     @map("faculty_id") @db.Uuid
+  faculty                Faculty?    @relation(fields: [facultyId], references: [id])
+  academicYear           Int         @map("academic_year")
+  semester               Int         @map("semester")
+  subjectCode            String      @map("subject_code")
+  subjectNameTh          String      @map("subject_name_th")
+  subjectNameEn          String?     @map("subject_name_en")
+  isEnrollable           Boolean     @default(false) @map("is_enrollable")
+  createdAt              DateTime    @default(now()) @map("created_at")
+  updatedAt              DateTime    @updatedAt @map("updated_at")
+  metadata               Json?
+  courseLearningOutcomes CourseCLO[]
 
-  @@unique([campusCode, facultyCode, academicYear, subjectCode, semester], name: "unique_course")
+  @@unique([academicYear, subjectCode, semester], name: "unique_course")
   @@map("courses")
 }
 
 model CourseLearningOutcome {
-  id        String                     @id @db.Uuid
-  cloNo     Int                        @map("clo_no")
-  cloNameTh String                     @map("clo_name_th")
-  createdAt DateTime                   @default(now()) @map("created_at")
-  updatedAt DateTime                   @updatedAt @map("updated_at")
-  embedding Unsupported("vector(768)")
-  metadata  Json?
-  courseId  String                     @map("course_id") @db.Uuid
-  course    Course                     @relation(fields: [courseId], references: [id])
+  id               String                     @id @db.Uuid
+  cloNo            Int                        @map("clo_no")
+  cloNameTh        String                     @map("clo_name_th")
+  cloNameEn        String?                    @map("clo_name_en")
+  cleanedCloNameTh String                     @map("cleaned_clo_name_th")
+  cleanedCloNameEn String?                    @map("cleaned_clo_name_en")
+  createdAt        DateTime                   @default(now()) @map("created_at")
+  updatedAt        DateTime                   @updatedAt @map("updated_at")
+  embedding        Unsupported("vector(768)")
+  skipEmbedding    Boolean                    @default(false) @map("skip_embedding")
+  metadata         Json?
+  linkedCourses    CourseCLO[]
 
-  @@unique([courseId, cloNo], name: "unique_course_clo")
   @@map("course_learning_outcomes")
+}
+
+model CourseCLO {
+  id              String                @id @db.Uuid
+  courseId        String                @map("course_id") @db.Uuid
+  course          Course                @relation(fields: [courseId], references: [id])
+  cloId           String                @map("clo_id") @db.Uuid
+  learningOutcome CourseLearningOutcome @relation(fields: [cloId], references: [id])
+  createdAt       DateTime              @default(now()) @map("created_at")
+  updatedAt       DateTime              @updatedAt @map("updated_at")
+
+  @@unique([courseId, cloId], name: "unique_course_clo")
+  @@map("course_clos")
 }

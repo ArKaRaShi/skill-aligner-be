@@ -95,13 +95,13 @@ async function main() {
   //   'Assess the specifications of a software product or system to be developed by identifying functional and non-functional requirements, constraints and possible sets of use cases which illustrate interactions between the software and its users.';
   // const queryText = 'Can speak German at a professional level';
 
-  const skillName = 'Animal Nutrition';
-  const skillDescription =
-    'Understand and apply principles of animal nutrition, including formulation, feed quality control, and industrial-level dietary optimization.';
-
-  // const skillName = 'use software design patterns';
+  // const skillName = 'Animal Nutrition';
   // const skillDescription =
-  //   'Utilise reusable solutions, formalised best practices, to solve common ICT development tasks in software development and design.'.toLowerCase();
+  //   'Understand and apply principles of animal nutrition, including formulation, feed quality control, and industrial-level dietary optimization.';
+
+  const skillName = 'use software design patterns';
+  const skillDescription =
+    'Utilise reusable solutions, formalised best practices, to solve common ICT development tasks in software development and design.'.toLowerCase();
 
   const queryText = `Find course learning outcomes related to the skill "${skillName}", which involves ${skillDescription}`;
 

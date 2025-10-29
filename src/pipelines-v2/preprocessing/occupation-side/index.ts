@@ -1,11 +1,11 @@
 import { OccupationPath } from 'src/pipelines-v2/shared/constants/dir-path.constant';
+import { IPipeline } from 'src/pipelines-v2/shared/contracts/i-pipeline.contract';
 import { FileHelper } from 'src/pipelines-v2/shared/helpers/file.helper';
 import {
   Occupation,
   OccupationKnowledgeRelation,
   OccupationSkillRelation,
 } from 'src/pipelines-v2/shared/types/occupation.type';
-import { IPipeline } from 'src/pipelines/i-pipeline.contract';
 
 import { EscoOccupationFetchPipeline } from './occupation/esco-occupation-fetch.pipeline';
 import { OccupationRelationBuilder } from './shared/occupation-relation.builder';

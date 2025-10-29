@@ -5,12 +5,9 @@ export interface CloEmbeddingOutput {
 }
 
 export class CloEmbeddingPipeline {
-  async execute(
-    input: CoursePreprocessingOutput,
-  ): Promise<CloEmbeddingOutput> {
+  async execute(input: CoursePreprocessingOutput): Promise<CloEmbeddingOutput> {
     return {
       vectors: input.preprocessedCourses,
     };
   }
 }
-

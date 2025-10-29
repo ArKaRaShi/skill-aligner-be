@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { IPipeline } from 'src/pipelines/i-pipeline.contract';
-import { SourceType } from 'src/pipelines/shared/types';
+import { IPipeline } from 'src/pipelines-v2/shared/contracts/i-pipeline.contract';
+import { SourceType } from 'src/pipelines-v2/shared/types/metadata.type';
 import { v4 as uuidv4 } from 'uuid';
 
 import { ESCO_API_RESOURCE } from '../../../shared/constants/api.constant';
