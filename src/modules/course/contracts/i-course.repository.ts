@@ -1,21 +1,22 @@
 import { CourseMatch } from '../types/course.type';
 
+export const I_COURSE_REPOSITORY_TOKEN = Symbol('ICourseRepository');
+
 type FindCoursesBySkillsSemanticParams = {
   skills: string[];
-  limit?: number;
+  matchesPerSkill?: number;
   threshold?: number;
 };
 
 export interface ICourseRepository {
   /**
-   * Retrieves courses whose learning outcomes (CLOs) match the given skills semantically.
-   * @param skills - List of skill keywords to search for.
-   * @param limit - Optional max number of courses to return.
-   * @param threshold - Optional similarity threshold for semantic match.
+   * Find courses by multiple skills via learning outcomes semantic search.
+   * @param params The parameters for finding courses.
+   * @returns A map where the key is the skill and the value is an array of course matches.
    */
   findCoursesBySkillsViaLO({
     skills,
-    limit,
+    matchesPerSkill,
     threshold,
-  }: FindCoursesBySkillsSemanticParams): Promise<CourseMatch[]>;
+  }: FindCoursesBySkillsSemanticParams): Promise<Map<string, CourseMatch[]>>;
 }

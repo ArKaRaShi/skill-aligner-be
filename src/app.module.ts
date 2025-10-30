@@ -4,10 +4,15 @@ import { APP_INTERCEPTOR, Reflector } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { CommonSecondaryAdapterModules } from './common/adapters/secondary';
 import { AppConfigModule } from './config/app-config.module';
-import { UserModule } from './modules';
+import { CourseModule, UserModule } from './modules';
 
 @Module({
-  imports: [AppConfigModule, ...CommonSecondaryAdapterModules, UserModule],
+  imports: [
+    AppConfigModule,
+    ...CommonSecondaryAdapterModules,
+    UserModule,
+    CourseModule,
+  ],
   controllers: [AppController],
   providers: [
     { provide: APP_INTERCEPTOR, useClass: ClassSerializerInterceptor },

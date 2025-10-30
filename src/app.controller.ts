@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Post, Query } from '@nestjs/common';
 import { ApiBody, ApiProperty } from '@nestjs/swagger';
 
 import {
@@ -15,6 +15,10 @@ import { z } from 'zod';
 
 import { appendObjectToArrayFile } from './append-result.util';
 import { AppConfigService } from './config/app-config.service';
+import {
+  I_COURSE_REPOSITORY_TOKEN,
+  ICourseRepository,
+} from './modules/course/contracts/i-course.repository';
 
 export const weatherTool = tool({
   description: 'Get the weather in a location',
@@ -84,7 +88,11 @@ type SkillClassificationResult = {
 export class AppController {
   private readonly openRouter: OpenRouterProvider;
 
-  constructor(private readonly appConfigService: AppConfigService) {
+  constructor(
+    private readonly appConfigService: AppConfigService,
+    @Inject(I_COURSE_REPOSITORY_TOKEN)
+    private readonly courseRepository: ICourseRepository,
+  ) {
     this.openRouter = createOpenRouter({
       apiKey: this.appConfigService.openRouterApiKey,
       baseURL: 'https://openrouter.ai/api/v1',
@@ -406,5 +414,21 @@ Output:
     appendObjectToArrayFile<SkillClassificationResult>(fileName, result);
 
     return { data: result };
+  }
+
+  @Get('/test/course-repository')
+  async testCourseRepository(): Promise<any> {
+    const skills = ['programming', 'data analysis'];
+    const matchesPerSkill = 5;
+    const threshold = 0.7;
+
+    const result = await this.courseRepository.findCoursesBySkillsViaLO({
+      skills,
+      matchesPerSkill,
+      threshold,
+    });
+    console.log('Course Matches:', result);
+
+    return result;
   }
 }
