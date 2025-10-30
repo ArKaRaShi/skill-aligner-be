@@ -11,6 +11,8 @@ interface ValidationConfig {
   DATABASE_URL?: string;
   OPENAI_API_KEY?: string;
   OPENROUTER_API_KEY?: string;
+  SEMANTICS_API_BASE_URL?: string;
+  EMBEDDING_PROVIDER?: string;
 }
 
 const requiredFields: ValidationConfig = {
@@ -178,6 +180,60 @@ describe('appConfigValidationSchema', () => {
       expectErrorMessage(
         configWithoutOpenRouter,
         '"OPENROUTER_API_KEY" is a required field',
+      );
+    });
+  });
+
+  describe('SEMANTICS_API_BASE_URL', () => {
+    it('accepts valid URIs', () => {
+      const { error } = validate({
+        ...requiredFields,
+        SEMANTICS_API_BASE_URL: 'https://example.com/api',
+      });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects malformed URIs', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          SEMANTICS_API_BASE_URL: 'not-a-uri',
+        },
+        '"SEMANTICS_API_BASE_URL" must be a valid URI',
+      );
+    });
+
+    it('defaults to AppConfigDefault.SEMANTICS_API_BASE_URL when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value.SEMANTICS_API_BASE_URL).toBe(
+        AppConfigDefault.SEMANTICS_API_BASE_URL,
+      );
+    });
+  });
+
+  describe('EMBEDDING_PROVIDER', () => {
+    it.each(['e5', 'openai'])('accepts %s', (provider) => {
+      const { error } = validate({
+        ...requiredFields,
+        EMBEDDING_PROVIDER: provider,
+      });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects unsupported providers', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          EMBEDDING_PROVIDER: 'unknown',
+        },
+        '"EMBEDDING_PROVIDER" must be one of [e5, openai]',
+      );
+    });
+
+    it('defaults to AppConfigDefault.EMBEDDING_PROVIDER when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value.EMBEDDING_PROVIDER).toBe(
+        AppConfigDefault.EMBEDDING_PROVIDER,
       );
     });
   });

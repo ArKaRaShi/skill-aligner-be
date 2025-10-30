@@ -25,7 +25,7 @@ export class AppConfigService {
     );
   }
 
-  get openAiApiKey(): string {
+  get openAIApiKey(): string {
     return (
       this.configService.get('OPENAI_API_KEY') ??
       AppConfigDefault.OPENAI_API_KEY
@@ -37,5 +37,19 @@ export class AppConfigService {
       this.configService.get('OPENROUTER_API_KEY') ??
       AppConfigDefault.OPENROUTER_API_KEY
     );
+  }
+
+  get semanticsApiBaseUrl(): string {
+    return (
+      this.configService.get('SEMANTICS_API_BASE_URL') ??
+      AppConfigDefault.SEMANTICS_API_BASE_URL
+    );
+  }
+
+  get embeddingProvider(): 'e5' | 'openai' {
+    const embeddingProvider =
+      this.configService.get<string>('EMBEDDING_PROVIDER') ??
+      AppConfigDefault.EMBEDDING_PROVIDER;
+    return embeddingProvider as 'e5' | 'openai';
   }
 }

@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { SemanticsApiClient } from 'src/common/adapters/secondary';
+import { SemanticsClient } from 'src/common/adapters/secondary';
 import {
   SEMANTIC_EMBEDDED_AT,
   SEMANTIC_EMBEDDING_DIMENSION,
@@ -15,6 +15,8 @@ import {
   EmbeddedCoursesSnapshot,
   loadCourses,
 } from 'src/modules/course/adapters/secondary/file/course-data.loader';
+
+const semanticsClient = new SemanticsClient();
 
 type ExportMode = 'plain' | 'embedded';
 
@@ -37,7 +39,7 @@ async function attachEmbeddings(
   let metadata: CloEmbeddingMetadata | null = null;
 
   for (const course of courses) {
-    const data = await SemanticsApiClient.batchEmbed({
+    const data = await semanticsClient.batchEmbed({
       items: course.courseLearningOutcomes.map((clo) => ({
         text: `${course.subjectNameTh}: ${clo.cloNameTh}`,
         role: 'passage',

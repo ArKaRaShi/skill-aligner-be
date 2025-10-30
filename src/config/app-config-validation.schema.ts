@@ -40,4 +40,20 @@ export const appConfigValidationSchema = Joi.object({
     'string.empty': `"OPENROUTER_API_KEY" cannot be an empty field`,
     'any.required': `"OPENROUTER_API_KEY" is a required field`,
   }),
+
+  SEMANTICS_API_BASE_URL: Joi.string()
+    .uri()
+    .default(AppConfigDefault.SEMANTICS_API_BASE_URL)
+    .messages({
+      'string.base': `"SEMANTICS_API_BASE_URL" should be a type of 'text'`,
+      'string.uri': `"SEMANTICS_API_BASE_URL" must be a valid URI`,
+    }),
+
+  EMBEDDING_PROVIDER: Joi.string()
+    .valid('e5', 'openai')
+    .default(AppConfigDefault.EMBEDDING_PROVIDER)
+    .messages({
+      'string.base': `"EMBEDDING_PROVIDER" should be a type of 'text'`,
+      'any.only': `"EMBEDDING_PROVIDER" must be one of [e5, openai]`,
+    }),
 });

@@ -2,10 +2,11 @@ import { PrismaClient } from '@prisma/client';
 
 import path from 'path';
 
-import { SemanticsApiClient } from './common/adapters/secondary';
+import { SemanticsClient } from './common/adapters/secondary';
 import { FileHelper } from './common/helpers/file';
 
 const prisma = new PrismaClient();
+const semanticsClient = new SemanticsClient();
 
 type VectorSearchRow = {
   course_id: string;
@@ -105,7 +106,7 @@ async function main() {
 
   const queryText = `Find course learning outcomes related to the skill "${skillName}", which involves ${skillDescription}`;
 
-  const data = await SemanticsApiClient.embed({
+  const data = await semanticsClient.embed({
     text: queryText,
     role: 'query',
   });

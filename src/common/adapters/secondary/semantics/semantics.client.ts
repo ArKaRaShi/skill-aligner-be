@@ -15,47 +15,48 @@ const DEFAULT_BASE_URL =
   process.env.SEMANTICS_API_BASE_URL ??
   'http://localhost:8000/api/v1/semantics';
 
+export type SemanticsClientOptions = {
+  baseUrl?: string;
+  axiosInstance?: AxiosInstance;
+  timeoutMs?: number;
+};
+
 /**
  * Thin wrapper around the external semantics service.
  * Provides typed helpers and consistent error handling.
  */
-export class SemanticsApiClient {
-  private static axiosInstance: AxiosInstance = axios.create({
-    baseURL: DEFAULT_BASE_URL,
-    headers: { 'Content-Type': 'application/json' },
-  });
+export class SemanticsClient {
+  private readonly axios: AxiosInstance;
 
-  static configure({ baseUrl }: { baseUrl: string }) {
-    if (!baseUrl) return;
-    this.axiosInstance = axios.create({
-      baseURL: baseUrl.replace(/\/+$/, ''),
-      headers: { 'Content-Type': 'application/json' },
-    });
+  constructor(options: SemanticsClientOptions = {}) {
+    this.axios =
+      options.axiosInstance ??
+      axios.create({
+        baseURL: this.normalizeBaseUrl(options.baseUrl),
+        timeout: options.timeoutMs ?? 15_000,
+        headers: { 'Content-Type': 'application/json' },
+      });
   }
 
-  static async embed(request: EmbedRequest): Promise<EmbedResponse> {
+  async embed(request: EmbedRequest): Promise<EmbedResponse> {
     return this.post<EmbedRequest, EmbedResponse>('/embed', request);
   }
 
-  static async batchEmbed(
-    request: EmbedBatchRequest,
-  ): Promise<EmbedBatchResponse> {
+  async batchEmbed(request: EmbedBatchRequest): Promise<EmbedBatchResponse> {
     return this.post<EmbedBatchRequest, EmbedBatchResponse>(
       '/batch_embed',
       request,
     );
   }
 
-  static async similarity(
-    request: SimilarityRequest,
-  ): Promise<SimilarityResponse> {
+  async similarity(request: SimilarityRequest): Promise<SimilarityResponse> {
     return this.post<SimilarityRequest, SimilarityResponse>(
       '/similarity',
       request,
     );
   }
 
-  static async batchSimilarity(
+  async batchSimilarity(
     request: SimilarityBatchRequest,
   ): Promise<SimilarityBatchResponse> {
     return this.post<SimilarityBatchRequest, SimilarityBatchResponse>(
@@ -64,19 +65,26 @@ export class SemanticsApiClient {
     );
   }
 
-  private static async post<
-    TRequest extends Record<string, unknown>,
-    TResponse,
-  >(path: string, body: TRequest): Promise<TResponse> {
+  private async post<TRequest extends Record<string, unknown>, TResponse>(
+    path: string,
+    body: TRequest,
+  ): Promise<TResponse> {
     try {
-      const response = await this.axiosInstance.post<TResponse>(path, body);
+      const response = await this.axios.post<TResponse>(path, body);
       return response.data;
     } catch (error) {
       throw this.toClientError(error);
     }
   }
 
-  private static toClientError(error: unknown): Error {
+  private normalizeBaseUrl(baseUrl?: string): string {
+    if (!baseUrl || !baseUrl.trim()) {
+      return DEFAULT_BASE_URL;
+    }
+    return baseUrl.replace(/\/+$/, '');
+  }
+
+  private toClientError(error: unknown): Error {
     if (axios.isAxiosError(error)) {
       return this.fromAxiosError(error);
     }
@@ -85,7 +93,7 @@ export class SemanticsApiClient {
       : new Error('Unknown error from Semantics API');
   }
 
-  private static fromAxiosError(error: AxiosError): Error {
+  private fromAxiosError(error: AxiosError): Error {
     const status = error.response?.status ?? 'unknown';
     const statusText = error.response?.statusText ?? 'Unknown';
     const data =
@@ -97,3 +105,5 @@ export class SemanticsApiClient {
     );
   }
 }
+
+export const semanticsClient = new SemanticsClient();

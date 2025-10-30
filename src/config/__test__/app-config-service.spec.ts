@@ -1,6 +1,7 @@
 import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { AppConfigDefault } from '../app-config.constant';
 import { AppConfigService } from '../app-config.service';
 
 describe('AppConfigService', () => {
@@ -126,7 +127,7 @@ describe('AppConfigService', () => {
       const spy = jest
         .spyOn(configService, 'get')
         .mockReturnValue('fake-api-key');
-      const key = appConfigService.openAiApiKey;
+      const key = appConfigService.openAIApiKey;
       expect(key).toBe('fake-api-key');
       expect(spy).toHaveBeenCalledWith('OPENAI_API_KEY');
 
@@ -136,7 +137,7 @@ describe('AppConfigService', () => {
     it('should return default OPENAI_API_KEY when config value is undefined', () => {
       const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
 
-      const key = appConfigService.openAiApiKey;
+      const key = appConfigService.openAIApiKey;
       expect(key).toBe('');
       expect(spy).toHaveBeenCalledWith('OPENAI_API_KEY');
 
@@ -163,6 +164,51 @@ describe('AppConfigService', () => {
       const key = appConfigService.openRouterApiKey;
       expect(key).toBe('');
       expect(spy).toHaveBeenCalledWith('OPENROUTER_API_KEY');
+
+      spy.mockRestore();
+    });
+  });
+
+  describe('semanticsApiBaseUrl', () => {
+    it('should return SEMANTICS_API_BASE_URL from config', () => {
+      const mockUrl = 'https://semantics.example.com';
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(mockUrl);
+
+      const url = appConfigService.semanticsApiBaseUrl;
+      expect(url).toBe(mockUrl);
+      expect(spy).toHaveBeenCalledWith('SEMANTICS_API_BASE_URL');
+
+      spy.mockRestore();
+    });
+
+    it('should return default SEMANTICS_API_BASE_URL when config value is undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const url = appConfigService.semanticsApiBaseUrl;
+      expect(url).toBe(AppConfigDefault.SEMANTICS_API_BASE_URL);
+      expect(spy).toHaveBeenCalledWith('SEMANTICS_API_BASE_URL');
+
+      spy.mockRestore();
+    });
+  });
+
+  describe('embeddingProvider', () => {
+    it('should return EMBEDDING_PROVIDER from config', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue('openai');
+
+      const provider = appConfigService.embeddingProvider;
+      expect(provider).toBe('openai');
+      expect(spy).toHaveBeenCalledWith('EMBEDDING_PROVIDER');
+
+      spy.mockRestore();
+    });
+
+    it('should return default EMBEDDING_PROVIDER when config value is undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const provider = appConfigService.embeddingProvider;
+      expect(provider).toBe(AppConfigDefault.EMBEDDING_PROVIDER);
+      expect(spy).toHaveBeenCalledWith('EMBEDDING_PROVIDER');
 
       spy.mockRestore();
     });

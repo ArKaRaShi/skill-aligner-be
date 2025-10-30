@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { CommonSecondaryAdapterModules } from './common/adapters/secondary';
 import { AppConfigModule } from './config/app-config.module';
 import { CourseModule, UserModule } from './modules';
+import { EmbeddingModule } from './modules/embedding/embedding.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { CourseModule, UserModule } from './modules';
     ...CommonSecondaryAdapterModules,
     UserModule,
     CourseModule,
+    EmbeddingModule.register(),
   ],
   controllers: [AppController],
   providers: [

@@ -28,6 +28,7 @@ export type RetrievalMetadata = Readonly<{
   perCourseMaxRank: number;
   limit: number;
   embeddingModel: string;
+  embeddingProvider: string;
   embeddingDimension: number;
   embeddedAt: string;
 }>;

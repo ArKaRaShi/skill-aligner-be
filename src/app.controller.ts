@@ -19,6 +19,10 @@ import {
   I_COURSE_REPOSITORY_TOKEN,
   ICourseRepository,
 } from './modules/course/contracts/i-course.repository';
+import {
+  I_EMBEDDING_SERVICE_TOKEN,
+  IEmbeddingService,
+} from './modules/embedding/contracts/i-embedding-service.contract';
 
 export const weatherTool = tool({
   description: 'Get the weather in a location',
@@ -92,6 +96,9 @@ export class AppController {
     private readonly appConfigService: AppConfigService,
     @Inject(I_COURSE_REPOSITORY_TOKEN)
     private readonly courseRepository: ICourseRepository,
+
+    @Inject(I_EMBEDDING_SERVICE_TOKEN)
+    private readonly embeddingService: IEmbeddingService,
   ) {
     this.openRouter = createOpenRouter({
       apiKey: this.appConfigService.openRouterApiKey,
@@ -430,5 +437,17 @@ Output:
     console.log('Course Matches:', result);
 
     return result;
+  }
+
+  @Get('/test/embedding-service')
+  async testEmbeddingService(): Promise<any> {
+    const text = 'Sample text for embedding';
+
+    const embeddings = await this.embeddingService.embedOne({
+      text,
+      role: 'query',
+    });
+    console.log('Embeddings:', embeddings);
+    return embeddings;
   }
 }

@@ -21,6 +21,7 @@
     "seed:courses": "ts-node -r tsconfig-paths/register prisma/seeds/course.seed.ts"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^2.0.58",
     "@dqbd/tiktoken": "^1.0.22",
     "@nestjs/common": "^11.1.6",
     "@nestjs/config": "^4.0.2",
