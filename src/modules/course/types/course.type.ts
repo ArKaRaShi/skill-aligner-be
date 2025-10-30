@@ -7,8 +7,8 @@ import {
 
 export type Course = {
   courseId: Identifier;
-  campusCode: string;
-  facultyCode: string;
+  campusId: Identifier;
+  facultyId: Identifier;
   academicYear: number;
   semester: number;
 
@@ -17,6 +17,7 @@ export type Course = {
   subjectNameEn: string | null;
   courseLearningOutcomes: CourseLearningOutcome[];
 
+  metadata: Record<string, any> | null;
   createdAt: Date;
   updatedAt: Date;
 };

@@ -77,7 +77,15 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": ".",
+    "roots": [
+      "<rootDir>/src",
+      "<rootDir>/prisma"
+    ],
+    "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/src/$1",
+      "^prisma/(.*)$": "<rootDir>/prisma/$1"
+    },
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
@@ -85,13 +93,14 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "**/*.(t|j)s",
+      "!src/pipelines-v2/**",
       "!src/**/*.spec.{ts,js}",
       "!src/**/*.module.{ts,js}",
       "!src/**/*.controller.{ts,js}",
       "!src/main.{ts,js}",
       "!src/**/*.e2e-spec.{ts,js}"
     ],
-    "coverageDirectory": "../coverage",
+    "coverageDirectory": "coverage",
     "coverageReporters": [
       "text-summary",
       "lcov"

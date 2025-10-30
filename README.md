@@ -96,3 +96,11 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+
+## This ensure course can uniqueness using only academic year, semester, subject code
+bunx ts-node --require tsconfig-paths/register src/modules/course/pipelines/inspector.ts
+Total unique (academic year, semester, subject code) combinations: 3836
+Total unique (academic year, semester, campus code, faculty code, subject code) combinations: 3836
+Inspection completed successfully.

@@ -8,138 +8,19 @@ export class CleanNormalizeCLOPipeline {
 
   private static readonly AMBIGUOUS_CLO_LENGTH_THRESHOLD = 15;
 
-  static async execute(): Promise<{
-    validProcessedRows: CleanCourseWithCLO[];
-    invalidProcessedRows: CleanCourseWithCLO[];
-    ambiguousProcessedRows: CleanCourseWithCLO[];
-  }> {
+  static async execute(): Promise<CleanCourseWithCLO[]> {
     const rawData = await FileHelper.loadLatestJson<RawCourseWithCLOJsonRow[]>(
       this.RAW_DATA_PATH,
     );
 
-    console.log('\n=== Raw Data Summary ===');
-    console.log(`Total raw CLO records: ${rawData.length}`);
-    const rawCourseGroups = this.groupRawCLOsByCourseKey(rawData);
-    console.log(`Total unique courses in raw data: ${rawCourseGroups.size}\n`);
-
-    const validProcessedRows: CleanCourseWithCLO[] = [];
-    const invalidProcessedRows: CleanCourseWithCLO[] = [];
-    const ambiguousProcessedRows: CleanCourseWithCLO[] = [];
-
-    for (const row of rawData) {
-      const { cleanedRow, isAmbiguous, isInvalid } = this.cleanRow(row);
-      if (isInvalid) {
-        invalidProcessedRows.push(cleanedRow);
-      } else if (isAmbiguous) {
-        ambiguousProcessedRows.push(cleanedRow);
-      } else {
-        validProcessedRows.push(cleanedRow);
-      }
-    }
-
-    const groupedValidCLOs = this.groupCleanCLOsByCourseKey(validProcessedRows);
-    const groupedInvalidCLOs =
-      this.groupCleanCLOsByCourseKey(invalidProcessedRows);
-    const groupedAmbiguousCLOs = this.groupCleanCLOsByCourseKey(
-      ambiguousProcessedRows,
+    const cleanedData: CleanCourseWithCLO[] = rawData.map((row) =>
+      this.cleanRow(row),
     );
 
-    const keys = (m: Map<string, unknown>) => new Set(m.keys());
-
-    const validKeys = keys(groupedValidCLOs);
-    const invalidKeys = keys(groupedInvalidCLOs);
-    const ambigKeys = keys(groupedAmbiguousCLOs);
-
-    const inter = (a: Set<string>, b: Set<string>) =>
-      new Set([...a].filter((k) => b.has(k)));
-
-    const union = new Set([...validKeys, ...invalidKeys, ...ambigKeys]);
-
-    const v_i = inter(validKeys, invalidKeys);
-    const v_a = inter(validKeys, ambigKeys);
-    const i_a = inter(invalidKeys, ambigKeys);
-    const v_i_a = new Set([...v_i].filter((k) => ambigKeys.has(k)));
-
-    const onlyValid = new Set(
-      [...validKeys].filter((k) => !invalidKeys.has(k) && !ambigKeys.has(k)),
-    );
-    const onlyInvalid = new Set(
-      [...invalidKeys].filter((k) => !validKeys.has(k) && !ambigKeys.has(k)),
-    );
-    const onlyAmbig = new Set(
-      [...ambigKeys].filter((k) => !validKeys.has(k) && !invalidKeys.has(k)),
-    );
-
-    console.log('\nUnique Courses (disjoint breakdown):');
-    console.log(`  Only Valid: ${onlyValid.size}`);
-    console.log(`  Only Invalid: ${onlyInvalid.size}`);
-    console.log(`  Only Ambiguous: ${onlyAmbig.size}`);
-    console.log(`  Valid+Invalid: ${v_i.size - v_i_a.size}`); // minus those in all three
-    console.log(`  Valid+Ambiguous: ${v_a.size - v_i_a.size}`);
-    console.log(`  Invalid+Ambiguous: ${i_a.size - v_i_a.size}`);
-    console.log(`  All three: ${v_i_a.size}`);
-    console.log(
-      `  Union total: ${union.size} (should equal raw unique: ${rawCourseGroups.size})`,
-    );
-
-    this.logProcessingResults({
-      validProcessedRows,
-      invalidProcessedRows,
-      ambiguousProcessedRows,
-      groupedValidCLOs,
-      groupedInvalidCLOs,
-      groupedAmbiguousCLOs,
-    });
-
-    return {
-      validProcessedRows,
-      invalidProcessedRows,
-      ambiguousProcessedRows,
-    };
+    return cleanedData;
   }
 
-  private static groupCleanCLOsByCourseKey(
-    rows: CleanCourseWithCLO[],
-  ): Map<string, string[]> {
-    const map = new Map<string, string[]>();
-
-    for (const row of rows) {
-      const key = `${row.academic_year}-${row.semester}-${row.campus_code}-${row.faculty_code}-${row.subject_code}`;
-      if (!map.has(key)) {
-        map.set(key, []);
-      }
-      map.get(key)!.push(row.clean_clo_name_th);
-    }
-    return map;
-  }
-
-  private static groupRawCLOsByCourseKey(
-    rows: RawCourseWithCLOJsonRow[],
-  ): Map<string, string[]> {
-    const map = new Map<string, string[]>();
-
-    for (const row of rows) {
-      const key = `${row.academic_year}-${row.semester}-${row.campus_code}-${row.faculty_code}-${row.subject_code}`;
-      if (!map.has(key)) {
-        map.set(key, []);
-      }
-      map.get(key)!.push(row.clo_name_th);
-    }
-    return map;
-  }
-
-  private static cleanRow(row: RawCourseWithCLOJsonRow): {
-    cleanedRow: CleanCourseWithCLO;
-    isAmbiguous: boolean;
-    isInvalid: boolean;
-    skipEmbedding: boolean;
-  } {
-    const decision = {
-      isAmbiguous: false,
-      isInvalid: false,
-      skipEmbedding: false,
-    };
-
+  private static cleanRow(row: RawCourseWithCLOJsonRow): CleanCourseWithCLO {
     const cleanedRow: CleanCourseWithCLO = {
       academic_year: row.academic_year,
       semester: row.semester,
@@ -156,24 +37,15 @@ export class CleanNormalizeCLOPipeline {
 
     const { clo_name_th } = row;
 
-    // Validate required fields
+    // Determine if the CLO should be skipped based on initial checks
     if (
       (this.isEmptyOrWhitespace(clo_name_th) ||
         this.containsSequentialCLONumbers(clo_name_th) ||
-        this.onlyDash(clo_name_th)) &&
+        this.onlyDash(clo_name_th) ||
+        this.lengthSeemsAmbiguous(clo_name_th)) &&
       !this.explicitAllowCLOName(clo_name_th)
     ) {
-      decision.isInvalid = true;
-      decision.skipEmbedding = true;
-    } else if (
-      this.lengthSeemsAmbiguous(
-        clo_name_th,
-        this.AMBIGUOUS_CLO_LENGTH_THRESHOLD,
-      ) &&
-      !this.explicitAllowCLOName(clo_name_th)
-    ) {
-      decision.isAmbiguous = true;
-      decision.skipEmbedding = true;
+      cleanedRow.skipEmbedding = true;
     }
 
     // remove in order: leading numbers, "CLO" prefixes, "นิสิต", English parentheses
@@ -190,7 +62,7 @@ export class CleanNormalizeCLOPipeline {
     cleanedRow.clean_clo_name_th = withoutEnglishText;
     cleanedRow.keywords = keywords;
 
-    return { cleanedRow, ...decision };
+    return cleanedRow;
   }
 
   private static explicitAllowCLOName(cloName: string): boolean {
@@ -325,67 +197,34 @@ export class CleanNormalizeCLOPipeline {
    */
   private static lengthSeemsAmbiguous(
     text: string,
-    threshold: number,
+    threshold: number = this.AMBIGUOUS_CLO_LENGTH_THRESHOLD,
   ): boolean {
     return text.length < threshold;
   }
-
-  private static logProcessingResults({
-    validProcessedRows,
-    invalidProcessedRows,
-    ambiguousProcessedRows,
-    groupedValidCLOs,
-    groupedInvalidCLOs,
-    groupedAmbiguousCLOs,
-  }: {
-    validProcessedRows: CleanCourseWithCLO[];
-    invalidProcessedRows: CleanCourseWithCLO[];
-    ambiguousProcessedRows: CleanCourseWithCLO[];
-    groupedValidCLOs: Map<string, string[]>;
-    groupedInvalidCLOs: Map<string, string[]>;
-    groupedAmbiguousCLOs: Map<string, string[]>;
-  }): void {
-    console.log('\n=== Processing Results ===');
-    console.log('CLO Records:');
-    console.log(`  Valid: ${validProcessedRows.length}`);
-    console.log(`  Invalid: ${invalidProcessedRows.length}`);
-    console.log(`  Ambiguous: ${ambiguousProcessedRows.length}`);
-
-    console.log('\nUnique Courses:');
-    console.log(`  Valid: ${groupedValidCLOs.size}`);
-    console.log(`  Invalid: ${groupedInvalidCLOs.size}`);
-    console.log(`  Ambiguous: ${groupedAmbiguousCLOs.size}`);
-  }
 }
 
-async function runPipeline(save: boolean = true) {
-  const {
-    validProcessedRows: cleanedData,
-    invalidProcessedRows: invalidData,
-    ambiguousProcessedRows: ambiguousData,
-  } = await CleanNormalizeCLOPipeline.execute();
+async function runPipeline({ save = false }: { save?: boolean } = {}) {
+  const cleanedData = await CleanNormalizeCLOPipeline.execute();
+  const skippedData: CleanCourseWithCLO[] = cleanedData.filter(
+    (row) => row.skipEmbedding,
+  );
 
   if (save) {
     await FileHelper.saveLatestJson<CleanCourseWithCLO[]>(
-      'src/modules/course/pipelines/data/cleaned/valid_courses_with_clo',
+      'src/modules/course/pipelines/data/cleaned/clean_courses_with_clo',
       cleanedData,
     );
 
     await FileHelper.saveLatestJson<CleanCourseWithCLO[]>(
-      'src/modules/course/pipelines/data/cleaned/invalid_courses_with_clo',
-      invalidData,
-    );
-
-    await FileHelper.saveLatestJson<CleanCourseWithCLO[]>(
-      'src/modules/course/pipelines/data/cleaned/ambiguous_courses_with_clo',
-      ambiguousData,
+      'src/modules/course/pipelines/data/cleaned/skipped_embedding_courses_with_clo',
+      skippedData,
     );
   }
 
   console.log('CLO cleaning and normalization completed successfully.');
 }
 
-runPipeline(false)
+runPipeline({ save: true })
   .then(() => {
     console.log('Pipeline completed successfully.');
   })

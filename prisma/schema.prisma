@@ -88,13 +88,14 @@ model User {
 // }
 
 model Campus {
-  id        String   @id @db.Uuid
-  code      String   @unique
-  nameTh    String?  @map("name_th")
-  nameEn    String?  @map("name_en")
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-  courses   Course[]
+  id              String          @id @db.Uuid
+  code            String          @unique
+  nameTh          String?         @map("name_th")
+  nameEn          String?         @map("name_en")
+  createdAt       DateTime        @default(now()) @map("created_at")
+  updatedAt       DateTime        @updatedAt @map("updated_at")
+  courses         Course[]
+  linkedFaculties CampusFaculty[]
 
   @@map("campuses")
 }
@@ -106,23 +107,37 @@ model Faculty {
   nameEn    String?  @map("name_en")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
-  courses   Course[]
+
+  linkedCampuses CampusFaculty[]
+  courses        Course[]
 
   @@map("faculties")
 }
 
+model CampusFaculty {
+  id        String   @id @db.Uuid
+  campusId  String   @map("campus_id") @db.Uuid
+  campus    Campus   @relation(fields: [campusId], references: [id])
+  facultyId String   @map("faculty_id") @db.Uuid
+  faculty   Faculty  @relation(fields: [facultyId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([campusId, facultyId], name: "unique_campus_faculty")
+  @@map("campus_faculties")
+}
+
 model Course {
   id                     String      @id @db.Uuid
-  campusId               String?     @map("campus_id") @db.Uuid
-  campus                 Campus?     @relation(fields: [campusId], references: [id])
-  facultyId              String?     @map("faculty_id") @db.Uuid
-  faculty                Faculty?    @relation(fields: [facultyId], references: [id])
+  campusId               String      @map("campus_id") @db.Uuid
+  campus                 Campus      @relation(fields: [campusId], references: [id])
+  facultyId              String      @map("faculty_id") @db.Uuid
+  faculty                Faculty     @relation(fields: [facultyId], references: [id])
   academicYear           Int         @map("academic_year")
   semester               Int         @map("semester")
   subjectCode            String      @map("subject_code")
   subjectNameTh          String      @map("subject_name_th")
   subjectNameEn          String?     @map("subject_name_en")
-  isEnrollable           Boolean     @default(false) @map("is_enrollable")
   createdAt              DateTime    @default(now()) @map("created_at")
   updatedAt              DateTime    @updatedAt @map("updated_at")
   metadata               Json?
@@ -133,18 +148,18 @@ model Course {
 }
 
 model CourseLearningOutcome {
-  id               String                     @id @db.Uuid
-  cloNo            Int                        @map("clo_no")
-  cloNameTh        String                     @map("clo_name_th")
-  cloNameEn        String?                    @map("clo_name_en")
-  cleanedCloNameTh String                     @map("cleaned_clo_name_th")
-  cleanedCloNameEn String?                    @map("cleaned_clo_name_en")
-  createdAt        DateTime                   @default(now()) @map("created_at")
-  updatedAt        DateTime                   @updatedAt @map("updated_at")
-  embedding        Unsupported("vector(768)")
-  skipEmbedding    Boolean                    @default(false) @map("skip_embedding")
-  metadata         Json?
-  linkedCourses    CourseCLO[]
+  id                String                     @id @db.Uuid
+  originalCLONameTh String                     @map("original_clo_name")
+  originalCLONameEn String?                    @map("original_clo_name_en")
+  cleanedCLONameTh  String                     @map("cleaned_clo_name_th")
+  cleanedCLONameEn  String?                    @map("cleaned_clo_name_en")
+  createdAt         DateTime                   @default(now()) @map("created_at")
+  updatedAt         DateTime                   @updatedAt @map("updated_at")
+  embedding         Unsupported("vector(768)")
+  skipEmbedding     Boolean                    @default(false) @map("skip_embedding")
+  isEmbedded        Boolean                    @default(false) @map("is_embedded")
+  metadata          Json?
+  linkedCourses     CourseCLO[]
 
   @@map("course_learning_outcomes")
 }
@@ -155,6 +170,7 @@ model CourseCLO {
   course          Course                @relation(fields: [courseId], references: [id])
   cloId           String                @map("clo_id") @db.Uuid
   learningOutcome CourseLearningOutcome @relation(fields: [cloId], references: [id])
+  cloNo           Int                   @map("clo_no")
   createdAt       DateTime              @default(now()) @map("created_at")
   updatedAt       DateTime              @updatedAt @map("updated_at")
 
