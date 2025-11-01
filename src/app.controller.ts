@@ -20,9 +20,9 @@ import {
   ICourseRepository,
 } from './modules/course/contracts/i-course.repository';
 import {
-  I_EMBEDDING_SERVICE_TOKEN,
-  IEmbeddingService,
-} from './modules/embedding/contracts/i-embedding-service.contract';
+  I_EMBEDDING_CLIENT_TOKEN,
+  IEmbeddingClient,
+} from './modules/embedding/contracts/i-embedding-client.contract';
 
 export const weatherTool = tool({
   description: 'Get the weather in a location',
@@ -97,8 +97,8 @@ export class AppController {
     @Inject(I_COURSE_REPOSITORY_TOKEN)
     private readonly courseRepository: ICourseRepository,
 
-    @Inject(I_EMBEDDING_SERVICE_TOKEN)
-    private readonly embeddingService: IEmbeddingService,
+    @Inject(I_EMBEDDING_CLIENT_TOKEN)
+    private readonly embeddingService: IEmbeddingClient,
   ) {
     this.openRouter = createOpenRouter({
       apiKey: this.appConfigService.openRouterApiKey,
@@ -425,8 +425,8 @@ Output:
 
   @Get('/test/course-repository')
   async testCourseRepository(): Promise<any> {
-    const skills = ['programming', 'data analysis'];
-    const matchesPerSkill = 5;
+    const skills = ['สามารถวิเคราะห์การเงินเบื้องต้นและจัดทำงบการเงินได้'];
+    const matchesPerSkill = 10;
     const threshold = 0.7;
 
     const result = await this.courseRepository.findCoursesBySkillsViaLO({
@@ -435,8 +435,27 @@ Output:
       threshold,
     });
     console.log('Course Matches:', result);
+    const arrayResult = Array.from(result.entries()).map(([skill, courses]) => {
+      const coursesWithoutEmbeddings = courses.map(
+        ({ cloMatches, ...course }) => {
+          const cloMatchesWithoutEmbeddings = cloMatches.map(
+            ({ embedding, ...cloMatch }) => cloMatch,
+          );
 
-    return result;
+          return {
+            ...course,
+            cloMatches: cloMatchesWithoutEmbeddings,
+          };
+        },
+      );
+
+      return {
+        skill,
+        courses: coursesWithoutEmbeddings,
+      };
+    });
+
+    return arrayResult;
   }
 
   @Get('/test/embedding-service')
