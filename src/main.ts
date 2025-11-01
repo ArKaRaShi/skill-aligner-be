@@ -74,6 +74,12 @@ async function bootstrap() {
     useGlobalPrefix: true,
   });
 
+  app.enableCors({
+    // THis should be replaced with actual frontend URL in production
+    origin: ['http://localhost:3000'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  });
+
   await app.listen(appConfigService.port);
   logEnvironmentVariables(appConfigService);
 

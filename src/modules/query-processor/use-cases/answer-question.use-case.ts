@@ -34,11 +34,20 @@ export class AnswerQuestionUseCase {
   ) {}
 
   async execute(question: string): Promise<AnswerQuestionUseCaseOutput> {
-    const { classification, reason } =
-      await this.questionClassifierService.classify(question);
+    // Parallelize classification and skill expansion
+    // More token usage but reduces latency
+    const [{ classification, reason }, { skills }] = await Promise.all([
+      this.questionClassifierService.classify(question),
+      this.skillExpanderService.expandSkills(question),
+    ]);
+
     console.log(
       'Question classification result:',
       JSON.stringify({ classification, reason }, null, 2),
+    );
+    console.log(
+      'Expanded skills from question:',
+      JSON.stringify(skills, null, 2),
     );
 
     if (classification === 'out_of_scope') {
@@ -64,22 +73,24 @@ export class AnswerQuestionUseCase {
       };
     }
 
-    const { skills, rawQuestion } =
-      await this.skillExpanderService.expandSkills(question);
-
     const courses = await this.courseRepository.findCoursesBySkillsViaLO({
       skills: skills.map((skill) => skill.skill),
       matchesPerSkill: 5,
       threshold: 0.82, // beware of Mar Terraform Engineer
     });
 
-    const answer = await this.answerGeneratorService.generateAnswer(
-      rawQuestion ?? question,
+    const { answerText } = await this.answerGeneratorService.generateAnswer(
+      question,
       courses,
     );
 
+    console.log(
+      'Answer generation details:',
+      JSON.stringify({ answerText }, null, 2),
+    );
+
     return {
-      answer,
+      answer: answerText,
       suggestQuestion: null,
       relatedCourses: Array.from(courses.entries()).flatMap(
         ([skill, courses]) => {

@@ -3,38 +3,42 @@ import { Injectable } from '@nestjs/common';
 import { CourseMatch } from 'src/modules/course/types/course.type';
 
 import { IAnswerGeneratorService } from '../../contracts/i-answer-generator-service.contract';
+import { LlmAnswerGeneration } from '../../schemas/answer-generation.schema';
+import { AnswerGeneration } from '../../types/answer-generation.type';
 
 @Injectable()
 export class MockAnswerGeneratorService implements IAnswerGeneratorService {
   async generateAnswer(
     question: string,
     skillCourseMatchMap: Map<string, CourseMatch[]>,
-  ): Promise<string> {
-    const skillsSummary = Array.from(skillCourseMatchMap.entries()).map(
-      ([skill, courses]) => {
-        const courseSummaries = courses.map((course) => {
-          const courseName =
-            course.subjectNameTh ??
-            course.subjectNameEn ??
-            course.subjectCode ??
-            'Unknown course';
-          return `  - ${courseName}`;
-        });
-
-        const courseLines =
-          courseSummaries.length > 0
-            ? courseSummaries.join('\n')
-            : '  - No courses found.';
-
-        return [`Skill: ${skill}`, 'Courses:', courseLines].join('\n');
-      },
-    );
-    await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate async delay
-    return [
-      `Mock answer for question: "${question}"`,
-      skillsSummary.join('\n\n') || 'No skill matches available.',
-    ]
-      .filter(Boolean)
+  ): Promise<AnswerGeneration> {
+    // Mock implementation that returns a fixed answer
+    const context = Array.from(skillCourseMatchMap.entries())
+      .map(([skill, courses]) => {
+        const courseList = courses
+          .map(
+            (course) =>
+              `- ${course.subjectNameEn ?? course.subjectCode} (${course.cloMatches[0].similarityScore.toFixed(
+                2,
+              )})`,
+          )
+          .join('\n');
+        return `Skill: ${skill}\nCourses:\n${courseList || '  - No courses found.'}`;
+      })
       .join('\n\n');
+
+    const mockAnswer: LlmAnswerGeneration = {
+      includes: [],
+      excludes: [],
+      answerText: `This is a mock answer for the question: "${question}". Based on the provided context, the relevant skills and courses have been identified.`,
+    };
+
+    await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate async delay
+
+    return {
+      ...mockAnswer,
+      rawQuestion: question,
+      context: context,
+    };
   }
 }

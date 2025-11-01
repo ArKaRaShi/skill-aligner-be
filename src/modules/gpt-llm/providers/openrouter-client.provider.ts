@@ -35,11 +35,12 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     prompt,
     systemPrompt,
   }: GenerateTextParams): Promise<string> {
-    const { text, usage } = await AIGenerateText({
+    const { text, usage, providerMetadata } = await AIGenerateText({
       model: this.openRouter(this.modelName),
       prompt,
       system: systemPrompt,
       temperature: 0,
+      maxOutputTokens: 5000,
     });
     console.log(
       'OpenRouter generateText usage:',
@@ -59,6 +60,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       prompt,
       system: systemPrompt,
       temperature: 0,
+      maxOutputTokens: 5000,
     });
     console.log(
       'OpenRouter generateObject usage:',

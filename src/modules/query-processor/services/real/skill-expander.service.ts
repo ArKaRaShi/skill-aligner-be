@@ -6,6 +6,11 @@ import {
 } from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
+import {
+  EXPAND_SKILL_SYSTEM_PROMPT,
+  getExpandSkillUserPrompt,
+} from '../../prompts/expand-skill.prompt';
+import { SkillExpansionSchema } from '../../schemas/skill-expansion.schema';
 import { SkillExpansion } from '../../types/skill-expansion.type';
 
 @Injectable()
@@ -16,33 +21,55 @@ export class SkillExpanderService implements ISkillExpanderService {
   ) {}
 
   async expandSkills(question: string): Promise<SkillExpansion> {
-    const prompt = `Given the question: "${question}", identify and list relevant career skills or learning goals that the user might be interested in. Provide the skills as a comma-separated list. If no relevant skills can be identified, respond with "None".`;
-
-    const text = await this.llmProviderClient.generateText({
-      prompt,
-      systemPrompt: `
-      You are an expert career advisor skilled at identifying relevant skills and learning goals based on user questions.
-      Example:
-      Question: "อยากเรียนเกี่ยวกับการเงิน"
-      Skills: "Financial Analysis, Investment Strategies, Risk Management, Financial Modeling, Accounting Principles"
-      `,
+    const { skills } = await this.llmProviderClient.generateObject({
+      prompt: getExpandSkillUserPrompt(question),
+      systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT,
+      schema: SkillExpansionSchema,
     });
 
-    const skillsText = text.trim();
-    if (skillsText.toLowerCase() === 'none') {
-      return {
-        skills: [],
-        rawQuestion: question,
-      };
+    const normalizedSkills = new Map<
+      string,
+      { skill: string; reason: string }
+    >();
+
+    for (const { skill, reason } of skills) {
+      const normalizedSkill = this.normalizeSkillName(skill);
+      if (!normalizedSkill) {
+        continue;
+      }
+
+      const normalizedReason =
+        reason?.trim() || 'Identified from user question';
+      const key = normalizedSkill.toLowerCase();
+
+      if (!normalizedSkills.has(key)) {
+        normalizedSkills.set(key, {
+          skill: normalizedSkill,
+          reason: normalizedReason,
+        });
+      }
     }
 
-    const skills = skillsText.split(',').map((skill) => skill.trim());
     return {
-      skills: skills.map((skill) => ({
-        skill,
-        reason: 'Identified from user question',
-      })),
+      skills: Array.from(normalizedSkills.values()),
       rawQuestion: question,
     };
+  }
+
+  private normalizeSkillName(name: string): string {
+    if (!name) {
+      return '';
+    }
+
+    const cleaned = name
+      .replace(/[^A-Za-z0-9\s]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    if (!cleaned) {
+      return '';
+    }
+
+    return cleaned.toLowerCase();
   }
 }
