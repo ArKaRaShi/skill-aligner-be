@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 
+import { EmbeddingModule } from '../embedding/embedding.module';
 import { I_COURSE_REPOSITORY_TOKEN } from './contracts/i-course.repository';
 import { PrismaCourseRepository } from './repositories/prisma-course.repository';
 
 @Module({
+  imports: [EmbeddingModule.register()],
   providers: [
     {
       provide: I_COURSE_REPOSITORY_TOKEN,

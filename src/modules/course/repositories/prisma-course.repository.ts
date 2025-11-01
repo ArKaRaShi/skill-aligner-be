@@ -1,9 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
 import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 import { Identifier } from 'src/common/domain/types/identifier';
+
+import {
+  I_EMBEDDING_CLIENT_TOKEN,
+  IEmbeddingClient,
+} from 'src/modules/embedding/contracts/i-embedding-client.contract';
 
 import { ICourseRepository } from '../contracts/i-course.repository';
 import { CourseLearningOutcomeMatch } from '../types/course-learning-outcome.type';
@@ -28,7 +33,11 @@ export class PrismaCourseRepository implements ICourseRepository {
   private static readonly DEFAULT_MATCHES_PER_SKILL = 20;
   private static readonly DEFAULT_THRESHOLD = 0.6;
 
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    @Inject(I_EMBEDDING_CLIENT_TOKEN)
+    private readonly embeddingClient: IEmbeddingClient,
+  ) {}
 
   async findCoursesBySkillsViaLO({
     skills,
@@ -54,62 +63,99 @@ export class PrismaCourseRepository implements ICourseRepository {
     const similarityThreshold =
       threshold ?? PrismaCourseRepository.DEFAULT_THRESHOLD;
 
-    const zeroEmbeddingVector = Prisma.raw(
-      'array_fill(0::float4, ARRAY[768])::vector(768)',
-    );
-    const skillArray = Prisma.sql`ARRAY[${Prisma.join(
-      normalizedSkills.map((skill) => Prisma.sql`${skill}`),
-    )}]::text[]`;
+    const skillEmbeddings = await this.embeddingClient.embedMany({
+      texts: normalizedSkills,
+      role: 'query',
+    });
 
-    const rows = await this.prisma.$queryRaw<RawCourseQueryRow[]>`
-      WITH input_skills AS (
-        SELECT UNNEST(${skillArray}) AS skill
-      ),
-      ranked_clos AS (
-        SELECT
-          s.skill,
-          c.id AS course_id,
-          c.campus_id,
-          c.faculty_id,
-          c.academic_year,
-          c.semester,
-          c.subject_code,
-          c.subject_name_th,
-          c.subject_name_en,
-          c.metadata AS course_metadata,
-          c.created_at AS course_created_at,
-          c.updated_at AS course_updated_at,
-          cc.id AS course_clo_id,
-          cc.clo_no,
-          cc.created_at AS course_clo_created_at,
-          cc.updated_at AS course_clo_updated_at,
-          clo.id AS clo_id,
-          clo.original_clo_name,
-          clo.original_clo_name_en,
-          clo.cleaned_clo_name_th,
-          clo.cleaned_clo_name_en,
-          clo.embedding AS clo_embedding,
-          clo.skip_embedding,
-          clo.is_embedded,
-          clo.metadata AS clo_metadata,
-          clo.created_at AS clo_created_at,
-          clo.updated_at AS clo_updated_at,
-          1 - (clo.embedding <=> ${zeroEmbeddingVector}) AS similarity,
-          ROW_NUMBER() OVER (
-            PARTITION BY s.skill
-            ORDER BY (clo.embedding <=> ${zeroEmbeddingVector}) ASC
-          ) AS skill_rank
-        FROM input_skills s
-        JOIN course_learning_outcomes clo ON clo.is_embedded = TRUE
-        JOIN course_clos cc ON cc.clo_id = clo.id
-        JOIN courses c ON c.id = cc.course_id
-      )
-      SELECT *
-      FROM ranked_clos
-      WHERE skill_rank <= ${matchesLimit}
-        AND similarity >= ${similarityThreshold}
-      ORDER BY skill, similarity DESC;
-    `;
+    const skillsWithEmbeddings = normalizedSkills
+      .map((skill, index) => ({
+        skill,
+        vector: skillEmbeddings[index]?.vector ?? [],
+      }))
+      .filter(({ vector }) => vector.length > 0);
+
+    const embeddingDimension = skillsWithEmbeddings[0]?.vector.length ?? 0;
+
+    let rows: RawCourseQueryRow[] = [];
+
+    if (skillsWithEmbeddings.length && embeddingDimension > 0) {
+      const vectorType = Prisma.raw(`vector(${embeddingDimension})`);
+      const skillEmbeddingValues = Prisma.join(
+        skillsWithEmbeddings.map(({ skill, vector }) => {
+          const vectorSql = Prisma.sql`ARRAY[${Prisma.join(
+            vector.map((value) => Prisma.sql`${value}`),
+          )}]::float4[]`;
+
+          return Prisma.sql`(${skill}::text, (${vectorSql})::${vectorType})`;
+        }),
+      );
+
+      rows = await this.prisma.$queryRaw<RawCourseQueryRow[]>`
+        WITH input_skills AS (
+          SELECT *
+          FROM (VALUES ${skillEmbeddingValues}) AS v(skill, embedding)
+        ),
+        scored_clos AS (
+          SELECT
+            s.skill,
+            c.id AS course_id,
+            c.campus_id,
+            c.faculty_id,
+            c.academic_year,
+            c.semester,
+            c.subject_code,
+            c.subject_name_th,
+            c.subject_name_en,
+            c.metadata AS course_metadata,
+            c.created_at AS course_created_at,
+            c.updated_at AS course_updated_at,
+            cc.id AS course_clo_id,
+            cc.clo_no,
+            cc.created_at AS course_clo_created_at,
+            cc.updated_at AS course_clo_updated_at,
+            clo.id AS clo_id,
+            clo.original_clo_name,
+            clo.original_clo_name_en,
+            clo.cleaned_clo_name_th,
+            clo.cleaned_clo_name_en,
+            clo.embedding::float4[] AS clo_embedding,
+            clo.skip_embedding,
+            clo.is_embedded,
+            clo.metadata AS clo_metadata,
+            clo.created_at AS clo_created_at,
+            clo.updated_at AS clo_updated_at,
+            1 - (clo.embedding <=> s.embedding) AS similarity,
+            ROW_NUMBER() OVER (
+              PARTITION BY s.skill, clo.id
+              ORDER BY c.academic_year DESC, c.semester DESC, c.created_at DESC
+            ) AS clo_course_rank
+          FROM input_skills s
+          JOIN course_learning_outcomes clo ON clo.is_embedded = TRUE
+          JOIN course_clos cc ON cc.clo_id = clo.id
+          JOIN courses c ON c.id = cc.course_id
+        ),
+        latest_clos AS (
+          SELECT *
+          FROM scored_clos
+          WHERE clo_course_rank = 1
+        ),
+        ranked_clos AS (
+          SELECT
+            *,
+            ROW_NUMBER() OVER (
+              PARTITION BY skill
+              ORDER BY similarity DESC
+            ) AS skill_rank
+          FROM latest_clos
+        )
+        SELECT *
+        FROM ranked_clos
+        WHERE skill_rank <= ${matchesLimit}
+          AND similarity >= ${similarityThreshold}
+        ORDER BY skill, similarity DESC;
+      `;
+    }
 
     const skillAggregations = new Map<string, SkillAggregation>();
 

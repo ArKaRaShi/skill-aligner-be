@@ -4,30 +4,30 @@ import { openai } from '@ai-sdk/openai';
 import { embed, embedMany } from 'ai';
 
 import { EMBEDDING_MODELS } from '../constants/model.constant';
-import { IEmbeddingService } from '../contracts/i-embedding-service.contract';
+import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
 import {
-  BaseEmbeddingService,
+  BaseEmbeddingClient,
   EmbeddingModelId,
   EmbedManyParams,
   EmbedOneParams,
   EmbedResult,
-} from './base-embedding.service';
+} from './base-embedding.client';
 
 const MODEL_ID: EmbeddingModelId = 'text-embedding-3-small';
 
-export type OpenAIEmbeddingServiceOptions = {
+export type OpenAIEmbeddingClientOptions = {
   apiKey: string;
   timeoutMs?: number;
 };
 
 @Injectable()
-export class OpenAIEmbeddingService
-  extends BaseEmbeddingService
-  implements IEmbeddingService
+export class OpenAIEmbeddingClient
+  extends BaseEmbeddingClient
+  implements IEmbeddingClient
 {
   private readonly timeoutMs: number;
 
-  constructor(options: OpenAIEmbeddingServiceOptions) {
+  constructor(options: OpenAIEmbeddingClientOptions) {
     super(MODEL_ID, EMBEDDING_MODELS[MODEL_ID].provider);
     if (!options?.apiKey) {
       throw new Error('OpenAI API key is required to use OpenAI embeddings.');

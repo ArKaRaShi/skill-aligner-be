@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import { EMBEDDING_MODELS } from '../constants/model.constant';
-import { IEmbeddingService } from '../contracts/i-embedding-service.contract';
+import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
 
 export type EmbeddingProviderKey = 'e5' | 'openai';
 
@@ -36,7 +36,7 @@ export type EmbedResult = {
 };
 
 @Injectable()
-export abstract class BaseEmbeddingService implements IEmbeddingService {
+export abstract class BaseEmbeddingClient implements IEmbeddingClient {
   constructor(
     private readonly model: EmbeddingModelId,
     private readonly provider: EmbeddingProviderKey,

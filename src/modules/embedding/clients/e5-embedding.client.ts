@@ -10,14 +10,14 @@ import {
 } from 'src/common/adapters/secondary/semantics/semantics.dto';
 
 import { EMBEDDING_MODELS } from '../constants/model.constant';
-import { IEmbeddingService } from '../contracts/i-embedding-service.contract';
+import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
 import {
-  BaseEmbeddingService,
+  BaseEmbeddingClient,
   EmbeddingModelId,
   EmbedManyParams,
   EmbedOneParams,
   EmbedResult,
-} from './base-embedding.service';
+} from './base-embedding.client';
 
 export type E5EmbeddingServiceOptions = {
   client: AxiosInstance;
@@ -27,9 +27,9 @@ const MODEL_ID: EmbeddingModelId = 'e5-base';
 const PROVIDER = EMBEDDING_MODELS[MODEL_ID].provider;
 
 @Injectable()
-export class E5EmbeddingService
-  extends BaseEmbeddingService
-  implements IEmbeddingService
+export class E5EmbeddingClient
+  extends BaseEmbeddingClient
+  implements IEmbeddingClient
 {
   private readonly client: AxiosInstance;
 

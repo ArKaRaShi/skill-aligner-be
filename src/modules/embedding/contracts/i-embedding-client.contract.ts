@@ -2,11 +2,11 @@ import {
   EmbedManyParams,
   EmbedOneParams,
   EmbedResult,
-} from '../services/base-embedding.service';
+} from '../clients/base-embedding.client';
 
-export const I_EMBEDDING_SERVICE_TOKEN = Symbol('I_EMBEDDING_SERVICE');
+export const I_EMBEDDING_CLIENT_TOKEN = Symbol('I_EMBEDDING_CLIENT');
 
-export interface IEmbeddingService {
+export interface IEmbeddingClient {
   embedOne(params: EmbedOneParams): Promise<EmbedResult>;
   embedMany(params: EmbedManyParams): Promise<EmbedResult[]>;
 }
