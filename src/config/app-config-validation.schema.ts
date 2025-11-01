@@ -41,6 +41,14 @@ export const appConfigValidationSchema = Joi.object({
     'any.required': `"OPENROUTER_API_KEY" is a required field`,
   }),
 
+  OPENROUTER_BASE_URL: Joi.string()
+    .uri()
+    .default(AppConfigDefault.OPENROUTER_BASE_URL)
+    .messages({
+      'string.base': `"OPENROUTER_BASE_URL" should be a type of 'text'`,
+      'string.uri': `"OPENROUTER_BASE_URL" must be a valid URI`,
+    }),
+
   SEMANTICS_API_BASE_URL: Joi.string()
     .uri()
     .default(AppConfigDefault.SEMANTICS_API_BASE_URL)
@@ -55,5 +63,35 @@ export const appConfigValidationSchema = Joi.object({
     .messages({
       'string.base': `"EMBEDDING_PROVIDER" should be a type of 'text'`,
       'any.only': `"EMBEDDING_PROVIDER" must be one of [e5, openai]`,
+    }),
+
+  GPT_LLM_PROVIDER: Joi.string()
+    .valid('openrouter', 'openai')
+    .default(AppConfigDefault.GPT_LLM_PROVIDER)
+    .messages({
+      'string.base': `"GPT_LLM_PROVIDER" should be a type of 'text'`,
+      'any.only': `"GPT_LLM_PROVIDER" must be one of [openrouter, openai]`,
+    }),
+
+  GPT_LLM_MODEL: Joi.string().default(AppConfigDefault.GPT_LLM_MODEL).messages({
+    'string.base': `"GPT_LLM_MODEL" should be a type of 'text'`,
+  }),
+
+  USE_MOCK_QUESTION_CLASSIFIER_SERVICE: Joi.boolean()
+    .default(AppConfigDefault.USE_MOCK_QUESTION_CLASSIFIER_SERVICE)
+    .messages({
+      'boolean.base': `"USE_MOCK_QUESTION_CLASSIFIER_SERVICE" should be a type of 'boolean'`,
+    }),
+
+  USE_MOCK_SKILL_EXPANDER_SERVICE: Joi.boolean()
+    .default(AppConfigDefault.USE_MOCK_SKILL_EXPANDER_SERVICE)
+    .messages({
+      'boolean.base': `"USE_MOCK_SKILL_EXPANDER_SERVICE" should be a type of 'boolean'`,
+    }),
+
+  USE_MOCK_ANSWER_GENERATOR_SERVICE: Joi.boolean()
+    .default(AppConfigDefault.USE_MOCK_ANSWER_GENERATOR_SERVICE)
+    .messages({
+      'boolean.base': `"USE_MOCK_ANSWER_GENERATOR_SERVICE" should be a type of 'boolean'`,
     }),
 });

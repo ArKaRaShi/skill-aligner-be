@@ -169,6 +169,29 @@ describe('AppConfigService', () => {
     });
   });
 
+  describe('openRouterBaseUrl', () => {
+    it('should return OPENROUTER_BASE_URL from config', () => {
+      const mockUrl = 'https://openrouter.example.com/api/v1';
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(mockUrl);
+
+      const url = appConfigService.openRouterBaseUrl;
+      expect(url).toBe(mockUrl);
+      expect(spy).toHaveBeenCalledWith('OPENROUTER_BASE_URL');
+
+      spy.mockRestore();
+    });
+
+    it('should return default OPENROUTER_BASE_URL when config value is undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const url = appConfigService.openRouterBaseUrl;
+      expect(url).toBe(AppConfigDefault.OPENROUTER_BASE_URL);
+      expect(spy).toHaveBeenCalledWith('OPENROUTER_BASE_URL');
+
+      spy.mockRestore();
+    });
+  });
+
   describe('semanticsApiBaseUrl', () => {
     it('should return SEMANTICS_API_BASE_URL from config', () => {
       const mockUrl = 'https://semantics.example.com';
@@ -209,6 +232,118 @@ describe('AppConfigService', () => {
       const provider = appConfigService.embeddingProvider;
       expect(provider).toBe(AppConfigDefault.EMBEDDING_PROVIDER);
       expect(spy).toHaveBeenCalledWith('EMBEDDING_PROVIDER');
+
+      spy.mockRestore();
+    });
+  });
+
+  describe('gptLlmProvider', () => {
+    it('should return GPT_LLM_PROVIDER from config', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue('openai');
+
+      const provider = appConfigService.gptLlmProvider;
+      expect(provider).toBe('openai');
+      expect(spy).toHaveBeenCalledWith('GPT_LLM_PROVIDER');
+
+      spy.mockRestore();
+    });
+
+    it('should return default GPT_LLM_PROVIDER when config value is undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const provider = appConfigService.gptLlmProvider;
+      expect(provider).toBe(AppConfigDefault.GPT_LLM_PROVIDER);
+      expect(spy).toHaveBeenCalledWith('GPT_LLM_PROVIDER');
+
+      spy.mockRestore();
+    });
+  });
+
+  describe('gptLlmModel', () => {
+    it('should return GPT_LLM_MODEL from config', () => {
+      const spy = jest
+        .spyOn(configService, 'get')
+        .mockReturnValue('openai/gpt-4o-mini');
+
+      const model = appConfigService.gptLlmModel;
+      expect(model).toBe('openai/gpt-4o-mini');
+      expect(spy).toHaveBeenCalledWith('GPT_LLM_MODEL');
+
+      spy.mockRestore();
+    });
+
+    it('should return default GPT_LLM_MODEL when config value is undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const model = appConfigService.gptLlmModel;
+      expect(model).toBe(AppConfigDefault.GPT_LLM_MODEL);
+      expect(spy).toHaveBeenCalledWith('GPT_LLM_MODEL');
+
+      spy.mockRestore();
+    });
+  });
+
+  describe('useMockQuestionClassifierService', () => {
+    it('should return USE_MOCK_QUESTION_CLASSIFIER_SERVICE from config', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(true);
+
+      const flag = appConfigService.useMockQuestionClassifierService;
+      expect(flag).toBe(true);
+      expect(spy).toHaveBeenCalledWith('USE_MOCK_QUESTION_CLASSIFIER_SERVICE');
+
+      spy.mockRestore();
+    });
+
+    it('should return default USE_MOCK_QUESTION_CLASSIFIER_SERVICE when undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const flag = appConfigService.useMockQuestionClassifierService;
+      expect(flag).toBe(AppConfigDefault.USE_MOCK_QUESTION_CLASSIFIER_SERVICE);
+      expect(spy).toHaveBeenCalledWith('USE_MOCK_QUESTION_CLASSIFIER_SERVICE');
+
+      spy.mockRestore();
+    });
+  });
+
+  describe('useMockSkillExpanderService', () => {
+    it('should return USE_MOCK_SKILL_EXPANDER_SERVICE from config', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(true);
+
+      const flag = appConfigService.useMockSkillExpanderService;
+      expect(flag).toBe(true);
+      expect(spy).toHaveBeenCalledWith('USE_MOCK_SKILL_EXPANDER_SERVICE');
+
+      spy.mockRestore();
+    });
+
+    it('should return default USE_MOCK_SKILL_EXPANDER_SERVICE when undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const flag = appConfigService.useMockSkillExpanderService;
+      expect(flag).toBe(AppConfigDefault.USE_MOCK_SKILL_EXPANDER_SERVICE);
+      expect(spy).toHaveBeenCalledWith('USE_MOCK_SKILL_EXPANDER_SERVICE');
+
+      spy.mockRestore();
+    });
+  });
+
+  describe('useMockAnswerGeneratorService', () => {
+    it('should return USE_MOCK_ANSWER_GENERATOR_SERVICE from config', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(true);
+
+      const flag = appConfigService.useMockAnswerGeneratorService;
+      expect(flag).toBe(true);
+      expect(spy).toHaveBeenCalledWith('USE_MOCK_ANSWER_GENERATOR_SERVICE');
+
+      spy.mockRestore();
+    });
+
+    it('should return default USE_MOCK_ANSWER_GENERATOR_SERVICE when undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const flag = appConfigService.useMockAnswerGeneratorService;
+      expect(flag).toBe(AppConfigDefault.USE_MOCK_ANSWER_GENERATOR_SERVICE);
+      expect(spy).toHaveBeenCalledWith('USE_MOCK_ANSWER_GENERATOR_SERVICE');
 
       spy.mockRestore();
     });

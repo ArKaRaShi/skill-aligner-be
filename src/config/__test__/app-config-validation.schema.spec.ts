@@ -11,14 +11,21 @@ interface ValidationConfig {
   DATABASE_URL?: string;
   OPENAI_API_KEY?: string;
   OPENROUTER_API_KEY?: string;
+  OPENROUTER_BASE_URL?: string;
   SEMANTICS_API_BASE_URL?: string;
   EMBEDDING_PROVIDER?: string;
+  GPT_LLM_PROVIDER?: string;
+  GPT_LLM_MODEL?: string;
+  USE_MOCK_QUESTION_CLASSIFIER_SERVICE?: boolean;
+  USE_MOCK_SKILL_EXPANDER_SERVICE?: boolean;
+  USE_MOCK_ANSWER_GENERATOR_SERVICE?: boolean;
 }
 
 const requiredFields: ValidationConfig = {
   DATABASE_URL: 'postgresql://user:pass@localhost:5432/db',
   OPENAI_API_KEY: 'test-openai-key',
   OPENROUTER_API_KEY: 'test-openrouter-key',
+  OPENROUTER_BASE_URL: 'https://openrouter.ai/api/v1',
 };
 
 const validate = (
@@ -184,6 +191,31 @@ describe('appConfigValidationSchema', () => {
     });
   });
 
+  describe('OPENROUTER_BASE_URL', () => {
+    it('accepts valid URIs', () => {
+      const { error } = validate({ ...requiredFields });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects malformed URIs', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          OPENROUTER_BASE_URL: 'not-a-uri',
+        },
+        '"OPENROUTER_BASE_URL" must be a valid URI',
+      );
+    });
+
+    it('defaults to AppConfigDefault.OPENROUTER_BASE_URL when omitted', () => {
+      const { OPENROUTER_BASE_URL: _baseUrl, ...config } = requiredFields;
+      const value = requireValid({ ...config });
+      expect(value.OPENROUTER_BASE_URL).toBe(
+        AppConfigDefault.OPENROUTER_BASE_URL,
+      );
+    });
+  });
+
   describe('SEMANTICS_API_BASE_URL', () => {
     it('accepts valid URIs', () => {
       const { error } = validate({
@@ -234,6 +266,134 @@ describe('appConfigValidationSchema', () => {
       const value = requireValid({ ...requiredFields });
       expect(value.EMBEDDING_PROVIDER).toBe(
         AppConfigDefault.EMBEDDING_PROVIDER,
+      );
+    });
+  });
+
+  describe('GPT_LLM_PROVIDER', () => {
+    it.each(['openrouter', 'openai'])('accepts %s', (provider) => {
+      const { error } = validate({
+        ...requiredFields,
+        GPT_LLM_PROVIDER: provider,
+      });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects unsupported providers', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          GPT_LLM_PROVIDER: 'unknown',
+        },
+        '"GPT_LLM_PROVIDER" must be one of [openrouter, openai]',
+      );
+    });
+
+    it('defaults to AppConfigDefault.GPT_LLM_PROVIDER when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value.GPT_LLM_PROVIDER).toBe(AppConfigDefault.GPT_LLM_PROVIDER);
+    });
+  });
+
+  describe('GPT_LLM_MODEL', () => {
+    it('accepts string values', () => {
+      const { error } = validate({
+        ...requiredFields,
+        GPT_LLM_MODEL: 'openai/gpt-4o-mini',
+      });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects non-string values', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          GPT_LLM_MODEL: 123 as unknown as string,
+        },
+        '"GPT_LLM_MODEL" should be a type of \'text\'',
+      );
+    });
+
+    it('defaults to AppConfigDefault.GPT_LLM_MODEL when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value.GPT_LLM_MODEL).toBe(AppConfigDefault.GPT_LLM_MODEL);
+    });
+  });
+
+  describe('USE_MOCK_QUESTION_CLASSIFIER_SERVICE', () => {
+    const envKey = 'USE_MOCK_QUESTION_CLASSIFIER_SERVICE';
+
+    it.each([true, false])('accepts boolean value %s', (flag) => {
+      const { error } = validate({ ...requiredFields, [envKey]: flag });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects non-boolean values', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          [envKey]: 'invalid' as unknown as boolean,
+        },
+        `"${envKey}" should be a type of 'boolean'`,
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(
+        AppConfigDefault.USE_MOCK_QUESTION_CLASSIFIER_SERVICE,
+      );
+    });
+  });
+
+  describe('USE_MOCK_SKILL_EXPANDER_SERVICE', () => {
+    const envKey = 'USE_MOCK_SKILL_EXPANDER_SERVICE';
+
+    it.each([true, false])('accepts boolean value %s', (flag) => {
+      const { error } = validate({ ...requiredFields, [envKey]: flag });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects non-boolean values', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          [envKey]: 'invalid' as unknown as boolean,
+        },
+        `"${envKey}" should be a type of 'boolean'`,
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(
+        AppConfigDefault.USE_MOCK_SKILL_EXPANDER_SERVICE,
+      );
+    });
+  });
+
+  describe('USE_MOCK_ANSWER_GENERATOR_SERVICE', () => {
+    const envKey = 'USE_MOCK_ANSWER_GENERATOR_SERVICE';
+
+    it.each([true, false])('accepts boolean value %s', (flag) => {
+      const { error } = validate({ ...requiredFields, [envKey]: flag });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects non-boolean values', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          [envKey]: 'invalid' as unknown as boolean,
+        },
+        `"${envKey}" should be a type of 'boolean'`,
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(
+        AppConfigDefault.USE_MOCK_ANSWER_GENERATOR_SERVICE,
       );
     });
   });
