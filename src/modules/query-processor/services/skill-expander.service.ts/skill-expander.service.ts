@@ -22,7 +22,9 @@ export class SkillExpanderService implements ISkillExpanderService {
   ) {}
 
   async expandSkills(question: string): Promise<SkillExpansion> {
-    const { skills } = await this.llmProviderClient.generateObject({
+    const {
+      object: { skills },
+    } = await this.llmProviderClient.generateObject({
       prompt: getExpandSkillUserPrompt(question),
       systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT,
       schema: SkillExpansionSchema,

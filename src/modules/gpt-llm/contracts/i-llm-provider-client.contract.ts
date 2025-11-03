@@ -2,45 +2,52 @@ import { z } from 'zod';
 
 export const I_LLM_PROVIDER_CLIENT_TOKEN = Symbol('ILlmProviderClient');
 
-export type GenerateTextParams = {
+export type GenerateTextInput = {
   prompt: string;
   systemPrompt: string;
   model: string;
 };
 
-export type GenerateObjectParams<TSchema extends z.ZodTypeAny> = {
+export type GenerateObjectInput<TSchema extends z.ZodTypeAny> = {
   prompt: string;
   systemPrompt: string;
   schema: TSchema;
   model: string;
 };
 
+export type GenerateTextOutput = {
+  text: string;
+  model: string;
+  inputTokens: number;
+  outputTokens: number;
+};
+
+export type GenerateObjectOutput<TSchema extends z.ZodTypeAny> = {
+  model: string;
+  inputTokens: number;
+  outputTokens: number;
+  object: z.infer<TSchema>;
+};
+
 export interface ILlmProviderClient {
   /**
-   * Generates text based on the provided prompt and system instructions.
-   * @param prompt - The user prompt.
-   * @param systemPrompt - The system instructions to guide the response.
-   * @param model - The model identifier to use for the request.
-   * @returns The generated text.
+   * Generates a raw text completion using the specified model and prompts.
+   * Returns the generated text together with basic token usage metadata so callers can track costs.
    */
   generateText({
     prompt,
     systemPrompt,
     model,
-  }: GenerateTextParams): Promise<string>;
+  }: GenerateTextInput): Promise<GenerateTextOutput>;
 
   /**
-   * Generates a structured object based on the provided prompt, system instructions, and schema.
-   * @param prompt - The user prompt.
-   * @param systemPrompt - The system instructions to guide the response.
-   * @param schema - The Zod schema defining the structure of the expected object.
-   * @param model - The model identifier to use for the request.
-   * @returns The generated object conforming to the provided schema.
+   * Generates a structured object by asking the model to fill a Zod schema and returns
+   * both the validated object and the token usage metadata for cost tracking.
    */
   generateObject<TSchema extends z.ZodTypeAny>({
     prompt,
     systemPrompt,
     schema,
     model,
-  }: GenerateObjectParams<TSchema>): Promise<z.infer<TSchema>>;
+  }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>>;
 }

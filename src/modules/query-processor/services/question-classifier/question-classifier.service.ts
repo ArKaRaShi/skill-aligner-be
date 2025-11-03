@@ -87,13 +87,14 @@ export class QuestionClassifierService implements IQuestionClassifierService {
   private async aiBasedClassification(
     question: string,
   ): Promise<QuestionClassification> {
-    const { classification, reason } =
-      await this.llmProviderClient.generateObject({
-        prompt: getClassificationUserPrompt(question),
-        systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT,
-        schema: QuestionClassificationSchema,
-        model: this.modelName,
-      });
+    const {
+      object: { reason, classification },
+    } = await this.llmProviderClient.generateObject({
+      prompt: getClassificationUserPrompt(question),
+      systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT,
+      schema: QuestionClassificationSchema,
+      model: this.modelName,
+    });
     return {
       classification,
       reason,

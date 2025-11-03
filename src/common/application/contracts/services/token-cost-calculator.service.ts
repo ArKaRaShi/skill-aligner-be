@@ -1,13 +1,6 @@
-type TokenCostEstimateInput = {
-  tokenCount: number;
-  tokenType: 'input' | 'output';
-  model: string;
-};
+import { TokenUsage } from 'src/common/types/token-usage.type';
 
-type TokenCostEstimate = {
-  tokenCount: number;
-  tokenType: 'input' | 'output';
-  model: string;
+type TokenCostEstimate = TokenUsage & {
   available: boolean; // true if cost data is available for this model and token type
   estimatedCost: number; // 0 if not available
 };
@@ -37,31 +30,30 @@ export class TokenCostCalculatorService {
   };
 
   static estimateCost({
-    tokenCount,
-    tokenType,
+    inputTokens,
+    outputTokens,
     model,
-  }: TokenCostEstimateInput): TokenCostEstimate {
+  }: TokenUsage): TokenCostEstimate {
     const modelEstimations = this.AVAILABLE_ESTIMATIONS[model];
     if (!modelEstimations) {
       return {
-        tokenCount,
-        tokenType,
+        inputTokens,
+        outputTokens,
         model,
         available: false,
         estimatedCost: 0,
       };
     }
 
-    const costPerMillionTokens =
-      tokenType === 'input'
-        ? modelEstimations.inputCostPerMillionTokens
-        : modelEstimations.outputCostPerMillionTokens;
-
-    const estimatedCost = (tokenCount / 1_000_000) * costPerMillionTokens;
+    const inputCost =
+      (inputTokens / 1_000_000) * modelEstimations.inputCostPerMillionTokens;
+    const outputCost =
+      (outputTokens / 1_000_000) * modelEstimations.outputCostPerMillionTokens;
+    const estimatedCost = inputCost + outputCost;
 
     return {
-      tokenCount,
-      tokenType,
+      inputTokens,
+      outputTokens,
       model,
       available: true,
       estimatedCost,
@@ -69,7 +61,7 @@ export class TokenCostCalculatorService {
   }
 
   static estimateTotalCost(
-    estimations: TokenCostEstimateInput[],
+    estimations: TokenUsage[],
   ): TokenCostEstimateSummary {
     const details: TokenCostEstimate[] = estimations.map((estimation) =>
       this.estimateCost(estimation),

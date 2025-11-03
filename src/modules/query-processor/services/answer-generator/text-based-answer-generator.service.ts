@@ -37,19 +37,24 @@ export class TextBasedAnswerGeneratorService
 
     const { getPrompts } = AnswerGeneratorPromptFactory();
     const { getUserPrompt, systemPrompt } = getPrompts('v1');
-    const text = await this.llmProviderClient.generateText({
+    const {
+      text: generatedText,
+      inputTokens,
+      outputTokens,
+      model,
+    } = await this.llmProviderClient.generateText({
       prompt: getUserPrompt(question, context),
       systemPrompt,
       model: this.modelName,
     });
 
     const { includes, excludes } = this.extractAndValidateAnswer(
-      text,
+      generatedText,
       skillCourseMatchMap,
     );
 
     return {
-      answerText: text,
+      answerText: generatedText,
       includes,
       excludes,
       rawQuestion: question,

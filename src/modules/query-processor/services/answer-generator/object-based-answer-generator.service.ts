@@ -43,7 +43,7 @@ export class ObjectBasedAnswerGeneratorService
       `[ObjectBasedAnswerGenerator] Generating answer for question: "${question}" using model: ${this.modelName} with context: ${context}`,
     );
 
-    const llmAnswer = await this.llmProviderClient.generateObject({
+    const llmResult = await this.llmProviderClient.generateObject({
       prompt: getUserPrompt(question, context),
       systemPrompt,
       schema: AnswerGenerationSchema,
@@ -52,19 +52,21 @@ export class ObjectBasedAnswerGeneratorService
 
     this.logger.log(
       `[ObjectBasedAnswerGenerator] Generated LLM answer: ${JSON.stringify(
-        llmAnswer,
+        llmResult,
         null,
         2,
       )}`,
     );
 
-    // const sanitizedAnswer = this.sanitizeGeneratedAnswer({
-    //   llmAnswer,
-    //   skillCourseMatchMap,
-    //   question,
-    // });
-
-    const { includes, excludes } = llmAnswer;
+    const {
+      object: llmAnswer,
+      includes,
+      excludes,
+    } = {
+      object: llmResult.object,
+      includes: llmResult.object.includes,
+      excludes: llmResult.object.excludes,
+    };
 
     this.validateCoverage({
       includes,

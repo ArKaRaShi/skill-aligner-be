@@ -11,8 +11,10 @@ import {
 import { z } from 'zod';
 
 import {
-  GenerateObjectParams,
-  GenerateTextParams,
+  GenerateObjectInput,
+  GenerateObjectOutput,
+  GenerateTextInput,
+  GenerateTextOutput,
   ILlmProviderClient,
 } from '../contracts/i-llm-provider-client.contract';
 
@@ -35,7 +37,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     prompt,
     systemPrompt,
     model,
-  }: GenerateTextParams): Promise<string> {
+  }: GenerateTextInput): Promise<GenerateTextOutput> {
     const { text, usage, providerMetadata } = await AIGenerateText({
       model: this.openRouter(model),
       prompt,
@@ -48,7 +50,12 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       `[${OpenRouterClientProvider.prototype.generateText.name}] usage: ${JSON.stringify(usage, null, 2)}\nproviderMetadata: ${JSON.stringify(providerMetadata, null, 2)}`,
     );
 
-    return text;
+    return {
+      text,
+      model,
+      inputTokens: usage?.inputTokens ?? 0,
+      outputTokens: usage?.outputTokens ?? 0,
+    };
   }
 
   async generateObject<TSchema extends z.ZodTypeAny>({
@@ -56,7 +63,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     systemPrompt,
     schema,
     model,
-  }: GenerateObjectParams<TSchema>): Promise<z.infer<TSchema>> {
+  }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>> {
     const { object, usage, providerMetadata } = await AIGenerateObject({
       model: this.openRouter(model),
       schema,
@@ -70,6 +77,11 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       `[${OpenRouterClientProvider.prototype.generateObject.name}] usage: ${JSON.stringify(usage, null, 2)}\nproviderMetadata: ${JSON.stringify(providerMetadata, null, 2)}`,
     );
 
-    return object as z.infer<TSchema>;
+    return {
+      model,
+      inputTokens: usage?.inputTokens ?? 0,
+      outputTokens: usage?.outputTokens ?? 0,
+      object: object as z.infer<TSchema>,
+    };
   }
 }
