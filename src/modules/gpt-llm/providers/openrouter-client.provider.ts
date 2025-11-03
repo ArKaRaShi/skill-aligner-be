@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 
 import {
   createOpenRouter,
@@ -19,6 +19,7 @@ import {
 @Injectable()
 export class OpenRouterClientProvider implements ILlmProviderClient {
   private readonly openRouter: OpenRouterProvider;
+  private readonly logger = new Logger(OpenRouterClientProvider.name);
 
   constructor(
     private readonly apiKey: string,
@@ -35,7 +36,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     systemPrompt,
     model,
   }: GenerateTextParams): Promise<string> {
-    const { text, usage } = await AIGenerateText({
+    const { text, usage, providerMetadata } = await AIGenerateText({
       model: this.openRouter(model),
       prompt,
       system: systemPrompt,
@@ -43,10 +44,10 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       maxOutputTokens: 5000,
     });
 
-    console.log(
-      'OpenRouter generateText usage:',
-      JSON.stringify(usage, null, 2),
+    this.logger.log(
+      `[${OpenRouterClientProvider.prototype.generateText.name}] usage: ${JSON.stringify(usage, null, 2)}\nproviderMetadata: ${JSON.stringify(providerMetadata, null, 2)}`,
     );
+
     return text;
   }
 
@@ -64,14 +65,11 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       temperature: 0,
       maxOutputTokens: 5000,
     });
-    console.log(
-      'OpenRouter generateObject usage:',
-      JSON.stringify(usage, null, 2),
+
+    this.logger.log(
+      `[${OpenRouterClientProvider.prototype.generateObject.name}] usage: ${JSON.stringify(usage, null, 2)}\nproviderMetadata: ${JSON.stringify(providerMetadata, null, 2)}`,
     );
-    console.log(
-      'OpenRouter generateObject providerMetadata:',
-      JSON.stringify(providerMetadata, null, 2),
-    );
+
     return object as z.infer<TSchema>;
   }
 }

@@ -1,5 +1,3 @@
-import { Injectable } from '@nestjs/common';
-
 import { CourseMatch } from 'src/modules/course/types/course.type';
 import { ILlmProviderClient } from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 

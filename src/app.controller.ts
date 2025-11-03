@@ -425,8 +425,8 @@ Output:
 
   @Get('/test/course-repository')
   async testCourseRepository(): Promise<any> {
-    const skills = ['สามารถวิเคราะห์การเงินเบื้องต้นและจัดทำงบการเงินได้'];
-    const matchesPerSkill = 10;
+    const skills = ['budgeting techniques', 'budgeting skills'];
+    const matchesPerSkill = 5;
     const threshold = 0.7;
 
     const result = await this.courseRepository.findCoursesBySkillsViaLO({

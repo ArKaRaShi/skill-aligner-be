@@ -14,7 +14,7 @@ import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-clas
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
 import { QueryProcessorController } from './query-processor.controller';
 import { MockAnswerGeneratorService } from './services/answer-generator/mock-answer-generator.service';
-import { TextBasedAnswerGeneratorService } from './services/answer-generator/text-based-answer-generator.service';
+import { ObjectBasedAnswerGeneratorService } from './services/answer-generator/object-based-answer-generator.service';
 import { MockQuestionClassifierService } from './services/question-classifier/mock-question-classifier.service';
 import { QuestionClassifierService } from './services/question-classifier/question-classifier.service';
 import { MockSkillExpanderService } from './services/skill-expander.service.ts/mock-skill-expander.service';
@@ -68,7 +68,7 @@ import { QueryProcessorUseCases } from './use-cases';
         if (config.useMockAnswerGeneratorService) {
           return new MockAnswerGeneratorService(llmProvider);
         }
-        return new TextBasedAnswerGeneratorService(
+        return new ObjectBasedAnswerGeneratorService(
           llmProvider,
           config.answerGeneratorLlmModel,
         );
