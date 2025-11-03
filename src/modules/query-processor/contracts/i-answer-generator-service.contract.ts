@@ -7,6 +7,11 @@ export const I_ANSWER_GENERATOR_SERVICE_TOKEN = Symbol(
 );
 
 export interface IAnswerGeneratorService {
+  /**
+   * Generates an answer based on the provided question and skill-course match map.
+   * @param question The user's question.
+   * @param skillCourseMatchMap The map of skills to their corresponding courses.
+   */
   generateAnswer(
     question: string,
     skillCourseMatchMap: Map<string, CourseMatch[]>,

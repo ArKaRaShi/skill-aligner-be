@@ -52,6 +52,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
   constructor(
     @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
     private readonly llmProviderClient: ILlmProviderClient,
+    private readonly modelName: string,
   ) {}
 
   async classify(question: string): Promise<QuestionClassification> {
@@ -91,6 +92,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
         prompt: getClassificationUserPrompt(question),
         systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT,
         schema: QuestionClassificationSchema,
+        model: this.modelName,
       });
     return {
       classification,

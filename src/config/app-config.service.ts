@@ -60,17 +60,48 @@ export class AppConfigService {
     return embeddingProvider as 'e5' | 'openai';
   }
 
-  get gptLlmProvider(): 'openrouter' | 'openai' {
-    const gptLlmProvider =
-      this.configService.get<'openrouter' | 'openai'>('GPT_LLM_PROVIDER') ??
-      AppConfigDefault.GPT_LLM_PROVIDER;
-    return gptLlmProvider as 'openrouter' | 'openai';
+  get questionClassifierLlmProvider(): 'openrouter' | 'openai' {
+    const provider =
+      this.configService.get<'openrouter' | 'openai'>(
+        'QUESTION_CLASSIFIER_LLM_PROVIDER',
+      ) ?? AppConfigDefault.QUESTION_CLASSIFIER_LLM_PROVIDER;
+    return provider as 'openrouter' | 'openai';
   }
 
-  get gptLlmModel(): string {
+  get questionClassifierLlmModel(): string {
     return (
-      this.configService.get<string>('GPT_LLM_MODEL') ??
-      AppConfigDefault.GPT_LLM_MODEL
+      this.configService.get<string>('QUESTION_CLASSIFIER_LLM_MODEL') ??
+      AppConfigDefault.QUESTION_CLASSIFIER_LLM_MODEL
+    );
+  }
+
+  get skillExpanderLlmProvider(): 'openrouter' | 'openai' {
+    const provider =
+      this.configService.get<'openrouter' | 'openai'>(
+        'SKILL_EXPANDER_LLM_PROVIDER',
+      ) ?? AppConfigDefault.SKILL_EXPANDER_LLM_PROVIDER;
+    return provider as 'openrouter' | 'openai';
+  }
+
+  get skillExpanderLlmModel(): string {
+    return (
+      this.configService.get<string>('SKILL_EXPANDER_LLM_MODEL') ??
+      AppConfigDefault.SKILL_EXPANDER_LLM_MODEL
+    );
+  }
+
+  get answerGeneratorLlmProvider(): 'openrouter' | 'openai' {
+    const provider =
+      this.configService.get<'openrouter' | 'openai'>(
+        'ANSWER_GENERATOR_LLM_PROVIDER',
+      ) ?? AppConfigDefault.ANSWER_GENERATOR_LLM_PROVIDER;
+    return provider as 'openrouter' | 'openai';
+  }
+
+  get answerGeneratorLlmModel(): string {
+    return (
+      this.configService.get<string>('ANSWER_GENERATOR_LLM_MODEL') ??
+      AppConfigDefault.ANSWER_GENERATOR_LLM_MODEL
     );
   }
 

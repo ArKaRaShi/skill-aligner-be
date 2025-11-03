@@ -23,7 +23,6 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
   constructor(
     private readonly apiKey: string,
     private readonly baseURL: string,
-    private readonly modelName: string = 'openai/gpt-4o-mini',
   ) {
     this.openRouter = createOpenRouter({
       apiKey: this.apiKey,
@@ -34,14 +33,16 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
   async generateText({
     prompt,
     systemPrompt,
+    model,
   }: GenerateTextParams): Promise<string> {
-    const { text, usage, providerMetadata } = await AIGenerateText({
-      model: this.openRouter(this.modelName),
+    const { text, usage } = await AIGenerateText({
+      model: this.openRouter(model),
       prompt,
       system: systemPrompt,
       temperature: 0,
       maxOutputTokens: 5000,
     });
+
     console.log(
       'OpenRouter generateText usage:',
       JSON.stringify(usage, null, 2),
@@ -53,9 +54,10 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     prompt,
     systemPrompt,
     schema,
+    model,
   }: GenerateObjectParams<TSchema>): Promise<z.infer<TSchema>> {
     const { object, usage, providerMetadata } = await AIGenerateObject({
-      model: this.openRouter(this.modelName),
+      model: this.openRouter(model),
       schema,
       prompt,
       system: systemPrompt,

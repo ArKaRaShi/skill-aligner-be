@@ -13,12 +13,12 @@ import { I_ANSWER_GENERATOR_SERVICE_TOKEN } from './contracts/i-answer-generator
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
 import { QueryProcessorController } from './query-processor.controller';
-import { MockAnswerGeneratorService } from './services/mock/mock-answer-generator.service';
-import { MockQuestionClassifierService } from './services/mock/mock-question-classifier.service';
-import { MockSkillExpanderService } from './services/mock/mock-skill-expander.service';
-import { AnswerGeneratorService } from './services/real/answer-generator.service';
-import { QuestionClassifierService } from './services/real/question-classifier.service';
-import { SkillExpanderService } from './services/real/skill-expander.service';
+import { MockAnswerGeneratorService } from './services/answer-generator/mock-answer-generator.service';
+import { TextBasedAnswerGeneratorService } from './services/answer-generator/text-based-answer-generator.service';
+import { MockQuestionClassifierService } from './services/question-classifier/mock-question-classifier.service';
+import { QuestionClassifierService } from './services/question-classifier/question-classifier.service';
+import { MockSkillExpanderService } from './services/skill-expander.service.ts/mock-skill-expander.service';
+import { SkillExpanderService } from './services/skill-expander.service.ts/skill-expander.service';
 import { QueryProcessorUseCases } from './use-cases';
 
 @Module({
@@ -36,7 +36,10 @@ import { QueryProcessorUseCases } from './use-cases';
         if (config.useMockQuestionClassifierService) {
           return new MockQuestionClassifierService();
         }
-        return new QuestionClassifierService(llmProvider);
+        return new QuestionClassifierService(
+          llmProvider,
+          config.questionClassifierLlmModel,
+        );
       },
     },
     {
@@ -49,7 +52,10 @@ import { QueryProcessorUseCases } from './use-cases';
         if (config.useMockSkillExpanderService) {
           return new MockSkillExpanderService();
         }
-        return new SkillExpanderService(llmProvider);
+        return new SkillExpanderService(
+          llmProvider,
+          config.skillExpanderLlmModel,
+        );
       },
     },
     {
@@ -60,9 +66,12 @@ import { QueryProcessorUseCases } from './use-cases';
         llmProvider: ILlmProviderClient,
       ) => {
         if (config.useMockAnswerGeneratorService) {
-          return new MockAnswerGeneratorService();
+          return new MockAnswerGeneratorService(llmProvider);
         }
-        return new AnswerGeneratorService(llmProvider);
+        return new TextBasedAnswerGeneratorService(
+          llmProvider,
+          config.answerGeneratorLlmModel,
+        );
       },
     },
   ],

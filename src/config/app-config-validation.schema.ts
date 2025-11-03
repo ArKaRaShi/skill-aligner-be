@@ -65,17 +65,47 @@ export const appConfigValidationSchema = Joi.object({
       'any.only': `"EMBEDDING_PROVIDER" must be one of [e5, openai]`,
     }),
 
-  GPT_LLM_PROVIDER: Joi.string()
+  QUESTION_CLASSIFIER_LLM_PROVIDER: Joi.string()
     .valid('openrouter', 'openai')
-    .default(AppConfigDefault.GPT_LLM_PROVIDER)
+    .default(AppConfigDefault.QUESTION_CLASSIFIER_LLM_PROVIDER)
     .messages({
-      'string.base': `"GPT_LLM_PROVIDER" should be a type of 'text'`,
-      'any.only': `"GPT_LLM_PROVIDER" must be one of [openrouter, openai]`,
+      'string.base': `"QUESTION_CLASSIFIER_LLM_PROVIDER" should be a type of 'text'`,
+      'any.only': `"QUESTION_CLASSIFIER_LLM_PROVIDER" must be one of [openrouter, openai]`,
     }),
 
-  GPT_LLM_MODEL: Joi.string().default(AppConfigDefault.GPT_LLM_MODEL).messages({
-    'string.base': `"GPT_LLM_MODEL" should be a type of 'text'`,
-  }),
+  QUESTION_CLASSIFIER_LLM_MODEL: Joi.string()
+    .default(AppConfigDefault.QUESTION_CLASSIFIER_LLM_MODEL)
+    .messages({
+      'string.base': `"QUESTION_CLASSIFIER_LLM_MODEL" should be a type of 'text'`,
+    }),
+
+  SKILL_EXPANDER_LLM_PROVIDER: Joi.string()
+    .valid('openrouter', 'openai')
+    .default(AppConfigDefault.SKILL_EXPANDER_LLM_PROVIDER)
+    .messages({
+      'string.base': `"SKILL_EXPANDER_LLM_PROVIDER" should be a type of 'text'`,
+      'any.only': `"SKILL_EXPANDER_LLM_PROVIDER" must be one of [openrouter, openai]`,
+    }),
+
+  SKILL_EXPANDER_LLM_MODEL: Joi.string()
+    .default(AppConfigDefault.SKILL_EXPANDER_LLM_MODEL)
+    .messages({
+      'string.base': `"SKILL_EXPANDER_LLM_MODEL" should be a type of 'text'`,
+    }),
+
+  ANSWER_GENERATOR_LLM_PROVIDER: Joi.string()
+    .valid('openrouter', 'openai')
+    .default(AppConfigDefault.ANSWER_GENERATOR_LLM_PROVIDER)
+    .messages({
+      'string.base': `"ANSWER_GENERATOR_LLM_PROVIDER" should be a type of 'text'`,
+      'any.only': `"ANSWER_GENERATOR_LLM_PROVIDER" must be one of [openrouter, openai]`,
+    }),
+
+  ANSWER_GENERATOR_LLM_MODEL: Joi.string()
+    .default(AppConfigDefault.ANSWER_GENERATOR_LLM_MODEL)
+    .messages({
+      'string.base': `"ANSWER_GENERATOR_LLM_MODEL" should be a type of 'text'`,
+    }),
 
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE: Joi.boolean()
     .default(AppConfigDefault.USE_MOCK_QUESTION_CLASSIFIER_SERVICE)

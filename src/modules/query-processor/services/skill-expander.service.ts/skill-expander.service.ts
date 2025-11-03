@@ -18,6 +18,7 @@ export class SkillExpanderService implements ISkillExpanderService {
   constructor(
     @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
     private readonly llmProviderClient: ILlmProviderClient,
+    private readonly modelName: string,
   ) {}
 
   async expandSkills(question: string): Promise<SkillExpansion> {
@@ -25,6 +26,7 @@ export class SkillExpanderService implements ISkillExpanderService {
       prompt: getExpandSkillUserPrompt(question),
       systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT,
       schema: SkillExpansionSchema,
+      model: this.modelName,
     });
 
     const normalizedSkills = new Map<

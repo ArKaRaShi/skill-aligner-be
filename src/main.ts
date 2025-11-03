@@ -19,8 +19,24 @@ function logEnvironmentVariables(appConfigService: AppConfigService) {
     `OPENROUTER_API_KEY: ${appConfigService.openRouterApiKey ? '****' : 'Not Set'}`,
   );
   console.log(`OPENROUTER_BASE_URL: ${appConfigService.openRouterBaseUrl}`);
-  console.log(`GPT_LLM_PROVIDER: ${appConfigService.gptLlmProvider}`);
-  console.log(`GPT_LLM_MODEL: ${appConfigService.gptLlmModel}`);
+  console.log(
+    `QUESTION_CLASSIFIER_LLM_PROVIDER: ${appConfigService.questionClassifierLlmProvider}`,
+  );
+  console.log(
+    `QUESTION_CLASSIFIER_LLM_MODEL: ${appConfigService.questionClassifierLlmModel}`,
+  );
+  console.log(
+    `SKILL_EXPANDER_LLM_PROVIDER: ${appConfigService.skillExpanderLlmProvider}`,
+  );
+  console.log(
+    `SKILL_EXPANDER_LLM_MODEL: ${appConfigService.skillExpanderLlmModel}`,
+  );
+  console.log(
+    `ANSWER_GENERATOR_LLM_PROVIDER: ${appConfigService.answerGeneratorLlmProvider}`,
+  );
+  console.log(
+    `ANSWER_GENERATOR_LLM_MODEL: ${appConfigService.answerGeneratorLlmModel}`,
+  );
   console.log(`EMBEDDING_PROVIDER: ${appConfigService.embeddingProvider}`);
   console.log(
     `SEMANTICS_API_BASE_URL: ${appConfigService.semanticsApiBaseUrl}`,

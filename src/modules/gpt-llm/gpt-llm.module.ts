@@ -11,13 +11,11 @@ import { OpenRouterClientProvider } from './providers/openrouter-client.provider
       provide: I_LLM_PROVIDER_CLIENT_TOKEN,
       inject: [AppConfigService],
       useFactory: (config: AppConfigService) => {
-        const provider = config.gptLlmProvider;
-        const model = config.gptLlmModel;
+        const provider = config.answerGeneratorLlmProvider;
         if (provider === 'openrouter') {
           return new OpenRouterClientProvider(
             config.openRouterApiKey,
             config.openRouterBaseUrl,
-            model,
           );
         }
         throw new Error(`Unsupported LLM provider: ${provider}`);

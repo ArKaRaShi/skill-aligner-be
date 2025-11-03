@@ -17,6 +17,7 @@ import {
   I_SKILL_EXPANDER_SERVICE_TOKEN,
   ISkillExpanderService,
 } from '../contracts/i-skill-expander-service.contract';
+import { Classification } from '../types/question-classification.type';
 import { AnswerQuestionUseCaseOutput } from './types/answer-question.use-case.type';
 
 // TODO: Implement the IUseCase interface
@@ -50,33 +51,17 @@ export class AnswerQuestionUseCase {
       JSON.stringify(skills, null, 2),
     );
 
-    if (classification === 'out_of_scope') {
-      return {
-        answer: null,
-        suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
-        relatedCourses: [],
-      };
-    }
-    if (classification === 'dangerous') {
-      return {
-        answer: null,
-        suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
-        relatedCourses: [],
-      };
-    }
-    if (classification === 'unclear') {
-      return {
-        answer: null,
-        suggestQuestion:
-          'อยากเรียนเกี่ยวกับทักษะที่จำเป็นสำหรับการทำงานในอนาคต',
-        relatedCourses: [],
-      };
+    const fallbackResponse =
+      this.getFallbackAnswerForClassification(classification);
+
+    if (fallbackResponse) {
+      return fallbackResponse;
     }
 
     const courses = await this.courseRepository.findCoursesBySkillsViaLO({
       skills: skills.map((skill) => skill.skill),
-      matchesPerSkill: 5,
-      threshold: 0.82, // beware of Mar Terraform Engineer
+      matchesPerSkill: 5, // tune this value as needed
+      threshold: 0.82, // beware of Mar Terraform Engineer, tune this value as needed
     });
 
     const { answerText } = await this.answerGeneratorService.generateAnswer(
@@ -105,5 +90,36 @@ export class AnswerQuestionUseCase {
         },
       ),
     };
+  }
+
+  private getFallbackAnswerForClassification(
+    classification: Classification,
+  ): AnswerQuestionUseCaseOutput | null {
+    if (classification === 'out_of_scope') {
+      return {
+        answer: 'ขออภัย คำถามของคุณอยู่นอกขอบเขตที่เราสามารถช่วยได้',
+        suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
+        relatedCourses: [],
+      };
+    }
+
+    if (classification === 'dangerous') {
+      return {
+        answer: 'ขออภัย คำถามของคุณมีเนื้อหาที่ไม่เหมาะสมหรือเป็นอันตราย',
+        suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
+        relatedCourses: [],
+      };
+    }
+
+    if (classification === 'unclear') {
+      return {
+        answer: 'ขออภัย คำถามของคุณไม่ชัดเจน กรุณาลองถามใหม่อีกครั้ง',
+        suggestQuestion:
+          'อยากเรียนเกี่ยวกับทักษะที่จำเป็นสำหรับการทำงานในอนาคต',
+        relatedCourses: [],
+      };
+    }
+
+    return null;
   }
 }

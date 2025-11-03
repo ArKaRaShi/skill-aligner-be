@@ -5,9 +5,13 @@ import { CourseMatch } from 'src/modules/course/types/course.type';
 import { IAnswerGeneratorService } from '../../contracts/i-answer-generator-service.contract';
 import { LlmAnswerGeneration } from '../../schemas/answer-generation.schema';
 import { AnswerGeneration } from '../../types/answer-generation.type';
+import { BaseAnswerGeneratorService } from './base-answer-generator.service';
 
 @Injectable()
-export class MockAnswerGeneratorService implements IAnswerGeneratorService {
+export class MockAnswerGeneratorService
+  extends BaseAnswerGeneratorService
+  implements IAnswerGeneratorService
+{
   async generateAnswer(
     question: string,
     skillCourseMatchMap: Map<string, CourseMatch[]>,

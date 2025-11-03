@@ -14,8 +14,12 @@ interface ValidationConfig {
   OPENROUTER_BASE_URL?: string;
   SEMANTICS_API_BASE_URL?: string;
   EMBEDDING_PROVIDER?: string;
-  GPT_LLM_PROVIDER?: string;
-  GPT_LLM_MODEL?: string;
+  QUESTION_CLASSIFIER_LLM_PROVIDER?: string;
+  QUESTION_CLASSIFIER_LLM_MODEL?: string;
+  SKILL_EXPANDER_LLM_PROVIDER?: string;
+  SKILL_EXPANDER_LLM_MODEL?: string;
+  ANSWER_GENERATOR_LLM_PROVIDER?: string;
+  ANSWER_GENERATOR_LLM_MODEL?: string;
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE?: boolean;
   USE_MOCK_SKILL_EXPANDER_SERVICE?: boolean;
   USE_MOCK_ANSWER_GENERATOR_SERVICE?: boolean;
@@ -270,53 +274,144 @@ describe('appConfigValidationSchema', () => {
     });
   });
 
-  describe('GPT_LLM_PROVIDER', () => {
+  describe('QUESTION_CLASSIFIER_LLM_PROVIDER', () => {
+    const envKey = 'QUESTION_CLASSIFIER_LLM_PROVIDER';
+
     it.each(['openrouter', 'openai'])('accepts %s', (provider) => {
-      const { error } = validate({
-        ...requiredFields,
-        GPT_LLM_PROVIDER: provider,
-      });
+      const { error } = validate({ ...requiredFields, [envKey]: provider });
       expect(error).toBeUndefined();
     });
 
     it('rejects unsupported providers', () => {
       expectErrorMessage(
-        {
-          ...requiredFields,
-          GPT_LLM_PROVIDER: 'unknown',
-        },
-        '"GPT_LLM_PROVIDER" must be one of [openrouter, openai]',
+        { ...requiredFields, [envKey]: 'unknown' },
+        '"QUESTION_CLASSIFIER_LLM_PROVIDER" must be one of [openrouter, openai]',
       );
     });
 
-    it('defaults to AppConfigDefault.GPT_LLM_PROVIDER when omitted', () => {
+    it('defaults to AppConfigDefault when omitted', () => {
       const value = requireValid({ ...requiredFields });
-      expect(value.GPT_LLM_PROVIDER).toBe(AppConfigDefault.GPT_LLM_PROVIDER);
+      expect(value[envKey]).toBe(
+        AppConfigDefault.QUESTION_CLASSIFIER_LLM_PROVIDER,
+      );
     });
   });
 
-  describe('GPT_LLM_MODEL', () => {
+  describe('QUESTION_CLASSIFIER_LLM_MODEL', () => {
+    const envKey = 'QUESTION_CLASSIFIER_LLM_MODEL';
+
     it('accepts string values', () => {
       const { error } = validate({
         ...requiredFields,
-        GPT_LLM_MODEL: 'openai/gpt-4o-mini',
+        [envKey]: 'openrouter/orca-mini-3b-v2',
       });
       expect(error).toBeUndefined();
     });
 
     it('rejects non-string values', () => {
       expectErrorMessage(
-        {
-          ...requiredFields,
-          GPT_LLM_MODEL: 123 as unknown as string,
-        },
-        '"GPT_LLM_MODEL" should be a type of \'text\'',
+        { ...requiredFields, [envKey]: 123 as unknown as string },
+        `"${envKey}" should be a type of 'text'`,
       );
     });
 
-    it('defaults to AppConfigDefault.GPT_LLM_MODEL when omitted', () => {
+    it('defaults to AppConfigDefault when omitted', () => {
       const value = requireValid({ ...requiredFields });
-      expect(value.GPT_LLM_MODEL).toBe(AppConfigDefault.GPT_LLM_MODEL);
+      expect(value[envKey]).toBe(
+        AppConfigDefault.QUESTION_CLASSIFIER_LLM_MODEL,
+      );
+    });
+  });
+
+  describe('SKILL_EXPANDER_LLM_PROVIDER', () => {
+    const envKey = 'SKILL_EXPANDER_LLM_PROVIDER';
+
+    it.each(['openrouter', 'openai'])('accepts %s', (provider) => {
+      const { error } = validate({ ...requiredFields, [envKey]: provider });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects unsupported providers', () => {
+      expectErrorMessage(
+        { ...requiredFields, [envKey]: 'unknown' },
+        '"SKILL_EXPANDER_LLM_PROVIDER" must be one of [openrouter, openai]',
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(AppConfigDefault.SKILL_EXPANDER_LLM_PROVIDER);
+    });
+  });
+
+  describe('SKILL_EXPANDER_LLM_MODEL', () => {
+    const envKey = 'SKILL_EXPANDER_LLM_MODEL';
+
+    it('accepts string values', () => {
+      const { error } = validate({
+        ...requiredFields,
+        [envKey]: 'openrouter/orca-mini-3b-v2',
+      });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects non-string values', () => {
+      expectErrorMessage(
+        { ...requiredFields, [envKey]: 123 as unknown as string },
+        `"${envKey}" should be a type of 'text'`,
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(AppConfigDefault.SKILL_EXPANDER_LLM_MODEL);
+    });
+  });
+
+  describe('ANSWER_GENERATOR_LLM_PROVIDER', () => {
+    const envKey = 'ANSWER_GENERATOR_LLM_PROVIDER';
+
+    it.each(['openrouter', 'openai'])('accepts %s', (provider) => {
+      const { error } = validate({ ...requiredFields, [envKey]: provider });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects unsupported providers', () => {
+      expectErrorMessage(
+        { ...requiredFields, [envKey]: 'unknown' },
+        '"ANSWER_GENERATOR_LLM_PROVIDER" must be one of [openrouter, openai]',
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(
+        AppConfigDefault.ANSWER_GENERATOR_LLM_PROVIDER,
+      );
+    });
+  });
+
+  describe('ANSWER_GENERATOR_LLM_MODEL', () => {
+    const envKey = 'ANSWER_GENERATOR_LLM_MODEL';
+
+    it('accepts string values', () => {
+      const { error } = validate({
+        ...requiredFields,
+        [envKey]: 'openrouter/orca-mini-3b-v2',
+      });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects non-string values', () => {
+      expectErrorMessage(
+        { ...requiredFields, [envKey]: 123 as unknown as string },
+        `"${envKey}" should be a type of 'text'`,
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(AppConfigDefault.ANSWER_GENERATOR_LLM_MODEL);
     });
   });
 
