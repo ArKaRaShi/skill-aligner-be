@@ -13,7 +13,6 @@
 - Every skill must be mentioned in `answerText`, even when all of its courses are excluded, with guidance on next steps.
 - The prompt explicitly tells the model to honor user “avoid” clauses, excluding only the courses whose names/objectives mention the banned domain while keeping other courses for that skill.
 - Courses are included when their objectives advance the user’s goal and excluded only when objectives/name explicitly point to unrelated or banned domains.
-- Every course in the context must be assigned to either `includes` or `excludes`, with an explicit reason, so none are dropped silently. When a course is excluded, the model now has to add it to `excludes`—no implicit omissions.
 
 ### Remaining Vague Areas
 - “Major verb” counting is subjective; the model may still guess if it cannot confidently split Thai vs. English verbs.
@@ -27,3 +26,7 @@
 - **Empty course arrays (moderate):** Decide whether to allow skills in `excludes` with `courses: []`. Current sanitizer strips them; revisit schema/prompt if keeping the skill node is important.
 - **Tone/format expectations (moderate):** Not enforced yet; await stakeholder guidance before adding constraints.
 - **Reason specificity (optional):** Continue nudging the model to reference concrete LO phrasing, but monitor for generic language.
+
+
+### Problem
+- Every course in the context must be assigned to either `includes` or `excludes`, with an explicit reason, so none are dropped silently. When a course is excluded, the model now has to add it to `excludes`—no implicit omissions. (But model still misses all; fallback logic may be needed.)

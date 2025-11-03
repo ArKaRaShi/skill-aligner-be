@@ -124,4 +124,16 @@ export const appConfigValidationSchema = Joi.object({
     .messages({
       'boolean.base': `"USE_MOCK_ANSWER_GENERATOR_SERVICE" should be a type of 'boolean'`,
     }),
+
+  USE_QUESTION_CLASSIFIER_CACHE: Joi.boolean()
+    .default(AppConfigDefault.USE_QUESTION_CLASSIFIER_CACHE)
+    .messages({
+      'boolean.base': `"USE_QUESTION_CLASSIFIER_CACHE" should be a type of 'boolean'`,
+    }),
+
+  USE_SKILL_EXPANDER_CACHE: Joi.boolean()
+    .default(AppConfigDefault.USE_SKILL_EXPANDER_CACHE)
+    .messages({
+      'boolean.base': `"USE_SKILL_EXPANDER_CACHE" should be a type of 'boolean'`,
+    }),
 });

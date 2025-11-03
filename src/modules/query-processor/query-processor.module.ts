@@ -9,6 +9,8 @@ import {
   ILlmProviderClient,
 } from '../gpt-llm/contracts/i-llm-provider-client.contract';
 import { GptLlmModule } from '../gpt-llm/gpt-llm.module';
+import { QuestionClassifierCache } from './cache/question-classifier.cache';
+import { QuestionSkillCache } from './cache/question-skill.cache';
 import { I_ANSWER_GENERATOR_SERVICE_TOKEN } from './contracts/i-answer-generator-service.contract';
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
@@ -26,12 +28,19 @@ import { QueryProcessorUseCases } from './use-cases';
   controllers: [QueryProcessorController],
   providers: [
     ...QueryProcessorUseCases,
+    QuestionClassifierCache,
+    QuestionSkillCache,
     {
       provide: I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
+      inject: [
+        AppConfigService,
+        I_LLM_PROVIDER_CLIENT_TOKEN,
+        QuestionClassifierCache,
+      ],
       useFactory: (
         config: AppConfigService,
         llmProvider: ILlmProviderClient,
+        cache: QuestionClassifierCache,
       ) => {
         if (config.useMockQuestionClassifierService) {
           return new MockQuestionClassifierService();
@@ -39,15 +48,22 @@ import { QueryProcessorUseCases } from './use-cases';
         return new QuestionClassifierService(
           llmProvider,
           config.questionClassifierLlmModel,
+          cache,
+          config.useQuestionClassifierCache,
         );
       },
     },
     {
       provide: I_SKILL_EXPANDER_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
+      inject: [
+        AppConfigService,
+        I_LLM_PROVIDER_CLIENT_TOKEN,
+        QuestionSkillCache,
+      ],
       useFactory: (
         config: AppConfigService,
         llmProvider: ILlmProviderClient,
+        cache: QuestionSkillCache,
       ) => {
         if (config.useMockSkillExpanderService) {
           return new MockSkillExpanderService();
@@ -55,6 +71,8 @@ import { QueryProcessorUseCases } from './use-cases';
         return new SkillExpanderService(
           llmProvider,
           config.skillExpanderLlmModel,
+          cache,
+          config.useSkillExpanderCache,
         );
       },
     },

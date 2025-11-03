@@ -125,4 +125,18 @@ export class AppConfigService {
       AppConfigDefault.USE_MOCK_ANSWER_GENERATOR_SERVICE
     );
   }
+
+  get useQuestionClassifierCache(): boolean {
+    return (
+      this.configService.get<boolean>('USE_QUESTION_CLASSIFIER_CACHE') ??
+      AppConfigDefault.USE_QUESTION_CLASSIFIER_CACHE
+    );
+  }
+
+  get useSkillExpanderCache(): boolean {
+    return (
+      this.configService.get<boolean>('USE_SKILL_EXPANDER_CACHE') ??
+      AppConfigDefault.USE_SKILL_EXPANDER_CACHE
+    );
+  }
 }

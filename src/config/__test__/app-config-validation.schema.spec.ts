@@ -23,6 +23,8 @@ interface ValidationConfig {
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE?: boolean;
   USE_MOCK_SKILL_EXPANDER_SERVICE?: boolean;
   USE_MOCK_ANSWER_GENERATOR_SERVICE?: boolean;
+  USE_QUESTION_CLASSIFIER_CACHE?: boolean;
+  USE_SKILL_EXPANDER_CACHE?: boolean;
 }
 
 const requiredFields: ValidationConfig = {
@@ -490,6 +492,56 @@ describe('appConfigValidationSchema', () => {
       expect(value[envKey]).toBe(
         AppConfigDefault.USE_MOCK_ANSWER_GENERATOR_SERVICE,
       );
+    });
+  });
+
+  describe('USE_QUESTION_CLASSIFIER_CACHE', () => {
+    const envKey = 'USE_QUESTION_CLASSIFIER_CACHE';
+
+    it.each([true, false])('accepts boolean value %s', (flag) => {
+      const { error } = validate({ ...requiredFields, [envKey]: flag });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects non-boolean values', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          [envKey]: 'invalid' as unknown as boolean,
+        },
+        `"${envKey}" should be a type of 'boolean'`,
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(
+        AppConfigDefault.USE_QUESTION_CLASSIFIER_CACHE,
+      );
+    });
+  });
+
+  describe('USE_SKILL_EXPANDER_CACHE', () => {
+    const envKey = 'USE_SKILL_EXPANDER_CACHE';
+
+    it.each([true, false])('accepts boolean value %s', (flag) => {
+      const { error } = validate({ ...requiredFields, [envKey]: flag });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects non-boolean values', () => {
+      expectErrorMessage(
+        {
+          ...requiredFields,
+          [envKey]: 'invalid' as unknown as boolean,
+        },
+        `"${envKey}" should be a type of 'boolean'`,
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(AppConfigDefault.USE_SKILL_EXPANDER_CACHE);
     });
   });
 });

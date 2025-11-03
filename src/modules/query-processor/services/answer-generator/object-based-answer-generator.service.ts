@@ -37,7 +37,7 @@ export class ObjectBasedAnswerGeneratorService
     const context = this.buildContext(skillCourseMatchMap);
 
     const { getPrompts } = AnswerGeneratorPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v2');
+    const { getUserPrompt, systemPrompt } = getPrompts('v3');
 
     this.logger.log(
       `[ObjectBasedAnswerGenerator] Generating answer for question: "${question}" using model: ${this.modelName} with context: ${context}`,
