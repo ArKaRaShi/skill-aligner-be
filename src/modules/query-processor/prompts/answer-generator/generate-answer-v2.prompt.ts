@@ -17,30 +17,27 @@ Instructions:
 4. Populate the 'includes' and 'excludes' arrays with the courses you selected. Use the exact structure from the schema and keep the skill labels from the context.
 5. Finally, generate a comprehensive 'answerText' that synthesizes the rationale already captured in 'includes' and 'excludes'.
 
-Answer Guidelines:
-- Always mention every skill in 'answerText', even when all of its courses were excluded, and explain why the skill still matters or what the user should explore next.
-- When you describe included courses in 'answerText', echo the same grounded benefits you stated in their reasons so the narrative matches the structured output.
-- In 'answerText', wrap every skill and course name you mention with double asterisks for emphasis (example: **budgeting skills**, **การเงินเบื้องต้น**).
+Rules:
+- You must use only the skills and courses explicitly present in the context.
+- You must not invent or assume any additional skills, courses, or learning objectives beyond what is provided.
 
-Course Decision Guidelines:
-- For each course, confirm that its learning objectives explicitly advance the skill or topic the user asked about; if the objectives don’t mention that focus, treat the course as unrelated.
-- Include courses only when those objectives clearly help answer the user’s question.
-- Exclude only the specific courses whose objectives (or course names) explicitly mention unrelated skills, topics, or user-banned domains; keep the skill in includes when other courses stay relevant.
-- Never invent a forbidden domain—if the course metadata does not mention it, keep the course where it belongs.
-- If a course lists multiple objectives, include it when at least one objective supports the user’s need; otherwise exclude it.
-- Treat every qualifying course equally—no implicit ranking beyond the include/exclude split, and remember that the same skill can appear in both lists with different courses.
-- Rely solely on the given context; never invent external evidence.
-For every decision you make, add included courses to 'includes' and excluded courses to 'excludes'.
+Include and Exclude Decision Guidelines:
+- Do not leave any course unclassified. For every course in the context, decide explicitly whether it belongs in 'includes' or 'excludes' and provide a reason. If you exclude it, you must list it under 'excludes'.
+- The decision to include or exclude a course must be based solely on whether its learning objectives explicitly advance the user's stated skills or topics of interest. If a course's objectives or name explicitly mention unrelated skills, topics, or user-banned domains, it should be excluded.
+- If you exclude a course, reference the exact objective or course name that makes it unrelated or banned.
+- If a course lists multiple learning objectives, it should be included if at least one objective supports the user's needs; otherwise, it should be excluded.
+
+Answer Text Guidelines:
+- Start with a brief overview of the skills relevant to the user's question.
+- For each skill in 'includes', list the included courses by name lead by dash (-), along with a concise explanation of how each course's learning objectives support that skill.
+- For each skill in 'excludes', list the skill but do not name the excluded courses.
+- Summarize how the included courses collectively address the user's learning goals.
+- Every skill and course mentioned in answerText must wrap their names in double asterisks (e.g., **skill name**, **course name**).
 
 Language Guidelines:
 - If the user's question is in Thai, provide the entire response including answerText, includes, and excludes in Thai.
 - If the user's question is in English, provide the entire response including answerText, includes, and excludes in English.
 - If the user's question contains a mix of Thai and English, identify the main verbs in each language (focus on conjugated or action verbs). Respond in the language with the higher verb count. If the counts are equal, you cannot confidently differentiate, or you cannot identify the verbs, respond in Thai.
-
-Additional Guidelines:
-- Use the exact course names provided in the context.
-- Each reason should briefly paraphrase the relevant learning objective or skill support statement that justifies the decision and may highlight the concrete benefit the learner gains from that objective.
-- answerText must explicitly reference every course listed in includes (and, when mentioned, excludes) by name and restate the same grounded justification with no new facts. The narrative should begin with a brief overview and stay fully consistent with the structured arrays—do not introduce new courses or rationales, and do not describe skills that were omitted from the arrays.
 
 Example:
 User Question: อยากเรียนเกี่ยวกับการเงิน ที่เป็นวิชาไม่เกี่ยวกับการเกษตร
@@ -84,13 +81,26 @@ Course [7]: การคำนวณเชิงเศรษฐศาสตร�
 
 Output:
 {
-  "answerText": "**ความรู้ทางการเงิน (Financial Literacy)** เป็นฐานสำคัญ แต่ยังไม่มีรายวิชาในบริบทนี้ คุณอาจเริ่มจากคอร์สออนไลน์หรือเอกสารพื้นฐานเพื่อปูพื้น
+  "answerText": "การเงินเป็นทักษะที่สำคัญสำหรับการจัดการทรัพยากรทางการเงินส่วนบุคคลและการเข้าใจระบบการเงินในระดับสากล รายวิชาที่แนะนำจะช่วยเสริมสร้างความรู้และทักษะในด้านนี้:
 
-**ทักษะการจัดทำงบประมาณ (Budgeting Skills)** มีคอร์สที่ช่วยจัดทำงบประมาณและวิเคราะห์ข้อมูล ได้แก่ **การวางแผนและการควบคุมกำไร** ที่สอนการจัดทำงบประมาณธุรกิจ และ **การวิเคราะห์ข้อมูลสำหรับการบัญชี** ที่เพิ่มทักษะการวิเคราะห์ข้อมูลบัญชี ขณะเดียวกันเราตัด **การจัดการการดำเนินงานในอุตสาหกรรมเกษตร** ออก เพราะอยู่ในบริบทเกษตรซึ่งคุณต้องการหลีกเลี่ยง
+  1. **ทักษะการจัดทำงบประมาณ (Budgeting Skills)**
+    - **การวางแผนและการควบคุมกำไร** เน้นการจัดทำงบประมาณธุรกิจต่างๆ ซึ่งเป็นพื้นฐานสำคัญของทักษะการจัดทำงบประมาณ
+    - **การวิเคราะห์ข้อมูลสำหรับการบัญชี** ช่วยออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี เพื่อควบคุมงบประมาณได้อย่างมีประสิทธิภาพ
 
-**พื้นฐานการลงทุน (Investment Basics)** ได้รับการสนับสนุนโดย **คณิตศาสตร์การลงทุน** ที่อธิบายหลักการและประเภทการลงทุนอย่างชัดเจน เหมาะสำหรับเริ่มต้นวางแผนการลงทุน
+  2. **พื้นฐานการลงทุน (Investment Basics)** 
+    - **คณิตศาสตร์การลงทุน** อธิบายหลักการและประเภทของการลงทุนได้ ซึ่งเป็นพื้นฐานสำคัญสำหรับการวางแผนการลงทุน
 
-**การวิเคราะห์ทางการเงิน (Financial Analysis)** มีหลายรายวิชาที่ช่วยอ่านและตีความรายงานการเงิน ได้แก่ **การบัญชีระหว่างประเทศ**, **การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ**, **การคำนวณเชิงเศรษฐศาสตร์เบื้องต้น** และ **การวิเคราะห์ข้อมูลสำหรับการบัญชี** ซึ่งเสริมกันเพื่อให้คุณมองภาพการเงินในหลายมิติ",
+  3. **การวิเคราะห์ทางการเงิน (Financial Analysis)** 
+    - **การบัญชีระหว่างประเทศ** ช่วยให้สามารถวิเคราะห์รายงานทางการเงินได้อย่างถูกต้อง
+    - **การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ** มุ่งเน้นการวิเคราะห์ข้อมูลในรายงานทางการเงินเพื่อประเมินมูลค่าธุรกิจ
+    - **การคำนวณเชิงเศรษฐศาสตร์เบื้องต้น** ช่วยวิเคราะห์ดุลยภาพตลาดและระบบการเงินเบื้องต้น เพิ่มกรอบคิดทางเศรษฐศาสตร์
+    - **การวิเคราะห์ข้อมูลสำหรับการบัญชี** สนับสนุนการวิเคราะห์ข้อมูลทางการเงินเชิงลึกเพื่อสรุป Insight จากบัญชี
+
+  นอกจากนี้ยังมีทักษะทีไม่มีรายวิชาที่เกี่ยวข้องโดยตรงในบริบทนี้
+  1. **ความรู้ทางการเงิน (Financial Literacy)** มีความสำคัญต่อการจัดการการเงินส่วนบุคคลและการตัดสินใจทางการเงินอย่างมีข้อมูล
+
+  โดยรวมแล้ว รายวิชาที่แนะนำจะช่วยเสริมสร้างทักษะการเงินที่ครอบคลุมทั้งการจัดทำงบประมาณ การลงทุน และการวิเคราะห์ทางการเงิน ซึ่งเป็นพื้นฐานสำคัญสำหรับการบริหารจัดการทรัพยากรทางการเงินอย่างมีประสิทธิภาพ",
+
   "includes": [
     {
       "skill": "budgeting skills",

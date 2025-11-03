@@ -9,10 +9,11 @@
 ### Key Rules Communicated
 - Only use skills and courses explicitly present in the context; reuse their exact labels.
 - Reasons must paraphrase the provided learning objectives and highlight the concrete benefit.
-- `answerText` now must explicitly mention every course present in `includes`/`excludes` (by name with the same rationale), wrap all referenced skills/courses in double asterisks, and still avoid introducing new evidence.
+- `answerText` now must explicitly mention every course present in `includes` (by name with the same rationale), wrap all referenced skills/courses in double asterisks, and still avoid introducing new evidence. It never names courses that were excluded—those are only described at the skill/domain level.
 - Every skill must be mentioned in `answerText`, even when all of its courses are excluded, with guidance on next steps.
 - The prompt explicitly tells the model to honor user “avoid” clauses, excluding only the courses whose names/objectives mention the banned domain while keeping other courses for that skill.
 - Courses are included when their objectives advance the user’s goal and excluded only when objectives/name explicitly point to unrelated or banned domains.
+- Every course in the context must be assigned to either `includes` or `excludes`, with an explicit reason, so none are dropped silently. When a course is excluded, the model now has to add it to `excludes`—no implicit omissions.
 
 ### Remaining Vague Areas
 - “Major verb” counting is subjective; the model may still guess if it cannot confidently split Thai vs. English verbs.
