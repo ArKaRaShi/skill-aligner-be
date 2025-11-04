@@ -425,7 +425,14 @@ Output:
 
   @Get('/test/course-repository')
   async testCourseRepository(): Promise<any> {
-    const skills = ['budgeting techniques', 'budgeting skills'];
+    // const skills = ['budgeting techniques', 'budgeting skills'];
+    const skills = [
+      'machine learning basics',
+      'data analysis',
+      'programming fundamentals',
+      'mathematics for ai',
+    ];
+
     const matchesPerSkill = 5;
     const threshold = 0.7;
 
@@ -434,7 +441,7 @@ Output:
       matchesPerSkill,
       threshold,
     });
-    console.log('Course Matches:', result);
+
     const arrayResult = Array.from(result.entries()).map(([skill, courses]) => {
       const coursesWithoutEmbeddings = courses.map(
         ({ cloMatches, ...course }) => {

@@ -1,0 +1,17 @@
+import { Identifier } from 'src/common/domain/types/identifier';
+
+import { Course } from 'src/modules/course/types/course.type';
+import { Faculty } from 'src/modules/faculty/types/faculty.type';
+
+export type Campus = {
+  campusId: Identifier;
+
+  code: string;
+  nameEn: string | null;
+  nameTh: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+
+  faculties: Faculty[];
+  courses: Course[];
+};

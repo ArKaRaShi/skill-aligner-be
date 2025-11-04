@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { CommonSecondaryAdapterModules } from './common/adapters/secondary';
 import { AppConfigModule } from './config/app-config.module';
 import { CourseModule, UserModule } from './modules';
+import { CampusModule } from './modules/campus/campus.module';
 import { EmbeddingModule } from './modules/embedding/embedding.module';
 import { QueryProcessorModule } from './modules/query-processor/query-processor.module';
 
@@ -14,6 +15,7 @@ import { QueryProcessorModule } from './modules/query-processor/query-processor.
     ...CommonSecondaryAdapterModules,
     UserModule,
     CourseModule,
+    CampusModule,
     EmbeddingModule.register(),
     QueryProcessorModule,
   ],

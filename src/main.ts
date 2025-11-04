@@ -4,6 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { AppModule } from './app.module';
 import { AppConfigService } from './config/app-config.service';
+import { CampusModule } from './modules/campus/campus.module';
 import { QueryProcessorModule } from './modules/query-processor/query-processor.module';
 import { UserHttpModule } from './modules/user/adapters/primary/http/user-http.module';
 
@@ -75,7 +76,7 @@ async function bootstrap() {
 
   const documentFactory = () =>
     SwaggerModule.createDocument(app, config, {
-      include: [AppModule, UserHttpModule, QueryProcessorModule],
+      include: [AppModule, UserHttpModule, QueryProcessorModule, CampusModule],
     });
   SwaggerModule.setup('/swagger', app, documentFactory, {
     // explorer: true,

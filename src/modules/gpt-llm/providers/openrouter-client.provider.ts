@@ -38,7 +38,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     systemPrompt,
     model,
   }: GenerateTextInput): Promise<GenerateTextOutput> {
-    const { text, usage, providerMetadata } = await AIGenerateText({
+    const { text, usage, providerMetadata, request } = await AIGenerateText({
       model: this.openRouter(model),
       prompt,
       system: systemPrompt,
@@ -46,8 +46,11 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       maxOutputTokens: 5000,
     });
 
-    this.logger.log(
-      `[${OpenRouterClientProvider.prototype.generateText.name}] usage: ${JSON.stringify(usage, null, 2)}\nproviderMetadata: ${JSON.stringify(providerMetadata, null, 2)}`,
+    this.log(
+      OpenRouterClientProvider.prototype.generateText.name,
+      usage,
+      providerMetadata,
+      request,
     );
 
     return {
@@ -64,17 +67,22 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     schema,
     model,
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>> {
-    const { object, usage, providerMetadata } = await AIGenerateObject({
-      model: this.openRouter(model),
-      schema,
-      prompt,
-      system: systemPrompt,
-      temperature: 0,
-      maxOutputTokens: 5000,
-    });
+    const { object, usage, providerMetadata, request } = await AIGenerateObject(
+      {
+        model: this.openRouter(model),
+        schema,
+        prompt,
+        system: systemPrompt,
+        temperature: 0,
+        maxOutputTokens: 5000,
+      },
+    );
 
-    this.logger.log(
-      `[${OpenRouterClientProvider.prototype.generateObject.name}] usage: ${JSON.stringify(usage, null, 2)}\nproviderMetadata: ${JSON.stringify(providerMetadata, null, 2)}`,
+    this.log(
+      OpenRouterClientProvider.prototype.generateObject.name,
+      usage,
+      providerMetadata,
+      request,
     );
 
     return {
@@ -83,5 +91,11 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       outputTokens: usage?.outputTokens ?? 0,
       object: object as z.infer<TSchema>,
     };
+  }
+
+  private log(method: string, usage: any, providerMetadata: any, request: any) {
+    this.logger.log(
+      `[${method}] usage: ${JSON.stringify(usage, null, 2)}\nproviderMetadata: ${JSON.stringify(providerMetadata, null, 2)}\nrequest: ${JSON.stringify(request, null, 2)}`,
+    );
   }
 }
