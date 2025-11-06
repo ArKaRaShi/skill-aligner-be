@@ -23,6 +23,10 @@ import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
 } from './modules/embedding/contracts/i-embedding-client.contract';
+import {
+  I_TOOL_DISPATCHER_SERVICE_TOKEN,
+  IToolDispatcherService,
+} from './modules/query-processor/contracts/i-tool-dispatcher-service.contract';
 
 export const weatherTool = tool({
   description: 'Get the weather in a location',
@@ -99,6 +103,8 @@ export class AppController {
 
     @Inject(I_EMBEDDING_CLIENT_TOKEN)
     private readonly embeddingService: IEmbeddingClient,
+    @Inject(I_TOOL_DISPATCHER_SERVICE_TOKEN)
+    private readonly toolDispatcherService: IToolDispatcherService,
   ) {
     this.openRouter = createOpenRouter({
       apiKey: this.appConfigService.openRouterApiKey,
@@ -446,6 +452,7 @@ Output:
       const coursesWithoutEmbeddings = courses.map(
         ({ cloMatches, ...course }) => {
           const cloMatchesWithoutEmbeddings = cloMatches.map(
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             ({ embedding, ...cloMatch }) => cloMatch,
           );
 
@@ -475,5 +482,24 @@ Output:
     });
     console.log('Embeddings:', embeddings);
     return embeddings;
+  }
+
+  @Get('/test/tool-dispatcher')
+  async testToolDispatcher(@Query('query') query: string): Promise<any> {
+    if (!query) {
+      return { error: 'Query parameter is required' };
+    }
+
+    try {
+      const executionPlan =
+        await this.toolDispatcherService.generateExecutionPlan(query);
+      return { query, executionPlan };
+    } catch (error) {
+      console.error('Error in tool dispatcher:', error);
+      return {
+        error: 'Failed to generate execution plan',
+        details: error instanceof Error ? error.message : String(error),
+      };
+    }
   }
 }

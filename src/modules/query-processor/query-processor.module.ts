@@ -14,6 +14,7 @@ import { QuestionSkillCache } from './cache/question-skill.cache';
 import { I_ANSWER_GENERATOR_SERVICE_TOKEN } from './contracts/i-answer-generator-service.contract';
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
+import { I_TOOL_DISPATCHER_SERVICE_TOKEN } from './contracts/i-tool-dispatcher-service.contract';
 import { QueryProcessorController } from './query-processor.controller';
 import { MockAnswerGeneratorService } from './services/answer-generator/mock-answer-generator.service';
 import { ObjectBasedAnswerGeneratorService } from './services/answer-generator/object-based-answer-generator.service';
@@ -21,6 +22,7 @@ import { MockQuestionClassifierService } from './services/question-classifier/mo
 import { QuestionClassifierService } from './services/question-classifier/question-classifier.service';
 import { MockSkillExpanderService } from './services/skill-expander.service.ts/mock-skill-expander.service';
 import { SkillExpanderService } from './services/skill-expander.service.ts/skill-expander.service';
+import { ToolDispatcherService } from './services/tool-dispatcher.service';
 import { QueryProcessorUseCases } from './use-cases';
 
 @Module({
@@ -89,6 +91,19 @@ import { QueryProcessorUseCases } from './use-cases';
         return new ObjectBasedAnswerGeneratorService(
           llmProvider,
           config.answerGeneratorLlmModel,
+        );
+      },
+    },
+    {
+      provide: I_TOOL_DISPATCHER_SERVICE_TOKEN,
+      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
+      useFactory: (
+        config: AppConfigService,
+        llmProvider: ILlmProviderClient,
+      ) => {
+        return new ToolDispatcherService(
+          llmProvider,
+          config.toolDispatcherLlmModel,
         );
       },
     },

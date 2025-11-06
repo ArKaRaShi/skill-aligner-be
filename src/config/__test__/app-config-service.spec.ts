@@ -440,4 +440,28 @@ describe('AppConfigService', () => {
       spy.mockRestore();
     });
   });
+
+  describe('toolDispatcherLlmModel', () => {
+    it('should return TOOL_DISPATCHER_LLM_MODEL from config', () => {
+      const spy = jest
+        .spyOn(configService, 'get')
+        .mockReturnValue('openai/gpt-4o-mini');
+
+      const model = appConfigService.toolDispatcherLlmModel;
+      expect(model).toBe('openai/gpt-4o-mini');
+      expect(spy).toHaveBeenCalledWith('TOOL_DISPATCHER_LLM_MODEL');
+
+      spy.mockRestore();
+    });
+
+    it('should return default TOOL_DISPATCHER_LLM_MODEL when undefined', () => {
+      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
+
+      const model = appConfigService.toolDispatcherLlmModel;
+      expect(model).toBe(AppConfigDefault.TOOL_DISPATCHER_LLM_MODEL);
+      expect(spy).toHaveBeenCalledWith('TOOL_DISPATCHER_LLM_MODEL');
+
+      spy.mockRestore();
+    });
+  });
 });

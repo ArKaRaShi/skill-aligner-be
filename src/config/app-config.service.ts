@@ -139,4 +139,11 @@ export class AppConfigService {
       AppConfigDefault.USE_SKILL_EXPANDER_CACHE
     );
   }
+
+  get toolDispatcherLlmModel(): string {
+    return (
+      this.configService.get<string>('TOOL_DISPATCHER_LLM_MODEL') ??
+      AppConfigDefault.TOOL_DISPATCHER_LLM_MODEL
+    );
+  }
 }

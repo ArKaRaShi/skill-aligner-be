@@ -20,6 +20,7 @@ interface ValidationConfig {
   SKILL_EXPANDER_LLM_MODEL?: string;
   ANSWER_GENERATOR_LLM_PROVIDER?: string;
   ANSWER_GENERATOR_LLM_MODEL?: string;
+  TOOL_DISPATCHER_LLM_MODEL?: string;
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE?: boolean;
   USE_MOCK_SKILL_EXPANDER_SERVICE?: boolean;
   USE_MOCK_ANSWER_GENERATOR_SERVICE?: boolean;
@@ -542,6 +543,30 @@ describe('appConfigValidationSchema', () => {
     it('defaults to AppConfigDefault when omitted', () => {
       const value = requireValid({ ...requiredFields });
       expect(value[envKey]).toBe(AppConfigDefault.USE_SKILL_EXPANDER_CACHE);
+    });
+  });
+
+  describe('TOOL_DISPATCHER_LLM_MODEL', () => {
+    const envKey = 'TOOL_DISPATCHER_LLM_MODEL';
+
+    it('accepts string values', () => {
+      const { error } = validate({
+        ...requiredFields,
+        [envKey]: 'openrouter/orca-mini-3b-v2',
+      });
+      expect(error).toBeUndefined();
+    });
+
+    it('rejects non-string values', () => {
+      expectErrorMessage(
+        { ...requiredFields, [envKey]: 123 as unknown as string },
+        `"${envKey}" should be a type of 'text'`,
+      );
+    });
+
+    it('defaults to AppConfigDefault when omitted', () => {
+      const value = requireValid({ ...requiredFields });
+      expect(value[envKey]).toBe(AppConfigDefault.TOOL_DISPATCHER_LLM_MODEL);
     });
   });
 });
