@@ -12,12 +12,15 @@ import { GptLlmModule } from '../gpt-llm/gpt-llm.module';
 import { QuestionClassifierCache } from './cache/question-classifier.cache';
 import { QuestionSkillCache } from './cache/question-skill.cache';
 import { I_ANSWER_GENERATOR_SERVICE_TOKEN } from './contracts/i-answer-generator-service.contract';
+import { I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN } from './contracts/i-query-profile-builder-service.contract';
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
 import { I_TOOL_DISPATCHER_SERVICE_TOKEN } from './contracts/i-tool-dispatcher-service.contract';
 import { QueryProcessorController } from './query-processor.controller';
 import { MockAnswerGeneratorService } from './services/answer-generator/mock-answer-generator.service';
 import { ObjectBasedAnswerGeneratorService } from './services/answer-generator/object-based-answer-generator.service';
+import { MockQueryProfileBuilderService } from './services/query-profile-builder/mock-query-profile-builder.service';
+import { QueryProfileBuilderService } from './services/query-profile-builder/query-profile-builder.service';
 import { MockQuestionClassifierService } from './services/question-classifier/mock-question-classifier.service';
 import { QuestionClassifierService } from './services/question-classifier/question-classifier.service';
 import { MockSkillExpanderService } from './services/skill-expander.service.ts/mock-skill-expander.service';
@@ -86,6 +89,7 @@ import { QueryProcessorUseCases } from './use-cases';
         llmProvider: ILlmProviderClient,
       ) => {
         if (config.useMockAnswerGeneratorService) {
+          console.log('Creating MockAnswerGeneratorService');
           return new MockAnswerGeneratorService(llmProvider);
         }
         return new ObjectBasedAnswerGeneratorService(
@@ -107,6 +111,23 @@ import { QueryProcessorUseCases } from './use-cases';
         );
       },
     },
+    {
+      provide: I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
+      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
+      useFactory: (
+        config: AppConfigService,
+        llmProvider: ILlmProviderClient,
+      ) => {
+        if (config.useMockQueryProfileBuilderService) {
+          return new MockQueryProfileBuilderService();
+        }
+        return new QueryProfileBuilderService(
+          llmProvider,
+          config.queryProfileBuilderLlmModel,
+        );
+      },
+    },
   ],
+  exports: [I_TOOL_DISPATCHER_SERVICE_TOKEN],
 })
 export class QueryProcessorModule {}

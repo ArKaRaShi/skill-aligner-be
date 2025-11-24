@@ -1,34 +1,14 @@
-type QueryProfile = {
-  existing: string[];
-  desired: string[];
-  preferrences: string[];
-};
-
-export type RegisterTool = {
-  id: string;
-  name: string;
-  description: string;
-
-  inputExample?: any;
-  outputExample?: any;
-
-  hintPairing?: string[];
-  dependsOn?: string[];
-};
-
-// Execution plan types for LLM dispatcher
-export type ToolExecutionStep = {
-  id: string;
-  dependsOn: string[] | null;
-};
-
-export type ExecutionPlan = ToolExecutionStep[][];
+import { QueryProfile } from '../types/query-profile.type';
+import { RegisterTool } from '../types/register-tool.type';
 
 // question: ถนัดโค้ด มีอาชีพอะไรบ้าง ต้องมีทักษะอะไรบ้าง สนใจ AI เป็นพิเศษ
 const QUERY_PROFILE: QueryProfile = {
-  existing: ['ถนัดโค้ด'],
-  desired: ['มีอาชีพอะไรบ้าง', 'ต้องมีทักษะอะไรบ้าง'],
-  preferrences: ['สนใจ AI เป็นพิเศษ'],
+  background: [{ original: 'ถนัดโค้ด', augmented: 'coding' }],
+  intents: [
+    { original: 'มีอาชีพอะไรบ้าง', augmented: 'ask-occupation' },
+    { original: 'ต้องมีทักษะอะไรบ้าง', augmented: 'ask-skills' },
+  ],
+  preferences: [{ original: 'สนใจ AI เป็นพิเศษ', augmented: 'AI' }],
 };
 
 // question: อยากเรียนการเงิน
@@ -59,7 +39,7 @@ export const REGISTER_TOOL: RegisterTool[] = [
     id: 'occupation-inferrer-from-query',
     name: 'occupation-inferrer-from-query',
     description: 'Infers occupations from skills and user preferences',
-    dependsOn: ['skill-inferrer-from-query'], // Depends on skills being identified first
+    // dependsOn: ['skill-inferrer-from-query'], // Depends on skills being identified first
 
     inputExample: {
       query: 'ถนัดโค้ด มีอาชีพอะไรบ้าง ต้องมีทักษะอะไรบ้าง สนใจ AI เป็นพิเศษ',

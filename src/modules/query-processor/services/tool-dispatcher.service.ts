@@ -5,23 +5,14 @@ import {
   ILlmProviderClient,
 } from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 
-import {
-  REGISTER_TOOL,
-  RegisterTool,
-  ToolExecutionStep,
-} from '../constants/register-tool.constant';
-import {
-  I_TOOL_DISPATCHER_SERVICE_TOKEN,
-  IToolDispatcherService,
-} from '../contracts/i-tool-dispatcher-service.contract';
+import { REGISTER_TOOL } from '../constants/register-tool.constant';
+import { IToolDispatcherService } from '../contracts/i-tool-dispatcher-service.contract';
 import {
   getToolDispatcherUserPrompt,
   TOOL_DISPATCHER_SYSTEM_PROMPT,
 } from '../prompts/tool-dispatcher.prompt';
-import {
-  LlmToolDispatcher,
-  ToolDispatcherSchema,
-} from '../schemas/tool-dispatcher.schema';
+import { ToolDispatcherSchema } from '../schemas/tool-dispatcher.schema';
+import { RegisterTool } from '../types/register-tool.type';
 import { ExecutionPlan } from '../types/tool-dispatcher.type';
 
 @Injectable()

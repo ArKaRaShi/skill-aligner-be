@@ -1,4 +1,4 @@
-import { ExecutionPlan } from '../constants/register-tool.constant';
+import { ExecutionPlan } from '../types/tool-dispatcher.type';
 
 export const I_TOOL_DISPATCHER_SERVICE_TOKEN = Symbol('IToolDispatcherService');
 

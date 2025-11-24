@@ -146,4 +146,27 @@ export class AppConfigService {
       AppConfigDefault.TOOL_DISPATCHER_LLM_MODEL
     );
   }
+
+  get queryProfileBuilderLlmProvider(): 'openrouter' | 'openai' {
+    const provider =
+      this.configService.get<'openrouter' | 'openai'>(
+        'QUERY_PROFILE_BUILDER_LLM_PROVIDER',
+      ) ?? AppConfigDefault.QUERY_PROFILE_BUILDER_LLM_PROVIDER;
+    return provider as 'openrouter' | 'openai';
+  }
+
+  get queryProfileBuilderLlmModel(): string {
+    return (
+      this.configService.get<string>('QUERY_PROFILE_BUILDER_LLM_MODEL') ??
+      AppConfigDefault.QUERY_PROFILE_BUILDER_LLM_MODEL
+    );
+  }
+
+  get useMockQueryProfileBuilderService(): boolean {
+    return (
+      this.configService.get<boolean>(
+        'USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE',
+      ) ?? AppConfigDefault.USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE
+    );
+  }
 }

@@ -131,6 +131,12 @@ export const appConfigValidationSchema = Joi.object({
       'boolean.base': `"USE_MOCK_ANSWER_GENERATOR_SERVICE" should be a type of 'boolean'`,
     }),
 
+  USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE: Joi.boolean()
+    .default(AppConfigDefault.USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE)
+    .messages({
+      'boolean.base': `"USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE" should be a type of 'boolean'`,
+    }),
+
   USE_QUESTION_CLASSIFIER_CACHE: Joi.boolean()
     .default(AppConfigDefault.USE_QUESTION_CLASSIFIER_CACHE)
     .messages({
