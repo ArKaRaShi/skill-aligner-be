@@ -430,17 +430,28 @@ Output:
   }
 
   @Get('/test/course-repository')
-  async testCourseRepository(): Promise<any> {
-    // const skills = ['budgeting techniques', 'budgeting skills'];
-    const skills = [
-      'machine learning basics',
-      'data analysis',
-      'programming fundamentals',
-      'mathematics for ai',
-    ];
+  async testCourseRepository(
+    @Query('skills') skillsQuery?: string,
+  ): Promise<any> {
+    // Parse skills from comma-separated query string or use defaults
+    const skills = skillsQuery
+      ? skillsQuery
+          .split(',')
+          .map((skill) => skill.trim())
+          .filter((skill) => skill.length > 0)
+      : [
+          'machine learning basics',
+          'data analysis',
+          'programming fundamentals',
+          'mathematics for ai',
+        ];
 
-    const matchesPerSkill = 5;
+    const matchesPerSkill = 10;
     const threshold = 0.7;
+
+    if (skills.length === 0) {
+      return { error: 'At least one skill must be provided' };
+    }
 
     const result = await this.courseRepository.findCoursesBySkillsViaLO({
       skills,

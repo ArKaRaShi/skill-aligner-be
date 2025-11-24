@@ -6,9 +6,13 @@ import {
 } from 'src/modules/course/contracts/i-course.repository';
 
 import {
-  I_ANSWER_GENERATOR_SERVICE_TOKEN,
-  IAnswerGeneratorService,
-} from '../contracts/i-answer-generator-service.contract';
+  I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
+  IAnswerSynthesisService,
+} from '../contracts/i-answer-synthesis-service.contract';
+import {
+  I_COURSE_CLASSIFICATION_SERVICE_TOKEN,
+  ICourseClassificationService,
+} from '../contracts/i-course-classification-service.contract';
 import {
   I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
   IQueryProfileBuilderService,
@@ -21,6 +25,7 @@ import {
   I_SKILL_EXPANDER_SERVICE_TOKEN,
   ISkillExpanderService,
 } from '../contracts/i-skill-expander-service.contract';
+import { CourseClassificationResult } from '../types/course-classification.type';
 import { Classification } from '../types/question-classification.type';
 import { SkillExpansion } from '../types/skill-expansion.type';
 import { AnswerQuestionUseCaseOutput } from './types/answer-question.use-case.type';
@@ -38,8 +43,10 @@ export class AnswerQuestionUseCase {
     private readonly skillExpanderService: ISkillExpanderService,
     @Inject(I_COURSE_REPOSITORY_TOKEN)
     private readonly courseRepository: ICourseRepository,
-    @Inject(I_ANSWER_GENERATOR_SERVICE_TOKEN)
-    private readonly answerGeneratorService: IAnswerGeneratorService,
+    @Inject(I_COURSE_CLASSIFICATION_SERVICE_TOKEN)
+    private readonly courseClassificationService: ICourseClassificationService,
+    @Inject(I_ANSWER_SYNTHESIS_SERVICE_TOKEN)
+    private readonly answerSynthesisService: IAnswerSynthesisService,
   ) {}
 
   async execute(question: string): Promise<AnswerQuestionUseCaseOutput> {
@@ -80,7 +87,7 @@ export class AnswerQuestionUseCase {
         answer: 'ขออภัย เราไม่แน่ใจว่าคุณต้องการอะไร กรุณาลองถามใหม่อีกครั้ง',
         suggestQuestion:
           'อยากเรียนเกี่ยวกับทักษะที่จำเป็นสำหรับการทำงานในอนาคต',
-        relatedCourses: [],
+        skillGroupedCourses: [],
       };
     }
 
@@ -119,32 +126,54 @@ export class AnswerQuestionUseCase {
       threshold: 0.82, // beware of Mar Terraform Engineer, tune this value as needed
     });
 
-    const { answerText } = await this.answerGeneratorService.generateAnswer(
-      question,
-      courses,
+    // Phase 1: Classify courses
+    const classificationResult =
+      await this.courseClassificationService.classifyCourses(question, courses);
+
+    this.logger.log(
+      `Course classification result: ${JSON.stringify(classificationResult, null, 2)}`,
     );
 
-    console.log(
-      'Answer generation details:',
-      JSON.stringify({ answerText }, null, 2),
+    // Phase 2: Synthesize answer
+    const synthesisResult = await this.answerSynthesisService.synthesizeAnswer(
+      question,
+      classificationResult,
+    );
+
+    this.logger.log(
+      `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
     );
 
     return {
-      answer: answerText,
+      answer: synthesisResult.answerText,
       suggestQuestion: null,
-      relatedCourses: Array.from(courses.entries()).flatMap(
-        ([skill, courses]) => {
-          return courses.map((course) => {
-            return {
-              skill,
-              courseName: course.subjectNameTh,
-              matchLO: course.cloMatches[0].cleanedCLONameTh,
-              similarity: course.cloMatches[0].similarityScore,
-            };
-          });
-        },
-      ),
+      skillGroupedCourses: this.filterIncludedCourses(classificationResult),
     };
+  }
+
+  private filterIncludedCourses(
+    classificationResult: CourseClassificationResult,
+  ) {
+    const skillGroupedCourses: {
+      skill: string;
+      courses: { courseName: string; reason: string }[];
+    }[] = [];
+
+    for (const classification of classificationResult.classifications) {
+      const includedCourses = classification.courses
+        .filter((course) => course.decision === 'include')
+        .map((course) => ({
+          courseName: course.name,
+          reason: course.reason,
+        }));
+
+      skillGroupedCourses.push({
+        skill: classification.skill,
+        courses: includedCourses,
+      });
+    }
+
+    return skillGroupedCourses;
   }
 
   private getFallbackAnswerForClassification(
@@ -154,7 +183,7 @@ export class AnswerQuestionUseCase {
       return {
         answer: 'ขออภัย คำถามของคุณอยู่นอกขอบเขตที่เราสามารถช่วยได้',
         suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
-        relatedCourses: [],
+        skillGroupedCourses: [],
       };
     }
 
@@ -162,7 +191,7 @@ export class AnswerQuestionUseCase {
       return {
         answer: 'ขออภัย คำถามของคุณมีเนื้อหาที่ไม่เหมาะสมหรือเป็นอันตราย',
         suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
-        relatedCourses: [],
+        skillGroupedCourses: [],
       };
     }
 
@@ -171,7 +200,7 @@ export class AnswerQuestionUseCase {
         answer: 'ขออภัย คำถามของคุณไม่ชัดเจน กรุณาลองถามใหม่อีกครั้ง',
         suggestQuestion:
           'อยากเรียนเกี่ยวกับทักษะที่จำเป็นสำหรับการทำงานในอนาคต',
-        relatedCourses: [],
+        skillGroupedCourses: [],
       };
     }
 

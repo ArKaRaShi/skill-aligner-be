@@ -1,10 +1,13 @@
+type CourseOutput = {
+  courseName: string;
+  reason: string;
+};
+
 export type AnswerQuestionUseCaseOutput = {
   answer: string | null;
   suggestQuestion: string | null;
-  relatedCourses: {
+  skillGroupedCourses: {
     skill: string;
-    courseName: string;
-    matchLO: string;
-    similarity: number;
+    courses: CourseOutput[];
   }[];
 };

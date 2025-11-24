@@ -39,6 +39,12 @@ function logEnvironmentVariables(appConfigService: AppConfigService) {
     `SKILL_EXPANDER_LLM_MODEL: ${appConfigService.skillExpanderLlmModel}`,
   );
   console.log(
+    `COURSE_CLASSIFICATION_LLM_MODEL: ${appConfigService.courseClassificationLlmModel}`,
+  );
+  console.log(
+    `ANSWER_SYNTHESIS_LLM_MODEL: ${appConfigService.answerSynthesisLlmModel}`,
+  );
+  console.log(
     `ANSWER_GENERATOR_LLM_PROVIDER: ${appConfigService.answerGeneratorLlmProvider}`,
   );
   console.log(

@@ -12,6 +12,8 @@ import { GptLlmModule } from '../gpt-llm/gpt-llm.module';
 import { QuestionClassifierCache } from './cache/question-classifier.cache';
 import { QuestionSkillCache } from './cache/question-skill.cache';
 import { I_ANSWER_GENERATOR_SERVICE_TOKEN } from './contracts/i-answer-generator-service.contract';
+import { I_ANSWER_SYNTHESIS_SERVICE_TOKEN } from './contracts/i-answer-synthesis-service.contract';
+import { I_COURSE_CLASSIFICATION_SERVICE_TOKEN } from './contracts/i-course-classification-service.contract';
 import { I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN } from './contracts/i-query-profile-builder-service.contract';
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
@@ -19,6 +21,8 @@ import { I_TOOL_DISPATCHER_SERVICE_TOKEN } from './contracts/i-tool-dispatcher-s
 import { QueryProcessorController } from './query-processor.controller';
 import { MockAnswerGeneratorService } from './services/answer-generator/mock-answer-generator.service';
 import { ObjectBasedAnswerGeneratorService } from './services/answer-generator/object-based-answer-generator.service';
+import { AnswerSynthesisService } from './services/answer-synthesis/answer-synthesis.service';
+import { CourseClassificationService } from './services/course-classification/course-classification.service';
 import { MockQueryProfileBuilderService } from './services/query-profile-builder/mock-query-profile-builder.service';
 import { QueryProfileBuilderService } from './services/query-profile-builder/query-profile-builder.service';
 import { MockQuestionClassifierService } from './services/question-classifier/mock-question-classifier.service';
@@ -124,6 +128,36 @@ import { QueryProcessorUseCases } from './use-cases';
         return new QueryProfileBuilderService(
           llmProvider,
           config.queryProfileBuilderLlmModel,
+        );
+      },
+    },
+    {
+      provide: I_COURSE_CLASSIFICATION_SERVICE_TOKEN,
+      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
+      useFactory: (
+        config: AppConfigService,
+        llmProvider: ILlmProviderClient,
+      ) => {
+        // The CourseClassificationService is not mocked for now
+        // but this can be extended in the future if needed
+        return new CourseClassificationService(
+          llmProvider,
+          config.courseClassificationLlmModel,
+        );
+      },
+    },
+    {
+      provide: I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
+      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
+      useFactory: (
+        config: AppConfigService,
+        llmProvider: ILlmProviderClient,
+      ) => {
+        // The AnswerSynthesisService is not mocked for now
+        // but this can be extended in the future if needed
+        return new AnswerSynthesisService(
+          llmProvider,
+          config.answerSynthesisLlmModel,
         );
       },
     },

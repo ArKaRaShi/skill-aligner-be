@@ -1,11 +1,22 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class RelatedCourseDto {
-  @ApiProperty({ description: 'The skill related to the course' })
+export class CourseOutputDto {
+  @ApiProperty({ description: 'The name of the course' })
+  courseName: string;
+
+  @ApiProperty({ description: 'The reason for including this course' })
+  reason: string;
+}
+
+export class SkillGroupedCoursesDto {
+  @ApiProperty({ description: 'The skill name' })
   skill: string;
 
-  @ApiProperty({ description: 'The name of the related course' })
-  courseName: string;
+  @ApiProperty({
+    description: 'List of courses related to this skill',
+    type: [CourseOutputDto],
+  })
+  courses: CourseOutputDto[];
 }
 
 export class AnswerQuestionResponseDto {
@@ -20,8 +31,8 @@ export class AnswerQuestionResponseDto {
   suggestQuestion: string | null;
 
   @ApiProperty({
-    description: 'List of related courses',
-    type: [RelatedCourseDto],
+    description: 'List of skill-grouped courses',
+    type: [SkillGroupedCoursesDto],
   })
-  relatedCourses: RelatedCourseDto[];
+  skillGroupedCourses: SkillGroupedCoursesDto[];
 }

@@ -162,6 +162,20 @@ export class AppConfigService {
     );
   }
 
+  get answerSynthesisLlmModel(): string {
+    return (
+      this.configService.get<string>('ANSWER_SYNTHESIS_LLM_MODEL') ??
+      AppConfigDefault.ANSWER_SYNTHESIS_LLM_MODEL
+    );
+  }
+
+  get courseClassificationLlmModel(): string {
+    return (
+      this.configService.get<string>('COURSE_CLASSIFICATION_LLM_MODEL') ??
+      AppConfigDefault.COURSE_CLASSIFICATION_LLM_MODEL
+    );
+  }
+
   get useMockQueryProfileBuilderService(): boolean {
     return (
       this.configService.get<boolean>(

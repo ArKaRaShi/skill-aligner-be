@@ -113,6 +113,18 @@ export const appConfigValidationSchema = Joi.object({
       'string.base': `"TOOL_DISPATCHER_LLM_MODEL" should be a type of 'text'`,
     }),
 
+  ANSWER_SYNTHESIS_LLM_MODEL: Joi.string()
+    .default(AppConfigDefault.ANSWER_SYNTHESIS_LLM_MODEL)
+    .messages({
+      'string.base': `"ANSWER_SYNTHESIS_LLM_MODEL" should be a type of 'text'`,
+    }),
+
+  COURSE_CLASSIFICATION_LLM_MODEL: Joi.string()
+    .default(AppConfigDefault.COURSE_CLASSIFICATION_LLM_MODEL)
+    .messages({
+      'string.base': `"COURSE_CLASSIFICATION_LLM_MODEL" should be a type of 'text'`,
+    }),
+
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE: Joi.boolean()
     .default(AppConfigDefault.USE_MOCK_QUESTION_CLASSIFIER_SERVICE)
     .messages({
