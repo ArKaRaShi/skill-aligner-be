@@ -5,8 +5,8 @@ import {
   OpenRouterProvider,
 } from '@openrouter/ai-sdk-provider';
 import {
-  generateObject as AIGenerateObject,
-  generateText as AIGenerateText,
+  generateObject as aiGenerateObject,
+  generateText as aiGenerateText,
 } from 'ai';
 import { z } from 'zod';
 
@@ -38,7 +38,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     systemPrompt,
     model,
   }: GenerateTextInput): Promise<GenerateTextOutput> {
-    const { text, usage, providerMetadata, request } = await AIGenerateText({
+    const { text, usage, providerMetadata, request } = await aiGenerateText({
       model: this.openRouter(model),
       prompt,
       system: systemPrompt,
@@ -46,12 +46,12 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       maxOutputTokens: 5000,
     });
 
-    this.log(
-      OpenRouterClientProvider.prototype.generateText.name,
-      usage,
-      providerMetadata,
-      request,
-    );
+    // this.log(
+    //   OpenRouterClientProvider.prototype.generateText.name,
+    //   usage,
+    //   providerMetadata,
+    //   request,
+    // );
 
     return {
       text,
@@ -67,7 +67,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     schema,
     model,
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>> {
-    const { object, usage, providerMetadata, request } = await AIGenerateObject(
+    const { object, usage, providerMetadata, request } = await aiGenerateObject(
       {
         model: this.openRouter(model),
         schema,
@@ -78,12 +78,12 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       },
     );
 
-    this.log(
-      OpenRouterClientProvider.prototype.generateObject.name,
-      usage,
-      providerMetadata,
-      request,
-    );
+    // this.log(
+    //   OpenRouterClientProvider.prototype.generateObject.name,
+    //   usage,
+    //   providerMetadata,
+    //   request,
+    // );
 
     return {
       model,

@@ -7,6 +7,10 @@ import {
   getGenerateAnswerUserPromptV3,
 } from './generate-answer-v3.prompt';
 import {
+  GENERATE_ANSWER_SYSTEM_PROMPT_V4,
+  getGenerateAnswerUserPromptV4,
+} from './generate-answer-v4.prompt';
+import {
   GENERATE_ANSWER_SYSTEM_PROMPT,
   getGenerateAnswerUserPrompt,
 } from './generate-answer.prompt';
@@ -17,7 +21,7 @@ type AnswerGeneratorPrompt = {
 };
 
 const AnswerGeneratorPrompts: Record<
-  'v1' | 'v2' | 'v3',
+  'v1' | 'v2' | 'v3' | 'v4',
   AnswerGeneratorPrompt
 > = {
   v1: {
@@ -31,6 +35,10 @@ const AnswerGeneratorPrompts: Record<
   v3: {
     systemPrompt: GENERATE_ANSWER_SYSTEM_PROMPT_V3,
     getUserPrompt: getGenerateAnswerUserPromptV3,
+  },
+  v4: {
+    systemPrompt: GENERATE_ANSWER_SYSTEM_PROMPT_V4,
+    getUserPrompt: getGenerateAnswerUserPromptV4,
   },
 };
 
