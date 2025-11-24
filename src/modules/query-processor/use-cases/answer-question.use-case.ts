@@ -120,6 +120,8 @@ export class AnswerQuestionUseCase {
     // Phase 3: Execute dependent operations (structured for future dependency management)
     const skills = skillExpansion?.skills || [];
 
+    this.logger.log(`Expanded skills: ${JSON.stringify(skills, null, 2)}`);
+
     const courses = await this.courseRepository.findCoursesBySkillsViaLO({
       skills: skills.map((skill) => skill.skill),
       matchesPerSkill: 5, // tune this value as needed

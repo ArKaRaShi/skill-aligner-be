@@ -27,8 +27,8 @@ import { MockQueryProfileBuilderService } from './services/query-profile-builder
 import { QueryProfileBuilderService } from './services/query-profile-builder/query-profile-builder.service';
 import { MockQuestionClassifierService } from './services/question-classifier/mock-question-classifier.service';
 import { QuestionClassifierService } from './services/question-classifier/question-classifier.service';
-import { MockSkillExpanderService } from './services/skill-expander.service.ts/mock-skill-expander.service';
-import { SkillExpanderService } from './services/skill-expander.service.ts/skill-expander.service';
+import { MockSkillExpanderService } from './services/skill-expander/mock-skill-expander.service';
+import { SkillExpanderService } from './services/skill-expander/skill-expander.service';
 import { ToolDispatcherService } from './services/tool-dispatcher.service';
 import { QueryProcessorUseCases } from './use-cases';
 
