@@ -36,6 +36,7 @@ Answer Guidelines:
 - Structure the answer with clear numbered sections for each skill category
 - Use bullet points for individual courses within each skill section
 - Include a concluding summary that ties everything together
+- Do NOT use word "หลักสูตร", the classification results already imply they are courses
 
 Language Guidelines:
 - If the user's question is in Thai, provide the entire response in Thai.
@@ -47,11 +48,10 @@ Output Format:
 - Do not wrap your answer in JSON format or any other structured format
 - Generate the complete synthesized answer directly
 
-Output Structure:
+Example Output Structure:
 <Brief introduction summarizing the importance of the skills and courses>
 
 1. **<Skill Name with included courses>**
-   - **<Included Course Name>** <Brief explanation based on the reason provided>
    - **<Included Course Name>** <Brief explanation based on the reason provided>
 
 2. **<Skill Name with included courses>**
@@ -60,6 +60,10 @@ Output Structure:
 3. **<Skill Name with only excluded courses>** <Explanation of why this skill is important or what to explore instead>
 
 4. **<Skill Name with only excluded courses>** <Explanation of why this skill is important or what to explore instead>
+
+5. **<Skill Name with included courses>**
+   - **<Included Course Name>** <Brief explanation based on the reason provided>
+...
 
 <Concluding summary tying all skills and courses together>
 `;

@@ -125,7 +125,8 @@ export class AnswerQuestionUseCase {
     const courses = await this.courseRepository.findCoursesBySkillsViaLO({
       skills: skills.map((skill) => skill.skill),
       matchesPerSkill: 5, // tune this value as needed
-      threshold: 0.82, // beware of Mar Terraform Engineer, tune this value as needed
+      // Adjust from 8.2 to 8.0 because of courses with lower relevance but still useful
+      threshold: 0.8, // beware of Mar Terraform Engineer, tune this value as needed
     });
 
     // Phase 1: Classify courses
