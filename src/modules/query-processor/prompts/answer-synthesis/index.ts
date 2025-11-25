@@ -1,10 +1,14 @@
 import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT_V2,
-  getAnswerSynthesisUserPrompt,
+  getAnswerSynthesisUserPromptV2,
 } from './answer-synthesis-v2.prompt';
 import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V3,
+  getAnswerSynthesisUserPromptV3,
+} from './answer-synthesis-v3.prompt';
+import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT,
-  getAnswerSynthesisUserPrompt as getAnswerSynthesisUserPromptV1,
+  getAnswerSynthesisUserPrompt,
 } from './answer-synthesis.prompt';
 
 type AnswerSynthesisPrompt = {
@@ -12,14 +16,21 @@ type AnswerSynthesisPrompt = {
   getUserPrompt: (question: string, context: string) => string;
 };
 
-const AnswerSynthesisPrompts: Record<'v1' | 'v2', AnswerSynthesisPrompt> = {
+const AnswerSynthesisPrompts: Record<
+  'v1' | 'v2' | 'v3',
+  AnswerSynthesisPrompt
+> = {
   v1: {
     systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT,
-    getUserPrompt: getAnswerSynthesisUserPromptV1,
+    getUserPrompt: getAnswerSynthesisUserPrompt,
   },
   v2: {
     systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V2,
-    getUserPrompt: getAnswerSynthesisUserPrompt,
+    getUserPrompt: getAnswerSynthesisUserPromptV2,
+  },
+  v3: {
+    systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V3,
+    getUserPrompt: getAnswerSynthesisUserPromptV3,
   },
 };
 
