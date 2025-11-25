@@ -1,4 +1,6 @@
-import { CourseMatch } from '../types/course.type';
+import { Identifier } from 'src/common/domain/types/identifier';
+
+import { Course, CourseMatch } from '../types/course.type';
 
 export const I_COURSE_REPOSITORY_TOKEN = Symbol('ICourseRepository');
 
@@ -19,4 +21,12 @@ export interface ICourseRepository {
     matchesPerSkill,
     threshold,
   }: FindCoursesBySkillsSemanticParams): Promise<Map<string, CourseMatch[]>>;
+
+  /**
+   * Find a course by its identifier or throw an error if not found.
+   * @param courseId The course identifier.
+   * @returns The course with the given identifier.
+   * @throws Error if the course is not found.
+   */
+  findByIdOrThrow(courseId: Identifier): Promise<Course>;
 }

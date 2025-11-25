@@ -11,8 +11,12 @@ import {
 } from 'src/modules/embedding/contracts/i-embedding-client.contract';
 
 import { ICourseRepository } from '../contracts/i-course.repository';
-import { CourseLearningOutcomeMatch } from '../types/course-learning-outcome.type';
-import { CourseMatch } from '../types/course.type';
+import {
+  CourseLearningOutcome,
+  CourseLearningOutcomeMatch,
+} from '../types/course-learning-outcome.type';
+import { Course, CourseMatch } from '../types/course.type';
+import { FindCourseByIdRawRow } from './types/find-course-by-id-raw.type';
 
 type FindCoursesBySkillsParams = {
   skills: string[];
@@ -44,7 +48,6 @@ export class PrismaCourseRepository implements ICourseRepository {
     matchesPerSkill,
     threshold,
   }: FindCoursesBySkillsParams): Promise<Map<string, CourseMatch[]>> {
-    // const startTimeMs = Date.now();
     const normalizedSkills = Array.from(
       new Set(
         (skills ?? [])
@@ -54,10 +57,6 @@ export class PrismaCourseRepository implements ICourseRepository {
     );
 
     if (!normalizedSkills.length) {
-      // const durationMs = Date.now() - startTimeMs;
-      // console.log(
-      //   `[PrismaCourseRepository] findCoursesBySkillsViaLO completed in ${durationMs}ms (skills=0)`,
-      // );
       return new Map();
     }
 
@@ -254,12 +253,82 @@ export class PrismaCourseRepository implements ICourseRepository {
       result.set(skill, courseMatches);
     }
 
-    // const durationMs = Date.now() - startTimeMs;
-    // console.log(
-    //   `[PrismaCourseRepository] findCoursesBySkillsViaLO completed in ${durationMs}ms (skills=${normalizedSkills.length})`,
-    // );
-
     return result;
+  }
+
+  async findByIdOrThrow(courseId: Identifier): Promise<Course> {
+    const rows = await this.prisma.$queryRaw<FindCourseByIdRawRow[]>`
+      SELECT
+        c.id AS course_id,
+        c.campus_id,
+        c.faculty_id,
+        c.academic_year,
+        c.semester,
+        c.subject_code,
+        c.subject_name_th,
+        c.subject_name_en,
+        c.metadata AS course_metadata,
+        c.created_at AS course_created_at,
+        c.updated_at AS course_updated_at,
+        cc.id AS course_clo_id,
+        cc.clo_no,
+        cc.created_at AS course_clo_created_at,
+        cc.updated_at AS course_clo_updated_at,
+        clo.id AS clo_id,
+        clo.original_clo_name,
+        clo.original_clo_name_en,
+        clo.cleaned_clo_name_th,
+        clo.cleaned_clo_name_en,
+        clo.embedding,
+        clo.skip_embedding,
+        clo.is_embedded,
+        clo.metadata AS clo_metadata,
+        clo.created_at AS clo_created_at,
+        clo.updated_at AS clo_updated_at
+      FROM courses c
+      LEFT JOIN course_clos cc ON c.id = cc.course_id
+      LEFT JOIN course_learning_outcomes clo ON cc.clo_id = clo.id
+      WHERE c.id = ${courseId}
+      ORDER BY cc.clo_no;
+    `;
+
+    if (!rows.length) {
+      throw new Error(`Course with id ${courseId} not found`);
+    }
+
+    const firstRow = rows[0];
+    const courseLearningOutcomes: CourseLearningOutcome[] = rows
+      .filter((row) => row.clo_id)
+      .map((row) => ({
+        cloId: row.clo_id as Identifier,
+        courseId: row.course_id as Identifier,
+        cloNo: row.clo_no,
+        originalCLONameTh: row.original_clo_name,
+        originalCLONameEn: row.original_clo_name_en,
+        cleanedCLONameTh: row.cleaned_clo_name_th,
+        cleanedCLONameEn: row.cleaned_clo_name_en,
+        embedding: row.embedding,
+        skipEmbedding: row.skip_embedding,
+        isEmbedded: row.is_embedded,
+        metadata: row.clo_metadata,
+        createdAt: row.clo_created_at,
+        updatedAt: row.clo_updated_at,
+      }));
+
+    return {
+      courseId: firstRow.course_id as Identifier,
+      campusId: firstRow.campus_id as Identifier,
+      facultyId: firstRow.faculty_id as Identifier,
+      academicYear: firstRow.academic_year,
+      semester: firstRow.semester,
+      subjectCode: firstRow.subject_code,
+      subjectNameTh: firstRow.subject_name_th,
+      subjectNameEn: firstRow.subject_name_en,
+      courseLearningOutcomes,
+      metadata: firstRow.course_metadata,
+      createdAt: firstRow.course_created_at,
+      updatedAt: firstRow.course_updated_at,
+    };
   }
 }
 

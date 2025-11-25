@@ -1,5 +1,6 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
 import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger';
 
 import {
@@ -34,7 +35,9 @@ import { SkillExpansion } from '../types/skill-expansion.type';
 import { AnswerQuestionUseCaseOutput } from './types/answer-question.use-case.type';
 
 @Injectable()
-export class AnswerQuestionUseCase {
+export class AnswerQuestionUseCase
+  implements IUseCase<string, AnswerQuestionUseCaseOutput>
+{
   private readonly logger = new Logger(AnswerQuestionUseCase.name);
   private readonly timeLogger = new TimeLogger();
 
