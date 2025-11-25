@@ -44,7 +44,7 @@ export class PrismaCourseRepository implements ICourseRepository {
     matchesPerSkill,
     threshold,
   }: FindCoursesBySkillsParams): Promise<Map<string, CourseMatch[]>> {
-    const startTimeMs = Date.now();
+    // const startTimeMs = Date.now();
     const normalizedSkills = Array.from(
       new Set(
         (skills ?? [])
@@ -54,10 +54,10 @@ export class PrismaCourseRepository implements ICourseRepository {
     );
 
     if (!normalizedSkills.length) {
-      const durationMs = Date.now() - startTimeMs;
-      console.log(
-        `[PrismaCourseRepository] findCoursesBySkillsViaLO completed in ${durationMs}ms (skills=0)`,
-      );
+      // const durationMs = Date.now() - startTimeMs;
+      // console.log(
+      //   `[PrismaCourseRepository] findCoursesBySkillsViaLO completed in ${durationMs}ms (skills=0)`,
+      // );
       return new Map();
     }
 
@@ -254,10 +254,10 @@ export class PrismaCourseRepository implements ICourseRepository {
       result.set(skill, courseMatches);
     }
 
-    const durationMs = Date.now() - startTimeMs;
-    console.log(
-      `[PrismaCourseRepository] findCoursesBySkillsViaLO completed in ${durationMs}ms (skills=${normalizedSkills.length})`,
-    );
+    // const durationMs = Date.now() - startTimeMs;
+    // console.log(
+    //   `[PrismaCourseRepository] findCoursesBySkillsViaLO completed in ${durationMs}ms (skills=${normalizedSkills.length})`,
+    // );
 
     return result;
   }
