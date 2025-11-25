@@ -4,6 +4,7 @@ import {
   I_COURSE_REPOSITORY_TOKEN,
   ICourseRepository,
 } from 'src/modules/course/contracts/i-course.repository';
+import { CourseMatch } from 'src/modules/course/types/course.type';
 
 import {
   I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
@@ -28,7 +29,10 @@ import {
 import { CourseClassificationResult } from '../types/course-classification.type';
 import { Classification } from '../types/question-classification.type';
 import { SkillExpansion } from '../types/skill-expansion.type';
-import { AnswerQuestionUseCaseOutput } from './types/answer-question.use-case.type';
+import {
+  AnswerQuestionUseCaseOutput,
+  TimingMap,
+} from './types/answer-question.use-case.type';
 
 @Injectable()
 export class AnswerQuestionUseCase {
@@ -51,13 +55,17 @@ export class AnswerQuestionUseCase {
 
   async execute(question: string): Promise<AnswerQuestionUseCaseOutput> {
     // More token usage but reduces latency
-    console.time('AnswerQuestionUseCaseExecute');
-    console.time('AnswerQuestionUseCaseExecute-Step1');
+    const timing = this.initializeTiming();
+
+    this.startTiming(timing, 'AnswerQuestionUseCaseExecute');
+    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
+
     const [{ classification, reason }, queryProfile] = await Promise.all([
       this.questionClassifierService.classify(question),
       this.queryProfileBuilderService.buildQueryProfile(question),
     ]);
-    console.timeEnd('AnswerQuestionUseCaseExecute-Step1');
+
+    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
 
     this.logger.log(
       `Question classification result: ${JSON.stringify(
@@ -93,7 +101,7 @@ export class AnswerQuestionUseCase {
       };
     }
 
-    console.time('AnswerQuestionUseCaseExecute-Step2');
+    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
     // Hybrid Approach: Structure for future dependency management
     // Phase 1: Start independent operations in parallel
     const independentOperations: Promise<any>[] = [];
@@ -122,36 +130,63 @@ export class AnswerQuestionUseCase {
 
     // Phase 3: Execute dependent operations (structured for future dependency management)
     const skills = skillExpansion?.skills || [];
-    console.timeEnd('AnswerQuestionUseCaseExecute-Step2');
+    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
     this.logger.log(`Expanded skills: ${JSON.stringify(skills, null, 2)}`);
 
-    console.time('AnswerQuestionUseCaseExecute-Step3');
-    const courses = await this.courseRepository.findCoursesBySkillsViaLO({
-      skills: skills.map((skill) => skill.skill),
-      matchesPerSkill: 5, // tune this value as needed
-      // Adjust from 8.2 to 8.0 because of courses with lower relevance but still useful
-      threshold: 0.8, // beware of Mar Terraform Engineer, tune this value as needed
-    });
+    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
+    const skillCoursesMap =
+      await this.courseRepository.findCoursesBySkillsViaLO({
+        skills: skills.map((skill) => skill.skill),
+        matchesPerSkill: 5, // tune this value as needed
+        // Adjust from 8.2 to 8.0 because of courses with lower relevance but still useful
+        threshold: 0.8, // beware of Mar Terraform Engineer, tune this value as needed
+      });
 
-    console.timeEnd('AnswerQuestionUseCaseExecute-Step3');
+    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
 
-    console.time('AnswerQuestionUseCaseExecute-Step4');
-    const classificationResult =
-      await this.courseClassificationService.classifyCourses(question, courses);
-    console.timeEnd('AnswerQuestionUseCaseExecute-Step4');
+    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+    const classificationPromises: Promise<CourseClassificationResult>[] = [];
+    for (const skill of skillCoursesMap.keys()) {
+      const courses = skillCoursesMap.get(skill)!;
+      classificationPromises.push(
+        this.courseClassificationService.classifyCourses(
+          question,
+          queryProfile,
+          new Map<string, CourseMatch[]>([[skill, courses]]),
+        ),
+      );
+    }
+    const classificationResults = await Promise.all(classificationPromises);
 
-    console.time('AnswerQuestionUseCaseExecute-Step5');
+    // Merge classification results
+    const classificationResult: CourseClassificationResult = {
+      classifications: classificationResults.flatMap(
+        (result) => result.classifications,
+      ),
+      question: classificationResults[0]?.question,
+      context: classificationResults
+        .map((result) => result.context)
+        .join('\n\n'),
+    };
+
+    // const classificationResult =
+    //   await this.courseClassificationService.classifyCourses(question, courses);
+    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+
+    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
     const synthesisResult = await this.answerSynthesisService.synthesizeAnswer(
       question,
+      queryProfile,
       classificationResult,
     );
-    console.timeEnd('AnswerQuestionUseCaseExecute-Step5');
+    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
 
     this.logger.log(
       `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
     );
-    console.timeEnd('AnswerQuestionUseCaseExecute');
+    this.endTiming(timing, 'AnswerQuestionUseCaseExecute');
+    this.logTimingResults(timing);
 
     return {
       answer: synthesisResult.answerText,
@@ -214,5 +249,39 @@ export class AnswerQuestionUseCase {
     }
 
     return null;
+  }
+
+  private initializeTiming(): TimingMap {
+    return {};
+  }
+
+  private startTiming(timing: TimingMap, key: string): void {
+    timing[key] = { start: Date.now() };
+  }
+
+  private endTiming(timing: TimingMap, key: string): void {
+    timing[key].end = Date.now();
+    timing[key].duration = timing[key].end - timing[key].start;
+  }
+
+  private logTimingResults(timing: TimingMap): void {
+    const formatDuration = (duration?: number): string => {
+      if (!duration) return '0ms';
+      if (duration < 1000) return `${duration}ms`;
+      return `${(duration / 1000).toFixed(2)}s`;
+    };
+
+    const timingResults = {
+      total: formatDuration(timing.AnswerQuestionUseCaseExecute.duration),
+      step1: formatDuration(timing.AnswerQuestionUseCaseExecute_Step1.duration),
+      step2: formatDuration(timing.AnswerQuestionUseCaseExecute_Step2.duration),
+      step3: formatDuration(timing.AnswerQuestionUseCaseExecute_Step3.duration),
+      step4: formatDuration(timing.AnswerQuestionUseCaseExecute_Step4.duration),
+      step5: formatDuration(timing.AnswerQuestionUseCaseExecute_Step5.duration),
+    };
+
+    this.logger.log(
+      `Execution timing: ${JSON.stringify(timingResults, null, 2)}`,
+    );
   }
 }

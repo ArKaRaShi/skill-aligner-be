@@ -17,6 +17,7 @@ export class MockQueryProfileBuilderService
       intents: [],
       preferences: [],
       background: [],
+      language: 'th',
     };
 
     // Detect intents

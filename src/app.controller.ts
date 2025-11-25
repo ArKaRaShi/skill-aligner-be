@@ -389,7 +389,7 @@ Output:
       seed: 0,
 
       // 2. Redundant Determinism Settings (Add these for safety)
-      topP: 1.0, // Prevents nucleus sampling from interfering
+      topP: 1, // Prevents nucleus sampling from interfering
       // top_k: 0, // This is often a default, but if supported, set to 0 or a max value
 
       prompt,
