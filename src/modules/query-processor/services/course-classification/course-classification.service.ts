@@ -34,7 +34,7 @@ export class CourseClassificationService
     );
 
     const { getPrompts } = CourseClassificationPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v1');
+    const { getUserPrompt, systemPrompt } = getPrompts('v2');
 
     const llmResult = await this.llmProviderClient.generateObject({
       prompt: getUserPrompt(question, context),

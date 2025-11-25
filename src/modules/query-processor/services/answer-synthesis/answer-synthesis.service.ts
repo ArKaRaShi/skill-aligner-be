@@ -1,15 +1,14 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import { encode } from '@toon-format/toon';
+
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
 } from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 
 import { IAnswerSynthesisService } from '../../contracts/i-answer-synthesis-service.contract';
-import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT,
-  getAnswerSynthesisUserPrompt,
-} from '../../prompts/answer-synthesis/answer-synthesis.prompt';
+import { AnswerSynthesisPromptFactory } from '../../prompts/answer-synthesis';
 import { AnswerSynthesisResult } from '../../types/answer-synthesis.type';
 import { CourseClassificationResult } from '../../types/course-classification.type';
 
@@ -56,14 +55,17 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
       )}`,
     );
 
-    const synthesisPrompt = getAnswerSynthesisUserPrompt(
-      question,
-      skillWithCourses,
-    );
+    const context = encode(skillWithCourses);
+
+    this.logger.log(`[AnswerSynthesis] Encoded context ${context}`);
+
+    const { getPrompts } = AnswerSynthesisPromptFactory();
+    const { getUserPrompt, systemPrompt } = getPrompts('v2');
+    const synthesisPrompt = getUserPrompt(question, context);
 
     const llmResult = await this.llmProviderClient.generateText({
       prompt: synthesisPrompt,
-      systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT,
+      systemPrompt,
       model: this.modelName,
     });
 
