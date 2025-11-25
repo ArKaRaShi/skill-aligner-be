@@ -433,6 +433,7 @@ Output:
   async testCourseRepository(
     @Query('skills') skillsQuery?: string,
   ): Promise<any> {
+    console.time('CourseRepositoryTest');
     // Parse skills from comma-separated query string or use defaults
     const skills = skillsQuery
       ? skillsQuery
@@ -479,6 +480,8 @@ Output:
         courses: coursesWithoutEmbeddings,
       };
     });
+
+    console.timeEnd('CourseRepositoryTest');
 
     return arrayResult;
   }

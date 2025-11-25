@@ -1,4 +1,4 @@
-export const getAnswerSynthesisUserPrompt = (
+export const getAnswerSynthesisUserPromptV2 = (
   question: string,
   context: string,
 ) => `

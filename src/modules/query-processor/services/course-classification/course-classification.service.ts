@@ -1,5 +1,8 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import { encode } from '@toon-format/toon';
+
+import { CourseLearningOutcomeMatch } from 'src/modules/course/types/course-learning-outcome.type';
 import { CourseMatch } from 'src/modules/course/types/course.type';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
@@ -32,9 +35,12 @@ export class CourseClassificationService
     this.logger.log(
       `[CourseClassification] Classifying courses for question: "${question}" using model: ${this.modelName}`,
     );
+    this.logger.log(
+      `[CourseClassification] Context data sent to prompt: ${context}`,
+    );
 
     const { getPrompts } = CourseClassificationPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v2');
+    const { getUserPrompt, systemPrompt } = getPrompts('v4');
 
     const llmResult = await this.llmProviderClient.generateObject({
       prompt: getUserPrompt(question, context),
@@ -57,12 +63,25 @@ export class CourseClassificationService
       context,
     };
 
+    const sanitizedResult = this.sanitizeResult(
+      classificationResult,
+      skillCourseMatchMap,
+    );
+
+    this.logger.log(
+      `[CourseClassification] Sanitized classification: ${JSON.stringify(
+        sanitizedResult,
+        null,
+        2,
+      )}`,
+    );
+
     this.validateClassificationCoverage({
-      classifications: llmResult.object.classifications,
+      classifications: sanitizedResult.classifications,
       skillCourseMatchMap,
     });
 
-    return classificationResult;
+    return sanitizedResult;
   }
 
   private validateClassificationCoverage({
@@ -109,121 +128,85 @@ export class CourseClassificationService
     }
   }
 
-  private buildContext(
+  private sanitizeResult(
+    classificationResult: CourseClassificationResult,
     skillCourseMatchMap: Map<string, CourseMatch[]>,
-  ): string {
-    const courseIndexMap = new Map<string, number>();
-    const courseMetadata = new Map<
-      string,
-      { course: CourseMatch; skills: Set<string> }
-    >();
-
-    const skillSummaries = Array.from(skillCourseMatchMap.entries()).map(
-      ([skill, courses]) => {
-        if (!courses.length) {
-          return { skill, references: [] as string[] };
+  ): CourseClassificationResult {
+    // populate all missing courses as excluded
+    const sanitizedClassifications = classificationResult.classifications.map(
+      (classification) => {
+        const { skill, courses } = classification;
+        const classifiedCourseMap = new Map<
+          string,
+          CourseClassificationResult['classifications'][number]['courses'][number]
+        >();
+        for (const course of courses) {
+          const normalizedCourseName = this.normalizeLabel(course.name);
+          classifiedCourseMap.set(normalizedCourseName, course);
         }
 
-        const references = courses.map((course) => {
-          const courseId = String(course.courseId);
-          if (!courseIndexMap.has(courseId)) {
-            courseIndexMap.set(courseId, courseIndexMap.size + 1);
-            courseMetadata.set(courseId, {
-              course,
-              skills: new Set(),
-            });
-          }
+        const coursesInContext = skillCourseMatchMap.get(skill) ?? [];
 
-          const metadata = courseMetadata.get(courseId);
-          metadata?.skills.add(skill);
+        const sanitizedCourses = coursesInContext.map((course) => {
+          const courseInContextName = this.getCourseDisplayName(course);
+          const existingCourse = classifiedCourseMap.get(
+            this.normalizeLabel(courseInContextName),
+          );
 
-          const displayName =
-            course.subjectNameTh ??
-            course.subjectNameEn ??
-            course.subjectCode ??
-            'Unknown course';
-
-          const courseIndex = courseIndexMap.get(courseId)!;
-          return `Course [${courseIndex}] (${displayName})`;
+          return (
+            existingCourse ?? {
+              name: courseInContextName,
+              decision: 'exclude',
+              reason: 'Not classified by the model',
+            }
+          );
         });
 
-        return { skill, references };
+        return {
+          ...classification,
+          courses: sanitizedCourses,
+        };
       },
     );
 
-    const skillSummaryLines: string[] = ['Skill Summary:'];
-    for (const { skill, references } of skillSummaries) {
-      if (!references.length) {
-        skillSummaryLines.push(`- ${skill}: No courses found.`);
-        continue;
-      }
-      skillSummaryLines.push(`- ${skill}: ${references.join(', ')}`);
+    return {
+      ...classificationResult,
+      classifications:
+        sanitizedClassifications as CourseClassificationResult['classifications'],
+    };
+  }
+
+  private buildContext(
+    skillCourseMatchMap: Map<string, CourseMatch[]>,
+  ): string {
+    const contextData: {
+      skill: string;
+      courses: {
+        name: string;
+        learningObjectives: string[];
+      }[];
+    }[] = [];
+    for (const [skill, courses] of skillCourseMatchMap.entries()) {
+      const courseData = courses.map((course) => {
+        const courseName = this.getCourseDisplayName(course);
+        const learningObjectives = course.cloMatches.map((clo) =>
+          this.getLoDisplayName(clo),
+        );
+
+        return {
+          name: courseName,
+          learningObjectives,
+        };
+      });
+
+      contextData.push({
+        skill,
+        courses: courseData,
+      });
     }
 
-    const courseDetailLines: string[] = ['\nCourse Details:'];
-    const sortedCourses = Array.from(courseIndexMap.entries()).sort(
-      (a, b) => a[1] - b[1],
-    );
-
-    if (!sortedCourses.length) {
-      courseDetailLines.push('  No courses available.');
-    }
-
-    for (const [courseId, index] of sortedCourses) {
-      const metadata = courseMetadata.get(courseId);
-      if (!metadata) {
-        continue;
-      }
-      const { course, skills } = metadata;
-      const courseName =
-        course.subjectNameTh ??
-        course.subjectNameEn ??
-        course.subjectCode ??
-        `Course ${index}`;
-
-      const supportingSkills = Array.from(skills).sort((a, b) =>
-        a.localeCompare(b),
-      );
-      const supportingSkillsText =
-        supportingSkills.length > 0
-          ? supportingSkills.join(', ')
-          : 'None specified';
-
-      const learningObjectives = course.cloMatches
-        .map((clo) => {
-          return (
-            clo.cleanedCLONameTh ??
-            clo.cleanedCLONameEn ??
-            clo.originalCLONameTh ??
-            clo.originalCLONameEn ??
-            null
-          );
-        })
-        .filter((objective): objective is string => Boolean(objective));
-
-      const learningObjectivesText =
-        learningObjectives.length > 0
-          ? learningObjectives
-              .map(
-                (objective, objectiveIndex) =>
-                  `    ${objectiveIndex + 1}. ${objective}`,
-              )
-              .join('\n')
-          : '    No learning objectives available.';
-
-      courseDetailLines.push(
-        [
-          `Course [${index}]: ${courseName}`,
-          `  Supports Skills: ${supportingSkillsText}`,
-          '  Learning Objectives:',
-          learningObjectivesText,
-        ].join('\n'),
-      );
-    }
-
-    return [skillSummaryLines.join('\n'), courseDetailLines.join('\n')].join(
-      '\n\n',
-    );
+    const encodedContext = encode(contextData);
+    return `Skill groups along with courses and learning outcomes:\n${encodedContext}`;
   }
 
   private normalizeLabel(label: string): string {
@@ -231,11 +214,15 @@ export class CourseClassificationService
   }
 
   private getCourseDisplayName(course: CourseMatch): string {
+    return course.subjectNameTh ?? course.subjectNameEn ?? course.subjectCode;
+  }
+
+  private getLoDisplayName(lo: CourseLearningOutcomeMatch): string {
     return (
-      course.subjectNameTh ??
-      course.subjectNameEn ??
-      course.subjectCode ??
-      'Unknown course'
+      lo.cleanedCLONameTh ??
+      lo.cleanedCLONameEn ??
+      lo.originalCLONameTh ??
+      lo.originalCLONameEn
     );
   }
 }

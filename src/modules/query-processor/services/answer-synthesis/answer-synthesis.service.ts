@@ -60,7 +60,7 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     this.logger.log(`[AnswerSynthesis] Encoded context ${context}`);
 
     const { getPrompts } = AnswerSynthesisPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v2');
+    const { getUserPrompt, systemPrompt } = getPrompts('v3');
     const synthesisPrompt = getUserPrompt(question, context);
 
     const llmResult = await this.llmProviderClient.generateText({

@@ -50,12 +50,14 @@ export class AnswerQuestionUseCase {
   ) {}
 
   async execute(question: string): Promise<AnswerQuestionUseCaseOutput> {
-    // Parallelize classification and skill expansion
     // More token usage but reduces latency
+    console.time('AnswerQuestionUseCaseExecute');
+    console.time('AnswerQuestionUseCaseExecute-Step1');
     const [{ classification, reason }, queryProfile] = await Promise.all([
       this.questionClassifierService.classify(question),
       this.queryProfileBuilderService.buildQueryProfile(question),
     ]);
+    console.timeEnd('AnswerQuestionUseCaseExecute-Step1');
 
     this.logger.log(
       `Question classification result: ${JSON.stringify(
@@ -91,6 +93,7 @@ export class AnswerQuestionUseCase {
       };
     }
 
+    console.time('AnswerQuestionUseCaseExecute-Step2');
     // Hybrid Approach: Structure for future dependency management
     // Phase 1: Start independent operations in parallel
     const independentOperations: Promise<any>[] = [];
@@ -119,9 +122,11 @@ export class AnswerQuestionUseCase {
 
     // Phase 3: Execute dependent operations (structured for future dependency management)
     const skills = skillExpansion?.skills || [];
+    console.timeEnd('AnswerQuestionUseCaseExecute-Step2');
 
     this.logger.log(`Expanded skills: ${JSON.stringify(skills, null, 2)}`);
 
+    console.time('AnswerQuestionUseCaseExecute-Step3');
     const courses = await this.courseRepository.findCoursesBySkillsViaLO({
       skills: skills.map((skill) => skill.skill),
       matchesPerSkill: 5, // tune this value as needed
@@ -129,23 +134,24 @@ export class AnswerQuestionUseCase {
       threshold: 0.8, // beware of Mar Terraform Engineer, tune this value as needed
     });
 
-    // Phase 1: Classify courses
+    console.timeEnd('AnswerQuestionUseCaseExecute-Step3');
+
+    console.time('AnswerQuestionUseCaseExecute-Step4');
     const classificationResult =
       await this.courseClassificationService.classifyCourses(question, courses);
+    console.timeEnd('AnswerQuestionUseCaseExecute-Step4');
 
-    this.logger.log(
-      `Course classification result: ${JSON.stringify(classificationResult, null, 2)}`,
-    );
-
-    // Phase 2: Synthesize answer
+    console.time('AnswerQuestionUseCaseExecute-Step5');
     const synthesisResult = await this.answerSynthesisService.synthesizeAnswer(
       question,
       classificationResult,
     );
+    console.timeEnd('AnswerQuestionUseCaseExecute-Step5');
 
     this.logger.log(
       `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
     );
+    console.timeEnd('AnswerQuestionUseCaseExecute');
 
     return {
       answer: synthesisResult.answerText,
