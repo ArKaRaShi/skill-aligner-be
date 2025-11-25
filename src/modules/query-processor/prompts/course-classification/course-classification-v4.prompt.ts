@@ -43,10 +43,7 @@ Reason Guidelines:
 - Focus on the primary factor driving your decision
 
 Language Guidelines:
-- If the user's question is in Thai, provide the entire response in Thai.
-- If the user's question is in English, provide the entire response in English.
-- If the user's question contains a mix of Thai and English, respond in Thai.
-- If the user's specifically asks for language preference, follow that.
+- Answer according to context language Thai if 'th', English if 'en'.
 - For courses, keep the course names in their original language as provided in the context.
 
 Example:

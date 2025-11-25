@@ -13,6 +13,7 @@ import { ICourseClassificationService } from '../../contracts/i-course-classific
 import { CourseClassificationPromptFactory } from '../../prompts/course-classification';
 import { CourseClassificationResultSchema } from '../../schemas/course-classification.schema';
 import { CourseClassificationResult } from '../../types/course-classification.type';
+import { QueryProfile } from '../../types/query-profile.type';
 
 @Injectable()
 export class CourseClassificationService
@@ -28,9 +29,10 @@ export class CourseClassificationService
 
   async classifyCourses(
     question: string,
+    queryProfile: QueryProfile,
     skillCourseMatchMap: Map<string, CourseMatch[]>,
   ): Promise<CourseClassificationResult> {
-    const context = this.buildContext(skillCourseMatchMap);
+    const context = this.buildContext(skillCourseMatchMap, queryProfile);
 
     this.logger.log(
       `[CourseClassification] Classifying courses for question: "${question}" using model: ${this.modelName}`,
@@ -178,8 +180,9 @@ export class CourseClassificationService
 
   private buildContext(
     skillCourseMatchMap: Map<string, CourseMatch[]>,
+    queryProfile: QueryProfile,
   ): string {
-    const contextData: {
+    const skillCoursesContext: {
       skill: string;
       courses: {
         name: string;
@@ -199,14 +202,15 @@ export class CourseClassificationService
         };
       });
 
-      contextData.push({
+      skillCoursesContext.push({
         skill,
         courses: courseData,
       });
     }
 
-    const encodedContext = encode(contextData);
-    return `Skill groups along with courses and learning outcomes:\n${encodedContext}`;
+    const encodedContext = encode(skillCoursesContext);
+    const encodedQueryProfile = encode(queryProfile);
+    return `Skill groups along with courses and learning outcomes:\n${encodedContext}\n\nUser Query Profile:\n${encodedQueryProfile}`;
   }
 
   private normalizeLabel(label: string): string {

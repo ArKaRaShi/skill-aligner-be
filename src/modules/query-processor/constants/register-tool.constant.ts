@@ -9,6 +9,7 @@ const QUERY_PROFILE: QueryProfile = {
     { original: 'ต้องมีทักษะอะไรบ้าง', augmented: 'ask-skills' },
   ],
   preferences: [{ original: 'สนใจ AI เป็นพิเศษ', augmented: 'AI' }],
+  language: 'th',
 };
 
 // question: อยากเรียนการเงิน

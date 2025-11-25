@@ -11,6 +11,7 @@ import { IAnswerSynthesisService } from '../../contracts/i-answer-synthesis-serv
 import { AnswerSynthesisPromptFactory } from '../../prompts/answer-synthesis';
 import { AnswerSynthesisResult } from '../../types/answer-synthesis.type';
 import { CourseClassificationResult } from '../../types/course-classification.type';
+import { QueryProfile } from '../../types/query-profile.type';
 
 @Injectable()
 export class AnswerSynthesisService implements IAnswerSynthesisService {
@@ -24,40 +25,18 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
 
   async synthesizeAnswer(
     question: string,
+    queryProfile: QueryProfile,
     classificationResult: CourseClassificationResult,
   ): Promise<AnswerSynthesisResult> {
-    const skillWithCourses = classificationResult.classifications.map(
-      (classification) => {
-        const includedCourses = classification.courses
-          .filter((course) => course.decision === 'include')
-          .map((course) => ({
-            courseName: course.name,
-            decision: course.decision,
-            reason: course.reason,
-          }));
-
-        return {
-          skill: classification.skill,
-          courses: includedCourses,
-        };
-      },
-    );
+    const context = this.buildContext(classificationResult, queryProfile);
 
     this.logger.log(
       `[AnswerSynthesis] Synthesizing answer for question: "${question}" using model: ${this.modelName}`,
     );
 
     this.logger.log(
-      `[AnswerSynthesis] Skill data sent to prompt: ${JSON.stringify(
-        skillWithCourses,
-        null,
-        2,
-      )}`,
+      `[AnswerSynthesis] Context data sent to prompt: ${context}`,
     );
-
-    const context = encode(skillWithCourses);
-
-    this.logger.log(`[AnswerSynthesis] Encoded context ${context}`);
 
     const { getPrompts } = AnswerSynthesisPromptFactory();
     const { getUserPrompt, systemPrompt } = getPrompts('v3');
@@ -102,5 +81,31 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     };
 
     return synthesisResult;
+  }
+
+  private buildContext(
+    classificationResult: CourseClassificationResult,
+    queryProfile: QueryProfile,
+  ): string {
+    const skillWithCourses = classificationResult.classifications.map(
+      (classification) => {
+        const includedCourses = classification.courses
+          .filter((course) => course.decision === 'include')
+          .map((course) => ({
+            courseName: course.name,
+            decision: course.decision,
+            reason: course.reason,
+          }));
+
+        return {
+          skill: classification.skill,
+          courses: includedCourses,
+        };
+      },
+    );
+
+    const encodedContext = encode(skillWithCourses);
+    const encodedQueryProfile = encode(queryProfile);
+    return `Classification Results:\n${encodedContext}\n\nUser Query Profile:\n${encodedQueryProfile}`;
   }
 }

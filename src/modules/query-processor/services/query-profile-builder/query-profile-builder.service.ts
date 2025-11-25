@@ -6,10 +6,7 @@ import {
 } from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
-import {
-  getQueryProfileBuilderUserPrompt,
-  QUERY_PROFILE_BUILDER_SYSTEM_PROMPT,
-} from '../../prompts/query-profile-builder.prompt';
+import { QueryProfileBuilderPromptFactory } from '../../prompts/query-profile-builder';
 import { QueryProfileBuilderSchema } from '../../schemas/query-profile-builder.schema';
 import { QueryProfile } from '../../types/query-profile.type';
 
@@ -26,10 +23,13 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
   async buildQueryProfile(query: string): Promise<QueryProfile> {
     this.logger.log(`Building query profile for: "${query}"`);
 
+    const { getPrompts } = QueryProfileBuilderPromptFactory();
+    const { getUserPrompt, systemPrompt } = getPrompts('v2');
+
     const { object: profileData } = await this.llmProviderClient.generateObject(
       {
-        prompt: getQueryProfileBuilderUserPrompt(query),
-        systemPrompt: QUERY_PROFILE_BUILDER_SYSTEM_PROMPT,
+        prompt: getUserPrompt(query),
+        systemPrompt,
         schema: QueryProfileBuilderSchema,
         model: this.modelName,
       },

@@ -5,7 +5,7 @@ export const getAnswerSynthesisUserPromptV3 = (
 User Question: 
 ${question} 
 
-Classification Results:
+Context:
 ${context}
 `;
 
@@ -44,13 +44,10 @@ Summary Section:
 - Hint how to explore further learning opportunities based on the skills and courses mentioned
 
 Language Guidelines:
-- If the user's question is in Thai, provide the entire response in Thai.
-- If the user's question is in English, provide the entire response in English.
-- If the user's question contains a mix of Thai and English, respond in Thai.
-- If the user's specifically asks for language preference, follow that.
+- Answer according to context language Thai if 'th', English if 'en'.
 - For courses, keep the course names in their original language as provided in the context.
 
-Example Output Structure:
+Example Output Structure (For Illustration Only):
 <Brief introduction summarizing the importance of the skills and courses according to the user's question>
 
 1. **<Skill Name with courses>**
@@ -61,9 +58,11 @@ Example Output Structure:
    - **<Included Course Name>** <Brief explanation based on the reason provided>
    ...
 
-3. **<Skill Name without courses>** <Explanation of why this skill is important or what to explore instead>
+3. **<Skill Name without courses>** 
+    <Explanation of why this skill is important or what to explore instead>
 
-4. **<Skill Name without courses>** <Explanation of why this skill is important or what to explore instead>
+4. **<Skill Name without courses>** 
+    <Explanation of why this skill is important or what to explore instead>
 
 5. **<Skill Name with courses>**
    - **<Included Course Name>** <Brief explanation based on the reason provided>
