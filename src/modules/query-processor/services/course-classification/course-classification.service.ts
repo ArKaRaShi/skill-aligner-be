@@ -186,19 +186,19 @@ export class CourseClassificationService
       skill: string;
       courses: {
         name: string;
-        learningObjectives: string[];
+        learningOutcomes: string[];
       }[];
     }[] = [];
     for (const [skill, courses] of skillCourseMatchMap.entries()) {
       const courseData = courses.map((course) => {
         const courseName = this.getCourseDisplayName(course);
-        const learningObjectives = course.cloMatches.map((clo) =>
+        const learningOutcomes = course.cloMatches.map((clo) =>
           this.getLoDisplayName(clo),
         );
 
         return {
           name: courseName,
-          learningObjectives,
+          learningOutcomes,
         };
       });
 

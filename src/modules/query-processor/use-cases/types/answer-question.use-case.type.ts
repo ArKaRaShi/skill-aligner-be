@@ -11,13 +11,3 @@ export type AnswerQuestionUseCaseOutput = {
     courses: CourseOutput[];
   }[];
 };
-
-export interface TimingRecord {
-  start: number;
-  end?: number;
-  duration?: number;
-}
-
-export interface TimingMap {
-  [key: string]: TimingRecord;
-}

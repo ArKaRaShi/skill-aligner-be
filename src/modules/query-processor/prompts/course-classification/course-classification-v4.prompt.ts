@@ -27,19 +27,18 @@ IMPORTANT RULES:
 - For each skill, LIMIT included courses to maximum 5 in the final output.
 
 Decision Criteria:
-- INCLUDE courses when:
-  * Learning objectives directly support the user's stated interests
-  * The course builds foundational skills for the user's area of interest
+INCLUDE courses when:
+- Course learning outcomes directly support the user's stated interests
+- The course builds foundational skills for the user's area of interest
    
-- EXCLUDE courses when:
-  * Learning objectives focus on completely different domains or skills
-  * Course content conflicts with user-specified constraints
-  * The course provides minimal or tangential value to the user's goals
+EXCLUDE courses when:
+- Course learning outcomes focus on completely different domains or skills
+- Course name or learning outcomes conflicts with user-specified constraints
 
 Reason Guidelines:
-- Be specific and reference actual course content
+- Be specific and reference actual course learning outcomes
 - Avoid generic responses like "not directly related"
-- Keep reasons concise but informative
+- Keep reasons informative
 - Focus on the primary factor driving your decision
 
 Language Guidelines:

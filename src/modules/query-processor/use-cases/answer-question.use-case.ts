@@ -1,5 +1,7 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger';
+
 import {
   I_COURSE_REPOSITORY_TOKEN,
   ICourseRepository,
@@ -29,14 +31,12 @@ import {
 import { CourseClassificationResult } from '../types/course-classification.type';
 import { Classification } from '../types/question-classification.type';
 import { SkillExpansion } from '../types/skill-expansion.type';
-import {
-  AnswerQuestionUseCaseOutput,
-  TimingMap,
-} from './types/answer-question.use-case.type';
+import { AnswerQuestionUseCaseOutput } from './types/answer-question.use-case.type';
 
 @Injectable()
 export class AnswerQuestionUseCase {
   private readonly logger = new Logger(AnswerQuestionUseCase.name);
+  private readonly timeLogger = new TimeLogger();
 
   constructor(
     @Inject(I_QUESTION_CLASSIFIER_SERVICE_TOKEN)
@@ -55,17 +55,17 @@ export class AnswerQuestionUseCase {
 
   async execute(question: string): Promise<AnswerQuestionUseCaseOutput> {
     // More token usage but reduces latency
-    const timing = this.initializeTiming();
+    const timing = this.timeLogger.initializeTiming();
 
-    this.startTiming(timing, 'AnswerQuestionUseCaseExecute');
-    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute');
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
 
     const [{ classification, reason }, queryProfile] = await Promise.all([
       this.questionClassifierService.classify(question),
       this.queryProfileBuilderService.buildQueryProfile(question),
     ]);
 
-    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
 
     this.logger.log(
       `Question classification result: ${JSON.stringify(
@@ -101,7 +101,7 @@ export class AnswerQuestionUseCase {
       };
     }
 
-    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
     // Hybrid Approach: Structure for future dependency management
     // Phase 1: Start independent operations in parallel
     const independentOperations: Promise<any>[] = [];
@@ -130,11 +130,11 @@ export class AnswerQuestionUseCase {
 
     // Phase 3: Execute dependent operations (structured for future dependency management)
     const skills = skillExpansion?.skills || [];
-    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
     this.logger.log(`Expanded skills: ${JSON.stringify(skills, null, 2)}`);
 
-    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
     const skillCoursesMap =
       await this.courseRepository.findCoursesBySkillsViaLO({
         skills: skills.map((skill) => skill.skill),
@@ -143,9 +143,9 @@ export class AnswerQuestionUseCase {
         threshold: 0.8, // beware of Mar Terraform Engineer, tune this value as needed
       });
 
-    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
 
-    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
     const classificationPromises: Promise<CourseClassificationResult>[] = [];
     for (const skill of skillCoursesMap.keys()) {
       const courses = skillCoursesMap.get(skill)!;
@@ -172,20 +172,20 @@ export class AnswerQuestionUseCase {
 
     // const classificationResult =
     //   await this.courseClassificationService.classifyCourses(question, courses);
-    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
 
-    this.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
     const synthesisResult = await this.answerSynthesisService.synthesizeAnswer(
       question,
       queryProfile,
       classificationResult,
     );
-    this.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
 
     this.logger.log(
       `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
     );
-    this.endTiming(timing, 'AnswerQuestionUseCaseExecute');
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute');
     this.logTimingResults(timing);
 
     return {
@@ -251,33 +251,26 @@ export class AnswerQuestionUseCase {
     return null;
   }
 
-  private initializeTiming(): TimingMap {
-    return {};
-  }
-
-  private startTiming(timing: TimingMap, key: string): void {
-    timing[key] = { start: Date.now() };
-  }
-
-  private endTiming(timing: TimingMap, key: string): void {
-    timing[key].end = Date.now();
-    timing[key].duration = timing[key].end - timing[key].start;
-  }
-
   private logTimingResults(timing: TimingMap): void {
-    const formatDuration = (duration?: number): string => {
-      if (!duration) return '0ms';
-      if (duration < 1000) return `${duration}ms`;
-      return `${(duration / 1000).toFixed(2)}s`;
-    };
-
     const timingResults = {
-      total: formatDuration(timing.AnswerQuestionUseCaseExecute.duration),
-      step1: formatDuration(timing.AnswerQuestionUseCaseExecute_Step1.duration),
-      step2: formatDuration(timing.AnswerQuestionUseCaseExecute_Step2.duration),
-      step3: formatDuration(timing.AnswerQuestionUseCaseExecute_Step3.duration),
-      step4: formatDuration(timing.AnswerQuestionUseCaseExecute_Step4.duration),
-      step5: formatDuration(timing.AnswerQuestionUseCaseExecute_Step5.duration),
+      total: this.timeLogger.formatDuration(
+        timing.AnswerQuestionUseCaseExecute?.duration,
+      ),
+      'step1-basic-preparation': this.timeLogger.formatDuration(
+        timing.AnswerQuestionUseCaseExecute_Step1?.duration,
+      ),
+      'step2-skill-inference': this.timeLogger.formatDuration(
+        timing.AnswerQuestionUseCaseExecute_Step2?.duration,
+      ),
+      'step3-retrieval': this.timeLogger.formatDuration(
+        timing.AnswerQuestionUseCaseExecute_Step3?.duration,
+      ),
+      'step4-course-classification': this.timeLogger.formatDuration(
+        timing.AnswerQuestionUseCaseExecute_Step4?.duration,
+      ),
+      'step5-answer-synthesis': this.timeLogger.formatDuration(
+        timing.AnswerQuestionUseCaseExecute_Step5?.duration,
+      ),
     };
 
     this.logger.log(
