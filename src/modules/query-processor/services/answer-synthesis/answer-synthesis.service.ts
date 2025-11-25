@@ -39,7 +39,7 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     );
 
     const { getPrompts } = AnswerSynthesisPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v3');
+    const { getUserPrompt, systemPrompt } = getPrompts('v4');
     const synthesisPrompt = getUserPrompt(question, context);
 
     const llmResult = await this.llmProviderClient.generateText({

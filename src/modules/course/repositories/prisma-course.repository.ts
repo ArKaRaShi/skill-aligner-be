@@ -16,7 +16,9 @@ import {
   CourseLearningOutcomeMatch,
 } from '../types/course-learning-outcome.type';
 import { Course, CourseMatch } from '../types/course.type';
+import { parseVector } from './helpers/vector.helper';
 import { FindCourseByIdRawRow } from './types/find-course-by-id-raw.type';
+import { RawCourseQueryRow } from './types/raw-course-query-row.type';
 
 type FindCoursesBySkillsParams = {
   skills: string[];
@@ -279,7 +281,7 @@ export class PrismaCourseRepository implements ICourseRepository {
         clo.original_clo_name_en,
         clo.cleaned_clo_name_th,
         clo.cleaned_clo_name_en,
-        clo.embedding,
+        clo.embedding::float4[],
         clo.skip_embedding,
         clo.is_embedded,
         clo.metadata AS clo_metadata,
@@ -288,7 +290,7 @@ export class PrismaCourseRepository implements ICourseRepository {
       FROM courses c
       LEFT JOIN course_clos cc ON c.id = cc.course_id
       LEFT JOIN course_learning_outcomes clo ON cc.clo_id = clo.id
-      WHERE c.id = ${courseId}
+      WHERE c.id = ${courseId}::uuid
       ORDER BY cc.clo_no;
     `;
 
@@ -330,51 +332,4 @@ export class PrismaCourseRepository implements ICourseRepository {
       updatedAt: firstRow.course_updated_at,
     };
   }
-}
-
-type RawCourseQueryRow = {
-  skill: string;
-  course_id: string;
-  campus_id: string;
-  faculty_id: string;
-  academic_year: number;
-  semester: number;
-  subject_code: string;
-  subject_name_th: string;
-  subject_name_en: string | null;
-  course_metadata: Prisma.JsonValue | null;
-  course_created_at: Date;
-  course_updated_at: Date;
-  course_clo_id: string;
-  clo_no: number;
-  course_clo_created_at: Date;
-  course_clo_updated_at: Date;
-  clo_id: string;
-  original_clo_name: string;
-  original_clo_name_en: string | null;
-  cleaned_clo_name_th: string;
-  cleaned_clo_name_en: string | null;
-  clo_embedding: unknown;
-  skip_embedding: boolean;
-  is_embedded: boolean;
-  clo_metadata: Prisma.JsonValue | null;
-  clo_created_at: Date;
-  clo_updated_at: Date;
-  similarity: number | Prisma.Decimal | string | null;
-  skill_rank: number;
-};
-
-const VECTOR_PARSE_REGEX = /-?\d+\.?\d*/g;
-
-function parseVector(raw: unknown): number[] {
-  if (Array.isArray(raw)) {
-    return raw.map(Number);
-  }
-
-  if (typeof raw === 'string') {
-    const matches = raw.match(VECTOR_PARSE_REGEX);
-    return matches ? matches.map(Number) : [];
-  }
-
-  return [];
 }

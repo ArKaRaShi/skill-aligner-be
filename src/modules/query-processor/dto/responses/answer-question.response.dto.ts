@@ -1,11 +1,31 @@
 import { ApiProperty } from '@nestjs/swagger';
 
+export class LearningOutcomeDto {
+  @ApiProperty({ description: 'The ID of the learning outcome' })
+  id: string;
+
+  @ApiProperty({ description: 'The name of the learning outcome' })
+  name: string;
+}
+
 export class CourseOutputDto {
+  @ApiProperty({ description: 'The ID of the course' })
+  id: string;
+
+  @ApiProperty({ description: 'The subject code of the course' })
+  subjectCode: string;
+
   @ApiProperty({ description: 'The name of the course' })
-  courseName: string;
+  name: string;
 
   @ApiProperty({ description: 'The reason for including this course' })
   reason: string;
+
+  @ApiProperty({
+    description: 'List of learning outcomes for this course',
+    type: [LearningOutcomeDto],
+  })
+  learningOutcomes: LearningOutcomeDto[];
 }
 
 export class SkillGroupedCoursesDto {

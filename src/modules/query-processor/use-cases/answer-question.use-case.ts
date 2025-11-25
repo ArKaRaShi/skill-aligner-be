@@ -32,7 +32,10 @@ import {
 import { CourseClassificationResult } from '../types/course-classification.type';
 import { Classification } from '../types/question-classification.type';
 import { SkillExpansion } from '../types/skill-expansion.type';
-import { AnswerQuestionUseCaseOutput } from './types/answer-question.use-case.type';
+import {
+  AnswerQuestionUseCaseOutput,
+  CourseOutput,
+} from './types/answer-question.use-case.type';
 
 @Injectable()
 export class AnswerQuestionUseCase
@@ -194,29 +197,106 @@ export class AnswerQuestionUseCase
     return {
       answer: synthesisResult.answerText,
       suggestQuestion: null,
-      skillGroupedCourses: this.filterIncludedCourses(classificationResult),
+      skillGroupedCourses: await this.filterIncludedCourses(
+        classificationResult,
+        skillCoursesMap,
+      ),
     };
   }
 
-  private filterIncludedCourses(
+  private async filterIncludedCourses(
     classificationResult: CourseClassificationResult,
+    skillCoursesMap: Map<string, CourseMatch[]>,
   ) {
     const skillGroupedCourses: {
       skill: string;
-      courses: { courseName: string; reason: string }[];
+      courses: CourseOutput[];
     }[] = [];
 
     for (const classification of classificationResult.classifications) {
-      const includedCourses = classification.courses
-        .filter((course) => course.decision === 'include')
-        .map((course) => ({
-          courseName: course.name,
-          reason: course.reason,
-        }));
+      const includedCourses = classification.courses.filter(
+        (course) => course.decision === 'include',
+      );
+
+      // Get the original course matches for this skill
+      const originalCourses = skillCoursesMap.get(classification.skill) || [];
+
+      // Find all course matches first
+      const courseMatches = includedCourses
+        .map((includedCourse) => {
+          const courseMatch = originalCourses.find((course) => {
+            const displayName =
+              course.subjectNameTh ??
+              course.subjectNameEn ??
+              course.subjectCode;
+            return displayName === includedCourse.name;
+          });
+
+          if (!courseMatch) {
+            this.logger.warn(
+              `Could not find course match for "${includedCourse.name}" in skill "${classification.skill}"`,
+            );
+            return null;
+          }
+
+          return { courseMatch, includedCourse };
+        })
+        .filter(Boolean) as {
+        courseMatch: CourseMatch;
+        includedCourse: { name: string; reason: string };
+      }[];
+
+      // Fetch all course data in parallel
+      const courseFetchPromises = courseMatches.map(
+        async ({ courseMatch, includedCourse }) => {
+          try {
+            const fullCourseData = await this.courseRepository.findByIdOrThrow(
+              courseMatch.courseId,
+            );
+
+            return {
+              id: fullCourseData.courseId,
+              subjectCode: fullCourseData.subjectCode,
+              name:
+                fullCourseData.subjectNameTh ??
+                fullCourseData.subjectNameEn ??
+                fullCourseData.subjectCode,
+              reason: includedCourse.reason,
+              learningOutcomes: fullCourseData.courseLearningOutcomes.map(
+                (clo) => ({
+                  id: clo.cloId,
+                  name:
+                    clo.cleanedCLONameTh ??
+                    clo.cleanedCLONameEn ??
+                    clo.originalCLONameTh ??
+                    clo.originalCLONameEn,
+                }),
+              ),
+            } as CourseOutput;
+          } catch (error) {
+            this.logger.warn(
+              `Failed to fetch course data for course ID ${courseMatch.courseId}: ${error}`,
+            );
+            // Fallback to basic info if fetch fails
+            return {
+              id: courseMatch.courseId,
+              subjectCode: courseMatch.subjectCode,
+              name:
+                courseMatch.subjectNameTh ??
+                courseMatch.subjectNameEn ??
+                courseMatch.subjectCode,
+              reason: includedCourse.reason,
+              learningOutcomes: [],
+            } as CourseOutput;
+          }
+        },
+      );
+
+      const coursesWithFullData = await Promise.all(courseFetchPromises);
 
       skillGroupedCourses.push({
         skill: classification.skill,
-        courses: includedCourses,
+        courses: coursesWithFullData,
       });
     }
 

@@ -7,6 +7,10 @@ import {
   getAnswerSynthesisUserPromptV3,
 } from './answer-synthesis-v3.prompt';
 import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V4,
+  getAnswerSynthesisUserPromptV4,
+} from './answer-synthesis-v4.prompt';
+import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT,
   getAnswerSynthesisUserPrompt,
 } from './answer-synthesis.prompt';
@@ -17,7 +21,7 @@ type AnswerSynthesisPrompt = {
 };
 
 const AnswerSynthesisPrompts: Record<
-  'v1' | 'v2' | 'v3',
+  'v1' | 'v2' | 'v3' | 'v4',
   AnswerSynthesisPrompt
 > = {
   v1: {
@@ -31,6 +35,10 @@ const AnswerSynthesisPrompts: Record<
   v3: {
     systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V3,
     getUserPrompt: getAnswerSynthesisUserPromptV3,
+  },
+  v4: {
+    systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V4,
+    getUserPrompt: getAnswerSynthesisUserPromptV4,
   },
 };
 
