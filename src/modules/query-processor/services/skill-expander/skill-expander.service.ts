@@ -10,7 +10,7 @@ import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.
 import {
   EXPAND_SKILL_SYSTEM_PROMPT,
   getExpandSkillUserPrompt,
-} from '../../prompts/expand-skill.prompt';
+} from '../../prompts/skill-expansion/expand-skill.prompt';
 import { SkillExpansionSchema } from '../../schemas/skill-expansion.schema';
 import { SkillExpansion } from '../../types/skill-expansion.type';
 

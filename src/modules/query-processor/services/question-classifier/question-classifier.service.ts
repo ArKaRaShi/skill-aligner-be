@@ -7,10 +7,7 @@ import {
 
 import { QuestionClassifierCache } from '../../cache/question-classifier.cache';
 import { IQuestionClassifierService } from '../../contracts/i-question-classifier-service.contract';
-import {
-  CLASSIFY_QUESTION_SYSTEM_PROMPT,
-  getClassificationUserPrompt,
-} from '../../prompts/classify-question.prompt';
+import { QuestionClassificationPromptFactory } from '../../prompts/question-classification';
 import { QuestionClassificationSchema } from '../../schemas/question-classification.schema';
 import { QuestionClassification } from '../../types/question-classification.type';
 
@@ -38,7 +35,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     'xxx',
     'masturbate',
     'ลามก',
-    'อนาจาร', // obscene
+    'อนาจาร',
     'เย็ด',
     'xxx video',
 
@@ -108,11 +105,14 @@ export class QuestionClassifierService implements IQuestionClassifierService {
   private async aiBasedClassification(
     question: string,
   ): Promise<QuestionClassification> {
+    const { getPrompts } = QuestionClassificationPromptFactory();
+    const { getUserPrompt, systemPrompt } = getPrompts('v2');
+
     const {
       object: { reason, classification },
     } = await this.llmProviderClient.generateObject({
-      prompt: getClassificationUserPrompt(question),
-      systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT,
+      prompt: getUserPrompt(question),
+      systemPrompt,
       schema: QuestionClassificationSchema,
       model: this.modelName,
     });

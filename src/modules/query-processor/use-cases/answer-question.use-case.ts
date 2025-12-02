@@ -306,7 +306,7 @@ export class AnswerQuestionUseCase
   private getFallbackAnswerForClassification(
     classification: Classification,
   ): AnswerQuestionUseCaseOutput | null {
-    if (classification === 'out_of_scope') {
+    if (classification === 'irrelevant') {
       return {
         answer: 'ขออภัย คำถามของคุณอยู่นอกขอบเขตที่เราสามารถช่วยได้',
         suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',

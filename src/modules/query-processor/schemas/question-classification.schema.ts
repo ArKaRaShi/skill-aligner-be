@@ -2,8 +2,8 @@ import { z } from 'zod';
 
 export const Classification = z.enum([
   'relevant',
+  'irrelevant',
   'dangerous',
-  'out_of_scope',
   'unclear',
 ]);
 

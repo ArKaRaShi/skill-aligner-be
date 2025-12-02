@@ -23,7 +23,7 @@ export class MockQuestionClassifierService
       classification.classification = 'unclear';
       classification.reason = 'Question is unclear';
     } else if (lowerQuestion.includes('out of scope')) {
-      classification.classification = 'out_of_scope';
+      classification.classification = 'irrelevant';
       classification.reason = 'Topic is out of scope';
     }
 
