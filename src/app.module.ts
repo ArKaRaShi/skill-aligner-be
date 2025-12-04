@@ -11,6 +11,7 @@ import {
   QueryProcessorModule,
   UserModule,
 } from './modules';
+import { QueryLoggingModule } from './modules/query-logging/query-logging.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import {
     CampusModule,
     EmbeddingModule.register(),
     QueryProcessorModule,
+    QueryLoggingModule,
   ],
   controllers: [AppController],
   providers: [

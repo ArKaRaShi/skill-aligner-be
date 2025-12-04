@@ -177,3 +177,40 @@ model CourseCLO {
   @@unique([courseId, cloId], name: "unique_course_clo")
   @@map("course_clos")
 }
+
+enum QueryStatus {
+  PENDING
+  COMPLETED
+  FAILED
+
+  @@map("query_status")
+}
+
+model QueryProcessLog {
+  id           String             @id @db.Uuid
+  question     String
+  status       QueryStatus        @default(PENDING)
+  createdAt    DateTime           @default(now()) @map("created_at")
+  updatedAt    DateTime           @updatedAt @map("updated_at")
+  processSteps QueryProcessStep[]
+
+  @@map("query_process_logs")
+}
+
+model QueryProcessStep {
+  id          String          @id @db.Uuid
+  queryLogId  String          @map("query_log_id") @db.Uuid
+  processLog  QueryProcessLog @relation(fields: [queryLogId], references: [id], onDelete: Cascade)
+  stepName    String          @map("step_name")
+  stepOrder   Int             @map("step_order")
+  startedAt   DateTime        @map("started_at")
+  completedAt DateTime?       @map("completed_at")
+  duration    Int?            @map("duration")
+  input       Json?           @map("input")
+  output      Json?           @map("output")
+  metadata    Json?           @map("metadata")
+  createdAt   DateTime        @default(now()) @map("created_at")
+  updatedAt   DateTime        @updatedAt @map("updated_at")
+
+  @@map("query_process_steps")
+}
