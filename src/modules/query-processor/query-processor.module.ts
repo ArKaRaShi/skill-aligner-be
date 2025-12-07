@@ -30,6 +30,8 @@ import { QuestionClassifierService } from './services/question-classifier/questi
 import { MockSkillExpanderService } from './services/skill-expander/mock-skill-expander.service';
 import { SkillExpanderService } from './services/skill-expander/skill-expander.service';
 import { ToolDispatcherService } from './services/tool-dispatcher.service';
+import { QueryStrategyFactory } from './strategies/query-strategy.factory';
+import { SkillQueryStrategy } from './strategies/skill-query.strategy';
 import { QueryProcessorUseCases } from './use-cases';
 
 @Module({
@@ -161,6 +163,10 @@ import { QueryProcessorUseCases } from './use-cases';
         );
       },
     },
+
+    // Strategies and Factory
+    QueryStrategyFactory,
+    SkillQueryStrategy,
   ],
   exports: [I_TOOL_DISPATCHER_SERVICE_TOKEN],
 })
