@@ -44,3 +44,6 @@
 ## Considering or test after.
 "question": "มิวิชาที่สอนยิงธนูมั้ย"
 "The question has been classified as: out_of_scope with reason: The question is safe but does not specifically relate to career skills, professional skills, or learning goals directly tied to education or professional development."
+
+
+

@@ -12,7 +12,10 @@ export class MockQuestionClassifierService
     const classification: QuestionClassification = {
       classification: 'relevant',
       reason: 'Mock classification based on keywords',
-      rawQuestion: question,
+      model: 'mock-model',
+      userPrompt: 'Mock user prompt',
+      systemPrompt: 'Mock system prompt',
+      promptVersion: 'v1',
     };
 
     const lowerQuestion = question.toLowerCase();

@@ -168,6 +168,9 @@ import { QueryProcessorUseCases } from './use-cases';
     QueryStrategyFactory,
     SkillQueryStrategy,
   ],
-  exports: [I_TOOL_DISPATCHER_SERVICE_TOKEN],
+  exports: [
+    I_TOOL_DISPATCHER_SERVICE_TOKEN,
+    I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
+  ],
 })
 export class QueryProcessorModule {}

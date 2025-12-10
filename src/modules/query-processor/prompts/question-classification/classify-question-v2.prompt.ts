@@ -43,7 +43,7 @@ Response:
 Question: "เรียนออนไลน์ได้ไหมจะสะดวกกว่า"
 Response:
 {
-  "classification": "out_of_scope",
+  "classification": "irrelevant",
   "reason": "The question is safe but not directly about specific career or learning goals."
 }
 

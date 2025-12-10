@@ -47,6 +47,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     'meth',
   ];
   private readonly logger = new Logger(QuestionClassifierService.name);
+  private readonly promptVersion = 'v2';
 
   constructor(
     @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
@@ -95,7 +96,10 @@ export class QuestionClassifierService implements IQuestionClassifierService {
         return {
           classification: 'dangerous',
           reason: `The question contains dangerous content: "${concept}"`,
-          rawQuestion: question,
+          model: 'prefilter',
+          userPrompt: '',
+          systemPrompt: '',
+          promptVersion: this.promptVersion,
         };
       }
     }
@@ -106,12 +110,13 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     question: string,
   ): Promise<QuestionClassification> {
     const { getPrompts } = QuestionClassificationPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v2');
+    const { getUserPrompt, systemPrompt } = getPrompts(this.promptVersion);
+    const userPrompt = getUserPrompt(question);
 
     const {
       object: { reason, classification },
     } = await this.llmProviderClient.generateObject({
-      prompt: getUserPrompt(question),
+      prompt: userPrompt,
       systemPrompt,
       schema: QuestionClassificationSchema,
       model: this.modelName,
@@ -119,7 +124,10 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     return {
       classification,
       reason,
-      rawQuestion: question,
+      userPrompt,
+      systemPrompt,
+      model: this.modelName,
+      promptVersion: this.promptVersion,
     };
   }
 }

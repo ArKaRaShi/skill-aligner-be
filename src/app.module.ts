@@ -11,6 +11,7 @@ import {
   QueryProcessorModule,
   UserModule,
 } from './modules';
+import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryLoggingModule } from './modules/query-logging/query-logging.module';
 
 @Module({
@@ -23,6 +24,7 @@ import { QueryLoggingModule } from './modules/query-logging/query-logging.module
     EmbeddingModule.register(),
     QueryProcessorModule,
     QueryLoggingModule,
+    EvaluatorModule,
   ],
   controllers: [AppController],
   providers: [
