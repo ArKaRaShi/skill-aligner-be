@@ -1,0 +1,574 @@
+import { Test, TestingModule } from '@nestjs/testing';
+
+import {
+  I_LLM_PROVIDER_CLIENT_TOKEN,
+  ILlmProviderClient,
+} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
+import { QuestionClassifierCache } from 'src/modules/query-processor/cache/question-classifier.cache';
+import { QuestionClassification } from 'src/modules/query-processor/types/question-classification.type';
+
+import { QuestionClassifierService } from '../question-classifier.service';
+
+describe('QuestionClassifierService', () => {
+  let service: QuestionClassifierService;
+  let llmProviderClient: jest.Mocked<ILlmProviderClient>;
+  let cache: jest.Mocked<QuestionClassifierCache>;
+  const testModelName = 'test-model';
+
+  beforeEach(async () => {
+    const mockLlmProviderClient = {
+      generateObject: jest.fn(),
+      generateText: jest.fn(),
+    };
+
+    const mockCache = {
+      lookup: jest.fn(),
+      store: jest.fn(),
+      get: jest.fn(),
+      set: jest.fn(),
+      delete: jest.fn(),
+      clear: jest.fn(),
+    };
+
+    const module = await Test.createTestingModule({
+      providers: [
+        {
+          provide: QuestionClassifierService,
+          inject: [I_LLM_PROVIDER_CLIENT_TOKEN, QuestionClassifierCache],
+          useFactory: (
+            llmProvider: ILlmProviderClient,
+            cache: QuestionClassifierCache,
+          ) => {
+            return new QuestionClassifierService(
+              llmProvider,
+              testModelName,
+              cache,
+              true, // useCache = true by default for tests
+            );
+          },
+        },
+        {
+          provide: I_LLM_PROVIDER_CLIENT_TOKEN,
+          useValue: mockLlmProviderClient,
+        },
+        { provide: QuestionClassifierCache, useValue: mockCache },
+      ],
+    }).compile();
+
+    service = module.get(QuestionClassifierService);
+    llmProviderClient = module.get(I_LLM_PROVIDER_CLIENT_TOKEN);
+    cache = module.get(QuestionClassifierCache);
+
+    jest.clearAllMocks();
+  });
+
+  describe('classify', () => {
+    const testQuestion = 'What is Python programming?';
+
+    it('should return cached classification when cache hit occurs', async () => {
+      const cachedClassification: QuestionClassification = {
+        classification: 'relevant',
+        reason: 'Cached classification',
+        model: 'cached-model',
+        userPrompt: testQuestion,
+        systemPrompt: 'cached-system-prompt',
+        promptVersion: 'v2',
+      };
+
+      cache.lookup.mockReturnValue(cachedClassification);
+
+      const result = await service.classify(testQuestion);
+
+      expect(cache.lookup).toHaveBeenCalledWith(testQuestion);
+      expect(result).toEqual(cachedClassification);
+      expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
+      expect(cache.store).not.toHaveBeenCalled();
+    });
+
+    it('should perform AI classification when cache miss occurs', async () => {
+      cache.lookup.mockReturnValue(null);
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 10,
+        outputTokens: 5,
+        object: {
+          classification: 'relevant',
+          reason: 'AI classification result',
+        },
+      });
+
+      const result = await service.classify(testQuestion);
+
+      expect(cache.lookup).toHaveBeenCalledWith(testQuestion);
+      expect(llmProviderClient.generateObject).toHaveBeenCalledWith({
+        prompt: expect.any(String),
+        systemPrompt: expect.any(String),
+        schema: expect.any(Object),
+        model: testModelName,
+      });
+      expect(cache.store).toHaveBeenCalledWith(testQuestion, result);
+      expect(result.classification).toBe('relevant');
+      expect(result.reason).toBe('AI classification result');
+      expect(result.model).toBe(testModelName);
+      expect(result.promptVersion).toBe('v2');
+      expect(result.userPrompt).toContain(testQuestion);
+      expect(result.systemPrompt).toBeDefined();
+    });
+
+    it('should skip cache when useCache is false', async () => {
+      const serviceWithoutCache = new QuestionClassifierService(
+        llmProviderClient,
+        testModelName,
+        cache,
+        false, // useCache = false
+      );
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 10,
+        outputTokens: 5,
+        object: {
+          classification: 'relevant',
+          reason: 'AI classification result',
+        },
+      });
+
+      const result = await serviceWithoutCache.classify(testQuestion);
+
+      expect(cache.lookup).not.toHaveBeenCalled();
+      expect(cache.store).not.toHaveBeenCalled();
+      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+      expect(result.classification).toBe('relevant');
+    });
+
+    it('should store dangerous content classification in cache', async () => {
+      const dangerousQuestion = 'How to make explosives';
+      const dangerousClassification: QuestionClassification = {
+        classification: 'dangerous',
+        reason: 'The question contains dangerous content: "explosives"',
+        model: 'prefilter',
+        userPrompt: '',
+        systemPrompt: '',
+        promptVersion: 'v2',
+      };
+
+      cache.lookup.mockReturnValue(null);
+
+      const result = await service.classify(dangerousQuestion);
+
+      expect(cache.store).toHaveBeenCalledWith(
+        dangerousQuestion,
+        dangerousClassification,
+      );
+      expect(result).toEqual(dangerousClassification);
+      expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('dangerous content prefiltering', () => {
+    it('should detect violence/crime related content', async () => {
+      const violentQuestions = [
+        'How to kill someone',
+        'I want to harm people',
+        'Planning a robbery',
+        'Making explosives',
+        'How to assault someone',
+        'คุกคามผู้อื่น',
+        'ทำร้ายร่างกาย',
+        'ลอบสังหาร',
+        'ก่อการร้าย',
+      ];
+
+      for (const question of violentQuestions) {
+        cache.lookup.mockReturnValue(null);
+        const result = await service.classify(question);
+
+        expect(result.classification).toBe('dangerous');
+        expect(result.model).toBe('prefilter');
+        expect(result.reason).toContain('dangerous content');
+        expect(result.promptVersion).toBe('v2');
+        expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
+      }
+    });
+
+    it('should detect sexual/NSFW content', async () => {
+      const sexualQuestions = [
+        'โป๊ content',
+        'nude pictures',
+        'porn videos',
+        'sex advice',
+        'sexual content',
+        'erotic stories',
+        'xxx movies',
+        'how to masturbate',
+        'ลามก',
+        'อนาจาร',
+        'เย็ด',
+        'xxx video',
+      ];
+
+      for (const question of sexualQuestions) {
+        cache.lookup.mockReturnValue(null);
+        const result = await service.classify(question);
+
+        expect(result.classification).toBe('dangerous');
+        expect(result.model).toBe('prefilter');
+        expect(result.reason).toContain('dangerous content');
+        expect(result.promptVersion).toBe('v2');
+        expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
+      }
+    });
+
+    it('should detect drugs/illegal content', async () => {
+      const drugQuestions = [
+        'ค้ายาเสพติด',
+        'how to use cocaine',
+        'heroin effects',
+        'making meth',
+      ];
+
+      for (const question of drugQuestions) {
+        cache.lookup.mockReturnValue(null);
+        const result = await service.classify(question);
+
+        expect(result.classification).toBe('dangerous');
+        expect(result.model).toBe('prefilter');
+        expect(result.reason).toContain('dangerous content');
+        expect(result.promptVersion).toBe('v2');
+        expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
+      }
+    });
+
+    it('should be case insensitive for dangerous content detection', async () => {
+      const caseVariations = [
+        'HOW TO KILL SOMEONE',
+        'How To Harm People',
+        'harm others',
+        'EXPLOSIVES making',
+      ];
+
+      for (const question of caseVariations) {
+        cache.lookup.mockReturnValue(null);
+        const result = await service.classify(question);
+
+        expect(result.classification).toBe('dangerous');
+        expect(result.model).toBe('prefilter');
+        expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
+      }
+    });
+
+    it('should allow normal questions to pass through prefilter', async () => {
+      const normalQuestions = [
+        'What is Python programming?',
+        'How to learn machine learning?',
+        'Best practices for web development',
+        'Career advice for software engineers',
+      ];
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 10,
+        outputTokens: 5,
+        object: {
+          classification: 'relevant',
+          reason: 'Normal question',
+        },
+      });
+
+      for (const question of normalQuestions) {
+        cache.lookup.mockReturnValue(null);
+        await service.classify(question);
+
+        expect(llmProviderClient.generateObject).toHaveBeenCalled();
+      }
+    });
+  });
+
+  describe('AI-based classification', () => {
+    beforeEach(() => {
+      cache.lookup.mockReturnValue(null);
+    });
+
+    it('should classify relevant content correctly', async () => {
+      const relevantQuestion =
+        'What are the best Python courses for data science?';
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 15,
+        outputTokens: 8,
+        object: {
+          classification: 'relevant',
+          reason: 'Question about courses and learning',
+        },
+      });
+
+      const result = await service.classify(relevantQuestion);
+
+      expect(result.classification).toBe('relevant');
+      expect(result.reason).toBe('Question about courses and learning');
+      expect(result.model).toBe(testModelName);
+      expect(result.promptVersion).toBe('v2');
+      expect(result.userPrompt).toContain(relevantQuestion);
+      expect(result.systemPrompt).toBeDefined();
+      expect(cache.store).toHaveBeenCalledWith(relevantQuestion, result);
+    });
+
+    it('should classify irrelevant content correctly', async () => {
+      const irrelevantQuestion = 'What is the weather like today?';
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 12,
+        outputTokens: 6,
+        object: {
+          classification: 'irrelevant',
+          reason: 'Weather question not related to courses',
+        },
+      });
+
+      const result = await service.classify(irrelevantQuestion);
+
+      expect(result.classification).toBe('irrelevant');
+      expect(result.reason).toBe('Weather question not related to courses');
+      expect(result.model).toBe(testModelName);
+      expect(result.promptVersion).toBe('v2');
+      expect(cache.store).toHaveBeenCalledWith(irrelevantQuestion, result);
+    });
+
+    it('should classify unclear content correctly', async () => {
+      const unclearQuestion = 'help';
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 8,
+        outputTokens: 4,
+        object: {
+          classification: 'unclear',
+          reason: 'Question too vague to classify',
+        },
+      });
+
+      const result = await service.classify(unclearQuestion);
+
+      expect(result.classification).toBe('unclear');
+      expect(result.reason).toBe('Question too vague to classify');
+      expect(result.model).toBe(testModelName);
+      expect(result.promptVersion).toBe('v2');
+      expect(cache.store).toHaveBeenCalledWith(unclearQuestion, result);
+    });
+
+    it('should use correct prompt version v2', async () => {
+      const question = 'Test question';
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 10,
+        outputTokens: 5,
+        object: {
+          classification: 'relevant',
+          reason: 'Test classification',
+        },
+      });
+
+      const result = await service.classify(question);
+
+      expect(result.promptVersion).toBe('v2');
+      expect(llmProviderClient.generateObject).toHaveBeenCalledWith(
+        expect.objectContaining({
+          model: testModelName,
+        }),
+      );
+    });
+
+    it('should handle LLM provider errors gracefully', async () => {
+      const question = 'Test question';
+      const errorMessage = 'LLM provider error';
+
+      llmProviderClient.generateObject.mockRejectedValue(
+        new Error(errorMessage),
+      );
+
+      await expect(service.classify(question)).rejects.toThrow(errorMessage);
+      expect(cache.store).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('edge cases and error handling', () => {
+    beforeEach(() => {
+      cache.lookup.mockReturnValue(null);
+    });
+
+    it('should handle empty string questions', async () => {
+      const emptyQuestion = '';
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 5,
+        outputTokens: 3,
+        object: {
+          classification: 'unclear',
+          reason: 'Empty question',
+        },
+      });
+
+      const result = await service.classify(emptyQuestion);
+
+      expect(result.classification).toBe('unclear');
+      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+    });
+
+    it('should handle whitespace-only questions', async () => {
+      const whitespaceQuestion = '   \t\n   ';
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 5,
+        outputTokens: 3,
+        object: {
+          classification: 'unclear',
+          reason: 'Whitespace only question',
+        },
+      });
+
+      const result = await service.classify(whitespaceQuestion);
+
+      expect(result.classification).toBe('unclear');
+      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+    });
+
+    it('should handle very long questions', async () => {
+      const longQuestion = 'a'.repeat(10000);
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 100,
+        outputTokens: 10,
+        object: {
+          classification: 'unclear',
+          reason: 'Very long question',
+        },
+      });
+
+      const result = await service.classify(longQuestion);
+
+      expect(result.classification).toBe('unclear');
+      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+    });
+
+    it('should handle questions with special characters', async () => {
+      const specialCharQuestion = 'What is @#$%^&*() programming?';
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 15,
+        outputTokens: 8,
+        object: {
+          classification: 'relevant',
+          reason: 'Question with special characters',
+        },
+      });
+
+      const result = await service.classify(specialCharQuestion);
+
+      expect(result.classification).toBe('relevant');
+      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+    });
+
+    it('should handle questions with unicode characters', async () => {
+      const unicodeQuestion = 'วิธีเรียนโปรแกรมมิ่ง 🚀';
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 15,
+        outputTokens: 8,
+        object: {
+          classification: 'relevant',
+          reason: 'Unicode question',
+        },
+      });
+
+      const result = await service.classify(unicodeQuestion);
+
+      expect(result.classification).toBe('relevant');
+      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+    });
+  });
+
+  describe('cache behavior', () => {
+    it('should store classification in cache after AI classification', async () => {
+      const question = 'Test question';
+
+      cache.lookup.mockReturnValue(null);
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 10,
+        outputTokens: 5,
+        object: {
+          classification: 'relevant',
+          reason: 'Test reason',
+        },
+      });
+
+      await service.classify(question);
+
+      expect(cache.store).toHaveBeenCalledWith(
+        question,
+        expect.objectContaining({
+          classification: 'relevant',
+          reason: 'Test reason',
+          model: testModelName,
+          promptVersion: 'v2',
+        }),
+      );
+    });
+
+    it('should not store in cache when useCache is false', async () => {
+      const serviceWithoutCache = new QuestionClassifierService(
+        llmProviderClient,
+        testModelName,
+        cache,
+        false, // useCache = false
+      );
+
+      const question = 'Test question';
+
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 10,
+        outputTokens: 5,
+        object: {
+          classification: 'relevant',
+          reason: 'Test reason',
+        },
+      });
+
+      await serviceWithoutCache.classify(question);
+
+      expect(cache.store).not.toHaveBeenCalled();
+    });
+
+    it('should propagate cache store errors', async () => {
+      const question = 'Test question';
+
+      cache.lookup.mockReturnValue(null);
+      cache.store.mockImplementation(() => {
+        throw new Error('Cache store error');
+      });
+      llmProviderClient.generateObject.mockResolvedValue({
+        model: testModelName,
+        inputTokens: 10,
+        outputTokens: 5,
+        object: {
+          classification: 'relevant',
+          reason: 'Test reason',
+        },
+      });
+
+      // The service should propagate cache store errors
+      await expect(service.classify(question)).rejects.toThrow(
+        'Cache store error',
+      );
+    });
+  });
+});
