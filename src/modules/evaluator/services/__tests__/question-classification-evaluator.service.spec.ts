@@ -55,6 +55,7 @@ describe('QuestionClassificationEvaluatorService', () => {
               model: 'test-model',
               userPrompt: question,
               systemPrompt: 'test-system-prompt',
+              promptVersion: 'v1',
             });
           } else if (
             question.includes('ยาเรียนอะไรดี') ||
@@ -69,6 +70,7 @@ describe('QuestionClassificationEvaluatorService', () => {
               model: 'test-model',
               userPrompt: question,
               systemPrompt: 'test-system-prompt',
+              promptVersion: 'v1',
             });
           } else if (
             question.includes('ผิดกฎหมาย') ||
@@ -83,6 +85,7 @@ describe('QuestionClassificationEvaluatorService', () => {
               model: 'test-model',
               userPrompt: question,
               systemPrompt: 'test-system-prompt',
+              promptVersion: 'v1',
             });
           } else {
             return Promise.resolve({
@@ -91,6 +94,7 @@ describe('QuestionClassificationEvaluatorService', () => {
               model: 'test-model',
               userPrompt: question,
               systemPrompt: 'test-system-prompt',
+              promptVersion: 'v1',
             });
           }
         },
