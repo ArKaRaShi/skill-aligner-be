@@ -447,8 +447,8 @@ Output:
           'mathematics for ai',
         ];
 
-    const matchesPerSkill = 10;
-    const threshold = 0.7;
+    const matchesPerSkill = 20;
+    const threshold = 0.6;
 
     if (skills.length === 0) {
       return { error: 'At least one skill must be provided' };

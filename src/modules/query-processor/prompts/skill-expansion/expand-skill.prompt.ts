@@ -1,5 +1,8 @@
 export const getExpandSkillUserPrompt = (question: string) => `
-User Question: "${question}"
+Now extract all possible skill that a user would need to achieve the goal described in the question below.
+
+User Question: 
+${question}
 `;
 
 export const EXPAND_SKILL_SYSTEM_PROMPT = `

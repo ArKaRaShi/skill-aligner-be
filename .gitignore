@@ -59,6 +59,7 @@ node_modules
 
 /generated/prisma
 
-data/*
+data/*.json
+data/courses.csv
 
-*.json
+src/modules/**/*.json

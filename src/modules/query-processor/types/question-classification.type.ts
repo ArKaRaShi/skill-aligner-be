@@ -8,7 +8,10 @@ import {
 export type QuestionClassification = z.infer<
   typeof QuestionClassificationSchema
 > & {
-  rawQuestion: string;
+  model: string;
+  userPrompt: string;
+  systemPrompt: string;
+  promptVersion: string;
 };
 
 export type Classification = z.infer<typeof ClassificationEnum>;
