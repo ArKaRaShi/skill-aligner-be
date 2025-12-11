@@ -74,9 +74,17 @@ export class PrismaCourseRepository implements ICourseRepository {
       return new Map<string, CourseMatch[]>();
     }
 
-    const embeddingDimension = skillsWithEmbeddings[0]?.vector.length ?? 0;
-
-    // let rows: RawCourseQueryRow[] = [];
+    const embeddingDimension = 768;
+    const embeddingColumnName = 'embedding_768';
+    const hasEmbeddingColumnName = 'has_embedding_768';
+    if (
+      skillsWithEmbeddings[0]?.vector.length &&
+      skillsWithEmbeddings[0]?.vector.length !== embeddingDimension
+    ) {
+      throw new Error(
+        `Expected embedding dimension ${embeddingDimension} but received ${skillsWithEmbeddings[0]?.vector.length}`,
+      );
+    }
 
     const vectorType = Prisma.raw(`vector(${embeddingDimension})`);
     const skillEmbeddingValues = Prisma.join(
@@ -117,19 +125,24 @@ export class PrismaCourseRepository implements ICourseRepository {
             clo.original_clo_name_en,
             clo.cleaned_clo_name_th,
             clo.cleaned_clo_name_en,
-            clo.embedding::float4[] AS clo_embedding,
+            clov.${Prisma.raw(embeddingColumnName)}::float4[] AS clo_embedding,
             clo.skip_embedding,
-            clo.is_embedded,
+            clo.${Prisma.raw(hasEmbeddingColumnName)} AS is_embedded,
             clo.metadata AS clo_metadata,
             clo.created_at AS clo_created_at,
             clo.updated_at AS clo_updated_at,
-            1 - (clo.embedding <=> s.embedding) AS similarity,
+            1 - (clov.${Prisma.raw(embeddingColumnName)} <=> s.embedding) AS similarity,
             ROW_NUMBER() OVER (
               PARTITION BY s.skill, clo.id
               ORDER BY c.academic_year DESC, c.semester DESC, c.created_at DESC
             ) AS clo_course_rank
           FROM input_skills s
-          JOIN course_learning_outcomes clo ON clo.is_embedded = TRUE
+          JOIN course_learning_outcomes clo ON clo.${Prisma.raw(
+            hasEmbeddingColumnName,
+          )} = TRUE
+          JOIN course_learning_outcome_vectors clov
+            ON clov.clo_id = clo.id
+           AND clov.${Prisma.raw(embeddingColumnName)} IS NOT NULL
           JOIN course_clos cc ON cc.clo_id = clo.id
           JOIN courses c ON c.id = cc.course_id
         ),
@@ -286,15 +299,16 @@ export class PrismaCourseRepository implements ICourseRepository {
         clo.original_clo_name_en,
         clo.cleaned_clo_name_th,
         clo.cleaned_clo_name_en,
-        clo.embedding::float4[],
+        clov.embedding_768::float4[] AS embedding_768,
         clo.skip_embedding,
-        clo.is_embedded,
+        clo.has_embedding_768 AS is_embedded,
         clo.metadata AS clo_metadata,
         clo.created_at AS clo_created_at,
         clo.updated_at AS clo_updated_at
       FROM courses c
       LEFT JOIN course_clos cc ON c.id = cc.course_id
       LEFT JOIN course_learning_outcomes clo ON cc.clo_id = clo.id
+      LEFT JOIN course_learning_outcome_vectors clov ON clo.id = clov.clo_id
       WHERE c.id = ${courseId}::uuid
       ORDER BY cc.clo_no;
     `;
@@ -306,21 +320,25 @@ export class PrismaCourseRepository implements ICourseRepository {
     const firstRow = rows[0];
     const courseLearningOutcomes: CourseLearningOutcome[] = rows
       .filter((row) => row.clo_id)
-      .map((row) => ({
-        cloId: row.clo_id as Identifier,
-        courseId: row.course_id as Identifier,
-        cloNo: row.clo_no,
-        originalCLONameTh: row.original_clo_name,
-        originalCLONameEn: row.original_clo_name_en,
-        cleanedCLONameTh: row.cleaned_clo_name_th,
-        cleanedCLONameEn: row.cleaned_clo_name_en,
-        embedding: row.embedding,
-        skipEmbedding: row.skip_embedding,
-        isEmbedded: row.is_embedded,
-        metadata: row.clo_metadata,
-        createdAt: row.clo_created_at,
-        updatedAt: row.clo_updated_at,
-      }));
+      .map((row) => {
+        const embedding = parseVector(row.embedding_768);
+
+        return {
+          cloId: row.clo_id as Identifier,
+          courseId: row.course_id as Identifier,
+          cloNo: row.clo_no,
+          originalCLONameTh: row.original_clo_name,
+          originalCLONameEn: row.original_clo_name_en,
+          cleanedCLONameTh: row.cleaned_clo_name_th,
+          cleanedCLONameEn: row.cleaned_clo_name_en,
+          embedding,
+          skipEmbedding: row.skip_embedding,
+          isEmbedded: row.is_embedded,
+          metadata: row.clo_metadata,
+          createdAt: row.clo_created_at,
+          updatedAt: row.clo_updated_at,
+        };
+      });
 
     return {
       courseId: firstRow.course_id as Identifier,

@@ -1,15 +1,19 @@
 import { Body, Controller, Get, Inject, Post, Query } from '@nestjs/common';
-import { ApiBody, ApiProperty } from '@nestjs/swagger';
+import { ApiBody, ApiProperty, ApiQuery } from '@nestjs/swagger';
 
 import {
   createOpenRouter,
   OpenRouterProvider,
 } from '@openrouter/ai-sdk-provider';
-import { Experimental_Agent as Agent, generateObject, tool } from 'ai';
+import { generateObject, tool } from 'ai';
 import { z } from 'zod';
 
 import { appendObjectToArrayFile } from './append-result.util';
 import { AppConfigService } from './config/app-config.service';
+import {
+  I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
+  ICourseLearningOutcomeRepository,
+} from './modules/course/contracts/i-course-learning-outcome.repository';
 import {
   I_COURSE_REPOSITORY_TOKEN,
   ICourseRepository,
@@ -100,6 +104,8 @@ export class AppController {
     private readonly appConfigService: AppConfigService,
     @Inject(I_COURSE_REPOSITORY_TOKEN)
     private readonly courseRepository: ICourseRepository,
+    @Inject(I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN)
+    private readonly courseLearningOutcomeRepository: ICourseLearningOutcomeRepository,
 
     @Inject(I_EMBEDDING_CLIENT_TOKEN)
     private readonly embeddingService: IEmbeddingClient,
@@ -495,5 +501,95 @@ Output:
         details: error instanceof Error ? error.message : String(error),
       };
     }
+  }
+
+  @Get('/test/clo-repository')
+  @ApiQuery({
+    name: 'skills',
+    required: false,
+    description:
+      'Comma-separated list of skills to search for (default: predefined set)',
+  })
+  @ApiQuery({
+    name: 'threshold',
+    required: false,
+    description: 'Similarity threshold between 0 and 1 (default: 0.75)',
+    example: '0.75',
+  })
+  @ApiQuery({
+    name: 'topN',
+    required: false,
+    description: 'Number of top matches to return per skill (default: 10)',
+    example: '10',
+  })
+  @ApiQuery({
+    name: 'vectorDimension',
+    required: false,
+    description: 'Dimension of embedding vectors (768 or 1536, default: 768)',
+    example: '768',
+  })
+  async testCloRepository(
+    @Query('skills') skillsQuery?: string,
+    @Query('threshold') thresholdQuery?: string,
+    @Query('topN') topNQuery?: string,
+    @Query('vectorDimension') vectorDimensionQuery?: string,
+  ): Promise<any> {
+    console.time('CloRepositoryTest');
+
+    // Parse skills from comma-separated query string or use defaults
+    const skills = skillsQuery
+      ? skillsQuery
+          .split(',')
+          .map((skill) => skill.trim())
+          .filter((skill) => skill.length > 0)
+      : [
+          'machine learning basics',
+          'data analysis',
+          'programming fundamentals',
+          'mathematics for ai',
+        ];
+
+    const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.75;
+    const topN = topNQuery ? parseInt(topNQuery, 10) : 10;
+    const vectorDimension = vectorDimensionQuery
+      ? (parseInt(vectorDimensionQuery, 10) as 768 | 1536)
+      : 768;
+
+    if (skills.length === 0) {
+      return { error: 'At least one skill must be provided' };
+    }
+
+    const result = await this.courseLearningOutcomeRepository.findLosBySkills({
+      skills,
+      threshold,
+      topN,
+      vectorDimension,
+    });
+
+    const arrayResult = Array.from(result.entries()).map(([skill, los]) => {
+      const losWithoutEmbeddings = los.map((lo) => {
+        const { embedding, ...loWithoutEmbedding } = lo;
+        return loWithoutEmbedding;
+      });
+
+      return {
+        skill,
+        learningOutcomes: losWithoutEmbeddings,
+      };
+    });
+
+    // Extract and log learning outcomes with similarity scores
+    const losWithSim = arrayResult.flatMap((skillResult) =>
+      skillResult.learningOutcomes.map((lo) => ({
+        lo_name: lo.cleanedNameTh,
+        sim: lo.similarityScore,
+      })),
+    );
+
+    console.log('Learning Outcomes Array:', losWithSim);
+    console.timeEnd('CloRepositoryTest');
+    console.log('LO length: ', arrayResult[0]?.learningOutcomes?.length || 0);
+
+    return arrayResult;
   }
 }

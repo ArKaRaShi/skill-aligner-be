@@ -138,6 +138,7 @@ model Course {
   subjectCode            String      @map("subject_code")
   subjectNameTh          String      @map("subject_name_th")
   subjectNameEn          String?     @map("subject_name_en")
+  isGenEd                Boolean     @default(false) @map("is_gen_ed")
   createdAt              DateTime    @default(now()) @map("created_at")
   updatedAt              DateTime    @updatedAt @map("updated_at")
   metadata               Json?
@@ -148,20 +149,33 @@ model Course {
 }
 
 model CourseLearningOutcome {
-  id                String                     @id @db.Uuid
-  originalCLONameTh String                     @map("original_clo_name")
-  originalCLONameEn String?                    @map("original_clo_name_en")
-  cleanedCLONameTh  String                     @map("cleaned_clo_name_th")
-  cleanedCLONameEn  String?                    @map("cleaned_clo_name_en")
-  createdAt         DateTime                   @default(now()) @map("created_at")
-  updatedAt         DateTime                   @updatedAt @map("updated_at")
-  embedding         Unsupported("vector(768)")
-  skipEmbedding     Boolean                    @default(false) @map("skip_embedding")
-  isEmbedded        Boolean                    @default(false) @map("is_embedded")
-  metadata          Json?
-  linkedCourses     CourseCLO[]
+  id                          String                       @id @db.Uuid
+  originalCLONameTh           String                       @map("original_clo_name")
+  originalCLONameEn           String?                      @map("original_clo_name_en")
+  cleanedCLONameTh            String                       @map("cleaned_clo_name_th")
+  cleanedCLONameEn            String?                      @map("cleaned_clo_name_en")
+  skipEmbedding               Boolean                      @default(false) @map("skip_embedding")
+  hasEmbedding768             Boolean                      @default(false) @map("has_embedding_768")
+  hasEmbedding1536            Boolean                      @default(false) @map("has_embedding_1536")
+  metadata                    Json?
+  linkedCourses               CourseCLO[]
+  createdAt                   DateTime                     @default(now()) @map("created_at")
+  updatedAt                   DateTime                     @updatedAt @map("updated_at")
+  courseLearningOutcomeVector CourseLearningOutcomeVector?
 
   @@map("course_learning_outcomes")
+}
+
+model CourseLearningOutcomeVector {
+  id              String                       @id @db.Uuid
+  cloId           String                       @unique @map("clo_id") @db.Uuid
+  learningOutcome CourseLearningOutcome        @relation(fields: [cloId], references: [id], onDelete: Cascade)
+  embedding768    Unsupported("vector(768)")?  @map("embedding_768")
+  embedding1536   Unsupported("vector(1536)")? @map("embedding_1536")
+  metadata        Json?
+  createdAt       DateTime                     @default(now()) @map("created_at")
+
+  @@map("course_learning_outcome_vectors")
 }
 
 model CourseCLO {

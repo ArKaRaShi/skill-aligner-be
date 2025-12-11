@@ -36,8 +36,28 @@ services:
     networks:
       - app-network
 
+  test-db:
+    image: pgvector/pgvector:pg16
+    container_name: career-skill-aligner-db-test
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpassword123
+    volumes:
+      - pgdata_test:/var/lib/postgresql/data
+    ports:
+      - '5434:5432' # Different port for test database
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U testuser -d testdb']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks:
+      - app-network
+
 volumes:
   pgdata_dev:
+  pgdata_test:
 
 networks:
   app-network:
