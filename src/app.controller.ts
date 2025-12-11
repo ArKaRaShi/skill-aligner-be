@@ -5,12 +5,7 @@ import {
   createOpenRouter,
   OpenRouterProvider,
 } from '@openrouter/ai-sdk-provider';
-import {
-  Experimental_Agent as Agent,
-  generateObject,
-  stepCountIs,
-  tool,
-} from 'ai';
+import { Experimental_Agent as Agent, generateObject, tool } from 'ai';
 import { z } from 'zod';
 
 import { appendObjectToArrayFile } from './append-result.util';
@@ -24,9 +19,14 @@ import {
   IEmbeddingClient,
 } from './modules/embedding/contracts/i-embedding-client.contract';
 import {
+  I_SKILL_EXPANDER_SERVICE_TOKEN,
+  ISkillExpanderService,
+} from './modules/query-processor/contracts/i-skill-expander-service.contract';
+import {
   I_TOOL_DISPATCHER_SERVICE_TOKEN,
   IToolDispatcherService,
 } from './modules/query-processor/contracts/i-tool-dispatcher-service.contract';
+import { SkillExpansionV2 } from './modules/query-processor/types/skill-expansion.type';
 
 export const weatherTool = tool({
   description: 'Get the weather in a location',
@@ -105,6 +105,9 @@ export class AppController {
     private readonly embeddingService: IEmbeddingClient,
     @Inject(I_TOOL_DISPATCHER_SERVICE_TOKEN)
     private readonly toolDispatcherService: IToolDispatcherService,
+
+    @Inject(I_SKILL_EXPANDER_SERVICE_TOKEN)
+    private readonly skillExpanderService: ISkillExpanderService,
   ) {
     this.openRouter = createOpenRouter({
       apiKey: this.appConfigService.openRouterApiKey,
@@ -138,48 +141,12 @@ export class AppController {
     return await completions.json();
   }
 
-  @Get('/agent')
-  async getOpenAiResponse(
+  @Get('/test-skill-expander')
+  async testSkillExpander(
     @Query('question') question: string,
-  ): Promise<string> {
-    const agent = new Agent({
-      model: this.openRouter('x-ai/grok-4-fast:free'),
-      system: `
-  ## Role
-  You are a weather information assistant. You respond with clear, human-friendly
-  summaries based strictly on the structured data returned by the \`weather\` tool.
-
-  ## Instruction
-  1. Always call the \`weather\` tool when asked about weather.
-  2. Use only the tool’s output fields: \`location\`, \`temperatureCelsius\`, 
-     \`temperatureFahrenheit\`, and \`condition\`.
-  3. Format the final answer as: 
-     "The current weather in [location] is [temperatureCelsius]°C ([temperatureFahrenheit]°F) and [condition]."
-  4. Never invent values. If the tool fails, respond with: 
-     "Weather information for [location] is currently unavailable."
-
-  ## Context
-  - Tool always returns numeric Celsius and Fahrenheit values, plus a text condition.
-  - Audience expects a short, readable summary, not raw JSON.
-  - Keep answers one sentence long.
-
-  ## Example
-  **Input:** "What is the weather in Bangkok?"  
-  **Output:** "The current weather in Bangkok, Thailand is 27°C (80.6°F) and cloudy."
-  `,
-      tools: {
-        weather: weatherTool,
-      },
-      stopWhen: stepCountIs(3),
-    });
-
-    const result = await agent.generate({
-      prompt: question,
-    });
-
-    const { text, steps } = result;
-    console.log('Steps:', JSON.stringify(steps, null, 2));
-    return text;
+  ): Promise<SkillExpansionV2> {
+    const result = await this.skillExpanderService.expandSkillsV2(question);
+    return result;
   }
 
   private readonly ScoreWeight = {
@@ -482,6 +449,7 @@ Output:
     });
 
     console.timeEnd('CourseRepositoryTest');
+    console.log('Course length: ', arrayResult[0].courses.length);
 
     return arrayResult;
   }

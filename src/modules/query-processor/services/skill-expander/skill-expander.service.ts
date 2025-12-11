@@ -7,12 +7,19 @@ import {
 
 import { QuestionSkillCache } from '../../cache/question-skill.cache';
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
+import { SkillExpansionPromptFactory } from '../../prompts/skill-expansion';
 import {
   EXPAND_SKILL_SYSTEM_PROMPT,
   getExpandSkillUserPrompt,
 } from '../../prompts/skill-expansion/expand-skill.prompt';
-import { SkillExpansionSchema } from '../../schemas/skill-expansion.schema';
-import { SkillExpansion } from '../../types/skill-expansion.type';
+import {
+  SkillExpansionSchema,
+  SkillExpansionV2Schema,
+} from '../../schemas/skill-expansion.schema';
+import {
+  SkillExpansion,
+  SkillExpansionV2,
+} from '../../types/skill-expansion.type';
 
 @Injectable()
 export class SkillExpanderService implements ISkillExpanderService {
@@ -75,6 +82,27 @@ export class SkillExpanderService implements ISkillExpanderService {
       this.cache.store(question, result);
     }
     return result;
+  }
+
+  async expandSkillsV2(question: string): Promise<SkillExpansionV2> {
+    const { getPrompts } = SkillExpansionPromptFactory();
+    const { getUserPrompt, systemPrompt } = getPrompts('v3');
+
+    const {
+      object: { core_skills, supporting_skills, expandable_skill_paths },
+    } = await this.llmProviderClient.generateObject({
+      prompt: getUserPrompt(question),
+      systemPrompt,
+      schema: SkillExpansionV2Schema,
+      model: this.modelName,
+    });
+
+    return {
+      core_skills,
+      supporting_skills,
+      expandable_skill_paths,
+      rawQuestion: question,
+    };
   }
 
   private normalizeSkillName(name: string): string {

@@ -171,6 +171,7 @@ import { QueryProcessorUseCases } from './use-cases';
   exports: [
     I_TOOL_DISPATCHER_SERVICE_TOKEN,
     I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
+    I_SKILL_EXPANDER_SERVICE_TOKEN,
   ],
 })
 export class QueryProcessorModule {}

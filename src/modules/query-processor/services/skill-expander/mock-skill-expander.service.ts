@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
-import { SkillExpansion } from '../../types/skill-expansion.type';
+import {
+  SkillExpansion,
+  SkillExpansionV2,
+} from '../../types/skill-expansion.type';
 
 @Injectable()
 export class MockSkillExpanderService implements ISkillExpanderService {
@@ -20,6 +23,49 @@ export class MockSkillExpanderService implements ISkillExpanderService {
         {
           skill: 'Mock Skill 3',
           reason: 'Related to user query',
+        },
+      ],
+      rawQuestion: question,
+    };
+  }
+
+  async expandSkillsV2(question: string): Promise<SkillExpansionV2> {
+    await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate async delay
+    return {
+      core_skills: [
+        {
+          skill: 'mock core skill 1',
+          reason: 'Essential for achieving the goal',
+        },
+        {
+          skill: 'mock core skill 2',
+          reason: 'Directly related to user objective',
+        },
+      ],
+      supporting_skills: [
+        {
+          skill: 'mock supporting skill 1',
+          reason: 'Helpful but not required',
+        },
+      ],
+      expandable_skill_paths: [
+        {
+          path_name: 'advanced path',
+          skills: [
+            {
+              skill: 'mock advanced skill 1',
+              reason: 'For specialization in advanced topics',
+            },
+          ],
+        },
+        {
+          path_name: 'beginner path',
+          skills: [
+            {
+              skill: 'mock beginner skill 1',
+              reason: 'For getting started with basics',
+            },
+          ],
         },
       ],
       rawQuestion: question,
