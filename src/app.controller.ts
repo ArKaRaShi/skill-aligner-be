@@ -448,6 +448,18 @@ Output:
       };
     });
 
+    // Extract and log learning outcomes with similarity scores
+    const losWithSim = arrayResult.flatMap((skillResult) =>
+      skillResult.courses.flatMap((course) =>
+        course.cloMatches.map((clo) => ({
+          lo_name: clo.cleanedCLONameTh,
+          sim: clo.similarityScore,
+        })),
+      ),
+    );
+
+    console.log('Learning Outcomes Array:', losWithSim);
+
     console.timeEnd('CourseRepositoryTest');
     console.log('Course length: ', arrayResult[0].courses.length);
 
