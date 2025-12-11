@@ -36,8 +36,8 @@ type SkillAggregation = Map<string, CourseAggregation>;
 
 @Injectable()
 export class PrismaCourseRepository implements ICourseRepository {
-  private static readonly DEFAULT_MATCHES_PER_SKILL = 20;
-  private static readonly DEFAULT_THRESHOLD = 0.6;
+  private readonly DEFAULT_MATCHES_PER_SKILL = 20;
+  private readonly DEFAULT_THRESHOLD = 0.6;
 
   constructor(
     private readonly prisma: PrismaService,
@@ -50,54 +50,46 @@ export class PrismaCourseRepository implements ICourseRepository {
     matchesPerSkill,
     threshold,
   }: FindCoursesBySkillsParams): Promise<Map<string, CourseMatch[]>> {
-    const normalizedSkills = Array.from(
-      new Set(
-        (skills ?? [])
-          .map((skill) => skill.trim().toLowerCase())
-          .filter((skill) => skill.length > 0),
-      ),
-    );
-
-    if (!normalizedSkills.length) {
-      return new Map();
+    if (!skills.length) {
+      return new Map<string, CourseMatch[]>();
     }
 
-    const matchesLimit = Math.max(
-      matchesPerSkill ?? PrismaCourseRepository.DEFAULT_MATCHES_PER_SKILL,
-      1,
+    const matchesLimit = matchesPerSkill ?? this.DEFAULT_MATCHES_PER_SKILL;
+    const similarityThreshold = threshold ?? this.DEFAULT_THRESHOLD;
+    const skillsWithEmbeddings = await Promise.all(
+      skills.map(async (skill) => {
+        const embeddingResponse = await this.embeddingClient.embedOne({
+          text: skill,
+          role: 'query',
+        });
+
+        return {
+          skill,
+          vector: embeddingResponse.vector,
+        };
+      }),
     );
-    const similarityThreshold =
-      threshold ?? PrismaCourseRepository.DEFAULT_THRESHOLD;
 
-    const skillEmbeddings = await this.embeddingClient.embedMany({
-      texts: normalizedSkills,
-      role: 'query',
-    });
-
-    const skillsWithEmbeddings = normalizedSkills
-      .map((skill, index) => ({
-        skill,
-        vector: skillEmbeddings[index]?.vector ?? [],
-      }))
-      .filter(({ vector }) => vector.length > 0);
+    if (!skillsWithEmbeddings.length) {
+      return new Map<string, CourseMatch[]>();
+    }
 
     const embeddingDimension = skillsWithEmbeddings[0]?.vector.length ?? 0;
 
-    let rows: RawCourseQueryRow[] = [];
+    // let rows: RawCourseQueryRow[] = [];
 
-    if (skillsWithEmbeddings.length && embeddingDimension > 0) {
-      const vectorType = Prisma.raw(`vector(${embeddingDimension})`);
-      const skillEmbeddingValues = Prisma.join(
-        skillsWithEmbeddings.map(({ skill, vector }) => {
-          const vectorSql = Prisma.sql`ARRAY[${Prisma.join(
-            vector.map((value) => Prisma.sql`${value}`),
-          )}]::float4[]`;
+    const vectorType = Prisma.raw(`vector(${embeddingDimension})`);
+    const skillEmbeddingValues = Prisma.join(
+      skillsWithEmbeddings.map(({ skill, vector }) => {
+        const vectorSql = Prisma.sql`ARRAY[${Prisma.join(
+          vector.map((value) => Prisma.sql`${value}`),
+        )}]::float4[]`;
 
-          return Prisma.sql`(${skill}::text, (${vectorSql})::${vectorType})`;
-        }),
-      );
+        return Prisma.sql`(${skill}::text, (${vectorSql})::${vectorType})`;
+      }),
+    );
 
-      rows = await this.prisma.$queryRaw<RawCourseQueryRow[]>`
+    const rows = await this.prisma.$queryRaw<RawCourseQueryRow[]>`
         WITH input_skills AS (
           SELECT *
           FROM (VALUES ${skillEmbeddingValues}) AS v(skill, embedding)
@@ -146,22 +138,35 @@ export class PrismaCourseRepository implements ICourseRepository {
           FROM scored_clos
           WHERE clo_course_rank = 1
         ),
-        ranked_clos AS (
+        course_ranked_clos AS (
+          SELECT
+            *,
+            ROW_NUMBER() OVER (
+              PARTITION BY skill, course_id
+              ORDER BY similarity DESC
+            ) AS course_clo_rank
+          FROM latest_clos
+        ),
+        best_clo_per_course AS (
+          SELECT *
+          FROM course_ranked_clos
+          WHERE course_clo_rank = 1
+        ),
+        ranked_courses AS (
           SELECT
             *,
             ROW_NUMBER() OVER (
               PARTITION BY skill
               ORDER BY similarity DESC
             ) AS skill_rank
-          FROM latest_clos
+          FROM best_clo_per_course
         )
         SELECT *
-        FROM ranked_clos
+        FROM ranked_courses
         WHERE skill_rank <= ${matchesLimit}
           AND similarity >= ${similarityThreshold}
         ORDER BY skill, similarity DESC;
       `;
-    }
 
     const skillAggregations = new Map<string, SkillAggregation>();
 
@@ -235,7 +240,7 @@ export class PrismaCourseRepository implements ICourseRepository {
 
     const result = new Map<string, CourseMatch[]>();
 
-    for (const skill of normalizedSkills) {
+    for (const skill of skills) {
       const aggregation = skillAggregations.get(skill);
       if (!aggregation) {
         result.set(skill, []);
