@@ -1,7 +1,7 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
-import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger';
+import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
 
 import {
   I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,

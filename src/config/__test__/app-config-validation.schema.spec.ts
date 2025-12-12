@@ -265,7 +265,7 @@ describe('appConfigValidationSchema', () => {
           ...requiredFields,
           EMBEDDING_PROVIDER: 'unknown',
         },
-        '"EMBEDDING_PROVIDER" must be one of [e5, openai]',
+        '"EMBEDDING_PROVIDER" must be one of [e5, openai, openrouter]',
       );
     });
 

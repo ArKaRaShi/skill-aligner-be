@@ -69,7 +69,6 @@ Category: unclear
         }),
       }),
       systemPrompt,
-
       prompt,
       model: 'openai/gpt-4.1-mini',
     });

@@ -1,6 +1,6 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
-import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger';
+import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
 
 import {
   I_COURSE_REPOSITORY_TOKEN,

@@ -1,0 +1,72 @@
+[
+  {
+    "question": "เรียนแล้วจะได้อะไรจริงๆ",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "unclear",
+    "reasoning": "The question is vague and does not specify any skills, courses, or learning goals to recommend.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "c0ce5a300bcb538127fe0b60ff0ab35f5128ec23493d108c98dac51167d9bbe8",
+      "userPrompt": "\nUser Question:\nเรียนแล้วจะได้อะไรจริงๆ\n",
+      "promptVersion": "v4",
+      "timestamp": "2025-12-12T06:06:54.392Z"
+    }
+  },
+  {
+    "question": "ทำงานที่ Google ต้องเรียนอะไร",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "Asks about skills or knowledge needed to work at Google, implying a desire for relevant skills or courses.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "c0ce5a300bcb538127fe0b60ff0ab35f5128ec23493d108c98dac51167d9bbe8",
+      "userPrompt": "\nUser Question:\nทำงานที่ Google ต้องเรียนอะไร\n",
+      "promptVersion": "v4",
+      "timestamp": "2025-12-12T06:06:54.392Z"
+    }
+  },
+  {
+    "question": "อยากปลูกต้นไม้เป็นงานอดิเรก ต้องมีทักษะอะไรบ้าง",
+    "expectedClassification": "relevant",
+    "actualClassification": "irrelevant",
+    "reasoning": "The question is about a hobby and asks what skills are needed, but it cannot be answered with specific course recommendations.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "c0ce5a300bcb538127fe0b60ff0ab35f5128ec23493d108c98dac51167d9bbe8",
+      "userPrompt": "\nUser Question:\nอยากปลูกต้นไม้เป็นงานอดิเรก ต้องมีทักษะอะไรบ้าง\n",
+      "promptVersion": "v4",
+      "timestamp": "2025-12-12T06:06:54.392Z"
+    }
+  },
+  {
+    "question": "อยากเรียนวิธีทำเครื่องดื่มแอลกอฮอล์ในบ้าน",
+    "expectedClassification": "dangerous",
+    "actualClassification": "irrelevant",
+    "reasoning": "Requires knowledge related to the production of alcoholic beverages at home, which can be illegal or dangerous; thus, it is not suitable for recommendation.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "c0ce5a300bcb538127fe0b60ff0ab35f5128ec23493d108c98dac51167d9bbe8",
+      "userPrompt": "\nUser Question:\nอยากเรียนวิธีทำเครื่องดื่มแอลกอฮอล์ในบ้าน\n",
+      "promptVersion": "v4",
+      "timestamp": "2025-12-12T06:06:54.392Z"
+    }
+  },
+  {
+    "question": "คณะ?",
+    "expectedClassification": "unclear",
+    "actualClassification": "irrelevant",
+    "reasoning": "The question is vague and does not specify any skills, courses, or learning goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "c0ce5a300bcb538127fe0b60ff0ab35f5128ec23493d108c98dac51167d9bbe8",
+      "userPrompt": "\nUser Question:\nคณะ?\n",
+      "promptVersion": "v4",
+      "timestamp": "2025-12-12T06:06:54.392Z"
+    }
+  }
+]

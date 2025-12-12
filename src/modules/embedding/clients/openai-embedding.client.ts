@@ -1,7 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 
-import { openai } from '@ai-sdk/openai';
-import { embed, embedMany } from 'ai';
+import { OpenRouter } from '@openrouter/sdk';
 
 import { EMBEDDING_MODELS } from '../constants/model.constant';
 import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
@@ -13,9 +12,9 @@ import {
   EmbedResult,
 } from './base-embedding.client';
 
-const MODEL_ID: EmbeddingModelId = 'text-embedding-3-small';
+const MODEL_ID: EmbeddingModelId = 'openrouter-text-embedding-3-small';
 
-export type OpenAIEmbeddingClientOptions = {
+export type OpenRouterEmbeddingClientOptions = {
   apiKey: string;
   timeoutMs?: number;
 };
@@ -26,23 +25,34 @@ export class OpenAIEmbeddingClient
   implements IEmbeddingClient
 {
   private readonly timeoutMs: number;
+  private readonly openRouter: OpenRouter;
 
-  constructor(options: OpenAIEmbeddingClientOptions) {
+  private readonly logger = new Logger(OpenAIEmbeddingClient.name);
+
+  constructor(options: OpenRouterEmbeddingClientOptions) {
     super(MODEL_ID, EMBEDDING_MODELS[MODEL_ID].provider);
     if (!options?.apiKey) {
-      throw new Error('OpenAI API key is required to use OpenAI embeddings.');
+      throw new Error(
+        'OpenRouter API key is required to use OpenRouter embeddings.',
+      );
     }
     this.timeoutMs = options.timeoutMs ?? 10_000;
+    this.openRouter = new OpenRouter({
+      apiKey: options.apiKey,
+    });
   }
 
   protected async doEmbedOne({ text }: EmbedOneParams): Promise<EmbedResult> {
-    const { embedding } = await embed({
-      model: openai.textEmbeddingModel(MODEL_ID),
-      value: text,
-      maxRetries: 1,
-      abortSignal: AbortSignal.timeout(this.timeoutMs),
+    const response = await this.openRouter.embeddings.generate({
+      model: EMBEDDING_MODELS[MODEL_ID].modelId,
+      input: text,
+      encodingFormat: 'float',
+      provider: {
+        dataCollection: 'deny',
+      },
     });
 
+    const embedding = response.data[0].embedding as number[];
     const metadata = this.buildMetadata(MODEL_ID, text);
 
     return { vector: embedding, metadata };
@@ -51,16 +61,32 @@ export class OpenAIEmbeddingClient
   protected async doEmbedMany({
     texts,
   }: EmbedManyParams): Promise<EmbedResult[]> {
-    const { embeddings } = await embedMany({
-      maxParallelCalls: 2, // Limit parallel requests
-      model: openai.textEmbeddingModel(MODEL_ID),
-      values: texts,
-      abortSignal: AbortSignal.timeout(this.timeoutMs),
+    const response = await this.openRouter.embeddings.generate({
+      model: EMBEDDING_MODELS[MODEL_ID].modelId,
+      input: texts,
+      encodingFormat: 'float',
+      provider: {
+        dataCollection: 'deny',
+      },
     });
 
-    return texts.map((text, index) => ({
-      vector: embeddings[index],
-      metadata: this.buildMetadata(MODEL_ID, text),
-    }));
+    return response.data.map((item) => {
+      const { index } = item;
+
+      // Avoid issue on wrong vector mapping
+      if (index === undefined) {
+        this.logger.warn(
+          'Received embedding item without index from OpenRouter.',
+        );
+        throw new Error('Invalid embedding response from OpenRouter.');
+      }
+
+      const text = texts[index];
+      const metadata = this.buildMetadata(MODEL_ID, text);
+      return {
+        vector: item.embedding as number[],
+        metadata,
+      };
+    });
   }
 }

@@ -133,6 +133,52 @@ export class FileHelper {
     }
   }
 
+  static async appendToJsonArray<T>(filePath: string, data: T): Promise<void> {
+    try {
+      await fs.promises.mkdir(path.dirname(filePath), { recursive: true });
+
+      let existingData: T[] = [];
+      if (fs.existsSync(filePath)) {
+        const content = await fs.promises.readFile(filePath, 'utf8');
+        if (content.trim().length > 0) {
+          const parsed = JSON.parse(content);
+          if (!Array.isArray(parsed)) {
+            throw new Error(
+              `JSON file at ${filePath} does not contain an array structure`,
+            );
+          }
+          existingData = parsed as T[];
+        }
+      }
+
+      existingData.push(data);
+
+      await fs.promises.writeFile(
+        filePath,
+        JSON.stringify(existingData, null, 2),
+        'utf8',
+      );
+    } catch (error) {
+      throw new Error(
+        `Failed to append to JSON array: ${
+          error instanceof Error ? error.message : 'Unknown error'
+        }`,
+      );
+    }
+  }
+
+  static async listFiles(dirPath: string): Promise<string[]> {
+    try {
+      return await fs.promises.readdir(dirPath);
+    } catch (error) {
+      throw new Error(
+        `Failed to read directory ${dirPath}: ${
+          error instanceof Error ? error.message : 'Unknown error'
+        }`,
+      );
+    }
+  }
+
   /**
    * Resolves versioned JSON file paths
    * @private

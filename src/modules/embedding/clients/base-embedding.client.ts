@@ -3,11 +3,12 @@ import { Injectable } from '@nestjs/common';
 import { EMBEDDING_MODELS } from '../constants/model.constant';
 import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
 
-export type EmbeddingProviderKey = 'e5' | 'openai';
+export type EmbeddingProviderKey = 'e5' | 'openai' | 'openrouter';
 
 export const EMBEDDING_PROVIDERS: EmbeddingProviderKey[] = [
   'e5',
   'openai',
+  'openrouter',
 ] as const;
 
 export type EmbeddingModelId = keyof typeof EMBEDDING_MODELS;

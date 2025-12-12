@@ -1,4 +1,4 @@
-import { TimingMap } from 'src/common/helpers/time-logger';
+import { TimingMap } from 'src/common/helpers/time-logger.helper';
 
 import { CourseMatch } from 'src/modules/course/types/course.type';
 

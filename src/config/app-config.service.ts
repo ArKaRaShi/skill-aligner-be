@@ -53,11 +53,11 @@ export class AppConfigService {
     );
   }
 
-  get embeddingProvider(): 'e5' | 'openai' {
+  get embeddingProvider(): 'e5' | 'openai' | 'openrouter' {
     const embeddingProvider =
       this.configService.get<string>('EMBEDDING_PROVIDER') ??
       AppConfigDefault.EMBEDDING_PROVIDER;
-    return embeddingProvider as 'e5' | 'openai';
+    return embeddingProvider as 'e5' | 'openai' | 'openrouter';
   }
 
   get questionClassifierLlmProvider(): 'openrouter' | 'openai' {

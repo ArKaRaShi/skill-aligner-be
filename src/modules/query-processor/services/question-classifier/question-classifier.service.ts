@@ -47,7 +47,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     'meth',
   ];
   private readonly logger = new Logger(QuestionClassifierService.name);
-  private readonly promptVersion = 'v2';
+  private readonly promptVersion = 'v6';
 
   constructor(
     @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)

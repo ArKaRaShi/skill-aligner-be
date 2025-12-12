@@ -29,9 +29,12 @@ export class EmbeddingModule {
               });
               return new E5EmbeddingClient({ client });
             }
-            return new OpenAIEmbeddingClient({
-              apiKey: config.openAIApiKey,
-            });
+            if (provider === 'openrouter') {
+              return new OpenAIEmbeddingClient({
+                apiKey: config.openRouterApiKey,
+              });
+            }
+            throw new Error(`Unsupported embedding provider: ${provider}`);
           },
         },
       ],
