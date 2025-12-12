@@ -30,7 +30,7 @@ export class MockQuestionClassifierService
       classification.classification = 'dangerous';
       classification.reason = 'Contains dangerous content';
     } else if (lowerQuestion.includes('unclear')) {
-      classification.classification = 'unclear';
+      classification.classification = 'irrelevant';
       classification.reason = 'Question is unclear';
     } else if (lowerQuestion.includes('out of scope')) {
       classification.classification = 'irrelevant';

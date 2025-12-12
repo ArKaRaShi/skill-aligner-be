@@ -4,7 +4,7 @@ export const Classification = z.enum([
   'relevant',
   'irrelevant',
   'dangerous',
-  'unclear',
+  // 'unclear',
 ]);
 
 export const QuestionClassificationSchema = z.object({

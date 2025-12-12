@@ -121,15 +121,6 @@ export class AnswerQuestionUseCase
       };
     }
 
-    if (classification === 'unclear') {
-      return {
-        answer: 'ขออภัย คำถามของคุณไม่ชัดเจน กรุณาลองถามใหม่อีกครั้ง',
-        suggestQuestion:
-          'อยากเรียนเกี่ยวกับทักษะที่จำเป็นสำหรับการทำงานในอนาคต',
-        skillGroupedCourses: [],
-      };
-    }
-
     return null;
   }
 

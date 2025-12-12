@@ -333,3 +333,5 @@ export const QUESTION_SET_V5: QuestionSetItem[] = [
     reasoning: 'Incomplete - which field?',
   },
 ];
+
+console.log(`Total questions in V5 set: ${QUESTION_SET_V5.length}`);

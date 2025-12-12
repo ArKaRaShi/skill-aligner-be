@@ -1,0 +1,541 @@
+[
+  {
+    "iterationNumber": 1,
+    "totalIncorrectClassifications": 10,
+    "incorrectRecords": [
+      {
+        "question": "วิชาไพท่อนเรียนออนไลน์ได้ไหม",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - Python is a domain that maps to specific skills and online learning options",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nวิชาไพท่อนเรียนออนไลน์ได้ไหม\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.968Z"
+        }
+      },
+      {
+        "question": "AI คืออะไร ใช้ทำอะไรได้บ้าง",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - user mentions AI, which relates to skills in artificial intelligence and related domains",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nAI คืออะไร ใช้ทำอะไรได้บ้าง\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.968Z"
+        }
+      },
+      {
+        "question": "ทำงานที่ Google ต้องเรียนอะไร",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Job/Role to Skill (Pattern D) - user mentions working at Google which implies a role that requires specific skills",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nทำงานที่ Google ต้องเรียนอะไร\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.968Z"
+        }
+      },
+      {
+        "question": "React กับ Vue ต่างกันยังไง",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - React and Vue are web frameworks that map to specific frontend development skills.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nReact กับ Vue ต่างกันยังไง\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.968Z"
+        }
+      },
+      {
+        "question": "สนใจเรียนทำสวนเพื่อความสวยงาม",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - การทำสวนเชื่อมโยงกับทักษะการจัดการสวนหรือการออกแบบภูมิทัศน์",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nสนใจเรียนทำสวนเพื่อความสวยงาม\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.968Z"
+        }
+      },
+      {
+        "question": "มีคอร์สอะไรรึเปล่า",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Asks about available courses without specifying skills or learning needs.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nมีคอร์สอะไรรึเปล่า\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.968Z"
+        }
+      },
+      {
+        "question": "คณะ?",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Asks about faculty, no skills, courses, or learning outcomes mentioned.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nคณะ?\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.968Z"
+        }
+      },
+      {
+        "question": "มีคอร์ส",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "No specific skill, domain, or learning intent mentioned; too vague to classify",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nมีคอร์ส\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.969Z"
+        }
+      },
+      {
+        "question": "อยากเรียนวิชาเลือกที่น่าสนใจ",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "No specific skill, topic, or learning outcome mentioned; too vague for classification.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nอยากเรียนวิชาเลือกที่น่าสนใจ\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.969Z"
+        }
+      },
+      {
+        "question": "Any courses available?",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "The question does not specify any skills, topics, or learning goals, making it irrelevant to skill or course recommendation.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nAny courses available?\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:17:54.969Z"
+        }
+      }
+    ],
+    "timestamp": "2025-12-12T11:17:54.976Z"
+  },
+  {
+    "iterationNumber": 2,
+    "totalIncorrectClassifications": 11,
+    "incorrectRecords": [
+      {
+        "question": "วิชาไพท่อนเรียนออนไลน์ได้ไหม",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - Python is a programming language that can be learned online",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nวิชาไพท่อนเรียนออนไลน์ได้ไหม\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.957Z"
+        }
+      },
+      {
+        "question": "AI คืออะไร ใช้ทำอะไรได้บ้าง",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - user mentions AI, which relates to skills in artificial intelligence",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nAI คืออะไร ใช้ทำอะไรได้บ้าง\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.957Z"
+        }
+      },
+      {
+        "question": "ทำงานที่ Google ต้องเรียนอะไร",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Job/Role to Skill (Pattern D) - user mentions working at Google, implying need for skills related to that role",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nทำงานที่ Google ต้องเรียนอะไร\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.957Z"
+        }
+      },
+      {
+        "question": "React กับ Vue ต่างกันยังไง",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - React and Vue are frameworks that map to web development skills.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nReact กับ Vue ต่างกันยังไง\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.958Z"
+        }
+      },
+      {
+        "question": "สนใจเรียนทำสวนเพื่อความสวยงาม",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - การทำสวนเกี่ยวข้องกับทักษะด้านการปลูกและดูแลสวน",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nสนใจเรียนทำสวนเพื่อความสวยงาม\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.958Z"
+        }
+      },
+      {
+        "question": "ขอวิชาหน่อย",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Question is too vague and does not specify any skills or learning domain.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nขอวิชาหน่อย\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.958Z"
+        }
+      },
+      {
+        "question": "มีคอร์สอะไรรึเปล่า",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Questions about available courses without specifying a skill or learning goal, lacking context for skill extraction.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nมีคอร์สอะไรรึเปล่า\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.958Z"
+        }
+      },
+      {
+        "question": "คณะ?",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Question about 'faculty' does not involve skills, courses, or learning outcomes.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nคณะ?\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.958Z"
+        }
+      },
+      {
+        "question": "มีคอร์ส",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Question is too vague and does not specify any learning goal or skill, making it impossible to extract relevant skills or courses.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nมีคอร์ส\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.958Z"
+        }
+      },
+      {
+        "question": "อยากเรียนวิชาเลือกที่น่าสนใจ",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Vague query about interesting elective courses without specifying skills or domains",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nอยากเรียนวิชาเลือกที่น่าสนใจ\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.958Z"
+        }
+      },
+      {
+        "question": "Any courses available?",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "The question asks about course availability without specifying skills, topics, or learning objectives, so skill extraction is not possible.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nAny courses available?\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:21.959Z"
+        }
+      }
+    ],
+    "timestamp": "2025-12-12T11:19:21.966Z"
+  },
+  {
+    "iterationNumber": 3,
+    "totalIncorrectClassifications": 16,
+    "incorrectRecords": [
+      {
+        "question": "ผมเรียนวิทยาศาสตร์มาแล้ว อยากลองเปลี่ยนไปเรียนด้านศิลปะบ้าง มีวิชาอะไรที่เหมาะสำหรับคนแบบผมบ้าง",
+        "expectedClassification": "relevant",
+        "actualClassification": "irrelevant",
+        "reasoning": "Question is about course recommendation without focusing on specific skills or learning outcomes; it seeks general advice rather than skill mapping.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nผมเรียนวิทยาศาสตร์มาแล้ว อยากลองเปลี่ยนไปเรียนด้านศิลปะบ้าง มีวิชาอะไรที่เหมาะสำหรับคนแบบผมบ้าง\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.055Z"
+        }
+      },
+      {
+        "question": "AI คืออะไร ใช้ทำอะไรได้บ้าง",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - user asks about AI, which maps to skills related to artificial intelligence and its applications.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nAI คืออะไร ใช้ทำอะไรได้บ้าง\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.055Z"
+        }
+      },
+      {
+        "question": "ทำงานที่ Google ต้องเรียนอะไร",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Job/Role to Skill (Pattern D) - user refers to working at Google which implies certain skills or qualifications.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nทำงานที่ Google ต้องเรียนอะไร\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.055Z"
+        }
+      },
+      {
+        "question": "React กับ Vue ต่างกันยังไง",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - React and Vue are frameworks that map to specific web development skills.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nReact กับ Vue ต่างกันยังไง\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.055Z"
+        }
+      },
+      {
+        "question": "สนใจเรียนทำอาหารเพื่อความสุขในบ้าน",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - สนใจเรียนทำอาหาร maps to cooking skills",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nสนใจเรียนทำอาหารเพื่อความสุขในบ้าน\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.055Z"
+        }
+      },
+      {
+        "question": "สนใจเรียนทำสวนเพื่อความสวยงาม",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - การทำสวนเพื่อความสวยงามน่าจะเกี่ยวข้องกับทักษะด้านการจัดสวนและการปลูกพืช",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nสนใจเรียนทำสวนเพื่อความสวยงาม\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.055Z"
+        }
+      },
+      {
+        "question": "เป็นนักศึกษาปี 1 แต่รู้สึกไม่ใช่แนว ไม่รู้จะเลือกเรียนคณะอะไรดี สนใจทั้งคอมพิวเตอร์และธุรกิจ",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - user mentions interests in computer and business, which relate to potential skills in these domains.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nเป็นนักศึกษาปี 1 แต่รู้สึกไม่ใช่แนว ไม่รู้จะเลือกเรียนคณะอะไรดี สนใจทั้งคอมพิวเตอร์และธุรกิจ\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.055Z"
+        }
+      },
+      {
+        "question": "อยากเรียนวิธีทำเครื่องดื่มแอลกอฮอล์ในบ้าน",
+        "expectedClassification": "dangerous",
+        "actualClassification": "irrelevant",
+        "reasoning": "Question about homemade alcohol production involves illegal activity; not suitable for skill or course recommendation.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nอยากเรียนวิธีทำเครื่องดื่มแอลกอฮอล์ในบ้าน\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.055Z"
+        }
+      },
+      {
+        "question": "ขอวิชาหน่อย",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Question is too vague and does not specify any skills or learning domain.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nขอวิชาหน่อย\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.056Z"
+        }
+      },
+      {
+        "question": "มีคอร์สอะไรรึเปล่า",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Asks about course availability without specifying a skill or learning goal",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nมีคอร์สอะไรรึเปล่า\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.056Z"
+        }
+      },
+      {
+        "question": "เรียนยังไงดี",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "No specific skill, topic, or learning outcome mentioned; too vague.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nเรียนยังไงดี\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.056Z"
+        }
+      },
+      {
+        "question": "คณะ?",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Asks about a faculty, no skill or learning outcome specified.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nคณะ?\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.056Z"
+        }
+      },
+      {
+        "question": "มีคอร์ส",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Question is too vague and lacks any context about skills, courses, or learning objectives.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nมีคอร์ส\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.056Z"
+        }
+      },
+      {
+        "question": "อยากเรียนวิชาเลือกที่น่าสนใจ",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Vague question without specific skill or domain, no clear learning intent",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nอยากเรียนวิชาเลือกที่น่าสนใจ\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.056Z"
+        }
+      },
+      {
+        "question": "What is AI?",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Topic to Skill Mapping (Pattern B) - AI is a domain that maps to specific skills",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nWhat is AI?\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.056Z"
+        }
+      },
+      {
+        "question": "Any courses available?",
+        "expectedClassification": "unclear",
+        "actualClassification": "irrelevant",
+        "reasoning": "Question about course availability lacks specific skill or learning context.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "a4e3fdfb74d9e33a10dc249a504951e767e6bbb0c0a419c73dfb28bf12b8cb1d",
+          "userPrompt": "\nUser Question:\nAny courses available?\n",
+          "promptVersion": "v7",
+          "timestamp": "2025-12-12T11:19:41.056Z"
+        }
+      }
+    ],
+    "timestamp": "2025-12-12T11:19:41.059Z"
+  }
+]

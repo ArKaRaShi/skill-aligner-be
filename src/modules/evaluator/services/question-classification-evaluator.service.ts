@@ -32,19 +32,22 @@ export class QuestionClassificationEvaluatorService {
     QuestionClassificationEvaluatorService.name,
   );
 
-  private readonly classLabels = [
-    'relevant',
-    'irrelevant',
-    'dangerous',
-    'unclear',
-  ];
+  private readonly classLabels = ['relevant', 'irrelevant', 'dangerous'];
 
   // Configuration
   private readonly evaluationBaseDir =
     'data/evaluation/question-classification';
   private readonly recordsDirName = 'records';
   private readonly metricsDirName = 'metrics';
-  private readonly testSet = QUESTION_SET_V5;
+  private readonly testSet: QuestionSetItem[] = QUESTION_SET_V5.map((item) => {
+    if (item.expectedCategory === 'unclear') {
+      return {
+        ...item,
+        expectedCategory: 'irrelevant',
+      };
+    }
+    return item;
+  });
 
   constructor(
     @Inject(I_QUESTION_CLASSIFIER_SERVICE_TOKEN)

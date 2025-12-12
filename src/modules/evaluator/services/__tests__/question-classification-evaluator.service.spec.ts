@@ -177,7 +177,7 @@ describe('QuestionClassificationEvaluatorService', () => {
       expect(result.records).toHaveLength(
         (service as unknown as { testSet: QuestionSetItem[] }).testSet.length,
       );
-      expect(result.classMetrics).toHaveLength(4);
+      expect(result.classMetrics).toHaveLength(3);
       expect(result.overallMetrics.totalQuestions).toBe(
         (service as unknown as { testSet: QuestionSetItem[] }).testSet.length,
       );
@@ -261,14 +261,6 @@ describe('QuestionClassificationEvaluatorService', () => {
                   precision: 0.5,
                   recall: 0.67,
                 }),
-                createClassMetric({
-                  classLabel: 'unclear',
-                  totalQuestions: 2,
-                  correctClassifications: 1,
-                  incorrectClassifications: 1,
-                  precision: 0.5,
-                  recall: 0.5,
-                }),
               ],
             });
           }
@@ -310,14 +302,6 @@ describe('QuestionClassificationEvaluatorService', () => {
                 precision: 1,
                 recall: 1,
               }),
-              createClassMetric({
-                classLabel: 'unclear',
-                totalQuestions: 1,
-                correctClassifications: 1,
-                incorrectClassifications: 0,
-                precision: 1,
-                recall: 1,
-              }),
             ],
           });
         });
@@ -350,12 +334,12 @@ describe('QuestionClassificationEvaluatorService', () => {
 
       expect(notAcceptableMetrics).toBeDefined();
       expect(notAcceptableMetrics).toMatchObject({
-        totalQuestions: 10,
-        correctClassifications: 6,
-        incorrectClassifications: 4,
+        totalQuestions: 8,
+        correctClassifications: 5,
+        incorrectClassifications: 3,
       });
-      expect(notAcceptableMetrics?.precision).toBeCloseTo(6 / 11);
-      expect(notAcceptableMetrics?.recall).toBeCloseTo(0.6);
+      expect(notAcceptableMetrics?.precision).toBeCloseTo(5 / 9);
+      expect(notAcceptableMetrics?.recall).toBeCloseTo(0.625);
     });
 
     it('should throw if a requested iteration file is missing', async () => {
@@ -517,7 +501,6 @@ describe('QuestionClassificationEvaluatorService', () => {
       expect(result.relevant).toHaveLength(2);
       expect(result.irrelevant).toHaveLength(2);
       expect(result.dangerous).toHaveLength(1);
-      expect(result.unclear).toBeUndefined();
     });
   });
 
