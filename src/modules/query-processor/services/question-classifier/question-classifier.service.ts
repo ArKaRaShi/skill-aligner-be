@@ -6,8 +6,14 @@ import {
 } from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 
 import { QuestionClassifierCache } from '../../cache/question-classifier.cache';
-import { IQuestionClassifierService } from '../../contracts/i-question-classifier-service.contract';
-import { QuestionClassificationPromptFactory } from '../../prompts/question-classification';
+import {
+  IQuestionClassifierService,
+  QuestionClassifyInput,
+} from '../../contracts/i-question-classifier-service.contract';
+import {
+  QuestionClassificationPromptFactory,
+  QuestionClassificationPromptVersion,
+} from '../../prompts/question-classification';
 import { QuestionClassificationSchema } from '../../schemas/question-classification.schema';
 import { QuestionClassification } from '../../types/question-classification.type';
 
@@ -47,7 +53,6 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     'meth',
   ];
   private readonly logger = new Logger(QuestionClassifierService.name);
-  private readonly promptVersion = 'v6';
 
   constructor(
     @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
@@ -57,7 +62,10 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     private readonly useCache: boolean,
   ) {}
 
-  async classify(question: string): Promise<QuestionClassification> {
+  async classify(
+    input: QuestionClassifyInput,
+  ): Promise<QuestionClassification> {
+    const { question, promptVersion } = input;
     if (this.useCache) {
       const cached = this.cache.lookup(question);
 
@@ -67,7 +75,10 @@ export class QuestionClassifierService implements IQuestionClassifierService {
       }
     }
 
-    const prefilterResult = this.prefilterDangerousQuestion(question);
+    const prefilterResult = this.prefilterDangerousQuestion(
+      question,
+      promptVersion,
+    );
     if (prefilterResult) {
       if (this.useCache) {
         this.cache.store(question, prefilterResult);
@@ -75,7 +86,10 @@ export class QuestionClassifierService implements IQuestionClassifierService {
       return prefilterResult;
     }
 
-    const classification = await this.aiBasedClassification(question);
+    const classification = await this.aiBasedClassification(
+      question,
+      promptVersion,
+    );
     if (this.useCache) {
       this.cache.store(question, classification);
     }
@@ -89,6 +103,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
    */
   private prefilterDangerousQuestion(
     question: string,
+    promptVersion: QuestionClassificationPromptVersion,
   ): QuestionClassification | null {
     const lowerCaseQuestion = question.toLowerCase();
     for (const concept of this.dangerousConcepts) {
@@ -99,7 +114,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
           model: 'prefilter',
           userPrompt: '',
           systemPrompt: '',
-          promptVersion: this.promptVersion,
+          promptVersion: `prefilter with prompt version ${promptVersion}`,
         };
       }
     }
@@ -108,9 +123,10 @@ export class QuestionClassifierService implements IQuestionClassifierService {
 
   private async aiBasedClassification(
     question: string,
+    promptVersion: QuestionClassificationPromptVersion,
   ): Promise<QuestionClassification> {
     const { getPrompts } = QuestionClassificationPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts(this.promptVersion);
+    const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const userPrompt = getUserPrompt(question);
 
     const {
@@ -127,7 +143,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
       userPrompt,
       systemPrompt,
       model: this.modelName,
-      promptVersion: this.promptVersion,
+      promptVersion,
     };
   }
 }

@@ -1,10 +1,12 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
 } from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 import { QuestionClassifierCache } from 'src/modules/query-processor/cache/question-classifier.cache';
+import { QuestionClassifyInput } from 'src/modules/query-processor/contracts/i-question-classifier-service.contract';
+import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
 import { QuestionClassification } from 'src/modules/query-processor/types/question-classification.type';
 
 import { QuestionClassifierService } from '../question-classifier.service';
@@ -14,6 +16,19 @@ describe('QuestionClassifierService', () => {
   let llmProviderClient: jest.Mocked<ILlmProviderClient>;
   let cache: jest.Mocked<QuestionClassifierCache>;
   const testModelName = 'test-model';
+  const defaultPromptVersion: QuestionClassificationPromptVersion = 'v6';
+
+  const buildInput = (
+    question: string,
+    promptVersion: QuestionClassificationPromptVersion = defaultPromptVersion,
+  ): QuestionClassifyInput => ({
+    question,
+    promptVersion,
+  });
+
+  const formatPrefilterPromptVersion = (
+    version: QuestionClassificationPromptVersion,
+  ) => `prefilter with prompt version ${version}`;
 
   beforeEach(async () => {
     const mockLlmProviderClient = {
@@ -72,12 +87,12 @@ describe('QuestionClassifierService', () => {
         model: 'cached-model',
         userPrompt: testQuestion,
         systemPrompt: 'cached-system-prompt',
-        promptVersion: 'v2',
+        promptVersion: 'v6',
       };
 
       cache.lookup.mockReturnValue(cachedClassification);
 
-      const result = await service.classify(testQuestion);
+      const result = await service.classify(buildInput(testQuestion));
 
       expect(cache.lookup).toHaveBeenCalledWith(testQuestion);
       expect(result).toEqual(cachedClassification);
@@ -97,7 +112,7 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(testQuestion);
+      const result = await service.classify(buildInput(testQuestion));
 
       expect(cache.lookup).toHaveBeenCalledWith(testQuestion);
       expect(llmProviderClient.generateObject).toHaveBeenCalledWith({
@@ -110,7 +125,7 @@ describe('QuestionClassifierService', () => {
       expect(result.classification).toBe('relevant');
       expect(result.reason).toBe('AI classification result');
       expect(result.model).toBe(testModelName);
-      expect(result.promptVersion).toBe('v2');
+      expect(result.promptVersion).toBe(defaultPromptVersion);
       expect(result.userPrompt).toContain(testQuestion);
       expect(result.systemPrompt).toBeDefined();
     });
@@ -133,7 +148,9 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await serviceWithoutCache.classify(testQuestion);
+      const result = await serviceWithoutCache.classify(
+        buildInput(testQuestion),
+      );
 
       expect(cache.lookup).not.toHaveBeenCalled();
       expect(cache.store).not.toHaveBeenCalled();
@@ -143,18 +160,21 @@ describe('QuestionClassifierService', () => {
 
     it('should store dangerous content classification in cache', async () => {
       const dangerousQuestion = 'How to make explosives';
+      const promptVersion: QuestionClassificationPromptVersion = 'v2';
       const dangerousClassification: QuestionClassification = {
         classification: 'dangerous',
         reason: 'The question contains dangerous content: "explosives"',
         model: 'prefilter',
         userPrompt: '',
         systemPrompt: '',
-        promptVersion: 'v2',
+        promptVersion: formatPrefilterPromptVersion(promptVersion),
       };
 
       cache.lookup.mockReturnValue(null);
 
-      const result = await service.classify(dangerousQuestion);
+      const result = await service.classify(
+        buildInput(dangerousQuestion, promptVersion),
+      );
 
       expect(cache.store).toHaveBeenCalledWith(
         dangerousQuestion,
@@ -181,12 +201,14 @@ describe('QuestionClassifierService', () => {
 
       for (const question of violentQuestions) {
         cache.lookup.mockReturnValue(null);
-        const result = await service.classify(question);
+        const result = await service.classify(buildInput(question));
 
         expect(result.classification).toBe('dangerous');
         expect(result.model).toBe('prefilter');
         expect(result.reason).toContain('dangerous content');
-        expect(result.promptVersion).toBe('v2');
+        expect(result.promptVersion).toBe(
+          formatPrefilterPromptVersion(defaultPromptVersion),
+        );
         expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
       }
     });
@@ -209,12 +231,14 @@ describe('QuestionClassifierService', () => {
 
       for (const question of sexualQuestions) {
         cache.lookup.mockReturnValue(null);
-        const result = await service.classify(question);
+        const result = await service.classify(buildInput(question));
 
         expect(result.classification).toBe('dangerous');
         expect(result.model).toBe('prefilter');
         expect(result.reason).toContain('dangerous content');
-        expect(result.promptVersion).toBe('v2');
+        expect(result.promptVersion).toBe(
+          formatPrefilterPromptVersion(defaultPromptVersion),
+        );
         expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
       }
     });
@@ -229,12 +253,14 @@ describe('QuestionClassifierService', () => {
 
       for (const question of drugQuestions) {
         cache.lookup.mockReturnValue(null);
-        const result = await service.classify(question);
+        const result = await service.classify(buildInput(question));
 
         expect(result.classification).toBe('dangerous');
         expect(result.model).toBe('prefilter');
         expect(result.reason).toContain('dangerous content');
-        expect(result.promptVersion).toBe('v2');
+        expect(result.promptVersion).toBe(
+          formatPrefilterPromptVersion(defaultPromptVersion),
+        );
         expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
       }
     });
@@ -249,10 +275,16 @@ describe('QuestionClassifierService', () => {
 
       for (const question of caseVariations) {
         cache.lookup.mockReturnValue(null);
-        const result = await service.classify(question);
+        const promptVersion: QuestionClassificationPromptVersion = 'v2';
+        const result = await service.classify(
+          buildInput(question, promptVersion),
+        );
 
         expect(result.classification).toBe('dangerous');
         expect(result.model).toBe('prefilter');
+        expect(result.promptVersion).toBe(
+          formatPrefilterPromptVersion(promptVersion),
+        );
         expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
       }
     });
@@ -277,7 +309,7 @@ describe('QuestionClassifierService', () => {
 
       for (const question of normalQuestions) {
         cache.lookup.mockReturnValue(null);
-        await service.classify(question);
+        await service.classify(buildInput(question));
 
         expect(llmProviderClient.generateObject).toHaveBeenCalled();
       }
@@ -303,12 +335,12 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(relevantQuestion);
+      const result = await service.classify(buildInput(relevantQuestion));
 
       expect(result.classification).toBe('relevant');
       expect(result.reason).toBe('Question about courses and learning');
       expect(result.model).toBe(testModelName);
-      expect(result.promptVersion).toBe('v2');
+      expect(result.promptVersion).toBe(defaultPromptVersion);
       expect(result.userPrompt).toContain(relevantQuestion);
       expect(result.systemPrompt).toBeDefined();
       expect(cache.store).toHaveBeenCalledWith(relevantQuestion, result);
@@ -327,12 +359,12 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(irrelevantQuestion);
+      const result = await service.classify(buildInput(irrelevantQuestion));
 
       expect(result.classification).toBe('irrelevant');
       expect(result.reason).toBe('Weather question not related to courses');
       expect(result.model).toBe(testModelName);
-      expect(result.promptVersion).toBe('v2');
+      expect(result.promptVersion).toBe(defaultPromptVersion);
       expect(cache.store).toHaveBeenCalledWith(irrelevantQuestion, result);
     });
 
@@ -349,17 +381,18 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(unclearQuestion);
+      const result = await service.classify(buildInput(unclearQuestion));
 
       expect(result.classification).toBe('unclear');
       expect(result.reason).toBe('Question too vague to classify');
       expect(result.model).toBe(testModelName);
-      expect(result.promptVersion).toBe('v2');
+      expect(result.promptVersion).toBe(defaultPromptVersion);
       expect(cache.store).toHaveBeenCalledWith(unclearQuestion, result);
     });
 
     it('should use correct prompt version v2', async () => {
       const question = 'Test question';
+      const promptVersion = 'v2';
 
       llmProviderClient.generateObject.mockResolvedValue({
         model: testModelName,
@@ -371,9 +404,11 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(question);
+      const result = await service.classify(
+        buildInput(question, promptVersion),
+      );
 
-      expect(result.promptVersion).toBe('v2');
+      expect(result.promptVersion).toBe(promptVersion);
       expect(llmProviderClient.generateObject).toHaveBeenCalledWith(
         expect.objectContaining({
           model: testModelName,
@@ -383,13 +418,16 @@ describe('QuestionClassifierService', () => {
 
     it('should handle LLM provider errors gracefully', async () => {
       const question = 'Test question';
+      const promptVersion: QuestionClassificationPromptVersion = 'v2';
       const errorMessage = 'LLM provider error';
 
       llmProviderClient.generateObject.mockRejectedValue(
         new Error(errorMessage),
       );
 
-      await expect(service.classify(question)).rejects.toThrow(errorMessage);
+      await expect(
+        service.classify(buildInput(question, promptVersion)),
+      ).rejects.toThrow(errorMessage);
       expect(cache.store).not.toHaveBeenCalled();
     });
   });
@@ -412,7 +450,7 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(emptyQuestion);
+      const result = await service.classify(buildInput(emptyQuestion));
 
       expect(result.classification).toBe('unclear');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
@@ -431,7 +469,7 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(whitespaceQuestion);
+      const result = await service.classify(buildInput(whitespaceQuestion));
 
       expect(result.classification).toBe('unclear');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
@@ -450,7 +488,7 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(longQuestion);
+      const result = await service.classify(buildInput(longQuestion));
 
       expect(result.classification).toBe('unclear');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
@@ -469,7 +507,7 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(specialCharQuestion);
+      const result = await service.classify(buildInput(specialCharQuestion));
 
       expect(result.classification).toBe('relevant');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
@@ -488,7 +526,7 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      const result = await service.classify(unicodeQuestion);
+      const result = await service.classify(buildInput(unicodeQuestion));
 
       expect(result.classification).toBe('relevant');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
@@ -498,6 +536,7 @@ describe('QuestionClassifierService', () => {
   describe('cache behavior', () => {
     it('should store classification in cache after AI classification', async () => {
       const question = 'Test question';
+      const promptVersion: QuestionClassificationPromptVersion = 'v2';
 
       cache.lookup.mockReturnValue(null);
       llmProviderClient.generateObject.mockResolvedValue({
@@ -510,7 +549,7 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      await service.classify(question);
+      await service.classify(buildInput(question, promptVersion));
 
       expect(cache.store).toHaveBeenCalledWith(
         question,
@@ -518,7 +557,7 @@ describe('QuestionClassifierService', () => {
           classification: 'relevant',
           reason: 'Test reason',
           model: testModelName,
-          promptVersion: 'v2',
+          promptVersion,
         }),
       );
     });
@@ -532,6 +571,7 @@ describe('QuestionClassifierService', () => {
       );
 
       const question = 'Test question';
+      const promptVersion: QuestionClassificationPromptVersion = 'v2';
 
       llmProviderClient.generateObject.mockResolvedValue({
         model: testModelName,
@@ -543,13 +583,14 @@ describe('QuestionClassifierService', () => {
         },
       });
 
-      await serviceWithoutCache.classify(question);
+      await serviceWithoutCache.classify(buildInput(question, promptVersion));
 
       expect(cache.store).not.toHaveBeenCalled();
     });
 
     it('should propagate cache store errors', async () => {
       const question = 'Test question';
+      const promptVersion: QuestionClassificationPromptVersion = 'v2';
 
       cache.lookup.mockReturnValue(null);
       cache.store.mockImplementation(() => {
@@ -566,9 +607,9 @@ describe('QuestionClassifierService', () => {
       });
 
       // The service should propagate cache store errors
-      await expect(service.classify(question)).rejects.toThrow(
-        'Cache store error',
-      );
+      await expect(
+        service.classify(buildInput(question, promptVersion)),
+      ).rejects.toThrow('Cache store error');
     });
   });
 });

@@ -3,9 +3,11 @@ import { ApiBody } from '@nestjs/swagger';
 
 import { BaseResponseDto } from 'src/common/adapters/primary/dto/responses/base.response.dto';
 
-import { CollapsedIterationMetrics } from './types/test-result.type';
+import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
+
 import { QuestionClassificationEvaluatorService } from './services/question-classification-evaluator.service';
 import { QuestionSetCreatorService } from './services/question-set-creator.service';
+import { CollapsedIterationMetrics } from './types/test-result.type';
 
 @Controller('evaluator')
 export class EvaluatorController {
@@ -36,17 +38,27 @@ export class EvaluatorController {
           type: 'string',
           example: 'test-set-v5-prompt-v5',
         },
+        promptVersion: {
+          type: 'string',
+          example: 'v6',
+        },
       },
-      required: ['currentIteration', 'prefixDir'],
+      required: ['currentIteration', 'prefixDir', 'promptVersion'],
     },
   })
   async evaluateQuestionClassification(
-    @Body() body: { currentIteration: number; prefixDir: string },
+    @Body()
+    body: {
+      currentIteration: number;
+      prefixDir: string;
+      promptVersion: QuestionClassificationPromptVersion;
+    },
   ): Promise<BaseResponseDto<null>> {
-    const { currentIteration, prefixDir } = body;
+    const { currentIteration, prefixDir, promptVersion } = body;
     await this.questionClassificationEvaluatorService.evaluateTestSet(
       currentIteration,
       prefixDir,
+      promptVersion,
     );
     return new BaseResponseDto<null>({
       message: 'Question classification evaluation completed successfully',
@@ -74,7 +86,10 @@ export class EvaluatorController {
   })
   async getCollapsedMetrics(
     @Body()
-    body: { prefixDir: string; iterationNumbers: number[] },
+    body: {
+      prefixDir: string;
+      iterationNumbers: number[];
+    },
   ): Promise<BaseResponseDto<CollapsedIterationMetrics[]>> {
     const { prefixDir, iterationNumbers } = body;
     const collapsedMetrics =

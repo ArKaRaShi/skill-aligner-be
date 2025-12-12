@@ -9,7 +9,9 @@ import {
   I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
   IQuestionClassifierService,
 } from 'src/modules/query-processor/contracts/i-question-classifier-service.contract';
+import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
 
+import { QuestionClassificationMetricsHelper } from '../helpers/question-classification-metrics.helper';
 import { QUESTION_SET_V5 } from '../test-set/question-set-v5.constant';
 import { QuestionSetItem } from '../test-set/question-set.constant';
 import {
@@ -52,11 +54,14 @@ export class QuestionClassificationEvaluatorService {
   async evaluateTestSet(
     currentIteration: number,
     prefixDir: string,
+    promptVersion: QuestionClassificationPromptVersion,
   ): Promise<QuestionClassificationTestResults> {
     this.logger.log(`Starting evaluation iteration ${currentIteration}`);
 
-    const iterationResult =
-      await this.evaluateSingleIteration(currentIteration);
+    const iterationResult = await this.evaluateSingleIteration(
+      currentIteration,
+      promptVersion,
+    );
 
     await this.saveIterationRecords(iterationResult, prefixDir);
     await this.saveIterationMetrics(iterationResult, prefixDir);
@@ -119,11 +124,19 @@ export class QuestionClassificationEvaluatorService {
 
   private async evaluateSingleIteration(
     iterationNumber: number,
+    promptVersion: QuestionClassificationPromptVersion,
   ): Promise<QuestionClassificationTestResults> {
-    const classifiedRecords = await this.classifyAllQuestions(this.testSet);
+    const classifiedRecords = await this.classifyAllQuestions(
+      this.testSet,
+      promptVersion,
+    );
     const records = this.mapToTestRecords(classifiedRecords);
     const classMetrics = this.calculateAllClassMetrics(this.testSet, records);
-    const overallMetrics = this.calculateOverallMetrics(classMetrics, records);
+    const overallMetrics =
+      QuestionClassificationMetricsHelper.calculateOverallMetrics(
+        classMetrics,
+        records,
+      );
     const macroMetricsPerIteration = this.createMacroMetricsForIteration(
       iterationNumber,
       overallMetrics,
@@ -142,7 +155,10 @@ export class QuestionClassificationEvaluatorService {
     return testResults;
   }
 
-  private async classifyAllQuestions(testSet: QuestionSetItem[]): Promise<
+  private async classifyAllQuestions(
+    testSet: QuestionSetItem[],
+    promptVersion: QuestionClassificationPromptVersion,
+  ): Promise<
     Array<{
       question: string;
       expectedCategory: string;
@@ -166,8 +182,11 @@ export class QuestionClassificationEvaluatorService {
         userPrompt,
         systemPrompt,
         model,
+        promptVersion: resolvedPromptVersion,
+      } = await this.questionClassifierService.classify({
+        question: questionObj.question,
         promptVersion,
-      } = await this.questionClassifierService.classify(questionObj.question);
+      });
       const isCorrect = actualClassification === questionObj.expectedCategory;
 
       return {
@@ -179,7 +198,7 @@ export class QuestionClassificationEvaluatorService {
         userPrompt,
         systemPrompt,
         model,
-        promptVersion,
+        promptVersion: resolvedPromptVersion,
       };
     });
 
@@ -261,18 +280,20 @@ export class QuestionClassificationEvaluatorService {
         (r) => r.expectedClassification === classLabel,
       );
 
-      const { precision, recall } = this.calculateClassMetrics(
-        classLabel,
-        records,
-      );
+      const { precision, recall } =
+        QuestionClassificationMetricsHelper.calculateClassMetrics(
+          classLabel,
+          records,
+        );
 
       const questionsCount = questions.length;
       const correctCount = classRecords.filter((r) => r.isCorrect).length;
 
-      const { macroPrecision, macroRecall } = this.calculateMacroMetrics(
-        classLabel,
-        records,
-      );
+      const { macroPrecision, macroRecall } =
+        QuestionClassificationMetricsHelper.calculateMacroMetrics(
+          classLabel,
+          records,
+        );
 
       classMetrics.push({
         classLabel,
@@ -525,96 +546,6 @@ export class QuestionClassificationEvaluatorService {
     }
 
     return metric.correctClassifications / metric.precision;
-  }
-
-  calculateClassMetrics(
-    classLabel: string,
-    records: QuestionClassificationTestRecord[],
-  ): {
-    precision: number;
-    recall: number;
-  } {
-    const tp = records.filter(
-      (r) =>
-        r.actualClassification === classLabel &&
-        r.expectedClassification === classLabel,
-    ).length;
-    const fp = records.filter(
-      (r) =>
-        r.actualClassification === classLabel &&
-        r.expectedClassification !== classLabel,
-    ).length;
-    const fn = records.filter(
-      (r) =>
-        r.actualClassification !== classLabel &&
-        r.expectedClassification === classLabel,
-    ).length;
-
-    const precision = tp + fp > 0 ? tp / (tp + fp) : 0;
-    const recall = tp + fn > 0 ? tp / (tp + fn) : 0;
-
-    return { precision, recall };
-  }
-
-  calculateOverallMetrics(
-    classMetrics: ClassClassificationMetrics[],
-    allRecords: QuestionClassificationTestRecord[],
-  ): OverallClassificationMetrics {
-    const totalQuestions = allRecords.length;
-    const totalCorrectClassifications = allRecords.filter(
-      (r) => r.isCorrect,
-    ).length;
-    const totalIncorrectClassifications =
-      totalQuestions - totalCorrectClassifications;
-
-    // Calculate overall precision and recall using macro-averaging
-    const totalPrecision = classMetrics.reduce(
-      (sum, metric) => sum + metric.precision,
-      0,
-    );
-    const totalRecall = classMetrics.reduce(
-      (sum, metric) => sum + metric.recall,
-      0,
-    );
-    const overallPrecision =
-      classMetrics.length > 0 ? totalPrecision / classMetrics.length : 0;
-    const overallRecall =
-      classMetrics.length > 0 ? totalRecall / classMetrics.length : 0;
-
-    // Calculate macro precision and recall across all classes
-    const macroPrecision = overallPrecision;
-    const macroRecall = overallRecall;
-
-    return {
-      totalQuestions,
-      totalCorrectClassifications,
-      totalIncorrectClassifications,
-      overallPrecision,
-      overallRecall,
-      macroPrecision,
-      macroRecall,
-      timestamp: new Date().toISOString(),
-    };
-  }
-
-  calculateMacroMetrics(
-    classLabel: string,
-    records: QuestionClassificationTestRecord[],
-  ): {
-    macroPrecision: number;
-    macroRecall: number;
-  } {
-    // For individual class macro metrics, we use the same calculation as regular metrics
-    // In a multi-iteration scenario, this would be calculated differently
-    const { precision, recall } = this.calculateClassMetrics(
-      classLabel,
-      records,
-    );
-
-    return {
-      macroPrecision: precision,
-      macroRecall: recall,
-    };
   }
 
   groupQuestionsByCategory(

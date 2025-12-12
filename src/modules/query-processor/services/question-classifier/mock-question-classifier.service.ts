@@ -1,13 +1,20 @@
 import { Injectable } from '@nestjs/common';
 
-import { IQuestionClassifierService } from '../../contracts/i-question-classifier-service.contract';
+import {
+  IQuestionClassifierService,
+  QuestionClassifyInput,
+} from '../../contracts/i-question-classifier-service.contract';
 import { QuestionClassification } from '../../types/question-classification.type';
 
 @Injectable()
 export class MockQuestionClassifierService
   implements IQuestionClassifierService
 {
-  async classify(question: string): Promise<QuestionClassification> {
+  async classify(
+    input: QuestionClassifyInput,
+  ): Promise<QuestionClassification> {
+    const { question, promptVersion } = input;
+
     // Simple mock logic based on keywords
     const classification: QuestionClassification = {
       classification: 'relevant',
@@ -15,7 +22,7 @@ export class MockQuestionClassifierService
       model: 'mock-model',
       userPrompt: 'Mock user prompt',
       systemPrompt: 'Mock system prompt',
-      promptVersion: 'v1',
+      promptVersion,
     };
 
     const lowerQuestion = question.toLowerCase();

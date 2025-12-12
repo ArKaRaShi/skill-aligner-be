@@ -38,7 +38,10 @@ export class AnswerQuestionUseCase
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
 
     const [{ classification, reason }, queryProfile] = await Promise.all([
-      this.questionClassifierService.classify(question),
+      this.questionClassifierService.classify({
+        question,
+        promptVersion: 'v5',
+      }),
       this.queryProfileBuilderService.buildQueryProfile(question),
     ]);
 

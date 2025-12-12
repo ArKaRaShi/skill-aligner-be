@@ -28,8 +28,16 @@ type QuestionClassificationPrompt = {
   getUserPrompt: (question: string) => string;
 };
 
+export type QuestionClassificationPromptVersion =
+  | 'v1'
+  | 'v2'
+  | 'v3'
+  | 'v4'
+  | 'v5'
+  | 'v6';
+
 const QuestionClassificationPrompts: Record<
-  'v1' | 'v2' | 'v3' | 'v4' | 'v5' | 'v6',
+  QuestionClassificationPromptVersion,
   QuestionClassificationPrompt
 > = {
   v1: {
@@ -59,7 +67,7 @@ const QuestionClassificationPrompts: Record<
 };
 
 export const QuestionClassificationPromptFactory = () => {
-  const getPrompts = (version: keyof typeof QuestionClassificationPrompts) => {
+  const getPrompts = (version: QuestionClassificationPromptVersion) => {
     const prompts = QuestionClassificationPrompts[version];
     if (!prompts) {
       throw new Error(
