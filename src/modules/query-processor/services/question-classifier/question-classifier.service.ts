@@ -75,24 +75,27 @@ export class QuestionClassifierService implements IQuestionClassifierService {
       }
     }
 
-    const prefilterResult = this.prefilterDangerousQuestion(
-      question,
-      promptVersion,
-    );
-    if (prefilterResult) {
-      if (this.useCache) {
-        this.cache.store(question, prefilterResult);
-      }
-      return prefilterResult;
-    }
+    // Disabled prefiltering for now
+    // const prefilterResult = this.prefilterDangerousQuestion(
+    //   question,
+    //   promptVersion,
+    // );
+    // if (prefilterResult) {
+    //   if (this.useCache) {
+    //     this.cache.store(question, prefilterResult);
+    //   }
+    //   return prefilterResult;
+    // }
 
     const classification = await this.aiBasedClassification(
       question,
       promptVersion,
     );
+
     if (this.useCache) {
       this.cache.store(question, classification);
     }
+
     return classification;
   }
 
