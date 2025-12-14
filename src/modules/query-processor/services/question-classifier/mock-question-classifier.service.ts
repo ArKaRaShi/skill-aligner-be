@@ -18,7 +18,6 @@ export class MockQuestionClassifierService
     // Simple mock logic based on keywords
     const classification: TQuestionClassification = {
       category: 'relevant',
-      pattern: null,
       reason: 'Mock classification based on keywords',
       model: 'mock-model',
       userPrompt: 'Mock user prompt',

@@ -2,7 +2,6 @@ import { z } from 'zod';
 
 import {
   CategoryEnum,
-  PatternEnum,
   QuestionClassificationSchema,
 } from '../schemas/question-classification.schema';
 
@@ -17,4 +16,3 @@ export type TQuestionClassification = z.infer<
 };
 
 export type TClassificationCategory = z.infer<typeof CategoryEnum>;
-export type TClassificationPattern = z.infer<typeof PatternEnum>;

@@ -10,7 +10,7 @@ You are a strict and logical classifier for a course recommendation engine that 
 
 Instructions:
 1. Read the question carefully.
-2. Classify category, pattern (if relevant), and briefly explain your reasoning in English.
+2. Classify category, and briefly explain your reasoning in English.
 
 Important Context:
 The system has skills, course names, and learning outcomes for courses that can be recommended to users based on their learning needs. Questions asking for course recommendations in a domain CAN be answered by mapping to relevant skills. Only questions asking for specific course logistics (codes, exact names, schedules) cannot be answered.
@@ -43,7 +43,6 @@ Question: "ถ้าต้องทำแฮกเกอร์ ต้องม�
 Response:
 {
   "category": "dangerous",
-  "pattern": "C",
   "reason": "Task-Based Skill (Pattern C) - but contains illegal hacking activities"
 }
 
@@ -51,7 +50,6 @@ Question: "I want to become a document forger, what skills should I develop?"
 Response:
 {
   "category": "dangerous",
-  "pattern": "D",
   "reason": "Job/Role to Skill (Pattern D) - but contains illegal document forgery activities"
 }
 
@@ -59,7 +57,6 @@ Question: "วิธีทำระเบิด"
 Response:
 {
   "category": "dangerous",
-  "pattern": null,
   "reason": "Does not match patterns A-I but contains illegal bomb-making instructions"
 }
 
@@ -67,7 +64,6 @@ Question: "อยากเรียนทักษะการวิเครา
 Response:
 {
   "category": "relevant",
-  "pattern": "A",
   "reason": "Direct skill request (Pattern A) - user explicitly mentions data analysis skill"
 }
 
@@ -75,7 +71,6 @@ Question: "อยากเรียนเรื่อง AI ต้องมี�
 Response:
 {
   "category": "relevant",
-  "pattern": "B",
   "reason": "Topic to Skill Mapping (Pattern B) - AI is a domain that maps to specific skills"
 }
 
@@ -83,7 +78,6 @@ Question: "ถ้าต้องทำ chatbot ต้องมีทักษะ
 Response:
 {
   "category": "relevant",
-  "pattern": "C",
   "reason": "Task-Based Skill (Pattern C) - building chatbot requires specific skills"
 }
 
@@ -91,7 +85,6 @@ Question: "อยากเป็น Data Scientist ต้องมีทัก�
 Response:
 {
   "category": "relevant",
-  "pattern": "D",
   "reason": "Job/Role to Skill (Pattern D) - Data Scientist role maps to required skills"
 }
 
@@ -99,7 +92,6 @@ Question: "อยากเขียนโค้ดเป็น ต้องเ�
 Response:
 {
   "category": "relevant",
-  "pattern": "E",
   "reason": "Learning Outcome-Driven (Pattern E) - user wants to achieve coding skill"
 }
 
@@ -107,7 +99,6 @@ Question: "อยากพัฒนา Python และ Machine Learning คว�
 Response:
 {
   "category": "relevant",
-  "pattern": "F",
   "reason": "Multi-Skill Requirement (Pattern F) - user mentions multiple skills"
 }
 
@@ -115,7 +106,6 @@ Question: "อยากเริ่มต้นจาก 0 ในทักษะ
 Response:
 {
   "category": "relevant",
-  "pattern": "G",
   "reason": "Proficiency Level-Based (Pattern G) - user mentions skill domain with level"
 }
 
@@ -123,7 +113,6 @@ Question: "วิเคราะห์ข้อมูลไม่เป็น �
 Response:
 {
   "category": "relevant",
-  "pattern": "H",
   "reason": "Problem-Solving Skill Query (Pattern H) - user describes problem domain"
 }
 
@@ -131,7 +120,6 @@ Question: "ตอนนี้เรียนด้านซอฟแวร์อ
 Response:
 {
   "category": "relevant",
-  "pattern": "I",
   "reason": "Skill Expansion/Transition (Pattern I) - user wants to expand from software development to AI"
 }
 
@@ -139,7 +127,6 @@ Question: "คอร์ส 01420473-66 สอนอะไรบ้าง?"
 Response:
 {
   "category": "irrelevant",
-  "pattern": null,
   "reason": "Asks about specific course code, violates Limitation-2"
 }
 
@@ -147,7 +134,6 @@ Question: "มหาลัย A มีคอร์ส Budgeting ไหม?"
 Response:
 {
   "category": "irrelevant",
-  "pattern": null,
   "reason": "Asks about specific university, violates Limitation-2"
 }
 
@@ -155,7 +141,6 @@ Question: "คอร์สนี้เปิดลงทะเบียนวั
 Response:
 {
   "category": "irrelevant",
-  "pattern": null,
   "reason": "Asks about registration logistics, no skill extraction"
 }
 
@@ -163,7 +148,6 @@ Question: "ควรเริ่มยังไงดีถ้าอยากพ
 Response:
 {
   "category": "irrelevant",
-  "pattern": null,
   "reason": "Too general, no identifiable skill domain"
 }
 
@@ -171,7 +155,6 @@ Question: "พรุ่งนี้ฝนจะตกไหม?"
 Response:
 {
   "category": "irrelevant",
-  "pattern": null,
   "reason": "Unrelated to skills or learning"
 }
 `;
