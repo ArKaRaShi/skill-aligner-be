@@ -567,14 +567,9 @@ Output:
     });
 
     const arrayResult = Array.from(result.entries()).map(([skill, los]) => {
-      const losWithoutEmbeddings = los.map((lo) => {
-        const { embedding, ...loWithoutEmbedding } = lo;
-        return loWithoutEmbedding;
-      });
-
       return {
         skill,
-        learningOutcomes: losWithoutEmbeddings,
+        learningOutcomes: los,
       };
     });
 

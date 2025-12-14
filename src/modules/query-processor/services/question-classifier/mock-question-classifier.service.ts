@@ -4,7 +4,7 @@ import {
   IQuestionClassifierService,
   QuestionClassifyInput,
 } from '../../contracts/i-question-classifier-service.contract';
-import { QuestionClassification } from '../../types/question-classification.type';
+import { TQuestionClassification } from '../../types/question-classification.type';
 
 @Injectable()
 export class MockQuestionClassifierService
@@ -12,12 +12,13 @@ export class MockQuestionClassifierService
 {
   async classify(
     input: QuestionClassifyInput,
-  ): Promise<QuestionClassification> {
+  ): Promise<TQuestionClassification> {
     const { question, promptVersion } = input;
 
     // Simple mock logic based on keywords
-    const classification: QuestionClassification = {
-      classification: 'relevant',
+    const classification: TQuestionClassification = {
+      category: 'relevant',
+      pattern: null,
       reason: 'Mock classification based on keywords',
       model: 'mock-model',
       userPrompt: 'Mock user prompt',
@@ -27,13 +28,13 @@ export class MockQuestionClassifierService
 
     const lowerQuestion = question.toLowerCase();
     if (lowerQuestion.includes('dangerous')) {
-      classification.classification = 'dangerous';
+      classification.category = 'dangerous';
       classification.reason = 'Contains dangerous content';
     } else if (lowerQuestion.includes('unclear')) {
-      classification.classification = 'irrelevant';
+      classification.category = 'irrelevant';
       classification.reason = 'Question is unclear';
     } else if (lowerQuestion.includes('out of scope')) {
-      classification.classification = 'irrelevant';
+      classification.category = 'irrelevant';
       classification.reason = 'Topic is out of scope';
     }
 

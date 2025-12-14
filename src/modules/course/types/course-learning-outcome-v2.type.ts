@@ -6,7 +6,6 @@ export type LearningOutcome = {
   originalNameEn: string | null;
   cleanedNameTh: string;
   cleanedNameEn: string | null;
-  embedding: number[];
   skipEmbedding: boolean;
   hasEmbedding768: boolean;
   hasEmbedding1536: boolean;

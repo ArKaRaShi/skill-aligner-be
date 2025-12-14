@@ -1,5 +1,6 @@
 import { Identifier } from 'src/common/domain/types/identifier';
 
+import { LearningOutcome } from './course-learning-outcome-v2.type';
 import {
   CourseLearningOutcome,
   CourseLearningOutcomeMatch,
@@ -24,4 +25,19 @@ export type Course = {
 
 export type CourseMatch = Omit<Course, 'courseLearningOutcomes'> & {
   cloMatches: CourseLearningOutcomeMatch[];
+};
+
+export type CourseWithLearningOutcomeV2 = Omit<
+  Course,
+  'courseLearningOutcomes'
+> & {
+  learningOutcomes: LearningOutcome[];
+};
+
+export type CourseWithLearningOutcomeV2Match = Omit<
+  Course,
+  'courseLearningOutcomes'
+> & {
+  learningOutcomeMatch: LearningOutcome & { similarityScore?: number };
+  learningOutcomes: LearningOutcome[];
 };

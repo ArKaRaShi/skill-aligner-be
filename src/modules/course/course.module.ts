@@ -5,7 +5,7 @@ import { GptLlmModule } from '../gpt-llm/gpt-llm.module';
 import { I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN } from './contracts/i-course-learning-outcome.repository';
 import { I_COURSE_LEARNING_OUTCOME_SERVICE_TOKEN } from './contracts/i-course-learning-outcome.service';
 import { I_COURSE_REPOSITORY_TOKEN } from './contracts/i-course.repository';
-import { CourseLearningOutcomeRepository } from './repositories/course-learning-outcome.repository';
+import { PrismaCourseLearningOutcomeRepository } from './repositories/prisma-course-learning-outcome.repository';
 import { PrismaCourseRepository } from './repositories/prisma-course.repository';
 import { CourseLearningOutcomeService } from './services/course-learning-outcome.service';
 import { CourseUseCases } from './use-cases';
@@ -20,7 +20,7 @@ import { CourseUseCases } from './use-cases';
     },
     {
       provide: I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
-      useClass: CourseLearningOutcomeRepository,
+      useClass: PrismaCourseLearningOutcomeRepository,
     },
     {
       provide: I_COURSE_LEARNING_OUTCOME_SERVICE_TOKEN,

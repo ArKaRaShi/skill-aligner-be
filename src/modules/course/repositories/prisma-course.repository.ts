@@ -10,13 +10,22 @@ import {
   IEmbeddingClient,
 } from 'src/modules/embedding/contracts/i-embedding-client.contract';
 
-import { ICourseRepository } from '../contracts/i-course.repository';
+import {
+  FindCoursesByLearningOutcomeIdsParams,
+  ICourseRepository,
+} from '../contracts/i-course.repository';
+import { LearningOutcome } from '../types/course-learning-outcome-v2.type';
 import {
   CourseLearningOutcome,
   CourseLearningOutcomeMatch,
 } from '../types/course-learning-outcome.type';
-import { Course, CourseMatch } from '../types/course.type';
+import {
+  Course,
+  CourseMatch,
+  CourseWithLearningOutcomeV2Match,
+} from '../types/course.type';
 import { parseVector } from './helpers/vector.helper';
+import { PrismaCourseLearningOutcomeV2Mapper } from './prisma-course-learning-outcome-v2.mapper';
 import { FindCourseByIdRawRow } from './types/find-course-by-id-raw.type';
 import { RawCourseQueryRow } from './types/raw-course-query-row.type';
 
@@ -271,6 +280,150 @@ export class PrismaCourseRepository implements ICourseRepository {
         }));
 
       result.set(skill, courseMatches);
+    }
+
+    return result;
+  }
+
+  async findCourseByLearningOutcomeIds({
+    learningOutcomeIds,
+    campusId,
+    facultyId,
+    isGenEd,
+    academicYearSemesters,
+  }: FindCoursesByLearningOutcomeIdsParams): Promise<
+    Map<Identifier, CourseWithLearningOutcomeV2Match[]>
+  > {
+    if (!learningOutcomeIds.length) {
+      return new Map<Identifier, CourseWithLearningOutcomeV2Match[]>();
+    }
+
+    // TODO: Future chunking
+    const courseWhere: Prisma.CourseWhereInput = {
+      courseLearningOutcomes: {
+        some: {
+          cloId: {
+            in: learningOutcomeIds,
+          },
+        },
+      },
+    };
+
+    if (campusId) {
+      courseWhere.campusId = campusId;
+    }
+
+    if (facultyId) {
+      courseWhere.facultyId = facultyId;
+    }
+
+    if (isGenEd !== undefined) {
+      courseWhere.isGenEd = isGenEd;
+    }
+
+    if (academicYearSemesters && academicYearSemesters.length > 0) {
+      const yearSemesterConditions = academicYearSemesters.map(
+        ({ academicYear, semesters }) =>
+          semesters && semesters.length > 0
+            ? {
+                academicYear,
+                semester: {
+                  in: semesters,
+                },
+              }
+            : { academicYear },
+      );
+
+      const existingAnd = courseWhere.AND
+        ? Array.isArray(courseWhere.AND)
+          ? courseWhere.AND
+          : [courseWhere.AND]
+        : [];
+
+      courseWhere.AND = [
+        ...existingAnd,
+        {
+          OR: yearSemesterConditions,
+        },
+      ];
+    }
+
+    const courses = await this.prisma.course.findMany({
+      where: courseWhere,
+      include: {
+        courseLearningOutcomes: {
+          include: {
+            learningOutcome: true,
+          },
+          orderBy: {
+            cloNo: 'asc',
+          },
+        },
+      },
+      orderBy: [
+        { academicYear: 'desc' },
+        { semester: 'desc' },
+        { createdAt: 'desc' },
+      ],
+    });
+
+    const learningOutcomeIdSet = new Set<Identifier>(learningOutcomeIds);
+    const result = new Map<Identifier, CourseWithLearningOutcomeV2Match[]>();
+
+    for (const course of courses) {
+      const allLearningOutcomes: LearningOutcome[] = [];
+
+      for (const courseClo of course.courseLearningOutcomes) {
+        const learningOutcome =
+          PrismaCourseLearningOutcomeV2Mapper.fromCourseCloToLearningOutcome(
+            courseClo,
+          );
+        if (!learningOutcome) {
+          continue;
+        }
+
+        allLearningOutcomes.push(learningOutcome);
+      }
+
+      if (!allLearningOutcomes.length) {
+        continue;
+      }
+
+      const matchingLearningOutcomes = allLearningOutcomes.filter((lo) =>
+        learningOutcomeIdSet.has(lo.loId),
+      );
+
+      if (!matchingLearningOutcomes.length) {
+        continue;
+      }
+
+      const baseCourseInfo = {
+        courseId: course.id as Identifier,
+        campusId: course.campusId as Identifier,
+        facultyId: course.facultyId as Identifier,
+        academicYear: course.academicYear,
+        semester: course.semester,
+        subjectCode: course.subjectCode,
+        subjectNameTh: course.subjectNameTh,
+        subjectNameEn: course.subjectNameEn,
+        metadata: (course.metadata as Record<string, any>) ?? null,
+        createdAt: course.createdAt,
+        updatedAt: course.updatedAt,
+      };
+
+      for (const learningOutcome of matchingLearningOutcomes) {
+        const courseResult: CourseWithLearningOutcomeV2Match = {
+          ...baseCourseInfo,
+          learningOutcomeMatch: learningOutcome,
+          learningOutcomes: allLearningOutcomes,
+        };
+
+        if (!result.has(learningOutcome.loId)) {
+          result.set(learningOutcome.loId, []);
+        }
+
+        result.get(learningOutcome.loId)!.push(courseResult);
+      }
     }
 
     return result;

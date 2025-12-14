@@ -2,15 +2,15 @@ import { Injectable } from '@nestjs/common';
 
 import { BaseLocalCache } from 'src/common/adapters/secondary/cache/base-local.cache';
 
-import { QuestionClassification } from '../types/question-classification.type';
+import { TQuestionClassification } from '../types/question-classification.type';
 
 @Injectable()
-export class QuestionClassifierCache extends BaseLocalCache<QuestionClassification> {
-  store(questionText: string, classification: QuestionClassification): void {
+export class QuestionClassifierCache extends BaseLocalCache<TQuestionClassification> {
+  store(questionText: string, classification: TQuestionClassification): void {
     this.set(this.normalize(questionText), classification);
   }
 
-  lookup(questionText: string): QuestionClassification | null {
+  lookup(questionText: string): TQuestionClassification | null {
     return this.get(this.normalize(questionText));
   }
 

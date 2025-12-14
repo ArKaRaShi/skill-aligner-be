@@ -36,8 +36,7 @@ export class CourseLearningOutcomeService
     campusId,
     facultyId,
     isGenEd,
-    academicYears,
-    semesters,
+    academicYearSemesters,
     enableLlmFilter = false,
   }: FindLosBySkillsWithFilterParams): Promise<
     Map<string, LearningOutcomeMatch[]>
@@ -51,8 +50,7 @@ export class CourseLearningOutcomeService
         campusId,
         facultyId,
         isGenEd,
-        academicYears,
-        semesters,
+        academicYearSemesters,
       });
 
     if (!enableLlmFilter) {

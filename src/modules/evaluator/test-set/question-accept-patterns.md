@@ -104,7 +104,17 @@ specific about course, faculty, university cannot be classified as relevant.
 
 **Examples:** "วิเคราะห์ข้อมูลไม่เป็น"
 
-## I. Course-Specific Queries (ผูกกับคอร์สโดยตรง)
+## I. Skill Expansion/Transition Questions** - Adding or switching skills
+
+- "ตอนนี้เรียน X อยู่แต่อยากลองด้าน Y ด้วย มีวิชาแนะนำมั้ย"
+- "I'm currently studying X but want to explore Y, any course recommendations?"
+- "มีพื้นฐานด้าน X แล้ว อยากเพิ่มทักษะ Y ควรเรียนอะไรต่อ"
+- "I have background in X and want to transition to Y, what skills should I develop?"
+- "เรียน X มาแล้ว อยากเพิ่ม Y เข้าไปด้วย เริ่มจากคอร์สไหนดี"
+
+# Not Accept Patterns (Irrelevant Questions)
+
+## J. Course-Specific Queries (ผูกกับคอร์สโดยตรง)
 
 **Description:** คำถามที่ต้องรู้จักชื่อคอร์ส รายวิชา โค้ดคอร์ส หรือข้อมูลเฉพาะรายวิชา
 
@@ -119,7 +129,7 @@ specific about course, faculty, university cannot be classified as relevant.
 
 ---
 
-## J. Institution-Specific Queries (ผูกกับมหาลัย/คณะ/ภาควิชา)
+## K. Institution-Specific Queries (ผูกกับมหาลัย/คณะ/ภาควิชา)
 
 **Description:** คำถามที่ต้องรู้ context ของมหาวิทยาลัย หรือข้อกำหนดเฉพาะแวดวงมหาลัย
 
@@ -134,7 +144,7 @@ specific about course, faculty, university cannot be classified as relevant.
 
 ---
 
-## K. Administrative / Enrollment Queries (ถามข้อมูลเชิงธุรการ)
+## L. Administrative / Enrollment Queries (ถามข้อมูลเชิงธุรการ)
 
 **Description:** คำถามที่ไม่เกี่ยวกับทักษะ แต่เกี่ยวกับการลงทะเบียน เวลาเรียน ผู้สอน หรือระบบเก็บเงิน
 

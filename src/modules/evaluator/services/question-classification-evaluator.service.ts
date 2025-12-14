@@ -13,6 +13,7 @@ import { QuestionClassificationPromptVersion } from 'src/modules/query-processor
 
 import { QuestionClassificationMetricsHelper } from '../helpers/question-classification-metrics.helper';
 import { QUESTION_SET_V5 } from '../test-set/question-set-v5.constant';
+import { QUESTION_SET_V6 } from '../test-set/question-set-v6.constant';
 import { QuestionSetItem } from '../test-set/question-set.constant';
 import {
   ClassClassificationMetrics,
@@ -39,13 +40,13 @@ export class QuestionClassificationEvaluatorService {
     'data/evaluation/question-classification';
   private readonly recordsDirName = 'records';
   private readonly metricsDirName = 'metrics';
-  private readonly testSet: QuestionSetItem[] = QUESTION_SET_V5.map((item) => {
-    if (item.expectedCategory === 'unclear') {
-      return {
-        ...item,
-        expectedCategory: 'irrelevant',
-      };
-    }
+  private readonly testSet: QuestionSetItem[] = QUESTION_SET_V6.map((item) => {
+    // if (item.expectedCategory === 'unclear') {
+    //   return {
+    //     ...item,
+    //     expectedCategory: 'irrelevant',
+    //   };
+    // }
     return item;
   });
 
@@ -165,7 +166,7 @@ export class QuestionClassificationEvaluatorService {
     Array<{
       question: string;
       expectedCategory: string;
-      classification: string;
+      category: string;
       reasoning: string;
       isCorrect: boolean;
       userPrompt: string;
@@ -180,7 +181,7 @@ export class QuestionClassificationEvaluatorService {
       );
 
       const {
-        classification: actualClassification,
+        category: actualCategory,
         reason,
         userPrompt,
         systemPrompt,
@@ -190,12 +191,12 @@ export class QuestionClassificationEvaluatorService {
         question: questionObj.question,
         promptVersion,
       });
-      const isCorrect = actualClassification === questionObj.expectedCategory;
+      const isCorrect = actualCategory === questionObj.expectedCategory;
 
       return {
         question: questionObj.question,
         expectedCategory: questionObj.expectedCategory,
-        classification: actualClassification,
+        category: actualCategory,
         reasoning: reason,
         isCorrect,
         userPrompt,
@@ -212,7 +213,7 @@ export class QuestionClassificationEvaluatorService {
     classifiedRecords: Array<{
       question: string;
       expectedCategory: string;
-      classification: string;
+      category: string;
       reasoning: string;
       isCorrect: boolean;
       userPrompt: string;
@@ -225,7 +226,7 @@ export class QuestionClassificationEvaluatorService {
       ({
         question,
         expectedCategory,
-        classification,
+        category,
         reasoning,
         isCorrect,
         userPrompt,
@@ -235,7 +236,7 @@ export class QuestionClassificationEvaluatorService {
       }) => ({
         question,
         expectedClassification: expectedCategory,
-        actualClassification: classification,
+        actualClassification: category,
         reasoning,
         isCorrect,
         metadata: this.buildRecordMetadata({

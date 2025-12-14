@@ -1,6 +1,10 @@
 import { Identifier } from 'src/common/domain/types/identifier';
 
-import { Course, CourseMatch } from '../types/course.type';
+import {
+  Course,
+  CourseMatch,
+  CourseWithLearningOutcomeV2Match,
+} from '../types/course.type';
 
 export const I_COURSE_REPOSITORY_TOKEN = Symbol('ICourseRepository');
 
@@ -8,6 +12,19 @@ type FindCoursesBySkillsSemanticParams = {
   skills: string[];
   matchesPerSkill?: number;
   threshold?: number;
+};
+
+export type AcademicYearSemesterFilter = {
+  academicYear: number;
+  semesters?: number[];
+};
+
+export type FindCoursesByLearningOutcomeIdsParams = {
+  learningOutcomeIds: Identifier[];
+  campusId?: Identifier;
+  facultyId?: Identifier;
+  isGenEd?: boolean;
+  academicYearSemesters?: AcademicYearSemesterFilter[];
 };
 
 export interface ICourseRepository {
@@ -21,6 +38,21 @@ export interface ICourseRepository {
     matchesPerSkill,
     threshold,
   }: FindCoursesBySkillsSemanticParams): Promise<Map<string, CourseMatch[]>>;
+
+  /**
+   * Find courses by learning outcome IDs with filters.
+   * @param params The parameters for finding courses by learning outcome IDs.
+   * @returns A map where the key is the learning outcome ID and the value is an array of courses.
+   */
+  findCourseByLearningOutcomeIds({
+    learningOutcomeIds,
+    campusId,
+    facultyId,
+    isGenEd,
+    academicYearSemesters,
+  }: FindCoursesByLearningOutcomeIdsParams): Promise<
+    Map<Identifier, CourseWithLearningOutcomeV2Match[]>
+  >;
 
   /**
    * Find a course by its identifier or throw an error if not found.

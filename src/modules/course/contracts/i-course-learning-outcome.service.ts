@@ -1,6 +1,7 @@
 import { Identifier } from 'src/common/domain/types/identifier';
 
 import { LearningOutcomeMatch } from '../types/course-learning-outcome-v2.type';
+import type { AcademicYearSemesterFilter } from './i-course-learning-outcome.repository';
 
 export const I_COURSE_LEARNING_OUTCOME_SERVICE_TOKEN = Symbol(
   'ICourseLearningOutcomeService',
@@ -15,8 +16,7 @@ export type FindLosBySkillsWithFilterParams = {
   campusId?: Identifier;
   facultyId?: Identifier;
   isGenEd?: boolean;
-  academicYears?: number[];
-  semesters?: number[];
+  academicYearSemesters?: AcademicYearSemesterFilter[];
 };
 
 export interface ICourseLearningOutcomeService {
@@ -34,8 +34,7 @@ export interface ICourseLearningOutcomeService {
     campusId,
     facultyId,
     isGenEd,
-    academicYears,
-    semesters,
+    academicYearSemesters,
   }: FindLosBySkillsWithFilterParams): Promise<
     Map<string, LearningOutcomeMatch[]>
   >;

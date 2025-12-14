@@ -20,6 +20,7 @@ export type GenerateTextOutput = {
   model: string;
   inputTokens: number;
   outputTokens: number;
+  hyperParameters?: Record<string, any>;
 };
 
 export type GenerateObjectOutput<TSchema extends z.ZodTypeAny> = {
@@ -27,6 +28,7 @@ export type GenerateObjectOutput<TSchema extends z.ZodTypeAny> = {
   inputTokens: number;
   outputTokens: number;
   object: z.infer<TSchema>;
+  hyperParameters?: Record<string, any>;
 };
 
 export interface ILlmProviderClient {

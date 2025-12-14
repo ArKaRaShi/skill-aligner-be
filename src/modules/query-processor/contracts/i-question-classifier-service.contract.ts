@@ -1,5 +1,5 @@
 import { QuestionClassificationPromptVersion } from '../prompts/question-classification';
-import { QuestionClassification } from '../types/question-classification.type';
+import { TQuestionClassification } from '../types/question-classification.type';
 
 export const I_QUESTION_CLASSIFIER_SERVICE_TOKEN = Symbol(
   'IQuestionClassifierService',
@@ -11,5 +11,5 @@ export type QuestionClassifyInput = {
 };
 
 export interface IQuestionClassifierService {
-  classify(input: QuestionClassifyInput): Promise<QuestionClassification>;
+  classify(input: QuestionClassifyInput): Promise<TQuestionClassification>;
 }

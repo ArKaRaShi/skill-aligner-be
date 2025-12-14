@@ -38,12 +38,16 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     systemPrompt,
     model,
   }: GenerateTextInput): Promise<GenerateTextOutput> {
+    const hyperParameters = {
+      temperature: 0,
+      maxOutputTokens: 10_000,
+    };
+
     const { text, usage, providerMetadata, request } = await aiGenerateText({
       model: this.openRouter(model),
       prompt,
       system: systemPrompt,
-      temperature: 0,
-      maxOutputTokens: 5000,
+      ...hyperParameters,
     });
 
     // this.log(
@@ -58,6 +62,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       model,
       inputTokens: usage?.inputTokens ?? 0,
       outputTokens: usage?.outputTokens ?? 0,
+      hyperParameters,
     };
   }
 
@@ -67,14 +72,18 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
     schema,
     model,
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>> {
+    const hyperParameters = {
+      temperature: 0,
+      maxOutputTokens: 10_000,
+    };
+
     const { object, usage, providerMetadata, request } = await aiGenerateObject(
       {
         model: this.openRouter(model),
         schema,
         prompt,
         system: systemPrompt,
-        temperature: 0,
-        maxOutputTokens: 5000,
+        ...hyperParameters,
       },
     );
 
@@ -90,6 +99,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       inputTokens: usage?.inputTokens ?? 0,
       outputTokens: usage?.outputTokens ?? 0,
       object: object as z.infer<TSchema>,
+      hyperParameters,
     };
   }
 

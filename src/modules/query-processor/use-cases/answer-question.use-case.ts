@@ -12,7 +12,7 @@ import {
   IQuestionClassifierService,
 } from '../contracts/i-question-classifier-service.contract';
 import { QueryStrategyFactory } from '../strategies/query-strategy.factory';
-import { Classification } from '../types/question-classification.type';
+import { TClassificationCategory } from '../types/question-classification.type';
 import { AnswerQuestionUseCaseOutput } from './types/answer-question.use-case.type';
 
 @Injectable()
@@ -37,7 +37,7 @@ export class AnswerQuestionUseCase
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute');
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
 
-    const [{ classification, reason }, queryProfile] = await Promise.all([
+    const [{ category, reason }, queryProfile] = await Promise.all([
       this.questionClassifierService.classify({
         question,
         promptVersion: 'v8',
@@ -49,7 +49,7 @@ export class AnswerQuestionUseCase
 
     this.logger.log(
       `Question classification result: ${JSON.stringify(
-        { classification, reason },
+        { category, reason },
         null,
         2,
       )}`,
@@ -58,8 +58,7 @@ export class AnswerQuestionUseCase
       `Query profile result: ${JSON.stringify(queryProfile, null, 2)}`,
     );
 
-    const fallbackResponse =
-      this.getFallbackAnswerForClassification(classification);
+    const fallbackResponse = this.getFallbackAnswerForClassification(category);
 
     if (fallbackResponse) {
       return fallbackResponse;
@@ -103,7 +102,7 @@ export class AnswerQuestionUseCase
   }
 
   private getFallbackAnswerForClassification(
-    classification: Classification,
+    classification: TClassificationCategory,
   ): AnswerQuestionUseCaseOutput | null {
     if (classification === 'irrelevant') {
       return {

@@ -8,6 +8,11 @@ export const I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN = Symbol(
 
 type VectorDimension = 768 | 1536;
 
+export type AcademicYearSemesterFilter = {
+  academicYear: number;
+  semesters?: number[];
+};
+
 export type FindLosBySkillsParams = {
   skills: string[];
   threshold?: number;
@@ -16,8 +21,7 @@ export type FindLosBySkillsParams = {
   campusId?: Identifier;
   facultyId?: Identifier;
   isGenEd?: boolean;
-  academicYears?: number[];
-  semesters?: number[];
+  academicYearSemesters?: AcademicYearSemesterFilter[];
 };
 
 export interface ICourseLearningOutcomeRepository {
@@ -36,7 +40,6 @@ export interface ICourseLearningOutcomeRepository {
     campusId,
     facultyId,
     isGenEd,
-    academicYears,
-    semesters,
+    academicYearSemesters,
   }: FindLosBySkillsParams): Promise<Map<string, LearningOutcomeMatch[]>>;
 }

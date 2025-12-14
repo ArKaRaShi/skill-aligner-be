@@ -3,7 +3,6 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 
 import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
-import { Identifier } from 'src/common/domain/types/identifier';
 
 import { EMBEDDING_MODELS } from 'src/modules/embedding/constants/model.constant';
 import {
@@ -16,27 +15,11 @@ import {
   ICourseLearningOutcomeRepository,
 } from '../contracts/i-course-learning-outcome.repository';
 import { LearningOutcomeMatch } from '../types/course-learning-outcome-v2.type';
-import { parseVector } from './helpers/vector.helper';
-
-type RawCloQueryRow = {
-  skill: string;
-  clo_id: string;
-  original_clo_name: string;
-  original_clo_name_en: string | null;
-  cleaned_clo_name_th: string;
-  cleaned_clo_name_en: string | null;
-  embedding: number[] | null;
-  skip_embedding: boolean;
-  has_embedding_768: boolean;
-  has_embedding_1536: boolean;
-  metadata: Record<string, any> | null;
-  created_at: Date;
-  updated_at: Date;
-  similarity: number;
-};
+import { PrismaCourseLearningOutcomeV2Mapper } from './prisma-course-learning-outcome-v2.mapper';
+import { RawCourseLearningOutcomeRow } from './types/raw-course-learning-outcome-row.type';
 
 @Injectable()
-export class CourseLearningOutcomeRepository
+export class PrismaCourseLearningOutcomeRepository
   implements ICourseLearningOutcomeRepository
 {
   constructor(
@@ -52,9 +35,8 @@ export class CourseLearningOutcomeRepository
     vectorDimension = 768,
     campusId,
     facultyId,
-    isGenEd,
-    academicYears,
-    semesters,
+    isGenEd = false,
+    academicYearSemesters,
   }: FindLosBySkillsParams): Promise<Map<string, LearningOutcomeMatch[]>> {
     if (!skills.length) {
       return new Map<string, LearningOutcomeMatch[]>();
@@ -107,7 +89,26 @@ export class CourseLearningOutcomeRepository
       }),
     );
 
-    const rows = await this.prisma.$queryRaw<RawCloQueryRow[]>`
+    const academicYearSemesterClauses = (academicYearSemesters ?? []).map(
+      ({ academicYear, semesters }) => {
+        const normalizedSemesters = semesters ?? [];
+
+        if (normalizedSemesters.length === 0) {
+          return Prisma.sql`(c.academic_year = ${academicYear})`;
+        }
+
+        return Prisma.sql`(c.academic_year = ${academicYear} AND c.semester IN (${Prisma.join(
+          normalizedSemesters,
+        )}))`;
+      },
+    );
+
+    const academicYearSemesterCondition =
+      academicYearSemesterClauses.length > 0
+        ? Prisma.sql`AND (${Prisma.join(academicYearSemesterClauses, ' OR ')})`
+        : Prisma.empty;
+
+    const rows = await this.prisma.$queryRaw<RawCourseLearningOutcomeRow[]>`
       WITH input_skills AS (
         SELECT *
         FROM (VALUES ${skillEmbeddingValues}) AS v(skill, embedding)
@@ -126,7 +127,6 @@ export class CourseLearningOutcomeRepository
           clo.metadata,
           clo.created_at,
           clo.updated_at,
-          clov.${Prisma.raw(embeddingColumnName)}::float4[] AS embedding,
           1 - (clov.${Prisma.raw(embeddingColumnName)} <=> s.embedding) AS similarity
         FROM input_skills s
         JOIN course_learning_outcome_vectors clov ON clov.${Prisma.raw(embeddingColumnName)} IS NOT NULL
@@ -137,8 +137,7 @@ export class CourseLearningOutcomeRepository
           ${campusId ? Prisma.sql`AND c.campus_id = ${campusId}::uuid` : Prisma.empty}
           ${facultyId ? Prisma.sql`AND c.faculty_id = ${facultyId}::uuid` : Prisma.empty}
           ${isGenEd !== undefined ? Prisma.sql`AND c.is_gen_ed = ${isGenEd}` : Prisma.empty}
-          ${academicYears && academicYears.length > 0 ? Prisma.sql`AND c.academic_year IN (${Prisma.join(academicYears)})` : Prisma.empty}
-          ${semesters && semesters.length > 0 ? Prisma.sql`AND c.semester IN (${Prisma.join(semesters)})` : Prisma.empty}
+          ${academicYearSemesterCondition}
       ),
       deduped_clos AS (
         SELECT
@@ -154,7 +153,6 @@ export class CourseLearningOutcomeRepository
           metadata,
           created_at,
           updated_at,
-          embedding,
           similarity
         FROM (
           SELECT
@@ -189,18 +187,9 @@ export class CourseLearningOutcomeRepository
       const matchingRows = rows.filter((row) => row.skill === skill);
 
       const cloMatches: LearningOutcomeMatch[] = matchingRows.map((row) => ({
-        loId: row.clo_id as Identifier,
-        originalNameTh: row.original_clo_name,
-        originalNameEn: row.original_clo_name_en,
-        cleanedNameTh: row.cleaned_clo_name_th,
-        cleanedNameEn: row.cleaned_clo_name_en,
-        embedding: parseVector(row.embedding),
-        skipEmbedding: row.skip_embedding,
-        hasEmbedding768: row.has_embedding_768,
-        hasEmbedding1536: row.has_embedding_1536,
-        metadata: row.metadata,
-        createdAt: row.created_at,
-        updatedAt: row.updated_at,
+        ...PrismaCourseLearningOutcomeV2Mapper.fromRawLearningOutcomeRowToLearningOutcome(
+          row,
+        ),
         similarityScore: Number(row.similarity),
       }));
 

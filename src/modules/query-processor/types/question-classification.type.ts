@@ -1,17 +1,20 @@
 import { z } from 'zod';
 
 import {
-  Classification as ClassificationEnum,
+  CategoryEnum,
+  PatternEnum,
   QuestionClassificationSchema,
 } from '../schemas/question-classification.schema';
 
-export type QuestionClassification = z.infer<
+export type TQuestionClassification = z.infer<
   typeof QuestionClassificationSchema
 > & {
   model: string;
   userPrompt: string;
   systemPrompt: string;
   promptVersion: string;
+  hyperParameters?: Record<string, any>;
 };
 
-export type Classification = z.infer<typeof ClassificationEnum>;
+export type TClassificationCategory = z.infer<typeof CategoryEnum>;
+export type TClassificationPattern = z.infer<typeof PatternEnum>;
