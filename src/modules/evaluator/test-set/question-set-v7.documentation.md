@@ -89,7 +89,7 @@ Following the patterns from `question-accept-patterns.md`:
 - "อยากเรียนทักษะ X ควรเริ่มจากไหน?"
 - "I want to develop skill X, where should I start?"
 
-**B. Topic → Skill Mapping** - Domain-based skill extraction
+**B. Topic → Skill Mapping** - A topic is a conceptual learning area that contains multiple skills
 
 - "อยากเรียนเรื่อง X ต้องมีทักษะอะไร?"
 - "I'm interested in X, what skills do I need?"
