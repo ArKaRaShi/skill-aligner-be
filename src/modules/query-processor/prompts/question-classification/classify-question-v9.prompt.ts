@@ -13,16 +13,17 @@ Instructions:
 2. Classify category, and briefly explain your reasoning in English.
 
 Important Context:
-The system has skills, course names, and learning outcomes for courses that can be recommended to users based on their learning needs. Questions asking for course recommendations in a domain CAN be answered by mapping to relevant skills. Only questions asking for specific course logistics (codes, exact names, schedules) cannot be answered.
+- The system contains both technical courses tied to specific faculty and non-technical general education courses. General learning domains such as hobbies, personal development, physical skills, and more are included as long as there is clear learning intent and a skill can be inferred.
+- The system has skills which extracted/inferred from another pipeline, course names, and learning outcomes for courses that can be recommended to users based on their learning needs. Questions asking for course recommendations/availability in patterns A-I CAN be answered by mapping to relevant skills. Only questions asking for specific course logistics (codes, exact names, schedules) cannot be answered.
 
 Limitations:
 1. The question must allow skill extraction because skills act as the bridge between user learning intent and course recommendations. Questions that do not allow skill extraction cannot be classified as relevant.
-2. Questions about SPECIFIC course details (codes, exact names, schedules, faculty) cannot be classified as relevant. However, general questions asking for course recommendations in a domain ARE relevant and should be classified based on patterns A-I.
-3. Questions showing clear learning intent should be considered relevant even if not perfectly specific, as long as a skill domain can be inferred.
-4. Fictional, fantasy, or impossible scenarios should be classified as irrelevant, even if they seem to match patterns A-I.
+2. Questions about SPECIFIC course details (codes, exact names, schedules, faculty) cannot be classified as relevant. However, questions that match patterns A-I and ask about general course availability/recommendations for a skill ARE relevant.
+3. Questions showing clear learning intent should be considered relevant even if not perfectly specific, as long as a skill can be inferred.
+4. Fictional, fantasy, or impossible scenarios should be classified as irrelevant, even if they match patterns A-I.
 
 Classification Criteria:
-A question is RELEVANT if it matches patterns A-I:
+A question is RELEVANT if it matches at LEAST ONE patterns A-I:
 - A. Direct Skill Request: User explicitly mentions a skill
 - B. Topic to Skill Mapping: User mentions a topic/domain that can be mapped to skills
 - C. Task-Based Skill: User describes a task they want to do that infer required skills
@@ -60,25 +61,32 @@ Response:
   "reason": "Does not match patterns A-I but contains illegal bomb-making instructions"
 }
 
-Question: "อยากเรียนทักษะการวิเคราะห์ข้อมูล ควรเริ่มจากไหน?"
+Question: "อยากเรียนทักษะการวิเคราะห์ข้อมูล มีวิชาสอนมั้ย"
 Response:
 {
   "category": "relevant",
-  "reason": "Direct skill request (Pattern A) - user explicitly mentions data analysis skill"
+  "reason": "Direct skill request (Pattern A) - user explicitly mentions data analysis skill even ask for course availability, shows implicit course recommendation intent"
 }
 
-Question: "อยากเรียนเรื่อง AI ต้องมีทักษะอะไร?"
+Question: "อยากเรียนยิงปืน มีวิชาสอนมั้ย"
+Response:
+{
+  "category": "relevant",
+  "reason": "Direct skill request (Pattern A) - user explicitly mentions shooting skill, which is may considered as a physical skill/sport, shows clear learning intent"
+}
+
+Question: "อยากเรียนเรื่อง AI ต้องมีทักษะอะไร"
 Response:
 {
   "category": "relevant",
   "reason": "Topic to Skill Mapping (Pattern B) - AI is a domain that maps to specific skills"
 }
 
-Question: "ถ้าต้องทำ chatbot ต้องมีทักษะอะไรบ้าง?"
+Question: "ถ้าต้องทำ bot ขุดข้อมูลเว็บ ต้องมีทักษะอะไรบ้าง?"
 Response:
 {
   "category": "relevant",
-  "reason": "Task-Based Skill (Pattern C) - building chatbot requires specific skills"
+  "reason": "Task-Based Skill (Pattern C) - building web scraping bot requires specific skills"
 }
 
 Question: "อยากเป็น Data Scientist ต้องมีทักษะอะไร?"
@@ -95,7 +103,7 @@ Response:
   "reason": "Learning Outcome-Driven (Pattern E) - user wants to achieve coding skill"
 }
 
-Question: "อยากพัฒนา Python และ Machine Learning ควรเรียนคอร์สไหนก่อน?"
+Question: "อยากพัฒนา Python และ Machine Learning ควรเรียนวิชาอะไรก่อน"
 Response:
 {
   "category": "relevant",

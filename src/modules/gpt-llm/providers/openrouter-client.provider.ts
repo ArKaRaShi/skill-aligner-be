@@ -47,6 +47,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       model: this.openRouter(model),
       prompt,
       system: systemPrompt,
+      maxRetries: 1, // Some requests fail intermittently
       ...hyperParameters,
     });
 
@@ -83,6 +84,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
         schema,
         prompt,
         system: systemPrompt,
+        maxRetries: 1, // Some requests fail intermittently
         ...hyperParameters,
       },
     );

@@ -11,6 +11,7 @@ import {
   I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
   IQuestionClassifierService,
 } from '../contracts/i-question-classifier-service.contract';
+import { QuestionClassificationPromptVersions } from '../prompts/question-classification';
 import { QueryStrategyFactory } from '../strategies/query-strategy.factory';
 import { TClassificationCategory } from '../types/question-classification.type';
 import { AnswerQuestionUseCaseOutput } from './types/answer-question.use-case.type';
@@ -40,7 +41,7 @@ export class AnswerQuestionUseCase
     const [{ category, reason }, queryProfile] = await Promise.all([
       this.questionClassifierService.classify({
         question,
-        promptVersion: 'v9',
+        promptVersion: QuestionClassificationPromptVersions.V9,
       }),
       this.queryProfileBuilderService.buildQueryProfile(question),
     ]);
@@ -57,6 +58,10 @@ export class AnswerQuestionUseCase
     this.logger.log(
       `Query profile result: ${JSON.stringify(queryProfile, null, 2)}`,
     );
+
+    if (category === 'relevant') {
+      return this.returnEmptyOutput();
+    }
 
     const fallbackResponse = this.getFallbackAnswerForClassification(category);
 
@@ -99,6 +104,14 @@ export class AnswerQuestionUseCase
     this.logTimingResults(timing);
 
     return result;
+  }
+
+  private returnEmptyOutput(): AnswerQuestionUseCaseOutput {
+    return {
+      answer: null,
+      suggestQuestion: null,
+      skillGroupedCourses: [],
+    };
   }
 
   private getFallbackAnswerForClassification(
