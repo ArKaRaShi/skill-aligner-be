@@ -57,7 +57,7 @@ export class SkillQueryStrategy implements IQueryStrategy {
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
     const skillExpansion =
-      await this.skillExpanderService.expandSkills(question);
+      await this.skillExpanderService.expandSkillsV2(question);
     const skills = skillExpansion.skills;
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 

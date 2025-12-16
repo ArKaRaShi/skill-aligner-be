@@ -59,9 +59,9 @@ export class AnswerQuestionUseCase
       `Query profile result: ${JSON.stringify(queryProfile, null, 2)}`,
     );
 
-    if (category === 'relevant') {
-      return this.returnEmptyOutput();
-    }
+    // if (category === 'relevant') {
+    //   return this.returnEmptyOutput();
+    // }
 
     const fallbackResponse = this.getFallbackAnswerForClassification(category);
 

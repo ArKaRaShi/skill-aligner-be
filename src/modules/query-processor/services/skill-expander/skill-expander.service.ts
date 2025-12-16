@@ -18,7 +18,7 @@ import {
 } from '../../schemas/skill-expansion.schema';
 import {
   SkillExpansion,
-  SkillExpansionV2,
+  TSkillExpansionV2,
 } from '../../types/skill-expansion.type';
 
 @Injectable()
@@ -84,25 +84,26 @@ export class SkillExpanderService implements ISkillExpanderService {
     return result;
   }
 
-  async expandSkillsV2(question: string): Promise<SkillExpansionV2> {
+  async expandSkillsV2(question: string): Promise<TSkillExpansionV2> {
     const { getPrompts } = SkillExpansionPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v3');
+    const { getUserPrompt, systemPrompt } = getPrompts('v4');
 
-    const {
-      object: { core_skills, supporting_skills, expandable_skill_paths },
-    } = await this.llmProviderClient.generateObject({
-      prompt: getUserPrompt(question),
+    const userPrompt = getUserPrompt(question);
+
+    const { object } = await this.llmProviderClient.generateObject({
+      prompt: userPrompt,
       systemPrompt,
       schema: SkillExpansionV2Schema,
       model: this.modelName,
     });
-
-    return {
-      core_skills,
-      supporting_skills,
-      expandable_skill_paths,
-      rawQuestion: question,
+    const result: TSkillExpansionV2 = {
+      skills: object.skills.map((item) => ({
+        skill: item.skill,
+        learningOutcome: item.learning_outcome,
+        reason: item.reason,
+      })),
     };
+    return result;
   }
 
   private normalizeSkillName(name: string): string {

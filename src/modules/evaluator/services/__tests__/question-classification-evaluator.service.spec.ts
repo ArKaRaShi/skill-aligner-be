@@ -9,7 +9,6 @@ import {
   QuestionClassifyInput,
 } from 'src/modules/query-processor/contracts/i-question-classifier-service.contract';
 import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
-import { QuestionClassification } from 'src/modules/query-processor/types/question-classification.type';
 
 import { QuestionSetItem } from '../../test-set/question-set.constant';
 import {

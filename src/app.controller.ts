@@ -30,7 +30,10 @@ import {
   I_TOOL_DISPATCHER_SERVICE_TOKEN,
   IToolDispatcherService,
 } from './modules/query-processor/contracts/i-tool-dispatcher-service.contract';
-import { SkillExpansionV2 } from './modules/query-processor/types/skill-expansion.type';
+import {
+  SkillExpansion,
+  TSkillExpansionV2,
+} from './modules/query-processor/types/skill-expansion.type';
 
 export const weatherTool = tool({
   description: 'Get the weather in a location',
@@ -150,7 +153,7 @@ export class AppController {
   @Get('/test-skill-expander')
   async testSkillExpander(
     @Query('question') question: string,
-  ): Promise<SkillExpansionV2> {
+  ): Promise<TSkillExpansionV2> {
     const result = await this.skillExpanderService.expandSkillsV2(question);
     return result;
   }

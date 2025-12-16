@@ -14,6 +14,7 @@ import { QuestionClassificationPromptVersion } from 'src/modules/query-processor
 import { QuestionClassificationMetricsHelper } from '../helpers/question-classification-metrics.helper';
 import { QUESTION_SET_V5 } from '../test-set/question-set-v5.constant';
 import { QUESTION_SET_V6 } from '../test-set/question-set-v6.constant';
+import { QUESTION_SET_V8 } from '../test-set/question-set-v8.constant';
 import { QuestionSetItem } from '../test-set/question-set.constant';
 import {
   ClassClassificationMetrics,

@@ -3,9 +3,9 @@ import {
   getExpandSkillUserPromptV2,
 } from './expand-skill-v2.prompt';
 import {
-  EXPAND_SKILL_SYSTEM_PROMPT_V3,
-  getExpandSkillUserPromptV3,
-} from './expand-skill-v3.prompt';
+  EXPAND_SKILL_SYSTEM_PROMPT_V4,
+  getExpandSkillUserPromptV4,
+} from './expand-skill-v4.prompt';
 import {
   EXPAND_SKILL_SYSTEM_PROMPT,
   getExpandSkillUserPrompt,
@@ -16,21 +16,32 @@ type SkillExpansionPrompt = {
   getUserPrompt: (question: string) => string;
 };
 
-const SkillExpansionPrompts: Record<'v1' | 'v2' | 'v3', SkillExpansionPrompt> =
-  {
-    v1: {
-      systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT,
-      getUserPrompt: getExpandSkillUserPrompt,
-    },
-    v2: {
-      systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT_V2,
-      getUserPrompt: getExpandSkillUserPromptV2,
-    },
-    v3: {
-      systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT_V3,
-      getUserPrompt: getExpandSkillUserPromptV3,
-    },
-  };
+export const SkillExpansionPromptVersions = {
+  V1: 'v1',
+  V2: 'v2',
+  V4: 'v4',
+} as const;
+
+export type SkillExpansionPromptVersion =
+  (typeof SkillExpansionPromptVersions)[keyof typeof SkillExpansionPromptVersions];
+
+const SkillExpansionPrompts: Record<
+  SkillExpansionPromptVersion,
+  SkillExpansionPrompt
+> = {
+  v1: {
+    systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT,
+    getUserPrompt: getExpandSkillUserPrompt,
+  },
+  v2: {
+    systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT_V2,
+    getUserPrompt: getExpandSkillUserPromptV2,
+  },
+  v4: {
+    systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT_V4,
+    getUserPrompt: getExpandSkillUserPromptV4,
+  },
+};
 
 export const SkillExpansionPromptFactory = () => {
   const getPrompts = (version: keyof typeof SkillExpansionPrompts) => {
