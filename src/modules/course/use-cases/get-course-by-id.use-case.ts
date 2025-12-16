@@ -5,7 +5,7 @@ import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
 import {
   I_COURSE_REPOSITORY_TOKEN,
   ICourseRepository,
-} from '../contracts/i-course.repository';
+} from '../contracts/i-course-repository.contract';
 import {
   GetCourseByIdUseCaseInput,
   GetCourseByIdUseCaseOutput,

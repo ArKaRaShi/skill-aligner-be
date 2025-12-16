@@ -7,7 +7,6 @@ import { AppConfigService } from './config/app-config.service';
 import { CampusModule } from './modules/campus/campus.module';
 import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryProcessorModule } from './modules/query-processor/query-processor.module';
-import { UserHttpModule } from './modules/user/adapters/primary/http/user-http.module';
 
 function logEnvironmentVariables(appConfigService: AppConfigService) {
   console.log('Environment Variables:');
@@ -92,13 +91,7 @@ async function bootstrap() {
 
   const documentFactory = () =>
     SwaggerModule.createDocument(app, config, {
-      include: [
-        AppModule,
-        UserHttpModule,
-        QueryProcessorModule,
-        CampusModule,
-        EvaluatorModule,
-      ],
+      include: [AppModule, QueryProcessorModule, CampusModule, EvaluatorModule],
     });
   SwaggerModule.setup('/swagger', app, documentFactory, {
     // explorer: true,

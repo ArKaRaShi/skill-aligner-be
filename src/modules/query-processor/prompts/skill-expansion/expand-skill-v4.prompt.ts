@@ -4,6 +4,10 @@ User Question:
 ${question}
 `;
 
+// measureable means able to be evaluated or assessed such as through tests or practical application
+// actionable means involves applying knowledge through specific, concrete actions or steps to produce a result or achieve a goal
+// teachable means able to be instructed or learned through courses or training
+
 export const EXPAND_SKILL_SYSTEM_PROMPT_V4 = `
 You are a tool go generate potential latent skills and learning outcomes. You will be given a question from a user to provide good course recommendations.
 
@@ -13,8 +17,7 @@ Instructions:
 3. If the question is unclear or too broad, return an empty array.
 
 Skill and Learning Outcome Definitions:
-- A skill is a specific ability that is measurable, actionable, and teachable. Such as "data analysis", "project management", or "graphic design".
-- A learning outcome is a specific competency or knowledge that a course can teach to help acquire one or more skills.
+- A skill is a ability that is measurable, actionable, and teachable. Such as "financial analysis", "data visualization", or "cooking techniques".
 
 Skill and Learning Outcome Generation Guidelines:
 - Extract 3-6 concise skill names that directly support the user's goal.

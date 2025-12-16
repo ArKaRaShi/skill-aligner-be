@@ -13,11 +13,11 @@ import { AppConfigService } from './config/app-config.service';
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
   ICourseLearningOutcomeRepository,
-} from './modules/course/contracts/i-course-learning-outcome.repository';
+} from './modules/course/contracts/i-course-learning-outcome-repository.contract';
 import {
   I_COURSE_REPOSITORY_TOKEN,
   ICourseRepository,
-} from './modules/course/contracts/i-course.repository';
+} from './modules/course/contracts/i-course-repository.contract';
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
@@ -30,10 +30,7 @@ import {
   I_TOOL_DISPATCHER_SERVICE_TOKEN,
   IToolDispatcherService,
 } from './modules/query-processor/contracts/i-tool-dispatcher-service.contract';
-import {
-  SkillExpansion,
-  TSkillExpansionV2,
-} from './modules/query-processor/types/skill-expansion.type';
+import { TSkillExpansionV2 } from './modules/query-processor/types/skill-expansion.type';
 
 export const weatherTool = tool({
   description: 'Get the weather in a location',

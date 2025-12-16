@@ -13,7 +13,7 @@ import {
 import {
   FindCoursesByLearningOutcomeIdsParams,
   ICourseRepository,
-} from '../contracts/i-course.repository';
+} from '../contracts/i-course-repository.contract';
 import { LearningOutcome } from '../types/course-learning-outcome-v2.type';
 import {
   CourseLearningOutcome,

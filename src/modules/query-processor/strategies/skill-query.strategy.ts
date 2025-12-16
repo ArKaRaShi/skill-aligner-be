@@ -5,7 +5,7 @@ import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
 import {
   I_COURSE_REPOSITORY_TOKEN,
   ICourseRepository,
-} from 'src/modules/course/contracts/i-course.repository';
+} from 'src/modules/course/contracts/i-course-repository.contract';
 import { CourseMatch } from 'src/modules/course/types/course.type';
 
 import {

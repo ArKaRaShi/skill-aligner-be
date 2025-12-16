@@ -9,7 +9,6 @@ import {
   CourseModule,
   EmbeddingModule,
   QueryProcessorModule,
-  UserModule,
 } from './modules';
 import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryLoggingModule } from './modules/query-logging/query-logging.module';
@@ -18,7 +17,6 @@ import { QueryLoggingModule } from './modules/query-logging/query-logging.module
   imports: [
     AppConfigModule,
     ...CommonSecondaryAdapterModules,
-    UserModule,
     CourseModule,
     CampusModule,
     EmbeddingModule.register(),

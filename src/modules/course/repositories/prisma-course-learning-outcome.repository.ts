@@ -13,7 +13,7 @@ import {
 import {
   FindLosBySkillsParams,
   ICourseLearningOutcomeRepository,
-} from '../contracts/i-course-learning-outcome.repository';
+} from '../contracts/i-course-learning-outcome-repository.contract';
 import { LearningOutcomeMatch } from '../types/course-learning-outcome-v2.type';
 import { PrismaCourseLearningOutcomeV2Mapper } from './prisma-course-learning-outcome-v2.mapper';
 import { RawCourseLearningOutcomeRow } from './types/raw-course-learning-outcome-row.type';
