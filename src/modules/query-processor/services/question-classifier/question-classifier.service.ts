@@ -10,10 +10,7 @@ import {
   IQuestionClassifierService,
   QuestionClassifyInput,
 } from '../../contracts/i-question-classifier-service.contract';
-import {
-  QuestionClassificationPromptFactory,
-  QuestionClassificationPromptVersion,
-} from '../../prompts/question-classification';
+import { QuestionClassificationPromptFactory } from '../../prompts/question-classification';
 import { QuestionClassificationSchema } from '../../schemas/question-classification.schema';
 import { TQuestionClassification } from '../../types/question-classification.type';
 
