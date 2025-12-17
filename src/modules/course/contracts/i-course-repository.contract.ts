@@ -3,7 +3,7 @@ import { Identifier } from 'src/common/domain/types/identifier';
 import {
   Course,
   CourseMatch,
-  CourseWithLearningOutcomeV2Match,
+  CourseWithLearningOutcomeV2,
 } from '../types/course.type';
 
 export const I_COURSE_REPOSITORY_TOKEN = Symbol('ICourseRepository');
@@ -51,7 +51,7 @@ export interface ICourseRepository {
     isGenEd,
     academicYearSemesters,
   }: FindCoursesByLearningOutcomeIdsParams): Promise<
-    Map<Identifier, CourseWithLearningOutcomeV2Match[]>
+    Map<Identifier, CourseWithLearningOutcomeV2[]>
   >;
 
   /**

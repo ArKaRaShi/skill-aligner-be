@@ -14,7 +14,7 @@ import {
   FindLosBySkillsParams,
   ICourseLearningOutcomeRepository,
 } from '../contracts/i-course-learning-outcome-repository.contract';
-import { LearningOutcomeMatch } from '../types/course-learning-outcome-v2.type';
+import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
 import { PrismaCourseLearningOutcomeV2Mapper } from './prisma-course-learning-outcome-v2.mapper';
 import { RawCourseLearningOutcomeRow } from './types/raw-course-learning-outcome-row.type';
 
@@ -37,9 +37,9 @@ export class PrismaCourseLearningOutcomeRepository
     facultyId,
     isGenEd = false,
     academicYearSemesters,
-  }: FindLosBySkillsParams): Promise<Map<string, LearningOutcomeMatch[]>> {
+  }: FindLosBySkillsParams): Promise<Map<string, MatchedLearningOutcome[]>> {
     if (!skills.length) {
-      return new Map<string, LearningOutcomeMatch[]>();
+      return new Map<string, MatchedLearningOutcome[]>();
     }
 
     // Get the appropriate embedding model based on vector dimension
@@ -69,7 +69,7 @@ export class PrismaCourseLearningOutcomeRepository
     );
 
     if (!skillsWithEmbeddings.length) {
-      return new Map<string, LearningOutcomeMatch[]>();
+      return new Map<string, MatchedLearningOutcome[]>();
     }
 
     const embeddingDimension = skillsWithEmbeddings[0]?.vector.length ?? 0;
@@ -109,13 +109,8 @@ export class PrismaCourseLearningOutcomeRepository
         : Prisma.empty;
 
     const rows = await this.prisma.$queryRaw<RawCourseLearningOutcomeRow[]>`
-      WITH input_skills AS (
-        SELECT *
-        FROM (VALUES ${skillEmbeddingValues}) AS v(skill, embedding)
-      ),
-      scored_clos AS (
-        SELECT
-          s.skill,
+      WITH filtered_clos AS (
+        SELECT DISTINCT
           clo.id AS clo_id,
           clo.original_clo_name,
           clo.original_clo_name_en,
@@ -127,17 +122,39 @@ export class PrismaCourseLearningOutcomeRepository
           clo.metadata,
           clo.created_at,
           clo.updated_at,
-          1 - (clov.${Prisma.raw(embeddingColumnName)} <=> s.embedding) AS similarity
-        FROM input_skills s
-        JOIN course_learning_outcome_vectors clov ON clov.${Prisma.raw(embeddingColumnName)} IS NOT NULL
-        JOIN course_learning_outcomes clo ON clo.id = clov.clo_id
+          clov.${Prisma.raw(embeddingColumnName)} AS embedding
+        FROM course_learning_outcomes clo
+        JOIN course_learning_outcome_vectors clov ON clov.clo_id = clo.id
         JOIN course_clos cc ON cc.clo_id = clo.id
         JOIN courses c ON c.id = cc.course_id
         WHERE clo.${Prisma.raw(hasEmbeddingColumnName)} = TRUE
+          AND clov.${Prisma.raw(embeddingColumnName)} IS NOT NULL
           ${campusId ? Prisma.sql`AND c.campus_id = ${campusId}::uuid` : Prisma.empty}
           ${facultyId ? Prisma.sql`AND c.faculty_id = ${facultyId}::uuid` : Prisma.empty}
           ${isGenEd !== undefined ? Prisma.sql`AND c.is_gen_ed = ${isGenEd}` : Prisma.empty}
           ${academicYearSemesterCondition}
+      ),
+      input_skills AS (
+        SELECT *
+        FROM (VALUES ${skillEmbeddingValues}) AS v(skill, embedding)
+      ),
+      scored_clos AS (
+        SELECT
+          s.skill,
+          f.clo_id,
+          f.original_clo_name,
+          f.original_clo_name_en,
+          f.cleaned_clo_name_th,
+          f.cleaned_clo_name_en,
+          f.skip_embedding,
+          f.has_embedding_768,
+          f.has_embedding_1536,
+          f.metadata,
+          f.created_at,
+          f.updated_at,
+          1 - (f.embedding <=> s.embedding) AS similarity
+        FROM input_skills s
+        CROSS JOIN filtered_clos f
       ),
       deduped_clos AS (
         SELECT
@@ -181,12 +198,12 @@ export class PrismaCourseLearningOutcomeRepository
       ORDER BY skill, similarity DESC;
     `;
 
-    const result = new Map<string, LearningOutcomeMatch[]>();
+    const result = new Map<string, MatchedLearningOutcome[]>();
 
     for (const skill of skills) {
       const matchingRows = rows.filter((row) => row.skill === skill);
 
-      const cloMatches: LearningOutcomeMatch[] = matchingRows.map((row) => ({
+      const cloMatches: MatchedLearningOutcome[] = matchingRows.map((row) => ({
         ...PrismaCourseLearningOutcomeV2Mapper.fromRawLearningOutcomeRowToLearningOutcome(
           row,
         ),

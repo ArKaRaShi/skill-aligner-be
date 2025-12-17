@@ -1,14 +1,12 @@
 import { Body, Controller, Get, Inject, Post, Query } from '@nestjs/common';
-import { ApiBody, ApiProperty, ApiQuery } from '@nestjs/swagger';
+import { ApiBody, ApiQuery } from '@nestjs/swagger';
 
 import {
   createOpenRouter,
   OpenRouterProvider,
 } from '@openrouter/ai-sdk-provider';
-import { generateObject, tool } from 'ai';
-import { z } from 'zod';
 
-import { appendObjectToArrayFile } from './append-result.util';
+import { Identifier } from './common/domain/types/identifier';
 import { AppConfigService } from './config/app-config.service';
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
@@ -18,6 +16,10 @@ import {
   I_COURSE_REPOSITORY_TOKEN,
   ICourseRepository,
 } from './modules/course/contracts/i-course-repository.contract';
+import {
+  I_COURSE_RETRIEVER_SERVICE_TOKEN,
+  ICourseRetrieverService,
+} from './modules/course/contracts/i-course-retriever-service.contract';
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
@@ -31,70 +33,6 @@ import {
   IToolDispatcherService,
 } from './modules/query-processor/contracts/i-tool-dispatcher-service.contract';
 import { TSkillExpansionV2 } from './modules/query-processor/types/skill-expansion.type';
-
-export const weatherTool = tool({
-  description: 'Get the weather in a location',
-  inputSchema: z.object({
-    location: z.string().describe('The location to get the weather for'),
-  }),
-  outputSchema: z.object({
-    location: z.string().describe('The location the weather is for'),
-    temperatureCelsius: z.number().describe('The temperature in Celsius'),
-    temperatureFahrenheit: z.number().describe('The temperature in Fahrenheit'),
-    condition: z
-      .string()
-      .describe('The weather condition (e.g., sunny, rainy)'),
-  }),
-  // eslint-disable-next-line @typescript-eslint/require-await
-  execute: async ({ location }) => {
-    const getRandomWeather = () => {
-      const temperaturesCelsius = [20, 22, 25, 27, 30];
-      const conditions = ['sunny', 'cloudy', 'rainy', 'windy', 'stormy'];
-      const randomTemp =
-        temperaturesCelsius[
-          Math.floor(Math.random() * temperaturesCelsius.length)
-        ];
-      const randomCondition =
-        conditions[Math.floor(Math.random() * conditions.length)];
-      return { temperature: randomTemp, condition: randomCondition };
-    };
-
-    const weather = getRandomWeather();
-    console.log(
-      `Fetched weather for ${location}:`,
-      JSON.stringify(weather, null, 2),
-    );
-    return {
-      location,
-      temperatureCelsius: weather.temperature,
-      temperatureFahrenheit: (weather.temperature * 9) / 5 + 32,
-      condition: weather.condition,
-    };
-  },
-});
-
-type GSC = {
-  knowledge: number;
-  activeCognition: number;
-  conation: number;
-  affection: number;
-  sensoryMotorAbilities: number;
-};
-
-type SkillCategory = 'hard' | 'soft' | 'uncertain';
-const SkillCategoryValues = ['hard', 'soft', 'uncertain'] as const;
-
-type SkillClassificationResult = {
-  skill: string;
-  gsc: GSC;
-  llmLabeledCategory: SkillCategory;
-  heuristicLabeledCategory: SkillCategory;
-  agreement: boolean;
-
-  hardScore: number;
-  softScore: number;
-  diff: number;
-};
 
 @Controller()
 export class AppController {
@@ -114,6 +52,8 @@ export class AppController {
 
     @Inject(I_SKILL_EXPANDER_SERVICE_TOKEN)
     private readonly skillExpanderService: ISkillExpanderService,
+    @Inject(I_COURSE_RETRIEVER_SERVICE_TOKEN)
+    private readonly courseRetrieverService: ICourseRetrieverService,
   ) {
     this.openRouter = createOpenRouter({
       apiKey: this.appConfigService.openRouterApiKey,
@@ -153,253 +93,6 @@ export class AppController {
   ): Promise<TSkillExpansionV2> {
     const result = await this.skillExpanderService.expandSkillsV2(question);
     return result;
-  }
-
-  private readonly ScoreWeight = {
-    STRONG: 0.6,
-    MODERATE: 0.3,
-    WEAK: 0.1,
-  };
-  private heuristicClassifiedGSC(gsc: GSC): {
-    decision: SkillCategory;
-    hardScore: number;
-    softScore: number;
-    diff: number;
-  } {
-    const {
-      knowledge,
-      activeCognition,
-      conation,
-      affection,
-      sensoryMotorAbilities,
-    } = gsc;
-
-    // Heuristic ratios (Strong=0.6, Moderate=0.3, Weak=0.1)
-    const hardWeights = {
-      knowledge: this.ScoreWeight.STRONG,
-      activeCognition: this.ScoreWeight.MODERATE,
-      conation: this.ScoreWeight.WEAK, // minimal motivation influence
-      affection: this.ScoreWeight.WEAK, // minimal empathy influence
-      sensoryMotorAbilities: this.ScoreWeight.STRONG,
-    };
-    const softWeights = {
-      knowledge: this.ScoreWeight.WEAK, // minor factual background
-      activeCognition: this.ScoreWeight.MODERATE,
-      conation: this.ScoreWeight.STRONG,
-      affection: this.ScoreWeight.STRONG,
-      sensoryMotorAbilities: this.ScoreWeight.WEAK,
-    };
-
-    // Normalized weighted average scores
-    const hardScore =
-      (knowledge * hardWeights.knowledge +
-        activeCognition * hardWeights.activeCognition +
-        conation * hardWeights.conation +
-        affection * hardWeights.affection +
-        sensoryMotorAbilities * hardWeights.sensoryMotorAbilities) /
-      Object.values(hardWeights).reduce((a, b) => a + b, 0);
-
-    const softScore =
-      (knowledge * softWeights.knowledge +
-        activeCognition * softWeights.activeCognition +
-        conation * softWeights.conation +
-        affection * softWeights.affection +
-        sensoryMotorAbilities * softWeights.sensoryMotorAbilities) /
-      Object.values(softWeights).reduce((a, b) => a + b, 0);
-
-    console.log(
-      `Heuristic Scores => Hard: ${hardScore.toFixed(2)}, Soft: ${softScore.toFixed(2)}`,
-    );
-    const diff = Math.abs(hardScore - softScore);
-
-    // Tunable threshold for "uncertain" classification
-    const UNCERTAIN_THRESHOLD = 0.25;
-
-    let decision: SkillCategory;
-    if (diff < UNCERTAIN_THRESHOLD) {
-      decision = 'uncertain';
-    } else if (hardScore > softScore) {
-      decision = 'hard';
-    } else {
-      decision = 'soft';
-    }
-    console.log(`Heuristic Decision: ${decision} (diff: ${diff.toFixed(2)})`);
-
-    return { decision, hardScore, softScore, diff };
-  }
-
-  // --- LLM-based GSC Scoring and Classification ---
-  @Post('/classify-skill')
-  @ApiProperty({
-    description: 'Classify a skill using LLM and heuristic methods',
-  })
-  @ApiBody({
-    description: 'Skill and description to classify',
-    schema: {
-      type: 'object',
-      properties: {
-        skill: {
-          type: 'string',
-          example: 'Python programming',
-        },
-        description: {
-          type: 'string',
-          example:
-            'Ability to write and understand Python code for various applications.',
-        },
-      },
-      required: ['skill', 'description'],
-    },
-  })
-  async classifySkill(
-    @Body() body: { skill: string; description: string },
-  ): Promise<{ data: SkillClassificationResult }> {
-    const { skill, description } = body;
-    const skillSchema = z.object({
-      skill_name: z.string().describe('The name of the skill'),
-      gsc: z.object({
-        knowledge: z.int().min(1).max(5).describe('knowledge level (1–5)'),
-        active_cognition: z
-          .int()
-          .min(1)
-          .max(5)
-          .describe('active cognition level (1–5)'),
-        conation: z.int().min(1).max(5).describe('conation level (1–5)'),
-        affection: z.int().min(1).max(5).describe('affection level (1–5)'),
-        sensory_motor_abilities: z
-          .int()
-          .min(1)
-          .max(5)
-          .describe('sensory motor abilities level (1–5)'),
-      }),
-      llm_classified_category: z
-        .enum(SkillCategoryValues)
-        .describe('skill category'),
-    });
-
-    const prompt = `
-ROLE:
-You are a careful classifier. Score ONE skill using the Generic Skills Component (GSC) framework
-
-Skill to score: "${skill}"
-Description: "${description}"
-
-INSTRUCTIONS:
-1. Consider typical workplace usage of the skill term.
-2. If the term is broad/ambiguous, bias toward mid-levels (e.g., 3) rather than guessing extremes.
-3. Do NOT invent or rename the skill.
-4. Output ONLY the JSON object; no prose, no code fences, no examples.
-
-CONTEXT: 
-The GSC framework scores skills on five dimensions from 1 (low) to 5 (high):
-SCORING RULES (use integers 1–5 ONLY; no decimals):
-- Knowledge (K): factual/procedural information required
-  1 = no specific domain knowledge; generic or everyday
-  2 = basic familiarity; a few domain terms
-  3 = routine domain facts/procedures are useful
-  4 = substantial domain/technical/legal/method knowledge needed
-  5 = deep, explicit domain/procedural knowledge is central to performing the skill
-
-- Active Cognition (Cogn): analysis, planning, decision-making
-  1 = trivial/routine, little reasoning
-  2 = simple choices or recall
-  3 = regular analysis/planning; compare options
-  4 = frequent problem-solving; handle trade-offs/constraints
-  5 = complex reasoning under uncertainty is central
-
-- Conation (Con): motivation, persistence, self-regulation
-  1 = minimal persistence or self-regulation
-  2 = occasional sustained effort
-  3 = regular goal focus and self-management
-  4 = high persistence/initiative often required
-  5 = strong sustained drive under pressure is central
-
-- Affection (Aff): social/emotional interaction
-  1 = negligible social/emotional demands
-  2 = occasional interaction; basic courtesy
-  3 = regular interaction; basic empathy/regulation
-  4 = strong interpersonal influence/coordination needed
-  5 = empathy/persuasion/relationship-building is central
-
-- Sensory-Motor Abilities (SM): physical/perceptual-motor execution
-  1 = no manual/physical precision
-  2 = basic tool use; low coordination
-  3 = routine manual/operational coordination
-  4 = high precision/coordination with tools/instruments
-  5 = expert fine-motor coordination is central
-
-EXAMPLE:
-Input: "Python programming"
-Output:
-{
-  "skill_name": "Python programming",
-  "gsc": {
-    "knowledge": 5,
-    "active_cognition": 4,
-    "conation": 3,
-    "affection": 2
-    "sensory_motor_abilities": 1
-  },
-  "llm_classified_category": "hard"
-}
-{
-  "skill_name": "Logical analysis",
-  "gsc": {
-    "knowledge": 4,
-    "active_cognition": 5,
-    "conation": 2,
-    "affection": 1,
-    "sensory_motor_abilities": 1
-  },
-  "llm_classified_category": "hard"
-}
-`;
-
-    const model = 'tngtech/deepseek-r1t2-chimera:free';
-    const { object } = await generateObject({
-      model: this.openRouter(model),
-      temperature: 0,
-      seed: 0,
-
-      // 2. Redundant Determinism Settings (Add these for safety)
-      topP: 1, // Prevents nucleus sampling from interfering
-      // top_k: 0, // This is often a default, but if supported, set to 0 or a max value
-
-      prompt,
-      schema: skillSchema,
-    });
-
-    const gsc: GSC = {
-      knowledge: object.gsc.knowledge,
-      activeCognition: object.gsc.active_cognition,
-      conation: object.gsc.conation,
-      affection: object.gsc.affection,
-      sensoryMotorAbilities: object.gsc.sensory_motor_abilities,
-    };
-
-    const {
-      decision: category,
-      hardScore,
-      softScore,
-      diff,
-    } = this.heuristicClassifiedGSC(gsc);
-
-    // Persisting results
-    const result: SkillClassificationResult = {
-      skill: object.skill_name,
-      gsc,
-      llmLabeledCategory: object.llm_classified_category,
-      heuristicLabeledCategory: category,
-      agreement: object.llm_classified_category === category,
-      hardScore,
-      softScore,
-      diff,
-    };
-
-    const fileName = 'output.json';
-    appendObjectToArrayFile<SkillClassificationResult>(fileName, result);
-
-    return { data: result };
   }
 
   @Get('/test/course-repository')
@@ -584,6 +277,353 @@ Output:
     console.log('Learning Outcomes Array:', losWithSim);
     console.timeEnd('CloRepositoryTest');
     console.log('LO length: ', arrayResult[0]?.learningOutcomes?.length || 0);
+
+    return arrayResult;
+  }
+
+  @Post('/test/course-retriever-service')
+  @ApiQuery({
+    name: 'skills',
+    required: false,
+    description:
+      'Comma-separated list of skills to search for (default: predefined set)',
+  })
+  @ApiQuery({
+    name: 'threshold',
+    required: false,
+    description: 'Similarity threshold between 0 and 1 (default: 0.6)',
+    example: '0.6',
+  })
+  @ApiQuery({
+    name: 'topN',
+    required: false,
+    description: 'Number of top matches to return per skill (default: 20)',
+    example: '20',
+  })
+  @ApiQuery({
+    name: 'vectorDimension',
+    required: false,
+    description: 'Dimension of embedding vectors (768 or 1536, default: 768)',
+    example: '768',
+  })
+  @ApiQuery({
+    name: 'enableLlmFilter',
+    required: false,
+    description: 'Enable LLM filtering (default: false)',
+    example: 'false',
+  })
+  @ApiQuery({
+    name: 'campusId',
+    required: false,
+    description: 'Campus ID filter',
+  })
+  @ApiQuery({
+    name: 'facultyId',
+    required: false,
+    description: 'Faculty ID filter',
+  })
+  @ApiQuery({
+    name: 'isGenEd',
+    required: false,
+    description: 'Filter for general education courses (default: false)',
+    example: 'false',
+  })
+  @ApiBody({
+    description: 'Academic year and semester filters (array)',
+    schema: {
+      type: 'object',
+      properties: {
+        academicYearSemesters: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              academicYear: { type: 'number', example: 2023 },
+              semesters: {
+                type: 'array',
+                items: { type: 'number' },
+                example: [1, 2],
+              },
+            },
+          },
+        },
+      },
+    },
+  })
+  async testCourseRetrieverService(
+    @Query('skills') skillsQuery?: string,
+    @Query('threshold') thresholdQuery?: string,
+    @Query('topN') topNQuery?: string,
+    @Query('vectorDimension') vectorDimensionQuery?: string,
+    @Query('enableLlmFilter') enableLlmFilterQuery?: string,
+    @Query('campusId') campusIdQuery?: string,
+    @Query('facultyId') facultyIdQuery?: string,
+    @Query('isGenEd') isGenEdQuery?: string,
+    @Body()
+    body?: {
+      academicYearSemesters?: { academicYear: number; semesters?: number[] }[];
+    },
+  ): Promise<any> {
+    console.time('CourseRetrieverServiceTest');
+
+    // Parse skills from comma-separated query string or use defaults
+    const skills = skillsQuery
+      ? skillsQuery
+          .split(',')
+          .map((skill) => skill.trim())
+          .filter((skill) => skill.length > 0)
+      : [
+          'machine learning basics',
+          'data analysis',
+          'programming fundamentals',
+          'mathematics for ai',
+        ];
+
+    const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.6;
+    const topN = topNQuery ? parseInt(topNQuery, 10) : 20;
+    const vectorDimension = vectorDimensionQuery
+      ? (parseInt(vectorDimensionQuery, 10) as 768 | 1536)
+      : 768;
+    const enableLlmFilter = enableLlmFilterQuery === 'true';
+    const campusId = (campusIdQuery as Identifier) ?? undefined;
+    const facultyId = (facultyIdQuery as Identifier) ?? undefined;
+    const isGenEd = isGenEdQuery === 'true';
+    const academicYearSemesters = body?.academicYearSemesters ?? undefined;
+
+    if (skills.length === 0) {
+      return { error: 'At least one skill must be provided' };
+    }
+
+    console.log(`Processing ${skills.length} skills:`, skills);
+
+    const result =
+      await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
+        skills,
+        threshold,
+        topN,
+        vectorDimension,
+        enableLlmFilter,
+        campusId,
+        facultyId,
+        isGenEd,
+        academicYearSemesters,
+      });
+
+    // Log total skills processed
+    console.log(`Total skills processed: ${skills.length}`);
+
+    // Define types for course information
+    type CourseInfo = {
+      courseCode: string;
+      courseNameTh: string;
+      courseNameEn: string | null;
+      count: number;
+      academicYearSemesters: Set<string>;
+    };
+
+    type UniqueCourseInfo = {
+      courseCode: string;
+      courseNameTh: string;
+      courseNameEn: string | null;
+      count: number;
+      academicYearSemesters: string[];
+    };
+
+    // Convert Map to array for response and group courses by unique codes
+    const arrayResult = Array.from(result.entries()).map(([skill, courses]) => {
+      // Group courses by unique course code and track learning outcomes
+      const coursesByCode = new Map<
+        string,
+        CourseInfo & { learningOutcomes: Set<string> }
+      >();
+
+      courses.forEach((course) => {
+        const courseCode = course.subjectCode;
+        const loName =
+          course.matchedLearningOutcomes[0]?.cleanedNameTh || 'Unknown LO';
+
+        if (!coursesByCode.has(courseCode)) {
+          coursesByCode.set(courseCode, {
+            courseCode,
+            courseNameTh: course.subjectNameTh,
+            courseNameEn: course.subjectNameEn,
+            count: 0,
+            academicYearSemesters: new Set(),
+            learningOutcomes: new Set(),
+          });
+        }
+
+        const courseInfo = coursesByCode.get(courseCode);
+        if (courseInfo) {
+          courseInfo.count++;
+          courseInfo.learningOutcomes.add(loName);
+
+          if (course.academicYear && course.semester) {
+            courseInfo.academicYearSemesters.add(
+              `${course.academicYear}/${course.semester}`,
+            );
+          }
+        }
+      });
+
+      // Convert to array and sort by count (descending)
+      const uniqueCourses: UniqueCourseInfo[] = Array.from(
+        coursesByCode.values(),
+      )
+        .map(
+          (courseInfo): UniqueCourseInfo => ({
+            courseCode: courseInfo.courseCode,
+            courseNameTh: courseInfo.courseNameTh,
+            courseNameEn: courseInfo.courseNameEn,
+            count: courseInfo.count,
+            academicYearSemesters: Array.from(
+              courseInfo.academicYearSemesters,
+            ).sort(),
+          }),
+        )
+        .sort((a, b) => b.count - a.count);
+
+      // Log unique courses for this skill
+      console.log(
+        `Skill "${skill}": Found ${uniqueCourses.length} unique course codes (${courses.length} total occurrences)`,
+      );
+      console.log(
+        `Top 5 course codes for "${skill}":`,
+        uniqueCourses
+          .slice(0, 5)
+          .map((c) => `${c.courseCode} (${c.count}x)`)
+          .join(', '),
+      );
+
+      // Log detailed information about courses with multiple LOs
+      const coursesWithMultipleLos = Array.from(coursesByCode.entries())
+        .filter(([, info]) => info.learningOutcomes.size > 1)
+        .sort((a, b) => b[1].count - a[1].count)
+        .slice(0, 3); // Show top 3
+
+      if (coursesWithMultipleLos.length > 0) {
+        console.log(
+          `\nCourses with multiple matching learning outcomes for "${skill}":`,
+        );
+        coursesWithMultipleLos.forEach(([courseCode, info]) => {
+          console.log(
+            `  ${courseCode} (${info.count}x): ${Array.from(info.learningOutcomes).slice(0, 3).join(', ')}${info.learningOutcomes.size > 3 ? '...' : ''}`,
+          );
+        });
+        console.log('');
+      }
+
+      // Log courses that have 2 or more matched learning outcomes
+      const coursesWithTwoOrMoreMatches = courses.filter(
+        (course) => course.matchedLearningOutcomes.length >= 2,
+      );
+
+      if (coursesWithTwoOrMoreMatches.length > 0) {
+        console.log(
+          `\nCourses with 2+ matched learning outcomes for "${skill}":`,
+        );
+
+        // Group by courseId to detect duplicates
+        const byCourseId = new Map<string, any[]>();
+        coursesWithTwoOrMoreMatches.forEach((course) => {
+          const id = course.courseId;
+          if (!byCourseId.has(id)) {
+            byCourseId.set(id, []);
+          }
+          byCourseId.get(id)!.push(course);
+        });
+
+        // Check for duplicates
+        let duplicateCount = 0;
+        byCourseId.forEach((courseList, courseId) => {
+          if (courseList.length > 1) {
+            duplicateCount++;
+            console.log(
+              `    DUPLICATE DETECTED: CourseId ${courseId} appears ${courseList.length} times`,
+            );
+          }
+        });
+
+        if (duplicateCount > 0) {
+          console.log(`    Total duplicates: ${duplicateCount}`);
+        }
+
+        coursesWithTwoOrMoreMatches.forEach((course) => {
+          const loNames = course.matchedLearningOutcomes
+            .slice(0, 3)
+            .map((lo) => lo.cleanedNameTh)
+            .join(', ');
+          const moreText =
+            course.matchedLearningOutcomes.length > 3 ? '...' : '';
+          console.log(
+            `  ${course.subjectCode} (${course.matchedLearningOutcomes.length} matches) [ID: ${course.courseId}]: ${loNames}${moreText}`,
+          );
+        });
+        console.log('');
+      }
+
+      return {
+        skill,
+        courses,
+        uniqueCourses,
+        uniqueCourseCount: uniqueCourses.length,
+        totalOccurrences: courses.length,
+      };
+    });
+
+    // Calculate and log unique course statistics
+    const allUniqueCodes = new Set<string>();
+    const totalOccurrences = arrayResult.reduce(
+      (sum, skillResult) => sum + skillResult.totalOccurrences,
+      0,
+    );
+
+    arrayResult.forEach((skillResult) => {
+      skillResult.uniqueCourses.forEach((course) => {
+        allUniqueCodes.add(course.courseCode);
+      });
+    });
+
+    console.log(
+      `Unique course codes across all skills: ${allUniqueCodes.size}`,
+    );
+    console.log(
+      `Total course occurrences across all skills: ${totalOccurrences}`,
+    );
+
+    // Debug: Verify calculations
+    console.log('\n--- Debug Verification ---');
+    const allCourses = arrayResult.flatMap((result) => result.courses);
+    console.log(`Total courses in arrayResult: ${allCourses.length}`);
+
+    const uniqueCourseIds = new Set(allCourses.map((c) => c.courseId));
+    console.log(`Unique course IDs: ${uniqueCourseIds.size}`);
+
+    const uniqueSubjectCodes = new Set(allCourses.map((c) => c.subjectCode));
+    console.log(`Unique subject codes: ${uniqueSubjectCodes.size}`);
+
+    // Group by subject code to verify counts
+    const bySubjectCode = new Map<string, any[]>();
+    allCourses.forEach((course) => {
+      const code = course.subjectCode;
+      if (!bySubjectCode.has(code)) {
+        bySubjectCode.set(code, []);
+      }
+      bySubjectCode.get(code)!.push(course);
+    });
+
+    console.log('\nSubject code breakdown:');
+    Array.from(bySubjectCode.entries())
+      .sort((a, b) => b[1].length - a[1].length)
+
+      .forEach(([code, courses]) => {
+        console.log(`  ${code}: ${courses.length} occurrences`);
+        const uniqueIds = new Set(courses.map((c) => c.courseId));
+        console.log(`    Unique course IDs: ${uniqueIds.size}`);
+      });
+    console.log('--- End Debug ---\n');
+
+    console.timeEnd('CourseRetrieverServiceTest');
 
     return arrayResult;
   }

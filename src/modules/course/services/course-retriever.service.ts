@@ -23,7 +23,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     private readonly courseLearningOutcomeRepository: ICourseLearningOutcomeRepository,
   ) {}
 
-  async getCoursesBySkillsWithFilter({
+  async getCoursesWithLosBySkillsWithFilter({
     skills,
     threshold,
     topN,
@@ -36,6 +36,10 @@ export class CourseRetrieverService implements ICourseRetrieverService {
   }: FindLosBySkillsWithFilterParams): Promise<
     Map<string, CourseWithLearningOutcomeV2Match[]>
   > {
+    // TODO: Implement LLM filtering when enableLlmFilter is true
+    if (enableLlmFilter) {
+      console.warn('LLM filtering is not yet implemented');
+    }
     const learningOutcomesBySkills =
       await this.courseLearningOutcomeRepository.findLosBySkills({
         skills,
@@ -64,6 +68,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
 
       const learningOutcomeIds = learningOutcomes.map((lo) => lo.loId);
 
+      // Retrieve courses by learning outcome IDs
       const coursesByLearningOutcomeIds =
         await this.courseRepository.findCourseByLearningOutcomeIds({
           learningOutcomeIds,
@@ -73,16 +78,19 @@ export class CourseRetrieverService implements ICourseRetrieverService {
           academicYearSemesters,
         });
 
+      // Map and aggregate courses with their matching learning outcomes
       const courseMatches: CourseWithLearningOutcomeV2Match[] = [];
 
       for (const [
         learningOutcomeId,
         courses,
       ] of coursesByLearningOutcomeIds.entries()) {
+        // Find the matching learning outcome to get similarity score
         const matchingLearningOutcome = learningOutcomes.find(
           (lo) => lo.loId === learningOutcomeId,
         );
 
+        // If there's a matching learning outcome, associate it with the courses
         if (matchingLearningOutcome) {
           for (const course of courses) {
             const existingCourseMatch = courseMatches.find(
@@ -90,24 +98,37 @@ export class CourseRetrieverService implements ICourseRetrieverService {
             );
 
             if (existingCourseMatch) {
-              existingCourseMatch.learningOutcomes.push(
+              // Add to existing matched learning outcomes
+              existingCourseMatch.matchedLearningOutcomes.push(
                 matchingLearningOutcome,
               );
             } else {
+              // Create new course match
               courseMatches.push({
                 ...course,
-                learningOutcomeMatch: {
-                  ...matchingLearningOutcome,
-                  similarityScore: matchingLearningOutcome.similarityScore,
-                },
-                learningOutcomes: [matchingLearningOutcome],
+                matchedLearningOutcomes: [matchingLearningOutcome],
+                remainingLearningOutcomes: course.learningOutcomes.filter(
+                  (lo) => lo.loId !== learningOutcomeId,
+                ),
+                allLearningOutcomes: course.learningOutcomes,
               });
             }
           }
         }
       }
 
-      coursesBySkills.set(skill, courseMatches);
+      // Sort courses by highest similarity score but don't limit (preserve all courses)
+      const sortedCourseMatches = courseMatches.sort((a, b) => {
+        const aMaxScore = Math.max(
+          ...a.matchedLearningOutcomes.map((lo) => lo.similarityScore),
+        );
+        const bMaxScore = Math.max(
+          ...b.matchedLearningOutcomes.map((lo) => lo.similarityScore),
+        );
+        return bMaxScore - aMaxScore;
+      });
+
+      coursesBySkills.set(skill, sortedCourseMatches);
     }
 
     return coursesBySkills;

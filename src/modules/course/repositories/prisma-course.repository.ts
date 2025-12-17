@@ -22,7 +22,7 @@ import {
 import {
   Course,
   CourseMatch,
-  CourseWithLearningOutcomeV2Match,
+  CourseWithLearningOutcomeV2,
 } from '../types/course.type';
 import { parseVector } from './helpers/vector.helper';
 import { PrismaCourseLearningOutcomeV2Mapper } from './prisma-course-learning-outcome-v2.mapper';
@@ -292,10 +292,10 @@ export class PrismaCourseRepository implements ICourseRepository {
     isGenEd,
     academicYearSemesters,
   }: FindCoursesByLearningOutcomeIdsParams): Promise<
-    Map<Identifier, CourseWithLearningOutcomeV2Match[]>
+    Map<Identifier, CourseWithLearningOutcomeV2[]>
   > {
     if (!learningOutcomeIds.length) {
-      return new Map<Identifier, CourseWithLearningOutcomeV2Match[]>();
+      return new Map<Identifier, CourseWithLearningOutcomeV2[]>();
     }
 
     // TODO: Future chunking
@@ -368,7 +368,7 @@ export class PrismaCourseRepository implements ICourseRepository {
     });
 
     const learningOutcomeIdSet = new Set<Identifier>(learningOutcomeIds);
-    const result = new Map<Identifier, CourseWithLearningOutcomeV2Match[]>();
+    const result = new Map<Identifier, CourseWithLearningOutcomeV2[]>();
 
     for (const course of courses) {
       const allLearningOutcomes: LearningOutcome[] = [];
@@ -412,9 +412,8 @@ export class PrismaCourseRepository implements ICourseRepository {
       };
 
       for (const learningOutcome of matchingLearningOutcomes) {
-        const courseResult: CourseWithLearningOutcomeV2Match = {
+        const courseResult: CourseWithLearningOutcomeV2 = {
           ...baseCourseInfo,
-          learningOutcomeMatch: learningOutcome,
           learningOutcomes: allLearningOutcomes,
         };
 

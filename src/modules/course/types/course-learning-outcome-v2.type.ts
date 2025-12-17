@@ -14,6 +14,6 @@ export type LearningOutcome = {
   updatedAt: Date;
 };
 
-export type LearningOutcomeMatch = LearningOutcome & {
+export type MatchedLearningOutcome = LearningOutcome & {
   similarityScore: number;
 };

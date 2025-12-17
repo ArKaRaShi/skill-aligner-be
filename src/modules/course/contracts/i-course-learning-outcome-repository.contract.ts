@@ -1,6 +1,6 @@
 import { Identifier } from 'src/common/domain/types/identifier';
 
-import { LearningOutcomeMatch } from '../types/course-learning-outcome-v2.type';
+import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
 
 export const I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN = Symbol(
   'ICourseLearningOutcomeRepository',
@@ -41,5 +41,5 @@ export interface ICourseLearningOutcomeRepository {
     facultyId,
     isGenEd,
     academicYearSemesters,
-  }: FindLosBySkillsParams): Promise<Map<string, LearningOutcomeMatch[]>>;
+  }: FindLosBySkillsParams): Promise<Map<string, MatchedLearningOutcome[]>>;
 }

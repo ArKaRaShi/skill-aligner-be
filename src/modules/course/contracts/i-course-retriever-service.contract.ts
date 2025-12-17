@@ -23,9 +23,9 @@ export interface ICourseRetrieverService {
   /**
    * Find courses by skills with optional filters.
    * @param params - The parameters for finding courses by skills.
-   * @returns A promise that resolves to a map where the keys are skill strings and the values are arrays of courses with learning outcome matches.
+   * @returns A map where the key is the skill and the value is an array of courses with learning outcome matche and all learning outcomes.
    */
-  getCoursesBySkillsWithFilter: (
+  getCoursesWithLosBySkillsWithFilter: (
     params: FindLosBySkillsWithFilterParams,
   ) => Promise<Map<string, CourseWithLearningOutcomeV2Match[]>>;
 }
