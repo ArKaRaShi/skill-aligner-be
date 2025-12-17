@@ -6,8 +6,6 @@ export class CleanNormalizeCLOPipeline {
   private static readonly RAW_DATA_PATH =
     'src/modules/course/pipelines/data/raw/courses';
 
-  private static readonly AMBIGUOUS_CLO_LENGTH_THRESHOLD = 15;
-
   static async execute(): Promise<CleanCourseWithCLO[]> {
     const rawData = await FileHelper.loadLatestJson<RawCourseWithCLOJsonRow[]>(
       this.RAW_DATA_PATH,
@@ -39,13 +37,12 @@ export class CleanNormalizeCLOPipeline {
 
     // Determine if the CLO should be skipped based on initial checks
     if (
-      (this.isEmptyOrWhitespace(clo_name_th) ||
-        this.containsSequentialCLONumbers(clo_name_th) ||
-        this.onlyDash(clo_name_th) ||
-        this.lengthSeemsAmbiguous(clo_name_th)) &&
-      !this.explicitAllowCLOName(clo_name_th)
+      this.isEmptyOrWhitespace(clo_name_th) ||
+      this.containsSequentialCLONumbers(clo_name_th) ||
+      this.onlyDash(clo_name_th)
     ) {
       cleanedRow.skipEmbedding = true;
+      return cleanedRow;
     }
 
     // remove in order: leading numbers, "CLO" prefixes, "นิสิต", English parentheses
@@ -53,22 +50,11 @@ export class CleanNormalizeCLOPipeline {
     const withoutNewlines = this.removeNewlines(preNormalizedCloName);
     const withoutLeadingNumbers = this.removeLeadingNumbers(withoutNewlines);
     const withoutCLOPrefix = this.removeLeadingCLOPrefix(withoutLeadingNumbers);
-    const cleanedCLOName = this.removeLeadingNisit(withoutCLOPrefix);
-    const {
-      cleanedCloName: withoutEnglishText,
-      extractedParentheses: keywords,
-    } = this.extractEnglishParentheses(cleanedCLOName);
+    const cleanedCLOName = this.removeLeadingNisitOrStudent(withoutCLOPrefix);
 
-    cleanedRow.clean_clo_name_th = withoutEnglishText;
-    cleanedRow.keywords = keywords;
+    cleanedRow.clean_clo_name_th = cleanedCLOName;
 
     return cleanedRow;
-  }
-
-  private static explicitAllowCLOName(cloName: string): boolean {
-    const allowList = ['ทำงานเป็นทีม'];
-
-    return allowList.includes(cloName.trim());
   }
 
   private static preNormalizeCLOName(cloName: string): string {
@@ -117,9 +103,10 @@ export class CleanNormalizeCLOPipeline {
    * @returns The processed CLO name without leading "นิสิต" prefixes.
    * @example
    * removeLeadingNisit("นิสิตอธิบายความสำคัญของอุตสาหกรรมสีเขียวได้") => "อธิบายความสำคัญของอุตสาหกรรมสีเขียวได้"
+   * removeLeadingNisit("student can analyze data") => "can analyze data"
    */
-  private static removeLeadingNisit(cloName: string): string {
-    return cloName.replace(/^นิสิต[:.\s-]*/i, '').trim();
+  private static removeLeadingNisitOrStudent(cloName: string): string {
+    return cloName.replace(/^(นิสิต|student)[:.\s-]*/i, '').trim();
   }
 
   /**
@@ -142,33 +129,6 @@ export class CleanNormalizeCLOPipeline {
   // }
 
   /**
-   * Separates English text in parentheses from a CLO name.
-   * Only extracts letters, numbers, spaces, and common symbols inside parentheses.
-   * @param cloName - The CLO name to process.
-   * @returns An object with the cleaned CLO name and the extracted parenthetical texts.
-   * @example
-   * extractEnglishParentheses("วิเคราะห์ข้อมูล (Analyze Data) ได้")
-   * => { cleanedCloName: "วิเคราะห์ข้อมูล ได้", extractedParentheses: ["Analyze Data"] }
-   */
-  private static extractEnglishParentheses(cloName: string): {
-    cleanedCloName: string;
-    extractedParentheses: string[];
-  } {
-    // Match parentheses containing mostly English letters, numbers, spaces, commas, dashes
-    const regex = /\(([a-zA-Z0-9\s,.-]+)\)/g;
-    const matches = Array.from(cloName.matchAll(regex), (m) => m[1]);
-
-    const cleanedCloName = cloName
-      .replaceAll(regex, '')
-      .replaceAll(/\s+/g, ' ')
-      .trim();
-
-    return {
-      cleanedCloName,
-      extractedParentheses: matches,
-    };
-  }
-  /**
    * Check if the CLO name is just a dash ("-").
    * @param cloName - The CLO name to process.
    * @returns True if the CLO name is just a dash, false otherwise.
@@ -187,19 +147,6 @@ export class CleanNormalizeCLOPipeline {
    */
   private static isEmptyOrWhitespace(text: string): boolean {
     return text.trim().length === 0;
-  }
-
-  /**
-   * Check if the text length seems ambiguous based on a threshold.
-   * @param text - The text to check.
-   * @param threshold - The length threshold.
-   * @returns True if the text length is below the threshold, false otherwise.
-   */
-  private static lengthSeemsAmbiguous(
-    text: string,
-    threshold: number = this.AMBIGUOUS_CLO_LENGTH_THRESHOLD,
-  ): boolean {
-    return text.length < threshold;
   }
 }
 

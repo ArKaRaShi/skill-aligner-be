@@ -34,6 +34,7 @@ export class EmbedCLOPipeline {
 
     for (const clo of clos) {
       try {
+        console.log(`Embedding CLO ID ${clo.id}...`);
         const embedResult = await embeddingClient.embedOne({
           text: clo.cleanedCLONameTh,
           role: 'passage',
