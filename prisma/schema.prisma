@@ -128,21 +128,22 @@ model CampusFaculty {
 }
 
 model Course {
-  id                     String      @id @db.Uuid
-  campusId               String      @map("campus_id") @db.Uuid
-  campus                 Campus      @relation(fields: [campusId], references: [id])
-  facultyId              String      @map("faculty_id") @db.Uuid
-  faculty                Faculty     @relation(fields: [facultyId], references: [id])
-  academicYear           Int         @map("academic_year")
-  semester               Int         @map("semester")
-  subjectCode            String      @map("subject_code")
-  subjectNameTh          String      @map("subject_name_th")
-  subjectNameEn          String?     @map("subject_name_en")
-  isGenEd                Boolean     @default(false) @map("is_gen_ed")
-  createdAt              DateTime    @default(now()) @map("created_at")
-  updatedAt              DateTime    @updatedAt @map("updated_at")
+  id                     String           @id @db.Uuid
+  campusId               String           @map("campus_id") @db.Uuid
+  campus                 Campus           @relation(fields: [campusId], references: [id])
+  facultyId              String           @map("faculty_id") @db.Uuid
+  faculty                Faculty          @relation(fields: [facultyId], references: [id])
+  academicYear           Int              @map("academic_year")
+  semester               Int              @map("semester")
+  subjectCode            String           @map("subject_code")
+  subjectNameTh          String           @map("subject_name_th")
+  subjectNameEn          String?          @map("subject_name_en")
+  isGenEd                Boolean          @default(false) @map("is_gen_ed")
+  createdAt              DateTime         @default(now()) @map("created_at")
+  updatedAt              DateTime         @updatedAt @map("updated_at")
   metadata               Json?
   courseLearningOutcomes CourseCLO[]
+  CourseClickLog         CourseClickLog[]
 
   @@unique([academicYear, subjectCode, semester], name: "unique_course")
   @@map("courses")
@@ -191,6 +192,30 @@ model CourseCLO {
   @@unique([courseId, cloId], name: "unique_course_clo")
   @@map("course_clos")
 }
+
+model QuestionLog {
+  id              String           @id @db.Uuid
+  questionText    String
+  role            String?
+  mentionRoles    String[]         @map("mention_roles")
+  mentionSkills   String[]         @map("mention_skills")
+  metadata        Json?
+  createdAt       DateTime         @default(now()) @map("created_at")
+  courseClickLogs CourseClickLog[]
+}
+
+model CourseClickLog {
+  id         String      @id @db.Uuid
+  questionId String      @map("question_id") @db.Uuid
+  course     Course      @relation(fields: [courseId], references: [id])
+  courseId   String      @map("course_id") @db.Uuid
+  question   QuestionLog @relation(fields: [questionId], references: [id])
+  createdAt  DateTime    @default(now()) @map("created_at")
+
+  @@unique([questionId, courseId], name: "unique_question_course_click")
+}
+
+// unused models for now.
 
 enum QueryStatus {
   PENDING

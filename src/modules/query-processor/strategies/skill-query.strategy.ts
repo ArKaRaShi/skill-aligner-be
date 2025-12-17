@@ -21,6 +21,7 @@ import {
   I_SKILL_EXPANDER_SERVICE_TOKEN,
   ISkillExpanderService,
 } from '../contracts/i-skill-expander-service.contract';
+import { AnswerSynthesisPromptVersions } from '../prompts/answer-synthesis';
 import { CourseClassificationResult } from '../types/course-classification.type';
 import { QueryProfile } from '../types/query-profile.type';
 import {
@@ -102,11 +103,12 @@ export class SkillQueryStrategy implements IQueryStrategy {
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
 
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
-    const synthesisResult = await this.answerSynthesisService.synthesizeAnswer(
+    const synthesisResult = await this.answerSynthesisService.synthesizeAnswer({
       question,
+      promptVersion: AnswerSynthesisPromptVersions.V5,
       queryProfile,
       classificationResult,
-    );
+    });
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
 
     this.logger.log(

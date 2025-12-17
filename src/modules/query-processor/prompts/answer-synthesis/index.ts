@@ -11,6 +11,10 @@ import {
   getAnswerSynthesisUserPromptV4,
 } from './answer-synthesis-v4.prompt';
 import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V5,
+  getAnswerSynthesisUserPromptV5,
+} from './answer-synthesis-v5.prompt';
+import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT,
   getAnswerSynthesisUserPrompt,
 } from './answer-synthesis.prompt';
@@ -20,8 +24,19 @@ type AnswerSynthesisPrompt = {
   getUserPrompt: (question: string, context: string) => string;
 };
 
+export const AnswerSynthesisPromptVersions = {
+  V1: 'v1',
+  V2: 'v2',
+  V3: 'v3',
+  V4: 'v4',
+  V5: 'v5',
+} as const;
+
+export type AnswerSynthesisPromptVersion =
+  (typeof AnswerSynthesisPromptVersions)[keyof typeof AnswerSynthesisPromptVersions];
+
 const AnswerSynthesisPrompts: Record<
-  'v1' | 'v2' | 'v3' | 'v4',
+  AnswerSynthesisPromptVersion,
   AnswerSynthesisPrompt
 > = {
   v1: {
@@ -39,6 +54,10 @@ const AnswerSynthesisPrompts: Record<
   v4: {
     systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V4,
     getUserPrompt: getAnswerSynthesisUserPromptV4,
+  },
+  v5: {
+    systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V5,
+    getUserPrompt: getAnswerSynthesisUserPromptV5,
   },
 };
 

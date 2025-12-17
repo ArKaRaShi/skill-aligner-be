@@ -12,7 +12,7 @@ export const EXPAND_SKILL_SYSTEM_PROMPT_V4 = `
 You are a tool go generate potential latent skills and learning outcomes. You will be given a question from a user to provide good course recommendations.
 
 Instructions:
-1. Identify the most possible skill(s) the user is seeking to learn based on their question.
+1. Identify the most possible skill(s) the user is seeking based on their question.
 2. Generate a list of possible skills and learning outcome with brief reasons in Thai language.
 3. If the question is unclear or too broad, return an empty array.
 

@@ -7,7 +7,10 @@ import {
   ILlmProviderClient,
 } from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 
-import { IAnswerSynthesisService } from '../../contracts/i-answer-synthesis-service.contract';
+import {
+  AnswerSynthesizeInput,
+  IAnswerSynthesisService,
+} from '../../contracts/i-answer-synthesis-service.contract';
 import { AnswerSynthesisPromptFactory } from '../../prompts/answer-synthesis';
 import { AnswerSynthesisResult } from '../../types/answer-synthesis.type';
 import { CourseClassificationResult } from '../../types/course-classification.type';
@@ -24,10 +27,10 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
   ) {}
 
   async synthesizeAnswer(
-    question: string,
-    queryProfile: QueryProfile,
-    classificationResult: CourseClassificationResult,
+    input: AnswerSynthesizeInput,
   ): Promise<AnswerSynthesisResult> {
+    const { question, promptVersion, queryProfile, classificationResult } =
+      input;
     const context = this.buildContext(classificationResult, queryProfile);
 
     this.logger.log(
@@ -39,7 +42,7 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     );
 
     const { getPrompts } = AnswerSynthesisPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v4');
+    const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const synthesisPrompt = getUserPrompt(question, context);
 
     const llmResult = await this.llmProviderClient.generateText({
