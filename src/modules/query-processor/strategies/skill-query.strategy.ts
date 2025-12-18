@@ -192,7 +192,7 @@ export class SkillQueryStrategy implements IQueryStrategy {
                 (clo) => ({
                   id: clo.cloId,
                   name:
-                    clo.cleanedCLONameTh ??
+                    clo.cleanedCloName ??
                     clo.cleanedCLONameEn ??
                     clo.originalCLONameTh ??
                     clo.originalCLONameEn,

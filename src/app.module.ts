@@ -12,6 +12,7 @@ import {
 } from './modules';
 import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryLoggingModule } from './modules/query-logging/query-logging.module';
+import { PipelineModule } from './pipelines/pipeline.module';
 
 @Module({
   imports: [
@@ -23,6 +24,8 @@ import { QueryLoggingModule } from './modules/query-logging/query-logging.module
     QueryProcessorModule,
     QueryLoggingModule,
     EvaluatorModule,
+
+    PipelineModule,
   ],
   controllers: [AppController],
   providers: [

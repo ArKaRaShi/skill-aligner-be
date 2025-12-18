@@ -2,10 +2,8 @@ import { Identifier } from 'src/common/domain/types/identifier';
 
 export type LearningOutcome = {
   loId: Identifier;
-  originalNameTh: string;
-  originalNameEn: string | null;
-  cleanedNameTh: string;
-  cleanedNameEn: string | null;
+  originalName: string;
+  cleanedName: string;
   skipEmbedding: boolean;
   hasEmbedding768: boolean;
   hasEmbedding1536: boolean;

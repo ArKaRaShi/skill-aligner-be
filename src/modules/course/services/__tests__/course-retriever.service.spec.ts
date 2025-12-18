@@ -20,7 +20,7 @@ const createMockLearningOutcomeMatch = (
   loId: 'lo-1' as Identifier,
   originalNameTh: 'Original LO TH',
   originalNameEn: 'Original LO EN',
-  cleanedNameTh: 'Cleaned LO TH',
+  cleanedName: 'Cleaned LO TH',
   cleanedNameEn: 'Cleaned LO EN',
   skipEmbedding: false,
   hasEmbedding768: true,

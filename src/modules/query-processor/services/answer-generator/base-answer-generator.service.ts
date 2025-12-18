@@ -102,7 +102,7 @@ export abstract class BaseAnswerGeneratorService
       const learningObjectives = course.cloMatches
         .map((clo) => {
           return (
-            clo.cleanedCLONameTh ??
+            clo.cleanedCloName ??
             clo.cleanedCLONameEn ??
             clo.originalCLONameTh ??
             clo.originalCLONameEn ??

@@ -94,10 +94,10 @@ export class PrismaCourseLearningOutcomeRepository
         const normalizedSemesters = semesters ?? [];
 
         if (normalizedSemesters.length === 0) {
-          return Prisma.sql`(c.academic_year = ${academicYear})`;
+          return Prisma.sql`(co.academic_year = ${academicYear})`;
         }
 
-        return Prisma.sql`(c.academic_year = ${academicYear} AND c.semester IN (${Prisma.join(
+        return Prisma.sql`(co.academic_year = ${academicYear} AND co.semester IN (${Prisma.join(
           normalizedSemesters,
         )}))`;
       },
@@ -113,9 +113,7 @@ export class PrismaCourseLearningOutcomeRepository
         SELECT DISTINCT
           clo.id AS clo_id,
           clo.original_clo_name,
-          clo.original_clo_name_en,
           clo.cleaned_clo_name_th,
-          clo.cleaned_clo_name_en,
           clo.skip_embedding,
           clo.has_embedding_768,
           clo.has_embedding_1536,
@@ -124,9 +122,9 @@ export class PrismaCourseLearningOutcomeRepository
           clo.updated_at,
           clov.${Prisma.raw(embeddingColumnName)} AS embedding
         FROM course_learning_outcomes clo
-        JOIN course_learning_outcome_vectors clov ON clov.clo_id = clo.id
-        JOIN course_clos cc ON cc.clo_id = clo.id
-        JOIN courses c ON c.id = cc.course_id
+        JOIN course_learning_outcome_vectors clov ON clov.id = clo.vector_id
+        JOIN course_offerings co ON co.id = clo.course_offering_id
+        JOIN courses c ON c.id = co.course_id
         WHERE clo.${Prisma.raw(hasEmbeddingColumnName)} = TRUE
           AND clov.${Prisma.raw(embeddingColumnName)} IS NOT NULL
           ${campusId ? Prisma.sql`AND c.campus_id = ${campusId}::uuid` : Prisma.empty}
@@ -143,9 +141,7 @@ export class PrismaCourseLearningOutcomeRepository
           s.skill,
           f.clo_id,
           f.original_clo_name,
-          f.original_clo_name_en,
           f.cleaned_clo_name_th,
-          f.cleaned_clo_name_en,
           f.skip_embedding,
           f.has_embedding_768,
           f.has_embedding_1536,
@@ -161,9 +157,7 @@ export class PrismaCourseLearningOutcomeRepository
           skill,
           clo_id,
           original_clo_name,
-          original_clo_name_en,
           cleaned_clo_name_th,
-          cleaned_clo_name_en,
           skip_embedding,
           has_embedding_768,
           has_embedding_1536,

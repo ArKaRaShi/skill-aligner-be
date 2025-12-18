@@ -8,15 +8,14 @@ async function main() {
     select: {
       id: true,
       subjectCode: true,
-      subjectNameEn: true,
-      subjectNameTh: true,
+      subjectName: true,
     },
   });
 
   const nameToCourseCodesMap: Record<string, Set<string>> = {};
 
   for (const course of courses) {
-    const nameKey = `${course.subjectNameTh || ''}||${course.subjectNameEn || ''}`;
+    const nameKey = `${course.subjectName || ''}`;
     if (!nameToCourseCodesMap[nameKey]) {
       nameToCourseCodesMap[nameKey] = new Set();
     }
@@ -33,18 +32,22 @@ async function main() {
   }
 
   const learningOutcomes = await prisma.courseLearningOutcome.findMany({
-    include: { linkedCourses: { include: { course: true } } },
+    include: {
+      courseOffering: {
+        include: {
+          course: true,
+        },
+      },
+    },
   });
   const learningOutcomesToSubjectCodeMap: Record<string, Set<string>> = {};
 
   for (const lo of learningOutcomes) {
-    for (const linkedCourse of lo.linkedCourses) {
-      const subjectCode = linkedCourse.course.subjectCode;
-      if (!learningOutcomesToSubjectCodeMap[lo.cleanedCLONameTh]) {
-        learningOutcomesToSubjectCodeMap[lo.cleanedCLONameTh] = new Set();
-      }
-      learningOutcomesToSubjectCodeMap[lo.cleanedCLONameTh].add(subjectCode);
+    const subjectCode = lo.courseOffering.course.subjectCode;
+    if (!learningOutcomesToSubjectCodeMap[lo.cleanedCloName]) {
+      learningOutcomesToSubjectCodeMap[lo.cleanedCloName] = new Set();
     }
+    learningOutcomesToSubjectCodeMap[lo.cleanedCloName].add(subjectCode);
   }
 
   let sameLinkCount = 0;

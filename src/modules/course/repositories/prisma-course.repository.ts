@@ -240,7 +240,7 @@ export class PrismaCourseRepository implements ICourseRepository {
           cloNo: row.clo_no,
           originalCLONameTh: row.original_clo_name,
           originalCLONameEn: row.original_clo_name_en,
-          cleanedCLONameTh: row.cleaned_clo_name_th,
+          cleanedCloName: row.cleaned_clo_name_th,
           cleanedCLONameEn: row.cleaned_clo_name_en,
           embedding: parseVector(row.clo_embedding),
           skipEmbedding: row.skip_embedding,
@@ -298,28 +298,8 @@ export class PrismaCourseRepository implements ICourseRepository {
       return new Map<Identifier, CourseWithLearningOutcomeV2[]>();
     }
 
-    // TODO: Future chunking
-    const courseWhere: Prisma.CourseWhereInput = {
-      courseLearningOutcomes: {
-        some: {
-          cloId: {
-            in: learningOutcomeIds,
-          },
-        },
-      },
-    };
-
-    if (campusId) {
-      courseWhere.campusId = campusId;
-    }
-
-    if (facultyId) {
-      courseWhere.facultyId = facultyId;
-    }
-
-    if (isGenEd !== undefined) {
-      courseWhere.isGenEd = isGenEd;
-    }
+    // Build the where condition for course offerings
+    const courseOfferingWhere: Prisma.CourseOfferingWhereInput = {};
 
     if (academicYearSemesters && academicYearSemesters.length > 0) {
       const yearSemesterConditions = academicYearSemesters.map(
@@ -334,37 +314,49 @@ export class PrismaCourseRepository implements ICourseRepository {
             : { academicYear },
       );
 
-      const existingAnd = courseWhere.AND
-        ? Array.isArray(courseWhere.AND)
-          ? courseWhere.AND
-          : [courseWhere.AND]
-        : [];
-
-      courseWhere.AND = [
-        ...existingAnd,
-        {
-          OR: yearSemesterConditions,
-        },
-      ];
+      if (yearSemesterConditions.length > 0) {
+        courseOfferingWhere.OR = yearSemesterConditions;
+      }
     }
+
+    // TODO: Future chunking
+    const courseWhere: Prisma.CourseWhereInput = {
+      ...(campusId && { campusId }),
+      ...(facultyId && { facultyId }),
+      ...(isGenEd !== undefined && { isGenEd }),
+      courseOfferings: {
+        some: {
+          ...courseOfferingWhere,
+          courseLearningOutcomes: {
+            some: {
+              id: {
+                in: learningOutcomeIds,
+              },
+            },
+          },
+        },
+      },
+    };
 
     const courses = await this.prisma.course.findMany({
       where: courseWhere,
       include: {
-        courseLearningOutcomes: {
+        courseOfferings: {
+          where: courseOfferingWhere,
           include: {
-            learningOutcome: true,
+            courseLearningOutcomes: {
+              include: {
+                vector: true,
+              },
+              orderBy: {
+                cloNo: 'asc',
+              },
+            },
           },
-          orderBy: {
-            cloNo: 'asc',
-          },
+          orderBy: [{ academicYear: 'desc' }, { semester: 'desc' }],
         },
       },
-      orderBy: [
-        { academicYear: 'desc' },
-        { semester: 'desc' },
-        { createdAt: 'desc' },
-      ],
+      orderBy: [{ createdAt: 'desc' }],
     });
 
     const learningOutcomeIdSet = new Set<Identifier>(learningOutcomeIds);
@@ -373,16 +365,15 @@ export class PrismaCourseRepository implements ICourseRepository {
     for (const course of courses) {
       const allLearningOutcomes: LearningOutcome[] = [];
 
-      for (const courseClo of course.courseLearningOutcomes) {
-        const learningOutcome =
-          PrismaCourseLearningOutcomeV2Mapper.fromCourseCloToLearningOutcome(
-            courseClo,
-          );
-        if (!learningOutcome) {
-          continue;
-        }
+      for (const courseOffering of course.courseOfferings) {
+        for (const courseLearningOutcome of courseOffering.courseLearningOutcomes) {
+          const learningOutcome =
+            PrismaCourseLearningOutcomeV2Mapper.fromCourseLearningOutcomeToLearningOutcome(
+              courseLearningOutcome,
+            );
 
-        allLearningOutcomes.push(learningOutcome);
+          allLearningOutcomes.push(learningOutcome);
+        }
       }
 
       if (!allLearningOutcomes.length) {
@@ -397,15 +388,18 @@ export class PrismaCourseRepository implements ICourseRepository {
         continue;
       }
 
+      // Get the latest course offering for the base course info
+      const latestCourseOffering = course.courseOfferings[0];
+
       const baseCourseInfo = {
         courseId: course.id as Identifier,
         campusId: course.campusId as Identifier,
         facultyId: course.facultyId as Identifier,
-        academicYear: course.academicYear,
-        semester: course.semester,
+        academicYear: latestCourseOffering.academicYear,
+        semester: latestCourseOffering.semester,
         subjectCode: course.subjectCode,
-        subjectNameTh: course.subjectNameTh,
-        subjectNameEn: course.subjectNameEn,
+        subjectNameTh: course.subjectName,
+        subjectNameEn: course.subjectName,
         metadata: (course.metadata as Record<string, any>) ?? null,
         createdAt: course.createdAt,
         updatedAt: course.updatedAt,
@@ -481,7 +475,7 @@ export class PrismaCourseRepository implements ICourseRepository {
           cloNo: row.clo_no,
           originalCLONameTh: row.original_clo_name,
           originalCLONameEn: row.original_clo_name_en,
-          cleanedCLONameTh: row.cleaned_clo_name_th,
+          cleanedCloName: row.cleaned_clo_name_th,
           cleanedCLONameEn: row.cleaned_clo_name_en,
           embedding,
           skipEmbedding: row.skip_embedding,

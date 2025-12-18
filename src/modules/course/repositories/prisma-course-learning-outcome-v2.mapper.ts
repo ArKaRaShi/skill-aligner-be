@@ -5,9 +5,10 @@ import { Identifier } from 'src/common/domain/types/identifier';
 import { LearningOutcome } from '../types/course-learning-outcome-v2.type';
 import { RawCourseLearningOutcomeRow } from './types/raw-course-learning-outcome-row.type';
 
-type PrismaCourseCloWithLearningOutcome = Prisma.CourseCLOGetPayload<{
-  include: { learningOutcome: true };
-}>;
+type PrismaCourseLearningOutcomeWithVector =
+  Prisma.CourseLearningOutcomeGetPayload<{
+    include: { vector: true };
+  }>;
 
 export class PrismaCourseLearningOutcomeV2Mapper {
   private static normalizeMetadata(
@@ -20,26 +21,19 @@ export class PrismaCourseLearningOutcomeV2Mapper {
     return metadata as Record<string, any>;
   }
 
-  static fromCourseCloToLearningOutcome(
-    courseClo: PrismaCourseCloWithLearningOutcome,
-  ): LearningOutcome | null {
-    const learningOutcome = courseClo.learningOutcome;
-    if (!learningOutcome) {
-      return null;
-    }
-
+  static fromCourseLearningOutcomeToLearningOutcome(
+    courseLearningOutcome: PrismaCourseLearningOutcomeWithVector,
+  ): LearningOutcome {
     return {
-      loId: courseClo.cloId as Identifier,
-      originalNameTh: learningOutcome.originalCLONameTh,
-      originalNameEn: learningOutcome.originalCLONameEn,
-      cleanedNameTh: learningOutcome.cleanedCLONameTh,
-      cleanedNameEn: learningOutcome.cleanedCLONameEn,
-      skipEmbedding: learningOutcome.skipEmbedding,
-      hasEmbedding768: learningOutcome.hasEmbedding768,
-      hasEmbedding1536: learningOutcome.hasEmbedding1536,
-      metadata: this.normalizeMetadata(learningOutcome.metadata),
-      createdAt: learningOutcome.createdAt,
-      updatedAt: learningOutcome.updatedAt,
+      loId: courseLearningOutcome.id as Identifier,
+      originalName: courseLearningOutcome.originalCloName,
+      cleanedName: courseLearningOutcome.cleanedCloName,
+      skipEmbedding: courseLearningOutcome.skipEmbedding,
+      hasEmbedding768: courseLearningOutcome.hasEmbedding768,
+      hasEmbedding1536: courseLearningOutcome.hasEmbedding1536,
+      metadata: this.normalizeMetadata(courseLearningOutcome.metadata),
+      createdAt: courseLearningOutcome.createdAt,
+      updatedAt: courseLearningOutcome.updatedAt,
     };
   }
 
@@ -48,10 +42,8 @@ export class PrismaCourseLearningOutcomeV2Mapper {
   ): LearningOutcome {
     return {
       loId: row.clo_id as Identifier,
-      originalNameTh: row.original_clo_name,
-      originalNameEn: row.original_clo_name_en,
-      cleanedNameTh: row.cleaned_clo_name_th,
-      cleanedNameEn: row.cleaned_clo_name_en,
+      originalName: row.original_clo_name,
+      cleanedName: row.cleaned_clo_name_th,
       skipEmbedding: row.skip_embedding,
       hasEmbedding768: row.has_embedding_768,
       hasEmbedding1536: row.has_embedding_1536,

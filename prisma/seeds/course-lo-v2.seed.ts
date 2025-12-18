@@ -41,97 +41,73 @@ export async function seedCourseAndLO({
 
   const upsertedCourse = await prisma.course.upsert({
     where: {
-      unique_course: {
-        academicYear: course.academic_year,
-        subjectCode: course.subject_code,
-        semester: course.semester,
-      },
+      subjectCode: course.subject_code,
     },
-    update: {
-      campusId,
-      facultyId,
-      subjectNameTh: course.subject_name_th,
-    },
+    update: {},
     create: {
       id: uuidv4(),
       campusId,
       facultyId,
-      academicYear: course.academic_year,
-      semester: course.semester,
       subjectCode: course.subject_code,
-      subjectNameTh: course.subject_name_th,
+      subjectName: course.subject_name_th,
     },
   });
 
-  const existingCLO = await prisma.courseLearningOutcome.findFirst({
+  // Find or create course offering
+  const upsertedCourseOffering = await prisma.courseOffering.upsert({
     where: {
-      cleanedCLONameTh: course.clean_clo_name_th,
-    },
-  });
-
-  const skipEmbedding = course.skipEmbedding ?? false;
-  const metadata = { keywords: course.keywords ?? [] };
-
-  if (!existingCLO) {
-    const loId = uuidv4();
-    const vectorId = uuidv4();
-
-    // Create the CourseLearningOutcome without embedding
-    await prisma.courseLearningOutcome.create({
-      data: {
-        id: loId,
-        originalCLONameTh: course.original_clo_name_th,
-        cleanedCLONameTh: course.clean_clo_name_th,
-        metadata,
-        skipEmbedding,
-        hasEmbedding768: false,
-        hasEmbedding1536: false,
-      },
-    });
-
-    // Create the embedding vector record if not skipping embedding
-    if (!skipEmbedding) {
-      await prisma.$executeRaw`
-        INSERT INTO course_learning_outcome_vectors (
-          id,
-          clo_id,
-          embedding_768,
-          embedding_1536,
-          created_at
-        )
-        VALUES (
-          ${vectorId}::uuid,
-          ${loId}::uuid,
-          NULL,
-          NULL,
-          NOW()
-        )
-      `;
-    }
-
-    await prisma.courseCLO.create({
-      data: {
-        id: uuidv4(),
+      unique_course_offering: {
         courseId: upsertedCourse.id,
-        cloId: loId,
-        cloNo: course.clo_no,
-      },
-    });
-    return;
-  }
-  await prisma.courseCLO.upsert({
-    where: {
-      unique_course_clo: {
-        courseId: upsertedCourse.id,
-        cloId: existingCLO.id,
+        semester: course.semester,
+        academicYear: course.academic_year,
       },
     },
     update: {},
     create: {
       id: uuidv4(),
       courseId: upsertedCourse.id,
-      cloId: existingCLO.id,
+      semester: course.semester,
+      academicYear: course.academic_year,
+    },
+  });
+
+  const existingVector = await prisma.courseLearningOutcomeVector.findUnique({
+    where: {
+      cleanedCloName: course.clean_clo_name_th,
+    },
+  });
+
+  const skipEmbedding = course.skipEmbedding ?? false;
+  const metadata = { keywords: course.keywords ?? [] };
+
+  let vectorId: string | null = null;
+
+  // Create vector if it doesn't exist and not skipping embedding
+  if (!existingVector && !skipEmbedding) {
+    const newVector = await prisma.courseLearningOutcomeVector.create({
+      data: {
+        id: uuidv4(),
+        cleanedCloName: course.clean_clo_name_th,
+      },
+    });
+    vectorId = newVector.id;
+  } else if (existingVector) {
+    vectorId = existingVector.id;
+  }
+
+  // Create CourseLearningOutcome
+  await prisma.courseLearningOutcome.create({
+    data: {
+      id: uuidv4(),
       cloNo: course.clo_no,
+      originalCloName: course.original_clo_name_th,
+      cleanedCloName: course.clean_clo_name_th,
+      courseOfferingId: upsertedCourseOffering.id,
+      vectorId: vectorId,
+      metadata,
+      skipEmbedding,
+      hasEmbedding768: false,
+      hasEmbedding1536: false,
     },
   });
 }
@@ -182,25 +158,29 @@ async function postValidation({
   cleanedCoursesWithCLO: CleanCourseWithCLO[];
 }) {
   const courses = await prisma.course.findMany();
+  const courseOfferings = await prisma.courseOffering.findMany();
   const clos = await prisma.courseLearningOutcome.findMany();
   const seenCLONamesInDB = new Set<string>();
   for (const clo of clos) {
-    if (seenCLONamesInDB.has(clo.cleanedCLONameTh)) {
+    if (seenCLONamesInDB.has(clo.cleanedCloName)) {
       console.warn(
-        `Warning: Duplicate CLO name in DB: ${clo.cleanedCLONameTh} (ID: ${clo.id})`,
+        `Warning: Duplicate CLO name in DB: ${clo.cleanedCloName} (ID: ${clo.id})`,
       );
     } else {
-      seenCLONamesInDB.add(clo.cleanedCLONameTh);
+      seenCLONamesInDB.add(clo.cleanedCloName);
     }
   }
 
   const courseCount = courses.length;
+  const courseOfferingCount = courseOfferings.length;
   const cloCount = clos.length;
 
   console.log(`Total courses in DB: ${courseCount}`);
+  console.log(`Total course offerings in DB: ${courseOfferingCount}`);
   console.log(`Total CLOs in DB: ${cloCount}`);
 
   const uniqueCourses = new Set<string>();
+  const uniqueCourseOfferings = new Set<string>();
   const uniqueCLOSet = new Set<string>();
   const uniqueCLOWithNameSet = new Set<string>();
 
@@ -208,8 +188,11 @@ async function postValidation({
   const closByName = new Map<string, Set<number>>();
 
   for (const course of cleanedCoursesWithCLO) {
-    const courseKey = `${course.academic_year}-${course.subject_code}-${course.semester}`;
+    const courseKey = `${course.subject_code}`;
     uniqueCourses.add(courseKey);
+
+    const courseOfferingKey = `${course.academic_year}-${course.subject_code}-${course.semester}`;
+    uniqueCourseOfferings.add(courseOfferingKey);
 
     const cloKey = `${course.clo_no}-${course.clean_clo_name_th}`;
     uniqueCLOSet.add(cloKey);
@@ -225,6 +208,9 @@ async function postValidation({
   }
 
   console.log(`Expected unique courses: ${uniqueCourses.size}`);
+  console.log(
+    `Expected unique course offerings: ${uniqueCourseOfferings.size}`,
+  );
   console.log(`Expected unique CLOs: ${uniqueCLOSet.size}`);
   console.log(
     `Expected unique CLOs (by name only): ${uniqueCLOWithNameSet.size}`,
@@ -272,7 +258,13 @@ async function postValidation({
     );
   }
 
-  if (cloCount !== uniqueCLOWithNameSet.size) {
+  if (courseOfferingCount !== uniqueCourseOfferings.size) {
+    throw new Error(
+      `Post-validation failed: Expected at ${uniqueCourseOfferings.size} course offerings, but found ${courseOfferingCount}.`,
+    );
+  }
+
+  if (cloCount !== uniqueCLOSet.size) {
     throw new Error(
       `Post-validation failed: Expected at ${uniqueCLOSet.size} CLOs, but found ${cloCount}.`,
     );
@@ -288,14 +280,14 @@ async function main({
 }) {
   const cleanedCoursesWithCLO: CleanCourseWithCLO[] =
     await FileHelper.loadLatestJson<CleanCourseWithCLO[]>(
-      'src/modules/course/pipelines/data/cleaned/valid_courses_with_clo',
+      'src/modules/course/pipelines/data/cleaned/clean_courses_with_clo',
     );
 
   if (deleteExisting) {
     console.log(`Deleting existing courses and learning outcomes...`);
-    await prismaClient.courseCLO.deleteMany({});
-    await prismaClient.courseLearningOutcomeVector.deleteMany({});
     await prismaClient.courseLearningOutcome.deleteMany({});
+    await prismaClient.courseLearningOutcomeVector.deleteMany({});
+    await prismaClient.courseOffering.deleteMany({});
     await prismaClient.course.deleteMany({});
   }
 

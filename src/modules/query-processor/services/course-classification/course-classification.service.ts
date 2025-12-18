@@ -223,7 +223,7 @@ export class CourseClassificationService
 
   private getLoDisplayName(lo: CourseLearningOutcomeMatch): string {
     return (
-      lo.cleanedCLONameTh ??
+      lo.cleanedCloName ??
       lo.cleanedCLONameEn ??
       lo.originalCLONameTh ??
       lo.originalCLONameEn

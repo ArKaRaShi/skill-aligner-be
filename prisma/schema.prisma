@@ -128,69 +128,70 @@ model CampusFaculty {
 }
 
 model Course {
-  id                     String           @id @db.Uuid
-  campusId               String           @map("campus_id") @db.Uuid
-  campus                 Campus           @relation(fields: [campusId], references: [id])
-  facultyId              String           @map("faculty_id") @db.Uuid
-  faculty                Faculty          @relation(fields: [facultyId], references: [id])
-  academicYear           Int              @map("academic_year")
-  semester               Int              @map("semester")
-  subjectCode            String           @map("subject_code")
-  subjectNameTh          String           @map("subject_name_th")
-  subjectNameEn          String?          @map("subject_name_en")
-  isGenEd                Boolean          @default(false) @map("is_gen_ed")
-  createdAt              DateTime         @default(now()) @map("created_at")
-  updatedAt              DateTime         @updatedAt @map("updated_at")
-  metadata               Json?
-  courseLearningOutcomes CourseCLO[]
-  CourseClickLog         CourseClickLog[]
+  id              String           @id @db.Uuid
+  campusId        String           @map("campus_id") @db.Uuid
+  campus          Campus           @relation(fields: [campusId], references: [id])
+  facultyId       String           @map("faculty_id") @db.Uuid
+  faculty         Faculty          @relation(fields: [facultyId], references: [id])
+  // unique bcz
+  subjectCode     String           @unique @map("subject_code") 
+  subjectName     String           @map("subject_name")
+  isGenEd         Boolean          @default(false) @map("is_gen_ed")
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
+  metadata        Json?
+  courseOfferings CourseOffering[]
+  courseClickLogs CourseClickLog[]
 
-  @@unique([academicYear, subjectCode, semester], name: "unique_course")
   @@map("courses")
 }
 
-model CourseLearningOutcome {
-  id                          String                       @id @db.Uuid
-  originalCLONameTh           String                       @map("original_clo_name")
-  originalCLONameEn           String?                      @map("original_clo_name_en")
-  cleanedCLONameTh            String                       @map("cleaned_clo_name_th")
-  cleanedCLONameEn            String?                      @map("cleaned_clo_name_en")
-  skipEmbedding               Boolean                      @default(false) @map("skip_embedding")
-  hasEmbedding768             Boolean                      @default(false) @map("has_embedding_768")
-  hasEmbedding1536            Boolean                      @default(false) @map("has_embedding_1536")
-  metadata                    Json?
-  linkedCourses               CourseCLO[]
-  createdAt                   DateTime                     @default(now()) @map("created_at")
-  updatedAt                   DateTime                     @updatedAt @map("updated_at")
-  courseLearningOutcomeVector CourseLearningOutcomeVector?
+model CourseOffering {
+  id                     String                  @id @db.Uuid
+  courseId               String                  @map("course_id") @db.Uuid
+  course                 Course                  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  semester               Int
+  academicYear           Int                     @map("academic_year")
+  createdAt              DateTime                @default(now()) @map("created_at")
+  courseLearningOutcomes CourseLearningOutcome[]
+  // section derived from query in gg sheet
 
+  @@unique([courseId, semester, academicYear], name: "unique_course_offering")
+  @@map("course_offerings")
+}
+
+model CourseLearningOutcome {
+  id               String                       @id @db.Uuid
+  cloNo            Int                          @map("clo_no")
+  originalCloName  String                       @map("original_clo_name")
+  cleanedCloName   String                       @map("cleaned_clo_name_th")
+  courseOfferingId String                       @map("course_offering_id") @db.Uuid
+  courseOffering   CourseOffering               @relation(fields: [courseOfferingId], references: [id], onDelete: Cascade)
+  vectorId         String?                      @map("vector_id") @db.Uuid
+  vector           CourseLearningOutcomeVector? @relation(fields: [vectorId], references: [id], onDelete: SetNull)
+  skipEmbedding    Boolean                      @default(false) @map("skip_embedding")
+  hasEmbedding768  Boolean                      @default(false) @map("has_embedding_768")
+  hasEmbedding1536 Boolean                      @default(false) @map("has_embedding_1536")
+  metadata         Json?
+  createdAt        DateTime                     @default(now()) @map("created_at")
+  updatedAt        DateTime                     @updatedAt @map("updated_at")
+
+
+  @@unique([courseOfferingId, cloNo], name: "unique_course_original_clo")
+  // allow duplicate CLO names within the same course offering, not affected to vectoring
   @@map("course_learning_outcomes")
 }
 
 model CourseLearningOutcomeVector {
-  id              String                       @id @db.Uuid
-  cloId           String                       @unique @map("clo_id") @db.Uuid
-  learningOutcome CourseLearningOutcome        @relation(fields: [cloId], references: [id], onDelete: Cascade)
-  embedding768    Unsupported("vector(768)")?  @map("embedding_768")
-  embedding1536   Unsupported("vector(1536)")? @map("embedding_1536")
-  metadata        Json?
-  createdAt       DateTime                     @default(now()) @map("created_at")
+  id                     String                       @id @db.Uuid
+  cleanedCloName         String                       @unique @map("cleaned_clo_name")
+  embedding768           Unsupported("vector(768)")?  @map("embedding_768")
+  embedding1536          Unsupported("vector(1536)")? @map("embedding_1536")
+  metadata               Json?
+  createdAt              DateTime                     @default(now()) @map("created_at")
+  courseLearningOutcomes CourseLearningOutcome[]
 
   @@map("course_learning_outcome_vectors")
-}
-
-model CourseCLO {
-  id              String                @id @db.Uuid
-  courseId        String                @map("course_id") @db.Uuid
-  course          Course                @relation(fields: [courseId], references: [id])
-  cloId           String                @map("clo_id") @db.Uuid
-  learningOutcome CourseLearningOutcome @relation(fields: [cloId], references: [id])
-  cloNo           Int                   @map("clo_no")
-  createdAt       DateTime              @default(now()) @map("created_at")
-  updatedAt       DateTime              @updatedAt @map("updated_at")
-
-  @@unique([courseId, cloId], name: "unique_course_clo")
-  @@map("course_clos")
 }
 
 model QuestionLog {

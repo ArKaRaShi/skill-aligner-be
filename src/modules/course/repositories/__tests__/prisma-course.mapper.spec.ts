@@ -98,7 +98,7 @@ describe('PrismaCourseMapper', () => {
           cloNo: 3,
           originalCLONameTh: 'Original CLO TH',
           originalCLONameEn: 'Original CLO EN',
-          cleanedCLONameTh: 'Cleaned CLO TH',
+          cleanedCloName: 'Cleaned CLO TH',
           cleanedCLONameEn: null,
           embedding: [0.1, 0.2, 0.3],
           skipEmbedding: false,

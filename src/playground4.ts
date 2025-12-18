@@ -3,19 +3,8 @@ import { PrismaClient } from '@prisma/client';
 async function main() {
   const prisma = new PrismaClient();
 
-  const academicYear = 2568;
-  const semester = 2;
-
-  const courses = await prisma.course.findMany({
-    where: {
-      academicYear,
-      semester,
-    },
-  });
-
-  console.log(
-    `Found ${courses.length} courses for semester ${semester} of academic year ${academicYear}`,
-  );
+  const totalClos = await prisma.courseLearningOutcome.count();
+  console.log(`Total CLOs: ${totalClos}`);
 
   await prisma.$disconnect();
 }

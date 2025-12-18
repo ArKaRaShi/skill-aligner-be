@@ -151,7 +151,7 @@ export class AppController {
     const losWithSim = arrayResult.flatMap((skillResult) =>
       skillResult.courses.flatMap((course) =>
         course.cloMatches.map((clo) => ({
-          lo_name: clo.cleanedCLONameTh,
+          lo_name: clo.cleanedCloName,
           sim: clo.similarityScore,
         })),
       ),
@@ -269,7 +269,7 @@ export class AppController {
     // Extract and log learning outcomes with similarity scores
     const losWithSim = arrayResult.flatMap((skillResult) =>
       skillResult.learningOutcomes.map((lo) => ({
-        lo_name: lo.cleanedNameTh,
+        lo_name: lo.cleanedName,
         sim: lo.similarityScore,
       })),
     );
@@ -440,7 +440,7 @@ export class AppController {
       courses.forEach((course) => {
         const courseCode = course.subjectCode;
         const loName =
-          course.matchedLearningOutcomes[0]?.cleanedNameTh || 'Unknown LO';
+          course.matchedLearningOutcomes[0]?.cleanedName || 'Unknown LO';
 
         if (!coursesByCode.has(courseCode)) {
           coursesByCode.set(courseCode, {
@@ -551,7 +551,7 @@ export class AppController {
         coursesWithTwoOrMoreMatches.forEach((course) => {
           const loNames = course.matchedLearningOutcomes
             .slice(0, 3)
-            .map((lo) => lo.cleanedNameTh)
+            .map((lo) => lo.cleanedName)
             .join(', ');
           const moreText =
             course.matchedLearningOutcomes.length > 3 ? '...' : '';

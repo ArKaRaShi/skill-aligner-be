@@ -61,7 +61,7 @@ export class PrismaCourseMapper {
 
       originalCLONameTh: lo.original_clo_name,
       originalCLONameEn: lo.original_clo_name_en,
-      cleanedCLONameTh: lo.cleaned_clo_name_th,
+      cleanedCloName: lo.cleaned_clo_name_th,
       cleanedCLONameEn: lo.cleaned_clo_name_en,
       embedding: lo.embedding,
       skipEmbedding: lo.skip_embedding,

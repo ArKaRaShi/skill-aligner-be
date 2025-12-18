@@ -3,25 +3,26 @@ import { PrismaClient } from '@prisma/client';
 async function main() {
   const prisma = new PrismaClient();
 
-  // Retrieve all courses with their learning outcomes, including year and semester
-  const courses = await prisma.course.findMany({
+  // Retrieve all course offerings with their courses and learning outcomes, including year and semester
+  const courseOfferings = await prisma.courseOffering.findMany({
     select: {
       id: true,
-      subjectCode: true,
-      subjectNameTh: true,
-      subjectNameEn: true,
-      academicYear: true,
       semester: true,
+      academicYear: true,
+      course: {
+        select: {
+          id: true,
+          subjectCode: true,
+          subjectName: true,
+        },
+      },
       courseLearningOutcomes: {
         select: {
+          id: true,
           cloNo: true,
-          learningOutcome: {
-            select: {
-              id: true,
-              cleanedCLONameTh: true,
-              cleanedCLONameEn: true,
-            },
-          },
+          cleanedCloName: true,
+          hasEmbedding768: true,
+          hasEmbedding1536: true,
         },
         orderBy: {
           cloNo: 'asc',
@@ -30,7 +31,9 @@ async function main() {
     },
     orderBy: [
       {
-        subjectCode: 'asc',
+        course: {
+          subjectCode: 'asc',
+        },
       },
       {
         academicYear: 'desc',
@@ -41,14 +44,15 @@ async function main() {
     ],
   });
 
-  // Group courses by subject code
-  const subjectCodeGroups: Record<string, typeof courses> = {};
+  // Group course offerings by subject code
+  const subjectCodeGroups: Record<string, typeof courseOfferings> = {};
 
-  for (const course of courses) {
-    if (!subjectCodeGroups[course.subjectCode]) {
-      subjectCodeGroups[course.subjectCode] = [];
+  for (const offering of courseOfferings) {
+    const subjectCode = offering.course.subjectCode;
+    if (!subjectCodeGroups[subjectCode]) {
+      subjectCodeGroups[subjectCode] = [];
     }
-    subjectCodeGroups[course.subjectCode].push(course);
+    subjectCodeGroups[subjectCode].push(offering);
   }
 
   console.log(
@@ -78,15 +82,15 @@ async function main() {
       }
     }
 
-    // Group courses by year and semester
-    const yearSemesterGroups: Record<string, typeof courses> = {};
+    // Group course offerings by year and semester
+    const yearSemesterGroups: Record<string, typeof courseOfferings> = {};
 
-    for (const course of coursesInGroup) {
-      const yearSemesterKey = `${course.academicYear}-${course.semester}`;
+    for (const offering of coursesInGroup) {
+      const yearSemesterKey = `${offering.academicYear}-${offering.semester}`;
       if (!yearSemesterGroups[yearSemesterKey]) {
         yearSemesterGroups[yearSemesterKey] = [];
       }
-      yearSemesterGroups[yearSemesterKey].push(course);
+      yearSemesterGroups[yearSemesterKey].push(offering);
     }
 
     // Collect all unique learning outcomes across all year-semester groups
@@ -99,9 +103,9 @@ async function main() {
     )) {
       yearSemesterLOs[yearSemesterKey] = new Set();
 
-      for (const course of coursesInYearSemester) {
-        for (const clo of course.courseLearningOutcomes) {
-          const loKey = `${clo.learningOutcome.cleanedCLONameTh}||${clo.learningOutcome.cleanedCLONameEn || ''}`;
+      for (const offering of coursesInYearSemester) {
+        for (const clo of offering.courseLearningOutcomes) {
+          const loKey = clo.cleanedCloName;
           allUniqueLOs.add(loKey);
           yearSemesterLOs[yearSemesterKey].add(loKey);
         }
@@ -129,19 +133,19 @@ async function main() {
         const firstGroupIds = new Set<string>();
         const currentGroupIds = new Set<string>();
 
-        // Get courses for the first group
+        // Get course offerings for the first group
         const firstGroupCourses = yearSemesterGroups[yearSemesterKeys[0]];
-        for (const course of firstGroupCourses) {
-          for (const clo of course.courseLearningOutcomes) {
-            firstGroupIds.add(clo.learningOutcome.id);
+        for (const offering of firstGroupCourses) {
+          for (const clo of offering.courseLearningOutcomes) {
+            firstGroupIds.add(clo.id);
           }
         }
 
-        // Get courses for the current group
+        // Get course offerings for the current group
         const currentGroupCourses = yearSemesterGroups[yearSemesterKeys[i]];
-        for (const course of currentGroupCourses) {
-          for (const clo of course.courseLearningOutcomes) {
-            currentGroupIds.add(clo.learningOutcome.id);
+        for (const offering of currentGroupCourses) {
+          for (const clo of offering.courseLearningOutcomes) {
+            currentGroupIds.add(clo.id);
           }
         }
 
@@ -179,13 +183,13 @@ async function main() {
     );
 
     // Group by year and semester
-    const yearSemesterGroups: Record<string, typeof courses> = {};
-    for (const course of coursesInGroup) {
-      const yearSemesterKey = `${course.academicYear}-${course.semester}`;
+    const yearSemesterGroups: Record<string, typeof courseOfferings> = {};
+    for (const offering of coursesInGroup) {
+      const yearSemesterKey = `${offering.academicYear}-${offering.semester}`;
       if (!yearSemesterGroups[yearSemesterKey]) {
         yearSemesterGroups[yearSemesterKey] = [];
       }
-      yearSemesterGroups[yearSemesterKey].push(course);
+      yearSemesterGroups[yearSemesterKey].push(offering);
     }
 
     for (const [yearSemesterKey, coursesInYearSemester] of Object.entries(
@@ -199,9 +203,7 @@ async function main() {
       // Show first learning outcome
       if (coursesInYearSemester[0].courseLearningOutcomes.length > 0) {
         const firstCLO = coursesInYearSemester[0].courseLearningOutcomes[0];
-        console.log(
-          `    First LO: ${firstCLO.learningOutcome.cleanedCLONameTh}`,
-        );
+        console.log(`    First LO: ${firstCLO.cleanedCloName}`);
       }
     }
   }

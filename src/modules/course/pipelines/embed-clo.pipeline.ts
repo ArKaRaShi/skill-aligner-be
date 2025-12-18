@@ -36,14 +36,15 @@ export class EmbedCLOPipeline {
       try {
         console.log(`Embedding CLO ID ${clo.id}...`);
         const embedResult = await embeddingClient.embedOne({
-          text: clo.cleanedCLONameTh,
+          text: clo.cleanedCloName,
           role: 'passage',
         });
 
         // Create or update embedding vector record
+        const { cleanedCloName } = clo;
         const existingVector =
           await prismaClient.courseLearningOutcomeVector.findUnique({
-            where: { cloId: clo.id },
+            where: { cleanedCloName },
           });
 
         const vectorMetadata = {
@@ -51,32 +52,35 @@ export class EmbedCLOPipeline {
             model_id: embedResult.metadata.modelId,
             provider: embedResult.metadata.provider,
             dimension: embedResult.metadata.dimension,
-            original_text: clo.cleanedCLONameTh,
+            original_text: cleanedCloName,
             embed_text: embedResult.metadata.embeddedText,
             generated_at: embedResult.metadata.generatedAt,
           },
         };
 
+        let vectorId: string;
         if (existingVector) {
+          vectorId = existingVector.id;
           await prismaClient.$executeRaw`
               UPDATE course_learning_outcome_vectors
               SET embedding_768 = ${embedResult.vector}::vector(768),
                   metadata = ${JSON.stringify(vectorMetadata)}::jsonb
-              WHERE clo_id = ${clo.id}::uuid
+              WHERE id = ${existingVector.id}::uuid
           `;
         } else {
+          vectorId = uuidv4();
           await prismaClient.$executeRaw`
               INSERT INTO course_learning_outcome_vectors (
                 id,
-                clo_id,
+                cleaned_clo_name,
                 embedding_768,
                 embedding_1536,
                 metadata,
                 created_at
               )
               VALUES (
-                ${uuidv4()}::uuid,
-                ${clo.id}::uuid,
+                ${vectorId}::uuid,
+                ${cleanedCloName},
                 ${embedResult.vector}::vector(768),
                 NULL,
                 ${JSON.stringify(vectorMetadata)}::jsonb,
@@ -85,10 +89,13 @@ export class EmbedCLOPipeline {
           `;
         }
 
-        // Update the CLO to mark as embedded
+        // Update the CLO to mark as embedded and set the vector reference
         await prismaClient.courseLearningOutcome.update({
           where: { id: clo.id },
-          data: { hasEmbedding768: true },
+          data: {
+            hasEmbedding768: true,
+            vectorId,
+          },
         });
       } catch (error) {
         console.error(`Error embedding CLO ID ${clo.id}:`, error);
@@ -111,7 +118,7 @@ export class EmbedCLOPipeline {
         clo.has_embedding_768 AS "hasEmbedding768",
         clo.metadata
     FROM course_learning_outcomes clo
-    LEFT JOIN course_learning_outcome_vectors clov ON clo.id = clov.clo_id
+    LEFT JOIN course_learning_outcome_vectors clov ON clo.vector_id = clov.id
     WHERE clo.has_embedding_768 = true
     LIMIT 3
     `;
@@ -143,15 +150,16 @@ export class EmbedCLOPipeline {
 
     for (const clo of clos) {
       try {
+        const { cleanedCloName } = clo;
         const embedResult = await embeddingClient.embedOne({
-          text: clo.cleanedCLONameTh,
+          text: cleanedCloName,
           role: 'passage',
         });
 
         // Create or update embedding vector record
         const existingVector =
           await prismaClient.courseLearningOutcomeVector.findUnique({
-            where: { cloId: clo.id },
+            where: { cleanedCloName },
           });
 
         const vectorMetadata = {
@@ -159,32 +167,35 @@ export class EmbedCLOPipeline {
             model_id: embedResult.metadata.modelId,
             provider: embedResult.metadata.provider,
             dimension: embedResult.metadata.dimension,
-            original_text: clo.cleanedCLONameTh,
+            original_text: cleanedCloName,
             embed_text: embedResult.metadata.embeddedText,
             generated_at: embedResult.metadata.generatedAt,
           },
         };
 
+        let vectorId: string;
         if (existingVector) {
+          vectorId = existingVector.id;
           await prismaClient.$executeRaw`
               UPDATE course_learning_outcome_vectors
               SET embedding_1536 = ${embedResult.vector}::vector(1536),
                   metadata = ${JSON.stringify(vectorMetadata)}::jsonb
-              WHERE clo_id = ${clo.id}::uuid
+              WHERE id = ${existingVector.id}::uuid
           `;
         } else {
+          vectorId = uuidv4();
           await prismaClient.$executeRaw`
               INSERT INTO course_learning_outcome_vectors (
                 id,
-                clo_id,
+                cleaned_clo_name,
                 embedding_768,
                 embedding_1536,
                 metadata,
                 created_at
               )
               VALUES (
-                ${uuidv4()}::uuid,
-                ${clo.id}::uuid,
+                ${vectorId}::uuid,
+                ${cleanedCloName},
                 NULL,
                 ${embedResult.vector}::vector(1536),
                 ${JSON.stringify(vectorMetadata)}::jsonb,
@@ -193,10 +204,13 @@ export class EmbedCLOPipeline {
           `;
         }
 
-        // Update the CLO to mark as embedded
+        // Update the CLO to mark as embedded and set the vector reference
         await prismaClient.courseLearningOutcome.update({
           where: { id: clo.id },
-          data: { hasEmbedding1536: true },
+          data: {
+            hasEmbedding1536: true,
+            vectorId: vectorId,
+          },
         });
       } catch (error) {
         console.error(`Error embedding CLO ID ${clo.id}:`, error);
@@ -219,7 +233,7 @@ export class EmbedCLOPipeline {
         clo.has_embedding_1536 AS "hasEmbedding1536",
         clo.metadata
     FROM course_learning_outcomes clo
-    LEFT JOIN course_learning_outcome_vectors clov ON clo.id = clov.clo_id
+    LEFT JOIN course_learning_outcome_vectors clov ON clo.vector_id = clov.id
     WHERE clo.has_embedding_1536 = true
     LIMIT 3
     `;
