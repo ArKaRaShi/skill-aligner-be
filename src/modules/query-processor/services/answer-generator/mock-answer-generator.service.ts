@@ -22,7 +22,7 @@ export class MockAnswerGeneratorService
         const courseList = courses
           .map(
             (course) =>
-              `- ${course.subjectNameEn ?? course.subjectCode} (${course.cloMatches[0].similarityScore.toFixed(
+              `- ${course.subjectName ?? course.subjectCode} (${course.cloMatches[0].similarityScore.toFixed(
                 2,
               )})`,
           )

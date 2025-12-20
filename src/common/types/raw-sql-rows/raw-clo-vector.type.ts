@@ -1,6 +1,6 @@
 export type RawCloVectorRow = {
   id: string;
-  cleaned_clo_name: string;
+  embedded_text: string;
   embedding_768: number[] | null;
   embedding_1536: number[] | null;
   metadata: Record<string, unknown> | null;

@@ -9,11 +9,13 @@ import {
   EmbedResponse,
 } from 'src/common/adapters/secondary/semantics/semantics.dto';
 
-import { EMBEDDING_MODELS } from '../constants/model.constant';
+import {
+  EmbeddingModels,
+  EmbeddingProviders,
+} from '../constants/model.constant';
 import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
 import {
   BaseEmbeddingClient,
-  EmbeddingModelId,
   EmbedManyParams,
   EmbedOneParams,
   EmbedResult,
@@ -23,9 +25,6 @@ export type E5EmbeddingServiceOptions = {
   client: AxiosInstance;
 };
 
-const MODEL_ID: EmbeddingModelId = 'e5-base';
-const PROVIDER = EMBEDDING_MODELS[MODEL_ID].provider;
-
 @Injectable()
 export class E5EmbeddingClient
   extends BaseEmbeddingClient
@@ -34,7 +33,7 @@ export class E5EmbeddingClient
   private readonly client: AxiosInstance;
 
   constructor(options: E5EmbeddingServiceOptions) {
-    super(MODEL_ID, PROVIDER);
+    super(EmbeddingModels.E5_BASE, EmbeddingProviders.E5);
 
     this.client = options.client;
   }
@@ -49,7 +48,7 @@ export class E5EmbeddingClient
     });
 
     const metadata = {
-      ...this.buildMetadata(MODEL_ID, response.adjusted_text!),
+      ...this.buildMetadata(response.adjusted_text!),
       generatedAt: response.embedded_at ?? new Date().toISOString(),
     };
 
@@ -75,7 +74,7 @@ export class E5EmbeddingClient
       return {
         vector: item?.embedding ?? [],
         metadata: {
-          ...this.buildMetadata(MODEL_ID, item.adjusted_text!),
+          ...this.buildMetadata(item.adjusted_text!),
           generatedAt,
         },
       };

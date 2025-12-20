@@ -218,7 +218,7 @@ export class CourseClassificationService
   }
 
   private getCourseDisplayName(course: CourseMatch): string {
-    return course.subjectNameTh ?? course.subjectNameEn ?? course.subjectCode;
+    return course.subjectName;
   }
 
   private getLoDisplayName(lo: CourseLearningOutcomeMatch): string {

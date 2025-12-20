@@ -1,12 +1,12 @@
 import { Identifier } from 'src/common/domain/types/identifier';
 
+import { EmbeddingMetadata } from 'src/modules/embedding/clients';
+
 import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
 
 export const I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN = Symbol(
   'ICourseLearningOutcomeRepository',
 );
-
-type VectorDimension = 768 | 1536;
 
 export type AcademicYearSemesterFilter = {
   academicYear: number;
@@ -15,9 +15,9 @@ export type AcademicYearSemesterFilter = {
 
 export type FindLosBySkillsParams = {
   skills: string[];
+  embeddingConfiguration: EmbeddingMetadata;
   threshold?: number;
   topN?: number;
-  vectorDimension?: VectorDimension;
   campusId?: Identifier;
   facultyId?: Identifier;
   isGenEd?: boolean;
@@ -32,9 +32,9 @@ export interface ICourseLearningOutcomeRepository {
    */
   findLosBySkills({
     skills,
+    embeddingConfiguration,
     threshold,
     topN,
-    vectorDimension,
 
     // user preference filters
     campusId,

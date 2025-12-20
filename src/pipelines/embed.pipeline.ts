@@ -8,6 +8,7 @@ import { AppConfigService } from 'src/config/app-config.service';
 
 import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 import { initSemanticsHttpClient } from 'src/common/http/semantics-http-client';
+import { EmbeddingMetadataJson } from 'src/common/types/stored-embedding-metadata.type';
 
 import {
   E5EmbeddingClient,
@@ -16,7 +17,7 @@ import {
 import type { EmbedResult } from 'src/modules/embedding/clients/base-embedding.client';
 
 type UpsertVectorRecordParams = {
-  cleanedCloName: string;
+  embeddedText: string;
   vectorColumn: 'embedding_768' | 'embedding_1536';
   vectorMetadata: Record<string, unknown>;
   embedResult: EmbedResult;
@@ -66,30 +67,33 @@ export class EmbedPipeline {
     console.log(`Found ${clos.length} CLOs to embed (768 dimensions).`);
 
     for (const clo of clos) {
-      const existingVector = await this.findExistingVectorRecord(
-        clo.cleanedCloName,
-      );
-      if (existingVector?.hasEmbedding768) {
-        await this.prisma.courseLearningOutcome.update({
-          where: { id: clo.id },
-          data: {
-            hasEmbedding768: true,
-            vectorId: existingVector.id,
-          },
-        });
-        continue;
-      }
-
       try {
+        const existingVector = await this.findExistingVectorRecord(
+          clo.cleanedCloName,
+        );
+
+        if (existingVector?.hasEmbedding768) {
+          await this.prisma.$transaction(async (tx) => {
+            await tx.courseLearningOutcome.update({
+              where: { id: clo.id },
+              data: {
+                hasEmbedding768: true,
+                vectorId: existingVector.id,
+              },
+            });
+          });
+          continue;
+        }
+
         console.log(`Embedding CLO ID ${clo.id}...`);
         const embedResult = await embeddingClient.embedOne({
           text: clo.cleanedCloName,
           role: 'passage',
         });
 
-        const vectorMetadata = {
+        const vectorMetadata: { vector_768: EmbeddingMetadataJson } = {
           vector_768: {
-            model_id: embedResult.metadata.modelId,
+            model: embedResult.metadata.model,
             provider: embedResult.metadata.provider,
             dimension: embedResult.metadata.dimension,
             original_text: clo.cleanedCloName,
@@ -98,21 +102,26 @@ export class EmbedPipeline {
           },
         };
 
-        const newVectorId = await this.upsertVectorRecord({
-          cleanedCloName: clo.cleanedCloName,
-          vectorColumn: 'embedding_768',
-          vectorMetadata,
-          embedResult,
-          dimension: 768,
-          existingVectorId: existingVector?.id,
-        });
+        await this.prisma.$transaction(async (tx) => {
+          const newVectorId = await this.upsertVectorRecord(
+            {
+              embeddedText: clo.cleanedCloName,
+              vectorColumn: 'embedding_768',
+              vectorMetadata,
+              embedResult,
+              dimension: 768,
+              existingVectorId: existingVector?.id,
+            },
+            tx,
+          );
 
-        await this.prisma.courseLearningOutcome.update({
-          where: { id: clo.id },
-          data: {
-            hasEmbedding768: true,
-            vectorId: newVectorId,
-          },
+          await tx.courseLearningOutcome.update({
+            where: { id: clo.id },
+            data: {
+              hasEmbedding768: true,
+              vectorId: newVectorId,
+            },
+          });
         });
       } catch (error) {
         console.error(`Error embedding CLO ID ${clo.id}:`, error);
@@ -131,30 +140,33 @@ export class EmbedPipeline {
     console.log(`Found ${clos.length} CLOs to embed (1536 dimensions).`);
 
     for (const clo of clos) {
-      const existingVector = await this.findExistingVectorRecord(
-        clo.cleanedCloName,
-      );
-      if (existingVector?.hasEmbedding1536) {
-        await this.prisma.courseLearningOutcome.update({
-          where: { id: clo.id },
-          data: {
-            hasEmbedding1536: true,
-            vectorId: existingVector.id,
-          },
-        });
-        continue;
-      }
-
       try {
+        const existingVector = await this.findExistingVectorRecord(
+          clo.cleanedCloName,
+        );
+
+        if (existingVector?.hasEmbedding1536) {
+          await this.prisma.$transaction(async (tx) => {
+            await tx.courseLearningOutcome.update({
+              where: { id: clo.id },
+              data: {
+                hasEmbedding1536: true,
+                vectorId: existingVector.id,
+              },
+            });
+          });
+          continue;
+        }
+
         console.log(`Embedding CLO ID ${clo.id}...`);
         const embedResult = await embeddingClient.embedOne({
           text: clo.cleanedCloName,
           role: 'passage',
         });
 
-        const vectorMetadata = {
+        const vectorMetadata: { vector_1536: EmbeddingMetadataJson } = {
           vector_1536: {
-            model_id: embedResult.metadata.modelId,
+            model: embedResult.metadata.model,
             provider: embedResult.metadata.provider,
             dimension: embedResult.metadata.dimension,
             original_text: clo.cleanedCloName,
@@ -163,21 +175,26 @@ export class EmbedPipeline {
           },
         };
 
-        const newVectorId = await this.upsertVectorRecord({
-          cleanedCloName: clo.cleanedCloName,
-          vectorColumn: 'embedding_1536',
-          vectorMetadata,
-          embedResult,
-          dimension: 1536,
-          existingVectorId: existingVector?.id,
-        });
+        await this.prisma.$transaction(async (tx) => {
+          const newVectorId = await this.upsertVectorRecord(
+            {
+              embeddedText: clo.cleanedCloName,
+              vectorColumn: 'embedding_1536',
+              vectorMetadata,
+              embedResult,
+              dimension: 1536,
+              existingVectorId: existingVector?.id,
+            },
+            tx,
+          );
 
-        await this.prisma.courseLearningOutcome.update({
-          where: { id: clo.id },
-          data: {
-            hasEmbedding1536: true,
-            vectorId: newVectorId,
-          },
+          await tx.courseLearningOutcome.update({
+            where: { id: clo.id },
+            data: {
+              hasEmbedding1536: true,
+              vectorId: newVectorId,
+            },
+          });
         });
       } catch (error) {
         console.error(`Error embedding CLO ID ${clo.id}:`, error);
@@ -199,7 +216,7 @@ export class EmbedPipeline {
   }
 
   private async findExistingVectorRecord(
-    cleanedCloName: string,
+    embeddedText: string,
   ): Promise<ExistingVectorRecord | null> {
     const rows = await this.prisma.$queryRaw<ExistingVectorRecord[]>`
       SELECT
@@ -207,31 +224,46 @@ export class EmbedPipeline {
         (embedding_768 IS NOT NULL) AS "hasEmbedding768",
         (embedding_1536 IS NOT NULL) AS "hasEmbedding1536"
       FROM course_learning_outcome_vectors
-      WHERE cleaned_clo_name = ${cleanedCloName}
+      WHERE embedded_text = ${embeddedText}
       LIMIT 1
     `;
 
     return rows[0] ?? null;
   }
 
-  private async upsertVectorRecord({
-    cleanedCloName,
-    vectorColumn,
-    vectorMetadata,
-    embedResult,
-    dimension,
-    existingVectorId,
-  }: UpsertVectorRecordParams): Promise<string> {
+  private async upsertVectorRecord(
+    {
+      embeddedText,
+      vectorColumn,
+      vectorMetadata,
+      embedResult,
+      dimension,
+      existingVectorId,
+    }: UpsertVectorRecordParams,
+    tx: Prisma.TransactionClient,
+  ): Promise<string> {
     if (!embedResult || !vectorMetadata) {
       throw new Error('Embedding result is required to upsert vector.');
     }
 
     const vectorSql = this.buildVectorSql(embedResult.vector, dimension);
-    const metadataJson = JSON.stringify(vectorMetadata);
     const vectorId = existingVectorId ?? uuidv4();
 
     if (existingVectorId) {
-      await this.prisma.$executeRaw`
+      // Get existing metadata to merge with new metadata
+      const existingVector = await tx.$queryRaw<
+        { metadata: Record<string, unknown> | null }[]
+      >`
+        SELECT metadata
+        FROM course_learning_outcome_vectors
+        WHERE id = ${existingVectorId}::uuid
+      `;
+
+      const existingMetadata = existingVector[0]?.metadata || {};
+      const mergedMetadata = { ...existingMetadata, ...vectorMetadata };
+      const metadataJson = JSON.stringify(mergedMetadata);
+
+      await tx.$executeRaw`
         UPDATE course_learning_outcome_vectors
         SET ${Prisma.raw(vectorColumn)} = ${vectorSql},
             metadata = ${metadataJson}::jsonb
@@ -240,15 +272,17 @@ export class EmbedPipeline {
       return existingVectorId;
     }
 
+    const metadataJson = JSON.stringify(vectorMetadata);
+
     const embedding768Value =
       vectorColumn === 'embedding_768' ? vectorSql : Prisma.sql`NULL`;
     const embedding1536Value =
       vectorColumn === 'embedding_1536' ? vectorSql : Prisma.sql`NULL`;
 
-    await this.prisma.$executeRaw`
+    await tx.$executeRaw`
       INSERT INTO course_learning_outcome_vectors (
         id,
-        cleaned_clo_name,
+        embedded_text,
         embedding_768,
         embedding_1536,
         metadata,
@@ -256,7 +290,7 @@ export class EmbedPipeline {
       )
       VALUES (
         ${vectorId}::uuid,
-        ${cleanedCloName},
+        ${embeddedText},
         ${embedding768Value},
         ${embedding1536Value},
         ${metadataJson}::jsonb,

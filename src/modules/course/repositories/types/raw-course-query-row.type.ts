@@ -14,10 +14,10 @@ export type RawCourseQueryRow = {
   course_created_at: Date;
   course_updated_at: Date;
   course_clo_id: string;
-  clo_no: number;
   course_clo_created_at: Date;
   course_clo_updated_at: Date;
   clo_id: string;
+  clo_no: number;
   original_clo_name: string;
   original_clo_name_en: string | null;
   cleaned_clo_name_th: string;

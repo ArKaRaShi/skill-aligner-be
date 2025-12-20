@@ -1,202 +1,70 @@
-import { Body, Controller, Get, Inject, Post, Query } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Inject,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { ApiBody, ApiQuery } from '@nestjs/swagger';
 
-import {
-  createOpenRouter,
-  OpenRouterProvider,
-} from '@openrouter/ai-sdk-provider';
-
 import { Identifier } from './common/domain/types/identifier';
-import { AppConfigService } from './config/app-config.service';
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
   ICourseLearningOutcomeRepository,
 } from './modules/course/contracts/i-course-learning-outcome-repository.contract';
 import {
-  I_COURSE_REPOSITORY_TOKEN,
-  ICourseRepository,
-} from './modules/course/contracts/i-course-repository.contract';
-import {
   I_COURSE_RETRIEVER_SERVICE_TOKEN,
   ICourseRetrieverService,
 } from './modules/course/contracts/i-course-retriever-service.contract';
 import {
-  I_EMBEDDING_CLIENT_TOKEN,
-  IEmbeddingClient,
-} from './modules/embedding/contracts/i-embedding-client.contract';
-import {
-  I_SKILL_EXPANDER_SERVICE_TOKEN,
-  ISkillExpanderService,
-} from './modules/query-processor/contracts/i-skill-expander-service.contract';
-import {
-  I_TOOL_DISPATCHER_SERVICE_TOKEN,
-  IToolDispatcherService,
-} from './modules/query-processor/contracts/i-tool-dispatcher-service.contract';
-import { TSkillExpansionV2 } from './modules/query-processor/types/skill-expansion.type';
+  EmbeddingMetadata,
+  EmbeddingModels,
+  EmbeddingProviders,
+} from './modules/embedding/constants/model.constant';
+import { EmbeddingHelper } from './modules/embedding/helpers/embedding.helper';
 
 @Controller()
 export class AppController {
-  private readonly openRouter: OpenRouterProvider;
-
   constructor(
-    private readonly appConfigService: AppConfigService,
-    @Inject(I_COURSE_REPOSITORY_TOKEN)
-    private readonly courseRepository: ICourseRepository,
     @Inject(I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN)
     private readonly courseLearningOutcomeRepository: ICourseLearningOutcomeRepository,
-
-    @Inject(I_EMBEDDING_CLIENT_TOKEN)
-    private readonly embeddingService: IEmbeddingClient,
-    @Inject(I_TOOL_DISPATCHER_SERVICE_TOKEN)
-    private readonly toolDispatcherService: IToolDispatcherService,
-
-    @Inject(I_SKILL_EXPANDER_SERVICE_TOKEN)
-    private readonly skillExpanderService: ISkillExpanderService,
     @Inject(I_COURSE_RETRIEVER_SERVICE_TOKEN)
     private readonly courseRetrieverService: ICourseRetrieverService,
-  ) {
-    this.openRouter = createOpenRouter({
-      apiKey: this.appConfigService.openRouterApiKey,
-      baseURL: 'https://openrouter.ai/api/v1',
-    });
-  }
+  ) {}
 
-  @Get('/openrouter')
-  async getResponse(@Query('question') question: string): Promise<string> {
-    const completions = await fetch(
-      'https://openrouter.ai/api/v1/chat/completions',
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${this.appConfigService.openRouterApiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: 'openai/gpt-oss-20b:free',
-          messages: [
-            {
-              role: 'user',
-              content: question,
-            },
-          ],
-        }),
-      },
-    );
+  private resolveEmbeddingConfiguration({
+    model,
+    provider,
+    dimension,
+  }: {
+    model?: string;
+    provider?: string;
+    dimension?: string;
+  }): EmbeddingMetadata {
+    const fallback: EmbeddingMetadata = {
+      model: EmbeddingModels.E5_BASE,
+      provider: EmbeddingProviders.E5,
+      dimension: 768,
+    };
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return await completions.json();
-  }
+    const config: EmbeddingMetadata = {
+      model: (model as EmbeddingMetadata['model']) ?? fallback.model,
+      provider: (provider as EmbeddingMetadata['provider']) ?? fallback.provider,
+      dimension: dimension ? Number(dimension) : fallback.dimension,
+    };
 
-  @Get('/test-skill-expander')
-  async testSkillExpander(
-    @Query('question') question: string,
-  ): Promise<TSkillExpansionV2> {
-    const result = await this.skillExpanderService.expandSkillsV2(question);
-    return result;
-  }
-
-  @Get('/test/course-repository')
-  async testCourseRepository(
-    @Query('skills') skillsQuery?: string,
-  ): Promise<any> {
-    console.time('CourseRepositoryTest');
-    // Parse skills from comma-separated query string or use defaults
-    const skills = skillsQuery
-      ? skillsQuery
-          .split(',')
-          .map((skill) => skill.trim())
-          .filter((skill) => skill.length > 0)
-      : [
-          'machine learning basics',
-          'data analysis',
-          'programming fundamentals',
-          'mathematics for ai',
-        ];
-
-    const matchesPerSkill = 20;
-    const threshold = 0.6;
-
-    if (skills.length === 0) {
-      return { error: 'At least one skill must be provided' };
-    }
-
-    const result = await this.courseRepository.findCoursesBySkillsViaLO({
-      skills,
-      matchesPerSkill,
-      threshold,
-    });
-
-    const arrayResult = Array.from(result.entries()).map(([skill, courses]) => {
-      const coursesWithoutEmbeddings = courses.map(
-        ({ cloMatches, ...course }) => {
-          const cloMatchesWithoutEmbeddings = cloMatches.map(
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            ({ embedding, ...cloMatch }) => cloMatch,
-          );
-
-          return {
-            ...course,
-            cloMatches: cloMatchesWithoutEmbeddings,
-          };
-        },
+    if (!EmbeddingHelper.isRegistered(config)) {
+      throw new BadRequestException(
+        `Unsupported embedding configuration: ${JSON.stringify(config)}`,
       );
-
-      return {
-        skill,
-        courses: coursesWithoutEmbeddings,
-      };
-    });
-
-    // Extract and log learning outcomes with similarity scores
-    const losWithSim = arrayResult.flatMap((skillResult) =>
-      skillResult.courses.flatMap((course) =>
-        course.cloMatches.map((clo) => ({
-          lo_name: clo.cleanedCloName,
-          sim: clo.similarityScore,
-        })),
-      ),
-    );
-
-    console.log('Learning Outcomes Array:', losWithSim);
-
-    console.timeEnd('CourseRepositoryTest');
-    console.log('Course length: ', arrayResult[0].courses.length);
-
-    return arrayResult;
-  }
-
-  @Get('/test/embedding-service')
-  async testEmbeddingService(): Promise<any> {
-    const text = 'Sample text for embedding';
-
-    const embeddings = await this.embeddingService.embedOne({
-      text,
-      role: 'query',
-    });
-    console.log('Embeddings:', embeddings);
-    return embeddings;
-  }
-
-  @Get('/test/tool-dispatcher')
-  async testToolDispatcher(@Query('query') query: string): Promise<any> {
-    if (!query) {
-      return { error: 'Query parameter is required' };
     }
 
-    try {
-      const executionPlan =
-        await this.toolDispatcherService.generateExecutionPlan(query);
-      return { query, executionPlan };
-    } catch (error) {
-      console.error('Error in tool dispatcher:', error);
-      return {
-        error: 'Failed to generate execution plan',
-        details: error instanceof Error ? error.message : String(error),
-      };
-    }
+    return config;
   }
 
-  @Get('/test/clo-repository')
+  @Get('/course-learning-outcomes')
   @ApiQuery({
     name: 'skills',
     required: false,
@@ -216,16 +84,57 @@ export class AppController {
     example: '10',
   })
   @ApiQuery({
-    name: 'vectorDimension',
+    name: 'campusId',
     required: false,
-    description: 'Dimension of embedding vectors (768 or 1536, default: 768)',
+    description: 'Filter learning outcomes by campus ID',
+  })
+  @ApiQuery({
+    name: 'facultyId',
+    required: false,
+    description: 'Filter learning outcomes by faculty ID',
+  })
+  @ApiQuery({
+    name: 'isGenEd',
+    required: false,
+    description:
+      'Filter by general education flag (true, false, or omit for no filter)',
+    example: 'true',
+  })
+  @ApiQuery({
+    name: 'academicYearSemesters',
+    required: false,
+    description:
+      'JSON array specifying academic year and optional semesters, e.g. [{"academicYear":2023,"semesters":[1]}]',
+  })
+  @ApiQuery({
+    name: 'embeddingModel',
+    required: false,
+    description: 'Embedding model identifier (default: e5-base)',
+    example: EmbeddingModels.E5_BASE,
+  })
+  @ApiQuery({
+    name: 'embeddingProvider',
+    required: false,
+    description: 'Embedding provider identifier (default: e5)',
+    example: EmbeddingProviders.E5,
+  })
+  @ApiQuery({
+    name: 'embeddingDimension',
+    required: false,
+    description: 'Embedding vector dimension (default: 768)',
     example: '768',
   })
   async testCloRepository(
     @Query('skills') skillsQuery?: string,
     @Query('threshold') thresholdQuery?: string,
     @Query('topN') topNQuery?: string,
-    @Query('vectorDimension') vectorDimensionQuery?: string,
+    @Query('campusId') campusIdQuery?: string,
+    @Query('facultyId') facultyIdQuery?: string,
+    @Query('isGenEd') isGenEdQuery?: string,
+    @Query('academicYearSemesters') academicYearSemestersQuery?: string,
+    @Query('embeddingModel') embeddingModelQuery?: string,
+    @Query('embeddingProvider') embeddingProviderQuery?: string,
+    @Query('embeddingDimension') embeddingDimensionQuery?: string,
   ): Promise<any> {
     console.time('CloRepositoryTest');
 
@@ -244,9 +153,36 @@ export class AppController {
 
     const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.75;
     const topN = topNQuery ? parseInt(topNQuery, 10) : 10;
-    const vectorDimension = vectorDimensionQuery
-      ? (parseInt(vectorDimensionQuery, 10) as 768 | 1536)
-      : 768;
+    const campusId = campusIdQuery
+      ? (campusIdQuery as Identifier)
+      : undefined;
+    const facultyId = facultyIdQuery
+      ? (facultyIdQuery as Identifier)
+      : undefined;
+    let isGenEd: boolean | undefined;
+    if (isGenEdQuery === 'true') {
+      isGenEd = true;
+    } else if (isGenEdQuery === 'false') {
+      isGenEd = false;
+    }
+    let academicYearSemesters:
+      | { academicYear: number; semesters?: number[] }[]
+      | undefined;
+    if (academicYearSemestersQuery) {
+      try {
+        const parsed = JSON.parse(academicYearSemestersQuery);
+        if (Array.isArray(parsed)) {
+          academicYearSemesters = parsed;
+        } else {
+          throw new Error('Academic year filter must be an array');
+        }
+      } catch {
+        return {
+          error:
+            'Invalid academicYearSemesters format. Provide a JSON array such as [{"academicYear":2023,"semesters":[1]}].',
+        };
+      }
+    }
 
     if (skills.length === 0) {
       return { error: 'At least one skill must be provided' };
@@ -254,9 +190,17 @@ export class AppController {
 
     const result = await this.courseLearningOutcomeRepository.findLosBySkills({
       skills,
+      embeddingConfiguration: this.resolveEmbeddingConfiguration({
+        model: embeddingModelQuery,
+        provider: embeddingProviderQuery,
+        dimension: embeddingDimensionQuery,
+      }),
       threshold,
       topN,
-      vectorDimension,
+      campusId,
+      facultyId,
+      isGenEd,
+      academicYearSemesters,
     });
 
     const arrayResult = Array.from(result.entries()).map(([skill, los]) => {
@@ -281,7 +225,7 @@ export class AppController {
     return arrayResult;
   }
 
-  @Post('/test/course-retriever-service')
+  @Post('/course-retriever')
   @ApiQuery({
     name: 'skills',
     required: false,
@@ -299,12 +243,6 @@ export class AppController {
     required: false,
     description: 'Number of top matches to return per skill (default: 20)',
     example: '20',
-  })
-  @ApiQuery({
-    name: 'vectorDimension',
-    required: false,
-    description: 'Dimension of embedding vectors (768 or 1536, default: 768)',
-    example: '768',
   })
   @ApiQuery({
     name: 'enableLlmFilter',
@@ -327,6 +265,24 @@ export class AppController {
     required: false,
     description: 'Filter for general education courses (default: false)',
     example: 'false',
+  })
+  @ApiQuery({
+    name: 'embeddingModel',
+    required: false,
+    description: 'Embedding model identifier (default: e5-base)',
+    example: EmbeddingModels.E5_BASE,
+  })
+  @ApiQuery({
+    name: 'embeddingProvider',
+    required: false,
+    description: 'Embedding provider identifier (default: e5)',
+    example: EmbeddingProviders.E5,
+  })
+  @ApiQuery({
+    name: 'embeddingDimension',
+    required: false,
+    description: 'Embedding vector dimension (default: 768)',
+    example: '768',
   })
   @ApiBody({
     description: 'Academic year and semester filters (array)',
@@ -354,11 +310,13 @@ export class AppController {
     @Query('skills') skillsQuery?: string,
     @Query('threshold') thresholdQuery?: string,
     @Query('topN') topNQuery?: string,
-    @Query('vectorDimension') vectorDimensionQuery?: string,
     @Query('enableLlmFilter') enableLlmFilterQuery?: string,
     @Query('campusId') campusIdQuery?: string,
     @Query('facultyId') facultyIdQuery?: string,
     @Query('isGenEd') isGenEdQuery?: string,
+    @Query('embeddingModel') embeddingModelQuery?: string,
+    @Query('embeddingProvider') embeddingProviderQuery?: string,
+    @Query('embeddingDimension') embeddingDimensionQuery?: string,
     @Body()
     body?: {
       academicYearSemesters?: { academicYear: number; semesters?: number[] }[];
@@ -381,9 +339,6 @@ export class AppController {
 
     const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.6;
     const topN = topNQuery ? parseInt(topNQuery, 10) : 20;
-    const vectorDimension = vectorDimensionQuery
-      ? (parseInt(vectorDimensionQuery, 10) as 768 | 1536)
-      : 768;
     const enableLlmFilter = enableLlmFilterQuery === 'true';
     const campusId = (campusIdQuery as Identifier) ?? undefined;
     const facultyId = (facultyIdQuery as Identifier) ?? undefined;
@@ -399,9 +354,13 @@ export class AppController {
     const result =
       await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
         skills,
+        embeddingConfiguration: this.resolveEmbeddingConfiguration({
+          model: embeddingModelQuery,
+          provider: embeddingProviderQuery,
+          dimension: embeddingDimensionQuery,
+        }),
         threshold,
         topN,
-        vectorDimension,
         enableLlmFilter,
         campusId,
         facultyId,
@@ -415,18 +374,15 @@ export class AppController {
     // Define types for course information
     type CourseInfo = {
       courseCode: string;
-      courseNameTh: string;
-      courseNameEn: string | null;
+      courseName: string;
       count: number;
-      academicYearSemesters: Set<string>;
+      learningOutcomes: Set<string>;
     };
 
     type UniqueCourseInfo = {
       courseCode: string;
-      courseNameTh: string;
-      courseNameEn: string | null;
+      courseName: string;
       count: number;
-      academicYearSemesters: string[];
     };
 
     // Convert Map to array for response and group courses by unique codes
@@ -434,7 +390,7 @@ export class AppController {
       // Group courses by unique course code and track learning outcomes
       const coursesByCode = new Map<
         string,
-        CourseInfo & { learningOutcomes: Set<string> }
+        CourseInfo
       >();
 
       courses.forEach((course) => {
@@ -445,10 +401,8 @@ export class AppController {
         if (!coursesByCode.has(courseCode)) {
           coursesByCode.set(courseCode, {
             courseCode,
-            courseNameTh: course.subjectNameTh,
-            courseNameEn: course.subjectNameEn,
+            courseName: course.subjectName,
             count: 0,
-            academicYearSemesters: new Set(),
             learningOutcomes: new Set(),
           });
         }
@@ -457,12 +411,6 @@ export class AppController {
         if (courseInfo) {
           courseInfo.count++;
           courseInfo.learningOutcomes.add(loName);
-
-          if (course.academicYear && course.semester) {
-            courseInfo.academicYearSemesters.add(
-              `${course.academicYear}/${course.semester}`,
-            );
-          }
         }
       });
 
@@ -473,12 +421,8 @@ export class AppController {
         .map(
           (courseInfo): UniqueCourseInfo => ({
             courseCode: courseInfo.courseCode,
-            courseNameTh: courseInfo.courseNameTh,
-            courseNameEn: courseInfo.courseNameEn,
+            courseName: courseInfo.courseName,
             count: courseInfo.count,
-            academicYearSemesters: Array.from(
-              courseInfo.academicYearSemesters,
-            ).sort(),
           }),
         )
         .sort((a, b) => b.count - a.count);
@@ -526,7 +470,7 @@ export class AppController {
         // Group by courseId to detect duplicates
         const byCourseId = new Map<string, any[]>();
         coursesWithTwoOrMoreMatches.forEach((course) => {
-          const id = course.courseId;
+          const id = course.id;
           if (!byCourseId.has(id)) {
             byCourseId.set(id, []);
           }
@@ -556,7 +500,7 @@ export class AppController {
           const moreText =
             course.matchedLearningOutcomes.length > 3 ? '...' : '';
           console.log(
-            `  ${course.subjectCode} (${course.matchedLearningOutcomes.length} matches) [ID: ${course.courseId}]: ${loNames}${moreText}`,
+            `  ${course.subjectCode} (${course.matchedLearningOutcomes.length} matches) [ID: ${course.id}]: ${loNames}${moreText}`,
           );
         });
         console.log('');
@@ -596,7 +540,7 @@ export class AppController {
     const allCourses = arrayResult.flatMap((result) => result.courses);
     console.log(`Total courses in arrayResult: ${allCourses.length}`);
 
-    const uniqueCourseIds = new Set(allCourses.map((c) => c.courseId));
+    const uniqueCourseIds = new Set(allCourses.map((c) => c.id));
     console.log(`Unique course IDs: ${uniqueCourseIds.size}`);
 
     const uniqueSubjectCodes = new Set(allCourses.map((c) => c.subjectCode));
@@ -618,7 +562,7 @@ export class AppController {
 
       .forEach(([code, courses]) => {
         console.log(`  ${code}: ${courses.length} occurrences`);
-        const uniqueIds = new Set(courses.map((c) => c.courseId));
+        const uniqueIds = new Set(courses.map((c) => c.id));
         console.log(`    Unique course IDs: ${uniqueIds.size}`);
       });
     console.log('--- End Debug ---\n');

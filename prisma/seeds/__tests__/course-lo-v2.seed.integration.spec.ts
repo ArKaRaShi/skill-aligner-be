@@ -437,3 +437,9 @@
 //     });
 //   });
 // });
+
+describe.skip('course-lo-v2.seed (Integration) - seedCourseAndLO placeholder', () => {
+  test.todo(
+    'Add integration coverage once seedCourseAndLO is updated for the new schema',
+  );
+});

@@ -7,7 +7,6 @@ export type LearningOutcome = {
   skipEmbedding: boolean;
   hasEmbedding768: boolean;
   hasEmbedding1536: boolean;
-  metadata: Record<string, any> | null;
   createdAt: Date;
   updatedAt: Date;
 };

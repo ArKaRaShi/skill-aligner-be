@@ -4,18 +4,18 @@ import { Prisma } from '@prisma/client';
 
 import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 
-import { EMBEDDING_MODELS } from 'src/modules/embedding/constants/model.constant';
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
 } from 'src/modules/embedding/contracts/i-embedding-client.contract';
+import { EmbeddingHelper } from 'src/modules/embedding/helpers/embedding.helper';
 
 import {
   FindLosBySkillsParams,
   ICourseLearningOutcomeRepository,
 } from '../contracts/i-course-learning-outcome-repository.contract';
 import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
-import { PrismaCourseLearningOutcomeV2Mapper } from './prisma-course-learning-outcome-v2.mapper';
+import { PrismaCourseLearningOutcomeV2Mapper } from './mappers/prisma-course-learning-outcome-v2.mapper';
 import { RawCourseLearningOutcomeRow } from './types/raw-course-learning-outcome-row.type';
 
 @Injectable()
@@ -30,26 +30,22 @@ export class PrismaCourseLearningOutcomeRepository
 
   async findLosBySkills({
     skills,
+    embeddingConfiguration,
     threshold = 0.75,
     topN = 10,
-    vectorDimension = 768,
     campusId,
     facultyId,
-    isGenEd = false,
+    isGenEd,
     academicYearSemesters,
   }: FindLosBySkillsParams): Promise<Map<string, MatchedLearningOutcome[]>> {
     if (!skills.length) {
       return new Map<string, MatchedLearningOutcome[]>();
     }
 
-    // Get the appropriate embedding model based on vector dimension
-    const embeddingModel = Object.values(EMBEDDING_MODELS).find(
-      (model) => model.dimension === vectorDimension,
-    );
-
-    if (!embeddingModel) {
+    // Validate the embedding configuration
+    if (!EmbeddingHelper.isRegistered(embeddingConfiguration)) {
       throw new Error(
-        `No embedding model found for vector dimension: ${vectorDimension}`,
+        `Invalid embedding configuration: ${JSON.stringify(embeddingConfiguration)}`,
       );
     }
 
@@ -75,19 +71,13 @@ export class PrismaCourseLearningOutcomeRepository
     const embeddingDimension = skillsWithEmbeddings[0]?.vector.length ?? 0;
     const vectorType = Prisma.raw(`vector(${embeddingDimension})`);
     const embeddingColumnName =
-      vectorDimension === 768 ? 'embedding_768' : 'embedding_1536';
+      embeddingConfiguration.dimension === 768
+        ? 'embedding_768'
+        : 'embedding_1536';
     const hasEmbeddingColumnName =
-      vectorDimension === 768 ? 'has_embedding_768' : 'has_embedding_1536';
-
-    const skillEmbeddingValues = Prisma.join(
-      skillsWithEmbeddings.map(({ skill, vector }) => {
-        const vectorSql = Prisma.sql`ARRAY[${Prisma.join(
-          vector.map((value) => Prisma.sql`${value}`),
-        )}]::float4[]`;
-
-        return Prisma.sql`(${skill}::text, (${vectorSql})::${vectorType})`;
-      }),
-    );
+      embeddingConfiguration.dimension === 768
+        ? 'has_embedding_768'
+        : 'has_embedding_1536';
 
     const academicYearSemesterClauses = (academicYearSemesters ?? []).map(
       ({ academicYear, semesters }) => {
@@ -105,105 +95,107 @@ export class PrismaCourseLearningOutcomeRepository
 
     const academicYearSemesterCondition =
       academicYearSemesterClauses.length > 0
-        ? Prisma.sql`AND (${Prisma.join(academicYearSemesterClauses, ' OR ')})`
+        ? Prisma.sql`AND EXISTS (
+            SELECT 1
+            FROM course_offerings co
+            WHERE co.course_id = c.id
+              AND (${Prisma.join(academicYearSemesterClauses, ' OR ')})
+          )`
         : Prisma.empty;
 
-    const rows = await this.prisma.$queryRaw<RawCourseLearningOutcomeRow[]>`
-      WITH filtered_clos AS (
-        SELECT DISTINCT
-          clo.id AS clo_id,
-          clo.original_clo_name,
-          clo.cleaned_clo_name_th,
-          clo.skip_embedding,
-          clo.has_embedding_768,
-          clo.has_embedding_1536,
-          clo.metadata,
-          clo.created_at,
-          clo.updated_at,
-          clov.${Prisma.raw(embeddingColumnName)} AS embedding
-        FROM course_learning_outcomes clo
-        JOIN course_learning_outcome_vectors clov ON clov.id = clo.vector_id
-        JOIN course_offerings co ON co.id = clo.course_offering_id
-        JOIN courses c ON c.id = co.course_id
-        WHERE clo.${Prisma.raw(hasEmbeddingColumnName)} = TRUE
-          AND clov.${Prisma.raw(embeddingColumnName)} IS NOT NULL
-          ${campusId ? Prisma.sql`AND c.campus_id = ${campusId}::uuid` : Prisma.empty}
-          ${facultyId ? Prisma.sql`AND c.faculty_id = ${facultyId}::uuid` : Prisma.empty}
-          ${isGenEd !== undefined ? Prisma.sql`AND c.is_gen_ed = ${isGenEd}` : Prisma.empty}
-          ${academicYearSemesterCondition}
-      ),
-      input_skills AS (
-        SELECT *
-        FROM (VALUES ${skillEmbeddingValues}) AS v(skill, embedding)
-      ),
-      scored_clos AS (
-        SELECT
-          s.skill,
-          f.clo_id,
-          f.original_clo_name,
-          f.cleaned_clo_name_th,
-          f.skip_embedding,
-          f.has_embedding_768,
-          f.has_embedding_1536,
-          f.metadata,
-          f.created_at,
-          f.updated_at,
-          1 - (f.embedding <=> s.embedding) AS similarity
-        FROM input_skills s
-        CROSS JOIN filtered_clos f
-      ),
-      deduped_clos AS (
-        SELECT
-          skill,
-          clo_id,
-          original_clo_name,
-          cleaned_clo_name_th,
-          skip_embedding,
-          has_embedding_768,
-          has_embedding_1536,
-          metadata,
-          created_at,
-          updated_at,
-          similarity
-        FROM (
-          SELECT
-            sc.*,
-            ROW_NUMBER() OVER (
-              PARTITION BY sc.skill, sc.clo_id
-              ORDER BY sc.similarity DESC
-            ) AS clo_rank
-          FROM scored_clos sc
-        ) ranked_sc
-        WHERE clo_rank = 1
-      ),
-      ranked_clos AS (
-        SELECT
-          *,
-          ROW_NUMBER() OVER (
-            PARTITION BY skill
-            ORDER BY similarity DESC
-          ) AS skill_rank
-        FROM deduped_clos
-      )
-      SELECT *
-      FROM ranked_clos
-      WHERE skill_rank <= ${topN}
-        AND similarity >= ${threshold}
-      ORDER BY skill, similarity DESC;
+    const sharedFilterConditions = Prisma.sql`
+      ${campusId ? Prisma.sql`AND c.campus_id = ${campusId}::uuid` : Prisma.empty}
+      ${facultyId ? Prisma.sql`AND c.faculty_id = ${facultyId}::uuid` : Prisma.empty}
+      ${
+        isGenEd !== undefined
+          ? Prisma.sql`AND c.is_gen_ed = ${isGenEd}`
+          : Prisma.empty
+      }
+      ${academicYearSemesterCondition}
     `;
 
-    const result = new Map<string, MatchedLearningOutcome[]>();
+    const queryResults = await Promise.all(
+      skillsWithEmbeddings.map(async ({ skill, vector }) => {
+        const vectorArraySql = Prisma.sql`ARRAY[${Prisma.join(
+          vector.map((value) => Prisma.sql`${value}`),
+        )}]::float4[]`;
+        const vectorSql = Prisma.sql`(${vectorArraySql})::${vectorType}`;
 
-    for (const skill of skills) {
-      const matchingRows = rows.filter((row) => row.skill === skill);
-
-      const cloMatches: MatchedLearningOutcome[] = matchingRows.map((row) => ({
-        ...PrismaCourseLearningOutcomeV2Mapper.fromRawLearningOutcomeRowToLearningOutcome(
-          row,
+        const rows = await this.prisma.$queryRaw<RawCourseLearningOutcomeRow[]>`
+        WITH filtered_clos AS (
+          SELECT
+            clo.id AS clo_id,
+            clo.vector_id,
+            clo.original_clo_name,
+            clo.cleaned_clo_name_th,
+            clo.skip_embedding,
+            clo.has_embedding_768,
+            clo.has_embedding_1536,
+            clo.created_at,
+            clo.updated_at,
+            clov.${Prisma.raw(embeddingColumnName)} AS embedding
+          FROM course_learning_outcomes clo
+          JOIN course_learning_outcome_vectors clov ON clov.id = clo.vector_id
+          JOIN courses c ON c.id = clo.course_id
+          WHERE clo.${Prisma.raw(hasEmbeddingColumnName)} = TRUE
+            AND clov.${Prisma.raw(embeddingColumnName)} IS NOT NULL
+            ${sharedFilterConditions}
         ),
-        similarityScore: Number(row.similarity),
-      }));
+        distinct_vectors AS (
+          SELECT DISTINCT ON (vector_id)
+            vector_id,
+            embedding
+          FROM filtered_clos
+        ),
+        scored_vectors AS (
+          SELECT
+            vector_id,
+            1 - (embedding <=> ${vectorSql}) AS similarity
+          FROM distinct_vectors
+        ),
+        ranked_vectors AS (
+          SELECT
+            vector_id,
+            similarity,
+            ROW_NUMBER() OVER (
+              ORDER BY similarity DESC
+            ) AS vector_rank
+          FROM scored_vectors
+          WHERE similarity >= ${threshold}
+        ),
+        selected_vectors AS (
+          SELECT
+            vector_id,
+            similarity
+          FROM ranked_vectors
+          WHERE vector_rank <= ${topN}
+        )
+        SELECT
+          fc.clo_id,
+          fc.original_clo_name,
+          fc.cleaned_clo_name_th,
+          fc.skip_embedding,
+          fc.has_embedding_768,
+          fc.has_embedding_1536,
+          fc.created_at,
+          fc.updated_at,
+          sv.similarity
+        FROM filtered_clos fc
+        JOIN selected_vectors sv ON sv.vector_id = fc.vector_id
+        ORDER BY sv.similarity DESC, fc.clo_id;
+      `;
 
+        const cloMatches: MatchedLearningOutcome[] = rows.map((row) => ({
+          ...PrismaCourseLearningOutcomeV2Mapper.fromRawRowLoToDomainLo(row),
+          similarityScore: Number(row.similarity),
+        }));
+
+        return { skill, cloMatches };
+      }),
+    );
+
+    const result = new Map<string, MatchedLearningOutcome[]>();
+    for (const { skill, cloMatches } of queryResults) {
       result.set(skill, cloMatches);
     }
 

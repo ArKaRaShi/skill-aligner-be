@@ -130,11 +130,6 @@ export class ObjectBasedAnswerGeneratorService
   }
 
   private getCourseDisplayName(course: CourseMatch): string {
-    return (
-      course.subjectNameTh ??
-      course.subjectNameEn ??
-      course.subjectCode ??
-      'Unknown course'
-    );
+    return course.subjectName;
   }
 }

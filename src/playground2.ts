@@ -1,69 +1,25 @@
-// check for potential diffrent courses link to same learning outcome
-// check potential same course name but different subject code
 import { PrismaClient } from '@prisma/client';
 
 async function main() {
   const prisma = new PrismaClient();
-  const courses = await prisma.course.findMany({
-    select: {
-      id: true,
-      subjectCode: true,
-      subjectName: true,
-    },
-  });
-
-  const nameToCourseCodesMap: Record<string, Set<string>> = {};
-
-  for (const course of courses) {
-    const nameKey = `${course.subjectName || ''}`;
-    if (!nameToCourseCodesMap[nameKey]) {
-      nameToCourseCodesMap[nameKey] = new Set();
-    }
-    nameToCourseCodesMap[nameKey].add(course.subjectCode);
-  }
-
-  for (const [nameKey, subjectCodes] of Object.entries(nameToCourseCodesMap)) {
-    if (subjectCodes.size > 1) {
-      const [subjectNameTh, subjectNameEn] = nameKey.split('||');
-      console.log(
-        `Course Name Th: "${subjectNameTh}", En: "${subjectNameEn}" is linked to multiple subject codes: ${Array.from(subjectCodes).join(', ')}`,
-      );
-    }
-  }
-
-  const learningOutcomes = await prisma.courseLearningOutcome.findMany({
-    include: {
-      courseOffering: {
-        include: {
-          course: true,
-        },
+  try {
+    const courses = await prisma.course.findMany({
+      where: {
+        courseOfferings: { none: {} },
       },
-    },
-  });
-  const learningOutcomesToSubjectCodeMap: Record<string, Set<string>> = {};
-
-  for (const lo of learningOutcomes) {
-    const subjectCode = lo.courseOffering.course.subjectCode;
-    if (!learningOutcomesToSubjectCodeMap[lo.cleanedCloName]) {
-      learningOutcomesToSubjectCodeMap[lo.cleanedCloName] = new Set();
+    });
+    if (courses.length > 0) {
+      console.log(`Courses with no offerings (${courses.length}):`);
+    } else {
+      console.log('No courses without offerings found.');
     }
-    learningOutcomesToSubjectCodeMap[lo.cleanedCloName].add(subjectCode);
-  }
 
-  let sameLinkCount = 0;
-  for (const [loName, subjectCodes] of Object.entries(
-    learningOutcomesToSubjectCodeMap,
-  )) {
-    if (subjectCodes.size > 1) {
-      console.log(
-        `Learning Outcome: "${loName}" is linked to multiple subject codes: ${Array.from(subjectCodes).join(', ')}`,
-      );
-      sameLinkCount++;
-    }
+    console.log('Check completed');
+  } catch (error) {
+    console.error('Error during playground execution:', error);
+  } finally {
+    await prisma.$disconnect();
   }
-  console.log(
-    `Total learning outcomes linked to multiple subject codes: ${sameLinkCount}`,
-  );
 }
 
 main().catch((e) => {

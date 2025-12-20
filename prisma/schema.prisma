@@ -88,73 +88,63 @@ model User {
 // }
 
 model Campus {
-  id              String          @id @db.Uuid
-  code            String          @unique
-  nameTh          String?         @map("name_th")
-  nameEn          String?         @map("name_en")
-  createdAt       DateTime        @default(now()) @map("created_at")
-  updatedAt       DateTime        @updatedAt @map("updated_at")
-  courses         Course[]
-  linkedFaculties CampusFaculty[]
+  id        String    @id @db.Uuid
+  code      String    @unique
+  nameTh    String?   @map("name_th")
+  nameEn    String?   @map("name_en")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  courses   Course[]
+  faculties Faculty[]
 
+  @@index([id], name: "campus_id_index")
   @@map("campuses")
 }
 
 model Faculty {
   id        String   @id @db.Uuid
-  code      String   @unique
+  code      String
   nameTh    String?  @map("name_th")
   nameEn    String?  @map("name_en")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+  campusId  String   @map("campus_id") @db.Uuid
+  campus    Campus   @relation(fields: [campusId], references: [id])
+  courses   Course[]
 
-  linkedCampuses CampusFaculty[]
-  courses        Course[]
-
+  @@unique([campusId, code], name: "unique_campus_faculty_code")
+  @@index([id], name: "faculty_id_index")
   @@map("faculties")
 }
 
-model CampusFaculty {
-  id        String   @id @db.Uuid
-  campusId  String   @map("campus_id") @db.Uuid
-  campus    Campus   @relation(fields: [campusId], references: [id])
-  facultyId String   @map("faculty_id") @db.Uuid
-  faculty   Faculty  @relation(fields: [facultyId], references: [id])
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
-  @@unique([campusId, facultyId], name: "unique_campus_faculty")
-  @@map("campus_faculties")
-}
-
 model Course {
-  id              String           @id @db.Uuid
-  campusId        String           @map("campus_id") @db.Uuid
-  campus          Campus           @relation(fields: [campusId], references: [id])
-  facultyId       String           @map("faculty_id") @db.Uuid
-  faculty         Faculty          @relation(fields: [facultyId], references: [id])
+  id          String   @id @db.Uuid
+  campusId    String   @map("campus_id") @db.Uuid
+  campus      Campus   @relation(fields: [campusId], references: [id])
+  facultyId   String   @map("faculty_id") @db.Uuid
+  faculty     Faculty  @relation(fields: [facultyId], references: [id])
   // unique bcz
-  subjectCode     String           @unique @map("subject_code") 
-  subjectName     String           @map("subject_name")
-  isGenEd         Boolean          @default(false) @map("is_gen_ed")
-  createdAt       DateTime         @default(now()) @map("created_at")
-  updatedAt       DateTime         @updatedAt @map("updated_at")
-  metadata        Json?
-  courseOfferings CourseOffering[]
-  courseClickLogs CourseClickLog[]
+  subjectCode String   @unique @map("subject_code")
+  subjectName String   @map("subject_name")
+  isGenEd     Boolean  @default(false) @map("is_gen_ed")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  metadata    Json?
+
+  courseLearningOutcomes CourseLearningOutcome[]
+  courseOfferings        CourseOffering[]
+  courseClickLogs        CourseClickLog[]
 
   @@map("courses")
 }
 
 model CourseOffering {
-  id                     String                  @id @db.Uuid
-  courseId               String                  @map("course_id") @db.Uuid
-  course                 Course                  @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  semester               Int
-  academicYear           Int                     @map("academic_year")
-  createdAt              DateTime                @default(now()) @map("created_at")
-  courseLearningOutcomes CourseLearningOutcome[]
-  // section derived from query in gg sheet
+  id           String   @id @db.Uuid
+  courseId     String   @map("course_id") @db.Uuid
+  course       Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  semester     Int
+  academicYear Int      @map("academic_year")
+  createdAt    DateTime @default(now()) @map("created_at")
 
   @@unique([courseId, semester, academicYear], name: "unique_course_offering")
   @@map("course_offerings")
@@ -165,26 +155,24 @@ model CourseLearningOutcome {
   cloNo            Int                          @map("clo_no")
   originalCloName  String                       @map("original_clo_name")
   cleanedCloName   String                       @map("cleaned_clo_name_th")
-  courseOfferingId String                       @map("course_offering_id") @db.Uuid
-  courseOffering   CourseOffering               @relation(fields: [courseOfferingId], references: [id], onDelete: Cascade)
+  courseId         String                       @map("course_id") @db.Uuid
+  course           Course                       @relation(fields: [courseId], references: [id], onDelete: Cascade)
   vectorId         String?                      @map("vector_id") @db.Uuid
   vector           CourseLearningOutcomeVector? @relation(fields: [vectorId], references: [id], onDelete: SetNull)
   skipEmbedding    Boolean                      @default(false) @map("skip_embedding")
   hasEmbedding768  Boolean                      @default(false) @map("has_embedding_768")
   hasEmbedding1536 Boolean                      @default(false) @map("has_embedding_1536")
-  metadata         Json?
   createdAt        DateTime                     @default(now()) @map("created_at")
   updatedAt        DateTime                     @updatedAt @map("updated_at")
 
-
-  @@unique([courseOfferingId, cloNo], name: "unique_course_original_clo")
+  @@unique([courseId, cloNo], name: "unique_course_clo")
   // allow duplicate CLO names within the same course offering, not affected to vectoring
   @@map("course_learning_outcomes")
 }
 
 model CourseLearningOutcomeVector {
   id                     String                       @id @db.Uuid
-  cleanedCloName         String                       @unique @map("cleaned_clo_name")
+  embeddedText           String                       @unique @map("embedded_text")
   embedding768           Unsupported("vector(768)")?  @map("embedding_768")
   embedding1536          Unsupported("vector(1536)")? @map("embedding_1536")
   metadata               Json?

@@ -151,10 +151,7 @@ export class SkillQueryStrategy implements IQueryStrategy {
       const courseMatches = includedCourses
         .map((includedCourse) => {
           const courseMatch = originalCourses.find((course) => {
-            const displayName =
-              course.subjectNameTh ??
-              course.subjectNameEn ??
-              course.subjectCode;
+            const displayName = course.subjectName;
             return displayName === includedCourse.name;
           });
 
@@ -177,40 +174,30 @@ export class SkillQueryStrategy implements IQueryStrategy {
         async ({ courseMatch, includedCourse }) => {
           try {
             const fullCourseData = await this.courseRepository.findByIdOrThrow(
-              courseMatch.courseId,
+              courseMatch.id,
             );
 
             return {
-              id: fullCourseData.courseId,
+              id: fullCourseData.id,
               subjectCode: fullCourseData.subjectCode,
-              name:
-                fullCourseData.subjectNameTh ??
-                fullCourseData.subjectNameEn ??
-                fullCourseData.subjectCode,
+              name: fullCourseData.subjectName ?? fullCourseData.subjectCode,
               reason: includedCourse.reason,
               learningOutcomes: fullCourseData.courseLearningOutcomes.map(
                 (clo) => ({
-                  id: clo.cloId,
-                  name:
-                    clo.cleanedCloName ??
-                    clo.cleanedCLONameEn ??
-                    clo.originalCLONameTh ??
-                    clo.originalCLONameEn,
+                  id: clo.loId,
+                  name: clo.originalName,
                 }),
               ),
             } as CourseOutput;
           } catch (error) {
             this.logger.warn(
-              `Failed to fetch course data for course ID ${courseMatch.courseId}: ${error}`,
+              `Failed to fetch course data for course ID ${courseMatch.id}: ${error}`,
             );
             // Fallback to basic info if fetch fails
             return {
-              id: courseMatch.courseId,
+              id: courseMatch.id,
               subjectCode: courseMatch.subjectCode,
-              name:
-                courseMatch.subjectNameTh ??
-                courseMatch.subjectNameEn ??
-                courseMatch.subjectCode,
+              name: courseMatch.subjectName ?? courseMatch.subjectCode,
               reason: includedCourse.reason,
               learningOutcomes: [],
             } as CourseOutput;

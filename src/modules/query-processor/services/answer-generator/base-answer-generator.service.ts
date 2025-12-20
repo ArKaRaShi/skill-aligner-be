@@ -35,7 +35,7 @@ export abstract class BaseAnswerGeneratorService
         }
 
         const references = courses.map((course) => {
-          const courseId = String(course.courseId);
+          const courseId = String(course.id);
           if (!courseIndexMap.has(courseId)) {
             courseIndexMap.set(courseId, courseIndexMap.size + 1);
             courseMetadata.set(courseId, {
@@ -48,10 +48,7 @@ export abstract class BaseAnswerGeneratorService
           metadata?.skills.add(skill);
 
           const displayName =
-            course.subjectNameTh ??
-            course.subjectNameEn ??
-            course.subjectCode ??
-            'Unknown course';
+            course.subjectName ?? course.subjectCode ?? 'Unknown course';
 
           const courseIndex = courseIndexMap.get(courseId)!;
           return `Course [${courseIndex}] (${displayName})`;
@@ -85,11 +82,7 @@ export abstract class BaseAnswerGeneratorService
         continue;
       }
       const { course, skills } = metadata;
-      const courseName =
-        course.subjectNameTh ??
-        course.subjectNameEn ??
-        course.subjectCode ??
-        `Course ${index}`;
+      const courseName = course.subjectName;
 
       const supportingSkills = Array.from(skills).sort((a, b) =>
         a.localeCompare(b),
