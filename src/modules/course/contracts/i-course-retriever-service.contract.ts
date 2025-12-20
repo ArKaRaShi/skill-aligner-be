@@ -1,5 +1,7 @@
 import { Identifier } from 'src/common/domain/types/identifier';
 
+import { EmbeddingMetadata } from 'src/modules/embedding/clients';
+
 import { CourseWithLearningOutcomeV2Match } from '../types/course.type';
 import type { AcademicYearSemesterFilter } from './i-course-learning-outcome-repository.contract';
 
@@ -7,11 +9,12 @@ export const I_COURSE_RETRIEVER_SERVICE_TOKEN = Symbol(
   'ICourseRetrieverService',
 );
 
-export type FindLosBySkillsWithFilterParams = {
+export type FindCoursesWithLosBySkillsWithFilterParams = {
   skills: string[];
+  embeddingConfiguration: EmbeddingMetadata;
   threshold?: number;
   topN?: number;
-  vectorDimension?: 768 | 1536;
+  vectorDimension?: number;
   enableLlmFilter?: boolean;
   campusId?: Identifier;
   facultyId?: Identifier;
@@ -26,6 +29,6 @@ export interface ICourseRetrieverService {
    * @returns A map where the key is the skill and the value is an array of courses with learning outcome matche and all learning outcomes.
    */
   getCoursesWithLosBySkillsWithFilter: (
-    params: FindLosBySkillsWithFilterParams,
+    params: FindCoursesWithLosBySkillsWithFilterParams,
   ) => Promise<Map<string, CourseWithLearningOutcomeV2Match[]>>;
 }

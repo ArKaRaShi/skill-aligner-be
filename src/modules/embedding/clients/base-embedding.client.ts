@@ -1,17 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
-import { EMBEDDING_MODELS } from '../constants/model.constant';
+import {
+  EmbeddingMetadata,
+  EmbeddingModel,
+  EmbeddingProvider,
+} from '../constants/model.constant';
 import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
-
-export type EmbeddingProviderKey = 'e5' | 'openai' | 'openrouter';
-
-export const EMBEDDING_PROVIDERS: EmbeddingProviderKey[] = [
-  'e5',
-  'openai',
-  'openrouter',
-] as const;
-
-export type EmbeddingModelId = keyof typeof EMBEDDING_MODELS;
+import { EmbeddingHelper } from '../helpers/embedding.helper';
 
 export type EmbedOneParams = {
   text: string;
@@ -23,10 +18,7 @@ export type EmbedManyParams = {
   role?: 'query' | 'passage';
 };
 
-export type EmbeddingModelMetadata =
-  (typeof EMBEDDING_MODELS)[EmbeddingModelId];
-
-export type EmbeddingResultMetadata = EmbeddingModelMetadata & {
+export type EmbeddingResultMetadata = EmbeddingMetadata & {
   embeddedText: string; // The text that was embedded
   generatedAt: string;
 };
@@ -39,22 +31,18 @@ export type EmbedResult = {
 @Injectable()
 export abstract class BaseEmbeddingClient implements IEmbeddingClient {
   constructor(
-    private readonly model: EmbeddingModelId,
-    private readonly provider: EmbeddingProviderKey,
+    protected readonly model: EmbeddingModel,
+    protected readonly provider: EmbeddingProvider,
   ) {
-    this.ensureModel(this.model);
-    this.ensureProvider(this.provider);
-  }
-
-  private ensureProvider(provider: EmbeddingProviderKey): void {
-    if (!EMBEDDING_PROVIDERS.includes(provider)) {
-      throw new Error(`Unsupported embedding provider: ${provider}`);
-    }
-  }
-
-  private ensureModel(model: EmbeddingModelId): void {
-    if (!EMBEDDING_MODELS[model]) {
-      throw new Error(`Unsupported embedding model: ${model}`);
+    if (
+      !EmbeddingHelper.isValidModelProviderCombination(
+        this.model,
+        this.provider,
+      )
+    ) {
+      throw new Error(
+        `Unsupported embedding model and provider combination: ${this.model} with ${this.provider}`,
+      );
     }
   }
 
@@ -88,13 +76,10 @@ export abstract class BaseEmbeddingClient implements IEmbeddingClient {
     params: EmbedManyParams,
   ): Promise<EmbedResult[]>;
 
-  protected buildMetadata(
-    model: EmbeddingModelId,
-    embeddedText: string,
-  ): EmbeddingResultMetadata {
-    const metadata = EMBEDDING_MODELS[model];
+  protected buildMetadata(embeddedText: string): EmbeddingResultMetadata {
+    const metadata = EmbeddingHelper.getMetadataByModel(this.model);
     if (!metadata) {
-      throw new Error(`Unsupported embedding model: ${model}`);
+      throw new Error(`Unsupported embedding model: ${this.model}`);
     }
 
     return {

@@ -6,6 +6,11 @@ export class CleanNormalizeCLOPipeline {
   private static readonly RAW_DATA_PATH =
     'src/modules/course/pipelines/data/raw/courses';
 
+  private static readonly SUBJECT_CODES_TO_IGNORE = new Set<string>([
+    // Add subject codes to explicitly ignore here
+    '02184251-67', // only contains LO name LLO1, LLO1, ..., no meaningful content
+  ]);
+
   static async execute(): Promise<CleanCourseWithCLO[]> {
     const rawData = await FileHelper.loadLatestJson<RawCourseWithCLOJsonRow[]>(
       this.RAW_DATA_PATH,
@@ -39,7 +44,8 @@ export class CleanNormalizeCLOPipeline {
     if (
       this.isEmptyOrWhitespace(clo_name_th) ||
       this.containsSequentialCLONumbers(clo_name_th) ||
-      this.onlyDash(clo_name_th)
+      this.onlyDash(clo_name_th) ||
+      this.SUBJECT_CODES_TO_IGNORE.has(row.subject_code)
     ) {
       cleanedRow.skipEmbedding = true;
       return cleanedRow;
@@ -50,9 +56,9 @@ export class CleanNormalizeCLOPipeline {
     const withoutNewlines = this.removeNewlines(preNormalizedCloName);
     const withoutLeadingNumbers = this.removeLeadingNumbers(withoutNewlines);
     const withoutCLOPrefix = this.removeLeadingCLOPrefix(withoutLeadingNumbers);
-    const cleanedCLOName = this.removeLeadingNisitOrStudent(withoutCLOPrefix);
+    const cleanedCloName = this.removeLeadingNisitOrStudent(withoutCLOPrefix);
 
-    cleanedRow.clean_clo_name_th = cleanedCLOName;
+    cleanedRow.clean_clo_name_th = cleanedCloName;
 
     return cleanedRow;
   }
@@ -100,13 +106,14 @@ export class CleanNormalizeCLOPipeline {
   /**
    * Remove leading "นิสิต" from CLO name.
    * @param cloName - The CLO name to process.
-   * @returns The processed CLO name without leading "นิสิต" prefixes.
+   * @returns The processed CLO name without leading "นิสิต", "student", or "students".
    * @example
    * removeLeadingNisit("นิสิตอธิบายความสำคัญของอุตสาหกรรมสีเขียวได้") => "อธิบายความสำคัญของอุตสาหกรรมสีเขียวได้"
    * removeLeadingNisit("student can analyze data") => "can analyze data"
+   * removeLeadingNisit("students will learn about...") => "will learn about..."
    */
   private static removeLeadingNisitOrStudent(cloName: string): string {
-    return cloName.replace(/^(นิสิต|student)[:.\s-]*/i, '').trim();
+    return cloName.replace(/^(นิสิต|students|student)[:.\s-]*/i, '').trim();
   }
 
   /**

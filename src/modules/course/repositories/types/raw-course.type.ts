@@ -2,11 +2,9 @@ export type RawCourse = {
   id: string;
   campus_id: string;
   faculty_id: string;
-  academic_year: number;
-  semester: number;
   subject_code: string;
-  subject_name_th: string;
-  subject_name_en: string | null;
+  subject_name: string;
+  is_gen_ed: boolean;
   created_at: Date;
   updated_at: Date;
   metadata: Record<string, any> | null;

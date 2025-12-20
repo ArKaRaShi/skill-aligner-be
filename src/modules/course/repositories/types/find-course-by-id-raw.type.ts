@@ -23,7 +23,8 @@ export type FindCourseByIdRawRow = {
   cleaned_clo_name_en: string | null;
   embedding_768: unknown;
   skip_embedding: boolean;
-  is_embedded: boolean;
+  has_embedding_768: boolean;
+  has_embedding_1536: boolean;
   clo_metadata: Record<string, any> | null;
   clo_created_at: Date;
   clo_updated_at: Date;

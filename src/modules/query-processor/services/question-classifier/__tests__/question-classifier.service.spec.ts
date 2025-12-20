@@ -7,7 +7,7 @@ import {
 import { QuestionClassifierCache } from 'src/modules/query-processor/cache/question-classifier.cache';
 import { QuestionClassifyInput } from 'src/modules/query-processor/contracts/i-question-classifier-service.contract';
 import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
-import { QuestionClassification } from 'src/modules/query-processor/types/question-classification.type';
+import { TQuestionClassification } from 'src/modules/query-processor/types/question-classification.type';
 
 import { QuestionClassifierService } from '../question-classifier.service';
 
@@ -81,8 +81,8 @@ describe('QuestionClassifierService', () => {
     const testQuestion = 'What is Python programming?';
 
     it('should return cached classification when cache hit occurs', async () => {
-      const cachedClassification: QuestionClassification = {
-        classification: 'relevant',
+      const cachedClassification: TQuestionClassification = {
+        category: 'relevant',
         reason: 'Cached classification',
         model: 'cached-model',
         userPrompt: testQuestion,
@@ -107,7 +107,7 @@ describe('QuestionClassifierService', () => {
         inputTokens: 10,
         outputTokens: 5,
         object: {
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'AI classification result',
         },
       });
@@ -122,7 +122,7 @@ describe('QuestionClassifierService', () => {
         model: testModelName,
       });
       expect(cache.store).toHaveBeenCalledWith(testQuestion, result);
-      expect(result.classification).toBe('relevant');
+      expect(result.category).toBe('relevant');
       expect(result.reason).toBe('AI classification result');
       expect(result.model).toBe(testModelName);
       expect(result.promptVersion).toBe(defaultPromptVersion);
@@ -143,7 +143,7 @@ describe('QuestionClassifierService', () => {
         inputTokens: 10,
         outputTokens: 5,
         object: {
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'AI classification result',
         },
       });
@@ -155,164 +155,7 @@ describe('QuestionClassifierService', () => {
       expect(cache.lookup).not.toHaveBeenCalled();
       expect(cache.store).not.toHaveBeenCalled();
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
-      expect(result.classification).toBe('relevant');
-    });
-
-    it('should store dangerous content classification in cache', async () => {
-      const dangerousQuestion = 'How to make explosives';
-      const promptVersion: QuestionClassificationPromptVersion = 'v2';
-      const dangerousClassification: QuestionClassification = {
-        classification: 'dangerous',
-        reason: 'The question contains dangerous content: "explosives"',
-        model: 'prefilter',
-        userPrompt: '',
-        systemPrompt: '',
-        promptVersion: formatPrefilterPromptVersion(promptVersion),
-      };
-
-      cache.lookup.mockReturnValue(null);
-
-      const result = await service.classify(
-        buildInput(dangerousQuestion, promptVersion),
-      );
-
-      expect(cache.store).toHaveBeenCalledWith(
-        dangerousQuestion,
-        dangerousClassification,
-      );
-      expect(result).toEqual(dangerousClassification);
-      expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('dangerous content prefiltering', () => {
-    it('should detect violence/crime related content', async () => {
-      const violentQuestions = [
-        'How to kill someone',
-        'I want to harm people',
-        'Planning a robbery',
-        'Making explosives',
-        'How to assault someone',
-        'คุกคามผู้อื่น',
-        'ทำร้ายร่างกาย',
-        'ลอบสังหาร',
-        'ก่อการร้าย',
-      ];
-
-      for (const question of violentQuestions) {
-        cache.lookup.mockReturnValue(null);
-        const result = await service.classify(buildInput(question));
-
-        expect(result.classification).toBe('dangerous');
-        expect(result.model).toBe('prefilter');
-        expect(result.reason).toContain('dangerous content');
-        expect(result.promptVersion).toBe(
-          formatPrefilterPromptVersion(defaultPromptVersion),
-        );
-        expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
-      }
-    });
-
-    it('should detect sexual/NSFW content', async () => {
-      const sexualQuestions = [
-        'โป๊ content',
-        'nude pictures',
-        'porn videos',
-        'sex advice',
-        'sexual content',
-        'erotic stories',
-        'xxx movies',
-        'how to masturbate',
-        'ลามก',
-        'อนาจาร',
-        'เย็ด',
-        'xxx video',
-      ];
-
-      for (const question of sexualQuestions) {
-        cache.lookup.mockReturnValue(null);
-        const result = await service.classify(buildInput(question));
-
-        expect(result.classification).toBe('dangerous');
-        expect(result.model).toBe('prefilter');
-        expect(result.reason).toContain('dangerous content');
-        expect(result.promptVersion).toBe(
-          formatPrefilterPromptVersion(defaultPromptVersion),
-        );
-        expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
-      }
-    });
-
-    it('should detect drugs/illegal content', async () => {
-      const drugQuestions = [
-        'ค้ายาเสพติด',
-        'how to use cocaine',
-        'heroin effects',
-        'making meth',
-      ];
-
-      for (const question of drugQuestions) {
-        cache.lookup.mockReturnValue(null);
-        const result = await service.classify(buildInput(question));
-
-        expect(result.classification).toBe('dangerous');
-        expect(result.model).toBe('prefilter');
-        expect(result.reason).toContain('dangerous content');
-        expect(result.promptVersion).toBe(
-          formatPrefilterPromptVersion(defaultPromptVersion),
-        );
-        expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
-      }
-    });
-
-    it('should be case insensitive for dangerous content detection', async () => {
-      const caseVariations = [
-        'HOW TO KILL SOMEONE',
-        'How To Harm People',
-        'harm others',
-        'EXPLOSIVES making',
-      ];
-
-      for (const question of caseVariations) {
-        cache.lookup.mockReturnValue(null);
-        const promptVersion: QuestionClassificationPromptVersion = 'v2';
-        const result = await service.classify(
-          buildInput(question, promptVersion),
-        );
-
-        expect(result.classification).toBe('dangerous');
-        expect(result.model).toBe('prefilter');
-        expect(result.promptVersion).toBe(
-          formatPrefilterPromptVersion(promptVersion),
-        );
-        expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
-      }
-    });
-
-    it('should allow normal questions to pass through prefilter', async () => {
-      const normalQuestions = [
-        'What is Python programming?',
-        'How to learn machine learning?',
-        'Best practices for web development',
-        'Career advice for software engineers',
-      ];
-
-      llmProviderClient.generateObject.mockResolvedValue({
-        model: testModelName,
-        inputTokens: 10,
-        outputTokens: 5,
-        object: {
-          classification: 'relevant',
-          reason: 'Normal question',
-        },
-      });
-
-      for (const question of normalQuestions) {
-        cache.lookup.mockReturnValue(null);
-        await service.classify(buildInput(question));
-
-        expect(llmProviderClient.generateObject).toHaveBeenCalled();
-      }
+      expect(result.category).toBe('relevant');
     });
   });
 
@@ -330,14 +173,14 @@ describe('QuestionClassifierService', () => {
         inputTokens: 15,
         outputTokens: 8,
         object: {
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'Question about courses and learning',
         },
       });
 
       const result = await service.classify(buildInput(relevantQuestion));
 
-      expect(result.classification).toBe('relevant');
+      expect(result.category).toBe('relevant');
       expect(result.reason).toBe('Question about courses and learning');
       expect(result.model).toBe(testModelName);
       expect(result.promptVersion).toBe(defaultPromptVersion);
@@ -354,14 +197,14 @@ describe('QuestionClassifierService', () => {
         inputTokens: 12,
         outputTokens: 6,
         object: {
-          classification: 'irrelevant',
+          category: 'irrelevant',
           reason: 'Weather question not related to courses',
         },
       });
 
       const result = await service.classify(buildInput(irrelevantQuestion));
 
-      expect(result.classification).toBe('irrelevant');
+      expect(result.category).toBe('irrelevant');
       expect(result.reason).toBe('Weather question not related to courses');
       expect(result.model).toBe(testModelName);
       expect(result.promptVersion).toBe(defaultPromptVersion);
@@ -376,14 +219,14 @@ describe('QuestionClassifierService', () => {
         inputTokens: 8,
         outputTokens: 4,
         object: {
-          classification: 'unclear',
+          category: 'irrelevant',
           reason: 'Question too vague to classify',
         },
       });
 
       const result = await service.classify(buildInput(unclearQuestion));
 
-      expect(result.classification).toBe('unclear');
+      expect(result.category).toBe('irrelevant');
       expect(result.reason).toBe('Question too vague to classify');
       expect(result.model).toBe(testModelName);
       expect(result.promptVersion).toBe(defaultPromptVersion);
@@ -399,7 +242,7 @@ describe('QuestionClassifierService', () => {
         inputTokens: 10,
         outputTokens: 5,
         object: {
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'Test classification',
         },
       });
@@ -445,14 +288,14 @@ describe('QuestionClassifierService', () => {
         inputTokens: 5,
         outputTokens: 3,
         object: {
-          classification: 'unclear',
+          category: 'irrelevant',
           reason: 'Empty question',
         },
       });
 
       const result = await service.classify(buildInput(emptyQuestion));
 
-      expect(result.classification).toBe('unclear');
+      expect(result.category).toBe('irrelevant');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
     });
 
@@ -464,14 +307,14 @@ describe('QuestionClassifierService', () => {
         inputTokens: 5,
         outputTokens: 3,
         object: {
-          classification: 'unclear',
+          category: 'irrelevant',
           reason: 'Whitespace only question',
         },
       });
 
       const result = await service.classify(buildInput(whitespaceQuestion));
 
-      expect(result.classification).toBe('unclear');
+      expect(result.category).toBe('irrelevant');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
     });
 
@@ -483,14 +326,14 @@ describe('QuestionClassifierService', () => {
         inputTokens: 100,
         outputTokens: 10,
         object: {
-          classification: 'unclear',
+          category: 'irrelevant',
           reason: 'Very long question',
         },
       });
 
       const result = await service.classify(buildInput(longQuestion));
 
-      expect(result.classification).toBe('unclear');
+      expect(result.category).toBe('irrelevant');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
     });
 
@@ -502,14 +345,14 @@ describe('QuestionClassifierService', () => {
         inputTokens: 15,
         outputTokens: 8,
         object: {
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'Question with special characters',
         },
       });
 
       const result = await service.classify(buildInput(specialCharQuestion));
 
-      expect(result.classification).toBe('relevant');
+      expect(result.category).toBe('relevant');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
     });
 
@@ -521,14 +364,14 @@ describe('QuestionClassifierService', () => {
         inputTokens: 15,
         outputTokens: 8,
         object: {
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'Unicode question',
         },
       });
 
       const result = await service.classify(buildInput(unicodeQuestion));
 
-      expect(result.classification).toBe('relevant');
+      expect(result.category).toBe('relevant');
       expect(llmProviderClient.generateObject).toHaveBeenCalled();
     });
   });
@@ -544,7 +387,7 @@ describe('QuestionClassifierService', () => {
         inputTokens: 10,
         outputTokens: 5,
         object: {
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'Test reason',
         },
       });
@@ -554,7 +397,7 @@ describe('QuestionClassifierService', () => {
       expect(cache.store).toHaveBeenCalledWith(
         question,
         expect.objectContaining({
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'Test reason',
           model: testModelName,
           promptVersion,
@@ -578,7 +421,7 @@ describe('QuestionClassifierService', () => {
         inputTokens: 10,
         outputTokens: 5,
         object: {
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'Test reason',
         },
       });
@@ -601,7 +444,7 @@ describe('QuestionClassifierService', () => {
         inputTokens: 10,
         outputTokens: 5,
         object: {
-          classification: 'relevant',
+          category: 'relevant',
           reason: 'Test reason',
         },
       });

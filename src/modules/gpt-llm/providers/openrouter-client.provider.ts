@@ -48,6 +48,7 @@ export class OpenRouterClientProvider implements ILlmProviderClient {
       prompt,
       system: systemPrompt,
       maxRetries: 1, // Some requests fail intermittently
+
       ...hyperParameters,
     });
 

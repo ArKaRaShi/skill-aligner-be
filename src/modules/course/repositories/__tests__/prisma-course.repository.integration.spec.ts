@@ -14,19 +14,14 @@ const CAMPUS1_ID = '11111111-1111-1111-1111-111111111111';
 const CAMPUS2_ID = '22222222-2222-2222-2222-222222222222';
 const FACULTY1_ID = '33333333-3333-3333-3333-333333333333';
 const FACULTY2_ID = '44444444-4444-4444-4444-444444444444';
-const CAMPUS_FACULTY_LINK1_ID = '55555555-5555-5555-5555-555555555551';
-const CAMPUS_FACULTY_LINK2_ID = '55555555-5555-5555-5555-555555555552';
 const COURSE_ALPHA_ID = '66666666-6666-6666-6666-666666666661';
 const COURSE_BETA_ID = '66666666-6666-6666-6666-666666666662';
 const COURSE_GAMMA_ID = '66666666-6666-6666-6666-666666666663';
 const CLO_ALPHA_ID = '77777777-7777-7777-7777-777777777771';
 const CLO_BETA_ID = '77777777-7777-7777-7777-777777777772';
 const CLO_EXTRA_ID = '77777777-7777-7777-7777-777777777773';
-const COURSE_ALPHA_CLO_ALPHA_ID = '88888888-8888-8888-8888-888888888881';
-const COURSE_ALPHA_CLO_BETA_ID = '88888888-8888-8888-8888-888888888882';
-const COURSE_ALPHA_CLO_EXTRA_ID = '88888888-8888-8888-8888-888888888883';
-const COURSE_BETA_CLO_BETA_ID = '88888888-8888-8888-8888-888888888884';
-const COURSE_GAMMA_CLO_BETA_ID = '88888888-8888-8888-8888-888888888885';
+const CLO_BETA_FOR_COURSE_BETA_ID = '77777777-7777-7777-7777-777777777774';
+const CLO_BETA_FOR_COURSE_GAMMA_ID = '77777777-7777-7777-7777-777777777775';
 
 describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds', () => {
   let moduleRef: TestingModule;
@@ -42,6 +37,8 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
   let courseGammaId: Identifier;
   let cloAlphaId: Identifier;
   let cloBetaId: Identifier;
+  let cloBetaCourseBetaId: Identifier;
+  let cloBetaCourseGammaId: Identifier;
 
   beforeAll(async () => {
     const mockEmbeddingClient: jest.Mocked<IEmbeddingClient> = {
@@ -65,7 +62,7 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
   });
 
   beforeEach(async () => {
-    await prisma.$executeRaw`TRUNCATE TABLE course_clos, course_learning_outcome_vectors, course_learning_outcomes, courses, campuses, faculties, campus_faculties RESTART IDENTITY CASCADE;`;
+    await prisma.$executeRaw`TRUNCATE TABLE course_offerings, course_learning_outcome_vectors, course_learning_outcomes, courses, faculties, campuses RESTART IDENTITY CASCADE;`;
     await seedTestData();
   });
 
@@ -100,6 +97,9 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
         code: 'FAC1',
         nameTh: 'คณะ 1',
         nameEn: 'Faculty 1',
+        campus: {
+          connect: { id: campus1Id },
+        },
       },
     });
     faculty1Id = faculty1.id as Identifier;
@@ -110,35 +110,20 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
         code: 'FAC2',
         nameTh: 'คณะ 2',
         nameEn: 'Faculty 2',
+        campus: {
+          connect: { id: campus2Id },
+        },
       },
     });
     faculty2Id = faculty2.id as Identifier;
-
-    await prisma.campusFaculty.createMany({
-      data: [
-        {
-          id: CAMPUS_FACULTY_LINK1_ID,
-          campusId: campus1Id,
-          facultyId: faculty1Id,
-        },
-        {
-          id: CAMPUS_FACULTY_LINK2_ID,
-          campusId: campus2Id,
-          facultyId: faculty2Id,
-        },
-      ],
-    });
 
     const courseAlpha = await prisma.course.create({
       data: {
         id: COURSE_ALPHA_ID,
         campusId: campus1Id,
         facultyId: faculty1Id,
-        academicYear: 2024,
-        semester: 1,
         subjectCode: 'ALPHA101',
-        subjectNameTh: 'อัลฟ่า 101',
-        subjectNameEn: 'Alpha 101',
+        subjectName: 'อัลฟ่า 101',
         isGenEd: true,
         metadata: { level: 'intro' },
       },
@@ -150,11 +135,8 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
         id: COURSE_BETA_ID,
         campusId: campus2Id,
         facultyId: faculty2Id,
-        academicYear: 2024,
-        semester: 2,
         subjectCode: 'BETA201',
-        subjectNameTh: 'เบต้า 201',
-        subjectNameEn: 'Beta 201',
+        subjectName: 'เบต้า 201',
         isGenEd: false,
         metadata: { level: 'advanced' },
       },
@@ -166,24 +148,48 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
         id: COURSE_GAMMA_ID,
         campusId: campus1Id,
         facultyId: faculty1Id,
-        academicYear: 2023,
-        semester: 2,
         subjectCode: 'GAMMA301',
-        subjectNameTh: 'แกมมา 301',
-        subjectNameEn: 'Gamma 301',
+        subjectName: 'แกมมา 301',
         isGenEd: true,
         metadata: { level: 'intermediate' },
       },
     });
     courseGammaId = courseGamma.id as Identifier;
 
+    await prisma.courseOffering.create({
+      data: {
+        id: '99999999-9999-9999-9999-999999999991',
+        courseId: courseAlphaId,
+        academicYear: 2024,
+        semester: 1,
+      },
+    });
+
+    await prisma.courseOffering.create({
+      data: {
+        id: '99999999-9999-9999-9999-999999999992',
+        courseId: courseBetaId,
+        academicYear: 2024,
+        semester: 2,
+      },
+    });
+
+    await prisma.courseOffering.create({
+      data: {
+        id: '99999999-9999-9999-9999-999999999993',
+        courseId: courseGammaId,
+        academicYear: 2023,
+        semester: 2,
+      },
+    });
+
     const cloAlpha = await prisma.courseLearningOutcome.create({
       data: {
         id: CLO_ALPHA_ID,
-        originalCLONameTh: 'ผลลัพธ์ อัลฟ่า',
-        originalCLONameEn: 'Alpha outcome',
-        cleanedCLONameTh: 'ผลลัพธ์อัลฟ่า',
-        cleanedCLONameEn: 'Clean Alpha',
+        originalCloName: 'ผลลัพธ์ อัลฟ่า',
+        cleanedCloName: 'ผลลัพธ์อัลฟ่า',
+        courseId: courseAlphaId,
+        cloNo: 1,
         skipEmbedding: false,
         hasEmbedding768: true,
         hasEmbedding1536: false,
@@ -194,10 +200,10 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
     const cloBeta = await prisma.courseLearningOutcome.create({
       data: {
         id: CLO_BETA_ID,
-        originalCLONameTh: 'ผลลัพธ์ เบต้า',
-        originalCLONameEn: 'Beta outcome',
-        cleanedCLONameTh: 'ผลลัพธ์เบต้า',
-        cleanedCLONameEn: 'Clean Beta',
+        originalCloName: 'ผลลัพธ์ เบต้า',
+        cleanedCloName: 'ผลลัพธ์เบต้า',
+        courseId: courseAlphaId,
+        cloNo: 2,
         skipEmbedding: false,
         hasEmbedding768: true,
         hasEmbedding1536: true,
@@ -205,97 +211,118 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
     });
     cloBetaId = cloBeta.id as Identifier;
 
-    const cloExtra = await prisma.courseLearningOutcome.create({
+    await prisma.courseLearningOutcome.create({
       data: {
         id: CLO_EXTRA_ID,
-        originalCLONameTh: 'ผลลัพธ์ พิเศษ',
-        originalCLONameEn: 'Extra outcome',
-        cleanedCLONameTh: 'ผลลัพธ์พิเศษ',
-        cleanedCLONameEn: 'Clean Extra',
+        originalCloName: 'ผลลัพธ์ พิเศษ',
+        cleanedCloName: 'ผลลัพธ์พิเศษ',
+        courseId: courseAlphaId,
+        cloNo: 3,
         skipEmbedding: true,
         hasEmbedding768: false,
         hasEmbedding1536: false,
       },
     });
 
-    await prisma.courseCLO.createMany({
-      data: [
-        {
-          id: COURSE_ALPHA_CLO_ALPHA_ID,
-          courseId: courseAlphaId,
-          cloId: cloAlphaId,
-          cloNo: 1,
-        },
-        {
-          id: COURSE_ALPHA_CLO_BETA_ID,
-          courseId: courseAlphaId,
-          cloId: cloBetaId,
-          cloNo: 2,
-        },
-        {
-          id: COURSE_ALPHA_CLO_EXTRA_ID,
-          courseId: courseAlphaId,
-          cloId: cloExtra.id,
-          cloNo: 3,
-        },
-        {
-          id: COURSE_BETA_CLO_BETA_ID,
-          courseId: courseBetaId,
-          cloId: cloBetaId,
-          cloNo: 1,
-        },
-        {
-          id: COURSE_GAMMA_CLO_BETA_ID,
-          courseId: courseGammaId,
-          cloId: cloBetaId,
-          cloNo: 1,
-        },
-      ],
+    const cloBetaCourseBeta = await prisma.courseLearningOutcome.create({
+      data: {
+        id: CLO_BETA_FOR_COURSE_BETA_ID,
+        originalCloName: 'ผลลัพธ์ เบต้า',
+        cleanedCloName: 'ผลลัพธ์เบต้า',
+        courseId: courseBetaId,
+        cloNo: 1,
+        skipEmbedding: false,
+        hasEmbedding768: true,
+        hasEmbedding1536: true,
+      },
     });
+    cloBetaCourseBetaId = cloBetaCourseBeta.id as Identifier;
+
+    const cloBetaCourseGamma = await prisma.courseLearningOutcome.create({
+      data: {
+        id: CLO_BETA_FOR_COURSE_GAMMA_ID,
+        originalCloName: 'ผลลัพธ์ เบต้า',
+        cleanedCloName: 'ผลลัพธ์เบต้า',
+        courseId: courseGammaId,
+        cloNo: 1,
+        skipEmbedding: false,
+        hasEmbedding768: true,
+        hasEmbedding1536: true,
+      },
+    });
+    cloBetaCourseGammaId = cloBetaCourseGamma.id as Identifier;
+
+    // CLOs now explicitly linked to courses via helper
   }
 
-  it('returns courses grouped by learning outcome id with ordering preserved', async () => {
-    const result = await repository.findCourseByLearningOutcomeIds({
-      learningOutcomeIds: [cloAlphaId, cloBetaId],
-    });
-
-    expect(result.size).toBe(2);
-
-    const coursesForAlpha = result.get(cloAlphaId);
-    expect(coursesForAlpha).toBeDefined();
-    expect(coursesForAlpha!).toHaveLength(1);
-    expect(coursesForAlpha![0].courseId).toBe(courseAlphaId);
-    expect(coursesForAlpha![0].learningOutcomeMatch.loId).toBe(cloAlphaId);
-    expect(coursesForAlpha![0].learningOutcomes.map((lo) => lo.loId)).toEqual([
+  it('maps every learning outcome id back to the courses containing it', async () => {
+    const learningOutcomeIds = [
       cloAlphaId,
       cloBetaId,
-      CLO_EXTRA_ID,
-    ]);
+      cloBetaCourseBetaId,
+      cloBetaCourseGammaId,
+    ];
 
-    const coursesForBeta = result.get(cloBetaId);
-    expect(coursesForBeta).toBeDefined();
-    expect(coursesForBeta!.map((course) => course.courseId)).toEqual([
-      courseBetaId,
-      courseAlphaId,
-      courseGammaId,
-    ]);
-    coursesForBeta!.forEach((course) => {
-      expect(course.learningOutcomeMatch.loId).toBe(cloBetaId);
-      if (course.courseId === courseAlphaId) {
-        expect(course.learningOutcomes.map((lo) => lo.loId)).toEqual([
-          cloAlphaId,
-          cloBetaId,
-          CLO_EXTRA_ID,
-        ]);
-      } else {
-        expect(course.learningOutcomes.map((lo) => lo.loId)).toEqual([
-          cloBetaId,
-        ]);
-      }
+    const result = await repository.findCourseByLearningOutcomeIds({
+      learningOutcomeIds,
     });
+
+    expect(result.size).toBe(learningOutcomeIds.length);
+    expect(Array.from(result.keys())).toEqual(
+      expect.arrayContaining(learningOutcomeIds),
+    );
+
+    const assertCourseLinkedToLo = (
+      loId: Identifier,
+      expectedCourseId: Identifier,
+    ) => {
+      const courses = result.get(loId);
+      expect(courses).toBeDefined();
+      expect(courses).toHaveLength(1);
+      const [course] = courses!;
+      expect(course.id).toBe(expectedCourseId);
+      expect(course.courseLearningOutcomes.some((lo) => lo.loId === loId)).toBe(
+        true,
+      );
+    };
+
+    assertCourseLinkedToLo(cloAlphaId, courseAlphaId);
+    assertCourseLinkedToLo(cloBetaId, courseAlphaId);
+    assertCourseLinkedToLo(cloBetaCourseBetaId, courseBetaId);
+    assertCourseLinkedToLo(cloBetaCourseGammaId, courseGammaId);
   });
 
-  it('applies campus, faculty, gen-ed and academic year filters', async () => {
+  it('places the same course under every matching learning outcome id', async () => {
+    const queriedLoIds = [cloAlphaId, cloBetaId];
+
+    const result = await repository.findCourseByLearningOutcomeIds({
+      learningOutcomeIds: queriedLoIds,
+    });
+
+    const alphaCourses = result.get(cloAlphaId);
+    const betaCourses = result.get(cloBetaId);
+
+    expect(alphaCourses).toBeDefined();
+    expect(betaCourses).toBeDefined();
+
+    const alphaCourse = alphaCourses!.find(
+      (course) => course.id === courseAlphaId,
+    );
+    const betaCourse = betaCourses!.find(
+      (course) => course.id === courseAlphaId,
+    );
+
+    expect(alphaCourse).toBeDefined();
+    expect(betaCourse).toBeDefined();
+    expect(
+      alphaCourse!.courseLearningOutcomes.some((lo) => lo.loId === cloAlphaId),
+    ).toBe(true);
+    expect(
+      betaCourse!.courseLearningOutcomes.some((lo) => lo.loId === cloBetaId),
+    ).toBe(true);
+  });
+
+  it('applies campus, faculty, gen-ed, and academic year filters', async () => {
     const result = await repository.findCourseByLearningOutcomeIds({
       learningOutcomeIds: [cloBetaId],
       campusId: campus1Id,
@@ -307,7 +334,53 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
     const filteredCourses = result.get(cloBetaId);
     expect(filteredCourses).toBeDefined();
     expect(filteredCourses).toHaveLength(1);
-    expect(filteredCourses![0].courseId).toBe(courseAlphaId);
-    expect(filteredCourses![0].learningOutcomeMatch.loId).toBe(cloBetaId);
+    expect(filteredCourses![0].id).toBe(courseAlphaId);
+    expect(
+      filteredCourses![0].courseLearningOutcomes.some(
+        (lo) => lo.loId === cloBetaId,
+      ),
+    ).toBe(true);
+  });
+
+  it('filters by academic year when semesters are not specified', async () => {
+    const result = await repository.findCourseByLearningOutcomeIds({
+      learningOutcomeIds: [cloBetaCourseGammaId],
+      academicYearSemesters: [{ academicYear: 2023 }],
+    });
+
+    const courses = result.get(cloBetaCourseGammaId);
+    expect(courses).toBeDefined();
+    expect(courses).toHaveLength(1);
+    expect(courses![0].id).toBe(courseGammaId);
+  });
+
+  it('excludes courses whose offerings do not match the requested academic years or semesters', async () => {
+    const result = await repository.findCourseByLearningOutcomeIds({
+      learningOutcomeIds: [cloAlphaId],
+      academicYearSemesters: [{ academicYear: 2023, semesters: [1] }],
+    });
+
+    expect(result.has(cloAlphaId)).toBe(false);
+  });
+
+  it('supports multiple academic year entries within the same query', async () => {
+    const result = await repository.findCourseByLearningOutcomeIds({
+      learningOutcomeIds: [cloAlphaId, cloBetaCourseGammaId],
+      academicYearSemesters: [
+        { academicYear: 2024, semesters: [1] },
+        { academicYear: 2023 },
+      ],
+    });
+
+    const alphaCourses = result.get(cloAlphaId);
+    const gammaCourses = result.get(cloBetaCourseGammaId);
+
+    expect(alphaCourses).toBeDefined();
+    expect(alphaCourses).toHaveLength(1);
+    expect(alphaCourses![0].id).toBe(courseAlphaId);
+
+    expect(gammaCourses).toBeDefined();
+    expect(gammaCourses).toHaveLength(1);
+    expect(gammaCourses![0].id).toBe(courseGammaId);
   });
 });

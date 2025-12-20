@@ -2,17 +2,17 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { OpenRouter } from '@openrouter/sdk';
 
-import { EMBEDDING_MODELS } from '../constants/model.constant';
+import {
+  EmbeddingModels,
+  EmbeddingProviders,
+} from '../constants/model.constant';
 import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
 import {
   BaseEmbeddingClient,
-  EmbeddingModelId,
   EmbedManyParams,
   EmbedOneParams,
   EmbedResult,
 } from './base-embedding.client';
-
-const MODEL_ID: EmbeddingModelId = 'openrouter-text-embedding-3-small';
 
 export type OpenRouterEmbeddingClientOptions = {
   apiKey: string;
@@ -30,7 +30,10 @@ export class OpenAIEmbeddingClient
   private readonly logger = new Logger(OpenAIEmbeddingClient.name);
 
   constructor(options: OpenRouterEmbeddingClientOptions) {
-    super(MODEL_ID, EMBEDDING_MODELS[MODEL_ID].provider);
+    super(
+      EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+      EmbeddingProviders.OPENROUTER,
+    );
     if (!options?.apiKey) {
       throw new Error(
         'OpenRouter API key is required to use OpenRouter embeddings.',
@@ -44,7 +47,7 @@ export class OpenAIEmbeddingClient
 
   protected async doEmbedOne({ text }: EmbedOneParams): Promise<EmbedResult> {
     const response = await this.openRouter.embeddings.generate({
-      model: EMBEDDING_MODELS[MODEL_ID].modelId,
+      model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
       input: text,
       encodingFormat: 'float',
       provider: {
@@ -53,7 +56,7 @@ export class OpenAIEmbeddingClient
     });
 
     const embedding = response.data[0].embedding as number[];
-    const metadata = this.buildMetadata(MODEL_ID, text);
+    const metadata = this.buildMetadata(text);
 
     return { vector: embedding, metadata };
   }
@@ -62,7 +65,7 @@ export class OpenAIEmbeddingClient
     texts,
   }: EmbedManyParams): Promise<EmbedResult[]> {
     const response = await this.openRouter.embeddings.generate({
-      model: EMBEDDING_MODELS[MODEL_ID].modelId,
+      model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
       input: texts,
       encodingFormat: 'float',
       provider: {
@@ -82,7 +85,7 @@ export class OpenAIEmbeddingClient
       }
 
       const text = texts[index];
-      const metadata = this.buildMetadata(MODEL_ID, text);
+      const metadata = this.buildMetadata(text);
       return {
         vector: item.embedding as number[],
         metadata,

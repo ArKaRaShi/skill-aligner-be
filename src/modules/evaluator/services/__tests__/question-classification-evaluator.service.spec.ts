@@ -9,6 +9,7 @@ import {
   QuestionClassifyInput,
 } from 'src/modules/query-processor/contracts/i-question-classifier-service.contract';
 import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
+import { TQuestionClassification } from 'src/modules/query-processor/types/question-classification.type';
 
 import { QuestionSetItem } from '../../test-set/question-set.constant';
 import {
@@ -122,10 +123,10 @@ describe('QuestionClassificationEvaluatorService', () => {
       mockClassifierService.classify.mockImplementation(
         ({
           question,
-        }: QuestionClassifyInput): Promise<QuestionClassification> => {
+        }: QuestionClassifyInput): Promise<TQuestionClassification> => {
           if (question.includes('Python') || question.includes('AI')) {
             return Promise.resolve({
-              classification: 'relevant',
+              category: 'relevant',
               reason: 'Course-related content',
               model: 'test-model',
               userPrompt: question,
@@ -134,7 +135,7 @@ describe('QuestionClassificationEvaluatorService', () => {
             });
           }
           return Promise.resolve({
-            classification: 'irrelevant',
+            category: 'irrelevant',
             reason: 'Irrelevant content',
             model: 'test-model',
             userPrompt: question,

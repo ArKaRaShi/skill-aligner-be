@@ -7,7 +7,7 @@ export type CourseLearningOutcome = {
 
   originalCLONameTh: string;
   originalCLONameEn: string | null;
-  cleanedCLONameTh: string;
+  cleanedCloName: string;
   cleanedCLONameEn: string | null;
   embedding: number[];
   skipEmbedding: boolean;

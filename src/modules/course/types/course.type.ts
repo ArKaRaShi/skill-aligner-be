@@ -1,5 +1,6 @@
 import { Identifier } from 'src/common/domain/types/identifier';
 
+import { CourseClickLog } from './course-click-log.type';
 import {
   LearningOutcome,
   MatchedLearningOutcome,
@@ -8,18 +9,19 @@ import {
   CourseLearningOutcome,
   CourseLearningOutcomeMatch,
 } from './course-learning-outcome.type';
+import { CourseOffering } from './course-offering.type';
 
 export type Course = {
-  courseId: Identifier;
+  id: Identifier;
   campusId: Identifier;
   facultyId: Identifier;
-  academicYear: number;
-  semester: number;
 
   subjectCode: string;
-  subjectNameTh: string;
-  subjectNameEn: string | null;
-  courseLearningOutcomes: CourseLearningOutcome[];
+  subjectName: string;
+  isGenEd: boolean;
+  courseLearningOutcomes: LearningOutcome[];
+  courseOfferings: CourseOffering[];
+  courseClickLogs: CourseClickLog[];
 
   metadata: Record<string, any> | null;
   createdAt: Date;
@@ -28,13 +30,6 @@ export type Course = {
 
 export type CourseMatch = Omit<Course, 'courseLearningOutcomes'> & {
   cloMatches: CourseLearningOutcomeMatch[];
-};
-
-export type CourseWithLearningOutcomeV2 = Omit<
-  Course,
-  'courseLearningOutcomes'
-> & {
-  learningOutcomes: LearningOutcome[];
 };
 
 export type CourseWithLearningOutcomeV2Match = Omit<

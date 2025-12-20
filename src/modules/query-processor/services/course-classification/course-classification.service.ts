@@ -218,12 +218,12 @@ export class CourseClassificationService
   }
 
   private getCourseDisplayName(course: CourseMatch): string {
-    return course.subjectNameTh ?? course.subjectNameEn ?? course.subjectCode;
+    return course.subjectName;
   }
 
   private getLoDisplayName(lo: CourseLearningOutcomeMatch): string {
     return (
-      lo.cleanedCLONameTh ??
+      lo.cleanedCloName ??
       lo.cleanedCLONameEn ??
       lo.originalCLONameTh ??
       lo.originalCLONameEn

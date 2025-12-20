@@ -1,10 +1,6 @@
 import { Identifier } from 'src/common/domain/types/identifier';
 
-import {
-  Course,
-  CourseMatch,
-  CourseWithLearningOutcomeV2,
-} from '../types/course.type';
+import { Course, CourseMatch } from '../types/course.type';
 
 export const I_COURSE_REPOSITORY_TOKEN = Symbol('ICourseRepository');
 
@@ -50,9 +46,7 @@ export interface ICourseRepository {
     facultyId,
     isGenEd,
     academicYearSemesters,
-  }: FindCoursesByLearningOutcomeIdsParams): Promise<
-    Map<Identifier, CourseWithLearningOutcomeV2[]>
-  >;
+  }: FindCoursesByLearningOutcomeIdsParams): Promise<Map<Identifier, Course[]>>;
 
   /**
    * Find a course by its identifier or throw an error if not found.

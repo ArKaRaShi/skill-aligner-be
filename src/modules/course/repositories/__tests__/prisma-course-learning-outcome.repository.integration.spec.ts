@@ -14,7 +14,6 @@ import { PrismaCourseLearningOutcomeRepository } from '../prisma-course-learning
 // First campus and faculty
 const MOCK_CAMPUS1_ID = '550e8400-e29b-41d4-a716-446655440001';
 const MOCK_FACULTY1_ID = '550e8400-e29b-41d4-a716-446655440002';
-const MOCK_CAMPUS1_FACULTY1_ID = '550e8400-e29b-41d4-a716-446655440003';
 const MOCK_COURSE1_ID = '550e8400-e29b-41d4-a716-446655440004';
 const MOCK_COURSE2_ID = '550e8400-e29b-41d4-a716-446655440005';
 const MOCK_CLO1_ID = '550e8400-e29b-41d4-a716-446655440006';
@@ -23,14 +22,10 @@ const MOCK_CLO3_ID = '550e8400-e29b-41d4-a716-446655440008';
 const MOCK_VECTOR1_ID = '550e8400-e29b-41d4-a716-446655440009';
 const MOCK_VECTOR2_ID = '550e8400-e29b-41d4-a716-446655440010';
 const MOCK_VECTOR3_ID = '550e8400-e29b-41d4-a716-446655440011';
-const MOCK_COURSE1_CLO1_ID = '550e8400-e29b-41d4-a716-446655440012';
-const MOCK_COURSE1_CLO2_ID = '550e8400-e29b-41d4-a716-446655440013';
-const MOCK_COURSE2_CLO3_ID = '550e8400-e29b-41d4-a716-446655440014';
 
 // Second campus and faculty
 const MOCK_CAMPUS2_ID = '550e8400-e29b-41d4-a716-446655440015';
 const MOCK_FACULTY2_ID = '550e8400-e29b-41d4-a716-446655440016';
-const MOCK_CAMPUS2_FACULTY2_ID = '550e8400-e29b-41d4-a716-446655440017';
 const MOCK_COURSE3_ID = '550e8400-e29b-41d4-a716-446655440018';
 const MOCK_COURSE4_ID = '550e8400-e29b-41d4-a716-446655440019';
 const MOCK_CLO4_ID = '550e8400-e29b-41d4-a716-446655440020';
@@ -39,9 +34,6 @@ const MOCK_CLO6_ID = '550e8400-e29b-41d4-a716-446655440022';
 const MOCK_VECTOR4_ID = '550e8400-e29b-41d4-a716-446655440023';
 const MOCK_VECTOR5_ID = '550e8400-e29b-41d4-a716-446655440024';
 const MOCK_VECTOR6_ID = '550e8400-e29b-41d4-a716-446655440025';
-const MOCK_COURSE3_CLO4_ID = '550e8400-e29b-41d4-a716-446655440026';
-const MOCK_COURSE3_CLO5_ID = '550e8400-e29b-41d4-a716-446655440027';
-const MOCK_COURSE4_CLO6_ID = '550e8400-e29b-41d4-a716-446655440028';
 
 // Additional IDs for testing similarity ranking and deduplication
 const MOCK_COURSE5_ID = '550e8400-e29b-41d4-a716-446655440029';
@@ -50,9 +42,6 @@ const MOCK_CLO7_ID = '550e8400-e29b-41d4-a716-446655440031';
 const MOCK_CLO8_ID = '550e8400-e29b-41d4-a716-446655440032';
 const MOCK_VECTOR7_ID = '550e8400-e29b-41d4-a716-446655440033';
 const MOCK_VECTOR8_ID = '550e8400-e29b-41d4-a716-446655440034';
-const MOCK_COURSE5_CLO7_ID = '550e8400-e29b-41d4-a716-446655440035';
-const MOCK_COURSE6_CLO7_ID = '550e8400-e29b-41d4-a716-446655440036';
-const MOCK_COURSE5_CLO8_ID = '550e8400-e29b-41d4-a716-446655440037';
 
 const VECTOR_DIMENSION = 768;
 
@@ -64,6 +53,41 @@ const buildVectorFromSequence = (sequence: number[]) =>
 
     return sequence[index % sequence.length];
   });
+
+async function insertCourseLearningOutcomeRecord({
+  prisma,
+  id,
+  courseId,
+  cloNo,
+  originalCloName,
+  cleanedCloName,
+  skipEmbedding = false,
+  hasEmbedding768 = true,
+  hasEmbedding1536 = false,
+}: {
+  prisma: PrismaService;
+  id: string;
+  courseId: Identifier | string;
+  cloNo: number;
+  originalCloName: string;
+  cleanedCloName: string;
+  skipEmbedding?: boolean;
+  hasEmbedding768?: boolean;
+  hasEmbedding1536?: boolean;
+}) {
+  await prisma.courseLearningOutcome.create({
+    data: {
+      id,
+      cloNo,
+      originalCloName,
+      cleanedCloName,
+      courseId,
+      skipEmbedding,
+      hasEmbedding768,
+      hasEmbedding1536,
+    },
+  });
+}
 
 describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
   let module: TestingModule;
@@ -80,16 +104,10 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
   let courseId2: string;
   let courseId3: string;
   let courseId4: string;
-  let cloId1: string;
-  let cloId2: string;
-  let cloId3: string;
-  let cloId4: string;
-  let cloId5: string;
-  let cloId6: string;
-  let cloId7: string;
-  let cloId8: string;
   let courseId5: string;
   let courseId6: string;
+  let offering5Id: Identifier;
+  let offering6Id: Identifier;
 
   beforeAll(async () => {
     // Create a mock embedding client
@@ -117,7 +135,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
 
   beforeEach(async () => {
     // Clean up database before each test
-    await prisma.$executeRaw`TRUNCATE TABLE course_clos, course_learning_outcome_vectors, course_learning_outcomes, courses, campuses, faculties, campus_faculties RESTART IDENTITY CASCADE;`;
+    await prisma.$executeRaw`TRUNCATE TABLE course_learning_outcome_vectors, course_learning_outcomes, courses, campuses, faculties RESTART IDENTITY CASCADE;`;
 
     // Create first campus and faculty
     const campus1 = await prisma.campus.create({
@@ -136,18 +154,16 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         code: 'TEST_FACULTY1',
         nameTh: 'ทดสอบคณะ 1',
         nameEn: 'Test Faculty 1',
+        campus: {
+          connect: {
+            id: campus1Id,
+          },
+        },
       },
     });
     faculty1Id = faculty1.id as Identifier;
 
-    // Link first campus and faculty
-    await prisma.campusFaculty.create({
-      data: {
-        id: MOCK_CAMPUS1_FACULTY1_ID,
-        campusId: campus1Id,
-        facultyId: faculty1Id,
-      },
-    });
+    // Link first campus and faculty is now handled by the campus connect above
 
     // Create second campus and faculty
     const campus2 = await prisma.campus.create({
@@ -166,18 +182,16 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         code: 'TEST_FACULTY2',
         nameTh: 'ทดสอบคณะ 2',
         nameEn: 'Test Faculty 2',
+        campus: {
+          connect: {
+            id: campus2Id,
+          },
+        },
       },
     });
     faculty2Id = faculty2.id as Identifier;
 
-    // Link second campus and faculty
-    await prisma.campusFaculty.create({
-      data: {
-        id: MOCK_CAMPUS2_FACULTY2_ID,
-        campusId: campus2Id,
-        facultyId: faculty2Id,
-      },
-    });
+    // Link second campus and faculty is now handled by the campus connect above
 
     // Create courses with different properties
     // Courses for first campus and faculty
@@ -186,11 +200,8 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         id: MOCK_COURSE1_ID,
         campusId: campus1Id,
         facultyId: faculty1Id,
-        academicYear: 2023,
-        semester: 1,
         subjectCode: 'TEST101',
-        subjectNameTh: 'วิชาทดสอบ 1',
-        subjectNameEn: 'Test Subject 1',
+        subjectName: 'วิชาทดสอบ 1',
         isGenEd: true,
       },
     });
@@ -201,11 +212,8 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         id: MOCK_COURSE2_ID,
         campusId: campus1Id,
         facultyId: faculty1Id,
-        academicYear: 2023,
-        semester: 1,
         subjectCode: 'TEST102',
-        subjectNameTh: 'วิชาทดสอบ 2',
-        subjectNameEn: 'Test Subject 2',
+        subjectName: 'วิชาทดสอบ 2',
         isGenEd: false,
       },
     });
@@ -217,11 +225,8 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         id: MOCK_COURSE3_ID,
         campusId: campus2Id,
         facultyId: faculty2Id,
-        academicYear: 2023,
-        semester: 1,
         subjectCode: 'TEST201',
-        subjectNameTh: 'วิชาทดสอบ 3',
-        subjectNameEn: 'Test Subject 3',
+        subjectName: 'วิชาทดสอบ 3',
         isGenEd: true,
       },
     });
@@ -232,11 +237,8 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         id: MOCK_COURSE4_ID,
         campusId: campus2Id,
         facultyId: faculty2Id,
-        academicYear: 2023,
-        semester: 1,
         subjectCode: 'TEST202',
-        subjectNameTh: 'วิชาทดสอบ 4',
-        subjectNameEn: 'Test Subject 4',
+        subjectName: 'วิชาทดสอบ 4',
         isGenEd: false,
       },
     });
@@ -248,11 +250,8 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         id: MOCK_COURSE5_ID,
         campusId: campus1Id,
         facultyId: faculty1Id,
-        academicYear: 2023,
-        semester: 1,
         subjectCode: 'TEST103',
-        subjectNameTh: 'วิชาทดสอบ 5',
-        subjectNameEn: 'Test Subject 5',
+        subjectName: 'วิชาทดสอบ 5',
         isGenEd: true,
       },
     });
@@ -263,98 +262,116 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         id: MOCK_COURSE6_ID,
         campusId: campus1Id,
         facultyId: faculty1Id,
-        academicYear: 2023,
-        semester: 1,
         subjectCode: 'TEST104',
-        subjectNameTh: 'วิชาทดสอบ 6',
-        subjectNameEn: 'Test Subject 6',
+        subjectName: 'วิชาทดสอบ 6',
         isGenEd: false,
       },
     });
     courseId6 = course6.id;
 
+    // Create course offerings for all courses (this is where academicYear, semester belong)
+    const offering5 = await prisma.courseOffering.create({
+      data: {
+        id: '550e8400-e29b-41d4-a716-446655440038',
+        courseId: courseId5,
+        academicYear: 2023,
+        semester: 1,
+      },
+    });
+    offering5Id = offering5.id as Identifier;
+
+    const offering6 = await prisma.courseOffering.create({
+      data: {
+        id: '550e8400-e29b-41d4-a716-446655440039',
+        courseId: courseId6,
+        academicYear: 2023,
+        semester: 1,
+      },
+    });
+    offering6Id = offering6.id as Identifier;
+
     // Create learning outcomes for first campus courses
-    const clo1 = await prisma.courseLearningOutcome.create({
-      data: {
-        id: MOCK_CLO1_ID,
-        originalCLONameTh: 'สามารถวิเคราะห์ข้อมูลได้',
-        cleanedCLONameTh: 'วิเคราะห์ข้อมูล',
-        hasEmbedding768: true,
-      },
+    await insertCourseLearningOutcomeRecord({
+      prisma,
+      id: MOCK_CLO1_ID,
+      courseId: courseId1,
+      cloNo: 1,
+      originalCloName: 'สามารถวิเคราะห์ข้อมูลได้',
+      cleanedCloName: 'วิเคราะห์ข้อมูล',
+      hasEmbedding768: true,
     });
-    cloId1 = clo1.id;
 
-    const clo2 = await prisma.courseLearningOutcome.create({
-      data: {
-        id: MOCK_CLO2_ID,
-        originalCLONameTh: 'สามารถเขียนโปรแกรมได้',
-        cleanedCLONameTh: 'เขียนโปรแกรม',
-        hasEmbedding768: true,
-      },
+    await insertCourseLearningOutcomeRecord({
+      prisma,
+      id: MOCK_CLO2_ID,
+      courseId: courseId1,
+      cloNo: 2,
+      originalCloName: 'สามารถเขียนโปรแกรมได้',
+      cleanedCloName: 'เขียนโปรแกรม',
+      hasEmbedding768: true,
     });
-    cloId2 = clo2.id;
 
-    const clo3 = await prisma.courseLearningOutcome.create({
-      data: {
-        id: MOCK_CLO3_ID,
-        originalCLONameTh: 'สามารถสื่อสารได้',
-        cleanedCLONameTh: 'สื่อสาร',
-        hasEmbedding768: true,
-      },
+    await insertCourseLearningOutcomeRecord({
+      prisma,
+      id: MOCK_CLO3_ID,
+      courseId: courseId2,
+      cloNo: 1,
+      originalCloName: 'สามารถสื่อสารได้',
+      cleanedCloName: 'สื่อสาร',
+      hasEmbedding768: true,
     });
-    cloId3 = clo3.id;
 
     // Create learning outcomes for second campus courses
-    const clo4 = await prisma.courseLearningOutcome.create({
-      data: {
-        id: MOCK_CLO4_ID,
-        originalCLONameTh: 'สามารถวางแผนโครงการได้',
-        cleanedCLONameTh: 'วางแผนโครงการ',
-        hasEmbedding768: true,
-      },
+    await insertCourseLearningOutcomeRecord({
+      prisma,
+      id: MOCK_CLO4_ID,
+      courseId: courseId3,
+      cloNo: 1,
+      originalCloName: 'สามารถวางแผนโครงการได้',
+      cleanedCloName: 'วางแผนโครงการ',
+      hasEmbedding768: true,
     });
-    cloId4 = clo4.id;
 
-    const clo5 = await prisma.courseLearningOutcome.create({
-      data: {
-        id: MOCK_CLO5_ID,
-        originalCLONameTh: 'สามารถจัดการทีมได้',
-        cleanedCLONameTh: 'จัดการทีม',
-        hasEmbedding768: true,
-      },
+    await insertCourseLearningOutcomeRecord({
+      prisma,
+      id: MOCK_CLO5_ID,
+      courseId: courseId3,
+      cloNo: 2,
+      originalCloName: 'สามารถจัดการทีมได้',
+      cleanedCloName: 'จัดการทีม',
+      hasEmbedding768: true,
     });
-    cloId5 = clo5.id;
 
-    const clo6 = await prisma.courseLearningOutcome.create({
-      data: {
-        id: MOCK_CLO6_ID,
-        originalCLONameTh: 'สามารถแก้ปัญหาได้',
-        cleanedCLONameTh: 'แก้ปัญหา',
-        hasEmbedding768: true,
-      },
+    await insertCourseLearningOutcomeRecord({
+      prisma,
+      id: MOCK_CLO6_ID,
+      courseId: courseId4,
+      cloNo: 1,
+      originalCloName: 'สามารถแก้ปัญหาได้',
+      cleanedCloName: 'แก้ปัญหา',
+      hasEmbedding768: true,
     });
-    cloId6 = clo6.id;
 
     // Create additional learning outcomes for testing
-    const clo7 = await prisma.courseLearningOutcome.create({
-      data: {
-        id: MOCK_CLO7_ID,
-        originalCLONameTh: 'สามารถวิเคราะห์ข้อมูลขั้นสูงได้',
-        cleanedCLONameTh: 'วิเคราะห์ข้อมูลขั้นสูง',
-        hasEmbedding768: true,
-      },
+    await insertCourseLearningOutcomeRecord({
+      prisma,
+      id: MOCK_CLO7_ID,
+      courseId: courseId5,
+      cloNo: 1,
+      originalCloName: 'สามารถวิเคราะห์ข้อมูลขั้นสูงได้',
+      cleanedCloName: 'วิเคราะห์ข้อมูลขั้นสูง',
+      hasEmbedding768: true,
     });
-    cloId7 = clo7.id;
 
-    const clo8 = await prisma.courseLearningOutcome.create({
-      data: {
-        id: MOCK_CLO8_ID,
-        originalCLONameTh: 'สามารถออกแบบระบบได้',
-        cleanedCLONameTh: 'ออกแบบระบบ',
-        hasEmbedding768: true,
-      },
+    await insertCourseLearningOutcomeRecord({
+      prisma,
+      id: MOCK_CLO8_ID,
+      courseId: courseId5,
+      cloNo: 2,
+      originalCloName: 'สามารถออกแบบระบบได้',
+      cleanedCloName: 'ออกแบบระบบ',
+      hasEmbedding768: true,
     });
-    cloId8 = clo8.id;
 
     // Create vectors for all learning outcomes
     const mockVector = buildVectorFromSequence([
@@ -371,92 +388,57 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
 
     // Create vectors for learning outcomes using raw SQL to bypass type issues
     await prisma.$executeRaw`
-      INSERT INTO course_learning_outcome_vectors (id, clo_id, embedding_768)
+      INSERT INTO course_learning_outcome_vectors (id, embedded_text, embedding_768)
       VALUES
-        (${MOCK_VECTOR1_ID}::uuid, ${cloId1}::uuid, ${mockVector}),
-        (${MOCK_VECTOR2_ID}::uuid, ${cloId2}::uuid, ${mockVector}),
-        (${MOCK_VECTOR3_ID}::uuid, ${cloId3}::uuid, ${mockVector}),
-        (${MOCK_VECTOR4_ID}::uuid, ${cloId4}::uuid, ${mockVector}),
-        (${MOCK_VECTOR5_ID}::uuid, ${cloId5}::uuid, ${mockVector}),
-        (${MOCK_VECTOR6_ID}::uuid, ${cloId6}::uuid, ${mockVector}),
-        (${MOCK_VECTOR7_ID}::uuid, ${cloId7}::uuid, ${highSimilarityVector}),
-        (${MOCK_VECTOR8_ID}::uuid, ${cloId8}::uuid, ${mediumSimilarityVector})
+        (${MOCK_VECTOR1_ID}::uuid, 'vector-1', ${JSON.stringify(mockVector)}::vector),
+        (${MOCK_VECTOR2_ID}::uuid, 'vector-2', ${JSON.stringify(mockVector)}::vector),
+        (${MOCK_VECTOR3_ID}::uuid, 'vector-3', ${JSON.stringify(mockVector)}::vector),
+        (${MOCK_VECTOR4_ID}::uuid, 'vector-4', ${JSON.stringify(mockVector)}::vector),
+        (${MOCK_VECTOR5_ID}::uuid, 'vector-5', ${JSON.stringify(mockVector)}::vector),
+        (${MOCK_VECTOR6_ID}::uuid, 'vector-6', ${JSON.stringify(mockVector)}::vector),
+        (${MOCK_VECTOR7_ID}::uuid, 'vector-7', ${JSON.stringify(highSimilarityVector)}::vector),
+        (${MOCK_VECTOR8_ID}::uuid, 'vector-8', ${JSON.stringify(mediumSimilarityVector)}::vector)
     `;
 
-    // Link CLOs to courses
-    await prisma.courseCLO.createMany({
-      data: [
-        // CLOs for first campus courses
-        {
-          id: MOCK_COURSE1_CLO1_ID,
-          courseId: courseId1,
-          cloId: cloId1,
-          cloNo: 1,
-        },
-        {
-          id: MOCK_COURSE1_CLO2_ID,
-          courseId: courseId1,
-          cloId: cloId2,
-          cloNo: 2,
-        },
-        {
-          id: MOCK_COURSE2_CLO3_ID,
-          courseId: courseId2,
-          cloId: cloId3,
-          cloNo: 1,
-        },
-        // CLOs for second campus courses
-        {
-          id: MOCK_COURSE3_CLO4_ID,
-          courseId: courseId3,
-          cloId: cloId4,
-          cloNo: 1,
-        },
-        {
-          id: MOCK_COURSE3_CLO5_ID,
-          courseId: courseId3,
-          cloId: cloId5,
-          cloNo: 2,
-        },
-        {
-          id: MOCK_COURSE4_CLO6_ID,
-          courseId: courseId4,
-          cloId: cloId6,
-          cloNo: 1,
-        },
-      ],
+    // Update CLOs to reference their vectors
+    await prisma.courseLearningOutcome.update({
+      where: { id: MOCK_CLO1_ID },
+      data: { vectorId: MOCK_VECTOR1_ID },
     });
-
-    // Create additional course-CLO relations for testing deduplication
-    // CLO7 is linked to both course5 and course6 (same CLO, multiple courses)
-    await prisma.courseCLO.createMany({
-      data: [
-        {
-          id: MOCK_COURSE5_CLO7_ID,
-          courseId: courseId5,
-          cloId: cloId7,
-          cloNo: 1,
-        },
-        {
-          id: MOCK_COURSE6_CLO7_ID,
-          courseId: courseId6,
-          cloId: cloId7,
-          cloNo: 1,
-        },
-        {
-          id: MOCK_COURSE5_CLO8_ID,
-          courseId: courseId5,
-          cloId: cloId8,
-          cloNo: 2,
-        },
-      ],
+    await prisma.courseLearningOutcome.update({
+      where: { id: MOCK_CLO2_ID },
+      data: { vectorId: MOCK_VECTOR2_ID },
+    });
+    await prisma.courseLearningOutcome.update({
+      where: { id: MOCK_CLO3_ID },
+      data: { vectorId: MOCK_VECTOR3_ID },
+    });
+    await prisma.courseLearningOutcome.update({
+      where: { id: MOCK_CLO4_ID },
+      data: { vectorId: MOCK_VECTOR4_ID },
+    });
+    await prisma.courseLearningOutcome.update({
+      where: { id: MOCK_CLO5_ID },
+      data: { vectorId: MOCK_VECTOR5_ID },
+    });
+    await prisma.courseLearningOutcome.update({
+      where: { id: MOCK_CLO6_ID },
+      data: { vectorId: MOCK_VECTOR6_ID },
+    });
+    await prisma.courseLearningOutcome.update({
+      where: { id: MOCK_CLO7_ID },
+      data: { vectorId: MOCK_VECTOR7_ID },
+    });
+    await prisma.courseLearningOutcome.update({
+      where: { id: MOCK_CLO8_ID },
+      data: { vectorId: MOCK_VECTOR8_ID },
     });
 
     // Mock embedding client response
     mockEmbeddingClient.embedOne.mockResolvedValue({
       vector: buildVectorFromSequence([0.5]), // Use a neutral vector
       metadata: {
-        modelId: 'e5-small',
+        model: 'e5-base',
         provider: 'e5',
         dimension: 768,
         embeddedText: 'test',
@@ -467,7 +449,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
 
   afterAll(async () => {
     // Clean up database after all tests
-    await prisma.$executeRaw`TRUNCATE TABLE course_clos, course_learning_outcome_vectors, course_learning_outcomes, courses, campuses, faculties, campus_faculties RESTART IDENTITY CASCADE;`;
+    await prisma.$executeRaw`TRUNCATE TABLE course_learning_outcome_vectors, course_learning_outcomes, courses, campuses, faculties RESTART IDENTITY CASCADE;`;
     await module.close();
   });
 
@@ -477,7 +459,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
       });
 
       expect(result.size).toBe(1); // Only one skill was queried so the Map should contain a single entry.
@@ -495,7 +481,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         campusId: campus1Id,
       });
 
@@ -521,7 +511,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วางแผน'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         campusId: campus2Id,
       });
 
@@ -540,7 +534,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         facultyId: faculty1Id,
       });
 
@@ -565,7 +563,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['จัดการทีม'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         facultyId: faculty2Id,
       });
 
@@ -584,7 +586,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         isGenEd: true,
       });
 
@@ -609,23 +615,27 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['สื่อสาร'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         isGenEd: false,
       });
 
       expect(result.size).toBe(1); // Map contains one entry for the queried skill.
       expect(result.has('สื่อสาร')).toBe(true); // The skill key exists.
-      expect(result.get('สื่อสาร')).toHaveLength(3); // Only three CLOs originate from isGenEd=false courses.
+      expect(result.get('สื่อสาร')).toHaveLength(2); // Only two isGenEd=false CLOs survive the similarity ranking.
 
       // Verify only CLOs from courses with isGenEd=false are returned
       const cloIds = result.get('สื่อสาร')!.map((clo) => clo.loId);
       expect(cloIds).toContain(MOCK_CLO3_ID); // Course2 has isGenEd=false.
       expect(cloIds).toContain(MOCK_CLO6_ID); // Course4 has isGenEd=false.
-      expect(cloIds).toContain(MOCK_CLO7_ID); // Course6 has isGenEd=false.
       expect(cloIds).not.toContain(MOCK_CLO1_ID); // These CLOs are from courses with isGenEd=true
       expect(cloIds).not.toContain(MOCK_CLO2_ID);
       expect(cloIds).not.toContain(MOCK_CLO4_ID);
       expect(cloIds).not.toContain(MOCK_CLO5_ID);
+      expect(cloIds).not.toContain(MOCK_CLO7_ID);
       expect(cloIds).not.toContain(MOCK_CLO8_ID);
     });
 
@@ -634,7 +644,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         campusId: campus1Id,
         facultyId: faculty1Id,
         isGenEd: true,
@@ -661,7 +675,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วางแผน'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         campusId: campus2Id,
         facultyId: faculty2Id,
         isGenEd: true,
@@ -686,23 +704,27 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         isGenEd: false, // This should exclude CLOs from courses with isGenEd=true
       });
 
       expect(result.size).toBe(1); // Map size remains one.
       expect(result.has('วิเคราะห์')).toBe(true); // Key exists.
-      expect(result.get('วิเคราะห์')).toHaveLength(3); // Only three CLOs originate from isGenEd=false courses under campus/faculty filters.
+      expect(result.get('วิเคราะห์')).toHaveLength(2); // Only two isGenEd=false CLOs survive the similarity ranking.
 
       // Verify only CLOs from courses with isGenEd=false are returned
       const cloIds = result.get('วิเคราะห์')!.map((clo) => clo.loId);
       expect(cloIds).toContain(MOCK_CLO3_ID); // Course2 matches the filter.
       expect(cloIds).toContain(MOCK_CLO6_ID); // Course4 matches the filter.
-      expect(cloIds).toContain(MOCK_CLO7_ID); // Course6 matches the filter.
       expect(cloIds).not.toContain(MOCK_CLO1_ID); // These CLOs are from courses with isGenEd=true
       expect(cloIds).not.toContain(MOCK_CLO2_ID);
       expect(cloIds).not.toContain(MOCK_CLO4_ID);
       expect(cloIds).not.toContain(MOCK_CLO5_ID);
+      expect(cloIds).not.toContain(MOCK_CLO7_ID);
       expect(cloIds).not.toContain(MOCK_CLO8_ID);
     });
 
@@ -711,7 +733,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์', 'สื่อสาร'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         isGenEd: true,
       });
 
@@ -749,7 +775,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         academicYearSemesters: [{ academicYear: 2023 }],
       });
 
@@ -777,7 +807,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         academicYearSemesters: [{ academicYear: 2023, semesters: [1] }],
       });
 
@@ -805,7 +839,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         academicYearSemesters: [{ academicYear: 2023 }, { academicYear: 2024 }],
       });
 
@@ -833,7 +871,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         academicYearSemesters: [
           {
             academicYear: 2023,
@@ -866,7 +908,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         academicYearSemesters: [
           { academicYear: 2023, semesters: [1] },
           { academicYear: 2024 },
@@ -897,7 +943,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         academicYearSemesters: [{ academicYear: 2024 }],
       });
 
@@ -911,7 +961,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         academicYearSemesters: [{ academicYear: 2023, semesters: [2] }],
       });
 
@@ -922,51 +976,53 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
 
     it('should only include semesters that belong to the specified academic years', async () => {
       // Move course5 and course6 into different semesters and years
-      await prisma.course.update({
-        where: { id: courseId5 },
+      await prisma.courseOffering.update({
+        where: { id: offering5Id },
         data: { academicYear: 2024, semester: 0 },
       });
-      await prisma.course.update({
-        where: { id: courseId6 },
+      await prisma.courseOffering.update({
+        where: { id: offering6Id },
         data: { academicYear: 2024, semester: 1 },
       });
 
       // Create a new CLO that only belongs to course6 (2024 semester 1)
       const EXTRA_CLO_ID = '550e8400-e29b-41d4-a716-446655441111';
       const EXTRA_VECTOR_ID = '550e8400-e29b-41d4-a716-446655441112';
-      const EXTRA_COURSE_CLO_ID = '550e8400-e29b-41d4-a716-446655441113';
-
-      await prisma.courseLearningOutcome.create({
-        data: {
-          id: EXTRA_CLO_ID,
-          originalCLONameTh: 'สามารถวิเคราะห์ข้อมูลเฉพาะทางได้',
-          cleanedCLONameTh: 'วิเคราะห์เฉพาะทาง',
-          hasEmbedding768: true,
-        },
+      await insertCourseLearningOutcomeRecord({
+        prisma,
+        id: EXTRA_CLO_ID,
+        courseId: courseId6,
+        cloNo: 3,
+        originalCloName: 'สามารถวิเคราะห์ข้อมูลเฉพาะทางได้',
+        cleanedCloName: 'วิเคราะห์เฉพาะทาง',
+        hasEmbedding768: true,
       });
 
       const additionalVector = buildVectorFromSequence([
         0.12, 0.22, 0.32, 0.42, 0.52, 0.62, 0.72, 0.82,
       ]);
       await prisma.$executeRaw`
-        INSERT INTO course_learning_outcome_vectors (id, clo_id, embedding_768)
-        VALUES (${EXTRA_VECTOR_ID}::uuid, ${EXTRA_CLO_ID}::uuid, ${additionalVector})
+        INSERT INTO course_learning_outcome_vectors (id, embedded_text, embedding_768)
+        VALUES (${EXTRA_VECTOR_ID}::uuid, 'vector-extra', ${JSON.stringify(additionalVector)}::vector)
       `;
 
-      await prisma.courseCLO.create({
-        data: {
-          id: EXTRA_COURSE_CLO_ID,
-          courseId: courseId6,
-          cloId: EXTRA_CLO_ID,
-          cloNo: 3,
-        },
+      // Update the extra CLO to reference its vector
+      await prisma.courseLearningOutcome.update({
+        where: { id: EXTRA_CLO_ID },
+        data: { vectorId: EXTRA_VECTOR_ID },
       });
+
+      // No additional linking table is needed; CLO is already associated with course6
 
       const result = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         academicYearSemesters: [
           { academicYear: 2023, semesters: [1] },
           { academicYear: 2024, semesters: [0] },
@@ -978,12 +1034,10 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
 
       const cloIds = result.get('วิเคราะห์')!.map((clo) => clo.loId);
       expect(cloIds.length).toBeGreaterThan(0); // Filter still finds CLOs that match allowed semesters.
-      // Ensure at least one CLO from the base academic year is returned
+      // All returned CLOs must belong to course5 (2024 semester 0) because it is the only offering that matches the provided filters.
       expect(
-        cloIds.some((id) =>
-          [MOCK_CLO1_ID, MOCK_CLO2_ID, MOCK_CLO3_ID].includes(id),
-        ),
-      ).toBeTruthy(); // Ensure at least one CLO still represents the 2023 semester 1 portion of the filter.
+        cloIds.every((id) => [MOCK_CLO7_ID, MOCK_CLO8_ID].includes(id)),
+      ).toBeTruthy();
       // Semesters not listed in the filter (e.g., 2024 semester 1) should be excluded
       expect(cloIds).not.toContain(EXTRA_CLO_ID); // The artificially added 2024 semester 1 CLO must be filtered out.
     });
@@ -999,7 +1053,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       mockEmbeddingClient.embedOne.mockResolvedValue({
         vector: queryVector,
         metadata: {
-          modelId: 'e5-small',
+          model: 'e5-base',
           provider: 'e5',
           dimension: 768,
           embeddedText: 'test',
@@ -1011,7 +1065,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
       });
 
       expect(result.size).toBe(1); // Only one skill queried.
@@ -1036,7 +1094,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         campusId: campus1Id, // Filter to first campus where courses 5 and 6 are located
       });
 
@@ -1060,7 +1122,11 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         skills: ['วิเคราะห์'],
         threshold: 0.3,
         topN: 10,
-        vectorDimension: 768,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
         campusId: campus1Id,
       });
 
@@ -1078,6 +1144,56 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       // Verify CLO7 is included and has a valid similarity score
       expect(clo7Match).toBeDefined(); // CLO7 must still be part of the results.
       expect(clo7Match!.similarityScore).toBeGreaterThanOrEqual(0.3); // Similarity should clear the threshold passed into the query.
+    });
+
+    it('should return every CLO tied to the top-ranked vectors even when topN is small', async () => {
+      const queryVector = buildVectorFromSequence([
+        0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55,
+      ]);
+      mockEmbeddingClient.embedOne.mockResolvedValueOnce({
+        vector: queryVector,
+        metadata: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+          embeddedText: 'test',
+          generatedAt: new Date().toISOString(),
+        },
+      });
+
+      // Force CLO7 and CLO8 to share the same vector so we can verify that all CLOs
+      // tied to a selected vector are returned even when topN restricts scoring.
+      await prisma.courseLearningOutcome.update({
+        where: { id: MOCK_CLO8_ID },
+        data: { vectorId: MOCK_VECTOR7_ID },
+      });
+
+      try {
+        const result = await repository.findLosBySkills({
+          skills: ['วิเคราะห์'],
+          threshold: 0.5,
+          topN: 1,
+          embeddingConfiguration: {
+            model: 'e5-base',
+            provider: 'e5',
+            dimension: 768,
+          },
+          campusId: campus1Id,
+        });
+
+        expect(result.size).toBe(1);
+        const matches = result.get('วิเคราะห์')!;
+        expect(matches).toHaveLength(2);
+        const cloIds = matches.map((match) => match.loId);
+        expect(cloIds).toContain(MOCK_CLO7_ID);
+        expect(cloIds).toContain(MOCK_CLO8_ID);
+      } finally {
+        // Restore CLO8's original vector mapping for subsequent tests.
+        await prisma.courseLearningOutcome.update({
+          where: { id: MOCK_CLO8_ID },
+          data: { vectorId: MOCK_VECTOR8_ID },
+        });
+      }
     });
   });
 });

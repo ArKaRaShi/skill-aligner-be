@@ -9,7 +9,7 @@ import {
   ICourseRepository,
 } from '../contracts/i-course-repository.contract';
 import {
-  FindLosBySkillsWithFilterParams,
+  FindCoursesWithLosBySkillsWithFilterParams,
   ICourseRetrieverService,
 } from '../contracts/i-course-retriever-service.contract';
 import { CourseWithLearningOutcomeV2Match } from '../types/course.type';
@@ -25,15 +25,15 @@ export class CourseRetrieverService implements ICourseRetrieverService {
 
   async getCoursesWithLosBySkillsWithFilter({
     skills,
+    embeddingConfiguration,
     threshold,
     topN,
-    vectorDimension,
     enableLlmFilter,
     campusId,
     facultyId,
     isGenEd,
     academicYearSemesters,
-  }: FindLosBySkillsWithFilterParams): Promise<
+  }: FindCoursesWithLosBySkillsWithFilterParams): Promise<
     Map<string, CourseWithLearningOutcomeV2Match[]>
   > {
     // TODO: Implement LLM filtering when enableLlmFilter is true
@@ -43,9 +43,9 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     const learningOutcomesBySkills =
       await this.courseLearningOutcomeRepository.findLosBySkills({
         skills,
+        embeddingConfiguration,
         threshold,
         topN,
-        vectorDimension,
         campusId,
         facultyId,
         isGenEd,
@@ -94,23 +94,24 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         if (matchingLearningOutcome) {
           for (const course of courses) {
             const existingCourseMatch = courseMatches.find(
-              (match) => match.courseId === course.courseId,
+              (match) => match.id === course.id,
             );
 
+            const { courseLearningOutcomes, ...courseWithoutLearningOutcomes } =
+              course;
+
             if (existingCourseMatch) {
-              // Add to existing matched learning outcomes
               existingCourseMatch.matchedLearningOutcomes.push(
                 matchingLearningOutcome,
               );
             } else {
-              // Create new course match
               courseMatches.push({
-                ...course,
+                ...courseWithoutLearningOutcomes,
                 matchedLearningOutcomes: [matchingLearningOutcome],
-                remainingLearningOutcomes: course.learningOutcomes.filter(
+                remainingLearningOutcomes: courseLearningOutcomes.filter(
                   (lo) => lo.loId !== learningOutcomeId,
                 ),
-                allLearningOutcomes: course.learningOutcomes,
+                allLearningOutcomes: courseLearningOutcomes,
               });
             }
           }
