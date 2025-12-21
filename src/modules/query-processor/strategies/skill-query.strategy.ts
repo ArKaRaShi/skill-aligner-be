@@ -6,7 +6,16 @@ import {
   I_COURSE_REPOSITORY_TOKEN,
   ICourseRepository,
 } from 'src/modules/course/contracts/i-course-repository.contract';
-import { CourseMatch } from 'src/modules/course/types/course.type';
+import {
+  I_COURSE_RETRIEVER_SERVICE_TOKEN,
+  ICourseRetrieverService,
+} from 'src/modules/course/contracts/i-course-retriever-service.contract';
+import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
+import {
+  EmbeddingModels,
+  EmbeddingProviders,
+  VectorDimensions,
+} from 'src/modules/embedding/clients';
 
 import {
   I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
@@ -43,9 +52,12 @@ export class SkillQueryStrategy implements IQueryStrategy {
     private readonly courseClassificationService: ICourseClassificationService,
     @Inject(I_ANSWER_SYNTHESIS_SERVICE_TOKEN)
     private readonly answerSynthesisService: IAnswerSynthesisService,
+    @Inject(I_COURSE_RETRIEVER_SERVICE_TOKEN)
+    private readonly courseRetrieverService: ICourseRetrieverService,
   ) {}
 
-  canHandle(): boolean {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  canHandle(queryProfile: QueryProfile): boolean {
     // For now, this strategy will handle all skill-related queries
     return true;
   }
@@ -65,25 +77,43 @@ export class SkillQueryStrategy implements IQueryStrategy {
     this.logger.log(`Expanded skills: ${JSON.stringify(skills, null, 2)}`);
 
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
+
     const skillCoursesMap =
-      await this.courseRepository.findCoursesBySkillsViaLO({
+      await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
         skills: skills.map((skill) => skill.skill),
-        matchesPerSkill: 5, // tune this value as needed
-        // Adjust from 8.2 to 8.0 because of courses with lower relevance but still useful
-        threshold: 0.7, // beware of Mar Terraform Engineer, tune this value as needed
+        embeddingConfiguration: {
+          model: EmbeddingModels.E5_BASE,
+          provider: EmbeddingProviders.E5,
+          dimension: VectorDimensions.DIM_768,
+        },
+        threshold: 0.7,
+        topN: 5,
       });
+
+    // const skillCoursesMap =
+    //   await this.courseRepository.findCoursesBySkillsViaLO({
+    //     skills: skills.map((skill) => skill.skill),
+    //     matchesPerSkill: 5, // tune this value as needed
+    //     // Adjust from 8.2 to 8.0 because of courses with lower relevance but still useful
+    //     threshold: 0.7, // beware of Mar Terraform Engineer, tune this value as needed
+    //   });
 
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
 
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
     const classificationPromises: Promise<CourseClassificationResult>[] = [];
-    for (const skill of skillCoursesMap.keys()) {
-      const courses = skillCoursesMap.get(skill)!;
+    for (const [skill, courses] of skillCoursesMap.entries()) {
+      if (!courses?.length) {
+        continue;
+      }
+
       classificationPromises.push(
         this.courseClassificationService.classifyCourses(
           question,
           queryProfile,
-          new Map<string, CourseMatch[]>([[skill, courses]]),
+          new Map<string, CourseWithLearningOutcomeV2Match[]>([
+            [skill, courses],
+          ]),
         ),
       );
     }
@@ -127,7 +157,7 @@ export class SkillQueryStrategy implements IQueryStrategy {
 
   private async filterIncludedCourses(
     classificationResult: CourseClassificationResult,
-    skillCoursesMap: Map<string, CourseMatch[]>,
+    skillCoursesMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
   ): Promise<
     {
       skill: string;
@@ -151,7 +181,7 @@ export class SkillQueryStrategy implements IQueryStrategy {
       const courseMatches = includedCourses
         .map((includedCourse) => {
           const courseMatch = originalCourses.find((course) => {
-            const displayName = course.subjectName;
+            const displayName = course.subjectName || course.subjectCode;
             return displayName === includedCourse.name;
           });
 
@@ -165,7 +195,7 @@ export class SkillQueryStrategy implements IQueryStrategy {
           return { courseMatch, includedCourse };
         })
         .filter(Boolean) as {
-        courseMatch: CourseMatch;
+        courseMatch: CourseWithLearningOutcomeV2Match;
         includedCourse: { name: string; reason: string };
       }[];
 

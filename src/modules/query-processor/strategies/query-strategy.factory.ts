@@ -13,10 +13,10 @@ export class QueryStrategyFactory {
    * @param queryProfile - The profile of the query
    * @returns An instance of IQueryStrategy or null if no suitable strategy is found
    */
-  getStrategy(_queryProfile: QueryProfile): IQueryStrategy | null {
+  getStrategy(queryProfile: QueryProfile): IQueryStrategy | null {
     // For now, we only have one strategy, but this factory can be extended
     // to select different strategies based on the query profile
-    if (this.skillQueryStrategy.canHandle()) {
+    if (this.skillQueryStrategy.canHandle(queryProfile)) {
       return this.skillQueryStrategy;
     }
 

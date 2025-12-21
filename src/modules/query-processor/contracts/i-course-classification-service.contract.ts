@@ -1,4 +1,4 @@
-import { CourseMatch } from 'src/modules/course/types/course.type';
+import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 
 import { CourseClassificationResult } from '../types/course-classification.type';
 import { QueryProfile } from '../types/query-profile.type';
@@ -18,6 +18,6 @@ export interface ICourseClassificationService {
   classifyCourses(
     question: string,
     queryProfile: QueryProfile,
-    skillCourseMatchMap: Map<string, CourseMatch[]>,
+    skillCourseMatchMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
   ): Promise<CourseClassificationResult>;
 }

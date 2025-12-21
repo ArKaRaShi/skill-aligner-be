@@ -17,7 +17,6 @@ import { I_COURSE_CLASSIFICATION_SERVICE_TOKEN } from './contracts/i-course-clas
 import { I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN } from './contracts/i-query-profile-builder-service.contract';
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
-import { I_TOOL_DISPATCHER_SERVICE_TOKEN } from './contracts/i-tool-dispatcher-service.contract';
 import { QueryProcessorController } from './query-processor.controller';
 import { MockAnswerGeneratorService } from './services/answer-generator/mock-answer-generator.service';
 import { ObjectBasedAnswerGeneratorService } from './services/answer-generator/object-based-answer-generator.service';
@@ -29,7 +28,6 @@ import { MockQuestionClassifierService } from './services/question-classifier/mo
 import { QuestionClassifierService } from './services/question-classifier/question-classifier.service';
 import { MockSkillExpanderService } from './services/skill-expander/mock-skill-expander.service';
 import { SkillExpanderService } from './services/skill-expander/skill-expander.service';
-import { ToolDispatcherService } from './services/tool-dispatcher.service';
 import { QueryStrategyFactory } from './strategies/query-strategy.factory';
 import { SkillQueryStrategy } from './strategies/skill-query.strategy';
 import { QueryProcessorUseCases } from './use-cases';
@@ -105,19 +103,6 @@ import { QueryProcessorUseCases } from './use-cases';
       },
     },
     {
-      provide: I_TOOL_DISPATCHER_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
-      useFactory: (
-        config: AppConfigService,
-        llmProvider: ILlmProviderClient,
-      ) => {
-        return new ToolDispatcherService(
-          llmProvider,
-          config.toolDispatcherLlmModel,
-        );
-      },
-    },
-    {
       provide: I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
       inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
       useFactory: (
@@ -169,7 +154,6 @@ import { QueryProcessorUseCases } from './use-cases';
     SkillQueryStrategy,
   ],
   exports: [
-    I_TOOL_DISPATCHER_SERVICE_TOKEN,
     I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
     I_SKILL_EXPANDER_SERVICE_TOKEN,
   ],

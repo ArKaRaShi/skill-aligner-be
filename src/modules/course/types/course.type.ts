@@ -5,10 +5,7 @@ import {
   LearningOutcome,
   MatchedLearningOutcome,
 } from './course-learning-outcome-v2.type';
-import {
-  CourseLearningOutcome,
-  CourseLearningOutcomeMatch,
-} from './course-learning-outcome.type';
+import { CourseLearningOutcomeMatch } from './course-learning-outcome.type';
 import { CourseOffering } from './course-offering.type';
 
 export type Course = {

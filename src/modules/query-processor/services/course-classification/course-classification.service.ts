@@ -2,8 +2,8 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
 
-import { CourseLearningOutcomeMatch } from 'src/modules/course/types/course-learning-outcome.type';
-import { CourseMatch } from 'src/modules/course/types/course.type';
+import { LearningOutcome } from 'src/modules/course/types/course-learning-outcome-v2.type';
+import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
@@ -30,7 +30,7 @@ export class CourseClassificationService
   async classifyCourses(
     question: string,
     queryProfile: QueryProfile,
-    skillCourseMatchMap: Map<string, CourseMatch[]>,
+    skillCourseMatchMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
   ): Promise<CourseClassificationResult> {
     const context = this.buildContext(skillCourseMatchMap, queryProfile);
 
@@ -91,7 +91,7 @@ export class CourseClassificationService
     skillCourseMatchMap,
   }: {
     classifications: CourseClassificationResult['classifications'];
-    skillCourseMatchMap: Map<string, CourseMatch[]>;
+    skillCourseMatchMap: Map<string, CourseWithLearningOutcomeV2Match[]>;
   }): void {
     const coveredCourses = new Set<string>();
     const coveredSkills = new Set<string>();
@@ -132,7 +132,7 @@ export class CourseClassificationService
 
   private sanitizeResult(
     classificationResult: CourseClassificationResult,
-    skillCourseMatchMap: Map<string, CourseMatch[]>,
+    skillCourseMatchMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
   ): CourseClassificationResult {
     // populate all missing courses as excluded
     const sanitizedClassifications = classificationResult.classifications.map(
@@ -179,7 +179,7 @@ export class CourseClassificationService
   }
 
   private buildContext(
-    skillCourseMatchMap: Map<string, CourseMatch[]>,
+    skillCourseMatchMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
     queryProfile: QueryProfile,
   ): string {
     const skillCoursesContext: {
@@ -192,7 +192,7 @@ export class CourseClassificationService
     for (const [skill, courses] of skillCourseMatchMap.entries()) {
       const courseData = courses.map((course) => {
         const courseName = this.getCourseDisplayName(course);
-        const learningOutcomes = course.cloMatches.map((clo) =>
+        const learningOutcomes = course.matchedLearningOutcomes.map((clo) =>
           this.getLoDisplayName(clo),
         );
 
@@ -217,16 +217,13 @@ export class CourseClassificationService
     return label.trim().toLowerCase();
   }
 
-  private getCourseDisplayName(course: CourseMatch): string {
+  private getCourseDisplayName(
+    course: CourseWithLearningOutcomeV2Match,
+  ): string {
     return course.subjectName;
   }
 
-  private getLoDisplayName(lo: CourseLearningOutcomeMatch): string {
-    return (
-      lo.cleanedCloName ??
-      lo.cleanedCLONameEn ??
-      lo.originalCLONameTh ??
-      lo.originalCLONameEn
-    );
+  private getLoDisplayName(lo: LearningOutcome): string {
+    return lo.cleanedName;
   }
 }
