@@ -2,6 +2,7 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
 
+import { AggregatedCourseSkills } from 'src/modules/course/types/course.type';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
@@ -13,7 +14,6 @@ import {
 } from '../../contracts/i-answer-synthesis-service.contract';
 import { AnswerSynthesisPromptFactory } from '../../prompts/answer-synthesis';
 import { AnswerSynthesisResult } from '../../types/answer-synthesis.type';
-import { CourseClassificationResult } from '../../types/course-classification.type';
 import { QueryProfile } from '../../types/query-profile.type';
 
 @Injectable()
@@ -29,9 +29,9 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
   async synthesizeAnswer(
     input: AnswerSynthesizeInput,
   ): Promise<AnswerSynthesisResult> {
-    const { question, promptVersion, queryProfile, classificationResult } =
+    const { question, promptVersion, queryProfile, aggregatedCourseSkills } =
       input;
-    const context = this.buildContext(classificationResult, queryProfile);
+    const context = this.buildContext(aggregatedCourseSkills, queryProfile);
 
     this.logger.log(
       `[AnswerSynthesis] Synthesizing answer for question: "${question}" using model: ${this.modelName}`,
@@ -59,56 +59,38 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
       )}`,
     );
 
-    let includeCount = 0;
-    let excludeCount = 0;
-
-    for (const { courses } of classificationResult.classifications) {
-      for (const course of courses) {
-        if (course.decision === 'include') {
-          includeCount++;
-        } else if (course.decision === 'exclude') {
-          excludeCount++;
-        }
-      }
-    }
-
     const synthesisResult: AnswerSynthesisResult = {
       answerText: llmResult.text,
       question,
-      classificationCount: classificationResult.classifications.reduce(
-        (total, classification) => total + classification.courses.length,
-        0,
-      ),
-      includeCount,
-      excludeCount,
     };
 
     return synthesisResult;
   }
 
   private buildContext(
-    classificationResult: CourseClassificationResult,
+    aggregatedCourseSkills: AggregatedCourseSkills[],
     queryProfile: QueryProfile,
   ): string {
-    const skillWithCourses = classificationResult.classifications.map(
-      (classification) => {
-        const includedCourses = classification.courses
-          .filter((course) => course.decision === 'include')
-          .map((course) => ({
-            courseName: course.name,
-            decision: course.decision,
-            reason: course.reason,
-          }));
+    const exposedDetails = aggregatedCourseSkills.map((courseSkills) => {
+      return {
+        subject_name: courseSkills.subjectName,
+        subject_code: courseSkills.subjectCode,
+        matched_skills_and_learning_outcomes: courseSkills.matchedSkills.map(
+          (ms) => {
+            const learningOutcomes = ms.learningOutcomes.map((lo) => ({
+              learning_outcome_name: lo.cleanedName,
+            }));
+            return {
+              skill: ms.skill,
+              learning_outcomes: learningOutcomes,
+            };
+          },
+        ),
+      };
+    });
 
-        return {
-          skill: classification.skill,
-          courses: includedCourses,
-        };
-      },
-    );
-
-    const encodedContext = encode(skillWithCourses);
+    const encodedContext = encode(exposedDetails);
     const encodedQueryProfile = encode(queryProfile);
-    return `Classification Results:\n${encodedContext}\n\nUser Query Profile:\n${encodedQueryProfile}`;
+    return `Courses with skills:\n${encodedContext}\n\nUser Query Profile:\n${encodedQueryProfile}`;
   }
 }

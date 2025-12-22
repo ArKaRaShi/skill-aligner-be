@@ -15,7 +15,10 @@ import {
   LearningOutcome,
   MatchedLearningOutcome,
 } from '../../types/course-learning-outcome-v2.type';
-import { Course, CourseWithLearningOutcomeV2Match } from '../../types/course.type';
+import {
+  Course,
+  CourseWithLearningOutcomeV2Match,
+} from '../../types/course.type';
 import { CourseRetrieverService } from '../course-retriever.service';
 
 const baseDate = new Date('2024-01-01T00:00:00.000Z');
@@ -94,13 +97,13 @@ describe('CourseRetrieverService', () => {
     service = module.get(CourseRetrieverService);
   });
 
-const baseParams: FindCoursesWithLosBySkillsWithFilterParams = {
-  skills: ['skill1', 'skill2'],
-  embeddingConfiguration,
-  threshold: 0.5,
-  topN: 10,
-  enableLlmFilter: false,
-};
+  const baseParams: FindCoursesWithLosBySkillsWithFilterParams = {
+    skills: ['skill1', 'skill2'],
+    embeddingConfiguration,
+    threshold: 0.5,
+    topN: 10,
+    enableLlmFilter: false,
+  };
 
   describe('getCoursesWithLosBySkillsWithFilter', () => {
     it('returns empty arrays per skill when no learning outcomes are found', async () => {
@@ -111,9 +114,8 @@ const baseParams: FindCoursesWithLosBySkillsWithFilterParams = {
         ]),
       );
 
-      const result = await service.getCoursesWithLosBySkillsWithFilter(
-        baseParams,
-      );
+      const result =
+        await service.getCoursesWithLosBySkillsWithFilter(baseParams);
 
       expect(result).toEqual(
         new Map([
@@ -121,7 +123,9 @@ const baseParams: FindCoursesWithLosBySkillsWithFilterParams = {
           ['skill2', []],
         ]),
       );
-      expect(courseRepository.findCourseByLearningOutcomeIds).not.toHaveBeenCalled();
+      expect(
+        courseRepository.findCourseByLearningOutcomeIds,
+      ).not.toHaveBeenCalled();
     });
 
     it('aggregates courses by skill and merges matched learning outcomes per course', async () => {
@@ -155,9 +159,8 @@ const baseParams: FindCoursesWithLosBySkillsWithFilterParams = {
         ]),
       );
 
-      const result = await service.getCoursesWithLosBySkillsWithFilter(
-        baseParams,
-      );
+      const result =
+        await service.getCoursesWithLosBySkillsWithFilter(baseParams);
 
       const matches = result.get('skill1');
       expect(matches).toHaveLength(1);

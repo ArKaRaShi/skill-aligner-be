@@ -1,5 +1,9 @@
 import { Identifier } from 'src/common/domain/types/identifier';
 
+import { Campus, CampusView } from 'src/modules/campus/types/campus.type';
+import { FacultyView } from 'src/modules/faculty/types/faculty-view.type';
+import { Faculty } from 'src/modules/faculty/types/faculty.type';
+
 import { CourseClickLog } from './course-click-log.type';
 import {
   LearningOutcome,
@@ -7,6 +11,7 @@ import {
 } from './course-learning-outcome-v2.type';
 import { CourseLearningOutcomeMatch } from './course-learning-outcome.type';
 import { CourseOffering } from './course-offering.type';
+import { MatchedSkillLearningOutcomes } from './skill-learning-outcome.type';
 
 export type Course = {
   id: Identifier;
@@ -36,4 +41,25 @@ export type CourseWithLearningOutcomeV2Match = Omit<
   matchedLearningOutcomes: MatchedLearningOutcome[];
   remainingLearningOutcomes: LearningOutcome[];
   allLearningOutcomes: LearningOutcome[];
+};
+
+export type AggregatedCourseSkills = Course & {
+  matchedSkills: MatchedSkillLearningOutcomes[];
+};
+
+export type CourseView = {
+  id: Identifier;
+  campus: Campus;
+  faculty: Faculty;
+
+  subjectCode: string;
+  subjectName: string;
+  isGenEd: boolean;
+  courseLearningOutcomes: LearningOutcome[];
+  matchedSkills: MatchedSkillLearningOutcomes[];
+  courseOfferings: CourseOffering[];
+  totalClicks: number;
+
+  createdAt: Date;
+  updatedAt: Date;
 };

@@ -4,7 +4,7 @@ export type FindManyInput = {
   includeFaculties?: boolean;
 };
 
-export const I_CAMPUS_REPOSITORY = Symbol('ICampusRepository');
+export const I_CAMPUS_REPOSITORY_TOKEN = Symbol('ICampusRepository');
 
 export interface ICampusRepository {
   /**

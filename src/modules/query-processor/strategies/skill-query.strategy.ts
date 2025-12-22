@@ -1,21 +1,31 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import { Identifier } from 'src/common/domain/types/identifier';
 import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
 
 import {
-  I_COURSE_REPOSITORY_TOKEN,
-  ICourseRepository,
-} from 'src/modules/course/contracts/i-course-repository.contract';
+  I_CAMPUS_REPOSITORY_TOKEN,
+  ICampusRepository,
+} from 'src/modules/campus/contracts/i-campus-repository.contract';
+import { Campus } from 'src/modules/campus/types/campus.type';
 import {
   I_COURSE_RETRIEVER_SERVICE_TOKEN,
   ICourseRetrieverService,
 } from 'src/modules/course/contracts/i-course-retriever-service.contract';
-import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
+import {
+  AggregatedCourseSkills,
+  CourseView,
+} from 'src/modules/course/types/course.type';
 import {
   EmbeddingModels,
   EmbeddingProviders,
   VectorDimensions,
 } from 'src/modules/embedding/clients';
+import {
+  I_FACULTY_REPOSITORY_TOKEN,
+  IFacultyRepository,
+} from 'src/modules/faculty/contracts/i-faculty.contract';
+import { Faculty } from 'src/modules/faculty/types/faculty.type';
 
 import {
   I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
@@ -31,12 +41,8 @@ import {
   ISkillExpanderService,
 } from '../contracts/i-skill-expander-service.contract';
 import { AnswerSynthesisPromptVersions } from '../prompts/answer-synthesis';
-import { CourseClassificationResult } from '../types/course-classification.type';
 import { QueryProfile } from '../types/query-profile.type';
-import {
-  AnswerQuestionUseCaseOutput,
-  CourseOutput,
-} from '../use-cases/types/answer-question.use-case.type';
+import { AnswerQuestionUseCaseOutput } from '../use-cases/types/answer-question.use-case.type';
 
 @Injectable()
 export class SkillQueryStrategy implements IQueryStrategy {
@@ -46,14 +52,17 @@ export class SkillQueryStrategy implements IQueryStrategy {
   constructor(
     @Inject(I_SKILL_EXPANDER_SERVICE_TOKEN)
     private readonly skillExpanderService: ISkillExpanderService,
-    @Inject(I_COURSE_REPOSITORY_TOKEN)
-    private readonly courseRepository: ICourseRepository,
     @Inject(I_COURSE_CLASSIFICATION_SERVICE_TOKEN)
     private readonly courseClassificationService: ICourseClassificationService,
     @Inject(I_ANSWER_SYNTHESIS_SERVICE_TOKEN)
     private readonly answerSynthesisService: IAnswerSynthesisService,
     @Inject(I_COURSE_RETRIEVER_SERVICE_TOKEN)
     private readonly courseRetrieverService: ICourseRetrieverService,
+
+    @Inject(I_FACULTY_REPOSITORY_TOKEN)
+    private readonly facultyRepository: IFacultyRepository,
+    @Inject(I_CAMPUS_REPOSITORY_TOKEN)
+    private readonly campusRepository: ICampusRepository,
   ) {}
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -90,6 +99,46 @@ export class SkillQueryStrategy implements IQueryStrategy {
         topN: 5,
       });
 
+    // Create a map to dedupe courses by subjectCode and aggregate their skills
+    const courseMap = new Map<string, AggregatedCourseSkills>();
+
+    for (const [skill, courses] of skillCoursesMap.entries()) {
+      for (const course of courses) {
+        const subjectCode = course.subjectCode;
+
+        if (!courseMap.has(subjectCode)) {
+          // Create a new AggregatedCourseSkills entry for this course
+          courseMap.set(subjectCode, {
+            id: course.id,
+            campusId: course.campusId,
+            facultyId: course.facultyId,
+            subjectCode: course.subjectCode,
+            subjectName: course.subjectName,
+            isGenEd: course.isGenEd,
+            courseLearningOutcomes: course.allLearningOutcomes,
+            courseOfferings: course.courseOfferings,
+            courseClickLogs: [],
+            metadata: course.metadata,
+            createdAt: course.createdAt,
+            updatedAt: course.updatedAt,
+            matchedSkills: [],
+          });
+        }
+
+        // Add the current skill and its matched learning outcomes to the course
+        const aggregatedCourse = courseMap.get(subjectCode)!;
+        aggregatedCourse.matchedSkills.push({
+          skill: skill,
+          learningOutcomes: course.matchedLearningOutcomes,
+        });
+      }
+    }
+
+    // Convert the map to an array
+    const aggregatedCourseSkills: AggregatedCourseSkills[] = [
+      ...Array.from(courseMap.values()),
+    ];
+
     // const skillCoursesMap =
     //   await this.courseRepository.findCoursesBySkillsViaLO({
     //     skills: skills.map((skill) => skill.skill),
@@ -100,44 +149,44 @@ export class SkillQueryStrategy implements IQueryStrategy {
 
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
 
-    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
-    const classificationPromises: Promise<CourseClassificationResult>[] = [];
-    for (const [skill, courses] of skillCoursesMap.entries()) {
-      if (!courses?.length) {
-        continue;
-      }
+    // this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+    // const classificationPromises: Promise<CourseClassificationResult>[] = [];
+    // for (const [skill, courses] of skillCoursesMap.entries()) {
+    //   if (!courses?.length) {
+    //     continue;
+    //   }
 
-      classificationPromises.push(
-        this.courseClassificationService.classifyCourses(
-          question,
-          queryProfile,
-          new Map<string, CourseWithLearningOutcomeV2Match[]>([
-            [skill, courses],
-          ]),
-        ),
-      );
-    }
-    const classificationResults = await Promise.all(classificationPromises);
+    //   classificationPromises.push(
+    //     this.courseClassificationService.classifyCourses(
+    //       question,
+    //       queryProfile,
+    //       new Map<string, CourseWithLearningOutcomeV2Match[]>([
+    //         [skill, courses],
+    //       ]),
+    //     ),
+    //   );
+    // }
+    // const classificationResults = await Promise.all(classificationPromises);
 
-    // Merge classification results
-    const classificationResult: CourseClassificationResult = {
-      classifications: classificationResults.flatMap(
-        (result) => result.classifications,
-      ),
-      question: classificationResults[0]?.question,
-      context: classificationResults
-        .map((result) => result.context)
-        .join('\n\n'),
-    };
+    // // Merge classification results
+    // const classificationResult: CourseClassificationResult = {
+    //   classifications: classificationResults.flatMap(
+    //     (result) => result.classifications,
+    //   ),
+    //   question: classificationResults[0]?.question,
+    //   context: classificationResults
+    //     .map((result) => result.context)
+    //     .join('\n\n'),
+    // };
 
-    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+    // this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
 
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
     const synthesisResult = await this.answerSynthesisService.synthesizeAnswer({
       question,
-      promptVersion: AnswerSynthesisPromptVersions.V5,
+      promptVersion: AnswerSynthesisPromptVersions.V6,
       queryProfile,
-      classificationResult,
+      aggregatedCourseSkills,
     });
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
 
@@ -145,104 +194,46 @@ export class SkillQueryStrategy implements IQueryStrategy {
       `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
     );
 
+    const relatedCourses = await this.transformToCourseViews(
+      aggregatedCourseSkills,
+    );
+
     return {
       answer: synthesisResult.answerText,
       suggestQuestion: null,
-      skillGroupedCourses: await this.filterIncludedCourses(
-        classificationResult,
-        skillCoursesMap,
-      ),
+      relatedCourses,
     };
   }
-
-  private async filterIncludedCourses(
-    classificationResult: CourseClassificationResult,
-    skillCoursesMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
-  ): Promise<
-    {
-      skill: string;
-      courses: CourseOutput[];
-    }[]
-  > {
-    const skillGroupedCourses: {
-      skill: string;
-      courses: CourseOutput[];
-    }[] = [];
-
-    for (const classification of classificationResult.classifications) {
-      const includedCourses = classification.courses.filter(
-        (course) => course.decision === 'include',
-      );
-
-      // Get the original course matches for this skill
-      const originalCourses = skillCoursesMap.get(classification.skill) || [];
-
-      // Find all course matches first
-      const courseMatches = includedCourses
-        .map((includedCourse) => {
-          const courseMatch = originalCourses.find((course) => {
-            const displayName = course.subjectName || course.subjectCode;
-            return displayName === includedCourse.name;
-          });
-
-          if (!courseMatch) {
-            this.logger.warn(
-              `Could not find course match for "${includedCourse.name}" in skill "${classification.skill}"`,
-            );
-            return null;
-          }
-
-          return { courseMatch, includedCourse };
-        })
-        .filter(Boolean) as {
-        courseMatch: CourseWithLearningOutcomeV2Match;
-        includedCourse: { name: string; reason: string };
-      }[];
-
-      // Fetch all course data in parallel
-      const courseFetchPromises = courseMatches.map(
-        async ({ courseMatch, includedCourse }) => {
-          try {
-            const fullCourseData = await this.courseRepository.findByIdOrThrow(
-              courseMatch.id,
-            );
-
-            return {
-              id: fullCourseData.id,
-              subjectCode: fullCourseData.subjectCode,
-              name: fullCourseData.subjectName ?? fullCourseData.subjectCode,
-              reason: includedCourse.reason,
-              learningOutcomes: fullCourseData.courseLearningOutcomes.map(
-                (clo) => ({
-                  id: clo.loId,
-                  name: clo.originalName,
-                }),
-              ),
-            } as CourseOutput;
-          } catch (error) {
-            this.logger.warn(
-              `Failed to fetch course data for course ID ${courseMatch.id}: ${error}`,
-            );
-            // Fallback to basic info if fetch fails
-            return {
-              id: courseMatch.id,
-              subjectCode: courseMatch.subjectCode,
-              name: courseMatch.subjectName ?? courseMatch.subjectCode,
-              reason: includedCourse.reason,
-              learningOutcomes: [],
-            } as CourseOutput;
-          }
-        },
-      );
-
-      const coursesWithFullData = await Promise.all(courseFetchPromises);
-
-      skillGroupedCourses.push({
-        skill: classification.skill,
-        courses: coursesWithFullData,
-      });
+  private async transformToCourseViews(
+    aggregatedCourses: AggregatedCourseSkills[],
+  ): Promise<CourseView[]> {
+    const [faculties, campuses] = await Promise.all([
+      this.facultyRepository.findMany(),
+      this.campusRepository.findMany({ includeFaculties: false }),
+    ]);
+    const facultyMap = new Map<Identifier, Faculty>();
+    for (const faculty of faculties) {
+      facultyMap.set(faculty.facultyId, faculty);
+    }
+    const campusMap = new Map<Identifier, Campus>();
+    for (const campus of campuses) {
+      campusMap.set(campus.campusId, campus);
     }
 
-    return skillGroupedCourses;
+    return aggregatedCourses.map((course) => ({
+      id: course.id,
+      campus: campusMap.get(course.campusId)!,
+      faculty: facultyMap.get(course.facultyId)!,
+      subjectCode: course.subjectCode,
+      subjectName: course.subjectName,
+      isGenEd: course.isGenEd,
+      courseLearningOutcomes: course.courseLearningOutcomes,
+      courseOfferings: course.courseOfferings,
+      matchedSkills: course.matchedSkills,
+      totalClicks: course.courseClickLogs.length,
+      metadata: course.metadata,
+      createdAt: course.createdAt,
+      updatedAt: course.updatedAt,
+    }));
   }
 }

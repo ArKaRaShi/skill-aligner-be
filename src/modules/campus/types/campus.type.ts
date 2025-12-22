@@ -15,3 +15,9 @@ export type Campus = {
   faculties: Faculty[];
   courses: Course[];
 };
+
+export type CampusView = {
+  id: Identifier;
+  code: string;
+  name: string | null;
+};

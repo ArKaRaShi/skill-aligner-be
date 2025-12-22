@@ -1,6 +1,7 @@
 import { plainToInstance } from 'class-transformer';
 
 import { FacultyResponseDto } from '../faculty/dto/responses/faculty.response.dto';
+import { CampusViewResponseDto } from './dto/responses/campus-view.response.dto';
 import { CampusWithFacultiesResponseDto } from './dto/responses/campuses-with-faculties.response.dto';
 import { Campus } from './types/campus.type';
 
@@ -42,6 +43,18 @@ export class CampusResponseMapper {
           excludeExtraneousValues: true,
         },
       );
+    });
+  }
+
+  static toCampusViewResponseDto(campus: Campus): CampusViewResponseDto {
+    const campusViewDto: CampusViewResponseDto = {
+      id: campus.campusId,
+      code: campus.code,
+      name: campus.nameTh,
+    };
+
+    return plainToInstance(CampusViewResponseDto, campusViewDto, {
+      excludeExtraneousValues: true,
     });
   }
 }

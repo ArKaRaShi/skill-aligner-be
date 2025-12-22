@@ -1,6 +1,7 @@
+import { AggregatedCourseSkills } from 'src/modules/course/types/course.type';
+
 import { AnswerSynthesisPromptVersion } from '../prompts/answer-synthesis';
 import { AnswerSynthesisResult } from '../types/answer-synthesis.type';
-import { CourseClassificationResult } from '../types/course-classification.type';
 import { QueryProfile } from '../types/query-profile.type';
 
 export const I_ANSWER_SYNTHESIS_SERVICE_TOKEN = Symbol(
@@ -11,7 +12,7 @@ export type AnswerSynthesizeInput = {
   question: string;
   promptVersion: AnswerSynthesisPromptVersion;
   queryProfile: QueryProfile;
-  classificationResult: CourseClassificationResult;
+  aggregatedCourseSkills: AggregatedCourseSkills[];
 };
 
 export interface IAnswerSynthesisService {

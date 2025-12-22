@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 
 import {
-  I_CAMPUS_REPOSITORY,
+  I_CAMPUS_REPOSITORY_TOKEN,
   ICampusRepository,
 } from '../contracts/i-campus-repository.contract';
 import {
@@ -12,7 +12,7 @@ import {
 @Injectable()
 export class GetCampusesUseCase {
   constructor(
-    @Inject(I_CAMPUS_REPOSITORY)
+    @Inject(I_CAMPUS_REPOSITORY_TOKEN)
     private readonly campusRepository: ICampusRepository,
   ) {}
 

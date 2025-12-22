@@ -2,8 +2,10 @@ import { Module } from '@nestjs/common';
 
 import { AppConfigService } from 'src/config/app-config.service';
 
+import { CampusModule } from '../campus/campus.module';
 import { CourseModule } from '../course/course.module';
 import { EmbeddingModule } from '../embedding/embedding.module';
+import { FacultyModule } from '../faculty/faculty.module';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
@@ -33,7 +35,13 @@ import { SkillQueryStrategy } from './strategies/skill-query.strategy';
 import { QueryProcessorUseCases } from './use-cases';
 
 @Module({
-  imports: [EmbeddingModule.register(), CourseModule, GptLlmModule],
+  imports: [
+    EmbeddingModule.register(),
+    CampusModule,
+    FacultyModule,
+    CourseModule,
+    GptLlmModule,
+  ],
   controllers: [QueryProcessorController],
   providers: [
     ...QueryProcessorUseCases,

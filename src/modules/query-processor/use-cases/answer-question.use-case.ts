@@ -81,7 +81,7 @@ export class AnswerQuestionUseCase
         answer: 'ขออภัย เราไม่แน่ใจว่าคุณต้องการอะไร กรุณาลองถามใหม่อีกครั้ง',
         suggestQuestion:
           'อยากเรียนเกี่ยวกับทักษะที่จำเป็นสำหรับการทำงานในอนาคต',
-        skillGroupedCourses: [],
+        relatedCourses: [],
       };
     }
 
@@ -94,7 +94,7 @@ export class AnswerQuestionUseCase
         answer: 'ขออภัย เกิดข้อผิดพลาดในการประมวลผลคำถามของคุณ',
         suggestQuestion:
           'อยากเรียนเกี่ยวกับทักษะที่จำเป็นสำหรับการทำงานในอนาคต',
-        skillGroupedCourses: [],
+        relatedCourses: [],
       };
     }
 
@@ -110,7 +110,7 @@ export class AnswerQuestionUseCase
     return {
       answer: null,
       suggestQuestion: null,
-      skillGroupedCourses: [],
+      relatedCourses: [],
     };
   }
 
@@ -121,7 +121,7 @@ export class AnswerQuestionUseCase
       return {
         answer: 'ขออภัย คำถามของคุณอยู่นอกขอบเขตที่เราสามารถช่วยได้',
         suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
-        skillGroupedCourses: [],
+        relatedCourses: [],
       };
     }
 
@@ -129,7 +129,7 @@ export class AnswerQuestionUseCase
       return {
         answer: 'ขออภัย คำถามของคุณมีเนื้อหาที่ไม่เหมาะสมหรือเป็นอันตราย',
         suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
-        skillGroupedCourses: [],
+        relatedCourses: [],
       };
     }
 
