@@ -7,7 +7,10 @@ import {
 
 import { QuestionSkillCache } from '../../cache/question-skill.cache';
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
-import { SkillExpansionPromptFactory } from '../../prompts/skill-expansion';
+import {
+  SkillExpansionPromptFactory,
+  SkillExpansionPromptVersion,
+} from '../../prompts/skill-expansion';
 import {
   EXPAND_SKILL_SYSTEM_PROMPT,
   getExpandSkillUserPrompt,
@@ -84,9 +87,12 @@ export class SkillExpanderService implements ISkillExpanderService {
     return result;
   }
 
-  async expandSkillsV2(question: string): Promise<TSkillExpansionV2> {
+  async expandSkillsV2(
+    question: string,
+    promptVersion: SkillExpansionPromptVersion,
+  ): Promise<TSkillExpansionV2> {
     const { getPrompts } = SkillExpansionPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v4');
+    const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
 
     const userPrompt = getUserPrompt(question);
 
@@ -97,7 +103,7 @@ export class SkillExpanderService implements ISkillExpanderService {
       model: this.modelName,
     });
     const result: TSkillExpansionV2 = {
-      skills: object.skills.map((item) => ({
+      skillItems: object.skills.map((item) => ({
         skill: item.skill,
         learningOutcome: item.learning_outcome,
         reason: item.reason,

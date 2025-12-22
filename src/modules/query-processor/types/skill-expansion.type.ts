@@ -13,5 +13,5 @@ export type TSkillItemV2 = {
 };
 
 export type TSkillExpansionV2 = {
-  skills: TSkillItemV2[];
+  skillItems: TSkillItemV2[];
 };

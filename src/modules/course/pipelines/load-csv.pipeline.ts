@@ -3,12 +3,14 @@ import {
   RawCourseWithCLOCsvRow,
   RawCourseWithCLOJsonRow,
 } from './types/raw-course-row.type';
+import { ProcessedGenEdRow } from './types/raw-gened-row.type';
 
 export class LoadCsvPipeline {
-  private static readonly CSV_FILE_PATH = 'data/courses.csv';
+  private static readonly COURSE_CSV_FILE_PATH = 'data/courses.csv';
+  private static readonly GEN_ED_CSV_FILE_PATH = 'data/gened.csv';
 
-  static async execute(
-    filePath = this.CSV_FILE_PATH,
+  static async loadCourses(
+    filePath = this.COURSE_CSV_FILE_PATH,
   ): Promise<RawCourseWithCLOJsonRow[]> {
     const rawRows = await FileHelper.loadCsv<RawCourseWithCLOCsvRow>(filePath);
     return rawRows.map((row) => ({
@@ -22,39 +24,78 @@ export class LoadCsvPipeline {
       clo_name_th: row.clo_name_th,
     }));
   }
-}
 
-function inspectData(data: RawCourseWithCLOJsonRow[]) {
-  let countEmptyCLO = 0;
-  let countEmptySubjectName = 0;
+  static async loadGenEdCourses(
+    filePath = this.GEN_ED_CSV_FILE_PATH,
+  ): Promise<ProcessedGenEdRow[]> {
+    const rawRows = await FileHelper.loadCsv<Record<string, string>>(filePath);
 
-  for (const row of data) {
-    if (row.clo_name_th.trim() === '') {
-      console.log('Found empty CLO name in row:', row);
-      countEmptyCLO++;
-    }
-    if (row.subject_name_th.trim() === '') {
-      console.log('Found empty subject name in row:', row);
-      countEmptySubjectName++;
-    }
+    return rawRows.map((row) => {
+      const subject_code = row['รหัสวิชา'];
+      const subject_name = row['ชื่อวิชา'];
+      const credit = row['หน่วยกิต'];
+      const faculty_code = row['คณะต้นสังกัด'];
+      const learning_group_64 = row['กลุ่มสาระ - 64'];
+      const competency_67 = row['สมรรถนะ - 67'];
+
+      return {
+        subject_code,
+        subject_name,
+        credit,
+        faculty_code,
+        learning_group_64,
+        competency_67,
+        has64: Boolean(
+          learning_group_64 &&
+            learning_group_64 !== '-' &&
+            !learning_group_64.includes('--ปิดรายวิชา--'),
+        ),
+        has67: Boolean(
+          competency_67 &&
+            competency_67 !== '-' &&
+            !competency_67.includes('--ปิดรายวิชา--'),
+        ),
+        is_course_closed: Boolean(
+          (subject_name && subject_name.includes('--ปิดรายวิชา--')) ||
+            (learning_group_64 &&
+              learning_group_64.includes('--ปิดรายวิชา--')) ||
+            (competency_67 && competency_67.includes('--ปิดรายวิชา--')),
+        ),
+      };
+    });
   }
-
-  console.log(`Found ${countEmptyCLO} rows with empty CLO names.`);
-  console.log(`Found ${countEmptySubjectName} rows with empty subject names.`);
 }
 
-async function runPipeline() {
-  const data = await LoadCsvPipeline.execute();
-  //   await FileHelper.saveLatestJson<RawCourseWithCLOJsonRow[]>(
-  //     'src/modules/course/pipelines/data/raw/courses',
-  //     data,
-  //   );
-  inspectData(data);
-
-  console.log('CSV data loaded and saved as JSON successfully.');
+async function runPipeline({
+  loadAndSaveCoursesCsvToJson,
+  loadAndSaveGenEdCsvToJson,
+}: {
+  loadAndSaveCoursesCsvToJson: boolean;
+  loadAndSaveGenEdCsvToJson: boolean;
+}) {
+  if (loadAndSaveGenEdCsvToJson) {
+    const genEdData = await LoadCsvPipeline.loadGenEdCourses();
+    await FileHelper.saveLatestJson<ProcessedGenEdRow[]>(
+      'src/modules/course/pipelines/data/raw/gened_courses',
+      genEdData,
+    );
+    console.log('CSV gen-ed data loaded and saved as JSON successfully.');
+  }
+  if (loadAndSaveCoursesCsvToJson) {
+    const data = await LoadCsvPipeline.loadCourses();
+    await FileHelper.saveLatestJson<RawCourseWithCLOJsonRow[]>(
+      'src/modules/course/pipelines/data/raw/courses',
+      data,
+    );
+    console.log('CSV course data loaded and saved as JSON successfully.');
+  }
+  // inspectData(data);
 }
 
-runPipeline()
+runPipeline({
+  loadAndSaveCoursesCsvToJson: false,
+  loadAndSaveGenEdCsvToJson: true,
+})
   .then(() => {
     console.log('Pipeline completed successfully.');
   })

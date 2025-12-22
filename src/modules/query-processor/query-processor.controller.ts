@@ -6,6 +6,7 @@ import { AnswerQuestionRequestDto } from './dto/requests/answer-question.request
 import { AnswerQuestionResponseDto } from './dto/responses/answer-question.response.dto';
 import { CourseResponseMapper } from './mappers/course-response.mapper';
 import { AnswerQuestionUseCase } from './use-cases/answer-question.use-case';
+import { AnswerQuestionUseCaseInput } from './use-cases/inputs/answer-question.use-case.input';
 
 @Controller()
 export class QueryProcessorController {
@@ -16,9 +17,14 @@ export class QueryProcessorController {
   async answerQuestion(
     @Body() body: AnswerQuestionRequestDto,
   ): Promise<BaseResponseDto<AnswerQuestionResponseDto>> {
-    const { question } = body;
+    const { question, isGenEd } = body;
     const { answer, suggestQuestion, relatedCourses } =
-      await this.answerQuestionUseCase.execute(question);
+      await this.answerQuestionUseCase.execute(
+        new AnswerQuestionUseCaseInput({
+          question,
+          isGenEd,
+        }),
+      );
 
     const mappedResult: AnswerQuestionResponseDto = {
       answer,

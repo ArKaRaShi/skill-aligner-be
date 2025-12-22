@@ -32,7 +32,7 @@ export class MockSkillExpanderService implements ISkillExpanderService {
   async expandSkillsV2(question: string): Promise<TSkillExpansionV2> {
     await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate async delay
     return {
-      skills: [
+      skillItems: [
         {
           skill: 'Mock Skill A',
           learningOutcome: 'Mock Learning Outcome A',

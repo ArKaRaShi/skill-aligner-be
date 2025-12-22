@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 import { EmbedPipeline } from './pipelines/embed.pipeline';
 import { SeedCampusAndFacultyPipeline } from './pipelines/seed-campus-and-faculty.pipeline';
 import { SeedCourseAndLoPipeline } from './pipelines/seed-course-and-lo.pipeline';
+import { UpdateGenEdCodesPipeline } from './pipelines/update-gened-codes.pipeline';
 
 async function bootstrap() {
   const appContext = await NestFactory.createApplicationContext(AppModule);
@@ -15,7 +16,7 @@ async function bootstrap() {
 
   if (!pipelineType) {
     console.error(
-      'Please specify a pipeline type: embed, seed-course-lo, or seed-campus-faculty',
+      'Please specify a pipeline type: embed, seed-course-lo, seed-campus-faculty, or update-gened-codes',
     );
     console.log(
       'Usage: bunx ts-node --require tsconfig-paths/register src/cli.ts <pipeline-type> [dimension]',
@@ -24,6 +25,9 @@ async function bootstrap() {
     console.log('  embed - Embed course learning outcomes');
     console.log('  seed-course-lo - Seed courses and learning outcomes');
     console.log('  seed-campus-faculty - Seed campuses and faculties');
+    console.log(
+      '  update-gened-codes - Update GenEd course codes based on processed data',
+    );
     await appContext.close();
     process.exit(1);
   }
@@ -44,6 +48,9 @@ async function bootstrap() {
         deleteExisting: args.includes('--delete'),
         seeds: !args.includes('--no-seed'),
       });
+    } else if (pipelineType === 'update-gened-codes') {
+      const pipeline = appContext.get(UpdateGenEdCodesPipeline);
+      await pipeline.execute();
     } else {
       console.error(`Unknown pipeline type: ${pipelineType}`);
       await appContext.close();
@@ -66,3 +73,4 @@ bootstrap();
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-course-lo --delete --no-seed
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-campus-faculty
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-campus-faculty --delete --no-seed
+// bunx ts-node --require tsconfig-paths/register src/cli.ts update-gened-codes

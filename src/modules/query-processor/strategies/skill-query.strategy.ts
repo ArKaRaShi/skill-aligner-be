@@ -41,8 +41,9 @@ import {
   ISkillExpanderService,
 } from '../contracts/i-skill-expander-service.contract';
 import { AnswerSynthesisPromptVersions } from '../prompts/answer-synthesis';
+import { SkillExpansionPromptVersions } from '../prompts/skill-expansion';
 import { QueryProfile } from '../types/query-profile.type';
-import { AnswerQuestionUseCaseOutput } from '../use-cases/types/answer-question.use-case.type';
+import { AnswerQuestionUseCaseOutput } from '../use-cases/outputs/answer-question.use-case.output';
 
 @Injectable()
 export class SkillQueryStrategy implements IQueryStrategy {
@@ -78,9 +79,11 @@ export class SkillQueryStrategy implements IQueryStrategy {
   ): Promise<AnswerQuestionUseCaseOutput> {
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
-    const skillExpansion =
-      await this.skillExpanderService.expandSkillsV2(question);
-    const skills = skillExpansion.skills;
+    const skillExpansion = await this.skillExpanderService.expandSkillsV2(
+      question,
+      SkillExpansionPromptVersions.V5,
+    );
+    const skills = skillExpansion.skillItems;
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
     this.logger.log(`Expanded skills: ${JSON.stringify(skills, null, 2)}`);

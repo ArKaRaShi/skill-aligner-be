@@ -14,6 +14,34 @@ export type CampusFacultyMap = Map<
 
 @Injectable()
 export class SeedCampusAndFacultyPipeline {
+  private readonly campusCodeToNameMap: Map<string, string> = new Map([
+    ['B', 'บางเขน'],
+    ['K', 'กำแพงแสน'],
+    ['S', 'ศรีราชา'],
+    ['C', 'เฉลิมพระเกียรติ จังหวัดสกลนคร'],
+    ['P', 'โครงการจัดตั้งวิทยาเขตสุพรรณบุรี'],
+    ['I', 'สถาบันสมทบ'],
+  ]);
+
+  private readonly facultyCodeToNameMap: Map<string, string> = new Map([
+    ['A', 'เกษตร'],
+    ['B', 'ประมง'],
+    ['C', 'วนศาสตร์'],
+    ['D', 'วิทยาศาสตร์'],
+    ['E', 'วิศวกรรมศาสตร์'],
+    ['F', 'ศึกษาศาสตร์'],
+    ['G', 'เศรษฐศาสตร์'],
+    ['H', 'สังคมศาสตร์'],
+    ['I', 'สัตวแพทยศาสตร์'],
+    ['K', 'อุตสาหกรรมเกษตร'],
+    ['L', 'มนุษยศาสตร์'],
+    ['R', 'สถาปัตยกรรมศาสตร์'],
+    ['N', 'บริหารธุรกิจ'],
+    ['P', 'เทคนิคการสัตวแพทย์'],
+    ['T', 'สิ่งแวดล้อม'],
+    ['S', 'วิทยาเขตบูรณาการศาสตร์'],
+  ]);
+
   constructor(private readonly prisma: PrismaService) {}
 
   async seedCampusAndFaculty({
@@ -29,10 +57,13 @@ export class SeedCampusAndFacultyPipeline {
         where: {
           code: campusCode,
         },
-        update: {},
+        update: {
+          nameTh: this.campusCodeToNameMap.get(campusCode),
+        },
         create: {
           id: uuidv4(),
           code: campusCode,
+          nameTh: this.campusCodeToNameMap.get(campusCode),
         },
       });
 
@@ -44,10 +75,13 @@ export class SeedCampusAndFacultyPipeline {
             code: facultyCode,
           },
         },
-        update: {},
+        update: {
+          nameTh: this.facultyCodeToNameMap.get(facultyCode),
+        },
         create: {
           id: uuidv4(),
           code: facultyCode,
+          nameTh: this.facultyCodeToNameMap.get(facultyCode),
           campusId,
         },
       });

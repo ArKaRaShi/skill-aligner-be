@@ -5,7 +5,7 @@ import { CourseMatch } from 'src/modules/course/types/course.type';
 import { CourseClassificationResult } from '../types/course-classification.type';
 import { QueryProfile } from '../types/query-profile.type';
 import { SkillExpansion } from '../types/skill-expansion.type';
-import { AnswerQuestionUseCaseOutput } from '../use-cases/types/answer-question.use-case.type';
+import { AnswerQuestionUseCaseOutput } from '../use-cases/outputs/answer-question.use-case.output';
 
 export interface IQueryStrategy {
   /**

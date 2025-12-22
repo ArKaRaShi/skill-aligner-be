@@ -1,3 +1,4 @@
+import { SkillExpansionPromptVersion } from '../prompts/skill-expansion';
 import {
   SkillExpansion,
   TSkillExpansionV2,
@@ -8,5 +9,8 @@ export const I_SKILL_EXPANDER_SERVICE_TOKEN = Symbol('ISkillExpanderService');
 export interface ISkillExpanderService {
   expandSkills(question: string): Promise<SkillExpansion>;
 
-  expandSkillsV2(question: string): Promise<TSkillExpansionV2>;
+  expandSkillsV2(
+    question: string,
+    promptVersion: SkillExpansionPromptVersion,
+  ): Promise<TSkillExpansionV2>;
 }

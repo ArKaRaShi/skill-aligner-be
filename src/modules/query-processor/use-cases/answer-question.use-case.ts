@@ -1,8 +1,41 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
+import { Identifier } from 'src/common/domain/types/identifier';
 import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
 
+import {
+  I_CAMPUS_REPOSITORY_TOKEN,
+  ICampusRepository,
+} from 'src/modules/campus/contracts/i-campus-repository.contract';
+import { Campus } from 'src/modules/campus/types/campus.type';
+import {
+  I_COURSE_RETRIEVER_SERVICE_TOKEN,
+  ICourseRetrieverService,
+} from 'src/modules/course/contracts/i-course-retriever-service.contract';
+import {
+  AggregatedCourseSkills,
+  CourseView,
+} from 'src/modules/course/types/course.type';
+import {
+  EmbeddingModels,
+  EmbeddingProviders,
+  VectorDimensions,
+} from 'src/modules/embedding/clients';
+import {
+  I_FACULTY_REPOSITORY_TOKEN,
+  IFacultyRepository,
+} from 'src/modules/faculty/contracts/i-faculty.contract';
+import { Faculty } from 'src/modules/faculty/types/faculty.type';
+
+import {
+  I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
+  IAnswerSynthesisService,
+} from '../contracts/i-answer-synthesis-service.contract';
+import {
+  I_COURSE_CLASSIFICATION_SERVICE_TOKEN,
+  ICourseClassificationService,
+} from '../contracts/i-course-classification-service.contract';
 import {
   I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
   IQueryProfileBuilderService,
@@ -11,14 +44,21 @@ import {
   I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
   IQuestionClassifierService,
 } from '../contracts/i-question-classifier-service.contract';
+import {
+  I_SKILL_EXPANDER_SERVICE_TOKEN,
+  ISkillExpanderService,
+} from '../contracts/i-skill-expander-service.contract';
+import { AnswerSynthesisPromptVersions } from '../prompts/answer-synthesis';
 import { QuestionClassificationPromptVersions } from '../prompts/question-classification';
-import { QueryStrategyFactory } from '../strategies/query-strategy.factory';
+import { SkillExpansionPromptVersions } from '../prompts/skill-expansion';
+import { QueryProfile } from '../types/query-profile.type';
 import { TClassificationCategory } from '../types/question-classification.type';
-import { AnswerQuestionUseCaseOutput } from './types/answer-question.use-case.type';
+import { AnswerQuestionUseCaseInput } from './inputs/answer-question.use-case.input';
+import { AnswerQuestionUseCaseOutput } from './outputs/answer-question.use-case.output';
 
 @Injectable()
 export class AnswerQuestionUseCase
-  implements IUseCase<string, AnswerQuestionUseCaseOutput>
+  implements IUseCase<AnswerQuestionUseCaseInput, AnswerQuestionUseCaseOutput>
 {
   private readonly logger = new Logger(AnswerQuestionUseCase.name);
   private readonly timeLogger = new TimeLogger();
@@ -28,10 +68,24 @@ export class AnswerQuestionUseCase
     private readonly questionClassifierService: IQuestionClassifierService,
     @Inject(I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN)
     private readonly queryProfileBuilderService: IQueryProfileBuilderService,
-    private readonly queryStrategyFactory: QueryStrategyFactory,
+    @Inject(I_SKILL_EXPANDER_SERVICE_TOKEN)
+    private readonly skillExpanderService: ISkillExpanderService,
+    @Inject(I_ANSWER_SYNTHESIS_SERVICE_TOKEN)
+    private readonly answerSynthesisService: IAnswerSynthesisService,
+    @Inject(I_COURSE_RETRIEVER_SERVICE_TOKEN)
+    private readonly courseRetrieverService: ICourseRetrieverService,
+    @Inject(I_FACULTY_REPOSITORY_TOKEN)
+    private readonly facultyRepository: IFacultyRepository,
+    @Inject(I_CAMPUS_REPOSITORY_TOKEN)
+    private readonly campusRepository: ICampusRepository,
+    @Inject(I_COURSE_CLASSIFICATION_SERVICE_TOKEN)
+    private readonly courseClassificationService: ICourseClassificationService,
   ) {}
 
-  async execute(question: string): Promise<AnswerQuestionUseCaseOutput> {
+  async execute(
+    input: AnswerQuestionUseCaseInput,
+  ): Promise<AnswerQuestionUseCaseOutput> {
+    const { question, isGenEd } = input;
     // More token usage but reduces latency
     const timing = this.timeLogger.initializeTiming();
 
@@ -69,36 +123,97 @@ export class AnswerQuestionUseCase
       return fallbackResponse;
     }
 
-    const { intents } = queryProfile;
+    // Direct implementation copied from SkillQueryStrategy
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
-    // Check for unknown intents first (early exit)
-    const unknownIntent = intents.find(
-      (intent) => intent.augmented === 'unknown',
+    const skillExpansion = await this.skillExpanderService.expandSkillsV2(
+      question,
+      SkillExpansionPromptVersions.V5,
     );
-    if (unknownIntent && intents.length === 1) {
-      this.logger.warn(`Unknown intent detected in question: "${question}"`);
-      return {
-        answer: 'ขออภัย เราไม่แน่ใจว่าคุณต้องการอะไร กรุณาลองถามใหม่อีกครั้ง',
-        suggestQuestion:
-          'อยากเรียนเกี่ยวกับทักษะที่จำเป็นสำหรับการทำงานในอนาคต',
-        relatedCourses: [],
-      };
+    const skillItems = skillExpansion.skillItems;
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
+
+    this.logger.log(`Expanded skills: ${JSON.stringify(skillItems, null, 2)}`);
+
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
+
+    const skillCoursesMap =
+      await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
+        skills: skillItems.map((item) => item.skill),
+        embeddingConfiguration: {
+          model: EmbeddingModels.E5_BASE,
+          provider: EmbeddingProviders.E5,
+          dimension: VectorDimensions.DIM_768,
+        },
+        threshold: 0.7,
+        topN: 5,
+        isGenEd,
+      });
+
+    // Create a map to dedupe courses by subjectCode and aggregate their skills
+    const courseMap = new Map<string, AggregatedCourseSkills>();
+
+    for (const [skill, courses] of skillCoursesMap.entries()) {
+      for (const course of courses) {
+        const subjectCode = course.subjectCode;
+
+        if (!courseMap.has(subjectCode)) {
+          // Create a new AggregatedCourseSkills entry for this course
+          courseMap.set(subjectCode, {
+            id: course.id,
+            campusId: course.campusId,
+            facultyId: course.facultyId,
+            subjectCode: course.subjectCode,
+            subjectName: course.subjectName,
+            isGenEd: course.isGenEd,
+            courseLearningOutcomes: course.allLearningOutcomes,
+            courseOfferings: course.courseOfferings,
+            courseClickLogs: [],
+            metadata: course.metadata,
+            createdAt: course.createdAt,
+            updatedAt: course.updatedAt,
+            matchedSkills: [],
+          });
+        }
+
+        // Add the current skill and its matched learning outcomes to the course
+        const aggregatedCourse = courseMap.get(subjectCode)!;
+        aggregatedCourse.matchedSkills.push({
+          skill: skill,
+          learningOutcomes: course.matchedLearningOutcomes,
+        });
+      }
     }
 
-    // Use the strategy pattern to handle the query
-    const queryStrategy = this.queryStrategyFactory.getStrategy(queryProfile);
+    // Convert the map to an array
+    const aggregatedCourseSkills: AggregatedCourseSkills[] = [
+      ...Array.from(courseMap.values()),
+    ];
 
-    if (!queryStrategy) {
-      this.logger.error('No suitable strategy found for the query');
-      return {
-        answer: 'ขออภัย เกิดข้อผิดพลาดในการประมวลผลคำถามของคุณ',
-        suggestQuestion:
-          'อยากเรียนเกี่ยวกับทักษะที่จำเป็นสำหรับการทำงานในอนาคต',
-        relatedCourses: [],
-      };
-    }
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
 
-    const result = await queryStrategy.execute(question, queryProfile, timing);
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
+    const synthesisResult = await this.answerSynthesisService.synthesizeAnswer({
+      question,
+      promptVersion: AnswerSynthesisPromptVersions.V6,
+      queryProfile,
+      aggregatedCourseSkills,
+    });
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
+
+    this.logger.log(
+      `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
+    );
+
+    const relatedCourses = await this.transformToCourseViews(
+      aggregatedCourseSkills,
+    );
+
+    const result = {
+      answer: synthesisResult.answerText,
+      suggestQuestion: null,
+      relatedCourses,
+    };
 
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute');
     this.logTimingResults(timing);
@@ -134,6 +249,39 @@ export class AnswerQuestionUseCase
     }
 
     return null;
+  }
+
+  private async transformToCourseViews(
+    aggregatedCourses: AggregatedCourseSkills[],
+  ): Promise<CourseView[]> {
+    const [faculties, campuses] = await Promise.all([
+      this.facultyRepository.findMany(),
+      this.campusRepository.findMany({ includeFaculties: false }),
+    ]);
+    const facultyMap = new Map<Identifier, Faculty>();
+    for (const faculty of faculties) {
+      facultyMap.set(faculty.facultyId, faculty);
+    }
+    const campusMap = new Map<Identifier, Campus>();
+    for (const campus of campuses) {
+      campusMap.set(campus.campusId, campus);
+    }
+
+    return aggregatedCourses.map((course) => ({
+      id: course.id,
+      campus: campusMap.get(course.campusId)!,
+      faculty: facultyMap.get(course.facultyId)!,
+      subjectCode: course.subjectCode,
+      subjectName: course.subjectName,
+      isGenEd: course.isGenEd,
+      courseLearningOutcomes: course.courseLearningOutcomes,
+      courseOfferings: course.courseOfferings,
+      matchedSkills: course.matchedSkills,
+      totalClicks: course.courseClickLogs.length,
+      metadata: course.metadata,
+      createdAt: course.createdAt,
+      updatedAt: course.updatedAt,
+    }));
   }
 
   private logTimingResults(timing: TimingMap): void {
