@@ -35,7 +35,7 @@ export class PrismaCourseLearningOutcomeRepository
     topN = 10,
     campusId,
     facultyId,
-    isGenEd,
+    genEdOnly,
     academicYearSemesters,
   }: FindLosBySkillsParams): Promise<Map<string, MatchedLearningOutcome[]>> {
     if (!skills.length) {
@@ -106,11 +106,7 @@ export class PrismaCourseLearningOutcomeRepository
     const sharedFilterConditions = Prisma.sql`
       ${campusId ? Prisma.sql`AND c.campus_id = ${campusId}::uuid` : Prisma.empty}
       ${facultyId ? Prisma.sql`AND c.faculty_id = ${facultyId}::uuid` : Prisma.empty}
-      ${
-        isGenEd !== undefined
-          ? Prisma.sql`AND c.is_gen_ed = ${isGenEd}`
-          : Prisma.empty
-      }
+      ${genEdOnly ? Prisma.sql`AND c.is_gen_ed = ${genEdOnly}` : Prisma.empty}
       ${academicYearSemesterCondition}
     `;
 

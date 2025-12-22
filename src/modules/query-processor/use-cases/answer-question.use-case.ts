@@ -85,7 +85,7 @@ export class AnswerQuestionUseCase
   async execute(
     input: AnswerQuestionUseCaseInput,
   ): Promise<AnswerQuestionUseCaseOutput> {
-    const { question, isGenEd } = input;
+    const { question, genEdOnly } = input;
     // More token usage but reduces latency
     const timing = this.timeLogger.initializeTiming();
 
@@ -145,9 +145,9 @@ export class AnswerQuestionUseCase
           provider: EmbeddingProviders.E5,
           dimension: VectorDimensions.DIM_768,
         },
-        threshold: 0.7,
-        topN: 5,
-        isGenEd,
+        topNLos: 10,
+        genEdOnly,
+        enableLlmFilter: true,
       });
 
     // Create a map to dedupe courses by subjectCode and aggregate their skills

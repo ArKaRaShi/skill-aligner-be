@@ -16,6 +16,8 @@ export const AppConfigDefault = {
   QUESTION_CLASSIFIER_LLM_MODEL: 'orca-mini-3b-v2',
   SKILL_EXPANDER_LLM_PROVIDER: 'openrouter',
   SKILL_EXPANDER_LLM_MODEL: 'orca-mini-3b-v2',
+  FILTER_LO_LLM_PROVIDER: 'openrouter',
+  FILTER_LO_LLM_MODEL: 'orca-mini-3b-v2',
   ANSWER_GENERATOR_LLM_PROVIDER: 'openrouter',
   ANSWER_GENERATOR_LLM_MODEL: 'orca-mini-3b-v2',
   TOOL_DISPATCHER_LLM_MODEL: 'orca-mini-3b-v2',

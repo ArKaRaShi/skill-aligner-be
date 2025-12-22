@@ -5,7 +5,7 @@ import { AppConfigService } from 'src/config/app-config.service';
 
 import { initSemanticsHttpClient } from 'src/common/http/semantics-http-client';
 
-import { E5EmbeddingClient, OpenAIEmbeddingClient } from './clients';
+import { E5EmbeddingClient, OpenRouterEmbeddingClient } from './clients';
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
@@ -30,7 +30,7 @@ export class EmbeddingModule {
               return new E5EmbeddingClient({ client });
             }
             if (provider === 'openrouter') {
-              return new OpenAIEmbeddingClient({
+              return new OpenRouterEmbeddingClient({
                 apiKey: config.openRouterApiKey,
               });
             }

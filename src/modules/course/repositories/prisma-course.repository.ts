@@ -296,7 +296,7 @@ export class PrismaCourseRepository implements ICourseRepository {
     learningOutcomeIds,
     campusId,
     facultyId,
-    isGenEd,
+    genEdOnly,
     academicYearSemesters,
   }: FindCoursesByLearningOutcomeIdsParams): Promise<
     Map<Identifier, Course[]>
@@ -333,7 +333,7 @@ export class PrismaCourseRepository implements ICourseRepository {
     const courseWhere: Prisma.CourseWhereInput = {
       ...(campusId && { campusId }),
       ...(facultyId && { facultyId }),
-      ...(isGenEd !== undefined && { isGenEd }),
+      ...(genEdOnly && { isGenEd: genEdOnly }),
       courseLearningOutcomes: {
         some: {
           id: {

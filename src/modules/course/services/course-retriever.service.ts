@@ -1,4 +1,13 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
+
+import { encode } from '@toon-format/toon';
+
+import { AppConfigService } from 'src/config/app-config.service';
+
+import {
+  I_LLM_PROVIDER_CLIENT_TOKEN,
+  ILlmProviderClient,
+} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
@@ -12,46 +21,68 @@ import {
   FindCoursesWithLosBySkillsWithFilterParams,
   ICourseRetrieverService,
 } from '../contracts/i-course-retriever-service.contract';
+import {
+  FILTER_LO_SYSTEM_PROMPT_V1,
+  getFilterLoPromptV1,
+} from '../prompts/filter-lo.prompt';
+import { FilterLoSchema, LlmFilterLoItem } from '../schemas/filter-lo.schema';
+import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
 import { CourseWithLearningOutcomeV2Match } from '../types/course.type';
+import { FilterLoItem } from '../types/filter-lo.type';
 
 @Injectable()
 export class CourseRetrieverService implements ICourseRetrieverService {
+  private readonly logger = new Logger(CourseRetrieverService.name);
+
   constructor(
     @Inject(I_COURSE_REPOSITORY_TOKEN)
     private readonly courseRepository: ICourseRepository,
     @Inject(I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN)
     private readonly courseLearningOutcomeRepository: ICourseLearningOutcomeRepository,
+    @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
+    private readonly llmProviderClient: ILlmProviderClient,
+    private readonly appConfigService: AppConfigService,
   ) {}
 
   async getCoursesWithLosBySkillsWithFilter({
     skills,
     embeddingConfiguration,
-    threshold,
-    topN,
+    loThreshold,
+    topNLos,
     enableLlmFilter,
     campusId,
     facultyId,
-    isGenEd,
+    genEdOnly,
     academicYearSemesters,
   }: FindCoursesWithLosBySkillsWithFilterParams): Promise<
     Map<string, CourseWithLearningOutcomeV2Match[]>
   > {
-    // TODO: Implement LLM filtering when enableLlmFilter is true
-    if (enableLlmFilter) {
-      console.warn('LLM filtering is not yet implemented');
-    }
-    const learningOutcomesBySkills =
+    let learningOutcomesBySkills =
       await this.courseLearningOutcomeRepository.findLosBySkills({
         skills,
         embeddingConfiguration,
-        threshold,
-        topN,
+        threshold: loThreshold,
+        topN: topNLos,
         campusId,
         facultyId,
-        isGenEd,
+        genEdOnly,
         academicYearSemesters,
       });
 
+    // Optionally filter non-relevant learning outcomes using LLM
+    if (enableLlmFilter) {
+      this.logger.log(
+        `Filtering non-relevant learning outcomes using LLM for skills: ${[
+          ...learningOutcomesBySkills.keys(),
+        ].join(', ')}`,
+      );
+      learningOutcomesBySkills =
+        await this.filterNonRelevantLearningOutcomesForSkills(
+          learningOutcomesBySkills,
+        );
+    }
+
+    // Now, fan out to get courses for each skill's learning outcomes
     const coursesBySkills = new Map<
       string,
       CourseWithLearningOutcomeV2Match[]
@@ -74,7 +105,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
           learningOutcomeIds,
           campusId,
           facultyId,
-          isGenEd,
+          genEdOnly,
           academicYearSemesters,
         });
 
@@ -133,5 +164,78 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     }
 
     return coursesBySkills;
+  }
+
+  /**
+   * Filters non-relevant learning outcomes for each skill using LLM.
+   * @param learningOutcomesBySkills Map of skills to their matched learning outcomes
+   * @returns Map of skills to their filtered relevant learning outcomes
+   */
+  private async filterNonRelevantLearningOutcomesForSkills(
+    learningOutcomesBySkills: Map<string, MatchedLearningOutcome[]>,
+  ): Promise<Map<string, MatchedLearningOutcome[]>> {
+    // Create an array of promises to process each skill in parallel
+    const skillProcessingPromises = Array.from(
+      learningOutcomesBySkills.entries(),
+    ).map(async ([skill, learningOutcomes]) => {
+      const minimalLearningOutcomes = learningOutcomes.map((lo) => ({
+        learning_outcome: lo.cleanedName,
+      }));
+
+      const encodedLoList = encode(minimalLearningOutcomes);
+
+      const { object } = await this.llmProviderClient.generateObject({
+        prompt: getFilterLoPromptV1(skill, encodedLoList),
+        systemPrompt: FILTER_LO_SYSTEM_PROMPT_V1,
+        schema: FilterLoSchema,
+        model: this.appConfigService.filterLoLlmModel,
+      });
+
+      const filteredLos: FilterLoItem[] = object.learning_outcomes.map(
+        (lo: LlmFilterLoItem) => ({
+          learningOutcome: lo.learning_outcome,
+          decision: lo.decision,
+          reason: lo.reason,
+        }),
+      );
+      const mappedFilteredLos = new Map<string, FilterLoItem>();
+      for (const lo of filteredLos) {
+        mappedFilteredLos.set(lo.learningOutcome, lo);
+      }
+
+      const filteredLosForSkill: MatchedLearningOutcome[] = [];
+      for (const lo of learningOutcomes) {
+        const filterResult = mappedFilteredLos.get(lo.cleanedName);
+        if (!filterResult) {
+          this.logger.warn(
+            `No filter result found for learning outcome: ${lo.cleanedName}`,
+          );
+          continue;
+        }
+        if (filterResult.decision === 'yes') {
+          filteredLosForSkill.push(lo);
+        } else {
+          this.logger.log(
+            `Filtered out learning outcome: ${lo.cleanedName} for skill: ${skill} with reason: ${filterResult.reason}`,
+          );
+        }
+      }
+
+      return { skill, filteredLosForSkill };
+    });
+
+    // Wait for all skill processing to complete
+    const results = await Promise.all(skillProcessingPromises);
+
+    // Reconstruct the map with filtered results
+    const filteredLearningOutcomesBySkills = new Map<
+      string,
+      MatchedLearningOutcome[]
+    >();
+    for (const { skill, filteredLosForSkill } of results) {
+      filteredLearningOutcomesBySkills.set(skill, filteredLosForSkill);
+    }
+
+    return filteredLearningOutcomesBySkills;
   }
 }

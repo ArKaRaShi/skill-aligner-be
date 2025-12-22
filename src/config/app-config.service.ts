@@ -90,6 +90,21 @@ export class AppConfigService {
     );
   }
 
+  get filterLoLlmProvider(): 'openrouter' | 'openai' {
+    const provider =
+      this.configService.get<'openrouter' | 'openai'>(
+        'FILTER_LO_LLM_PROVIDER',
+      ) ?? AppConfigDefault.FILTER_LO_LLM_PROVIDER;
+    return provider as 'openrouter' | 'openai';
+  }
+
+  get filterLoLlmModel(): string {
+    return (
+      this.configService.get<string>('FILTER_LO_LLM_MODEL') ??
+      AppConfigDefault.FILTER_LO_LLM_MODEL
+    );
+  }
+
   get answerGeneratorLlmProvider(): 'openrouter' | 'openai' {
     const provider =
       this.configService.get<'openrouter' | 'openai'>(

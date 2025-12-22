@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
@@ -12,7 +12,7 @@ import { EmbeddingMetadataJson } from 'src/common/types/stored-embedding-metadat
 
 import {
   E5EmbeddingClient,
-  OpenAIEmbeddingClient,
+  OpenRouterEmbeddingClient,
 } from 'src/modules/embedding/clients';
 import type { EmbedResult } from 'src/modules/embedding/clients/base-embedding.client';
 
@@ -33,6 +33,8 @@ type ExistingVectorRecord = {
 
 @Injectable()
 export class EmbedPipeline {
+  private readonly logger = new Logger(EmbedPipeline.name);
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly appConfigService: AppConfigService,
@@ -130,7 +132,7 @@ export class EmbedPipeline {
   }
 
   private async embedCloWithDimension1536() {
-    const embeddingClient = this.getOpenAIEmbeddingClient();
+    const embeddingClient = this.getOpenRouterEmbeddingClient();
     const clos = await this.prisma.courseLearningOutcome.findMany({
       where: {
         skipEmbedding: false,
@@ -209,8 +211,8 @@ export class EmbedPipeline {
     return new E5EmbeddingClient({ client: semanticsClient });
   }
 
-  private getOpenAIEmbeddingClient(): OpenAIEmbeddingClient {
-    return new OpenAIEmbeddingClient({
+  private getOpenRouterEmbeddingClient(): OpenRouterEmbeddingClient {
+    return new OpenRouterEmbeddingClient({
       apiKey: this.appConfigService.openRouterApiKey,
     });
   }

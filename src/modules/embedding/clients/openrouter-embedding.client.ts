@@ -20,14 +20,14 @@ export type OpenRouterEmbeddingClientOptions = {
 };
 
 @Injectable()
-export class OpenAIEmbeddingClient
+export class OpenRouterEmbeddingClient
   extends BaseEmbeddingClient
   implements IEmbeddingClient
 {
   private readonly timeoutMs: number;
   private readonly openRouter: OpenRouter;
 
-  private readonly logger = new Logger(OpenAIEmbeddingClient.name);
+  private readonly logger = new Logger(OpenRouterEmbeddingClient.name);
 
   constructor(options: OpenRouterEmbeddingClientOptions) {
     super(

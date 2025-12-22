@@ -460,15 +460,15 @@ describe('EmbedPipeline (Integration)', () => {
       embedMany: jest.fn(),
     };
 
-    const getOpenAIClientSpy = jest
-      .spyOn(pipeline as any, 'getOpenAIEmbeddingClient')
+    const getOpenRouterClientSpy = jest
+      .spyOn(pipeline as any, 'getOpenRouterEmbeddingClient')
       .mockReturnValue(mockEmbedding);
 
     try {
       // Act
       await pipeline.embedCourseLearningOutcomes(1536);
     } finally {
-      getOpenAIClientSpy.mockRestore();
+      getOpenRouterClientSpy.mockRestore();
     }
 
     // Assert

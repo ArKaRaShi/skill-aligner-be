@@ -12,13 +12,13 @@ export const I_COURSE_RETRIEVER_SERVICE_TOKEN = Symbol(
 export type FindCoursesWithLosBySkillsWithFilterParams = {
   skills: string[];
   embeddingConfiguration: EmbeddingMetadata;
-  threshold?: number;
-  topN?: number;
+  loThreshold?: number;
+  topNLos?: number;
   vectorDimension?: number;
   enableLlmFilter?: boolean;
   campusId?: Identifier;
   facultyId?: Identifier;
-  isGenEd?: boolean;
+  genEdOnly?: boolean;
   academicYearSemesters?: AcademicYearSemesterFilter[];
 };
 

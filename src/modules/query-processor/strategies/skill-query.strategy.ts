@@ -98,8 +98,8 @@ export class SkillQueryStrategy implements IQueryStrategy {
           provider: EmbeddingProviders.E5,
           dimension: VectorDimensions.DIM_768,
         },
-        threshold: 0.7,
-        topN: 5,
+        loThreshold: 0.7,
+        topNLos: 5,
       });
 
     // Create a map to dedupe courses by subjectCode and aggregate their skills

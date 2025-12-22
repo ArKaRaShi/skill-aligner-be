@@ -17,12 +17,12 @@ export class QueryProcessorController {
   async answerQuestion(
     @Body() body: AnswerQuestionRequestDto,
   ): Promise<BaseResponseDto<AnswerQuestionResponseDto>> {
-    const { question, isGenEd } = body;
+    const { question, genEdOnly } = body;
     const { answer, suggestQuestion, relatedCourses } =
       await this.answerQuestionUseCase.execute(
         new AnswerQuestionUseCaseInput({
           question,
-          isGenEd,
+          genEdOnly,
         }),
       );
 

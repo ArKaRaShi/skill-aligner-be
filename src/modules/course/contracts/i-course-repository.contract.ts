@@ -19,7 +19,7 @@ export type FindCoursesByLearningOutcomeIdsParams = {
   learningOutcomeIds: Identifier[];
   campusId?: Identifier;
   facultyId?: Identifier;
-  isGenEd?: boolean;
+  genEdOnly?: boolean;
   academicYearSemesters?: AcademicYearSemesterFilter[];
 };
 
@@ -44,7 +44,7 @@ export interface ICourseRepository {
     learningOutcomeIds,
     campusId,
     facultyId,
-    isGenEd,
+    genEdOnly,
     academicYearSemesters,
   }: FindCoursesByLearningOutcomeIdsParams): Promise<Map<Identifier, Course[]>>;
 

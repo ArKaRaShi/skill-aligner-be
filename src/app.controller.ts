@@ -23,6 +23,10 @@ import {
   EmbeddingModels,
   EmbeddingProviders,
 } from './modules/embedding/constants/model.constant';
+import {
+  I_EMBEDDING_CLIENT_TOKEN,
+  IEmbeddingClient,
+} from './modules/embedding/contracts/i-embedding-client.contract';
 import { EmbeddingHelper } from './modules/embedding/helpers/embedding.helper';
 
 @Controller()
@@ -32,6 +36,8 @@ export class AppController {
     private readonly courseLearningOutcomeRepository: ICourseLearningOutcomeRepository,
     @Inject(I_COURSE_RETRIEVER_SERVICE_TOKEN)
     private readonly courseRetrieverService: ICourseRetrieverService,
+    @Inject(I_EMBEDDING_CLIENT_TOKEN)
+    private readonly embeddingClient: IEmbeddingClient,
   ) {}
 
   private resolveEmbeddingConfiguration({
@@ -51,7 +57,8 @@ export class AppController {
 
     const config: EmbeddingMetadata = {
       model: (model as EmbeddingMetadata['model']) ?? fallback.model,
-      provider: (provider as EmbeddingMetadata['provider']) ?? fallback.provider,
+      provider:
+        (provider as EmbeddingMetadata['provider']) ?? fallback.provider,
       dimension: dimension ? Number(dimension) : fallback.dimension,
     };
 
@@ -153,9 +160,7 @@ export class AppController {
 
     const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.75;
     const topN = topNQuery ? parseInt(topNQuery, 10) : 10;
-    const campusId = campusIdQuery
-      ? (campusIdQuery as Identifier)
-      : undefined;
+    const campusId = campusIdQuery ? (campusIdQuery as Identifier) : undefined;
     const facultyId = facultyIdQuery
       ? (facultyIdQuery as Identifier)
       : undefined;
@@ -170,7 +175,10 @@ export class AppController {
       | undefined;
     if (academicYearSemestersQuery) {
       try {
-        const parsed = JSON.parse(academicYearSemestersQuery);
+        const parsed = JSON.parse(academicYearSemestersQuery) as {
+          academicYear: number;
+          semesters?: number[];
+        }[];
         if (Array.isArray(parsed)) {
           academicYearSemesters = parsed;
         } else {
@@ -199,7 +207,7 @@ export class AppController {
       topN,
       campusId,
       facultyId,
-      isGenEd,
+      genEdOnly: isGenEd,
       academicYearSemesters,
     });
 
@@ -359,12 +367,12 @@ export class AppController {
           provider: embeddingProviderQuery,
           dimension: embeddingDimensionQuery,
         }),
-        threshold,
-        topN,
+        loThreshold: threshold,
+        topNLos: topN,
         enableLlmFilter,
         campusId,
         facultyId,
-        isGenEd,
+        genEdOnly: isGenEd,
         academicYearSemesters,
       });
 
@@ -388,10 +396,7 @@ export class AppController {
     // Convert Map to array for response and group courses by unique codes
     const arrayResult = Array.from(result.entries()).map(([skill, courses]) => {
       // Group courses by unique course code and track learning outcomes
-      const coursesByCode = new Map<
-        string,
-        CourseInfo
-      >();
+      const coursesByCode = new Map<string, CourseInfo>();
 
       courses.forEach((course) => {
         const courseCode = course.subjectCode;
@@ -540,7 +545,7 @@ export class AppController {
     const allCourses = arrayResult.flatMap((result) => result.courses);
     console.log(`Total courses in arrayResult: ${allCourses.length}`);
 
-    const uniqueCourseIds = new Set(allCourses.map((c) => c.id));
+    const uniqueCourseIds = new Set(allCourses.map((c) => c.id as string));
     console.log(`Unique course IDs: ${uniqueCourseIds.size}`);
 
     const uniqueSubjectCodes = new Set(allCourses.map((c) => c.subjectCode));
@@ -562,7 +567,13 @@ export class AppController {
 
       .forEach(([code, courses]) => {
         console.log(`  ${code}: ${courses.length} occurrences`);
-        const uniqueIds = new Set(courses.map((c) => c.id));
+        const uniqueIds = new Set(
+          courses.map((c: any) =>
+            Object.hasOwn(c, 'id')
+              ? String((c as { id: unknown }).id)
+              : 'unknown',
+          ),
+        );
         console.log(`    Unique course IDs: ${uniqueIds.size}`);
       });
     console.log('--- End Debug ---\n');
@@ -570,5 +581,54 @@ export class AppController {
     console.timeEnd('CourseRetrieverServiceTest');
 
     return arrayResult;
+  }
+
+  @Get('/embed')
+  @ApiQuery({
+    name: 'query',
+    required: true,
+    description: 'Text to embed',
+    example: 'machine learning basics',
+  })
+  async embedQuery(@Query('query') query: string): Promise<any> {
+    if (!query || query.trim().length === 0) {
+      throw new BadRequestException(
+        'Query parameter is required and cannot be empty',
+      );
+    }
+
+    console.time('EmbeddingTest');
+
+    try {
+      const result = await this.embeddingClient.embedOne({
+        text: query.trim(),
+        role: 'query',
+      });
+
+      const vectorLength = result.vector.length;
+      console.log(`Embedding generated for query: "${query}"`);
+      console.log(`Vector length: ${vectorLength}`);
+      console.log(`Model: ${result.metadata.model}`);
+      console.log(`Provider: ${result.metadata.provider}`);
+      console.log(`Dimension: ${result.metadata.dimension}`);
+
+      console.timeEnd('EmbeddingTest');
+
+      return {
+        query: query.trim(),
+        vectorLength,
+        model: result.metadata.model,
+        provider: result.metadata.provider,
+        dimension: result.metadata.dimension,
+        generatedAt: result.metadata.generatedAt,
+        vector: result.vector,
+      };
+    } catch (error) {
+      console.error('Error generating embedding:', error);
+      console.timeEnd('EmbeddingTest');
+      throw new BadRequestException(
+        `Failed to generate embedding: ${(error as Error).message}`,
+      );
+    }
   }
 }
