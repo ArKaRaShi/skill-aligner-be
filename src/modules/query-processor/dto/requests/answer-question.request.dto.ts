@@ -46,7 +46,7 @@ export class AnswerQuestionRequestDto {
   })
   @IsOptional()
   @IsBoolean()
-  genEdOnly?: boolean;
+  isGenEd?: boolean;
 
   @ApiPropertyOptional({
     description: 'Filters for academic year and semesters',

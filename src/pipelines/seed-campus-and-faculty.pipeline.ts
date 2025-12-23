@@ -15,31 +15,77 @@ export type CampusFacultyMap = Map<
 @Injectable()
 export class SeedCampusAndFacultyPipeline {
   private readonly campusCodeToNameMap: Map<string, string> = new Map([
-    ['B', 'บางเขน'],
-    ['K', 'กำแพงแสน'],
-    ['S', 'ศรีราชา'],
     ['C', 'เฉลิมพระเกียรติ จังหวัดสกลนคร'],
-    ['P', 'โครงการจัดตั้งวิทยาเขตสุพรรณบุรี'],
-    ['I', 'สถาบันสมทบ'],
+    ['K', 'กำแพงแสน'],
+    ['P', 'สุพรรณบุรี'],
+    ['B', 'บางเขน'],
+    ['S', 'ศรีราชา'],
   ]);
 
-  private readonly facultyCodeToNameMap: Map<string, string> = new Map([
-    ['A', 'เกษตร'],
-    ['B', 'ประมง'],
-    ['C', 'วนศาสตร์'],
-    ['D', 'วิทยาศาสตร์'],
-    ['E', 'วิศวกรรมศาสตร์'],
-    ['F', 'ศึกษาศาสตร์'],
-    ['G', 'เศรษฐศาสตร์'],
-    ['H', 'สังคมศาสตร์'],
-    ['I', 'สัตวแพทยศาสตร์'],
-    ['K', 'อุตสาหกรรมเกษตร'],
-    ['L', 'มนุษยศาสตร์'],
-    ['R', 'สถาปัตยกรรมศาสตร์'],
-    ['N', 'บริหารธุรกิจ'],
-    ['P', 'เทคนิคการสัตวแพทย์'],
-    ['T', 'สิ่งแวดล้อม'],
-    ['S', 'วิทยาเขตบูรณาการศาสตร์'],
+  private readonly campusFacultyCodesToNameMap: Map<
+    string,
+    Map<string, string>
+  > = new Map([
+    [
+      'C',
+      new Map<string, string>([
+        ['A', 'คณะทรัพยากรธรรมชาติและอุตสาหกรรมเกษตร'],
+        ['B', 'คณะวิทยาศาสตร์และวิศวกรรมศาสตร์'],
+        ['C', 'คณะศิลปศาสตร์และวิทยาการจัดการ'],
+        ['X', 'ส่วนกลางวิทยาเขตเฉลิมพระเกียรติ จังหวัดสกลนคร'],
+      ]),
+    ],
+    [
+      'K',
+      new Map<string, string>([
+        ['A', 'คณะเกษตร'],
+        ['S', 'คณะวิทยาศาสตร์การกีฬา'],
+        ['E', 'คณะวิศวกรรมศาสตร์'],
+        ['Q', 'คณะศิลปศาสตร์และวิทยาศาสตร์'],
+        ['F', 'คณะศึกษาศาสตร์'],
+        ['I', 'คณะสัตวแพทยศาสตร์'],
+        ['X', 'บัณฑิตวิทยาลัย'],
+      ]),
+    ],
+
+    [
+      'B',
+      new Map<string, string>([
+        ['A', 'คณะเกษตร'],
+        ['P', 'คณะเทคนิคการสัตวแพทย์'],
+        ['N', 'คณะบริหารธุรกิจ'],
+        ['B', 'คณะประมง'],
+        ['L', 'คณะมนุษยศาสตร์'],
+        ['C', 'คณะวนศาสตร์'],
+        ['D', 'คณะวิทยาศาสตร์'],
+        ['E', 'คณะวิศวกรรมศาสตร์'],
+        ['F', 'คณะศึกษาศาสตร์'],
+        ['G', 'คณะเศรษฐศาสตร์'],
+        ['R', 'คณะสถาปัตยกรรมศาสตร์'],
+        ['H', 'คณะสังคมศาสตร์'],
+        ['I', 'คณะสัตวแพทยศาสตร์'],
+        ['K', 'คณะอุตสาหกรรมเกษตร'],
+        ['X', 'บัณฑิตวิทยาลัย'],
+        ['Q', 'วิทยาลัยสิ่งแวดล้อม'],
+      ]),
+    ],
+    [
+      'P',
+      new Map<string, string>([
+        ['A', 'สำนักงานโครงการจัดตั้งวิทยาเขตสุพรรณบุรี'],
+      ]),
+    ],
+    [
+      'S',
+      new Map<string, string>([
+        ['D', 'คณะวิทยาศาสตร์'],
+        ['S', 'คณะทรัพยากรและสิ่งแวดล้อม'],
+        ['R', 'คณะวิทยาการจัดการ'],
+        ['T', 'คณะวิศวกรรมศาสตร์'],
+        ['X', 'บัณฑิตวิทยาลัย'],
+        ['M', 'วิทยาลัยพาณิชยนาวีนานาชาติ'],
+      ]),
+    ],
   ]);
 
   constructor(private readonly prisma: PrismaService) {}
@@ -68,6 +114,10 @@ export class SeedCampusAndFacultyPipeline {
       });
 
       // Then, create faculty that belongs to this specific campus
+      const facultyName = this.campusFacultyCodesToNameMap
+        .get(campusCode)
+        ?.get(facultyCode);
+
       await tx.faculty.upsert({
         where: {
           unique_campus_faculty_code: {
@@ -76,12 +126,12 @@ export class SeedCampusAndFacultyPipeline {
           },
         },
         update: {
-          nameTh: this.facultyCodeToNameMap.get(facultyCode),
+          nameTh: facultyName,
         },
         create: {
           id: uuidv4(),
           code: facultyCode,
-          nameTh: this.facultyCodeToNameMap.get(facultyCode),
+          nameTh: facultyName,
           campusId,
         },
       });

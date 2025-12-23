@@ -96,7 +96,7 @@ describe('SeedCampusAndFacultyPipeline (Integration)', () => {
       expect(campus).toBeDefined();
       expect(campus?.nameTh).toBe('บางเขน');
       expect(faculty).toBeDefined();
-      expect(faculty?.nameTh).toBe('เกษตร');
+      expect(faculty?.nameTh).toBe('คณะเกษตร');
       expect(faculty?.campusId).toBe(campus?.id);
     });
 
@@ -116,7 +116,7 @@ describe('SeedCampusAndFacultyPipeline (Integration)', () => {
       expect(campus).toBeDefined();
       expect(campus?.nameTh).toBe('กำแพงแสน');
       expect(faculty).toBeDefined();
-      expect(faculty?.nameTh).toBe('วิศวกรรมศาสตร์');
+      expect(faculty?.nameTh).toBe('คณะวิศวกรรมศาสตร์');
       expect(faculty?.campusId).toBe(campus?.id);
     });
 
@@ -195,21 +195,21 @@ describe('SeedCampusAndFacultyPipeline (Integration)', () => {
         expect.arrayContaining(['A', 'B']),
       );
       expect(bangkenCampus?.faculties.find((f) => f.code === 'A')?.nameTh).toBe(
-        'เกษตร',
+        'คณะเกษตร',
       );
       expect(bangkenCampus?.faculties.find((f) => f.code === 'B')?.nameTh).toBe(
-        'ประมง',
+        'คณะประมง',
       );
 
       expect(kampangCampus?.nameTh).toBe('กำแพงแสน');
       expect(kampangCampus?.faculties).toHaveLength(1);
       expect(kampangCampus?.faculties[0]?.code).toBe('E');
-      expect(kampangCampus?.faculties[0]?.nameTh).toBe('วิศวกรรมศาสตร์');
+      expect(kampangCampus?.faculties[0]?.nameTh).toBe('คณะวิศวกรรมศาสตร์');
 
       expect(srirajaCampus?.nameTh).toBe('ศรีราชา');
       expect(srirajaCampus?.faculties).toHaveLength(1);
       expect(srirajaCampus?.faculties[0]?.code).toBe('D');
-      expect(srirajaCampus?.faculties[0]?.nameTh).toBe('วิทยาศาสตร์');
+      expect(srirajaCampus?.faculties[0]?.nameTh).toBe('คณะวิทยาศาสตร์');
 
       expect(await prisma.faculty.count()).toBe(4);
     });

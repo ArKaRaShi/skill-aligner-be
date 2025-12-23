@@ -44,8 +44,8 @@ type CloVectorMapping = {
 };
 
 @Injectable()
-export class EmbedPipeline {
-  private readonly logger = new Logger(EmbedPipeline.name);
+export class EmbedPipelineV2 {
+  private readonly logger = new Logger(EmbedPipelineV2.name);
 
   constructor(
     private readonly prisma: PrismaService,
@@ -59,7 +59,9 @@ export class EmbedPipeline {
       );
     }
 
-    this.logger.log(`Embedding CLOs with ${vectorDimension} dimensions...`);
+    this.logger.log(
+      `Embedding CLOs with ${vectorDimension} dimensions (v2 - combined text)...`,
+    );
 
     // Step 1: Get all CLOs that need embedding for this dimension
     const clos = await this.prisma.courseLearningOutcome.findMany({
@@ -69,19 +71,32 @@ export class EmbedPipeline {
           ? { hasEmbedding768: false }
           : { hasEmbedding1536: false }),
       },
+      include: {
+        course: {
+          include: {
+            faculty: true,
+          },
+        },
+      },
     });
     this.logger.log(
       `Found ${clos.length} CLOs to embed (${vectorDimension} dimensions).`,
     );
 
-    // Step 2: Prepare vector records for all CLOs
+    // Step 2: Prepare vector records for all CLOs with combined text
     const cloVectorMappings: CloVectorMapping[] = [];
 
     for (const clo of clos) {
       try {
-        const existingVector = await this.findExistingVectorRecord(
-          clo.cleanedCloName,
-        );
+        // Create combined text: faculty name (Thai) + course name + LO text
+        const facultyNameTh = clo.course.faculty?.nameTh || '';
+        const courseName = clo.course.subjectName || '';
+        const loText = clo.cleanedCloName || '';
+
+        const combinedText = `${facultyNameTh} ${courseName} ${loText}`.trim();
+
+        const existingVector =
+          await this.findExistingVectorRecord(combinedText);
 
         // Check if vector already has the required embedding
         const hasRequiredEmbedding =
@@ -120,7 +135,7 @@ export class EmbedPipeline {
             )
             VALUES (
               ${vectorId}::uuid,
-              ${clo.cleanedCloName},
+              ${combinedText},
               NULL,
               NULL,
               NULL,
@@ -133,7 +148,7 @@ export class EmbedPipeline {
         cloVectorMappings.push({
           cloId: clo.id,
           vectorId,
-          text: clo.cleanedCloName,
+          text: combinedText,
         });
       } catch (error) {
         this.logger.error(
@@ -164,7 +179,9 @@ export class EmbedPipeline {
       const embeddingResults = await Promise.allSettled(
         batch.map(async ({ text, vectorId, cloId }) => {
           try {
-            this.logger.log(`Embedding CLO ID ${cloId}...`);
+            this.logger.log(
+              `Embedding CLO ID ${cloId} (v2 - combined text)...`,
+            );
             const embedResult = await embeddingClient.embedOne({
               text,
               role: 'passage',

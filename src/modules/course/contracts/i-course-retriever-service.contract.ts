@@ -18,7 +18,7 @@ export type FindCoursesWithLosBySkillsWithFilterParams = {
   enableLlmFilter?: boolean;
   campusId?: Identifier;
   facultyId?: Identifier;
-  genEdOnly?: boolean;
+  isGenEd?: boolean;
   academicYearSemesters?: AcademicYearSemesterFilter[];
 };
 

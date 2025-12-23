@@ -1,15 +1,13 @@
 import {
   BadRequestException,
-  Body,
   Controller,
   Get,
   Inject,
   Post,
   Query,
 } from '@nestjs/common';
-import { ApiBody, ApiQuery } from '@nestjs/swagger';
+import { ApiQuery } from '@nestjs/swagger';
 
-import { Identifier } from './common/domain/types/identifier';
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
   ICourseLearningOutcomeRepository,
@@ -41,30 +39,28 @@ export class AppController {
   ) {}
 
   private resolveEmbeddingConfiguration({
-    model,
-    provider,
     dimension,
   }: {
-    model?: string;
-    provider?: string;
     dimension?: string;
   }): EmbeddingMetadata {
-    const fallback: EmbeddingMetadata = {
-      model: EmbeddingModels.E5_BASE,
-      provider: EmbeddingProviders.E5,
-      dimension: 768,
-    };
+    const dimensionNumber = dimension ? Number(dimension) : 768;
 
+    // Auto-select model and provider based on dimension
     const config: EmbeddingMetadata = {
-      model: (model as EmbeddingMetadata['model']) ?? fallback.model,
+      model:
+        dimensionNumber === 1536
+          ? EmbeddingModels.OPENROUTER_OPENAI_3_SMALL
+          : EmbeddingModels.E5_BASE,
       provider:
-        (provider as EmbeddingMetadata['provider']) ?? fallback.provider,
-      dimension: dimension ? Number(dimension) : fallback.dimension,
+        dimensionNumber === 1536
+          ? EmbeddingProviders.OPENROUTER
+          : EmbeddingProviders.E5,
+      dimension: dimensionNumber,
     };
 
     if (!EmbeddingHelper.isRegistered(config)) {
       throw new BadRequestException(
-        `Unsupported embedding configuration: ${JSON.stringify(config)}`,
+        `Unsupported embedding dimension: ${dimensionNumber}`,
       );
     }
 
@@ -114,33 +110,17 @@ export class AppController {
       'JSON array specifying academic year and optional semesters, e.g. [{"academicYear":2023,"semesters":[1]}]',
   })
   @ApiQuery({
-    name: 'embeddingModel',
-    required: false,
-    description: 'Embedding model identifier (default: e5-base)',
-    example: EmbeddingModels.E5_BASE,
-  })
-  @ApiQuery({
-    name: 'embeddingProvider',
-    required: false,
-    description: 'Embedding provider identifier (default: e5)',
-    example: EmbeddingProviders.E5,
-  })
-  @ApiQuery({
     name: 'embeddingDimension',
     required: false,
-    description: 'Embedding vector dimension (default: 768)',
+    description:
+      'Embedding vector dimension (default: 768, options: 768 or 1536)',
     example: '768',
   })
   async testCloRepository(
     @Query('skills') skillsQuery?: string,
     @Query('threshold') thresholdQuery?: string,
     @Query('topN') topNQuery?: string,
-    @Query('campusId') campusIdQuery?: string,
-    @Query('facultyId') facultyIdQuery?: string,
     @Query('isGenEd') isGenEdQuery?: string,
-    @Query('academicYearSemesters') academicYearSemestersQuery?: string,
-    @Query('embeddingModel') embeddingModelQuery?: string,
-    @Query('embeddingProvider') embeddingProviderQuery?: string,
     @Query('embeddingDimension') embeddingDimensionQuery?: string,
   ): Promise<any> {
     console.time('CloRepositoryTest');
@@ -160,36 +140,11 @@ export class AppController {
 
     const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.75;
     const topN = topNQuery ? parseInt(topNQuery, 10) : 10;
-    const campusId = campusIdQuery ? (campusIdQuery as Identifier) : undefined;
-    const facultyId = facultyIdQuery
-      ? (facultyIdQuery as Identifier)
-      : undefined;
     let isGenEd: boolean | undefined;
     if (isGenEdQuery === 'true') {
       isGenEd = true;
     } else if (isGenEdQuery === 'false') {
       isGenEd = false;
-    }
-    let academicYearSemesters:
-      | { academicYear: number; semesters?: number[] }[]
-      | undefined;
-    if (academicYearSemestersQuery) {
-      try {
-        const parsed = JSON.parse(academicYearSemestersQuery) as {
-          academicYear: number;
-          semesters?: number[];
-        }[];
-        if (Array.isArray(parsed)) {
-          academicYearSemesters = parsed;
-        } else {
-          throw new Error('Academic year filter must be an array');
-        }
-      } catch {
-        return {
-          error:
-            'Invalid academicYearSemesters format. Provide a JSON array such as [{"academicYear":2023,"semesters":[1]}].',
-        };
-      }
     }
 
     if (skills.length === 0) {
@@ -199,16 +154,11 @@ export class AppController {
     const result = await this.courseLearningOutcomeRepository.findLosBySkills({
       skills,
       embeddingConfiguration: this.resolveEmbeddingConfiguration({
-        model: embeddingModelQuery,
-        provider: embeddingProviderQuery,
         dimension: embeddingDimensionQuery,
       }),
       threshold,
       topN,
-      campusId,
-      facultyId,
-      genEdOnly: isGenEd,
-      academicYearSemesters,
+      isGenEd: isGenEd,
     });
 
     const arrayResult = Array.from(result.entries()).map(([skill, los]) => {
@@ -253,82 +203,24 @@ export class AppController {
     example: '20',
   })
   @ApiQuery({
-    name: 'enableLlmFilter',
-    required: false,
-    description: 'Enable LLM filtering (default: false)',
-    example: 'false',
-  })
-  @ApiQuery({
-    name: 'campusId',
-    required: false,
-    description: 'Campus ID filter',
-  })
-  @ApiQuery({
-    name: 'facultyId',
-    required: false,
-    description: 'Faculty ID filter',
-  })
-  @ApiQuery({
     name: 'isGenEd',
     required: false,
     description: 'Filter for general education courses (default: false)',
     example: 'false',
   })
   @ApiQuery({
-    name: 'embeddingModel',
-    required: false,
-    description: 'Embedding model identifier (default: e5-base)',
-    example: EmbeddingModels.E5_BASE,
-  })
-  @ApiQuery({
-    name: 'embeddingProvider',
-    required: false,
-    description: 'Embedding provider identifier (default: e5)',
-    example: EmbeddingProviders.E5,
-  })
-  @ApiQuery({
     name: 'embeddingDimension',
     required: false,
-    description: 'Embedding vector dimension (default: 768)',
+    description:
+      'Embedding vector dimension (default: 768, options: 768 or 1536)',
     example: '768',
-  })
-  @ApiBody({
-    description: 'Academic year and semester filters (array)',
-    schema: {
-      type: 'object',
-      properties: {
-        academicYearSemesters: {
-          type: 'array',
-          items: {
-            type: 'object',
-            properties: {
-              academicYear: { type: 'number', example: 2023 },
-              semesters: {
-                type: 'array',
-                items: { type: 'number' },
-                example: [1, 2],
-              },
-            },
-          },
-        },
-      },
-    },
   })
   async testCourseRetrieverService(
     @Query('skills') skillsQuery?: string,
     @Query('threshold') thresholdQuery?: string,
     @Query('topN') topNQuery?: string,
-    @Query('enableLlmFilter') enableLlmFilterQuery?: string,
-    @Query('campusId') campusIdQuery?: string,
-    @Query('facultyId') facultyIdQuery?: string,
     @Query('isGenEd') isGenEdQuery?: string,
-    @Query('embeddingModel') embeddingModelQuery?: string,
-    @Query('embeddingProvider') embeddingProviderQuery?: string,
     @Query('embeddingDimension') embeddingDimensionQuery?: string,
-    @Body()
-    body?: {
-      academicYearSemesters?: { academicYear: number; semesters?: number[] }[];
-    },
   ): Promise<any> {
     console.time('CourseRetrieverServiceTest');
 
@@ -347,11 +239,7 @@ export class AppController {
 
     const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.6;
     const topN = topNQuery ? parseInt(topNQuery, 10) : 20;
-    const enableLlmFilter = enableLlmFilterQuery === 'true';
-    const campusId = (campusIdQuery as Identifier) ?? undefined;
-    const facultyId = (facultyIdQuery as Identifier) ?? undefined;
     const isGenEd = isGenEdQuery === 'true';
-    const academicYearSemesters = body?.academicYearSemesters ?? undefined;
 
     if (skills.length === 0) {
       return { error: 'At least one skill must be provided' };
@@ -363,17 +251,12 @@ export class AppController {
       await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
         skills,
         embeddingConfiguration: this.resolveEmbeddingConfiguration({
-          model: embeddingModelQuery,
-          provider: embeddingProviderQuery,
           dimension: embeddingDimensionQuery,
         }),
         loThreshold: threshold,
         topNLos: topN,
-        enableLlmFilter,
-        campusId,
-        facultyId,
-        genEdOnly: isGenEd,
-        academicYearSemesters,
+        enableLlmFilter: false,
+        isGenEd: isGenEd,
       });
 
     // Log total skills processed

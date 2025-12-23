@@ -5,20 +5,20 @@ export class AnswerQuestionUseCaseInput {
   public readonly question: string;
   public readonly campusId?: Identifier;
   public readonly facultyId?: Identifier;
-  public readonly genEdOnly?: boolean;
+  public readonly isGenEd?: boolean;
   public readonly academicYearSemesters?: AcademicYearSemesterFilter[];
 
   constructor(params: {
     question: string;
     campusId?: Identifier;
     facultyId?: Identifier;
-    genEdOnly?: boolean;
+    isGenEd?: boolean;
     academicYearSemesters?: AcademicYearSemesterFilter[];
   }) {
     this.question = params.question;
     this.campusId = params.campusId;
     this.facultyId = params.facultyId;
-    this.genEdOnly = params.genEdOnly ?? false;
+    this.isGenEd = params.isGenEd || undefined;
     this.academicYearSemesters = params.academicYearSemesters;
   }
 }

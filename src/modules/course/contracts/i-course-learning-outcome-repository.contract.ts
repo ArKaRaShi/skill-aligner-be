@@ -20,7 +20,7 @@ export type FindLosBySkillsParams = {
   topN?: number;
   campusId?: Identifier;
   facultyId?: Identifier;
-  genEdOnly?: boolean;
+  isGenEd?: boolean;
   academicYearSemesters?: AcademicYearSemesterFilter[];
 };
 
@@ -39,7 +39,7 @@ export interface ICourseLearningOutcomeRepository {
     // user preference filters
     campusId,
     facultyId,
-    genEdOnly,
+    isGenEd,
     academicYearSemesters,
   }: FindLosBySkillsParams): Promise<Map<string, MatchedLearningOutcome[]>>;
 }

@@ -43,10 +43,14 @@ const MOCK_CLO8_ID = '550e8400-e29b-41d4-a716-446655440032';
 const MOCK_VECTOR7_ID = '550e8400-e29b-41d4-a716-446655440033';
 const MOCK_VECTOR8_ID = '550e8400-e29b-41d4-a716-446655440034';
 
-const VECTOR_DIMENSION = 768;
+const VECTOR_DIMENSION_768 = 768;
+const VECTOR_DIMENSION_1536 = 1536;
 
-const buildVectorFromSequence = (sequence: number[]) =>
-  Array.from({ length: VECTOR_DIMENSION }, (_, index) => {
+const buildVectorFromSequence = (
+  sequence: number[],
+  dimension: number = VECTOR_DIMENSION_768,
+) =>
+  Array.from({ length: dimension }, (_, index) => {
     if (!sequence.length) {
       throw new Error('Vector sequence must not be empty');
     }
@@ -299,6 +303,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       originalCloName: 'สามารถวิเคราะห์ข้อมูลได้',
       cleanedCloName: 'วิเคราะห์ข้อมูล',
       hasEmbedding768: true,
+      hasEmbedding1536: false,
     });
 
     await insertCourseLearningOutcomeRecord({
@@ -309,6 +314,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       originalCloName: 'สามารถเขียนโปรแกรมได้',
       cleanedCloName: 'เขียนโปรแกรม',
       hasEmbedding768: true,
+      hasEmbedding1536: false,
     });
 
     await insertCourseLearningOutcomeRecord({
@@ -319,6 +325,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       originalCloName: 'สามารถสื่อสารได้',
       cleanedCloName: 'สื่อสาร',
       hasEmbedding768: true,
+      hasEmbedding1536: false,
     });
 
     // Create learning outcomes for second campus courses
@@ -330,6 +337,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       originalCloName: 'สามารถวางแผนโครงการได้',
       cleanedCloName: 'วางแผนโครงการ',
       hasEmbedding768: true,
+      hasEmbedding1536: false,
     });
 
     await insertCourseLearningOutcomeRecord({
@@ -340,6 +348,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       originalCloName: 'สามารถจัดการทีมได้',
       cleanedCloName: 'จัดการทีม',
       hasEmbedding768: true,
+      hasEmbedding1536: false,
     });
 
     await insertCourseLearningOutcomeRecord({
@@ -350,6 +359,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       originalCloName: 'สามารถแก้ปัญหาได้',
       cleanedCloName: 'แก้ปัญหา',
       hasEmbedding768: true,
+      hasEmbedding1536: false,
     });
 
     // Create additional learning outcomes for testing
@@ -361,6 +371,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       originalCloName: 'สามารถวิเคราะห์ข้อมูลขั้นสูงได้',
       cleanedCloName: 'วิเคราะห์ข้อมูลขั้นสูง',
       hasEmbedding768: true,
+      hasEmbedding1536: false,
     });
 
     await insertCourseLearningOutcomeRecord({
@@ -371,33 +382,47 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       originalCloName: 'สามารถออกแบบระบบได้',
       cleanedCloName: 'ออกแบบระบบ',
       hasEmbedding768: true,
+      hasEmbedding1536: false,
     });
 
     // Create vectors for all learning outcomes
-    const mockVector = buildVectorFromSequence([
-      0.2, 0.1, 0.05, 0.02, 0.01, 0.03, 0.04, 0.15,
-    ]);
+    const mockVector768 = buildVectorFromSequence(
+      [0.2, 0.1, 0.05, 0.02, 0.01, 0.03, 0.04, 0.15],
+      VECTOR_DIMENSION_768,
+    );
     // Create a different vector for CLO7 to test similarity ranking
-    const highSimilarityVector = buildVectorFromSequence([
-      0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55,
-    ]);
+    const highSimilarityVector768 = buildVectorFromSequence(
+      [0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55],
+      VECTOR_DIMENSION_768,
+    );
     // Create a medium similarity vector for CLO8 (different from both mockVector and highSimilarityVector)
-    const mediumSimilarityVector = buildVectorFromSequence([
-      0.3, 0.25, 0.2, 0.15, 0.1, 0.05, 0.01, 0.02,
-    ]);
+    const mediumSimilarityVector768 = buildVectorFromSequence(
+      [0.3, 0.25, 0.2, 0.15, 0.1, 0.05, 0.01, 0.02],
+      VECTOR_DIMENSION_768,
+    );
+
+    // Create 1536-dimension vectors for testing
+    const mockVector1536 = buildVectorFromSequence(
+      [0.15, 0.12, 0.08, 0.05, 0.03, 0.02, 0.01, 0.25],
+      VECTOR_DIMENSION_1536,
+    );
+    const highSimilarityVector1536 = buildVectorFromSequence(
+      [0.95, 0.88, 0.82, 0.77, 0.72, 0.67, 0.62, 0.57],
+      VECTOR_DIMENSION_1536,
+    );
 
     // Create vectors for learning outcomes using raw SQL to bypass type issues
     await prisma.$executeRaw`
-      INSERT INTO course_learning_outcome_vectors (id, embedded_text, embedding_768)
+      INSERT INTO course_learning_outcome_vectors (id, embedded_text, embedding_768, embedding_1536)
       VALUES
-        (${MOCK_VECTOR1_ID}::uuid, 'vector-1', ${JSON.stringify(mockVector)}::vector),
-        (${MOCK_VECTOR2_ID}::uuid, 'vector-2', ${JSON.stringify(mockVector)}::vector),
-        (${MOCK_VECTOR3_ID}::uuid, 'vector-3', ${JSON.stringify(mockVector)}::vector),
-        (${MOCK_VECTOR4_ID}::uuid, 'vector-4', ${JSON.stringify(mockVector)}::vector),
-        (${MOCK_VECTOR5_ID}::uuid, 'vector-5', ${JSON.stringify(mockVector)}::vector),
-        (${MOCK_VECTOR6_ID}::uuid, 'vector-6', ${JSON.stringify(mockVector)}::vector),
-        (${MOCK_VECTOR7_ID}::uuid, 'vector-7', ${JSON.stringify(highSimilarityVector)}::vector),
-        (${MOCK_VECTOR8_ID}::uuid, 'vector-8', ${JSON.stringify(mediumSimilarityVector)}::vector)
+        (${MOCK_VECTOR1_ID}::uuid, 'vector-1', ${JSON.stringify(mockVector768)}::vector, ${JSON.stringify(mockVector1536)}::vector),
+        (${MOCK_VECTOR2_ID}::uuid, 'vector-2', ${JSON.stringify(mockVector768)}::vector, ${JSON.stringify(mockVector1536)}::vector),
+        (${MOCK_VECTOR3_ID}::uuid, 'vector-3', ${JSON.stringify(mockVector768)}::vector, ${JSON.stringify(mockVector1536)}::vector),
+        (${MOCK_VECTOR4_ID}::uuid, 'vector-4', ${JSON.stringify(mockVector768)}::vector, ${JSON.stringify(mockVector1536)}::vector),
+        (${MOCK_VECTOR5_ID}::uuid, 'vector-5', ${JSON.stringify(mockVector768)}::vector, ${JSON.stringify(mockVector1536)}::vector),
+        (${MOCK_VECTOR6_ID}::uuid, 'vector-6', ${JSON.stringify(mockVector768)}::vector, ${JSON.stringify(mockVector1536)}::vector),
+        (${MOCK_VECTOR7_ID}::uuid, 'vector-7', ${JSON.stringify(highSimilarityVector768)}::vector, ${JSON.stringify(highSimilarityVector1536)}::vector),
+        (${MOCK_VECTOR8_ID}::uuid, 'vector-8', ${JSON.stringify(mediumSimilarityVector768)}::vector, ${JSON.stringify(mockVector1536)}::vector)
     `;
 
     // Update CLOs to reference their vectors
@@ -434,9 +459,9 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       data: { vectorId: MOCK_VECTOR8_ID },
     });
 
-    // Mock embedding client response
+    // Mock embedding client response for 768-dimension
     mockEmbeddingClient.embedOne.mockResolvedValue({
-      vector: buildVectorFromSequence([0.5]), // Use a neutral vector
+      vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_768), // Use a neutral vector
       metadata: {
         model: 'e5-base',
         provider: 'e5',
@@ -996,14 +1021,20 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         originalCloName: 'สามารถวิเคราะห์ข้อมูลเฉพาะทางได้',
         cleanedCloName: 'วิเคราะห์เฉพาะทาง',
         hasEmbedding768: true,
+        hasEmbedding1536: false,
       });
 
-      const additionalVector = buildVectorFromSequence([
-        0.12, 0.22, 0.32, 0.42, 0.52, 0.62, 0.72, 0.82,
-      ]);
+      const additionalVector768 = buildVectorFromSequence(
+        [0.12, 0.22, 0.32, 0.42, 0.52, 0.62, 0.72, 0.82],
+        VECTOR_DIMENSION_768,
+      );
+      const additionalVector1536 = buildVectorFromSequence(
+        [0.12, 0.22, 0.32, 0.42, 0.52, 0.62, 0.72, 0.82],
+        VECTOR_DIMENSION_1536,
+      );
       await prisma.$executeRaw`
-        INSERT INTO course_learning_outcome_vectors (id, embedded_text, embedding_768)
-        VALUES (${EXTRA_VECTOR_ID}::uuid, 'vector-extra', ${JSON.stringify(additionalVector)}::vector)
+        INSERT INTO course_learning_outcome_vectors (id, embedded_text, embedding_768, embedding_1536)
+        VALUES (${EXTRA_VECTOR_ID}::uuid, 'vector-extra', ${JSON.stringify(additionalVector768)}::vector, ${JSON.stringify(additionalVector1536)}::vector)
       `;
 
       // Update the extra CLO to reference its vector
@@ -1047,9 +1078,10 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     it('should rank similarity scores correctly in descending order', async () => {
       // Mock embedding client to return a vector that's closest to CLO7's high-similarity pattern
       // but not identical to avoid near-perfect similarity
-      const queryVector = buildVectorFromSequence([
-        0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55, 0.5,
-      ]);
+      const queryVector = buildVectorFromSequence(
+        [0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55, 0.5],
+        VECTOR_DIMENSION_768,
+      );
       mockEmbeddingClient.embedOne.mockResolvedValue({
         vector: queryVector,
         metadata: {
@@ -1147,9 +1179,10 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should return every CLO tied to the top-ranked vectors even when topN is small', async () => {
-      const queryVector = buildVectorFromSequence([
-        0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55,
-      ]);
+      const queryVector = buildVectorFromSequence(
+        [0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55],
+        VECTOR_DIMENSION_768,
+      );
       mockEmbeddingClient.embedOne.mockResolvedValueOnce({
         vector: queryVector,
         metadata: {
@@ -1194,6 +1227,135 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
           data: { vectorId: MOCK_VECTOR8_ID },
         });
       }
+    });
+  });
+
+  describe('findLosBySkills with 1536-dimension embeddings', () => {
+    beforeEach(async () => {
+      // Update some CLOs to have 1536-dimension embeddings
+      await prisma.courseLearningOutcome.updateMany({
+        where: { id: { in: [MOCK_CLO1_ID, MOCK_CLO2_ID, MOCK_CLO7_ID] } },
+        data: { hasEmbedding1536: true },
+      });
+
+      // Mock embedding client response for 1536-dimension
+      mockEmbeddingClient.embedOne.mockResolvedValue({
+        vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_1536),
+        metadata: {
+          model: 'openai/text-embedding-3-small',
+          provider: 'openrouter',
+          dimension: 1536,
+          embeddedText: 'test',
+          generatedAt: new Date().toISOString(),
+        },
+      });
+    });
+
+    it('should find learning outcomes with 1536-dimension embeddings', async () => {
+      const result = await repository.findLosBySkills({
+        skills: ['วิเคราะห์'],
+        threshold: 0.5,
+        topN: 10,
+        embeddingConfiguration: {
+          model: 'openai/text-embedding-3-small',
+          provider: 'openrouter',
+          dimension: 1536,
+        },
+      });
+
+      expect(result.size).toBe(1);
+      expect(result.has('วิเคราะห์')).toBe(true);
+      const matches = result.get('วิเคราะห์')!;
+      expect(matches.length).toBeGreaterThan(0);
+
+      // Should only return CLOs with 1536-dimension embeddings
+      const cloIds = matches.map((clo) => clo.loId);
+      expect(cloIds).toContain(MOCK_CLO1_ID);
+      expect(cloIds).toContain(MOCK_CLO2_ID);
+      expect(cloIds).toContain(MOCK_CLO7_ID);
+    });
+
+    it('should filter by campusId with 1536-dimension embeddings', async () => {
+      const result = await repository.findLosBySkills({
+        skills: ['วิเคราะห์'],
+        threshold: 0.5,
+        topN: 10,
+        embeddingConfiguration: {
+          model: 'openai/text-embedding-3-small',
+          provider: 'openrouter',
+          dimension: 1536,
+        },
+        campusId: campus1Id,
+      });
+
+      expect(result.size).toBe(1);
+      expect(result.has('วิเคราะห์')).toBe(true);
+      const matches = result.get('วิเคราะห์')!;
+      expect(matches.length).toBeGreaterThan(0);
+
+      // Should only return CLOs from campus1 with 1536-dimension embeddings
+      const cloIds = matches.map((clo) => clo.loId);
+      expect(cloIds).toContain(MOCK_CLO1_ID);
+      expect(cloIds).toContain(MOCK_CLO2_ID);
+      expect(cloIds).toContain(MOCK_CLO7_ID);
+    });
+
+    it('should return no results when no CLOs have 1536-dimension embeddings', async () => {
+      // Remove all 1536-dimension embeddings
+      await prisma.courseLearningOutcome.updateMany({
+        where: { hasEmbedding1536: true },
+        data: { hasEmbedding1536: false },
+      });
+
+      const result = await repository.findLosBySkills({
+        skills: ['วิเคราะห์'],
+        threshold: 0.5,
+        topN: 10,
+        embeddingConfiguration: {
+          model: 'openai/text-embedding-3-small',
+          provider: 'openrouter',
+          dimension: 1536,
+        },
+      });
+
+      expect(result.size).toBe(1);
+      expect(result.has('วิเคราะห์')).toBe(true);
+      expect(result.get('วิเคราะห์')).toHaveLength(0);
+    });
+
+    it('should handle mixed skills with 1536-dimension embeddings', async () => {
+      const result = await repository.findLosBySkills({
+        skills: ['วิเคราะห์', 'สื่อสาร'],
+        threshold: 0.5,
+        topN: 10,
+        embeddingConfiguration: {
+          model: 'openai/text-embedding-3-small',
+          provider: 'openrouter',
+          dimension: 1536,
+        },
+      });
+
+      expect(result.size).toBe(2);
+      expect(result.has('วิเคราะห์')).toBe(true);
+      expect(result.has('สื่อสาร')).toBe(true);
+
+      // Both skills should return the same CLOs with 1536-dimension embeddings
+      const analysisMatches = result.get('วิเคราะห์')!;
+      const communicationMatches = result.get('สื่อสาร')!;
+
+      expect(analysisMatches.length).toBeGreaterThan(0);
+      expect(communicationMatches.length).toBeGreaterThan(0);
+
+      const analysisCloIds = analysisMatches.map((clo) => clo.loId);
+      const communicationCloIds = communicationMatches.map((clo) => clo.loId);
+
+      // Should contain CLOs with 1536-dimension embeddings
+      expect(analysisCloIds).toContain(MOCK_CLO1_ID);
+      expect(analysisCloIds).toContain(MOCK_CLO2_ID);
+      expect(analysisCloIds).toContain(MOCK_CLO7_ID);
+      expect(communicationCloIds).toContain(MOCK_CLO1_ID);
+      expect(communicationCloIds).toContain(MOCK_CLO2_ID);
+      expect(communicationCloIds).toContain(MOCK_CLO7_ID);
     });
   });
 });

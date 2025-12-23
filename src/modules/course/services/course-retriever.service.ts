@@ -52,7 +52,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     enableLlmFilter,
     campusId,
     facultyId,
-    genEdOnly,
+    isGenEd,
     academicYearSemesters,
   }: FindCoursesWithLosBySkillsWithFilterParams): Promise<
     Map<string, CourseWithLearningOutcomeV2Match[]>
@@ -65,7 +65,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         topN: topNLos,
         campusId,
         facultyId,
-        genEdOnly,
+        isGenEd,
         academicYearSemesters,
       });
 
@@ -105,7 +105,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
           learningOutcomeIds,
           campusId,
           facultyId,
-          genEdOnly,
+          isGenEd,
           academicYearSemesters,
         });
 

@@ -1,5 +1,7 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import { AppConfigService } from 'src/config/app-config.service';
+
 import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
 import { Identifier } from 'src/common/domain/types/identifier';
 import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
@@ -51,7 +53,6 @@ import {
 import { AnswerSynthesisPromptVersions } from '../prompts/answer-synthesis';
 import { QuestionClassificationPromptVersions } from '../prompts/question-classification';
 import { SkillExpansionPromptVersions } from '../prompts/skill-expansion';
-import { QueryProfile } from '../types/query-profile.type';
 import { TClassificationCategory } from '../types/question-classification.type';
 import { AnswerQuestionUseCaseInput } from './inputs/answer-question.use-case.input';
 import { AnswerQuestionUseCaseOutput } from './outputs/answer-question.use-case.output';
@@ -80,12 +81,13 @@ export class AnswerQuestionUseCase
     private readonly campusRepository: ICampusRepository,
     @Inject(I_COURSE_CLASSIFICATION_SERVICE_TOKEN)
     private readonly courseClassificationService: ICourseClassificationService,
+    private readonly appConfigService: AppConfigService,
   ) {}
 
   async execute(
     input: AnswerQuestionUseCaseInput,
   ): Promise<AnswerQuestionUseCaseOutput> {
-    const { question, genEdOnly } = input;
+    const { question, isGenEd } = input;
     // More token usage but reduces latency
     const timing = this.timeLogger.initializeTiming();
 
@@ -128,7 +130,7 @@ export class AnswerQuestionUseCase
 
     const skillExpansion = await this.skillExpanderService.expandSkillsV2(
       question,
-      SkillExpansionPromptVersions.V5,
+      SkillExpansionPromptVersions.V4,
     );
     const skillItems = skillExpansion.skillItems;
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
@@ -140,13 +142,21 @@ export class AnswerQuestionUseCase
     const skillCoursesMap =
       await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
         skills: skillItems.map((item) => item.skill),
-        embeddingConfiguration: {
-          model: EmbeddingModels.E5_BASE,
-          provider: EmbeddingProviders.E5,
-          dimension: VectorDimensions.DIM_768,
-        },
+        embeddingConfiguration:
+          this.appConfigService.embeddingProvider === EmbeddingProviders.E5
+            ? {
+                model: EmbeddingModels.E5_BASE,
+                provider: EmbeddingProviders.E5,
+                dimension: VectorDimensions.DIM_768,
+              }
+            : {
+                model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+                provider: EmbeddingProviders.OPENROUTER,
+                dimension: VectorDimensions.DIM_1536,
+              },
+        loThreshold: 0,
         topNLos: 10,
-        genEdOnly,
+        isGenEd,
         enableLlmFilter: true,
       });
 
@@ -219,14 +229,6 @@ export class AnswerQuestionUseCase
     this.logTimingResults(timing);
 
     return result;
-  }
-
-  private returnEmptyOutput(): AnswerQuestionUseCaseOutput {
-    return {
-      answer: null,
-      suggestQuestion: null,
-      relatedCourses: [],
-    };
   }
 
   private getFallbackAnswerForClassification(
