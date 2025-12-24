@@ -1,6 +1,10 @@
 import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
+import {
+  EmbeddingModels,
+  EmbeddingProviders,
+} from 'src/core/embedding/constants/model.constant';
 import { v4 as uuidv4 } from 'uuid';
 
 import { AppConfigService } from 'src/config/app-config.service';
@@ -8,10 +12,6 @@ import { AppConfigService } from 'src/config/app-config.service';
 import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 
 import { parseVector } from 'src/modules/course/repositories/helpers/vector.helper';
-import {
-  EmbeddingModels,
-  EmbeddingProviders,
-} from 'src/modules/embedding/constants/model.constant';
 
 import { EmbedPipelineV2 } from '../embed.pipeline.v2';
 
@@ -113,9 +113,9 @@ describe('EmbedPipelineV2 (Integration)', () => {
       },
     });
 
-    // Expected combined text: faculty name (Thai) + course name + LO text
+    // Expected combined text: course name + LO text (faculty is not included)
     const expectedCombinedText =
-      `${faculty.nameTh} ${course.subjectName} ${clo.cleanedCloName}`.trim();
+      `${course.subjectName} ${clo.cleanedCloName}`.trim();
 
     const mockEmbedding = {
       embedOne: jest.fn().mockResolvedValue({
@@ -157,7 +157,7 @@ describe('EmbedPipelineV2 (Integration)', () => {
 
     // Verify that vector was created with combined text
     const vectorRecord = await prisma.courseLearningOutcomeVector.findUnique({
-      where: { id: updatedClo?.vectorId! },
+      where: { id: updatedClo?.vectorId || '' },
     });
     expect(vectorRecord?.embeddedText).toBe(expectedCombinedText);
 
@@ -220,9 +220,9 @@ describe('EmbedPipelineV2 (Integration)', () => {
       },
     });
 
-    // Expected combined text: faculty name (Thai) + course name + LO text
+    // Expected combined text: course name + LO text (faculty is not included)
     const expectedCombinedText =
-      `${faculty.nameTh} ${course.subjectName} ${clo.cleanedCloName}`.trim();
+      `${course.subjectName} ${clo.cleanedCloName}`.trim();
 
     const mockEmbedding = {
       embedOne: jest.fn().mockResolvedValue({
@@ -264,7 +264,7 @@ describe('EmbedPipelineV2 (Integration)', () => {
 
     // Verify that vector was created with combined text
     const vectorRecord = await prisma.courseLearningOutcomeVector.findUnique({
-      where: { id: updatedClo?.vectorId! },
+      where: { id: updatedClo?.vectorId || '' },
     });
     expect(vectorRecord?.embeddedText).toBe(expectedCombinedText);
 
@@ -327,9 +327,9 @@ describe('EmbedPipelineV2 (Integration)', () => {
       },
     });
 
-    // Expected combined text
+    // Expected combined text: course name + LO text (faculty is not included)
     const expectedCombinedText =
-      `${faculty.nameTh} ${course.subjectName} ${clo.cleanedCloName}`.trim();
+      `${course.subjectName} ${clo.cleanedCloName}`.trim();
 
     // First create the vector record with the combined text and embedding
     const vector = await prisma.courseLearningOutcomeVector.create({
@@ -378,6 +378,7 @@ describe('EmbedPipelineV2 (Integration)', () => {
       where: { id: clo.id },
     });
     expect(updatedClo?.hasEmbedding768).toBe(true);
+    // The pipeline should find and reuse the existing vector since it has the same combined text
     expect(updatedClo?.vectorId).toBe(vector.id);
 
     // Query the vector using raw SQL to get the embedding
@@ -443,9 +444,9 @@ describe('EmbedPipelineV2 (Integration)', () => {
       },
     });
 
-    // Expected combined text should handle empty faculty name
+    // Expected combined text: course name + LO text (faculty is not included)
     const expectedCombinedText =
-      `${faculty.nameTh || ''} ${course.subjectName} ${clo.cleanedCloName}`.trim();
+      `${course.subjectName} ${clo.cleanedCloName}`.trim();
 
     const mockEmbedding = {
       embedOne: jest.fn().mockResolvedValue({
@@ -486,7 +487,7 @@ describe('EmbedPipelineV2 (Integration)', () => {
 
     // Verify that vector was created with combined text
     const vectorRecord = await prisma.courseLearningOutcomeVector.findUnique({
-      where: { id: updatedClo?.vectorId! },
+      where: { id: updatedClo?.vectorId || '' },
     });
     expect(vectorRecord?.embeddedText).toBe(expectedCombinedText);
   });
@@ -551,7 +552,6 @@ describe('EmbedPipelineV2 (Integration)', () => {
     }> = [];
 
     for (let i = 1; i <= 25; i++) {
-      const faculty = i <= 15 ? faculty1 : faculty2;
       const course = i <= 15 ? course1 : course2;
       const clo = await prisma.courseLearningOutcome.create({
         data: {
@@ -567,7 +567,7 @@ describe('EmbedPipelineV2 (Integration)', () => {
       });
 
       const expectedCombinedText =
-        `${faculty.nameTh} ${course.subjectName} ${clo.cleanedCloName}`.trim();
+        `${course.subjectName} ${clo.cleanedCloName}`.trim();
       clos.push({ id: clo.id, expectedCombinedText });
     }
 
