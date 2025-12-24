@@ -135,7 +135,7 @@ export class AnswerQuestionUseCase
 
     const skillExpansion = await this.skillExpanderService.expandSkillsV2(
       question,
-      SkillExpansionPromptVersions.V4,
+      SkillExpansionPromptVersions.V5,
     );
     const skillItems = skillExpansion.skillItems;
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
