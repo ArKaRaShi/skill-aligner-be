@@ -191,6 +191,13 @@ export class AppConfigService {
     );
   }
 
+  get courseRelevanceFilterLlmModel(): string {
+    return (
+      this.configService.get<string>('COURSE_RELEVANCE_FILTER_LLM_MODEL') ??
+      AppConfigDefault.COURSE_RELEVANCE_FILTER_LLM_MODEL
+    );
+  }
+
   get useMockQueryProfileBuilderService(): boolean {
     return (
       this.configService.get<boolean>(

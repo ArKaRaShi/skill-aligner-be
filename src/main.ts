@@ -66,6 +66,13 @@ function logEnvironmentVariables(appConfigService: AppConfigService) {
   console.log(
     `USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE: ${appConfigService.useMockQueryProfileBuilderService}`,
   );
+  console.log(
+    `FILTER_LO_LLM_PROVIDER: ${appConfigService.filterLoLlmProvider}`,
+  );
+  console.log(`FILTER_LO_LLM_MODEL: ${appConfigService.filterLoLlmModel}`);
+  console.log(
+    `COURSE_RELEVANCE_FILTER_LLM_MODEL: ${appConfigService.courseRelevanceFilterLlmModel}`,
+  );
 }
 
 async function bootstrap() {

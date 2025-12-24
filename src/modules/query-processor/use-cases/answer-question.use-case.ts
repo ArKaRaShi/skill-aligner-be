@@ -18,6 +18,7 @@ import {
 import {
   AggregatedCourseSkills,
   CourseView,
+  CourseWithLearningOutcomeV2Match,
 } from 'src/modules/course/types/course.type';
 import {
   EmbeddingModels,
@@ -35,9 +36,9 @@ import {
   IAnswerSynthesisService,
 } from '../contracts/i-answer-synthesis-service.contract';
 import {
-  I_COURSE_CLASSIFICATION_SERVICE_TOKEN,
-  ICourseClassificationService,
-} from '../contracts/i-course-classification-service.contract';
+  I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN,
+  ICourseRelevanceFilterService,
+} from '../contracts/i-course-relevance-filter-service.contract';
 import {
   I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
   IQueryProfileBuilderService,
@@ -51,6 +52,7 @@ import {
   ISkillExpanderService,
 } from '../contracts/i-skill-expander-service.contract';
 import { AnswerSynthesisPromptVersions } from '../prompts/answer-synthesis';
+import { CourseRelevanceFilterPromptVersions } from '../prompts/course-relevance-filter';
 import { QuestionClassificationPromptVersions } from '../prompts/question-classification';
 import { SkillExpansionPromptVersions } from '../prompts/skill-expansion';
 import { TClassificationCategory } from '../types/question-classification.type';
@@ -63,6 +65,8 @@ export class AnswerQuestionUseCase
 {
   private readonly logger = new Logger(AnswerQuestionUseCase.name);
   private readonly timeLogger = new TimeLogger();
+
+  //อยากเรียนภาษาเพื่อใช้ในเชิงธุรกิจ ฝรั่งเศส หรือจีนก็ได
 
   constructor(
     @Inject(I_QUESTION_CLASSIFIER_SERVICE_TOKEN)
@@ -79,8 +83,8 @@ export class AnswerQuestionUseCase
     private readonly facultyRepository: IFacultyRepository,
     @Inject(I_CAMPUS_REPOSITORY_TOKEN)
     private readonly campusRepository: ICampusRepository,
-    @Inject(I_COURSE_CLASSIFICATION_SERVICE_TOKEN)
-    private readonly courseClassificationService: ICourseClassificationService,
+    @Inject(I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN)
+    private readonly courseRelevanceFilterService: ICourseRelevanceFilterService,
     private readonly appConfigService: AppConfigService,
   ) {}
 
@@ -157,13 +161,42 @@ export class AnswerQuestionUseCase
         loThreshold: 0,
         topNLos: 10,
         isGenEd,
-        enableLlmFilter: true,
+        enableLlmFilter: false,
       });
+
+    // Add filter before aggregation
+    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+    const relevanceFilterResults =
+      await this.courseRelevanceFilterService.batchFilterCoursesBySkill(
+        question,
+        queryProfile,
+        skillCoursesMap,
+        CourseRelevanceFilterPromptVersions.V3,
+      );
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+
+    // Combine all relevant courses from all skills
+    const filteredSkillCoursesMap = new Map<
+      string,
+      CourseWithLearningOutcomeV2Match[]
+    >();
+
+    for (const filterResult of relevanceFilterResults) {
+      for (const [
+        skill,
+        courses,
+      ] of filterResult.relevantCoursesBySkill.entries()) {
+        if (!filteredSkillCoursesMap.has(skill)) {
+          filteredSkillCoursesMap.set(skill, []);
+        }
+        filteredSkillCoursesMap.get(skill)!.push(...courses);
+      }
+    }
 
     // Create a map to dedupe courses by subjectCode and aggregate their skills
     const courseMap = new Map<string, AggregatedCourseSkills>();
 
-    for (const [skill, courses] of skillCoursesMap.entries()) {
+    for (const [skill, courses] of filteredSkillCoursesMap.entries()) {
       for (const course of courses) {
         const subjectCode = course.subjectCode;
 
@@ -198,7 +231,15 @@ export class AnswerQuestionUseCase
     // Convert the map to an array
     const aggregatedCourseSkills: AggregatedCourseSkills[] = [
       ...Array.from(courseMap.values()),
-    ];
+    ].sort((a, b) => b.matchedSkills.length - a.matchedSkills.length);
+
+    if (aggregatedCourseSkills.length === 0) {
+      return {
+        answer: 'ขออภัย เราไม่พบรายวิชาที่เกี่ยวข้องกับคำถามของคุณ',
+        suggestQuestion: 'อยากเรียนการเงินส่วนบุคคล',
+        relatedCourses: [],
+      };
+    }
 
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
 

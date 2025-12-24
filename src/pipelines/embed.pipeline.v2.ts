@@ -72,11 +72,7 @@ export class EmbedPipelineV2 {
           : { hasEmbedding1536: false }),
       },
       include: {
-        course: {
-          include: {
-            faculty: true,
-          },
-        },
+        course: true,
       },
     });
     this.logger.log(
@@ -88,12 +84,11 @@ export class EmbedPipelineV2 {
 
     for (const clo of clos) {
       try {
-        // Create combined text: faculty name (Thai) + course name + LO text
-        const facultyNameTh = clo.course.faculty?.nameTh || '';
+        // Create combined text: course name + LO text
         const courseName = clo.course.subjectName || '';
         const loText = clo.cleanedCloName || '';
 
-        const combinedText = `${facultyNameTh} ${courseName} ${loText}`.trim();
+        const combinedText = `${courseName} ${loText}`.trim();
 
         const existingVector =
           await this.findExistingVectorRecord(combinedText);

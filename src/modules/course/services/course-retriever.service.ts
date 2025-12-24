@@ -21,10 +21,7 @@ import {
   FindCoursesWithLosBySkillsWithFilterParams,
   ICourseRetrieverService,
 } from '../contracts/i-course-retriever-service.contract';
-import {
-  FILTER_LO_SYSTEM_PROMPT_V1,
-  getFilterLoPromptV1,
-} from '../prompts/filter-lo.prompt';
+import { FilterLoPromptFactory } from '../prompts';
 import { FilterLoSchema, LlmFilterLoItem } from '../schemas/filter-lo.schema';
 import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
 import { CourseWithLearningOutcomeV2Match } from '../types/course.type';
@@ -33,6 +30,7 @@ import { FilterLoItem } from '../types/filter-lo.type';
 @Injectable()
 export class CourseRetrieverService implements ICourseRetrieverService {
   private readonly logger = new Logger(CourseRetrieverService.name);
+  private readonly filterLoPromptFactory = FilterLoPromptFactory();
 
   constructor(
     @Inject(I_COURSE_REPOSITORY_TOKEN)
@@ -184,9 +182,13 @@ export class CourseRetrieverService implements ICourseRetrieverService {
 
       const encodedLoList = encode(minimalLearningOutcomes);
 
+      const { getUserPrompt, systemPrompt } =
+        this.filterLoPromptFactory.getPrompts('v2');
+
+      // Call LLM to filter learning outcomes
       const { object } = await this.llmProviderClient.generateObject({
-        prompt: getFilterLoPromptV1(skill, encodedLoList),
-        systemPrompt: FILTER_LO_SYSTEM_PROMPT_V1,
+        prompt: getUserPrompt(skill, encodedLoList),
+        systemPrompt: systemPrompt,
         schema: FilterLoSchema,
         model: this.appConfigService.filterLoLlmModel,
       });
