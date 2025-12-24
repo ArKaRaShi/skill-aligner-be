@@ -35,6 +35,10 @@ import {
   getClassificationUserPromptV10,
 } from './classify-question-v10.prompt';
 import {
+  CLASSIFY_QUESTION_SYSTEM_PROMPT_V11,
+  getClassificationUserPromptV11,
+} from './classify-question-v11.prompt';
+import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT,
   getClassificationUserPrompt,
 } from './classify-question.prompt';
@@ -55,6 +59,7 @@ export const QuestionClassificationPromptVersions = {
   V8: 'v8',
   V9: 'v9',
   V10: 'v10',
+  V11: 'v11',
 } as const;
 
 export type QuestionClassificationPromptVersion =
@@ -103,6 +108,10 @@ const QuestionClassificationPrompts: Record<
   v10: {
     systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT_V10,
     getUserPrompt: getClassificationUserPromptV10,
+  },
+  v11: {
+    systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT_V11,
+    getUserPrompt: getClassificationUserPromptV11,
   },
 };
 

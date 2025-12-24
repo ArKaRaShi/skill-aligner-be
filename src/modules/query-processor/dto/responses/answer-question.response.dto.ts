@@ -100,6 +100,10 @@ export class CourseOutputDto {
   @Expose()
   courseOfferings: CourseOfferingDto[];
 
+  @ApiProperty({ description: 'Relevance score of the course' })
+  @Expose()
+  score: number;
+
   @ApiProperty({ description: 'Total number of clicks for this course' })
   @Expose()
   totalClicks: number;

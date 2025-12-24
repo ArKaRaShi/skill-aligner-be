@@ -102,7 +102,7 @@ export class AnswerQuestionUseCase
     const [{ category, reason }, queryProfile] = await Promise.all([
       this.questionClassifierService.classify({
         question,
-        promptVersion: QuestionClassificationPromptVersions.V9,
+        promptVersion: QuestionClassificationPromptVersions.V11,
       }),
       this.queryProfileBuilderService.buildQueryProfile(question),
     ]);
@@ -135,7 +135,7 @@ export class AnswerQuestionUseCase
 
     const skillExpansion = await this.skillExpanderService.expandSkillsV2(
       question,
-      SkillExpansionPromptVersions.V5,
+      SkillExpansionPromptVersions.V8,
     );
     const skillItems = skillExpansion.skillItems;
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
@@ -164,40 +164,46 @@ export class AnswerQuestionUseCase
         isGenEd,
         enableLlmFilter: false,
       });
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
 
     // Add filter before aggregation
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
-    const relevanceFilterResults =
-      await this.courseRelevanceFilterService.batchFilterCoursesBySkill(
-        question,
-        queryProfile,
-        skillCoursesMap,
-        CourseRelevanceFilterPromptVersions.V3,
-      );
-    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
-
-    // Combine all relevant courses from all skills
     const filteredSkillCoursesMap = new Map<
       string,
       CourseWithLearningOutcomeV2Match[]
     >();
+    const useFilter = false;
+    if (useFilter) {
+      const relevanceFilterResults =
+        await this.courseRelevanceFilterService.batchFilterCoursesBySkill(
+          question,
+          queryProfile,
+          skillCoursesMap,
+          CourseRelevanceFilterPromptVersions.V3,
+        );
 
-    for (const filterResult of relevanceFilterResults) {
-      for (const [
-        skill,
-        courses,
-      ] of filterResult.relevantCoursesBySkill.entries()) {
-        if (!filteredSkillCoursesMap.has(skill)) {
-          filteredSkillCoursesMap.set(skill, []);
+      for (const filterResult of relevanceFilterResults) {
+        for (const [
+          skill,
+          courses,
+        ] of filterResult.relevantCoursesBySkill.entries()) {
+          if (!filteredSkillCoursesMap.has(skill)) {
+            filteredSkillCoursesMap.set(skill, []);
+          }
+          filteredSkillCoursesMap.get(skill)!.push(...courses);
         }
-        filteredSkillCoursesMap.get(skill)!.push(...courses);
       }
     }
+    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+
+    const effectiveSkillCoursesMap = filteredSkillCoursesMap.size
+      ? filteredSkillCoursesMap
+      : skillCoursesMap;
 
     // Create a map to dedupe courses by subjectCode and aggregate their skills
     const courseMap = new Map<string, AggregatedCourseSkills>();
 
-    for (const [skill, courses] of filteredSkillCoursesMap.entries()) {
+    for (const [skill, courses] of effectiveSkillCoursesMap.entries()) {
       for (const course of courses) {
         const subjectCode = course.subjectCode;
 
@@ -241,8 +247,6 @@ export class AnswerQuestionUseCase
         relatedCourses: [],
       };
     }
-
-    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
 
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
     const synthesisResult = await this.answerSynthesisService.synthesizeAnswer({
@@ -322,6 +326,7 @@ export class AnswerQuestionUseCase
       courseOfferings: course.courseOfferings,
       matchedSkills: course.matchedSkills,
       totalClicks: course.courseClickLogs.length,
+      score: course.score ?? 3, // default score if not set
       metadata: course.metadata,
       createdAt: course.createdAt,
       updatedAt: course.updatedAt,

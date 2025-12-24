@@ -239,7 +239,8 @@ export class AppController {
 
     const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.6;
     const topN = topNQuery ? parseInt(topNQuery, 10) : 20;
-    const isGenEd = isGenEdQuery === 'true';
+    const isGenEd =
+      isGenEdQuery === undefined ? undefined : isGenEdQuery === 'true';
 
     if (skills.length === 0) {
       return { error: 'At least one skill must be provided' };

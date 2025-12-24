@@ -1,22 +1,26 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
-
-import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
 } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+
+import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 
 import { ICourseRelevanceFilterService } from '../../contracts/i-course-relevance-filter-service.contract';
 import {
   CourseRelevanceFilterPromptFactory,
   CourseRelevanceFilterPromptVersion,
 } from '../../prompts/course-relevance-filter';
-import { CourseRelevanceFilterResultSchema } from '../../schemas/course-relevance-filter.schema';
+import {
+  CourseRelevanceFilterResultSchema,
+  CourseRelevanceFilterResultSchemaV2,
+} from '../../schemas/course-relevance-filter.schema';
 import {
   CourseRelevanceFilterItem,
   CourseRelevanceFilterResult,
+  CourseRelevanceFilterResultV2,
 } from '../../types/course-relevance-filter.type';
 import { QueryProfile } from '../../types/query-profile.type';
 
@@ -165,6 +169,102 @@ export class CourseRelevanceFilterService
       coursesData.push({
         courseName: course.subjectName,
         learningOutcomes: course.allLearningOutcomes.map(
+          (lo) => lo.cleanedName,
+        ),
+      });
+    }
+    return encode(coursesData);
+  }
+
+  async batchFilterCoursesBySkillV2(
+    question: string,
+    queryProfile: QueryProfile,
+    skillCourseMatchMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
+    promptVersion: CourseRelevanceFilterPromptVersion,
+  ): Promise<CourseRelevanceFilterResultV2[]> {
+    const { getPrompts } = CourseRelevanceFilterPromptFactory();
+    const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
+
+    const results: CourseRelevanceFilterResultV2[] = await Promise.all(
+      Array.from(skillCourseMatchMap.entries()).map(
+        async ([skill, courses]: [
+          string,
+          CourseWithLearningOutcomeV2Match[],
+        ]) => {
+          if (courses.length === 0) {
+            this.logger.log(
+              `[CourseRelevanceFilterV2] No courses to filter for skill: "${skill}". Skipping LLM call.`,
+            );
+            return {
+              relevantCoursesBySkill: new Map<
+                string,
+                CourseWithLearningOutcomeV2Match[]
+              >(),
+              model: this.modelName,
+              userPrompt: '',
+              systemPrompt: '',
+              promptVersion,
+            };
+          }
+
+          this.logger.log(
+            `[CourseRelevanceFilterV2] Skill: "${skill}" has ${courses.length} matched courses.`,
+          );
+
+          const coursesData = this.buildCoursesDataV2(courses);
+          this.logger.log(
+            `[CourseRelevanceFilterV2] Courses data for skill "${skill}": ${coursesData}`,
+          );
+
+          const { object } = await this.llmProviderClient.generateObject({
+            prompt: getUserPrompt(question, skill, coursesData),
+            systemPrompt,
+            schema: CourseRelevanceFilterResultSchemaV2,
+            model: this.modelName,
+          });
+
+          this.logger.log(
+            `[CourseRelevanceFilterV2] Generated relevance filter for skill "${skill}": ${JSON.stringify(
+              object,
+              null,
+              2,
+            )}`,
+          );
+
+          // Include all courses with their scores (no filtering based on score)
+          const relevantCoursesBySkillMap = new Map<
+            string,
+            CourseWithLearningOutcomeV2Match[]
+          >();
+          relevantCoursesBySkillMap.set(skill, courses);
+
+          return {
+            relevantCoursesBySkill: relevantCoursesBySkillMap,
+            model: this.modelName,
+            userPrompt: getUserPrompt(question, skill, coursesData),
+            systemPrompt,
+            promptVersion,
+          };
+        },
+      ),
+    );
+
+    return results;
+  }
+
+  private buildCoursesDataV2(
+    courses: CourseWithLearningOutcomeV2Match[],
+  ): string {
+    const coursesData: {
+      course_code: string;
+      course_name: string;
+      learning_outcomes: string[];
+    }[] = [];
+    for (const course of courses) {
+      coursesData.push({
+        course_code: course.subjectCode,
+        course_name: course.subjectName,
+        learning_outcomes: course.allLearningOutcomes.map(
           (lo) => lo.cleanedName,
         ),
       });

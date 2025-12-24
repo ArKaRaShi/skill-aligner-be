@@ -40,6 +40,7 @@ export class CourseResponseMapper {
       courseOfferings: courseView.courseOfferings.map((offering) =>
         this.toCourseOfferingDto(offering),
       ),
+      score: courseView.score,
       totalClicks: courseView.totalClicks,
     };
 

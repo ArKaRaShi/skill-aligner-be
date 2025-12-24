@@ -15,3 +15,19 @@ export type CourseRelevanceFilterResult = {
   promptVersion: string;
   hyperParameters?: Record<string, any>;
 };
+
+export type CourseRelevanceFilterItemV2 = {
+  courseCode: string;
+  courseName: string;
+  score: number;
+  reason: string;
+};
+
+export type CourseRelevanceFilterResultV2 = {
+  relevantCoursesBySkill: Map<string, CourseWithLearningOutcomeV2Match[]>;
+  model: string;
+  userPrompt: string;
+  systemPrompt: string;
+  promptVersion: string;
+  hyperParameters?: Record<string, any>;
+};

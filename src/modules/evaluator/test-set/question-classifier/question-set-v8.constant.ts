@@ -385,9 +385,9 @@ export const QUESTION_SET_V8: QuestionSetItem[] = [
   },
   {
     question: 'อยากเก่งเรื่องเทคโนโลยี ควรเริ่มจากอะไร',
-    expectedCategory: 'irrelevant',
+    expectedCategory: 'relevant',
     reasoning:
-      'Ambiguous - student expresses broad interest but no specific extractable skill',
+      'Edge case - student expresses broad learning intent in technology, mappable to various skills',
     pattern: 'edge',
   },
   {

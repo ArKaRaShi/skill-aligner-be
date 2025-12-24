@@ -16,6 +16,7 @@ import {
   QUESTION_SET_V6,
   QuestionSetItem,
 } from '../test-set/question-classifier/question-set-v6.constant';
+import { QUESTION_SET_V8 } from '../test-set/question-classifier/question-set-v8.constant';
 import {
   ClassClassificationMetrics,
   ClassificationMetadata,

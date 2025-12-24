@@ -43,8 +43,15 @@ export type CourseWithLearningOutcomeV2Match = Omit<
   allLearningOutcomes: LearningOutcome[];
 };
 
+// use for ranking with score
+export type CourseWithLearningOutcomeV2MatchWithScore =
+  CourseWithLearningOutcomeV2Match & {
+    score: number;
+  };
+
 export type AggregatedCourseSkills = Course & {
   matchedSkills: MatchedSkillLearningOutcomes[];
+  score?: number;
 };
 
 export type CourseView = {
@@ -59,6 +66,7 @@ export type CourseView = {
   matchedSkills: MatchedSkillLearningOutcomes[];
   courseOfferings: CourseOffering[];
   totalClicks: number;
+  score: number;
 
   createdAt: Date;
   updatedAt: Date;

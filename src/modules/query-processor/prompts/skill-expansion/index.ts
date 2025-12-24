@@ -11,6 +11,14 @@ import {
   getExpandSkillUserPromptV5,
 } from './expand-skill-v5.prompt';
 import {
+  EXPAND_SKILL_SYSTEM_PROMPT_V7,
+  getExpandSkillUserPromptV7,
+} from './expand-skill-v7.prompt';
+import {
+  EXPAND_SKILL_SYSTEM_PROMPT_V8,
+  getExpandSkillUserPromptV8,
+} from './expand-skill-v8.prompt';
+import {
   EXPAND_SKILL_SYSTEM_PROMPT,
   getExpandSkillUserPrompt,
 } from './expand-skill.prompt';
@@ -25,6 +33,8 @@ export const SkillExpansionPromptVersions = {
   V2: 'v2',
   V4: 'v4',
   V5: 'v5',
+  V7: 'v7',
+  V8: 'v8',
 } as const;
 
 export type SkillExpansionPromptVersion =
@@ -49,6 +59,14 @@ const SkillExpansionPrompts: Record<
   v5: {
     systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT_V5,
     getUserPrompt: getExpandSkillUserPromptV5,
+  },
+  v7: {
+    systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT_V7,
+    getUserPrompt: getExpandSkillUserPromptV7,
+  },
+  v8: {
+    systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT_V8,
+    getUserPrompt: getExpandSkillUserPromptV8,
   },
 };
 

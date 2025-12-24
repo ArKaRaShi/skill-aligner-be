@@ -1,7 +1,10 @@
 import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 
 import { CourseRelevanceFilterPromptVersion } from '../prompts/course-relevance-filter';
-import { CourseRelevanceFilterResult } from '../types/course-relevance-filter.type';
+import {
+  CourseRelevanceFilterResult,
+  CourseRelevanceFilterResultV2,
+} from '../types/course-relevance-filter.type';
 import { QueryProfile } from '../types/query-profile.type';
 
 export const I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN = Symbol(
@@ -22,4 +25,11 @@ export interface ICourseRelevanceFilterService {
     skillCourseMatchMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
     promptVersion: CourseRelevanceFilterPromptVersion,
   ): Promise<CourseRelevanceFilterResult[]>;
+
+  batchFilterCoursesBySkillV2(
+    question: string,
+    queryProfile: QueryProfile,
+    skillCourseMatchMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
+    promptVersion: CourseRelevanceFilterPromptVersion,
+  ): Promise<CourseRelevanceFilterResultV2[]>;
 }
