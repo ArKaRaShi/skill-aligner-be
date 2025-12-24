@@ -1,12 +1,12 @@
 import { Inject, Logger } from '@nestjs/common';
 
-import { z } from 'zod';
-
-import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
-} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
+} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+import { z } from 'zod';
+
+import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 
 export class QuestionSetCreatorService {
   private readonly logger = new Logger(QuestionSetCreatorService.name);

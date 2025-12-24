@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { EmbeddingModule } from 'src/modules';
+import { EmbeddingModule } from 'src/core';
 
 import { EmbedPipeline } from './embed.pipeline';
 import { EmbedPipelineV2 } from './embed.pipeline.v2';

@@ -1,5 +1,11 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import {
+  EmbeddingModels,
+  EmbeddingProviders,
+  VectorDimensions,
+} from 'src/core/embedding/clients';
+
 import { Identifier } from 'src/common/domain/types/identifier';
 import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
 
@@ -16,11 +22,6 @@ import {
   AggregatedCourseSkills,
   CourseView,
 } from 'src/modules/course/types/course.type';
-import {
-  EmbeddingModels,
-  EmbeddingProviders,
-  VectorDimensions,
-} from 'src/modules/embedding/clients';
 import {
   I_FACULTY_REPOSITORY_TOKEN,
   IFacultyRepository,

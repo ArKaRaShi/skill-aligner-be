@@ -1,13 +1,13 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
-
-import { LearningOutcome } from 'src/modules/course/types/course-learning-outcome-v2.type';
-import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
-} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
+} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+
+import { LearningOutcome } from 'src/modules/course/types/course-learning-outcome-v2.type';
+import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 
 import { ICourseClassificationService } from '../../contracts/i-course-classification-service.contract';
 import { CourseClassificationPromptFactory } from '../../prompts/course-classification';

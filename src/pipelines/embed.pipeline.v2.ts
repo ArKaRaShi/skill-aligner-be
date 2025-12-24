@@ -2,6 +2,11 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
+import {
+  E5EmbeddingClient,
+  OpenRouterEmbeddingClient,
+} from 'src/core/embedding/clients';
+import type { EmbedResult } from 'src/core/embedding/clients/base-embedding.client';
 import { v4 as uuidv4 } from 'uuid';
 
 import { AppConfigService } from 'src/config/app-config.service';
@@ -9,12 +14,6 @@ import { AppConfigService } from 'src/config/app-config.service';
 import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 import { initSemanticsHttpClient } from 'src/common/http/semantics-http-client';
 import { EmbeddingMetadataJson } from 'src/common/types/stored-embedding-metadata.type';
-
-import {
-  E5EmbeddingClient,
-  OpenRouterEmbeddingClient,
-} from 'src/modules/embedding/clients';
-import type { EmbedResult } from 'src/modules/embedding/clients/base-embedding.client';
 
 // Define combined metadata structure that supports both embedding dimensions
 type CombinedVectorMetadata = {

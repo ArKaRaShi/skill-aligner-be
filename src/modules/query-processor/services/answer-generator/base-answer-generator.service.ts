@@ -1,5 +1,6 @@
+import { ILlmProviderClient } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+
 import { CourseMatch } from 'src/modules/course/types/course.type';
-import { ILlmProviderClient } from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
 
 import { IAnswerGeneratorService } from '../../contracts/i-answer-generator-service.contract';
 import { AnswerGeneration } from '../../types/answer-generation.type';

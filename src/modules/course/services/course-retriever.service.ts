@@ -1,13 +1,12 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
-
-import { AppConfigService } from 'src/config/app-config.service';
-
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
-} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
+} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+
+import { AppConfigService } from 'src/config/app-config.service';
 
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,

@@ -2,12 +2,12 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
+import { OpenRouterEmbeddingClient } from 'src/core/embedding/clients/openrouter-embedding.client';
+import { IEmbeddingClient } from 'src/core/embedding/contracts/i-embedding-client.contract';
+
 import { AppConfigService } from 'src/config/app-config.service';
 
 import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
-
-import { OpenRouterEmbeddingClient } from 'src/modules/embedding/clients/openrouter-embedding.client';
-import { IEmbeddingClient } from 'src/modules/embedding/contracts/i-embedding-client.contract';
 
 type TopResult = {
   cloId: string;

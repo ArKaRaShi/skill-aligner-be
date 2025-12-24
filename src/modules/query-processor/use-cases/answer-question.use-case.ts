@@ -1,5 +1,11 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import {
+  EmbeddingModels,
+  EmbeddingProviders,
+  VectorDimensions,
+} from 'src/core/embedding/clients';
+
 import { AppConfigService } from 'src/config/app-config.service';
 
 import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
@@ -20,11 +26,6 @@ import {
   CourseView,
   CourseWithLearningOutcomeV2Match,
 } from 'src/modules/course/types/course.type';
-import {
-  EmbeddingModels,
-  EmbeddingProviders,
-  VectorDimensions,
-} from 'src/modules/embedding/clients';
 import {
   I_FACULTY_REPOSITORY_TOKEN,
   IFacultyRepository,

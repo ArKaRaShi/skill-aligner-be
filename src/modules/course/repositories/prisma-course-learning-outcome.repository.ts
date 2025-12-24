@@ -2,13 +2,13 @@ import { Inject, Injectable } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
-import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
-
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
-} from 'src/modules/embedding/contracts/i-embedding-client.contract';
-import { EmbeddingHelper } from 'src/modules/embedding/helpers/embedding.helper';
+} from 'src/core/embedding/contracts/i-embedding-client.contract';
+import { EmbeddingHelper } from 'src/core/embedding/helpers/embedding.helper';
+
+import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 
 import {
   FindLosBySkillsParams,

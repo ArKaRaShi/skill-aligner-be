@@ -6,7 +6,7 @@ import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/cours
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
-} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
+} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
 import { ICourseRelevanceFilterService } from '../../contracts/i-course-relevance-filter-service.contract';
 import {

@@ -9,6 +9,16 @@ import {
 import { ApiQuery } from '@nestjs/swagger';
 
 import {
+  EmbeddingMetadata,
+  EmbeddingModels,
+  EmbeddingProviders,
+} from './core/embedding/constants/model.constant';
+import {
+  I_EMBEDDING_CLIENT_TOKEN,
+  IEmbeddingClient,
+} from './core/embedding/contracts/i-embedding-client.contract';
+import { EmbeddingHelper } from './core/embedding/helpers/embedding.helper';
+import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
   ICourseLearningOutcomeRepository,
 } from './modules/course/contracts/i-course-learning-outcome-repository.contract';
@@ -16,16 +26,6 @@ import {
   I_COURSE_RETRIEVER_SERVICE_TOKEN,
   ICourseRetrieverService,
 } from './modules/course/contracts/i-course-retriever-service.contract';
-import {
-  EmbeddingMetadata,
-  EmbeddingModels,
-  EmbeddingProviders,
-} from './modules/embedding/constants/model.constant';
-import {
-  I_EMBEDDING_CLIENT_TOKEN,
-  IEmbeddingClient,
-} from './modules/embedding/contracts/i-embedding-client.contract';
-import { EmbeddingHelper } from './modules/embedding/helpers/embedding.helper';
 
 @Controller()
 export class AppController {

@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { IEmbeddingClient } from 'src/core/embedding/contracts/i-embedding-client.contract';
+import { I_EMBEDDING_CLIENT_TOKEN } from 'src/core/embedding/contracts/i-embedding-client.contract';
+
 import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 import { Identifier } from 'src/common/domain/types/identifier';
-
-import { IEmbeddingClient } from 'src/modules/embedding/contracts/i-embedding-client.contract';
-import { I_EMBEDDING_CLIENT_TOKEN } from 'src/modules/embedding/contracts/i-embedding-client.contract';
 
 import { PrismaCourseRepository } from '../prisma-course.repository';
 

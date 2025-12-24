@@ -3,7 +3,7 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
-} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
+} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
 import { QueryProfileBuilderPromptFactory } from '../../prompts/query-profile-builder';

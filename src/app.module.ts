@@ -4,12 +4,8 @@ import { APP_INTERCEPTOR, Reflector } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { CommonSecondaryAdapterModules } from './common/adapters/secondary';
 import { AppConfigModule } from './config/app-config.module';
-import {
-  CampusModule,
-  CourseModule,
-  EmbeddingModule,
-  QueryProcessorModule,
-} from './modules';
+import { EmbeddingModule } from './core';
+import { CampusModule, CourseModule, QueryProcessorModule } from './modules';
 import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryLoggingModule } from './modules/query-logging/query-logging.module';
 import { PipelineModule } from './pipelines/pipeline.module';

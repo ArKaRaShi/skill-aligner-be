@@ -1,10 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 
-import { CourseMatch } from 'src/modules/course/types/course.type';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
-} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
+} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+
+import { CourseMatch } from 'src/modules/course/types/course.type';
 
 import { IAnswerGeneratorService } from '../../contracts/i-answer-generator-service.contract';
 import { AnswerGeneratorPromptFactory } from '../../prompts/answer-generator';

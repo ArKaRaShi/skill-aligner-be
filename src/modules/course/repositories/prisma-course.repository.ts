@@ -2,14 +2,14 @@ import { Inject, Injectable } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
-import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
-import { SortOrder } from 'src/common/constants/sort-order.constant';
-import { Identifier } from 'src/common/domain/types/identifier';
-
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
-} from 'src/modules/embedding/contracts/i-embedding-client.contract';
+} from 'src/core/embedding/contracts/i-embedding-client.contract';
+
+import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
+import { SortOrder } from 'src/common/constants/sort-order.constant';
+import { Identifier } from 'src/common/domain/types/identifier';
 
 import {
   FindCoursesByLearningOutcomeIdsParams,

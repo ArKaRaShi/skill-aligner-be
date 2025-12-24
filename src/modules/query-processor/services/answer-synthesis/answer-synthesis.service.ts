@@ -1,12 +1,12 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
-
-import { AggregatedCourseSkills } from 'src/modules/course/types/course.type';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
-} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
+} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+
+import { AggregatedCourseSkills } from 'src/modules/course/types/course.type';
 
 import {
   AnswerSynthesizeInput,

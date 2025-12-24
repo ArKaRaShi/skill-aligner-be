@@ -3,7 +3,8 @@ import { Test } from '@nestjs/testing';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
-} from 'src/modules/gpt-llm/contracts/i-llm-provider-client.contract';
+} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+
 import { QuestionClassifierCache } from 'src/modules/query-processor/cache/question-classifier.cache';
 import { QuestionClassifyInput } from 'src/modules/query-processor/contracts/i-question-classifier-service.contract';
 import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';

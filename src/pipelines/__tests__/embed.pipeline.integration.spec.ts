@@ -1,6 +1,10 @@
 import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
+import {
+  EmbeddingModels,
+  EmbeddingProviders,
+} from 'src/core/embedding/constants/model.constant';
 import { v4 as uuidv4 } from 'uuid';
 
 import { AppConfigService } from 'src/config/app-config.service';
@@ -8,10 +12,6 @@ import { AppConfigService } from 'src/config/app-config.service';
 import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 
 import { parseVector } from 'src/modules/course/repositories/helpers/vector.helper';
-import {
-  EmbeddingModels,
-  EmbeddingProviders,
-} from 'src/modules/embedding/constants/model.constant';
 
 import { EmbedPipeline } from '../embed.pipeline';
 

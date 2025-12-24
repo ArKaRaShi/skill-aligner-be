@@ -2,15 +2,15 @@ import { Module } from '@nestjs/common';
 
 import { AppConfigService } from 'src/config/app-config.service';
 
-import { CampusModule } from '../campus/campus.module';
-import { CourseModule } from '../course/course.module';
-import { EmbeddingModule } from '../embedding/embedding.module';
-import { FacultyModule } from '../faculty/faculty.module';
+import { EmbeddingModule } from '../../core/embedding/embedding.module';
 import {
   I_LLM_PROVIDER_CLIENT_TOKEN,
   ILlmProviderClient,
-} from '../gpt-llm/contracts/i-llm-provider-client.contract';
-import { GptLlmModule } from '../gpt-llm/gpt-llm.module';
+} from '../../core/gpt-llm/contracts/i-llm-provider-client.contract';
+import { GptLlmModule } from '../../core/gpt-llm/gpt-llm.module';
+import { CampusModule } from '../campus/campus.module';
+import { CourseModule } from '../course/course.module';
+import { FacultyModule } from '../faculty/faculty.module';
 import { QuestionClassifierCache } from './cache/question-classifier.cache';
 import { QuestionSkillCache } from './cache/question-skill.cache';
 import { I_ANSWER_GENERATOR_SERVICE_TOKEN } from './contracts/i-answer-generator-service.contract';

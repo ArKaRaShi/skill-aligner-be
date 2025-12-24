@@ -1,6 +1,6 @@
-import { Identifier } from 'src/common/domain/types/identifier';
+import { EmbeddingMetadata } from 'src/core/embedding/clients';
 
-import { EmbeddingMetadata } from 'src/modules/embedding/clients';
+import { Identifier } from 'src/common/domain/types/identifier';
 
 import { CourseWithLearningOutcomeV2Match } from '../types/course.type';
 import type { AcademicYearSemesterFilter } from './i-course-learning-outcome-repository.contract';
