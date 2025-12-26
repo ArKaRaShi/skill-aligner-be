@@ -122,6 +122,7 @@ export class SkillQueryStrategy implements IQueryStrategy {
             courseLearningOutcomes: course.allLearningOutcomes,
             courseOfferings: course.courseOfferings,
             courseClickLogs: [],
+            score: 3, // default score
             metadata: course.metadata,
             createdAt: course.createdAt,
             updatedAt: course.updatedAt,

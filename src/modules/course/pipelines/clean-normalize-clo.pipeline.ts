@@ -9,6 +9,7 @@ export class CleanNormalizeCLOPipeline {
   private static readonly SUBJECT_CODES_TO_IGNORE = new Set<string>([
     // Add subject codes to explicitly ignore here
     '02184251-67', // only contains LO name LLO1, LLO1, ..., no meaningful content
+    '01140521-65', // only contain ทดสอบ
   ]);
 
   static async execute(): Promise<CleanCourseWithCLO[]> {

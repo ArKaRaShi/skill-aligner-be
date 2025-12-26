@@ -47,11 +47,12 @@ export type CourseWithLearningOutcomeV2Match = Omit<
 export type CourseWithLearningOutcomeV2MatchWithScore =
   CourseWithLearningOutcomeV2Match & {
     score: number;
+    reason?: string;
   };
 
 export type AggregatedCourseSkills = Course & {
   matchedSkills: MatchedSkillLearningOutcomes[];
-  score?: number;
+  score: number;
 };
 
 export type CourseView = {

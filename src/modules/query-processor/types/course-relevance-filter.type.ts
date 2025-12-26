@@ -1,4 +1,7 @@
-import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
+import {
+  CourseWithLearningOutcomeV2Match,
+  CourseWithLearningOutcomeV2MatchWithScore,
+} from 'src/modules/course/types/course.type';
 
 export type CourseRelevanceFilterItem = {
   courseName: string;
@@ -24,7 +27,10 @@ export type CourseRelevanceFilterItemV2 = {
 };
 
 export type CourseRelevanceFilterResultV2 = {
-  relevantCoursesBySkill: Map<string, CourseWithLearningOutcomeV2Match[]>;
+  relevantCoursesBySkill: Map<
+    string,
+    CourseWithLearningOutcomeV2MatchWithScore[]
+  >;
   model: string;
   userPrompt: string;
   systemPrompt: string;

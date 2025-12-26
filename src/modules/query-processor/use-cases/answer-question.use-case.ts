@@ -10,6 +10,7 @@ import { AppConfigService } from 'src/config/app-config.service';
 
 import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
 import { Identifier } from 'src/common/domain/types/identifier';
+import { ArrayHelper } from 'src/common/helpers/array.helper';
 import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
 
 import {
@@ -25,6 +26,7 @@ import {
   AggregatedCourseSkills,
   CourseView,
   CourseWithLearningOutcomeV2Match,
+  CourseWithLearningOutcomeV2MatchWithScore,
 } from 'src/modules/course/types/course.type';
 import {
   I_FACULTY_REPOSITORY_TOKEN,
@@ -66,8 +68,6 @@ export class AnswerQuestionUseCase
 {
   private readonly logger = new Logger(AnswerQuestionUseCase.name);
   private readonly timeLogger = new TimeLogger();
-
-  //อยากเรียนภาษาเพื่อใช้ในเชิงธุรกิจ ฝรั่งเศส หรือจีนก็ได
 
   constructor(
     @Inject(I_QUESTION_CLASSIFIER_SERVICE_TOKEN)
@@ -135,7 +135,7 @@ export class AnswerQuestionUseCase
 
     const skillExpansion = await this.skillExpanderService.expandSkillsV2(
       question,
-      SkillExpansionPromptVersions.V8,
+      SkillExpansionPromptVersions.V9,
     );
     const skillItems = skillExpansion.skillItems;
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
@@ -170,16 +170,16 @@ export class AnswerQuestionUseCase
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
     const filteredSkillCoursesMap = new Map<
       string,
-      CourseWithLearningOutcomeV2Match[]
+      CourseWithLearningOutcomeV2MatchWithScore[]
     >();
-    const useFilter = false;
+    const useFilter = true;
     if (useFilter) {
       const relevanceFilterResults =
-        await this.courseRelevanceFilterService.batchFilterCoursesBySkill(
+        await this.courseRelevanceFilterService.batchFilterCoursesBySkillV2(
           question,
           queryProfile,
           skillCoursesMap,
-          CourseRelevanceFilterPromptVersions.V3,
+          CourseRelevanceFilterPromptVersions.V4, // lower than v4 is binary classification
         );
 
       for (const filterResult of relevanceFilterResults) {
@@ -196,49 +196,15 @@ export class AnswerQuestionUseCase
     }
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
 
-    const effectiveSkillCoursesMap = filteredSkillCoursesMap.size
-      ? filteredSkillCoursesMap
-      : skillCoursesMap;
+    // Aggregate courses with their matched skills
+    const courseMap =
+      filteredSkillCoursesMap.size > 0
+        ? this.aggregateCourseSkillsWithScore(filteredSkillCoursesMap)
+        : this.aggregateCourseSkillsWithNoScore(skillCoursesMap);
 
-    // Create a map to dedupe courses by subjectCode and aggregate their skills
-    const courseMap = new Map<string, AggregatedCourseSkills>();
-
-    for (const [skill, courses] of effectiveSkillCoursesMap.entries()) {
-      for (const course of courses) {
-        const subjectCode = course.subjectCode;
-
-        if (!courseMap.has(subjectCode)) {
-          // Create a new AggregatedCourseSkills entry for this course
-          courseMap.set(subjectCode, {
-            id: course.id,
-            campusId: course.campusId,
-            facultyId: course.facultyId,
-            subjectCode: course.subjectCode,
-            subjectName: course.subjectName,
-            isGenEd: course.isGenEd,
-            courseLearningOutcomes: course.allLearningOutcomes,
-            courseOfferings: course.courseOfferings,
-            courseClickLogs: [],
-            metadata: course.metadata,
-            createdAt: course.createdAt,
-            updatedAt: course.updatedAt,
-            matchedSkills: [],
-          });
-        }
-
-        // Add the current skill and its matched learning outcomes to the course
-        const aggregatedCourse = courseMap.get(subjectCode)!;
-        aggregatedCourse.matchedSkills.push({
-          skill: skill,
-          learningOutcomes: course.matchedLearningOutcomes,
-        });
-      }
-    }
-
-    // Convert the map to an array
     const aggregatedCourseSkills: AggregatedCourseSkills[] = [
       ...Array.from(courseMap.values()),
-    ].sort((a, b) => b.matchedSkills.length - a.matchedSkills.length);
+    ];
 
     if (aggregatedCourseSkills.length === 0) {
       return {
@@ -248,12 +214,21 @@ export class AnswerQuestionUseCase
       };
     }
 
+    // Rank courses by score descending
+    const rankedCourses = ArrayHelper.sortByNumberKeyDesc(
+      aggregatedCourseSkills,
+      'score',
+    );
+
+    // Proceed with answer synthesis using ranked and retained courses
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
     const synthesisResult = await this.answerSynthesisService.synthesizeAnswer({
       question,
       promptVersion: AnswerSynthesisPromptVersions.V6,
       queryProfile,
-      aggregatedCourseSkills,
+      aggregatedCourseSkills: rankedCourses.filter(
+        (course) => course.score >= 2,
+      ),
     });
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
 
@@ -261,9 +236,8 @@ export class AnswerQuestionUseCase
       `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
     );
 
-    const relatedCourses = await this.transformToCourseViews(
-      aggregatedCourseSkills,
-    );
+    // Transform to CourseView
+    const relatedCourses = await this.transformToCourseViews(rankedCourses);
 
     const result = {
       answer: synthesisResult.answerText,
@@ -358,5 +332,89 @@ export class AnswerQuestionUseCase
     this.logger.log(
       `Execution timing: ${JSON.stringify(timingResults, null, 2)}`,
     );
+  }
+
+  private aggregateCourseSkillsWithNoScore(
+    skillCoursesMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
+  ): Map<string, AggregatedCourseSkills> {
+    const courseMap = new Map<string, AggregatedCourseSkills>();
+
+    for (const [skill, courses] of skillCoursesMap.entries()) {
+      for (const course of courses) {
+        const subjectCode = course.subjectCode;
+
+        if (!courseMap.has(subjectCode)) {
+          // Create a new AggregatedCourseSkills entry for this course
+          courseMap.set(subjectCode, {
+            id: course.id,
+            campusId: course.campusId,
+            facultyId: course.facultyId,
+            subjectCode: course.subjectCode,
+            subjectName: course.subjectName,
+            isGenEd: course.isGenEd,
+            courseLearningOutcomes: course.allLearningOutcomes,
+            courseOfferings: course.courseOfferings,
+            courseClickLogs: [],
+            score: 3, // default score
+            metadata: course.metadata,
+            createdAt: course.createdAt,
+            updatedAt: course.updatedAt,
+            matchedSkills: [],
+          });
+        }
+
+        // Add the current skill and its matched learning outcomes to the course
+        const aggregatedCourse = courseMap.get(subjectCode)!;
+        aggregatedCourse.matchedSkills.push({
+          skill: skill,
+          learningOutcomes: course.matchedLearningOutcomes,
+        });
+      }
+    }
+    return courseMap;
+  }
+
+  private aggregateCourseSkillsWithScore(
+    skillCoursesMap: Map<string, CourseWithLearningOutcomeV2MatchWithScore[]>,
+  ): Map<string, AggregatedCourseSkills> {
+    const courseMap = new Map<string, AggregatedCourseSkills>();
+
+    for (const [skill, courses] of skillCoursesMap.entries()) {
+      for (const course of courses) {
+        const subjectCode = course.subjectCode;
+
+        if (!courseMap.has(subjectCode)) {
+          // Create a new AggregatedCourseSkills entry for this course
+          courseMap.set(subjectCode, {
+            id: course.id,
+            campusId: course.campusId,
+            facultyId: course.facultyId,
+            subjectCode: course.subjectCode,
+            subjectName: course.subjectName,
+            isGenEd: course.isGenEd,
+            courseLearningOutcomes: course.allLearningOutcomes,
+            courseOfferings: course.courseOfferings,
+            courseClickLogs: [],
+            score: course.score,
+            metadata: course.metadata,
+            createdAt: course.createdAt,
+            updatedAt: course.updatedAt,
+            matchedSkills: [],
+          });
+        }
+
+        // Add the current skill and its matched learning outcomes to the course
+        const aggregatedCourse = courseMap.get(subjectCode)!;
+        aggregatedCourse.matchedSkills.push({
+          skill: skill,
+          learningOutcomes: course.matchedLearningOutcomes,
+        });
+        // Update the course score if the new score is higher
+        if (course.score > aggregatedCourse.score) {
+          aggregatedCourse.score = course.score;
+        }
+      }
+    }
+    return courseMap;
   }
 }

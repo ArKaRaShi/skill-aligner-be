@@ -6,7 +6,10 @@ import {
   ILlmProviderClient,
 } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
-import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
+import {
+  CourseWithLearningOutcomeV2Match,
+  CourseWithLearningOutcomeV2MatchWithScore,
+} from 'src/modules/course/types/course.type';
 
 import { ICourseRelevanceFilterService } from '../../contracts/i-course-relevance-filter-service.contract';
 import {
@@ -19,6 +22,7 @@ import {
 } from '../../schemas/course-relevance-filter.schema';
 import {
   CourseRelevanceFilterItem,
+  CourseRelevanceFilterItemV2,
   CourseRelevanceFilterResult,
   CourseRelevanceFilterResultV2,
 } from '../../types/course-relevance-filter.type';
@@ -198,7 +202,7 @@ export class CourseRelevanceFilterService
             return {
               relevantCoursesBySkill: new Map<
                 string,
-                CourseWithLearningOutcomeV2Match[]
+                CourseWithLearningOutcomeV2MatchWithScore[]
               >(),
               model: this.modelName,
               userPrompt: '',
@@ -231,12 +235,87 @@ export class CourseRelevanceFilterService
             )}`,
           );
 
-          // Include all courses with their scores (no filtering based on score)
+          // Process the LLM response to add scores to courses
+          const courseItems: CourseRelevanceFilterItemV2[] = object.courses.map(
+            (course) => ({
+              courseCode: course.course_code,
+              courseName: course.course_name,
+              score: course.score,
+              reason: course.reason,
+            }),
+          );
+
+          // Create a Map for O(1) lookup by course code and name
+          const courseItemMap = new Map<string, CourseRelevanceFilterItemV2>();
+          for (const item of courseItems) {
+            courseItemMap.set(`${item.courseCode}|${item.courseName}`, item);
+          }
+
+          // Create courses with scores by matching original courses with LLM response
+          const coursesWithScores: CourseWithLearningOutcomeV2MatchWithScore[] =
+            courses.map((course) => {
+              const courseItem = courseItemMap.get(
+                `${course.subjectCode}|${course.subjectName}`,
+              );
+
+              if (!courseItem) {
+                this.logger.warn(
+                  `[CourseRelevanceFilterV2] Course "${course.subjectCode} - ${course.subjectName}" for skill "${skill}" not found in LLM response`,
+                );
+                // Default to score 0 if not found in LLM response
+                return {
+                  ...course,
+                  score: 0,
+                  reason: 'Not found in LLM response',
+                };
+              }
+
+              return {
+                ...course,
+                score: courseItem.score,
+                reason: courseItem.reason,
+              };
+            });
+
+          // Filter out courses with score 0 and log them
+          const [droppedCourses, filteredCoursesWithScores] =
+            coursesWithScores.reduce<
+              [
+                CourseWithLearningOutcomeV2MatchWithScore[],
+                CourseWithLearningOutcomeV2MatchWithScore[],
+              ]
+            >(
+              (acc, course) => {
+                if (course.score === 0) {
+                  acc[0].push(course);
+                } else {
+                  acc[1].push(course);
+                }
+                return acc;
+              },
+              [[], []],
+            );
+
+          if (droppedCourses.length > 0) {
+            this.logger.log(
+              `[CourseRelevanceFilterV2] Dropped ${droppedCourses.length} courses with score 0 for skill "${skill}": ${JSON.stringify(
+                droppedCourses.map((c) => ({
+                  courseCode: c.subjectCode,
+                  courseName: c.subjectName,
+                  score: c.score,
+                  reason: c.reason,
+                })),
+                null,
+                2,
+              )}`,
+            );
+          }
+
           const relevantCoursesBySkillMap = new Map<
             string,
-            CourseWithLearningOutcomeV2Match[]
+            CourseWithLearningOutcomeV2MatchWithScore[]
           >();
-          relevantCoursesBySkillMap.set(skill, courses);
+          relevantCoursesBySkillMap.set(skill, filteredCoursesWithScores);
 
           return {
             relevantCoursesBySkill: relevantCoursesBySkillMap,
