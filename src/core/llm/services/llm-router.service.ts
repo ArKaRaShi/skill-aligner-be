@@ -36,7 +36,7 @@ export class LlmRouterService implements ILlmRouterService {
   ) {}
 
   /**
-   * Generates a raw text completion using the specified model and prompts.
+   * Generates a raw text completion using specified model and prompts.
    */
   async generateText(
     { prompt, systemPrompt, model }: GenerateTextInput,
@@ -55,7 +55,7 @@ export class LlmRouterService implements ILlmRouterService {
   }
 
   /**
-   * Generates a structured object by asking the model to fill a Zod schema.
+   * Generates a structured object by asking model to fill a Zod schema.
    */
   async generateObject<TSchema extends z.ZodTypeAny>(
     { prompt, systemPrompt, schema, model }: GenerateObjectInput<TSchema>,
@@ -75,7 +75,7 @@ export class LlmRouterService implements ILlmRouterService {
   }
 
   /**
-   * Resolves the appropriate provider for a given model and optional provider parameter.
+   * Resolves to appropriate provider for a given model and optional provider parameter.
    *
    * @param model - The model identifier
    * @param provider - Optional provider name
@@ -105,7 +105,7 @@ export class LlmRouterService implements ILlmRouterService {
       );
     }
 
-    // Validate model is available on the provider
+    // Validate model is available on provider
     if (!this.modelRegistry.isModelAvailable(model, providerName)) {
       const availableProvidersForModel =
         this.modelRegistry.getProvidersForModel(model);

@@ -1,3 +1,5 @@
+import { LLM_MODEL_REGISTRATIONS } from 'src/core/llm/models';
+
 import { TokenUsage } from 'src/common/types/token-usage.type';
 
 export type TokenCostEstimate = TokenUsage & {
@@ -10,47 +12,19 @@ export type TokenCostEstimateSummary = {
   details: TokenCostEstimate[];
 };
 
-type TokenCostRatesByModel = {
-  [model: string]: {
-    inputCostPerMillionTokens: number; // cost per million input tokens
-    outputCostPerMillionTokens: number; // cost per million output tokens
-  };
-};
-
 export class TokenCostCalculator {
-  private static readonly AVAILABLE_ESTIMATIONS: TokenCostRatesByModel = {
-    'openai/gpt-4o-mini': {
-      inputCostPerMillionTokens: 0.15, // $0.15 per 1,000,000 tokens
-      outputCostPerMillionTokens: 0.6, // $0.6 per 1,000,000 tokens
-    },
-    'openai/gpt-4.1-mini': {
-      inputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
-      outputCostPerMillionTokens: 1.6, // $1.6 per 1,000,000 tokens
-    },
-    'openai/gpt-4.1-nano': {
-      inputCostPerMillionTokens: 0.1, // $0.1 per 1,000,000 tokens
-      outputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
-    },
-    'openai/gpt-oss-120b': {
-      inputCostPerMillionTokens: 0.039, // $0.039 per 1,000,000 tokens
-      outputCostPerMillionTokens: 0.19, // $0.19 per 1,000,000 tokens
-    },
-    'google/gemini-2.5-flash': {
-      inputCostPerMillionTokens: 0.3, // $0.3 per 1,000,000 tokens
-      outputCostPerMillionTokens: 2.5, // $2.5 per 1,000,000 tokens
-    },
-    'google/gemini-2.0-flash-001': {
-      inputCostPerMillionTokens: 0.1, // $0.1 per 1,000,000 tokens
-      outputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
-    },
-  };
+  private static readonly AVAILABLE_ESTIMATIONS = LLM_MODEL_REGISTRATIONS;
 
   static estimateCost({
     inputTokens,
     outputTokens,
     model,
   }: TokenUsage): TokenCostEstimate {
-    const modelEstimations = this.AVAILABLE_ESTIMATIONS[model];
+    // Find cost data by searching through all model mappings
+    const modelEstimations = this.AVAILABLE_ESTIMATIONS.find(
+      (mapping) => mapping.modelId === model,
+    );
+
     if (!modelEstimations) {
       return {
         inputTokens,
@@ -67,10 +41,10 @@ export class TokenCostCalculator {
 
     const inputCost =
       (normalizedInputTokens / 1_000_000) *
-      modelEstimations.inputCostPerMillionTokens;
+      modelEstimations.cost.inputCostPerMillionTokens;
     const outputCost =
       (normalizedOutputTokens / 1_000_000) *
-      modelEstimations.outputCostPerMillionTokens;
+      modelEstimations.cost.outputCostPerMillionTokens;
     const estimatedCost = inputCost + outputCost;
 
     return {

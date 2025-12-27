@@ -1,4 +1,4 @@
-import { ILlmRouterService } from 'src/core/gpt-llm/contracts/i-llm-router-service.contract';
+import { ILlmRouterService } from 'src/core/llm/contracts/i-llm-router-service.contract';
 
 import { CourseMatch } from 'src/modules/course/types/course.type';
 

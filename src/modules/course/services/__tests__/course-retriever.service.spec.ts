@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/core/gpt-llm/contracts/i-llm-router-service.contract';
+} from 'src/core/llm/contracts/i-llm-router-service.contract';
 
 import { AppConfigService } from 'src/config/app-config.service';
 

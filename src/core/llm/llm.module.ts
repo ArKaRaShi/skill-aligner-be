@@ -45,16 +45,16 @@ import { LlmRouterService } from './services/llm-router.service';
       },
     },
 
-    // Provider Registry
-    {
-      provide: I_PROVIDER_REGISTRY_TOKEN,
-      useClass: ProviderRegistryService,
-    },
-
     // Model Registry
     {
       provide: I_MODEL_REGISTRY_TOKEN,
       useClass: ModelRegistryService,
+    },
+
+    // Provider Registry
+    {
+      provide: I_PROVIDER_REGISTRY_TOKEN,
+      useClass: ProviderRegistryService,
     },
 
     // LLM Router Service
@@ -76,7 +76,7 @@ import { LlmRouterService } from './services/llm-router.service';
         providerRegistry.registerProvider('openai', openaiProvider);
         providerRegistry.registerProvider('openrouter', openrouterProvider);
 
-        // Create router service
+        // Create router service with injected dependencies
         const router = new LlmRouterService(providerRegistry, modelRegistry);
 
         return router;

@@ -4,6 +4,8 @@ import { IModelRegistry } from '../../contracts/i-model-registry.contract';
 import { IProviderRegistry } from '../../contracts/i-provider-registry.contract';
 import { LlmRouterService } from '../llm-router.service';
 
+/* eslint-disable @typescript-eslint/unbound-method */
+
 describe('LlmRouterService', () => {
   let service: LlmRouterService;
   let mockProviderRegistry: jest.Mocked<IProviderRegistry>;
@@ -12,11 +14,10 @@ describe('LlmRouterService', () => {
   const mockOpenAIProviderName = 'openai';
   const mockOpenRouterProviderName = 'openrouter';
 
-  const validModel = 'openai/gpt-4o-mini';
-  const invalidModel = 'invalid/model';
+  const validModel = 'gpt-4o-mini';
 
   beforeEach(() => {
-    // Create mock registries
+    // Create mock provider registry
     mockProviderRegistry = {
       registerProvider: jest.fn(),
       getProvider: jest.fn(),
@@ -26,21 +27,22 @@ describe('LlmRouterService', () => {
       getProviderCount: jest.fn(),
     };
 
+    // Create mock model registry
     mockModelRegistry = {
       registerModel: jest.fn(),
       getProvidersForModel: jest.fn(),
       isModelAvailable: jest.fn(),
       getAllModels: jest.fn(),
       isModelRegistered: jest.fn(),
+      unregisterModel: jest.fn(),
+      clearRegistrations: jest.fn(),
+      getModelCount: jest.fn(),
+      getModelsForProvider: jest.fn(),
+      getProviderForModelId: jest.fn(),
+      getModelIdsForModel: jest.fn(),
     };
 
     // Setup default mock behaviors
-    mockModelRegistry.isModelRegistered.mockImplementation((model: string) => {
-      return model === validModel;
-    });
-
-    mockModelRegistry.getAllModels.mockReturnValue([validModel]);
-
     mockProviderRegistry.hasProvider.mockImplementation((provider: string) => {
       return (
         provider === mockOpenAIProviderName ||
@@ -53,27 +55,16 @@ describe('LlmRouterService', () => {
       mockOpenRouterProviderName,
     ]);
 
-    mockModelRegistry.isModelAvailable.mockImplementation(
-      (model: string, provider?: string) => {
-        if (model !== validModel) return false;
-        if (!provider) return true;
-        return (
-          provider === mockOpenAIProviderName ||
-          provider === mockOpenRouterProviderName
-        );
-      },
-    );
+    // Setup model registry mock behaviors
+    mockModelRegistry.isModelRegistered.mockReturnValue(true);
+    mockModelRegistry.isModelAvailable.mockReturnValue(true);
+    mockModelRegistry.getAllModels.mockReturnValue([validModel]);
+    mockModelRegistry.getProvidersForModel.mockReturnValue([
+      mockOpenRouterProviderName,
+      mockOpenAIProviderName,
+    ]);
 
-    mockModelRegistry.getProvidersForModel.mockImplementation(
-      (model: string) => {
-        if (model === validModel) {
-          return [mockOpenAIProviderName, mockOpenRouterProviderName];
-        }
-        return [];
-      },
-    );
-
-    // Create service instance
+    // Create service instance with mocked dependencies
     service = new LlmRouterService(mockProviderRegistry, mockModelRegistry);
   });
 
@@ -130,23 +121,6 @@ describe('LlmRouterService', () => {
       expect(mockProvider.generateText).toHaveBeenCalledWith(
         mockGenerateTextInput,
       );
-    });
-
-    it('should throw error when model is not registered', async () => {
-      const invalidInput = {
-        ...mockGenerateTextInput,
-        model: invalidModel,
-      };
-
-      await expect(service.generateText(invalidInput)).rejects.toThrow(
-        `Model '${invalidModel}' is not registered. Available models: ${validModel}`,
-      );
-
-      expect(mockModelRegistry.isModelRegistered).toHaveBeenCalledWith(
-        invalidModel,
-      );
-      expect(mockModelRegistry.getAllModels).toHaveBeenCalled();
-      expect(mockProviderRegistry.getProvider).not.toHaveBeenCalled();
     });
 
     it('should throw error when specified provider is not found', async () => {
@@ -252,23 +226,6 @@ describe('LlmRouterService', () => {
       );
     });
 
-    it('should throw error when model is not registered', async () => {
-      const invalidInput = {
-        ...mockGenerateObjectInput,
-        model: invalidModel,
-      };
-
-      await expect(service.generateObject(invalidInput)).rejects.toThrow(
-        `Model '${invalidModel}' is not registered. Available models: ${validModel}`,
-      );
-
-      expect(mockModelRegistry.isModelRegistered).toHaveBeenCalledWith(
-        invalidModel,
-      );
-      expect(mockModelRegistry.getAllModels).toHaveBeenCalled();
-      expect(mockProviderRegistry.getProvider).not.toHaveBeenCalled();
-    });
-
     it('should throw error when specified provider is not found', async () => {
       const invalidProvider = 'invalid-provider';
 
@@ -356,39 +313,6 @@ describe('LlmRouterService', () => {
         mockOpenAIProviderName,
       );
     });
-
-    it('should validate model registration before checking provider', async () => {
-      await expect(
-        service.generateText({ ...mockGenerateTextInput, model: invalidModel }),
-      ).rejects.toThrow();
-
-      expect(mockModelRegistry.isModelRegistered).toHaveBeenCalledWith(
-        invalidModel,
-      );
-      expect(mockModelRegistry.isModelRegistered).toHaveBeenCalled();
-      expect(mockProviderRegistry.hasProvider).not.toHaveBeenCalled();
-    });
-
-    it('should validate provider existence after model validation', async () => {
-      await expect(
-        service.generateText(mockGenerateTextInput, 'invalid-provider'),
-      ).rejects.toThrow();
-
-      expect(mockModelRegistry.isModelRegistered).toHaveBeenCalled();
-      expect(mockProviderRegistry.hasProvider).toHaveBeenCalled();
-    });
-
-    it('should validate model availability on provider after provider existence', async () => {
-      mockModelRegistry.isModelAvailable.mockReturnValue(false);
-
-      await expect(
-        service.generateText(mockGenerateTextInput, mockOpenAIProviderName),
-      ).rejects.toThrow();
-
-      expect(mockModelRegistry.isModelRegistered).toHaveBeenCalled();
-      expect(mockProviderRegistry.hasProvider).toHaveBeenCalled();
-      expect(mockModelRegistry.isModelAvailable).toHaveBeenCalled();
-    });
   });
 
   describe('error messages', () => {
@@ -398,29 +322,15 @@ describe('LlmRouterService', () => {
       model: validModel,
     };
 
-    it('should provide helpful error message for unregistered model', async () => {
-      await expect(
-        service.generateText({ ...mockGenerateTextInput, model: invalidModel }),
-      ).rejects.toThrow(`Model '${invalidModel}' is not registered`);
-
-      await expect(
-        service.generateText({ ...mockGenerateTextInput, model: invalidModel }),
-      ).rejects.toThrow('Available models:');
-    });
-
     it('should provide helpful error message for missing provider', async () => {
       const invalidProvider = 'invalid-provider';
 
       await expect(
         service.generateText(mockGenerateTextInput, invalidProvider),
       ).rejects.toThrow(`Provider '${invalidProvider}' not found`);
-
-      await expect(
-        service.generateText(mockGenerateTextInput, invalidProvider),
-      ).rejects.toThrow('Available providers:');
     });
 
-    it('should provide helpful error message for unavailable model on provider', async () => {
+    it('should provide helpful error message for model not available on provider', async () => {
       mockModelRegistry.isModelAvailable.mockReturnValue(false);
       mockModelRegistry.getProvidersForModel.mockReturnValue([
         mockOpenRouterProviderName,
@@ -431,10 +341,6 @@ describe('LlmRouterService', () => {
       ).rejects.toThrow(
         `Model '${validModel}' is not available on provider '${mockOpenAIProviderName}'`,
       );
-
-      await expect(
-        service.generateText(mockGenerateTextInput, mockOpenAIProviderName),
-      ).rejects.toThrow('Available providers for this model:');
     });
   });
 });

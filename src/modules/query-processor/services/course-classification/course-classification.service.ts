@@ -4,7 +4,7 @@ import { encode } from '@toon-format/toon';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/core/gpt-llm/contracts/i-llm-router-service.contract';
+} from 'src/core/llm/contracts/i-llm-router-service.contract';
 
 import { LearningOutcome } from 'src/modules/course/types/course-learning-outcome-v2.type';
 import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';

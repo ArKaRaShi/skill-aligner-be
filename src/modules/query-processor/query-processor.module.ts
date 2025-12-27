@@ -6,8 +6,8 @@ import { EmbeddingModule } from '../../core/embedding/embedding.module';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from '../../core/gpt-llm/contracts/i-llm-router-service.contract';
-import { GptLlmModule } from '../../core/gpt-llm/gpt-llm.module';
+} from '../../core/llm/contracts/i-llm-router-service.contract';
+import { GptLlmModule } from '../../core/llm/llm.module';
 import { CampusModule } from '../campus/campus.module';
 import { CourseModule } from '../course/course.module';
 import { FacultyModule } from '../faculty/faculty.module';
