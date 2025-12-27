@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 
 import {
-  I_LLM_PROVIDER_CLIENT_TOKEN,
-  ILlmProviderClient,
-} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from 'src/core/llm/contracts/i-llm-router-service.contract';
 
 import { LlmInfo } from 'src/common/types/llm-info.type';
 import { TokenUsage } from 'src/common/types/token-usage.type';
@@ -21,11 +21,11 @@ export class TextBasedAnswerGeneratorService
   implements IAnswerGeneratorService
 {
   constructor(
-    @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
-    llmProviderClient: ILlmProviderClient,
+    @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
+    llmRouter: ILlmRouterService,
     private readonly modelName: string,
   ) {
-    super(llmProviderClient);
+    super(llmRouter);
   }
 
   async generateAnswer(
@@ -46,7 +46,7 @@ export class TextBasedAnswerGeneratorService
       inputTokens,
       outputTokens,
       model,
-    } = await this.llmProviderClient.generateText({
+    } = await this.llmRouter.generateText({
       prompt: getUserPrompt(question, context),
       systemPrompt,
       model: this.modelName,

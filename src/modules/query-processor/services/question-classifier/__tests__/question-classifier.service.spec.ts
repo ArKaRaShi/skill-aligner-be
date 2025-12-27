@@ -1,9 +1,9 @@
 import { Test } from '@nestjs/testing';
 
 import {
-  I_LLM_PROVIDER_CLIENT_TOKEN,
-  ILlmProviderClient,
-} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from 'src/core/llm/contracts/i-llm-router-service.contract';
 
 import { LlmInfo } from 'src/common/types/llm-info.type';
 
@@ -16,7 +16,7 @@ import { QuestionClassifierService } from '../question-classifier.service';
 
 describe('QuestionClassifierService', () => {
   let service: QuestionClassifierService;
-  let llmProviderClient: jest.Mocked<ILlmProviderClient>;
+  let llmRouter: jest.Mocked<ILlmRouterService>;
   let cache: jest.Mocked<QuestionClassifierCache>;
   const testModelName = 'test-model';
   const defaultPromptVersion: QuestionClassificationPromptVersion = 'v6';
@@ -34,7 +34,7 @@ describe('QuestionClassifierService', () => {
   ) => `prefilter with prompt version ${version}`;
 
   beforeEach(async () => {
-    const mockLlmProviderClient = {
+    const mockLlmRouter = {
       generateObject: jest.fn(),
       generateText: jest.fn(),
     };
@@ -52,13 +52,13 @@ describe('QuestionClassifierService', () => {
       providers: [
         {
           provide: QuestionClassifierService,
-          inject: [I_LLM_PROVIDER_CLIENT_TOKEN, QuestionClassifierCache],
+          inject: [I_LLM_ROUTER_SERVICE_TOKEN, QuestionClassifierCache],
           useFactory: (
-            llmProvider: ILlmProviderClient,
+            llmRouterService: ILlmRouterService,
             cache: QuestionClassifierCache,
           ) => {
             return new QuestionClassifierService(
-              llmProvider,
+              llmRouterService,
               testModelName,
               cache,
               true, // useCache = true by default for tests
@@ -66,15 +66,15 @@ describe('QuestionClassifierService', () => {
           },
         },
         {
-          provide: I_LLM_PROVIDER_CLIENT_TOKEN,
-          useValue: mockLlmProviderClient,
+          provide: I_LLM_ROUTER_SERVICE_TOKEN,
+          useValue: mockLlmRouter,
         },
         { provide: QuestionClassifierCache, useValue: mockCache },
       ],
     }).compile();
 
     service = module.get(QuestionClassifierService);
-    llmProviderClient = module.get(I_LLM_PROVIDER_CLIENT_TOKEN);
+    llmRouter = module.get(I_LLM_ROUTER_SERVICE_TOKEN);
     cache = module.get(QuestionClassifierCache);
 
     jest.clearAllMocks();
@@ -107,13 +107,13 @@ describe('QuestionClassifierService', () => {
 
       expect(cache.lookup).toHaveBeenCalledWith(testQuestion);
       expect(result).toEqual(cachedClassification);
-      expect(llmProviderClient.generateObject).not.toHaveBeenCalled();
+      expect(llmRouter.generateObject).not.toHaveBeenCalled();
       expect(cache.store).not.toHaveBeenCalled();
     });
 
     it('should perform AI classification when cache miss occurs', async () => {
       cache.lookup.mockReturnValue(null);
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 10,
         outputTokens: 5,
@@ -126,7 +126,7 @@ describe('QuestionClassifierService', () => {
       const result = await service.classify(buildInput(testQuestion));
 
       expect(cache.lookup).toHaveBeenCalledWith(testQuestion);
-      expect(llmProviderClient.generateObject).toHaveBeenCalledWith({
+      expect(llmRouter.generateObject).toHaveBeenCalledWith({
         prompt: expect.any(String),
         systemPrompt: expect.any(String),
         schema: expect.any(Object),
@@ -143,13 +143,13 @@ describe('QuestionClassifierService', () => {
 
     it('should skip cache when useCache is false', async () => {
       const serviceWithoutCache = new QuestionClassifierService(
-        llmProviderClient,
+        llmRouter,
         testModelName,
         cache,
         false, // useCache = false
       );
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 10,
         outputTokens: 5,
@@ -165,7 +165,7 @@ describe('QuestionClassifierService', () => {
 
       expect(cache.lookup).not.toHaveBeenCalled();
       expect(cache.store).not.toHaveBeenCalled();
-      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+      expect(llmRouter.generateObject).toHaveBeenCalled();
       expect(result.category).toBe('relevant');
     });
   });
@@ -179,7 +179,7 @@ describe('QuestionClassifierService', () => {
       const relevantQuestion =
         'What are the best Python courses for data science?';
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 15,
         outputTokens: 8,
@@ -203,7 +203,7 @@ describe('QuestionClassifierService', () => {
     it('should classify irrelevant content correctly', async () => {
       const irrelevantQuestion = 'What is the weather like today?';
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 12,
         outputTokens: 6,
@@ -225,7 +225,7 @@ describe('QuestionClassifierService', () => {
     it('should classify unclear content correctly', async () => {
       const unclearQuestion = 'help';
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 8,
         outputTokens: 4,
@@ -248,7 +248,7 @@ describe('QuestionClassifierService', () => {
       const question = 'Test question';
       const promptVersion = 'v2';
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 10,
         outputTokens: 5,
@@ -263,7 +263,7 @@ describe('QuestionClassifierService', () => {
       );
 
       expect(result.llmInfo.promptVersion).toBe(promptVersion);
-      expect(llmProviderClient.generateObject).toHaveBeenCalledWith(
+      expect(llmRouter.generateObject).toHaveBeenCalledWith(
         expect.objectContaining({
           model: testModelName,
         }),
@@ -275,9 +275,7 @@ describe('QuestionClassifierService', () => {
       const promptVersion: QuestionClassificationPromptVersion = 'v2';
       const errorMessage = 'LLM provider error';
 
-      llmProviderClient.generateObject.mockRejectedValue(
-        new Error(errorMessage),
-      );
+      llmRouter.generateObject.mockRejectedValue(new Error(errorMessage));
 
       await expect(
         service.classify(buildInput(question, promptVersion)),
@@ -294,7 +292,7 @@ describe('QuestionClassifierService', () => {
     it('should handle empty string questions', async () => {
       const emptyQuestion = '';
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 5,
         outputTokens: 3,
@@ -307,13 +305,13 @@ describe('QuestionClassifierService', () => {
       const result = await service.classify(buildInput(emptyQuestion));
 
       expect(result.category).toBe('irrelevant');
-      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+      expect(llmRouter.generateObject).toHaveBeenCalled();
     });
 
     it('should handle whitespace-only questions', async () => {
       const whitespaceQuestion = '   \t\n   ';
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 5,
         outputTokens: 3,
@@ -326,13 +324,13 @@ describe('QuestionClassifierService', () => {
       const result = await service.classify(buildInput(whitespaceQuestion));
 
       expect(result.category).toBe('irrelevant');
-      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+      expect(llmRouter.generateObject).toHaveBeenCalled();
     });
 
     it('should handle very long questions', async () => {
       const longQuestion = 'a'.repeat(10000);
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 100,
         outputTokens: 10,
@@ -345,13 +343,13 @@ describe('QuestionClassifierService', () => {
       const result = await service.classify(buildInput(longQuestion));
 
       expect(result.category).toBe('irrelevant');
-      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+      expect(llmRouter.generateObject).toHaveBeenCalled();
     });
 
     it('should handle questions with special characters', async () => {
       const specialCharQuestion = 'What is @#$%^&*() programming?';
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 15,
         outputTokens: 8,
@@ -364,13 +362,13 @@ describe('QuestionClassifierService', () => {
       const result = await service.classify(buildInput(specialCharQuestion));
 
       expect(result.category).toBe('relevant');
-      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+      expect(llmRouter.generateObject).toHaveBeenCalled();
     });
 
     it('should handle questions with unicode characters', async () => {
       const unicodeQuestion = 'วิธีเรียนโปรแกรมมิ่ง 🚀';
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 15,
         outputTokens: 8,
@@ -383,7 +381,7 @@ describe('QuestionClassifierService', () => {
       const result = await service.classify(buildInput(unicodeQuestion));
 
       expect(result.category).toBe('relevant');
-      expect(llmProviderClient.generateObject).toHaveBeenCalled();
+      expect(llmRouter.generateObject).toHaveBeenCalled();
     });
   });
 
@@ -393,7 +391,7 @@ describe('QuestionClassifierService', () => {
       const promptVersion: QuestionClassificationPromptVersion = 'v2';
 
       cache.lookup.mockReturnValue(null);
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 10,
         outputTokens: 5,
@@ -420,7 +418,7 @@ describe('QuestionClassifierService', () => {
 
     it('should not store in cache when useCache is false', async () => {
       const serviceWithoutCache = new QuestionClassifierService(
-        llmProviderClient,
+        llmRouter,
         testModelName,
         cache,
         false, // useCache = false
@@ -429,7 +427,7 @@ describe('QuestionClassifierService', () => {
       const question = 'Test question';
       const promptVersion: QuestionClassificationPromptVersion = 'v2';
 
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 10,
         outputTokens: 5,
@@ -452,7 +450,7 @@ describe('QuestionClassifierService', () => {
       cache.store.mockImplementation(() => {
         throw new Error('Cache store error');
       });
-      llmProviderClient.generateObject.mockResolvedValue({
+      llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
         inputTokens: 10,
         outputTokens: 5,

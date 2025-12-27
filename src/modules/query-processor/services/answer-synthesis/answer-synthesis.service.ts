@@ -2,9 +2,9 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
 import {
-  I_LLM_PROVIDER_CLIENT_TOKEN,
-  ILlmProviderClient,
-} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from 'src/core/llm/contracts/i-llm-router-service.contract';
 
 import { LlmInfo } from 'src/common/types/llm-info.type';
 import { TokenUsage } from 'src/common/types/token-usage.type';
@@ -24,8 +24,8 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
   private readonly logger = new Logger(AnswerSynthesisService.name);
 
   constructor(
-    @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
-    private readonly llmProviderClient: ILlmProviderClient,
+    @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
+    private readonly llmRouter: ILlmRouterService,
     private readonly modelName: string,
   ) {}
 
@@ -48,7 +48,7 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const synthesisPrompt = getUserPrompt(question, context);
 
-    const llmResult = await this.llmProviderClient.generateText({
+    const llmResult = await this.llmRouter.generateText({
       prompt: synthesisPrompt,
       systemPrompt,
       model: this.modelName,

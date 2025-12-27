@@ -1,11 +1,14 @@
 import { z } from 'zod';
 
 export const I_LLM_PROVIDER_CLIENT_TOKEN = Symbol('ILlmProviderClient');
+export const OPENAI_PROVIDER_TOKEN = Symbol('OpenAIProvider');
+export const OPENROUTER_PROVIDER_TOKEN = Symbol('OpenRouterProvider');
 
 export type GenerateTextInput = {
   prompt: string;
   systemPrompt: string;
   model: string;
+  provider?: string; // Optional provider specification
 };
 
 export type GenerateObjectInput<TSchema extends z.ZodTypeAny> = {
@@ -13,6 +16,7 @@ export type GenerateObjectInput<TSchema extends z.ZodTypeAny> = {
   systemPrompt: string;
   schema: TSchema;
   model: string;
+  provider?: string; // Optional provider specification
 };
 
 export type GenerateTextOutput = {
@@ -52,4 +56,10 @@ export interface ILlmProviderClient {
     schema,
     model,
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>>;
+
+  /**
+   * Gets the provider name.
+   * @returns The provider name (e.g., "OpenAI", "OpenRouter")
+   */
+  getProviderName(): string;
 }

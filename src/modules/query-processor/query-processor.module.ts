@@ -4,10 +4,10 @@ import { AppConfigService } from 'src/config/app-config.service';
 
 import { EmbeddingModule } from '../../core/embedding/embedding.module';
 import {
-  I_LLM_PROVIDER_CLIENT_TOKEN,
-  ILlmProviderClient,
-} from '../../core/gpt-llm/contracts/i-llm-provider-client.contract';
-import { GptLlmModule } from '../../core/gpt-llm/gpt-llm.module';
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from '../../core/llm/contracts/i-llm-router-service.contract';
+import { GptLlmModule } from '../../core/llm/llm.module';
 import { CampusModule } from '../campus/campus.module';
 import { CourseModule } from '../course/course.module';
 import { FacultyModule } from '../faculty/faculty.module';
@@ -53,19 +53,19 @@ import { QueryProcessorUseCases } from './use-cases';
       provide: I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
       inject: [
         AppConfigService,
-        I_LLM_PROVIDER_CLIENT_TOKEN,
+        I_LLM_ROUTER_SERVICE_TOKEN,
         QuestionClassifierCache,
       ],
       useFactory: (
         config: AppConfigService,
-        llmProvider: ILlmProviderClient,
+        llmRouter: ILlmRouterService,
         cache: QuestionClassifierCache,
       ) => {
         if (config.useMockQuestionClassifierService) {
           return new MockQuestionClassifierService();
         }
         return new QuestionClassifierService(
-          llmProvider,
+          llmRouter,
           config.questionClassifierLlmModel,
           cache,
           config.useQuestionClassifierCache,
@@ -76,19 +76,19 @@ import { QueryProcessorUseCases } from './use-cases';
       provide: I_SKILL_EXPANDER_SERVICE_TOKEN,
       inject: [
         AppConfigService,
-        I_LLM_PROVIDER_CLIENT_TOKEN,
+        I_LLM_ROUTER_SERVICE_TOKEN,
         QuestionSkillCache,
       ],
       useFactory: (
         config: AppConfigService,
-        llmProvider: ILlmProviderClient,
+        llmRouter: ILlmRouterService,
         cache: QuestionSkillCache,
       ) => {
         if (config.useMockSkillExpanderService) {
           return new MockSkillExpanderService();
         }
         return new SkillExpanderService(
-          llmProvider,
+          llmRouter,
           config.skillExpanderLlmModel,
           cache,
           config.useSkillExpanderCache,
@@ -97,78 +97,63 @@ import { QueryProcessorUseCases } from './use-cases';
     },
     {
       provide: I_ANSWER_GENERATOR_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
-      useFactory: (
-        config: AppConfigService,
-        llmProvider: ILlmProviderClient,
-      ) => {
+      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
         if (config.useMockAnswerGeneratorService) {
           console.log('Creating MockAnswerGeneratorService');
-          return new MockAnswerGeneratorService(llmProvider);
+          return new MockAnswerGeneratorService(llmRouter);
         }
         return new ObjectBasedAnswerGeneratorService(
-          llmProvider,
+          llmRouter,
           config.answerGeneratorLlmModel,
         );
       },
     },
     {
       provide: I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
-      useFactory: (
-        config: AppConfigService,
-        llmProvider: ILlmProviderClient,
-      ) => {
+      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
         if (config.useMockQueryProfileBuilderService) {
           return new MockQueryProfileBuilderService();
         }
         return new QueryProfileBuilderService(
-          llmProvider,
+          llmRouter,
           config.queryProfileBuilderLlmModel,
         );
       },
     },
     {
       provide: I_COURSE_CLASSIFICATION_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
-      useFactory: (
-        config: AppConfigService,
-        llmProvider: ILlmProviderClient,
-      ) => {
+      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
         // The CourseClassificationService is not mocked for now
-        // but this can be extended in the future if needed
+        // but this can be extended in future if needed
         return new CourseClassificationService(
-          llmProvider,
+          llmRouter,
           config.courseClassificationLlmModel,
         );
       },
     },
     {
       provide: I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
-      useFactory: (
-        config: AppConfigService,
-        llmProvider: ILlmProviderClient,
-      ) => {
+      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
         // The CourseRelevanceFilterService is not mocked for now
-        // but this can be extended in the future if needed
+        // but this can be extended in future if needed
         return new CourseRelevanceFilterService(
-          llmProvider,
+          llmRouter,
           config.courseRelevanceFilterLlmModel,
         );
       },
     },
     {
       provide: I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_PROVIDER_CLIENT_TOKEN],
-      useFactory: (
-        config: AppConfigService,
-        llmProvider: ILlmProviderClient,
-      ) => {
+      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
         // The AnswerSynthesisService is not mocked for now
-        // but this can be extended in the future if needed
+        // but this can be extended in future if needed
         return new AnswerSynthesisService(
-          llmProvider,
+          llmRouter,
           config.answerSynthesisLlmModel,
         );
       },

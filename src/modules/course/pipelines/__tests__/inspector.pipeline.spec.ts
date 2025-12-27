@@ -19,7 +19,7 @@ const buildCourse = (
 });
 
 const getLoggedMessages = (spy: jest.SpyInstance): string[] =>
-  spy.mock.calls.flat().filter((arg) => typeof arg === 'string') as string[];
+  spy.mock.calls.flat().filter((arg) => typeof arg === 'string');
 
 describe('InspectorPipeline', () => {
   let logSpy: jest.SpyInstance;
@@ -129,7 +129,11 @@ describe('InspectorPipeline', () => {
   describe('logCourseLocationConsistency', () => {
     it('logs success when each subject code maps to a single campus and faculty', () => {
       const data = [
-        buildCourse({ subject_code: 'SUB1', campus_code: 'C1', faculty_code: 'F1' }),
+        buildCourse({
+          subject_code: 'SUB1',
+          campus_code: 'C1',
+          faculty_code: 'F1',
+        }),
         buildCourse({
           subject_code: 'SUB2',
           campus_code: 'C2',

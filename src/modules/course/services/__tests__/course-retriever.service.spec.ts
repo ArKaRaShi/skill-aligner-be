@@ -1,5 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
+import {
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from 'src/core/llm/contracts/i-llm-router-service.contract';
+
+import { AppConfigService } from 'src/config/app-config.service';
+
 import { Identifier } from 'src/common/domain/types/identifier';
 
 import {
@@ -20,6 +27,10 @@ import {
   CourseWithLearningOutcomeV2Match,
 } from '../../types/course.type';
 import { CourseRetrieverService } from '../course-retriever.service';
+
+jest.mock('@toon-format/toon', () => ({
+  encode: jest.fn((data) => JSON.stringify(data)),
+}));
 
 const baseDate = new Date('2024-01-01T00:00:00.000Z');
 
@@ -77,11 +88,23 @@ describe('CourseRetrieverService', () => {
       findCoursesBySkillsViaLO: jest.fn(),
       findCourseByLearningOutcomeIds: jest.fn(),
       findByIdOrThrow: jest.fn(),
-    } as unknown as jest.Mocked<ICourseRepository>;
+    } as jest.Mocked<ICourseRepository>;
 
     loRepository = {
       findLosBySkills: jest.fn(),
-    } as unknown as jest.Mocked<ICourseLearningOutcomeRepository>;
+    } as jest.Mocked<ICourseLearningOutcomeRepository>;
+
+    const mockLlmRouter: Partial<jest.Mocked<ILlmRouterService>> = {
+      generateText: jest.fn(),
+      generateObject: jest.fn().mockResolvedValue({
+        object: { learning_outcomes: [] },
+        usage: { promptTokens: 0, completionTokens: 0 },
+      }),
+    } as Partial<jest.Mocked<ILlmRouterService>>;
+
+    const mockAppConfigService = {
+      filterLoLlmModel: jest.fn().mockReturnValue('gpt-4'),
+    };
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -91,6 +114,8 @@ describe('CourseRetrieverService', () => {
           provide: I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
           useValue: loRepository,
         },
+        { provide: I_LLM_ROUTER_SERVICE_TOKEN, useValue: mockLlmRouter },
+        { provide: AppConfigService, useValue: mockAppConfigService },
       ],
     }).compile();
 
@@ -100,8 +125,8 @@ describe('CourseRetrieverService', () => {
   const baseParams: FindCoursesWithLosBySkillsWithFilterParams = {
     skills: ['skill1', 'skill2'],
     embeddingConfiguration,
-    threshold: 0.5,
-    topN: 10,
+    loThreshold: 0.5,
+    topNLos: 10,
     enableLlmFilter: false,
   };
 

@@ -1,4 +1,4 @@
-import { ILlmProviderClient } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+import { ILlmRouterService } from 'src/core/llm/contracts/i-llm-router-service.contract';
 
 import { CourseMatch } from 'src/modules/course/types/course.type';
 
@@ -8,7 +8,7 @@ import { AnswerGeneration } from '../../types/answer-generation.type';
 export abstract class BaseAnswerGeneratorService
   implements IAnswerGeneratorService
 {
-  constructor(protected readonly llmProviderClient: ILlmProviderClient) {}
+  constructor(protected readonly llmRouter: ILlmRouterService) {}
 
   abstract generateAnswer(
     question: string,

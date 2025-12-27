@@ -107,6 +107,14 @@ export const appConfigValidationSchema = Joi.object({
       'string.base': `"ANSWER_GENERATOR_LLM_MODEL" should be a type of 'text'`,
     }),
 
+  DEFAULT_LLM_PROVIDER: Joi.string()
+    .valid('openrouter', 'openai')
+    .default(AppConfigDefault.DEFAULT_LLM_PROVIDER)
+    .messages({
+      'string.base': `"DEFAULT_LLM_PROVIDER" should be a type of 'text'`,
+      'any.only': `"DEFAULT_LLM_PROVIDER" must be one of [openrouter, openai]`,
+    }),
+
   TOOL_DISPATCHER_LLM_MODEL: Joi.string()
     .default(AppConfigDefault.TOOL_DISPATCHER_LLM_MODEL)
     .messages({

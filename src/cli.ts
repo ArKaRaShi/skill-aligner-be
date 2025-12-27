@@ -105,4 +105,4 @@ bootstrap();
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-course-lo --delete --no-seed
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-campus-faculty
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-campus-faculty --delete --no-seed
-// bunx ts-node --require tsconfig-paths-register src/cli.ts update-gened-codes
+// bunx ts-node --require tsconfig-paths/register src/cli.ts update-gened-codes

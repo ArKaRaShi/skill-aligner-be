@@ -2,9 +2,9 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
 import {
-  I_LLM_PROVIDER_CLIENT_TOKEN,
-  ILlmProviderClient,
-} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from 'src/core/llm/contracts/i-llm-router-service.contract';
 
 import { LearningOutcome } from 'src/modules/course/types/course-learning-outcome-v2.type';
 import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
@@ -22,8 +22,8 @@ export class CourseClassificationService
   private readonly logger = new Logger(CourseClassificationService.name);
 
   constructor(
-    @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
-    private readonly llmProviderClient: ILlmProviderClient,
+    @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
+    private readonly llmRouter: ILlmRouterService,
     private readonly modelName: string,
   ) {}
 
@@ -44,7 +44,7 @@ export class CourseClassificationService
     const { getPrompts } = CourseClassificationPromptFactory();
     const { getUserPrompt, systemPrompt } = getPrompts('v4');
 
-    const llmResult = await this.llmProviderClient.generateObject({
+    const llmResult = await this.llmRouter.generateObject({
       prompt: getUserPrompt(question, context),
       systemPrompt,
       schema: CourseClassificationResultSchema,

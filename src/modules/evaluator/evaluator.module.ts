@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { GptLlmModule } from '../../core/gpt-llm/gpt-llm.module';
+import { GptLlmModule } from '../../core/llm/llm.module';
 import { QueryProcessorModule } from '../query-processor/query-processor.module';
 import { EvaluatorController } from './evaluator.controller';
 import { QuestionClassificationEvaluatorService } from './services/question-classification-evaluator.service';
