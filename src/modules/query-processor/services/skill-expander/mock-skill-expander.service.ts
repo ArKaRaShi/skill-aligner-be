@@ -2,16 +2,16 @@ import { Injectable } from '@nestjs/common';
 
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
 import {
-  SkillExpansion,
+  TSkillExpansion,
   TSkillExpansionV2,
 } from '../../types/skill-expansion.type';
 
 @Injectable()
 export class MockSkillExpanderService implements ISkillExpanderService {
-  async expandSkills(question: string): Promise<SkillExpansion> {
+  async expandSkills(question: string): Promise<TSkillExpansion> {
     await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate async delay
     return {
-      skills: [
+      skillItems: [
         {
           skill: 'Mock Skill 1',
           reason: 'Expanded from question context',
@@ -25,7 +25,6 @@ export class MockSkillExpanderService implements ISkillExpanderService {
           reason: 'Related to user query',
         },
       ],
-      rawQuestion: question,
     };
   }
 

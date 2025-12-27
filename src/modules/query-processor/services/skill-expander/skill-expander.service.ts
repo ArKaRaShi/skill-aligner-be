@@ -12,15 +12,11 @@ import {
   SkillExpansionPromptVersion,
 } from '../../prompts/skill-expansion';
 import {
-  EXPAND_SKILL_SYSTEM_PROMPT,
-  getExpandSkillUserPrompt,
-} from '../../prompts/skill-expansion/expand-skill.prompt';
-import {
   SkillExpansionSchema,
   SkillExpansionV2Schema,
 } from '../../schemas/skill-expansion.schema';
 import {
-  SkillExpansion,
+  TSkillExpansion,
   TSkillExpansionV2,
 } from '../../types/skill-expansion.type';
 
@@ -36,7 +32,10 @@ export class SkillExpanderService implements ISkillExpanderService {
     private readonly useCache: boolean,
   ) {}
 
-  async expandSkills(question: string): Promise<SkillExpansion> {
+  async expandSkills(
+    question: string,
+    promptVersion: SkillExpansionPromptVersion,
+  ): Promise<TSkillExpansion> {
     if (this.useCache) {
       const cached = this.cache.lookup(question);
       if (cached) {
@@ -45,41 +44,22 @@ export class SkillExpanderService implements ISkillExpanderService {
       }
     }
 
+    // Generate prompts based on the version
+    const { getPrompts } = SkillExpansionPromptFactory();
+    const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
+    const userPrompt = getUserPrompt(question);
+
     const {
       object: { skills },
     } = await this.llmProviderClient.generateObject({
-      prompt: getExpandSkillUserPrompt(question),
-      systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT,
+      prompt: userPrompt,
+      systemPrompt,
       schema: SkillExpansionSchema,
       model: this.modelName,
     });
 
-    const normalizedSkills = new Map<
-      string,
-      { skill: string; reason: string }
-    >();
-
-    for (const { skill, reason } of skills) {
-      const normalizedSkill = this.normalizeSkillName(skill);
-      if (!normalizedSkill) {
-        continue;
-      }
-
-      const normalizedReason =
-        reason?.trim() || 'Identified from user question';
-      const key = normalizedSkill.toLowerCase();
-
-      if (!normalizedSkills.has(key)) {
-        normalizedSkills.set(key, {
-          skill: normalizedSkill,
-          reason: normalizedReason,
-        });
-      }
-    }
-
-    const result: SkillExpansion = {
-      skills: Array.from(normalizedSkills.values()),
-      rawQuestion: question,
+    const result: TSkillExpansion = {
+      skillItems: skills,
     };
     if (this.useCache) {
       this.cache.store(question, result);

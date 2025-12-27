@@ -21,7 +21,9 @@ A generated skill MUST satisfy ALL of the following:
 1. Plausible: Clearly related to the user's question.
 2. Teachable: Reasonably teachable in an academic or university course context.
 
-Skills can be broad, applied, or specific depending on the question.
+Additional Guidelines:
+- Skills can be broad, applied, or specific depending on the question.
+- If the user indicates prior knowledge or experience, avoid basic or foundational skills, and prioritize intermediate, advanced, or applied skills that represent progression.
 
 Output Format:
 {

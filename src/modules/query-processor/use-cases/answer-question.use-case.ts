@@ -133,7 +133,7 @@ export class AnswerQuestionUseCase
     // Direct implementation copied from SkillQueryStrategy
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
-    const skillExpansion = await this.skillExpanderService.expandSkillsV2(
+    const skillExpansion = await this.skillExpanderService.expandSkills(
       question,
       SkillExpansionPromptVersions.V9,
     );
