@@ -22,10 +22,14 @@ Academic Skill Definition:
 - Academic skills should be broad enough to cover multiple applications and technologies.
 - Think about university course titles and academic disciplines, not technical manuals or job postings.
 
+Skill Format Requirements:
+- MUST start with an action verb in Thai.
+- Followed by the object of the action.
+- DO NOT use noun phrases that represent knowledge domains alone.
+
 Conceptual vs Procedural Examples:
-- Conceptual: "อัลกอริทึมและโครงสร้างข้อมูล" vs Procedural: "การแก้โจทย์ Leetcode"
-- Conceptual: "การเขียนโปรแกรมเชิงวัตถุ" vs Procedural: "การเขียนโปรแกรมเชิงวัตถุด้วยภาษา Python/Java/C++"
-- Conceptual: "การวิเคราะห์และออกแบบอัลกอริทึม" vs Procedural: "การแก้ปัญหาเชิงการแข่งขัน"
+- Conceptual: "การวิเคราะห์โครงสร้างข้อมูล" vs Procedural: "การแก้โจทย์ Leetcode"
+- Conceptual: "การออกแบบโปรแกรมเชิงวัตถุ" vs Procedural: "การเขียนโปรแกรมเชิงวัตถุด้วยภาษา Python/Java/C++"
 - Conceptual: "การพัฒนาซอฟต์แวร์" vs Procedural: "การใช้เฟรมเวิร์กเฉพาะ"
 
 A generated skill MUST satisfy ALL of the following:
@@ -49,3 +53,5 @@ Output Format:
   ]
 }
 `;
+
+// - Conceptual: "การวิเคราะห์และออกแบบอัลกอริทึม" vs Procedural: "การแก้ปัญหาเชิงการแข่งขัน"

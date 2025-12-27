@@ -105,7 +105,7 @@ export class AnswerQuestionUseCase
     const [classificationResult, queryProfileResult] = await Promise.all([
       this.questionClassifierService.classify({
         question,
-        promptVersion: QuestionClassificationPromptVersions.V11,
+        promptVersion: QuestionClassificationPromptVersions.V12,
       }),
       this.queryProfileBuilderService.buildQueryProfile(question),
     ]);
