@@ -1,17 +1,9 @@
-import { ModelProviderMapping } from '../models';
-
 /**
  * Interface for model registry service.
  * Manages mappings between models and their provider-specific model identifiers.
+ * Registrations are fixed at application startup and cannot be modified at runtime.
  */
 export interface IModelRegistry {
-  /**
-   * Registers a model with its provider-specific model identifiers.
-   * @param model - The model name (e.g., "gpt-4o-mini")
-   * @param providerMappings - Array of model identifiers and their providers
-   */
-  registerModel(model: string, providerMappings: ModelProviderMapping[]): void;
-
   /**
    * Gets all providers that support a given model.
    * @param model - The model name
@@ -41,18 +33,6 @@ export interface IModelRegistry {
   isModelRegistered(model: string): boolean;
 
   /**
-   * Removes a model from the registry.
-   * @param model - The model name
-   * @returns true if model was removed, false if it didn't exist
-   */
-  unregisterModel(model: string): boolean;
-
-  /**
-   * Clears all model registrations.
-   */
-  clearRegistrations(): void;
-
-  /**
    * Gets the total number of registered models.
    * @returns Number of registered models
    */
@@ -78,6 +58,26 @@ export interface IModelRegistry {
    * @returns Array of model identifiers for the model
    */
   getModelIdsForModel(model: string): string[];
+
+  /**
+   * Gets the provider-specific model identifier for a given model and provider.
+   * @param model - The base model name
+   * @param provider - The provider name
+   * @returns The provider-specific model ID, or undefined if not found
+   */
+  getModelIdForProvider(model: string, provider: string): string | undefined;
+
+  /**
+   * Resolves a model identifier (base model or provider-specific model ID) to a provider-specific model ID.
+   * Accepts both base model names (e.g., 'gpt-4.1-mini') and provider-specific model IDs (e.g., 'openai/gpt-4.1-mini').
+   * Always returns the provider-specific model ID.
+   *
+   * @param model - The model identifier (base model name or provider-specific model ID)
+   * @param provider - Optional provider name. If not specified and model is a provider-specific model ID, uses the model ID's provider.
+   * @returns The provider-specific model ID, or undefined if not found
+   * @throws Error if model is a provider-specific model ID but provider is specified and doesn't match
+   */
+  resolveModelId(model: string, provider?: string): string | undefined;
 }
 
 export const I_MODEL_REGISTRY_TOKEN = Symbol('IModelRegistry');

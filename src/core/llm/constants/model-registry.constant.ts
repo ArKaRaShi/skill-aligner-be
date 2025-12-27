@@ -1,4 +1,4 @@
-import { LLMModelRegistration } from './types';
+import { LLMModelRegistration } from '../types/model.type';
 
 /**
  * Unified LLM model registry constant.

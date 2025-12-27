@@ -1,4 +1,4 @@
-import { LLM_MODEL_REGISTRATIONS } from 'src/core/llm/models';
+import { LLM_MODEL_REGISTRATIONS } from 'src/core/llm/constants/model-registry.constant';
 
 import { TokenUsage } from 'src/common/types/token-usage.type';
 

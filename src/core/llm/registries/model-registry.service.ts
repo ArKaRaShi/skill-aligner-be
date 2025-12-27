@@ -1,18 +1,32 @@
 import { Injectable } from '@nestjs/common';
 
+import { LLM_MODEL_REGISTRATIONS } from '../constants/model-registry.constant';
 import { IModelRegistry } from '../contracts/i-model-registry.contract';
-import { LLM_MODEL_REGISTRATIONS, ModelProviderMapping } from '../models';
+import { ModelProviderMapping } from '../types/model.type';
 
 /**
  * Model registry service.
  * Manages mappings between model identifiers and their providers.
  * Supports multiple model identifiers for the same model with different providers.
- * Pre-populated with known model-provider mappings, but supports dynamic registration.
+ * Pre-populated with known model-provider mappings and does not allow runtime modifications.
  */
 @Injectable()
 export class ModelRegistryService implements IModelRegistry {
-  private readonly modelIdToProvider: Map<string, string> = new Map();
-  private readonly modelToModelIds: Map<string, string[]> = new Map();
+  // Bidirectional lookup: modelId -> provider
+  // Used to find which provider owns a specific modelId
+  // Example: 'openai/gpt-4' -> 'openai', 'anthropic/claude-3.5-sonnet' -> 'anthropic'
+  private readonly modelIdToProvider: Map<
+    ModelProviderMapping['modelId'],
+    ModelProviderMapping['provider']
+  > = new Map();
+
+  // Bidirectional lookup: baseModel -> {provider -> modelId}
+  // Used to find all providers for a baseModel and their specific modelIds
+  // Example: 'gpt-4' -> {'openai': 'openai/gpt-4', 'azure': 'azure/gpt-4'}
+  private readonly modelRegistrations: Map<
+    string,
+    Map<ModelProviderMapping['provider'], ModelProviderMapping['modelId']>
+  > = new Map();
 
   constructor() {
     this.initializeDefaultMappings();
@@ -22,55 +36,35 @@ export class ModelRegistryService implements IModelRegistry {
    * Initializes registry with default model-provider mappings from unified constant.
    */
   private initializeDefaultMappings(): void {
-    // Group registrations by base model
-    const modelToMappings = new Map<string, ModelProviderMapping[]>();
     for (const registration of LLM_MODEL_REGISTRATIONS) {
-      if (!modelToMappings.has(registration.baseModel)) {
-        modelToMappings.set(registration.baseModel, []);
-      }
-      modelToMappings.get(registration.baseModel)!.push({
+      this.addProviderMapping(registration.baseModel, {
         modelId: registration.modelId,
         provider: registration.provider,
       });
     }
-
-    // Register each model with its mappings
-    for (const [model, providerMappings] of modelToMappings.entries()) {
-      this.registerModel(model, providerMappings);
-    }
   }
 
   /**
-   * Registers a model with its provider-specific model identifiers.
-   * Overwrites existing registration if model already exists.
+   * Adds a provider mapping for a base model.
+   * Used during initialization to build the registry maps.
    */
-  registerModel(model: string, providerMappings: ModelProviderMapping[]): void {
-    if (!model) {
+  private addProviderMapping(
+    baseModel: string,
+    mapping: ModelProviderMapping,
+  ): void {
+    if (!baseModel) {
       throw new Error('Model identifier is required');
     }
 
-    if (!providerMappings || providerMappings.length === 0) {
-      throw new Error(
-        `At least one model identifier must be specified for model '${model}'`,
-      );
-    }
-
-    // Remove existing model identifiers for this model
-    const existingModelIds = this.modelToModelIds.get(model);
-    if (existingModelIds) {
-      for (const modelId of existingModelIds) {
-        this.modelIdToProvider.delete(modelId);
-      }
-    }
-
-    // Register new model identifiers
-    const modelIds: string[] = [];
-    for (const mapping of providerMappings) {
-      this.modelIdToProvider.set(mapping.modelId, mapping.provider);
-      modelIds.push(mapping.modelId);
-    }
-
-    this.modelToModelIds.set(model, modelIds);
+    const providerMap =
+      this.modelRegistrations.get(baseModel) ??
+      new Map<
+        ModelProviderMapping['provider'],
+        ModelProviderMapping['modelId']
+      >();
+    providerMap.set(mapping.provider, mapping.modelId);
+    this.modelRegistrations.set(baseModel, providerMap);
+    this.modelIdToProvider.set(mapping.modelId, mapping.provider);
   }
 
   /**
@@ -82,20 +76,12 @@ export class ModelRegistryService implements IModelRegistry {
       throw new Error('Model identifier is required');
     }
 
-    const modelIds = this.modelToModelIds.get(model);
-    if (!modelIds) {
+    const providerMap = this.modelRegistrations.get(model);
+    if (!providerMap) {
       return [];
     }
 
-    const providers = new Set<string>();
-    for (const modelId of modelIds) {
-      const provider = this.modelIdToProvider.get(modelId);
-      if (provider) {
-        providers.add(provider);
-      }
-    }
-
-    return Array.from(providers);
+    return Array.from(providerMap.keys());
   }
 
   /**
@@ -106,9 +92,8 @@ export class ModelRegistryService implements IModelRegistry {
       return false;
     }
 
-    const modelIds = this.modelToModelIds.get(model);
-
-    if (!modelIds || modelIds.length === 0) {
+    const providerMap = this.modelRegistrations.get(model);
+    if (!providerMap || providerMap.size === 0) {
       return false;
     }
 
@@ -117,22 +102,14 @@ export class ModelRegistryService implements IModelRegistry {
       return true;
     }
 
-    // Check if any model identifier is available on the specified provider
-    for (const modelId of modelIds) {
-      const modelIdProvider = this.modelIdToProvider.get(modelId);
-      if (modelIdProvider === provider) {
-        return true;
-      }
-    }
-
-    return false;
+    return providerMap.has(provider);
   }
 
   /**
    * Gets all registered models.
    */
   getAllModels(): string[] {
-    return Array.from(this.modelToModelIds.keys());
+    return Array.from(this.modelRegistrations.keys());
   }
 
   /**
@@ -143,39 +120,14 @@ export class ModelRegistryService implements IModelRegistry {
       return false;
     }
 
-    return this.modelToModelIds.has(model);
-  }
-
-  /**
-   * Removes a model from the registry.
-   */
-  unregisterModel(model: string): boolean {
-    const modelIds = this.modelToModelIds.get(model);
-    if (!modelIds) {
-      return false;
-    }
-
-    for (const modelId of modelIds) {
-      this.modelIdToProvider.delete(modelId);
-    }
-
-    this.modelToModelIds.delete(model);
-    return true;
-  }
-
-  /**
-   * Clears all model registrations.
-   */
-  clearRegistrations(): void {
-    this.modelToModelIds.clear();
-    this.modelIdToProvider.clear();
+    return this.modelRegistrations.has(model);
   }
 
   /**
    * Gets the total number of registered models.
    */
   getModelCount(): number {
-    return this.modelToModelIds.size;
+    return this.modelRegistrations.size;
   }
 
   /**
@@ -188,13 +140,9 @@ export class ModelRegistryService implements IModelRegistry {
 
     const models: string[] = [];
 
-    for (const [model, modelIds] of this.modelToModelIds.entries()) {
-      for (const modelId of modelIds) {
-        const modelIdProvider = this.modelIdToProvider.get(modelId);
-        if (modelIdProvider === provider) {
-          models.push(model);
-          break;
-        }
+    for (const [model, providerMap] of this.modelRegistrations.entries()) {
+      if (providerMap.has(provider)) {
+        models.push(model);
       }
     }
 
@@ -212,7 +160,58 @@ export class ModelRegistryService implements IModelRegistry {
    * Gets all model identifiers for a model.
    */
   getModelIdsForModel(model: string): string[] {
-    const modelIds = this.modelToModelIds.get(model);
-    return modelIds ? [...modelIds] : [];
+    const providerMap = this.modelRegistrations.get(model);
+    return providerMap ? Array.from(providerMap.values()) : [];
+  }
+
+  /**
+   * Gets the provider-specific model identifier for a given model and provider.
+   */
+  getModelIdForProvider(model: string, provider: string): string | undefined {
+    if (!model || !provider) {
+      return undefined;
+    }
+
+    const providerMap = this.modelRegistrations.get(model);
+    return providerMap?.get(provider);
+  }
+
+  /**
+   * Resolves a model identifier (base model or provider-specific model ID) to a provider-specific model ID.
+   * Accepts both base model names (e.g., 'gpt-4.1-mini') and provider-specific model IDs (e.g., 'openai/gpt-4.1-mini').
+   * Always returns the provider-specific model ID.
+   */
+  resolveModelId(model: string, provider?: string): string | undefined {
+    if (!model) {
+      return undefined;
+    }
+
+    // First, check if the incoming value is a base model
+    const providerMap = this.modelRegistrations.get(model);
+    if (providerMap) {
+      if (!provider) {
+        // Base model without provider cannot be resolved
+        return undefined;
+      }
+      return providerMap.get(provider);
+    }
+
+    // Check if the incoming model is a provider-specific model ID
+    const modelIdProvider = this.modelIdToProvider.get(model);
+
+    if (modelIdProvider) {
+      // Incoming model is a provider-specific model ID
+      // If provider is specified, it must match the model ID's provider
+      if (provider && provider !== modelIdProvider) {
+        throw new Error(
+          `Model ID '${model}' belongs to provider '${modelIdProvider}', not '${provider}'. Either remove the provider parameter or use '${modelIdProvider}'`,
+        );
+      }
+      // Return the model ID itself (it's already provider-specific)
+      return model;
+    }
+
+    // No provider-specific entry found
+    return undefined;
   }
 }
