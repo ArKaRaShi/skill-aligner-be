@@ -2,9 +2,9 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
 import {
-  I_LLM_PROVIDER_CLIENT_TOKEN,
-  ILlmProviderClient,
-} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from 'src/core/gpt-llm/contracts/i-llm-router-service.contract';
 
 import { LlmInfo } from 'src/common/types/llm-info.type';
 import { TokenUsage } from 'src/common/types/token-usage.type';
@@ -38,8 +38,8 @@ export class CourseRelevanceFilterService
   private readonly logger = new Logger(CourseRelevanceFilterService.name);
 
   constructor(
-    @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
-    private readonly llmProviderClient: ILlmProviderClient,
+    @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
+    private readonly llmRouter: ILlmRouterService,
     private readonly modelName: string,
   ) {}
 
@@ -97,7 +97,7 @@ export class CourseRelevanceFilterService
           );
 
           const { object, inputTokens, outputTokens } =
-            await this.llmProviderClient.generateObject({
+            await this.llmRouter.generateObject({
               prompt: getUserPrompt(question, skill, coursesData),
               systemPrompt,
               schema: CourseRelevanceFilterResultSchema,
@@ -254,7 +254,7 @@ export class CourseRelevanceFilterService
           );
 
           const { object, inputTokens, outputTokens } =
-            await this.llmProviderClient.generateObject({
+            await this.llmRouter.generateObject({
               prompt: getUserPrompt(question, skill, coursesData),
               systemPrompt,
               schema: CourseRelevanceFilterResultSchemaV2,

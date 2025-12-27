@@ -1,9 +1,9 @@
 import { Inject, Logger } from '@nestjs/common';
 
 import {
-  I_LLM_PROVIDER_CLIENT_TOKEN,
-  ILlmProviderClient,
-} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from 'src/core/gpt-llm/contracts/i-llm-router-service.contract';
 import { z } from 'zod';
 
 import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
@@ -12,8 +12,8 @@ export class QuestionSetCreatorService {
   private readonly logger = new Logger(QuestionSetCreatorService.name);
 
   constructor(
-    @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
-    private readonly llmProviderClient: ILlmProviderClient,
+    @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
+    private readonly llmRouter: ILlmRouterService,
   ) {}
 
   async createQuestionSet() {
@@ -59,7 +59,7 @@ Category: unclear
     
     `;
 
-    const { object, model } = await this.llmProviderClient.generateObject({
+    const { object, model } = await this.llmRouter.generateObject({
       schema: z.object({
         questionSet: z.object({
           relevant: z.array(z.string()),

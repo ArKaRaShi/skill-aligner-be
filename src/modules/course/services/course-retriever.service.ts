@@ -2,9 +2,9 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
 import {
-  I_LLM_PROVIDER_CLIENT_TOKEN,
-  ILlmProviderClient,
-} from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from 'src/core/gpt-llm/contracts/i-llm-router-service.contract';
 
 import { AppConfigService } from 'src/config/app-config.service';
 
@@ -36,8 +36,8 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     private readonly courseRepository: ICourseRepository,
     @Inject(I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN)
     private readonly courseLearningOutcomeRepository: ICourseLearningOutcomeRepository,
-    @Inject(I_LLM_PROVIDER_CLIENT_TOKEN)
-    private readonly llmProviderClient: ILlmProviderClient,
+    @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
+    private readonly llmRouter: ILlmRouterService,
     private readonly appConfigService: AppConfigService,
   ) {}
 
@@ -185,7 +185,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         this.filterLoPromptFactory.getPrompts('v2');
 
       // Call LLM to filter learning outcomes
-      const { object } = await this.llmProviderClient.generateObject({
+      const { object } = await this.llmRouter.generateObject({
         prompt: getUserPrompt(skill, encodedLoList),
         systemPrompt: systemPrompt,
         schema: FilterLoSchema,

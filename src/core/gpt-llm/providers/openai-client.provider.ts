@@ -1,9 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import {
-  createOpenRouter,
-  OpenRouterProvider,
-} from '@openrouter/ai-sdk-provider';
+import { createOpenAI, OpenAIProvider } from '@ai-sdk/openai';
 import {
   generateObject as aiGenerateObject,
   generateText as aiGenerateText,
@@ -20,24 +17,20 @@ import {
 import { BaseLlmProvider } from './base-llm-provider.abstract';
 
 /**
- * OpenRouter provider implementation for LLM services.
- * Supports multiple LLM providers through OpenRouter's unified API.
+ * OpenAI provider implementation for LLM services.
+ * Supports OpenAI's GPT models via the official OpenAI API.
  */
 @Injectable()
-export class OpenRouterClientProvider
+export class OpenAIClientProvider
   extends BaseLlmProvider
   implements ILlmProviderClient
 {
-  private readonly openRouter: OpenRouterProvider;
+  private readonly openai: OpenAIProvider;
 
-  constructor(
-    private readonly apiKey: string,
-    private readonly baseURL: string,
-  ) {
-    super('OpenRouter');
-    this.openRouter = createOpenRouter({
+  constructor(private readonly apiKey: string) {
+    super('OpenAI');
+    this.openai = createOpenAI({
       apiKey: this.apiKey,
-      baseURL: this.baseURL,
     });
   }
 
@@ -55,16 +48,16 @@ export class OpenRouterClientProvider
 
     try {
       const { text, usage } = await aiGenerateText({
-        model: this.openRouter(model),
+        model: this.openai(model),
         prompt,
         system: systemPrompt,
-        maxRetries: 1, // Some requests fail intermittently
+        maxRetries: 1,
         ...hyperParameters,
       });
 
       // Optional: Log method call for debugging
       // this.logMethodCall(
-      //   OpenRouterClientProvider.prototype.generateText.name,
+      //   OpenAIClientProvider.prototype.generateText.name,
       //   usage,
       //   {},
       //   {},
@@ -97,17 +90,17 @@ export class OpenRouterClientProvider
 
     try {
       const { object, usage } = await aiGenerateObject({
-        model: this.openRouter(model),
+        model: this.openai(model),
         schema,
         prompt,
         system: systemPrompt,
-        maxRetries: 1, // Some requests fail intermittently
+        maxRetries: 1,
         ...hyperParameters,
       });
 
       // Optional: Log method call for debugging
       // this.logMethodCall(
-      //   OpenRouterClientProvider.prototype.generateObject.name,
+      //   OpenAIClientProvider.prototype.generateObject.name,
       //   usage,
       //   {},
       //   {},

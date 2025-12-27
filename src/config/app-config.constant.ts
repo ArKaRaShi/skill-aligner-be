@@ -18,8 +18,10 @@ export const AppConfigDefault = {
   SKILL_EXPANDER_LLM_MODEL: 'orca-mini-3b-v2',
   FILTER_LO_LLM_PROVIDER: 'openrouter',
   FILTER_LO_LLM_MODEL: 'orca-mini-3b-v2',
+  // @deprecated Use defaultLlmProvider instead
   ANSWER_GENERATOR_LLM_PROVIDER: 'openrouter',
   ANSWER_GENERATOR_LLM_MODEL: 'orca-mini-3b-v2',
+  DEFAULT_LLM_PROVIDER: 'openrouter', // Default provider when none specified
   TOOL_DISPATCHER_LLM_MODEL: 'orca-mini-3b-v2',
   QUERY_PROFILE_BUILDER_LLM_PROVIDER: 'openrouter',
   QUERY_PROFILE_BUILDER_LLM_MODEL: 'orca-mini-3b-v2',

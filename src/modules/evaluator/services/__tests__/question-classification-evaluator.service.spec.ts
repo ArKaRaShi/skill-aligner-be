@@ -228,9 +228,7 @@ describe('QuestionClassificationEvaluatorService', () => {
         'metrics-iteration-1.json',
         'metrics-iteration-2.json',
       ];
-      jest
-        .spyOn(FileHelper, 'listFiles')
-        .mockResolvedValue(metricsDirFiles as string[]);
+      jest.spyOn(FileHelper, 'listFiles').mockResolvedValue(metricsDirFiles);
 
       jest
         .spyOn(FileHelper, 'loadJson')

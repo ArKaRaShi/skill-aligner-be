@@ -105,11 +105,25 @@ export class AppConfigService {
     );
   }
 
+  /**
+   * @deprecated Use defaultLlmProvider instead. This is kept for backward compatibility.
+   */
   get answerGeneratorLlmProvider(): 'openrouter' | 'openai' {
     const provider =
       this.configService.get<'openrouter' | 'openai'>(
         'ANSWER_GENERATOR_LLM_PROVIDER',
       ) ?? AppConfigDefault.ANSWER_GENERATOR_LLM_PROVIDER;
+    return provider as 'openrouter' | 'openai';
+  }
+
+  /**
+   * Gets the default LLM provider to use when no provider is specified.
+   * @returns The default provider name ('openrouter' or 'openai')
+   */
+  get defaultLlmProvider(): 'openrouter' | 'openai' {
+    const provider =
+      this.configService.get<'openrouter' | 'openai'>('DEFAULT_LLM_PROVIDER') ??
+      AppConfigDefault.DEFAULT_LLM_PROVIDER;
     return provider as 'openrouter' | 'openai';
   }
 
