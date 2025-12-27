@@ -33,7 +33,7 @@ export class SemanticsClient {
       options.axiosInstance ??
       axios.create({
         baseURL: this.normalizeBaseUrl(options.baseUrl),
-        timeout: options.timeoutMs ?? 15_000,
+        timeout: options.timeoutMs ?? 30_000, // default to 30 seconds
         headers: { 'Content-Type': 'application/json' },
       });
   }

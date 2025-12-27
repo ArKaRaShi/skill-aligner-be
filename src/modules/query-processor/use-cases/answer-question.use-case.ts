@@ -12,6 +12,7 @@ import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
 import { Identifier } from 'src/common/domain/types/identifier';
 import { ArrayHelper } from 'src/common/helpers/array.helper';
 import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
+import { TokenLogger, TokenMap } from 'src/common/helpers/token-logger.helper';
 
 import {
   I_CAMPUS_REPOSITORY_TOKEN,
@@ -68,6 +69,7 @@ export class AnswerQuestionUseCase
 {
   private readonly logger = new Logger(AnswerQuestionUseCase.name);
   private readonly timeLogger = new TimeLogger();
+  private readonly tokenLogger = new TokenLogger();
 
   constructor(
     @Inject(I_QUESTION_CLASSIFIER_SERVICE_TOKEN)
@@ -95,11 +97,12 @@ export class AnswerQuestionUseCase
     const { question, isGenEd } = input;
     // More token usage but reduces latency
     const timing = this.timeLogger.initializeTiming();
+    const tokenMap = this.tokenLogger.initializeTokenMap();
 
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute');
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
 
-    const [{ category, reason }, queryProfile] = await Promise.all([
+    const [classificationResult, queryProfileResult] = await Promise.all([
       this.questionClassifierService.classify({
         question,
         promptVersion: QuestionClassificationPromptVersions.V11,
@@ -107,24 +110,35 @@ export class AnswerQuestionUseCase
       this.queryProfileBuilderService.buildQueryProfile(question),
     ]);
 
+    this.tokenLogger.addTokenUsage(
+      tokenMap,
+      'step1-basic-preparation',
+      classificationResult.tokenUsage,
+    );
+
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
 
     this.logger.log(
       `Question classification result: ${JSON.stringify(
-        { category, reason },
+        {
+          category: classificationResult.category,
+          reason: classificationResult.reason,
+        },
         null,
         2,
       )}`,
     );
     this.logger.log(
-      `Query profile result: ${JSON.stringify(queryProfile, null, 2)}`,
+      `Query profile result: ${JSON.stringify(queryProfileResult, null, 2)}`,
     );
 
-    // if (category === 'relevant') {
+    // if (classificationResult.category === 'relevant') {
     //   return this.returnEmptyOutput();
     // }
 
-    const fallbackResponse = this.getFallbackAnswerForClassification(category);
+    const fallbackResponse = this.getFallbackAnswerForClassification(
+      classificationResult.category,
+    );
 
     if (fallbackResponse) {
       return fallbackResponse;
@@ -135,9 +149,16 @@ export class AnswerQuestionUseCase
 
     const skillExpansion = await this.skillExpanderService.expandSkills(
       question,
-      SkillExpansionPromptVersions.V9,
+      SkillExpansionPromptVersions.V10,
     );
     const skillItems = skillExpansion.skillItems;
+
+    this.tokenLogger.addTokenUsage(
+      tokenMap,
+      'step2-skill-inference',
+      skillExpansion.tokenUsage,
+    );
+
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
     this.logger.log(`Expanded skills: ${JSON.stringify(skillItems, null, 2)}`);
@@ -177,12 +198,17 @@ export class AnswerQuestionUseCase
       const relevanceFilterResults =
         await this.courseRelevanceFilterService.batchFilterCoursesBySkillV2(
           question,
-          queryProfile,
+          queryProfileResult,
           skillCoursesMap,
           CourseRelevanceFilterPromptVersions.V4, // lower than v4 is binary classification
         );
 
       for (const filterResult of relevanceFilterResults) {
+        this.tokenLogger.addTokenUsage(
+          tokenMap,
+          'step4-course-classification',
+          filterResult.tokenUsage,
+        );
         for (const [
           skill,
           courses,
@@ -224,12 +250,19 @@ export class AnswerQuestionUseCase
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
     const synthesisResult = await this.answerSynthesisService.synthesizeAnswer({
       question,
-      promptVersion: AnswerSynthesisPromptVersions.V6,
-      queryProfile,
+      promptVersion: AnswerSynthesisPromptVersions.V7,
+      queryProfile: queryProfileResult,
       aggregatedCourseSkills: rankedCourses.filter(
-        (course) => course.score >= 2,
+        (course) => course.score >= 1,
       ),
     });
+
+    this.tokenLogger.addTokenUsage(
+      tokenMap,
+      'step5-answer-synthesis',
+      synthesisResult.tokenUsage,
+    );
+
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
 
     this.logger.log(
@@ -246,7 +279,7 @@ export class AnswerQuestionUseCase
     };
 
     this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute');
-    this.logTimingResults(timing);
+    this.logExecutionMetrics(timing, tokenMap);
 
     return result;
   }
@@ -307,7 +340,7 @@ export class AnswerQuestionUseCase
     }));
   }
 
-  private logTimingResults(timing: TimingMap): void {
+  private logExecutionMetrics(timing: TimingMap, tokenMap: TokenMap): void {
     const timingResults = {
       total: this.timeLogger.formatDuration(
         timing.AnswerQuestionUseCaseExecute?.duration,
@@ -329,8 +362,33 @@ export class AnswerQuestionUseCase
       ),
     };
 
+    const tokenSummary = this.tokenLogger.getSummary(tokenMap);
+
+    const tokenResults: Record<string, any> = {
+      total: {
+        inputTokens: tokenSummary.totalTokens?.inputTokens,
+        outputTokens: tokenSummary.totalTokens?.outputTokens,
+        cost: this.tokenLogger.formatCost(tokenSummary.totalCost ?? 0),
+      },
+    };
+
+    // Add per-step breakdown
+    for (const [step, data] of Object.entries(tokenSummary.byCategory)) {
+      tokenResults[step] = {
+        inputTokens: data.tokenCount.inputTokens,
+        outputTokens: data.tokenCount.outputTokens,
+        cost: this.tokenLogger.formatCost(data.cost),
+        recordCount: data.recordCount,
+      };
+    }
+
+    const combinedResults = {
+      executionTiming: timingResults,
+      tokenUsage: tokenResults,
+    };
+
     this.logger.log(
-      `Execution timing: ${JSON.stringify(timingResults, null, 2)}`,
+      `Execution metrics: ${JSON.stringify(combinedResults, null, 2)}`,
     );
   }
 

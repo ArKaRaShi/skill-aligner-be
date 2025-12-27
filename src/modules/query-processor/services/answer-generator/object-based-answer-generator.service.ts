@@ -5,6 +5,9 @@ import {
   ILlmProviderClient,
 } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import { CourseMatch } from 'src/modules/course/types/course.type';
 
 import { IAnswerGeneratorService } from '../../contracts/i-answer-generator-service.contract';
@@ -75,10 +78,25 @@ export class ObjectBasedAnswerGeneratorService
       skillCourseMatchMap,
     });
 
+    const tokenUsage: TokenUsage = {
+      model: this.modelName,
+      inputTokens: llmResult.inputTokens,
+      outputTokens: llmResult.outputTokens,
+    };
+
+    const llmInfo: LlmInfo = {
+      model: this.modelName,
+      userPrompt: getUserPrompt(question, context),
+      systemPrompt,
+      promptVersion: 'v4',
+    };
+
     return {
       ...llmAnswer,
       rawQuestion: question,
       context,
+      llmInfo,
+      tokenUsage,
     };
   }
 

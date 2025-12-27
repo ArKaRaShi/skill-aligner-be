@@ -185,14 +185,19 @@ export class QuestionClassificationEvaluatorService {
       const {
         category: actualCategory,
         reason,
-        userPrompt,
-        systemPrompt,
-        model,
-        promptVersion: resolvedPromptVersion,
+        llmInfo,
+        tokenUsage,
       } = await this.questionClassifierService.classify({
         question: questionObj.question,
         promptVersion,
       });
+
+      const {
+        userPrompt,
+        systemPrompt,
+        model,
+        promptVersion: resolvedPromptVersion,
+      } = llmInfo;
       const isCorrect = actualCategory === questionObj.expectedCategory;
 
       return {

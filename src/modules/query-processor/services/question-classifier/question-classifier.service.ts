@@ -5,6 +5,9 @@ import {
   ILlmProviderClient,
 } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import { QuestionClassifierCache } from '../../cache/question-classifier.cache';
 import {
   IQuestionClassifierService,
@@ -54,19 +57,31 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const userPrompt = getUserPrompt(question);
 
-    const { object } = await this.llmProviderClient.generateObject({
-      prompt: userPrompt,
-      systemPrompt,
-      schema: QuestionClassificationSchema,
-      model: this.modelName,
-    });
+    const { object, inputTokens, outputTokens } =
+      await this.llmProviderClient.generateObject({
+        prompt: userPrompt,
+        systemPrompt,
+        schema: QuestionClassificationSchema,
+        model: this.modelName,
+      });
 
-    const classificationResult: TQuestionClassification = {
-      ...object,
+    const tokenUsage: TokenUsage = {
+      model: this.modelName,
+      inputTokens,
+      outputTokens,
+    };
+
+    const llmInfo: LlmInfo = {
       model: this.modelName,
       userPrompt,
       systemPrompt,
       promptVersion,
+    };
+
+    const classificationResult: TQuestionClassification = {
+      ...object,
+      llmInfo,
+      tokenUsage,
     };
 
     if (this.useCache) {

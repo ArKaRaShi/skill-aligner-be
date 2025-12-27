@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import { CourseMatch } from 'src/modules/course/types/course.type';
 
 import { IAnswerGeneratorService } from '../../contracts/i-answer-generator-service.contract';
@@ -39,10 +42,25 @@ export class MockAnswerGeneratorService
 
     await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate async delay
 
+    const tokenUsage: TokenUsage = {
+      model: 'mock-model',
+      inputTokens: 0,
+      outputTokens: 0,
+    };
+
+    const llmInfo: LlmInfo = {
+      model: 'mock-model',
+      userPrompt: 'Mock user prompt',
+      systemPrompt: 'Mock system prompt',
+      promptVersion: 'v1',
+    };
+
     return {
       ...mockAnswer,
       rawQuestion: question,
       context: context,
+      llmInfo,
+      tokenUsage,
     };
   }
 }

@@ -5,6 +5,8 @@ import {
   ILlmProviderClient,
 } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+
 import { QuestionClassifierCache } from 'src/modules/query-processor/cache/question-classifier.cache';
 import { QuestionClassifyInput } from 'src/modules/query-processor/contracts/i-question-classifier-service.contract';
 import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
@@ -82,13 +84,21 @@ describe('QuestionClassifierService', () => {
     const testQuestion = 'What is Python programming?';
 
     it('should return cached classification when cache hit occurs', async () => {
-      const cachedClassification: TQuestionClassification = {
-        category: 'relevant',
-        reason: 'Cached classification',
+      const cachedLlmInfo: LlmInfo = {
         model: 'cached-model',
         userPrompt: testQuestion,
         systemPrompt: 'cached-system-prompt',
         promptVersion: 'v6',
+      };
+      const cachedClassification: TQuestionClassification = {
+        category: 'relevant',
+        reason: 'Cached classification',
+        llmInfo: cachedLlmInfo,
+        tokenUsage: {
+          model: 'cached-model',
+          inputTokens: 0,
+          outputTokens: 0,
+        },
       };
 
       cache.lookup.mockReturnValue(cachedClassification);
@@ -125,10 +135,10 @@ describe('QuestionClassifierService', () => {
       expect(cache.store).toHaveBeenCalledWith(testQuestion, result);
       expect(result.category).toBe('relevant');
       expect(result.reason).toBe('AI classification result');
-      expect(result.model).toBe(testModelName);
-      expect(result.promptVersion).toBe(defaultPromptVersion);
-      expect(result.userPrompt).toContain(testQuestion);
-      expect(result.systemPrompt).toBeDefined();
+      expect(result.llmInfo.model).toBe(testModelName);
+      expect(result.llmInfo.promptVersion).toBe(defaultPromptVersion);
+      expect(result.llmInfo.userPrompt).toContain(testQuestion);
+      expect(result.llmInfo.systemPrompt).toBeDefined();
     });
 
     it('should skip cache when useCache is false', async () => {
@@ -183,10 +193,10 @@ describe('QuestionClassifierService', () => {
 
       expect(result.category).toBe('relevant');
       expect(result.reason).toBe('Question about courses and learning');
-      expect(result.model).toBe(testModelName);
-      expect(result.promptVersion).toBe(defaultPromptVersion);
-      expect(result.userPrompt).toContain(relevantQuestion);
-      expect(result.systemPrompt).toBeDefined();
+      expect(result.llmInfo.model).toBe(testModelName);
+      expect(result.llmInfo.promptVersion).toBe(defaultPromptVersion);
+      expect(result.llmInfo.userPrompt).toContain(relevantQuestion);
+      expect(result.llmInfo.systemPrompt).toBeDefined();
       expect(cache.store).toHaveBeenCalledWith(relevantQuestion, result);
     });
 
@@ -207,8 +217,8 @@ describe('QuestionClassifierService', () => {
 
       expect(result.category).toBe('irrelevant');
       expect(result.reason).toBe('Weather question not related to courses');
-      expect(result.model).toBe(testModelName);
-      expect(result.promptVersion).toBe(defaultPromptVersion);
+      expect(result.llmInfo.model).toBe(testModelName);
+      expect(result.llmInfo.promptVersion).toBe(defaultPromptVersion);
       expect(cache.store).toHaveBeenCalledWith(irrelevantQuestion, result);
     });
 
@@ -229,8 +239,8 @@ describe('QuestionClassifierService', () => {
 
       expect(result.category).toBe('irrelevant');
       expect(result.reason).toBe('Question too vague to classify');
-      expect(result.model).toBe(testModelName);
-      expect(result.promptVersion).toBe(defaultPromptVersion);
+      expect(result.llmInfo.model).toBe(testModelName);
+      expect(result.llmInfo.promptVersion).toBe(defaultPromptVersion);
       expect(cache.store).toHaveBeenCalledWith(unclearQuestion, result);
     });
 
@@ -252,7 +262,7 @@ describe('QuestionClassifierService', () => {
         buildInput(question, promptVersion),
       );
 
-      expect(result.promptVersion).toBe(promptVersion);
+      expect(result.llmInfo.promptVersion).toBe(promptVersion);
       expect(llmProviderClient.generateObject).toHaveBeenCalledWith(
         expect.objectContaining({
           model: testModelName,
@@ -400,8 +410,10 @@ describe('QuestionClassifierService', () => {
         expect.objectContaining({
           category: 'relevant',
           reason: 'Test reason',
-          model: testModelName,
-          promptVersion,
+          llmInfo: expect.objectContaining({
+            model: testModelName,
+            promptVersion,
+          }),
         }),
       );
     });

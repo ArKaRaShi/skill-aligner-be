@@ -5,6 +5,8 @@ import {
   ILlmProviderClient,
 } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
 import { QueryProfileBuilderPromptFactory } from '../../prompts/query-profile-builder';
 import { QueryProfileBuilderSchema } from '../../schemas/query-profile-builder.schema';
@@ -26,19 +28,30 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
     const { getPrompts } = QueryProfileBuilderPromptFactory();
     const { getUserPrompt, systemPrompt } = getPrompts('v2');
 
-    const { object: profileData } = await this.llmProviderClient.generateObject(
-      {
-        prompt: getUserPrompt(query),
-        systemPrompt,
-        schema: QueryProfileBuilderSchema,
-        model: this.modelName,
-      },
-    );
+    const {
+      object: profileData,
+      inputTokens,
+      outputTokens,
+    } = await this.llmProviderClient.generateObject({
+      prompt: getUserPrompt(query),
+      systemPrompt,
+      schema: QueryProfileBuilderSchema,
+      model: this.modelName,
+    });
+
+    const tokenUsage: TokenUsage = {
+      model: this.modelName,
+      inputTokens,
+      outputTokens,
+    };
 
     this.logger.log(
       `Generated query profile: ${JSON.stringify(profileData, null, 2)}`,
     );
 
-    return profileData;
+    return {
+      ...profileData,
+      tokenUsage,
+    };
   }
 }

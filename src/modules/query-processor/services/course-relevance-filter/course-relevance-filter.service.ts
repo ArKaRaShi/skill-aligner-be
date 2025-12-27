@@ -6,6 +6,9 @@ import {
   ILlmProviderClient,
 } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import {
   CourseWithLearningOutcomeV2Match,
   CourseWithLearningOutcomeV2MatchWithScore,
@@ -59,6 +62,17 @@ export class CourseRelevanceFilterService
             this.logger.log(
               `[CourseRelevanceFilter] No courses to filter for skill: "${skill}". Skipping LLM call.`,
             );
+            const tokenUsage: TokenUsage = {
+              model: this.modelName,
+              inputTokens: 0,
+              outputTokens: 0,
+            };
+            const llmInfo: LlmInfo = {
+              model: this.modelName,
+              userPrompt: '',
+              systemPrompt: '',
+              promptVersion,
+            };
             return {
               relevantCoursesBySkill: new Map<
                 string,
@@ -68,10 +82,8 @@ export class CourseRelevanceFilterService
                 string,
                 CourseWithLearningOutcomeV2Match[]
               >(),
-              model: this.modelName,
-              userPrompt: '',
-              systemPrompt: '',
-              promptVersion,
+              llmInfo,
+              tokenUsage,
             };
           }
 
@@ -84,12 +96,13 @@ export class CourseRelevanceFilterService
             `[CourseRelevanceFilter] Courses data for skill "${skill}": ${coursesData}`,
           );
 
-          const { object } = await this.llmProviderClient.generateObject({
-            prompt: getUserPrompt(question, skill, coursesData),
-            systemPrompt,
-            schema: CourseRelevanceFilterResultSchema,
-            model: this.modelName,
-          });
+          const { object, inputTokens, outputTokens } =
+            await this.llmProviderClient.generateObject({
+              prompt: getUserPrompt(question, skill, coursesData),
+              systemPrompt,
+              schema: CourseRelevanceFilterResultSchema,
+              model: this.modelName,
+            });
 
           this.logger.log(
             `[CourseRelevanceFilter] Generated relevance filter for skill "${skill}": ${JSON.stringify(
@@ -98,6 +111,19 @@ export class CourseRelevanceFilterService
               2,
             )}`,
           );
+
+          const tokenUsage: TokenUsage = {
+            model: this.modelName,
+            inputTokens,
+            outputTokens,
+          };
+
+          const llmInfo: LlmInfo = {
+            model: this.modelName,
+            userPrompt: getUserPrompt(question, skill, coursesData),
+            systemPrompt,
+            promptVersion,
+          };
 
           const courseItems: CourseRelevanceFilterItem[] = object.courses.map(
             (course) => ({
@@ -150,10 +176,8 @@ export class CourseRelevanceFilterService
           return {
             relevantCoursesBySkill: relevantCoursesBySkillMap,
             nonRelevantCoursesBySkill: nonRelevantCoursesBySkillMap,
-            model: this.modelName,
-            userPrompt: getUserPrompt(question, skill, coursesData),
-            systemPrompt,
-            promptVersion,
+            llmInfo,
+            tokenUsage,
           };
         },
       ),
@@ -199,15 +223,24 @@ export class CourseRelevanceFilterService
             this.logger.log(
               `[CourseRelevanceFilterV2] No courses to filter for skill: "${skill}". Skipping LLM call.`,
             );
+            const tokenUsage: TokenUsage = {
+              model: this.modelName,
+              inputTokens: 0,
+              outputTokens: 0,
+            };
+            const llmInfo: LlmInfo = {
+              model: this.modelName,
+              userPrompt: '',
+              systemPrompt: '',
+              promptVersion,
+            };
             return {
               relevantCoursesBySkill: new Map<
                 string,
                 CourseWithLearningOutcomeV2MatchWithScore[]
               >(),
-              model: this.modelName,
-              userPrompt: '',
-              systemPrompt: '',
-              promptVersion,
+              llmInfo,
+              tokenUsage,
             };
           }
 
@@ -220,12 +253,13 @@ export class CourseRelevanceFilterService
             `[CourseRelevanceFilterV2] Courses data for skill "${skill}": ${coursesData}`,
           );
 
-          const { object } = await this.llmProviderClient.generateObject({
-            prompt: getUserPrompt(question, skill, coursesData),
-            systemPrompt,
-            schema: CourseRelevanceFilterResultSchemaV2,
-            model: this.modelName,
-          });
+          const { object, inputTokens, outputTokens } =
+            await this.llmProviderClient.generateObject({
+              prompt: getUserPrompt(question, skill, coursesData),
+              systemPrompt,
+              schema: CourseRelevanceFilterResultSchemaV2,
+              model: this.modelName,
+            });
 
           this.logger.log(
             `[CourseRelevanceFilterV2] Generated relevance filter for skill "${skill}": ${JSON.stringify(
@@ -234,6 +268,19 @@ export class CourseRelevanceFilterService
               2,
             )}`,
           );
+
+          const tokenUsage: TokenUsage = {
+            model: this.modelName,
+            inputTokens,
+            outputTokens,
+          };
+
+          const llmInfo: LlmInfo = {
+            model: this.modelName,
+            userPrompt: getUserPrompt(question, skill, coursesData),
+            systemPrompt,
+            promptVersion,
+          };
 
           // Process the LLM response to add scores to courses
           const courseItems: CourseRelevanceFilterItemV2[] = object.courses.map(
@@ -319,10 +366,8 @@ export class CourseRelevanceFilterService
 
           return {
             relevantCoursesBySkill: relevantCoursesBySkillMap,
-            model: this.modelName,
-            userPrompt: getUserPrompt(question, skill, coursesData),
-            systemPrompt,
-            promptVersion,
+            llmInfo,
+            tokenUsage,
           };
         },
       ),

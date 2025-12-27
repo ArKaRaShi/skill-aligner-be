@@ -5,6 +5,9 @@ import {
   ILlmProviderClient,
 } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import { QuestionSkillCache } from '../../cache/question-skill.cache';
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
 import {
@@ -51,6 +54,8 @@ export class SkillExpanderService implements ISkillExpanderService {
 
     const {
       object: { skills },
+      inputTokens,
+      outputTokens,
     } = await this.llmProviderClient.generateObject({
       prompt: userPrompt,
       systemPrompt,
@@ -58,8 +63,23 @@ export class SkillExpanderService implements ISkillExpanderService {
       model: this.modelName,
     });
 
+    const tokenUsage: TokenUsage = {
+      model: this.modelName,
+      inputTokens,
+      outputTokens,
+    };
+
+    const llmInfo: LlmInfo = {
+      model: this.modelName,
+      userPrompt,
+      systemPrompt,
+      promptVersion,
+    };
+
     const result: TSkillExpansion = {
       skillItems: skills,
+      llmInfo,
+      tokenUsage,
     };
     if (this.useCache) {
       this.cache.store(question, result);
@@ -76,18 +96,35 @@ export class SkillExpanderService implements ISkillExpanderService {
 
     const userPrompt = getUserPrompt(question);
 
-    const { object } = await this.llmProviderClient.generateObject({
-      prompt: userPrompt,
-      systemPrompt,
-      schema: SkillExpansionV2Schema,
+    const { object, inputTokens, outputTokens } =
+      await this.llmProviderClient.generateObject({
+        prompt: userPrompt,
+        systemPrompt,
+        schema: SkillExpansionV2Schema,
+        model: this.modelName,
+      });
+
+    const tokenUsage: TokenUsage = {
       model: this.modelName,
-    });
+      inputTokens,
+      outputTokens,
+    };
+
+    const llmInfo: LlmInfo = {
+      model: this.modelName,
+      userPrompt,
+      systemPrompt,
+      promptVersion,
+    };
+
     const result: TSkillExpansionV2 = {
       skillItems: object.skills.map((item) => ({
         skill: item.skill,
         learningOutcome: item.learning_outcome,
         reason: item.reason,
       })),
+      llmInfo,
+      tokenUsage,
     };
     return result;
   }

@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
 import {
   TSkillExpansion,
@@ -10,6 +13,17 @@ import {
 export class MockSkillExpanderService implements ISkillExpanderService {
   async expandSkills(question: string): Promise<TSkillExpansion> {
     await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate async delay
+    const tokenUsage: TokenUsage = {
+      model: 'mock-model',
+      inputTokens: 0,
+      outputTokens: 0,
+    };
+    const llmInfo: LlmInfo = {
+      model: 'mock-model',
+      userPrompt: 'Mock user prompt',
+      systemPrompt: 'Mock system prompt',
+      promptVersion: 'v1',
+    };
     return {
       skillItems: [
         {
@@ -18,18 +32,31 @@ export class MockSkillExpanderService implements ISkillExpanderService {
         },
         {
           skill: 'Mock Skill 2',
-          reason: 'Relevant to the topic',
+          reason: 'Relevant to topic',
         },
         {
           skill: 'Mock Skill 3',
           reason: 'Related to user query',
         },
       ],
+      llmInfo,
+      tokenUsage,
     };
   }
 
   async expandSkillsV2(question: string): Promise<TSkillExpansionV2> {
     await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate async delay
+    const tokenUsage: TokenUsage = {
+      model: 'mock-model',
+      inputTokens: 0,
+      outputTokens: 0,
+    };
+    const llmInfo: LlmInfo = {
+      model: 'mock-model',
+      userPrompt: 'Mock user prompt',
+      systemPrompt: 'Mock system prompt',
+      promptVersion: 'v2',
+    };
     return {
       skillItems: [
         {
@@ -38,6 +65,8 @@ export class MockSkillExpanderService implements ISkillExpanderService {
           reason: `Derived from ${question}`,
         },
       ],
+      llmInfo,
+      tokenUsage,
     };
   }
 }

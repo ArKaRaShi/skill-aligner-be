@@ -2,6 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import * as path from 'node:path';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+
 import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import {
   I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
@@ -11,7 +13,7 @@ import {
 import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
 import { TQuestionClassification } from 'src/modules/query-processor/types/question-classification.type';
 
-import { QuestionSetItem } from '../../test-set/question-set.constant';
+import { QuestionSetItem } from '../../test-set/question-classifier/question-set-v8.constant';
 import {
   ClassClassificationMetrics,
   OverallClassificationMetrics,
@@ -124,23 +126,33 @@ describe('QuestionClassificationEvaluatorService', () => {
         ({
           question,
         }: QuestionClassifyInput): Promise<TQuestionClassification> => {
+          const llmInfo: LlmInfo = {
+            model: 'test-model',
+            userPrompt: question,
+            systemPrompt: 'test-system-prompt',
+            promptVersion: 'v1',
+          };
           if (question.includes('Python') || question.includes('AI')) {
             return Promise.resolve({
               category: 'relevant',
               reason: 'Course-related content',
-              model: 'test-model',
-              userPrompt: question,
-              systemPrompt: 'test-system-prompt',
-              promptVersion: 'v1',
+              llmInfo,
+              tokenUsage: {
+                model: 'test-model',
+                inputTokens: 0,
+                outputTokens: 0,
+              },
             });
           }
           return Promise.resolve({
             category: 'irrelevant',
             reason: 'Irrelevant content',
-            model: 'test-model',
-            userPrompt: question,
-            systemPrompt: 'test-system-prompt',
-            promptVersion: 'v1',
+            llmInfo,
+            tokenUsage: {
+              model: 'test-model',
+              inputTokens: 0,
+              outputTokens: 0,
+            },
           });
         },
       );

@@ -1,3 +1,6 @@
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import {
   CourseWithLearningOutcomeV2Match,
   CourseWithLearningOutcomeV2MatchWithScore,
@@ -12,11 +15,8 @@ export type CourseRelevanceFilterItem = {
 export type CourseRelevanceFilterResult = {
   relevantCoursesBySkill: Map<string, CourseWithLearningOutcomeV2Match[]>;
   nonRelevantCoursesBySkill: Map<string, CourseWithLearningOutcomeV2Match[]>;
-  model: string;
-  userPrompt: string;
-  systemPrompt: string;
-  promptVersion: string;
-  hyperParameters?: Record<string, any>;
+  llmInfo: LlmInfo;
+  tokenUsage: TokenUsage;
 };
 
 export type CourseRelevanceFilterItemV2 = {
@@ -31,9 +31,6 @@ export type CourseRelevanceFilterResultV2 = {
     string,
     CourseWithLearningOutcomeV2MatchWithScore[]
   >;
-  model: string;
-  userPrompt: string;
-  systemPrompt: string;
-  promptVersion: string;
-  hyperParameters?: Record<string, any>;
+  llmInfo: LlmInfo;
+  tokenUsage: TokenUsage;
 };

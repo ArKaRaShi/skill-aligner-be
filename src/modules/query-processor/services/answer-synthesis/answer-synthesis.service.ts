@@ -6,6 +6,9 @@ import {
   ILlmProviderClient,
 } from 'src/core/gpt-llm/contracts/i-llm-provider-client.contract';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import { AggregatedCourseSkills } from 'src/modules/course/types/course.type';
 
 import {
@@ -59,9 +62,24 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
       )}`,
     );
 
+    const tokenUsage: TokenUsage = {
+      model: llmResult.model,
+      inputTokens: llmResult.inputTokens,
+      outputTokens: llmResult.outputTokens,
+    };
+
+    const llmInfo: LlmInfo = {
+      model: llmResult.model,
+      userPrompt: synthesisPrompt,
+      systemPrompt,
+      promptVersion,
+    };
+
     const synthesisResult: AnswerSynthesisResult = {
       answerText: llmResult.text,
       question,
+      llmInfo,
+      tokenUsage,
     };
 
     return synthesisResult;

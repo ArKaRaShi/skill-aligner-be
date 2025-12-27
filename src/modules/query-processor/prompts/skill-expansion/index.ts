@@ -23,6 +23,10 @@ import {
   getExpandSkillUserPromptV9,
 } from './expand-skill-v9.prompt';
 import {
+  EXPAND_SKILL_SYSTEM_PROMPT_V10,
+  getExpandSkillUserPromptV10,
+} from './expand-skill-v10.prompt';
+import {
   EXPAND_SKILL_SYSTEM_PROMPT,
   getExpandSkillUserPrompt,
 } from './expand-skill.prompt';
@@ -40,6 +44,7 @@ export const SkillExpansionPromptVersions = {
   V7: 'v7',
   V8: 'v8',
   V9: 'v9',
+  V10: 'v10',
 } as const;
 
 export type SkillExpansionPromptVersion =
@@ -76,6 +81,10 @@ const SkillExpansionPrompts: Record<
   v9: {
     systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT_V9,
     getUserPrompt: getExpandSkillUserPromptV9,
+  },
+  v10: {
+    systemPrompt: EXPAND_SKILL_SYSTEM_PROMPT_V10,
+    getUserPrompt: getExpandSkillUserPromptV10,
   },
 };
 

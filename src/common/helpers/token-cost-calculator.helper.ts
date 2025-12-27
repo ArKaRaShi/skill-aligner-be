@@ -1,11 +1,11 @@
 import { TokenUsage } from 'src/common/types/token-usage.type';
 
-type TokenCostEstimate = TokenUsage & {
+export type TokenCostEstimate = TokenUsage & {
   available: boolean; // true if cost data is available for this model and token type
   estimatedCost: number; // 0 if not available
 };
 
-type TokenCostEstimateSummary = {
+export type TokenCostEstimateSummary = {
   totalEstimatedCost: number;
   details: TokenCostEstimate[];
 };
@@ -17,15 +17,31 @@ type TokenCostRatesByModel = {
   };
 };
 
-export class TokenCostCalculatorService {
+export class TokenCostCalculator {
   private static readonly AVAILABLE_ESTIMATIONS: TokenCostRatesByModel = {
-    'gpt-4o-mini': {
+    'openai/gpt-4o-mini': {
       inputCostPerMillionTokens: 0.15, // $0.15 per 1,000,000 tokens
       outputCostPerMillionTokens: 0.6, // $0.6 per 1,000,000 tokens
     },
-    'gpt-4.1-mini': {
+    'openai/gpt-4.1-mini': {
       inputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
       outputCostPerMillionTokens: 1.6, // $1.6 per 1,000,000 tokens
+    },
+    'openai/gpt-4.1-nano': {
+      inputCostPerMillionTokens: 0.1, // $0.1 per 1,000,000 tokens
+      outputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
+    },
+    'openai/gpt-oss-120b': {
+      inputCostPerMillionTokens: 0.039, // $0.039 per 1,000,000 tokens
+      outputCostPerMillionTokens: 0.19, // $0.19 per 1,000,000 tokens
+    },
+    'google/gemini-2.5-flash': {
+      inputCostPerMillionTokens: 0.3, // $0.3 per 1,000,000 tokens
+      outputCostPerMillionTokens: 2.5, // $2.5 per 1,000,000 tokens
+    },
+    'google/gemini-2.0-flash-001': {
+      inputCostPerMillionTokens: 0.1, // $0.1 per 1,000,000 tokens
+      outputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
     },
   };
 
@@ -45,10 +61,16 @@ export class TokenCostCalculatorService {
       };
     }
 
+    // Treat negative token amounts as zero
+    const normalizedInputTokens = Math.max(0, inputTokens);
+    const normalizedOutputTokens = Math.max(0, outputTokens);
+
     const inputCost =
-      (inputTokens / 1_000_000) * modelEstimations.inputCostPerMillionTokens;
+      (normalizedInputTokens / 1_000_000) *
+      modelEstimations.inputCostPerMillionTokens;
     const outputCost =
-      (outputTokens / 1_000_000) * modelEstimations.outputCostPerMillionTokens;
+      (normalizedOutputTokens / 1_000_000) *
+      modelEstimations.outputCostPerMillionTokens;
     const estimatedCost = inputCost + outputCost;
 
     return {

@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import {
   IQuestionClassifierService,
   QuestionClassifyInput,
@@ -16,13 +19,23 @@ export class MockQuestionClassifierService
     const { question, promptVersion } = input;
 
     // Simple mock logic based on keywords
-    const classification: TQuestionClassification = {
-      category: 'relevant',
-      reason: 'Mock classification based on keywords',
+    const tokenUsage: TokenUsage = {
+      model: 'mock-model',
+      inputTokens: 0,
+      outputTokens: 0,
+    };
+    const llmInfo: LlmInfo = {
       model: 'mock-model',
       userPrompt: 'Mock user prompt',
       systemPrompt: 'Mock system prompt',
       promptVersion,
+    };
+
+    const classification: TQuestionClassification = {
+      category: 'relevant',
+      reason: 'Mock classification based on keywords',
+      llmInfo,
+      tokenUsage,
     };
 
     const lowerQuestion = question.toLowerCase();

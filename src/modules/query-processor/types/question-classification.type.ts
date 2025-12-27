@@ -1,5 +1,8 @@
 import { z } from 'zod';
 
+import { LlmInfo } from 'src/common/types/llm-info.type';
+import { TokenUsage } from 'src/common/types/token-usage.type';
+
 import {
   CategoryEnum,
   QuestionClassificationSchema,
@@ -8,11 +11,8 @@ import {
 export type TQuestionClassification = z.infer<
   typeof QuestionClassificationSchema
 > & {
-  model: string;
-  userPrompt: string;
-  systemPrompt: string;
-  promptVersion: string;
-  hyperParameters?: Record<string, any>;
+  llmInfo: LlmInfo;
+  tokenUsage: TokenUsage;
 };
 
 export type TClassificationCategory = z.infer<typeof CategoryEnum>;
