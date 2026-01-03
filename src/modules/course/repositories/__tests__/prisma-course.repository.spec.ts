@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { IEmbeddingClient } from 'src/shared/adapters/embedding/contracts/i-embedding-client.contract';
-import { I_EMBEDDING_CLIENT_TOKEN } from 'src/shared/adapters/embedding/contracts/i-embedding-client.contract';
+import { IEmbeddingRouterService } from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
+import { I_EMBEDDING_ROUTER_SERVICE_TOKEN } from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
@@ -41,10 +41,10 @@ describe('PrismaCourseRepository - findCourseByLearningOutcomeIds (unit)', () =>
       },
     } as unknown as PrismaService;
 
-    const embeddingClientMock = {
+    const embeddingRouterServiceMock = {
       embedOne: jest.fn(),
       embedMany: jest.fn(),
-    } as jest.Mocked<IEmbeddingClient>;
+    } as unknown as jest.Mocked<IEmbeddingRouterService>;
 
     moduleRef = await Test.createTestingModule({
       providers: [
@@ -54,8 +54,8 @@ describe('PrismaCourseRepository - findCourseByLearningOutcomeIds (unit)', () =>
           useValue: prismaMock,
         },
         {
-          provide: I_EMBEDDING_CLIENT_TOKEN,
-          useValue: embeddingClientMock,
+          provide: I_EMBEDDING_ROUTER_SERVICE_TOKEN,
+          useValue: embeddingRouterServiceMock,
         },
       ],
     }).compile();

@@ -18,7 +18,7 @@ import { LoggerModule } from './shared/kernel/logger/logger.module';
     ...CommonSecondaryAdapterModules,
     CourseModule,
     CampusModule,
-    EmbeddingModule.register(),
+    EmbeddingModule,
     QueryProcessorModule,
     QueryLoggingModule,
     EvaluatorModule,

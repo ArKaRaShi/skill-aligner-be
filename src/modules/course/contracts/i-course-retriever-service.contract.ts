@@ -1,4 +1,4 @@
-import { EmbeddingMetadata } from 'src/shared/adapters/embedding/clients';
+import { EmbeddingMetadata } from 'src/shared/contracts/types/embedding.type';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import { CourseWithLearningOutcomeV2Match } from '../types/course.type';

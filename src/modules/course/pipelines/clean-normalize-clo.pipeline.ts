@@ -1,4 +1,5 @@
-import { FileHelper } from './helpers/file.helper';
+import { FileHelper } from 'src/shared/utils/file';
+
 import { CleanCourseWithCLO } from './types/clean-course.type';
 import { RawCourseWithCLOJsonRow } from './types/raw-course-row.type';
 

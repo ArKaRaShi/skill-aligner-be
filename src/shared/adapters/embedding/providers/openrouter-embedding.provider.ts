@@ -3,43 +3,45 @@ import { Injectable, Logger } from '@nestjs/common';
 import { OpenRouter } from '@openrouter/sdk';
 
 import {
+  EMBEDDING_DEFAULT_TIMEOUT,
+  OPENROUTER_DATA_COLLECTION,
+  OPENROUTER_EMBEDDING_ENCODING,
+} from '../constants/embedding-config.constant';
+import {
   EmbeddingModels,
   EmbeddingProviders,
-} from '../constants/model.constant';
-import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
+} from '../constants/embedding-models.constant';
 import {
   BaseEmbeddingClient,
   EmbedManyParams,
   EmbedOneParams,
   EmbedResult,
-} from './base-embedding.client';
+} from './base-embedding-provider.abstract';
 
-export type OpenRouterEmbeddingClientOptions = {
+export type OpenRouterEmbeddingProviderOptions = {
   apiKey: string;
   timeoutMs?: number;
 };
 
 @Injectable()
-export class OpenRouterEmbeddingClient
-  extends BaseEmbeddingClient
-  implements IEmbeddingClient
-{
+export class OpenRouterEmbeddingProvider extends BaseEmbeddingClient {
   private readonly timeoutMs: number;
   private readonly openRouter: OpenRouter;
 
-  private readonly logger = new Logger(OpenRouterEmbeddingClient.name);
+  private readonly logger = new Logger(OpenRouterEmbeddingProvider.name);
 
-  constructor(options: OpenRouterEmbeddingClientOptions) {
+  constructor(options: OpenRouterEmbeddingProviderOptions) {
     super(
       EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
       EmbeddingProviders.OPENROUTER,
+      1536, // text-embedding-3-small dimension
     );
     if (!options?.apiKey) {
       throw new Error(
         'OpenRouter API key is required to use OpenRouter embeddings.',
       );
     }
-    this.timeoutMs = options.timeoutMs ?? 10_000;
+    this.timeoutMs = options.timeoutMs ?? EMBEDDING_DEFAULT_TIMEOUT;
     this.openRouter = new OpenRouter({
       apiKey: options.apiKey,
     });
@@ -49,9 +51,9 @@ export class OpenRouterEmbeddingClient
     const response = await this.openRouter.embeddings.generate({
       model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
       input: text,
-      encodingFormat: 'float',
+      encodingFormat: OPENROUTER_EMBEDDING_ENCODING,
       provider: {
-        dataCollection: 'deny',
+        dataCollection: OPENROUTER_DATA_COLLECTION,
       },
     });
 
@@ -67,9 +69,9 @@ export class OpenRouterEmbeddingClient
     const response = await this.openRouter.embeddings.generate({
       model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
       input: texts,
-      encodingFormat: 'float',
+      encodingFormat: OPENROUTER_EMBEDDING_ENCODING,
       provider: {
-        dataCollection: 'deny',
+        dataCollection: OPENROUTER_DATA_COLLECTION,
       },
     });
 

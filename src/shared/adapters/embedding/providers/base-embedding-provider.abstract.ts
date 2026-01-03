@@ -1,12 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import {
-  EmbeddingMetadata,
-  EmbeddingModel,
-  EmbeddingProvider,
-} from '../constants/model.constant';
 import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
-import { EmbeddingHelper } from '../helpers/embedding.helper';
 
 export type EmbedOneParams = {
   text: string;
@@ -18,7 +12,10 @@ export type EmbedManyParams = {
   role?: 'query' | 'passage';
 };
 
-export type EmbeddingResultMetadata = EmbeddingMetadata & {
+export type EmbeddingResultMetadata = {
+  model: string;
+  provider: string;
+  dimension: number;
   embeddedText: string; // The text that was embedded
   generatedAt: string;
 };
@@ -31,19 +28,11 @@ export type EmbedResult = {
 @Injectable()
 export abstract class BaseEmbeddingClient implements IEmbeddingClient {
   constructor(
-    protected readonly model: EmbeddingModel,
-    protected readonly provider: EmbeddingProvider,
+    protected readonly model: string,
+    protected readonly provider: string,
+    protected readonly dimension: number,
   ) {
-    if (
-      !EmbeddingHelper.isValidModelProviderCombination(
-        this.model,
-        this.provider,
-      )
-    ) {
-      throw new Error(
-        `Unsupported embedding model and provider combination: ${this.model} with ${this.provider}`,
-      );
-    }
+    // Validation is now handled by the registry/router, not here
   }
 
   /**
@@ -77,13 +66,10 @@ export abstract class BaseEmbeddingClient implements IEmbeddingClient {
   ): Promise<EmbedResult[]>;
 
   protected buildMetadata(embeddedText: string): EmbeddingResultMetadata {
-    const metadata = EmbeddingHelper.getMetadataByModel(this.model);
-    if (!metadata) {
-      throw new Error(`Unsupported embedding model: ${this.model}`);
-    }
-
     return {
-      ...metadata,
+      model: this.model,
+      provider: this.provider,
+      dimension: this.dimension,
       generatedAt: new Date().toISOString(),
       embeddedText,
     };

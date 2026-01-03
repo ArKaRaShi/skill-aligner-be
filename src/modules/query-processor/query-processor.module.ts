@@ -31,7 +31,7 @@ import { QueryProcessorUseCases } from './use-cases';
 
 @Module({
   imports: [
-    EmbeddingModule.register(),
+    EmbeddingModule,
     CampusModule,
     FacultyModule,
     CourseModule,

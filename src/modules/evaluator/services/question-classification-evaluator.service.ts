@@ -1,9 +1,9 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import * as path from 'node:path';
+import { FileHelper } from 'src/shared/utils/file';
 import { HashHelper } from 'src/shared/utils/hash.helper';
 
-import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import {
   I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
   IQuestionClassifierService,

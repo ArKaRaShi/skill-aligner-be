@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 import {
-  I_EMBEDDING_CLIENT_TOKEN,
-  IEmbeddingClient,
-} from 'src/shared/adapters/embedding/contracts/i-embedding-client.contract';
+  I_EMBEDDING_ROUTER_SERVICE_TOKEN,
+  IEmbeddingRouterService,
+} from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
@@ -96,7 +96,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
   let module: TestingModule;
   let repository: PrismaCourseLearningOutcomeRepository;
   let prisma: PrismaService;
-  let mockEmbeddingClient: jest.Mocked<IEmbeddingClient>;
+  let mockEmbeddingRouterService: jest.Mocked<IEmbeddingRouterService>;
 
   // Test data IDs
   let campus1Id: Identifier;
@@ -113,19 +113,19 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
   let offering6Id: Identifier;
 
   beforeAll(async () => {
-    // Create a mock embedding client
-    mockEmbeddingClient = {
+    // Create a mock embedding router service
+    mockEmbeddingRouterService = {
       embedOne: jest.fn(),
       embedMany: jest.fn(),
-    } as jest.Mocked<IEmbeddingClient>;
+    } as unknown as jest.Mocked<IEmbeddingRouterService>;
 
     module = await Test.createTestingModule({
       providers: [
         PrismaCourseLearningOutcomeRepository,
         PrismaService,
         {
-          provide: I_EMBEDDING_CLIENT_TOKEN,
-          useValue: mockEmbeddingClient,
+          provide: I_EMBEDDING_ROUTER_SERVICE_TOKEN,
+          useValue: mockEmbeddingRouterService,
         },
       ],
     }).compile();
@@ -459,7 +459,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     // Mock embedding client response for 768-dimension
-    mockEmbeddingClient.embedOne.mockResolvedValue({
+    mockEmbeddingRouterService.embedOne.mockResolvedValue({
       vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_768), // Use a neutral vector
       metadata: {
         model: 'e5-base',
@@ -1081,7 +1081,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         [0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55, 0.5],
         VECTOR_DIMENSION_768,
       );
-      mockEmbeddingClient.embedOne.mockResolvedValue({
+      mockEmbeddingRouterService.embedOne.mockResolvedValue({
         vector: queryVector,
         metadata: {
           model: 'e5-base',
@@ -1182,7 +1182,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         [0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55],
         VECTOR_DIMENSION_768,
       );
-      mockEmbeddingClient.embedOne.mockResolvedValueOnce({
+      mockEmbeddingRouterService.embedOne.mockResolvedValueOnce({
         vector: queryVector,
         metadata: {
           model: 'e5-base',
@@ -1238,7 +1238,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       });
 
       // Mock embedding client response for 1536-dimension
-      mockEmbeddingClient.embedOne.mockResolvedValue({
+      mockEmbeddingRouterService.embedOne.mockResolvedValue({
         vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_1536),
         metadata: {
           model: 'openai/text-embedding-3-small',

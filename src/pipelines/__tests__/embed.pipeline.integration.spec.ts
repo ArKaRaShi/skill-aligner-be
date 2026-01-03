@@ -4,7 +4,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import {
   EmbeddingModels,
   EmbeddingProviders,
-} from 'src/shared/adapters/embedding/constants/model.constant';
+} from 'src/shared/adapters/embedding/constants/embedding-models.constant';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { v4 as uuidv4 } from 'uuid';
@@ -133,7 +133,7 @@ describe('EmbedPipeline (Integration)', () => {
         vector: Array(768).fill(0.1),
         metadata: {
           model: EmbeddingModels.E5_BASE,
-          provider: EmbeddingProviders.E5,
+          provider: EmbeddingProviders.LOCAL,
           dimension: 768,
           embeddedText: clo.cleanedCloName,
           generatedAt: new Date().toISOString(),
@@ -228,7 +228,7 @@ describe('EmbedPipeline (Integration)', () => {
         vector: Array(768).fill(0.4),
         metadata: {
           model: EmbeddingModels.E5_BASE,
-          provider: EmbeddingProviders.E5,
+          provider: EmbeddingProviders.LOCAL,
           dimension: 768,
           embeddedText: clo.cleanedCloName,
           generatedAt: new Date().toISOString(),
@@ -270,7 +270,7 @@ describe('EmbedPipeline (Integration)', () => {
     expect(vectorMetadata).not.toBeNull();
     expect(vectorMetadata?.vector_768).toEqual({
       model: EmbeddingModels.E5_BASE,
-      provider: EmbeddingProviders.E5,
+      provider: EmbeddingProviders.LOCAL,
       dimension: 768,
       original_text: clo.cleanedCloName,
       embed_text: clo.cleanedCloName,
@@ -354,7 +354,7 @@ describe('EmbedPipeline (Integration)', () => {
         vector: Array(768).fill(0.5),
         metadata: {
           model: EmbeddingModels.E5_BASE,
-          provider: EmbeddingProviders.E5,
+          provider: EmbeddingProviders.LOCAL,
           dimension: 768,
           embeddedText: clo.cleanedCloName,
           generatedAt: new Date().toISOString(),
@@ -418,7 +418,7 @@ describe('EmbedPipeline (Integration)', () => {
     expect(metadata).not.toBeNull();
     expect(metadata?.vector_768).toEqual({
       model: EmbeddingModels.E5_BASE,
-      provider: EmbeddingProviders.E5,
+      provider: EmbeddingProviders.LOCAL,
       dimension: 768,
       original_text: clo.cleanedCloName,
       embed_text: clo.cleanedCloName,
@@ -697,7 +697,7 @@ describe('EmbedPipeline (Integration)', () => {
         metadata: {
           vector_768: {
             model: EmbeddingModels.E5_BASE,
-            provider: EmbeddingProviders.E5,
+            provider: EmbeddingProviders.LOCAL,
             dimension: 768,
             original_text: clo.cleanedCloName,
             embed_text: clo.cleanedCloName,
@@ -780,7 +780,7 @@ describe('EmbedPipeline (Integration)', () => {
     expect(metadata).not.toBeNull();
     expect(metadata?.vector_768).toEqual({
       model: EmbeddingModels.E5_BASE,
-      provider: EmbeddingProviders.E5,
+      provider: EmbeddingProviders.LOCAL,
       dimension: 768,
       original_text: clo.cleanedCloName,
       embed_text: clo.cleanedCloName,
@@ -846,7 +846,7 @@ describe('EmbedPipeline (Integration)', () => {
         vector: Array(768).fill(0.1),
         metadata: {
           model: EmbeddingModels.E5_BASE,
-          provider: EmbeddingProviders.E5,
+          provider: EmbeddingProviders.LOCAL,
           dimension: 768,
           embeddedText: clo.cleanedCloName,
           generatedAt: new Date().toISOString(),
@@ -935,7 +935,7 @@ describe('EmbedPipeline (Integration)', () => {
         vector: Array(768).fill(0.1),
         metadata: {
           model: EmbeddingModels.E5_BASE,
-          provider: EmbeddingProviders.E5,
+          provider: EmbeddingProviders.LOCAL,
           dimension: 768,
           embeddedText: text as string,
           generatedAt: new Date().toISOString(),
@@ -991,7 +991,7 @@ describe('EmbedPipeline (Integration)', () => {
       expect(metadata).not.toBeNull();
       expect(metadata?.vector_768).toEqual({
         model: EmbeddingModels.E5_BASE,
-        provider: EmbeddingProviders.E5,
+        provider: EmbeddingProviders.LOCAL,
         dimension: 768,
         original_text: expect.any(String) as string,
         embed_text: expect.any(String) as string,

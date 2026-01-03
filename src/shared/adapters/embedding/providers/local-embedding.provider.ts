@@ -3,43 +3,47 @@ import { Injectable } from '@nestjs/common';
 import type { AxiosInstance } from 'axios';
 
 import {
+  EMBEDDING_BATCH_ROLE,
+  EMBEDDING_DEFAULT_ROLE,
+} from '../constants/embedding-config.constant';
+import {
+  EmbeddingModels,
+  EmbeddingProviders,
+} from '../constants/embedding-models.constant';
+import {
   EmbedBatchRequest,
   EmbedBatchResponse,
   EmbedRequest,
   EmbedResponse,
-} from '../../http/semantics.dto';
-import {
-  EmbeddingModels,
-  EmbeddingProviders,
-} from '../constants/model.constant';
-import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
+} from '../utils/semantics.dto';
 import {
   BaseEmbeddingClient,
   EmbedManyParams,
   EmbedOneParams,
   EmbedResult,
-} from './base-embedding.client';
+} from './base-embedding-provider.abstract';
 
-export type E5EmbeddingServiceOptions = {
+export type LocalEmbeddingServiceOptions = {
   client: AxiosInstance;
 };
 
 @Injectable()
-export class E5EmbeddingClient
-  extends BaseEmbeddingClient
-  implements IEmbeddingClient
-{
+export class LocalEmbeddingProvider extends BaseEmbeddingClient {
   private readonly client: AxiosInstance;
 
-  constructor(options: E5EmbeddingServiceOptions) {
-    super(EmbeddingModels.E5_BASE, EmbeddingProviders.E5);
+  constructor(options: LocalEmbeddingServiceOptions) {
+    super(
+      EmbeddingModels.E5_BASE,
+      EmbeddingProviders.LOCAL,
+      768, // E5-base dimension
+    );
 
     this.client = options.client;
   }
 
   protected async doEmbedOne({
     text,
-    role = 'query',
+    role = EMBEDDING_DEFAULT_ROLE,
   }: EmbedOneParams): Promise<EmbedResult> {
     const response = await this.embed({
       text,
@@ -59,7 +63,7 @@ export class E5EmbeddingClient
 
   protected async doEmbedMany({
     texts,
-    role = 'passage',
+    role = EMBEDDING_BATCH_ROLE,
   }: EmbedManyParams): Promise<EmbedResult[]> {
     const response = await this.batchEmbed({
       items: texts.map((text) => ({ text, role })),

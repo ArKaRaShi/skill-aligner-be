@@ -1,9 +1,10 @@
+import { FileHelper } from 'src/shared/utils/file';
+
 import { CleanNormalizeCLOPipeline } from '../clean-normalize-clo.pipeline';
-import { FileHelper } from '../helpers/file.helper';
 import { RawCourseWithCLOJsonRow } from '../types/raw-course-row.type';
 
 // Mock the modules before importing to prevent execution of pipeline code
-jest.mock('../helpers/file.helper', () => ({
+jest.mock('src/shared/utils/file', () => ({
   FileHelper: {
     loadLatestJson: jest.fn(),
     saveLatestJson: jest.fn(),

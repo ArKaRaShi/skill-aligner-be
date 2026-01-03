@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
+import { FileHelper } from 'src/shared/utils/file';
 
-import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import { ProcessedGenEdRow } from 'src/modules/course/pipelines/types/raw-gened-row.type';
 
 @Injectable()

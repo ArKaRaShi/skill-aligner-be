@@ -11,7 +11,7 @@ import { CourseRetrieverService } from './services/course-retriever.service';
 import { CourseUseCases } from './use-cases';
 
 @Module({
-  imports: [GptLlmModule, EmbeddingModule.register()],
+  imports: [GptLlmModule, EmbeddingModule],
   providers: [
     ...CourseUseCases,
     {

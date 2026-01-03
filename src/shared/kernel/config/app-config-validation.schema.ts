@@ -54,11 +54,11 @@ export const appConfigValidationSchema = Joi.object({
     }),
 
   EMBEDDING_PROVIDER: Joi.string()
-    .valid('e5', 'openai', 'openrouter')
+    .valid('local', 'openai', 'openrouter')
     .default(AppConfigDefault.EMBEDDING_PROVIDER)
     .messages({
       'string.base': `"EMBEDDING_PROVIDER" should be a type of 'text'`,
-      'any.only': `"EMBEDDING_PROVIDER" must be one of [e5, openai, openrouter]`,
+      'any.only': `"EMBEDDING_PROVIDER" must be one of [local, openai, openrouter]`,
     }),
 
   QUESTION_CLASSIFIER_LLM_MODEL: Joi.string()

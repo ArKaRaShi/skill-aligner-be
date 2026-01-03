@@ -2,8 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import * as path from 'node:path';
 import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
+import { FileHelper } from 'src/shared/utils/file';
 
-import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import {
   I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
   IQuestionClassifierService,

@@ -4,9 +4,8 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
+import { FileHelper } from 'src/shared/utils/file';
 import { z } from 'zod';
-
-import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 
 export class QuestionSetCreatorService {
   private readonly logger = new Logger(QuestionSetCreatorService.name);

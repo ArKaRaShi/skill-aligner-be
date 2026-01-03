@@ -3,9 +3,9 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 
 import {
-  I_EMBEDDING_CLIENT_TOKEN,
-  IEmbeddingClient,
-} from 'src/shared/adapters/embedding/contracts/i-embedding-client.contract';
+  I_EMBEDDING_ROUTER_SERVICE_TOKEN,
+  IEmbeddingRouterService,
+} from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { SortOrder } from 'src/shared/utils/constants/sort-order.constant';
@@ -31,8 +31,8 @@ export class PrismaCourseRepository implements ICourseRepository {
 
   constructor(
     private readonly prisma: PrismaService,
-    @Inject(I_EMBEDDING_CLIENT_TOKEN)
-    private readonly embeddingClient: IEmbeddingClient,
+    @Inject(I_EMBEDDING_ROUTER_SERVICE_TOKEN)
+    private readonly embeddingRouterService: IEmbeddingRouterService,
   ) {}
 
   // eslint-disable-next-line @typescript-eslint/require-await

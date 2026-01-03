@@ -3,8 +3,7 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 import {
   EmbeddingModels,
   EmbeddingProviders,
-  VectorDimensions,
-} from 'src/shared/adapters/embedding/clients';
+} from 'src/shared/adapters/embedding/constants/embedding-models.constant';
 import { IUseCase } from 'src/shared/contracts/i-use-case.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
@@ -167,16 +166,16 @@ export class AnswerQuestionUseCase
       await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
         skills: skillItems.map((item) => item.skill),
         embeddingConfiguration:
-          this.appConfigService.embeddingProvider === EmbeddingProviders.E5
+          this.appConfigService.embeddingProvider === EmbeddingProviders.LOCAL
             ? {
                 model: EmbeddingModels.E5_BASE,
-                provider: EmbeddingProviders.E5,
-                dimension: VectorDimensions.DIM_768,
+                provider: EmbeddingProviders.LOCAL,
+                dimension: 768,
               }
             : {
                 model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
                 provider: EmbeddingProviders.OPENROUTER,
-                dimension: VectorDimensions.DIM_1536,
+                dimension: 1536,
               },
         loThreshold: 0,
         topNLos: 10,

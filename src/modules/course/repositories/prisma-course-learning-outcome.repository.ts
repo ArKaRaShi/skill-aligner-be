@@ -3,10 +3,9 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 
 import {
-  I_EMBEDDING_CLIENT_TOKEN,
-  IEmbeddingClient,
-} from 'src/shared/adapters/embedding/contracts/i-embedding-client.contract';
-import { EmbeddingHelper } from 'src/shared/adapters/embedding/helpers/embedding.helper';
+  I_EMBEDDING_ROUTER_SERVICE_TOKEN,
+  IEmbeddingRouterService,
+} from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import {
@@ -23,8 +22,8 @@ export class PrismaCourseLearningOutcomeRepository
 {
   constructor(
     private readonly prisma: PrismaService,
-    @Inject(I_EMBEDDING_CLIENT_TOKEN)
-    private readonly embeddingClient: IEmbeddingClient,
+    @Inject(I_EMBEDDING_ROUTER_SERVICE_TOKEN)
+    private readonly embeddingRouterService: IEmbeddingRouterService,
   ) {}
 
   async findLosBySkills({
@@ -41,18 +40,19 @@ export class PrismaCourseLearningOutcomeRepository
       return new Map<string, MatchedLearningOutcome[]>();
     }
 
-    // Validate the embedding configuration
-    if (!EmbeddingHelper.isRegistered(embeddingConfiguration)) {
+    // Validate the embedding configuration has required fields
+    if (!embeddingConfiguration.model || !embeddingConfiguration.provider) {
       throw new Error(
-        `Invalid embedding configuration: ${JSON.stringify(embeddingConfiguration)}`,
+        `Invalid embedding configuration: model and provider are required`,
       );
     }
 
     // Generate embeddings for all skills
     const skillsWithEmbeddings = await Promise.all(
       skills.map(async (skill) => {
-        const embeddingResponse = await this.embeddingClient.embedOne({
+        const embeddingResponse = await this.embeddingRouterService.embedOne({
           text: skill,
+          model: embeddingConfiguration.model,
           role: 'query',
         });
 
