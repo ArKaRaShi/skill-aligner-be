@@ -2,6 +2,8 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { z } from 'zod';
 
+import { AppConfigService } from 'src/config/app-config.service';
+
 import {
   GenerateObjectInput,
   GenerateObjectOutput,
@@ -9,10 +11,7 @@ import {
   GenerateTextOutput,
   ILlmProviderClient,
 } from '../contracts/i-llm-provider-client.contract';
-import {
-  DEFAULT_PROVIDER,
-  ILlmRouterService,
-} from '../contracts/i-llm-router-service.contract';
+import { ILlmRouterService } from '../contracts/i-llm-router-service.contract';
 import { IModelRegistry } from '../contracts/i-model-registry.contract';
 import { IProviderRegistry } from '../contracts/i-provider-registry.contract';
 
@@ -22,7 +21,7 @@ import { IProviderRegistry } from '../contracts/i-provider-registry.contract';
  *
  * Provider Selection Logic:
  * 1. If provider is specified, use that provider (validate availability)
- * 2. If provider is not specified, fallback to OpenRouter
+ * 2. If provider is not specified, fallback to configured default provider
  * 3. Validate model is available on selected provider
  * 4. Throw descriptive errors for invalid configurations
  */
@@ -33,6 +32,7 @@ export class LlmRouterService implements ILlmRouterService {
   constructor(
     private readonly providerRegistry: IProviderRegistry,
     private readonly modelRegistry: IModelRegistry,
+    private readonly appConfigService: AppConfigService,
   ) {}
 
   /**
@@ -47,7 +47,7 @@ export class LlmRouterService implements ILlmRouterService {
       provider,
     );
     this.logger.debug(
-      `[LLM Provider] Routing generateText for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
+      `Routing generateText for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
     );
 
     return selectedProvider.generateText({
@@ -69,7 +69,7 @@ export class LlmRouterService implements ILlmRouterService {
       provider,
     );
     this.logger.debug(
-      `[LLM Provider] Routing generateObject for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
+      `Routing generateObject for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
     );
 
     return selectedProvider.generateObject({
@@ -96,7 +96,7 @@ export class LlmRouterService implements ILlmRouterService {
     provider?: string,
   ): { selectedProvider: ILlmProviderClient; resolvedModel: string } {
     // Determine which provider to use
-    const providerName = provider || DEFAULT_PROVIDER;
+    const providerName = provider || this.appConfigService.defaultLlmProvider;
 
     // Validate provider exists first
     if (!this.providerRegistry.hasProvider(providerName)) {

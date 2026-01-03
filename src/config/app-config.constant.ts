@@ -12,15 +12,10 @@ export const AppConfigDefault = {
 
   EMBEDDING_PROVIDER: 'e5',
   SEMANTICS_API_BASE_URL: 'http://localhost:8000/api/v1/semantics',
-  QUESTION_CLASSIFIER_LLM_PROVIDER: 'openrouter',
   QUESTION_CLASSIFIER_LLM_MODEL: 'orca-mini-3b-v2',
-  SKILL_EXPANDER_LLM_PROVIDER: 'openrouter',
   SKILL_EXPANDER_LLM_MODEL: 'orca-mini-3b-v2',
-  FILTER_LO_LLM_PROVIDER: 'openrouter',
   FILTER_LO_LLM_MODEL: 'orca-mini-3b-v2',
   DEFAULT_LLM_PROVIDER: 'openrouter', // Default provider when none specified
-  TOOL_DISPATCHER_LLM_MODEL: 'orca-mini-3b-v2',
-  QUERY_PROFILE_BUILDER_LLM_PROVIDER: 'openrouter',
   QUERY_PROFILE_BUILDER_LLM_MODEL: 'orca-mini-3b-v2',
   ANSWER_SYNTHESIS_LLM_MODEL: 'orca-mini-3b-v2',
   COURSE_RELEVANCE_FILTER_LLM_MODEL: 'orca-mini-3b-v2',

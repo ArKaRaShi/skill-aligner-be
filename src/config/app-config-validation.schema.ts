@@ -29,16 +29,12 @@ export const appConfigValidationSchema = Joi.object({
     'any.required': `"DATABASE_URL" is a required field`,
   }),
 
-  OPENAI_API_KEY: Joi.string().required().messages({
+  OPENAI_API_KEY: Joi.string().optional().messages({
     'string.base': `"OPENAI_API_KEY" should be a type of 'text'`,
-    'string.empty': `"OPENAI_API_KEY" cannot be an empty field`,
-    'any.required': `"OPENAI_API_KEY" is a required field`,
   }),
 
-  OPENROUTER_API_KEY: Joi.string().required().messages({
+  OPENROUTER_API_KEY: Joi.string().optional().messages({
     'string.base': `"OPENROUTER_API_KEY" should be a type of 'text'`,
-    'string.empty': `"OPENROUTER_API_KEY" cannot be an empty field`,
-    'any.required': `"OPENROUTER_API_KEY" is a required field`,
   }),
 
   OPENROUTER_BASE_URL: Joi.string()
@@ -65,26 +61,10 @@ export const appConfigValidationSchema = Joi.object({
       'any.only': `"EMBEDDING_PROVIDER" must be one of [e5, openai, openrouter]`,
     }),
 
-  QUESTION_CLASSIFIER_LLM_PROVIDER: Joi.string()
-    .valid('openrouter', 'openai')
-    .default(AppConfigDefault.QUESTION_CLASSIFIER_LLM_PROVIDER)
-    .messages({
-      'string.base': `"QUESTION_CLASSIFIER_LLM_PROVIDER" should be a type of 'text'`,
-      'any.only': `"QUESTION_CLASSIFIER_LLM_PROVIDER" must be one of [openrouter, openai]`,
-    }),
-
   QUESTION_CLASSIFIER_LLM_MODEL: Joi.string()
     .default(AppConfigDefault.QUESTION_CLASSIFIER_LLM_MODEL)
     .messages({
       'string.base': `"QUESTION_CLASSIFIER_LLM_MODEL" should be a type of 'text'`,
-    }),
-
-  SKILL_EXPANDER_LLM_PROVIDER: Joi.string()
-    .valid('openrouter', 'openai')
-    .default(AppConfigDefault.SKILL_EXPANDER_LLM_PROVIDER)
-    .messages({
-      'string.base': `"SKILL_EXPANDER_LLM_PROVIDER" should be a type of 'text'`,
-      'any.only': `"SKILL_EXPANDER_LLM_PROVIDER" must be one of [openrouter, openai]`,
     }),
 
   SKILL_EXPANDER_LLM_MODEL: Joi.string()
@@ -99,12 +79,6 @@ export const appConfigValidationSchema = Joi.object({
     .messages({
       'string.base': `"DEFAULT_LLM_PROVIDER" should be a type of 'text'`,
       'any.only': `"DEFAULT_LLM_PROVIDER" must be one of [openrouter, openai]`,
-    }),
-
-  TOOL_DISPATCHER_LLM_MODEL: Joi.string()
-    .default(AppConfigDefault.TOOL_DISPATCHER_LLM_MODEL)
-    .messages({
-      'string.base': `"TOOL_DISPATCHER_LLM_MODEL" should be a type of 'text'`,
     }),
 
   ANSWER_SYNTHESIS_LLM_MODEL: Joi.string()

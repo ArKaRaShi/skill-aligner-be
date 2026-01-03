@@ -14,7 +14,7 @@ async function bootstrap() {
   // Get command line arguments
   const args = process.argv.slice(2);
   const pipelineType = args[0];
-  const dimension = args[1] ? parseInt(args[1]) : 768;
+  const dimension = args[1] ? Number(args[1]) : 768;
 
   if (!pipelineType) {
     console.error(

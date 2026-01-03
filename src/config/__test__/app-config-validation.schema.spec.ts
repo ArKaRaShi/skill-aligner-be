@@ -14,11 +14,8 @@ interface ValidationConfig {
   OPENROUTER_BASE_URL?: string;
   SEMANTICS_API_BASE_URL?: string;
   EMBEDDING_PROVIDER?: string;
-  QUESTION_CLASSIFIER_LLM_PROVIDER?: string;
   QUESTION_CLASSIFIER_LLM_MODEL?: string;
-  SKILL_EXPANDER_LLM_PROVIDER?: string;
   SKILL_EXPANDER_LLM_MODEL?: string;
-  TOOL_DISPATCHER_LLM_MODEL?: string;
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE?: boolean;
   USE_MOCK_SKILL_EXPANDER_SERVICE?: boolean;
   USE_QUESTION_CLASSIFIER_CACHE?: boolean;
@@ -274,29 +271,6 @@ describe('appConfigValidationSchema', () => {
     });
   });
 
-  describe('QUESTION_CLASSIFIER_LLM_PROVIDER', () => {
-    const envKey = 'QUESTION_CLASSIFIER_LLM_PROVIDER';
-
-    it.each(['openrouter', 'openai'])('accepts %s', (provider) => {
-      const { error } = validate({ ...requiredFields, [envKey]: provider });
-      expect(error).toBeUndefined();
-    });
-
-    it('rejects unsupported providers', () => {
-      expectErrorMessage(
-        { ...requiredFields, [envKey]: 'unknown' },
-        '"QUESTION_CLASSIFIER_LLM_PROVIDER" must be one of [openrouter, openai]',
-      );
-    });
-
-    it('defaults to AppConfigDefault when omitted', () => {
-      const value = requireValid({ ...requiredFields });
-      expect(value[envKey]).toBe(
-        AppConfigDefault.QUESTION_CLASSIFIER_LLM_PROVIDER,
-      );
-    });
-  });
-
   describe('QUESTION_CLASSIFIER_LLM_MODEL', () => {
     const envKey = 'QUESTION_CLASSIFIER_LLM_MODEL';
 
@@ -320,27 +294,6 @@ describe('appConfigValidationSchema', () => {
       expect(value[envKey]).toBe(
         AppConfigDefault.QUESTION_CLASSIFIER_LLM_MODEL,
       );
-    });
-  });
-
-  describe('SKILL_EXPANDER_LLM_PROVIDER', () => {
-    const envKey = 'SKILL_EXPANDER_LLM_PROVIDER';
-
-    it.each(['openrouter', 'openai'])('accepts %s', (provider) => {
-      const { error } = validate({ ...requiredFields, [envKey]: provider });
-      expect(error).toBeUndefined();
-    });
-
-    it('rejects unsupported providers', () => {
-      expectErrorMessage(
-        { ...requiredFields, [envKey]: 'unknown' },
-        '"SKILL_EXPANDER_LLM_PROVIDER" must be one of [openrouter, openai]',
-      );
-    });
-
-    it('defaults to AppConfigDefault when omitted', () => {
-      const value = requireValid({ ...requiredFields });
-      expect(value[envKey]).toBe(AppConfigDefault.SKILL_EXPANDER_LLM_PROVIDER);
     });
   });
 
@@ -467,30 +420,6 @@ describe('appConfigValidationSchema', () => {
     it('defaults to AppConfigDefault when omitted', () => {
       const value = requireValid({ ...requiredFields });
       expect(value[envKey]).toBe(AppConfigDefault.USE_SKILL_EXPANDER_CACHE);
-    });
-  });
-
-  describe('TOOL_DISPATCHER_LLM_MODEL', () => {
-    const envKey = 'TOOL_DISPATCHER_LLM_MODEL';
-
-    it('accepts string values', () => {
-      const { error } = validate({
-        ...requiredFields,
-        [envKey]: 'openrouter/orca-mini-3b-v2',
-      });
-      expect(error).toBeUndefined();
-    });
-
-    it('rejects non-string values', () => {
-      expectErrorMessage(
-        { ...requiredFields, [envKey]: 123 as unknown as string },
-        `"${envKey}" should be a type of 'text'`,
-      );
-    });
-
-    it('defaults to AppConfigDefault when omitted', () => {
-      const value = requireValid({ ...requiredFields });
-      expect(value[envKey]).toBe(AppConfigDefault.TOOL_DISPATCHER_LLM_MODEL);
     });
   });
 });

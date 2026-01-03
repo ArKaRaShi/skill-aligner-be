@@ -96,7 +96,11 @@ describe('LlmRouterService', () => {
     );
 
     // Create service instance with mocked dependencies
-    service = new LlmRouterService(mockProviderRegistry, mockModelRegistry);
+    service = new LlmRouterService(
+      mockProviderRegistry,
+      mockModelRegistry,
+      {} as any, // AppConfigService - not used in most tests
+    );
   });
 
   describe('generateText', () => {

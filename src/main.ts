@@ -2,78 +2,71 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
+import { Logger, PinoLogger } from 'nestjs-pino';
+
 import { AppModule } from './app.module';
 import { AppConfigService } from './config/app-config.service';
 import { CampusModule } from './modules/campus/campus.module';
 import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryProcessorModule } from './modules/query-processor/query-processor.module';
 
-function logEnvironmentVariables(appConfigService: AppConfigService) {
-  console.log('Environment Variables:');
-  console.log(`NODE_ENV: ${appConfigService.nodeEnv}`);
-  console.log(`PORT: ${appConfigService.port}`);
-  console.log(`DATABASE_URL: ${appConfigService.databaseUrl}`);
-  console.log(
-    `OPENAI_API_KEY: ${appConfigService.openAIApiKey ? '****' : 'Not Set'}`,
-  );
-  console.log(
-    `OPENROUTER_API_KEY: ${appConfigService.openRouterApiKey ? '****' : 'Not Set'}`,
-  );
-  console.log(`OPENROUTER_BASE_URL: ${appConfigService.openRouterBaseUrl}`);
-  console.log(
-    `QUESTION_CLASSIFIER_LLM_PROVIDER: ${appConfigService.questionClassifierLlmProvider}`,
-  );
-  console.log(
-    `QUESTION_CLASSIFIER_LLM_MODEL: ${appConfigService.questionClassifierLlmModel}`,
-  );
-  console.log(
-    `QUERY_PROFILE_BUILDER_LLM_PROVIDER: ${appConfigService.queryProfileBuilderLlmProvider}`,
-  );
-  console.log(
-    `QUERY_PROFILE_BUILDER_LLM_MODEL: ${appConfigService.queryProfileBuilderLlmModel}`,
-  );
-  console.log(
-    `SKILL_EXPANDER_LLM_PROVIDER: ${appConfigService.skillExpanderLlmProvider}`,
-  );
-  console.log(
-    `SKILL_EXPANDER_LLM_MODEL: ${appConfigService.skillExpanderLlmModel}`,
-  );
-  console.log(
-    `ANSWER_SYNTHESIS_LLM_MODEL: ${appConfigService.answerSynthesisLlmModel}`,
-  );
-  console.log(`EMBEDDING_PROVIDER: ${appConfigService.embeddingProvider}`);
-  console.log(
-    `SEMANTICS_API_BASE_URL: ${appConfigService.semanticsApiBaseUrl}`,
-  );
-  console.log(
-    `USE_MOCK_QUESTION_CLASSIFIER_SERVICE: ${appConfigService.useMockQuestionClassifierService}`,
-  );
-  console.log(
-    `USE_MOCK_SKILL_EXPANDER_SERVICE: ${appConfigService.useMockSkillExpanderService}`,
-  );
-  console.log(
-    `USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE: ${appConfigService.useMockQueryProfileBuilderService}`,
-  );
-  console.log(
-    `FILTER_LO_LLM_PROVIDER: ${appConfigService.filterLoLlmProvider}`,
-  );
-  console.log(`FILTER_LO_LLM_MODEL: ${appConfigService.filterLoLlmModel}`);
-  console.log(
-    `COURSE_RELEVANCE_FILTER_LLM_MODEL: ${appConfigService.courseRelevanceFilterLlmModel}`,
-  );
+function logEnvironmentVariables(
+  appConfigService: AppConfigService,
+  logger: PinoLogger,
+) {
+  logger.info({
+    type: 'environment_variables',
+    application: {
+      nodeEnv: appConfigService.nodeEnv,
+      port: appConfigService.port,
+      database: appConfigService.databaseUrl,
+    },
+    llmProvider: {
+      default: appConfigService.defaultLlmProvider,
+      openaiApiKey: appConfigService.openAIApiKey ? '****' : 'Not Set',
+      openrouterApiKey: appConfigService.openRouterApiKey ? '****' : 'Not Set',
+      openrouterBaseUrl: appConfigService.openRouterBaseUrl,
+    },
+    llmModels: {
+      questionClassifier: appConfigService.questionClassifierLlmModel,
+      queryProfileBuilder: appConfigService.queryProfileBuilderLlmModel,
+      skillExpander: appConfigService.skillExpanderLlmModel,
+      answerSynthesis: appConfigService.answerSynthesisLlmModel,
+      filterLo: appConfigService.filterLoLlmModel,
+      courseRelevanceFilter: appConfigService.courseRelevanceFilterLlmModel,
+    },
+    embedding: {
+      provider: appConfigService.embeddingProvider,
+      semanticsApiUrl: appConfigService.semanticsApiBaseUrl,
+    },
+    mockServices: {
+      questionClassifier: appConfigService.useMockQuestionClassifierService,
+      skillExpander: appConfigService.useMockSkillExpanderService,
+      queryProfileBuilder: appConfigService.useMockQueryProfileBuilderService,
+    },
+  });
 }
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    bufferLogs: true,
+  });
   const appConfigService = app.get(AppConfigService);
+
+  // Use resolve() for scoped providers like PinoLogger
+  const pinoLogger = await app.resolve(PinoLogger);
+  pinoLogger.setContext('Bootstrap');
+
+  // Use Logger (NestJS wrapper) for global logging
+  app.useLogger(new Logger(pinoLogger, {}));
 
   // Global setup
   app.setGlobalPrefix('api');
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // strip properties that do not have any decorators
-      transform: true, // automatically transform payloads to be objects typed according to their DTO classes
-      forbidNonWhitelisted: true, // throw an error if non-whitelisted values are present
+      whitelist: true,
+      transform: true,
+      forbidNonWhitelisted: true,
     }),
   );
 
@@ -89,10 +82,6 @@ async function bootstrap() {
       include: [AppModule, QueryProcessorModule, CampusModule, EvaluatorModule],
     });
   SwaggerModule.setup('/swagger', app, documentFactory, {
-    // explorer: true,
-    // swaggerOptions: {
-    //   urls: this.getSwaggerUrls(),
-    // },
     swaggerOptions: {
       tagsSorter: 'alpha',
       operationsSorter: 'method',
@@ -102,15 +91,15 @@ async function bootstrap() {
   });
 
   app.enableCors({
-    // THis should be replaced with actual frontend URL in production
     origin: ['http://localhost:3000'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   });
 
   await app.listen(appConfigService.port);
-  logEnvironmentVariables(appConfigService);
+  logEnvironmentVariables(appConfigService, pinoLogger);
 
-  console.log(`App running in ${appConfigService.nodeEnv} mode`);
-  console.log(`App listening on port ${appConfigService.port}`);
+  pinoLogger.info(
+    `Application running in ${appConfigService.nodeEnv} mode on port ${appConfigService.port}`,
+  );
 }
 void bootstrap();

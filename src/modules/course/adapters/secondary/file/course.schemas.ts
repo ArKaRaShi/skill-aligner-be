@@ -11,7 +11,7 @@ const stripLeadingClo = (name: string) =>
   (name ?? '').replace(/^\s*CLO\s*\d*\s*[:.-]?\s*/i, '').trim();
 
 const AcademicYearBE = z.preprocess(
-  (value) => parseInt(String(value).trim(), 10),
+  (value) => Number.parseInt(String(value).trim(), 10),
   z.number().int().min(2400).max(4000),
 );
 
@@ -21,7 +21,7 @@ const NonEmptyTrimmed = z
   .refine((value) => value.length > 0, 'required');
 
 const Semester = z.preprocess(
-  (value) => parseInt(String(value).trim(), 10),
+  (value) => Number.parseInt(String(value).trim(), 10),
   z.number().int().min(0).max(2),
 );
 
@@ -48,7 +48,7 @@ const CLOName = z
   );
 
 const CLONo = z.preprocess(
-  (value) => parseInt(String(value).trim(), 10),
+  (value) => Number.parseInt(String(value).trim(), 10),
   z.number().int().min(1),
 );
 

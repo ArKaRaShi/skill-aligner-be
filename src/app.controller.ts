@@ -138,8 +138,8 @@ export class AppController {
           'mathematics for ai',
         ];
 
-    const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.75;
-    const topN = topNQuery ? parseInt(topNQuery, 10) : 10;
+    const threshold = thresholdQuery ? Number(thresholdQuery) : 0.75;
+    const topN = topNQuery ? Number.parseInt(topNQuery, 10) : 10;
     let isGenEd: boolean | undefined;
     if (isGenEdQuery === 'true') {
       isGenEd = true;
@@ -237,8 +237,8 @@ export class AppController {
           'mathematics for ai',
         ];
 
-    const threshold = thresholdQuery ? parseFloat(thresholdQuery) : 0.6;
-    const topN = topNQuery ? parseInt(topNQuery, 10) : 20;
+    const threshold = thresholdQuery ? Number(thresholdQuery) : 0.6;
+    const topN = topNQuery ? Number.parseInt(topNQuery, 10) : 20;
     const isGenEd =
       isGenEdQuery === undefined ? undefined : isGenEdQuery === 'true';
 

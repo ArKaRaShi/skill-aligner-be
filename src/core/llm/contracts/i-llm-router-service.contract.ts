@@ -17,7 +17,7 @@ export interface ILlmRouterService {
    * Routes to appropriate provider based on model and optional provider parameter.
    *
    * @param params - The generation parameters including model, prompt, and system prompt
-   * @param provider - Optional provider name. If not specified, defaults to 'openrouter'
+   * @param provider - Optional provider name. If not specified, uses configured default
    * @returns The generated text with token usage metadata
    * @throws Error if provider not found or model not available on provider
    */
@@ -31,7 +31,7 @@ export interface ILlmRouterService {
    * Routes to appropriate provider based on model and optional provider parameter.
    *
    * @param params - The generation parameters including model, prompt, system prompt, and schema
-   * @param provider - Optional provider name. If not specified, defaults to 'openrouter'
+   * @param provider - Optional provider name. If not specified, uses configured default
    * @returns The generated object with token usage metadata
    * @throws Error if provider not found or model not available on provider
    */
@@ -42,8 +42,3 @@ export interface ILlmRouterService {
 }
 
 export const I_LLM_ROUTER_SERVICE_TOKEN = Symbol('ILlmRouterService');
-
-/**
- * Default provider to use when no provider is specified.
- */
-export const DEFAULT_PROVIDER = 'openrouter';

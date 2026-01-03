@@ -60,14 +60,6 @@ export class AppConfigService {
     return embeddingProvider as 'e5' | 'openai' | 'openrouter';
   }
 
-  get questionClassifierLlmProvider(): 'openrouter' | 'openai' {
-    const provider =
-      this.configService.get<'openrouter' | 'openai'>(
-        'QUESTION_CLASSIFIER_LLM_PROVIDER',
-      ) ?? AppConfigDefault.QUESTION_CLASSIFIER_LLM_PROVIDER;
-    return provider as 'openrouter' | 'openai';
-  }
-
   get questionClassifierLlmModel(): string {
     return (
       this.configService.get<string>('QUESTION_CLASSIFIER_LLM_MODEL') ??
@@ -75,27 +67,11 @@ export class AppConfigService {
     );
   }
 
-  get skillExpanderLlmProvider(): 'openrouter' | 'openai' {
-    const provider =
-      this.configService.get<'openrouter' | 'openai'>(
-        'SKILL_EXPANDER_LLM_PROVIDER',
-      ) ?? AppConfigDefault.SKILL_EXPANDER_LLM_PROVIDER;
-    return provider as 'openrouter' | 'openai';
-  }
-
   get skillExpanderLlmModel(): string {
     return (
       this.configService.get<string>('SKILL_EXPANDER_LLM_MODEL') ??
       AppConfigDefault.SKILL_EXPANDER_LLM_MODEL
     );
-  }
-
-  get filterLoLlmProvider(): 'openrouter' | 'openai' {
-    const provider =
-      this.configService.get<'openrouter' | 'openai'>(
-        'FILTER_LO_LLM_PROVIDER',
-      ) ?? AppConfigDefault.FILTER_LO_LLM_PROVIDER;
-    return provider as 'openrouter' | 'openai';
   }
 
   get filterLoLlmModel(): string {
@@ -142,21 +118,6 @@ export class AppConfigService {
       this.configService.get<boolean>('USE_SKILL_EXPANDER_CACHE') ??
       AppConfigDefault.USE_SKILL_EXPANDER_CACHE
     );
-  }
-
-  get toolDispatcherLlmModel(): string {
-    return (
-      this.configService.get<string>('TOOL_DISPATCHER_LLM_MODEL') ??
-      AppConfigDefault.TOOL_DISPATCHER_LLM_MODEL
-    );
-  }
-
-  get queryProfileBuilderLlmProvider(): 'openrouter' | 'openai' {
-    const provider =
-      this.configService.get<'openrouter' | 'openai'>(
-        'QUERY_PROFILE_BUILDER_LLM_PROVIDER',
-      ) ?? AppConfigDefault.QUERY_PROFILE_BUILDER_LLM_PROVIDER;
-    return provider as 'openrouter' | 'openai';
   }
 
   get queryProfileBuilderLlmModel(): string {

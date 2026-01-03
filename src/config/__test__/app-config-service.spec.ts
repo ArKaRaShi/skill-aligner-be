@@ -237,28 +237,6 @@ describe('AppConfigService', () => {
     });
   });
 
-  describe('questionClassifierLlmProvider', () => {
-    it('should return QUESTION_CLASSIFIER_LLM_PROVIDER from config', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue('openai');
-
-      const provider = appConfigService.questionClassifierLlmProvider;
-      expect(provider).toBe('openai');
-      expect(spy).toHaveBeenCalledWith('QUESTION_CLASSIFIER_LLM_PROVIDER');
-
-      spy.mockRestore();
-    });
-
-    it('should return default QUESTION_CLASSIFIER_LLM_PROVIDER when undefined', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
-
-      const provider = appConfigService.questionClassifierLlmProvider;
-      expect(provider).toBe(AppConfigDefault.QUESTION_CLASSIFIER_LLM_PROVIDER);
-      expect(spy).toHaveBeenCalledWith('QUESTION_CLASSIFIER_LLM_PROVIDER');
-
-      spy.mockRestore();
-    });
-  });
-
   describe('questionClassifierLlmModel', () => {
     it('should return QUESTION_CLASSIFIER_LLM_MODEL from config', () => {
       const spy = jest
@@ -278,28 +256,6 @@ describe('AppConfigService', () => {
       const model = appConfigService.questionClassifierLlmModel;
       expect(model).toBe(AppConfigDefault.QUESTION_CLASSIFIER_LLM_MODEL);
       expect(spy).toHaveBeenCalledWith('QUESTION_CLASSIFIER_LLM_MODEL');
-
-      spy.mockRestore();
-    });
-  });
-
-  describe('skillExpanderLlmProvider', () => {
-    it('should return SKILL_EXPANDER_LLM_PROVIDER from config', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue('openai');
-
-      const provider = appConfigService.skillExpanderLlmProvider;
-      expect(provider).toBe('openai');
-      expect(spy).toHaveBeenCalledWith('SKILL_EXPANDER_LLM_PROVIDER');
-
-      spy.mockRestore();
-    });
-
-    it('should return default SKILL_EXPANDER_LLM_PROVIDER when undefined', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
-
-      const provider = appConfigService.skillExpanderLlmProvider;
-      expect(provider).toBe(AppConfigDefault.SKILL_EXPANDER_LLM_PROVIDER);
-      expect(spy).toHaveBeenCalledWith('SKILL_EXPANDER_LLM_PROVIDER');
 
       spy.mockRestore();
     });
@@ -368,30 +324,6 @@ describe('AppConfigService', () => {
       const flag = appConfigService.useMockSkillExpanderService;
       expect(flag).toBe(AppConfigDefault.USE_MOCK_SKILL_EXPANDER_SERVICE);
       expect(spy).toHaveBeenCalledWith('USE_MOCK_SKILL_EXPANDER_SERVICE');
-
-      spy.mockRestore();
-    });
-  });
-
-  describe('toolDispatcherLlmModel', () => {
-    it('should return TOOL_DISPATCHER_LLM_MODEL from config', () => {
-      const spy = jest
-        .spyOn(configService, 'get')
-        .mockReturnValue('openai/gpt-4o-mini');
-
-      const model = appConfigService.toolDispatcherLlmModel;
-      expect(model).toBe('openai/gpt-4o-mini');
-      expect(spy).toHaveBeenCalledWith('TOOL_DISPATCHER_LLM_MODEL');
-
-      spy.mockRestore();
-    });
-
-    it('should return default TOOL_DISPATCHER_LLM_MODEL when undefined', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
-
-      const model = appConfigService.toolDispatcherLlmModel;
-      expect(model).toBe(AppConfigDefault.TOOL_DISPATCHER_LLM_MODEL);
-      expect(spy).toHaveBeenCalledWith('TOOL_DISPATCHER_LLM_MODEL');
 
       spy.mockRestore();
     });

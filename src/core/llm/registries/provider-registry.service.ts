@@ -30,9 +30,9 @@ export class ProviderRegistryService implements IProviderRegistry {
     this.providers.set(name, provider);
 
     if (existing) {
-      this.logger.debug(`[LLM Provider] Updated provider '${name}'`);
+      this.logger.debug(`Updated provider '${name}'`);
     } else {
-      this.logger.debug(`[LLM Provider] Registered provider '${name}'`);
+      this.logger.debug(`Registered provider '${name}'`);
     }
   }
 
@@ -79,7 +79,7 @@ export class ProviderRegistryService implements IProviderRegistry {
    */
   unregisterProvider(name: string): boolean {
     if (this.providers.delete(name)) {
-      this.logger.debug(`[LLM Provider] Unregistered provider '${name}'`);
+      this.logger.debug(`Unregistered provider '${name}'`);
       return true;
     }
     return false;
@@ -98,6 +98,6 @@ export class ProviderRegistryService implements IProviderRegistry {
   clearRegistrations(): void {
     const count = this.providers.size;
     this.providers.clear();
-    this.logger.log(`[LLM Provider] Cleared ${count} provider registrations`);
+    this.logger.log(`Cleared ${count} provider registrations`);
   }
 }
