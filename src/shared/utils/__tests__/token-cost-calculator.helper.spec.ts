@@ -1,4 +1,4 @@
-import { TokenUsage } from '../../domain/types/token-usage.type';
+import { TokenUsage } from '../../contracts/types/token-usage.type';
 import { TokenCostCalculator } from '../token-cost-calculator.helper';
 
 describe('TokenCostCalculator', () => {

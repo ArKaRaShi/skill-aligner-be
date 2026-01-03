@@ -1,5 +1,5 @@
-import { Identifier } from 'src/shared/domain/value-objects/identifier';
-import { EmbeddingMetadata } from 'src/shared/infrastructure/embedding/clients';
+import { EmbeddingMetadata } from 'src/shared/adapters/embedding/clients';
+import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
 

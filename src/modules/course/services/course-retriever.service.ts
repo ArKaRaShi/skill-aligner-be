@@ -4,7 +4,7 @@ import { encode } from '@toon-format/toon';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/shared/infrastructure/llm/contracts/i-llm-router-service.contract';
+} from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import {

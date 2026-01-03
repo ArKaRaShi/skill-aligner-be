@@ -1,6 +1,6 @@
-import { TokenUsage } from 'src/shared/domain/types/token-usage.type';
+import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 
-import { LLM_MODEL_REGISTRATIONS } from '../infrastructure/llm/constants/model-registry.constant';
+import { LLM_MODEL_REGISTRATIONS } from '../adapters/llm/constants/model-registry.constant';
 
 export type TokenCostEstimate = TokenUsage & {
   available: boolean; // true if cost data is available for this model and token type

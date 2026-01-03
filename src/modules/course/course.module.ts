@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 
-import { EmbeddingModule } from '../../shared/infrastructure/embedding/embedding.module';
-import { GptLlmModule } from '../../shared/infrastructure/llm/llm.module';
+import { EmbeddingModule } from '../../shared/adapters/embedding/embedding.module';
+import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
 import { I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN } from './contracts/i-course-learning-outcome-repository.contract';
 import { I_COURSE_REPOSITORY_TOKEN } from './contracts/i-course-repository.contract';
 import { I_COURSE_RETRIEVER_SERVICE_TOKEN } from './contracts/i-course-retriever-service.contract';

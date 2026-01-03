@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { BaseResponseDto } from 'src/shared/api/dto/responses/base.response.dto';
+import { BaseResponseDto } from 'src/shared/contracts/api/base.response.dto';
 
 import { CampusResponseMapper } from './campus-response.mapper';
 import { GetCampusesQueryRequestDto } from './dto/requests/get-campuses-query.request.dto';

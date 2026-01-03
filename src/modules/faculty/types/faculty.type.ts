@@ -1,4 +1,4 @@
-import { Identifier } from 'src/shared/domain/value-objects/identifier';
+import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import type { Campus } from 'src/modules/campus/types/campus.type';
 import { Course } from 'src/modules/course/types/course.type';

@@ -1,7 +1,7 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import * as path from 'node:path';
-import { HashHelper } from 'src/shared/utilities/hash.helper';
+import { HashHelper } from 'src/shared/utils/hash.helper';
 
 import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import {

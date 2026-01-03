@@ -1,4 +1,4 @@
-import { Identifier } from 'src/shared/domain/value-objects/identifier';
+import { Identifier } from 'src/shared/contracts/types/identifier';
 
 export type CourseLearningOutcome = {
   cloId: Identifier;

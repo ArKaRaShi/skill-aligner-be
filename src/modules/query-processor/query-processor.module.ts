@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
-import { EmbeddingModule } from '../../shared/infrastructure/embedding/embedding.module';
+import { EmbeddingModule } from '../../shared/adapters/embedding/embedding.module';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from '../../shared/infrastructure/llm/contracts/i-llm-router-service.contract';
-import { GptLlmModule } from '../../shared/infrastructure/llm/llm.module';
+} from '../../shared/adapters/llm/contracts/i-llm-router-service.contract';
+import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
 import { CampusModule } from '../campus/campus.module';
 import { CourseModule } from '../course/course.module';
 import { FacultyModule } from '../faculty/faculty.module';

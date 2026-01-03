@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
-import { Identifier } from 'src/shared/domain/value-objects/identifier';
+import { Identifier } from 'src/shared/contracts/types/identifier';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { v4 as uuidv4 } from 'uuid';
 

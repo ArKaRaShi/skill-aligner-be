@@ -3,7 +3,7 @@ import { Inject, Logger } from '@nestjs/common';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/shared/infrastructure/llm/contracts/i-llm-router-service.contract';
+} from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { z } from 'zod';
 
 import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';

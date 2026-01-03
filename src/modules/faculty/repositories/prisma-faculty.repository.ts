@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { Identifier } from 'src/shared/domain/value-objects/identifier';
+import { Identifier } from 'src/shared/contracts/types/identifier';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import { IFacultyRepository } from '../contracts/i-faculty.contract';

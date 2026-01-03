@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
-import { LlmInfo } from 'src/shared/domain/types/llm-info.type';
-import { TokenUsage } from 'src/shared/domain/types/token-usage.type';
+import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
+import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
 import {

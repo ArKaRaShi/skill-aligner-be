@@ -4,7 +4,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import {
   EmbeddingModels,
   EmbeddingProviders,
-} from 'src/shared/infrastructure/embedding/constants/model.constant';
+} from 'src/shared/adapters/embedding/constants/model.constant';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { v4 as uuidv4 } from 'uuid';

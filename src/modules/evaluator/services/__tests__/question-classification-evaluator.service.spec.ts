@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 import * as path from 'node:path';
-import { LlmInfo } from 'src/shared/domain/types/llm-info.type';
+import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
 
 import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import {

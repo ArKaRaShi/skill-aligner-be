@@ -1,4 +1,4 @@
-import { TokenUsage } from 'src/shared/domain/types/token-usage.type';
+import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 
 import {
   TokenCostCalculator,

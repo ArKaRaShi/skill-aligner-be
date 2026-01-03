@@ -1,4 +1,4 @@
-import { Identifier } from 'src/shared/domain/value-objects/identifier';
+import { Identifier } from 'src/shared/contracts/types/identifier';
 
 export class CourseOffering {
   id: Identifier;

@@ -2,8 +2,8 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
-import { OpenRouterEmbeddingClient } from 'src/shared/infrastructure/embedding/clients/openrouter-embedding.client';
-import { IEmbeddingClient } from 'src/shared/infrastructure/embedding/contracts/i-embedding-client.contract';
+import { OpenRouterEmbeddingClient } from 'src/shared/adapters/embedding/clients/openrouter-embedding.client';
+import { IEmbeddingClient } from 'src/shared/adapters/embedding/contracts/i-embedding-client.contract';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 

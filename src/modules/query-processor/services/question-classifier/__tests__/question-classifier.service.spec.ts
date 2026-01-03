@@ -1,10 +1,10 @@
 import { Test } from '@nestjs/testing';
 
-import { LlmInfo } from 'src/shared/domain/types/llm-info.type';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/shared/infrastructure/llm/contracts/i-llm-router-service.contract';
+} from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
+import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
 
 import { QuestionClassifierCache } from 'src/modules/query-processor/cache/question-classifier.cache';
 import { QuestionClassifyInput } from 'src/modules/query-processor/contracts/i-question-classifier-service.contract';

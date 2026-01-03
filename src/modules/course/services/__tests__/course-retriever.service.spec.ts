@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { Identifier } from 'src/shared/domain/value-objects/identifier';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/shared/infrastructure/llm/contracts/i-llm-router-service.contract';
+} from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
+import { Identifier } from 'src/shared/contracts/types/identifier';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import {

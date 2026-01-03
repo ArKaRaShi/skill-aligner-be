@@ -2,13 +2,13 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
-import { EmbeddingMetadataJson } from 'src/shared/domain/types/stored-embedding-metadata.type';
 import {
   E5EmbeddingClient,
   OpenRouterEmbeddingClient,
-} from 'src/shared/infrastructure/embedding/clients';
-import type { EmbedResult } from 'src/shared/infrastructure/embedding/clients/base-embedding.client';
-import { initSemanticsHttpClient } from 'src/shared/infrastructure/http/semantics-http-client';
+} from 'src/shared/adapters/embedding/clients';
+import type { EmbedResult } from 'src/shared/adapters/embedding/clients/base-embedding.client';
+import { initSemanticsHttpClient } from 'src/shared/adapters/http/semantics-http-client';
+import { EmbeddingMetadataJson } from 'src/shared/contracts/types/stored-embedding-metadata.type';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { v4 as uuidv4 } from 'uuid';

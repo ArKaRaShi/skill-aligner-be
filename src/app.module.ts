@@ -6,9 +6,10 @@ import { CampusModule, CourseModule, QueryProcessorModule } from './modules';
 import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryLoggingModule } from './modules/query-logging/query-logging.module';
 import { PipelineModule } from './pipelines/pipeline.module';
-import { EmbeddingModule, LoggerModule } from './shared/infrastructure';
+import { EmbeddingModule } from './shared/adapters/embedding/embedding.module';
 import { AppConfigModule } from './shared/kernel/config/app-config.module';
 import { CommonSecondaryAdapterModules } from './shared/kernel/database';
+import { LoggerModule } from './shared/kernel/logger/logger.module';
 
 @Module({
   imports: [

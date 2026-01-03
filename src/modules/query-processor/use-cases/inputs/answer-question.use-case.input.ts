@@ -1,5 +1,5 @@
-import { AcademicYearSemesterFilter } from 'src/shared/domain/types/academic-year-semester-filter.type';
-import { Identifier } from 'src/shared/domain/value-objects/identifier';
+import { AcademicYearSemesterFilter } from 'src/shared/contracts/types/academic-year-semester-filter.type';
+import { Identifier } from 'src/shared/contracts/types/identifier';
 
 export class AnswerQuestionUseCaseInput {
   public readonly question: string;

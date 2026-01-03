@@ -20,12 +20,12 @@ import {
   EmbeddingMetadata,
   EmbeddingModels,
   EmbeddingProviders,
-} from './shared/infrastructure/embedding/constants/model.constant';
+} from './shared/adapters/embedding/constants/model.constant';
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
-} from './shared/infrastructure/embedding/contracts/i-embedding-client.contract';
-import { EmbeddingHelper } from './shared/infrastructure/embedding/helpers/embedding.helper';
+} from './shared/adapters/embedding/contracts/i-embedding-client.contract';
+import { EmbeddingHelper } from './shared/adapters/embedding/helpers/embedding.helper';
 
 @Controller()
 export class AppController {

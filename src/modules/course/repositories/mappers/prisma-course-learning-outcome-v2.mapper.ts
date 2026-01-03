@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client';
 
-import { Identifier } from 'src/shared/domain/value-objects/identifier';
+import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import { LearningOutcome } from '../../types/course-learning-outcome-v2.type';
 import { RawCourseLearningOutcomeRow } from '../types/raw-course-learning-outcome-row.type';

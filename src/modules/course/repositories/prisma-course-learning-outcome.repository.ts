@@ -5,8 +5,8 @@ import { Prisma } from '@prisma/client';
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
-} from 'src/shared/infrastructure/embedding/contracts/i-embedding-client.contract';
-import { EmbeddingHelper } from 'src/shared/infrastructure/embedding/helpers/embedding.helper';
+} from 'src/shared/adapters/embedding/contracts/i-embedding-client.contract';
+import { EmbeddingHelper } from 'src/shared/adapters/embedding/helpers/embedding.helper';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import {
