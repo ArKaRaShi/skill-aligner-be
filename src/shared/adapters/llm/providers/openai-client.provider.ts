@@ -8,6 +8,10 @@ import {
 import { z } from 'zod';
 
 import {
+  LLM_HYPER_PARAMETERS,
+  LLM_MAX_RETRIES_CONFIG,
+} from '../constants/llm-hyper-parameters.constant';
+import {
   GenerateObjectInput,
   GenerateObjectOutput,
   GenerateTextInput,
@@ -41,18 +45,13 @@ export class OpenAIClientProvider
   }: GenerateTextInput): Promise<GenerateTextOutput> {
     this.validateGenerateTextInput({ prompt, systemPrompt, model });
 
-    const hyperParameters = {
-      temperature: 0,
-      maxOutputTokens: 10_000,
-    };
-
     try {
       const { text, usage } = await aiGenerateText({
         model: this.openai(model),
         prompt,
         system: systemPrompt,
-        maxRetries: 1,
-        ...hyperParameters,
+        ...LLM_MAX_RETRIES_CONFIG,
+        ...LLM_HYPER_PARAMETERS,
       });
 
       // Optional: Log method call for debugging
@@ -68,7 +67,7 @@ export class OpenAIClientProvider
         model,
         inputTokens: usage?.inputTokens ?? 0,
         outputTokens: usage?.outputTokens ?? 0,
-        hyperParameters,
+        hyperParameters: LLM_HYPER_PARAMETERS,
       };
     } catch (error) {
       throw this.createProviderError('generate text', model, error as Error);
@@ -83,19 +82,14 @@ export class OpenAIClientProvider
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>> {
     this.validateGenerateObjectInput({ prompt, systemPrompt, schema, model });
 
-    const hyperParameters = {
-      temperature: 0,
-      maxOutputTokens: 10_000,
-    };
-
     try {
       const { object, usage } = await aiGenerateObject({
         model: this.openai(model),
         schema,
         prompt,
         system: systemPrompt,
-        maxRetries: 1,
-        ...hyperParameters,
+        ...LLM_MAX_RETRIES_CONFIG,
+        ...LLM_HYPER_PARAMETERS,
       });
 
       // Optional: Log method call for debugging
@@ -111,7 +105,7 @@ export class OpenAIClientProvider
         inputTokens: usage?.inputTokens ?? 0,
         outputTokens: usage?.outputTokens ?? 0,
         object: object as z.infer<TSchema>,
-        hyperParameters,
+        hyperParameters: LLM_HYPER_PARAMETERS,
       };
     } catch (error) {
       throw this.createProviderError('generate object', model, error as Error);
