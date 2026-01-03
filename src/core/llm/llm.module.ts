@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 
 import { AppConfigService } from 'src/config/app-config.service';
 
-import { I_LLM_PROVIDER_CLIENT_TOKEN } from './contracts/i-llm-provider-client.contract';
 import {
+  I_LLM_PROVIDER_CLIENT_TOKEN,
   OPENAI_PROVIDER_TOKEN,
   OPENROUTER_PROVIDER_TOKEN,
 } from './contracts/i-llm-provider-client.contract';
