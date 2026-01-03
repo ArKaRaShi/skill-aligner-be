@@ -30,6 +30,25 @@ export default defineConfig(
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',
+      // Allow unused vars prefixed with _ (common pattern)
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
+  {
+    // Test file overrides - relax rules for tests
+    files: ['**/*.spec.ts', '**/*.test.ts', '**/__tests__/**/*.ts'],
+    rules: {
+      '@typescript-eslint/unbound-method': 'off',
+      '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+      '@typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
     },
   },
 );

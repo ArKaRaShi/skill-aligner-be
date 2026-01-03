@@ -2,10 +2,9 @@ import { Injectable } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
+import { Identifier } from 'src/shared/domain/value-objects/identifier';
+import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { v4 as uuidv4 } from 'uuid';
-
-import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
-import { Identifier } from 'src/common/domain/types/identifier';
 
 import { IQueryLoggingRepository } from '../contracts/i-query-logging-repository.contract';
 import {

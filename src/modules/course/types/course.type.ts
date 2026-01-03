@@ -1,7 +1,6 @@
-import { Identifier } from 'src/common/domain/types/identifier';
+import { Identifier } from 'src/shared/domain/value-objects/identifier';
 
-import { Campus, CampusView } from 'src/modules/campus/types/campus.type';
-import { FacultyView } from 'src/modules/faculty/types/faculty-view.type';
+import { Campus } from 'src/modules/campus/types/campus.type';
 import { Faculty } from 'src/modules/faculty/types/faculty.type';
 
 import { CourseClickLog } from './course-click-log.type';

@@ -9,8 +9,7 @@ import {
   Matches,
   ValidateNested,
 } from 'class-validator';
-
-import { Identifier } from 'src/common/domain/types/identifier';
+import { Identifier } from 'src/shared/domain/value-objects/identifier';
 
 import { AcademicYearSemesterFilterRequestDto } from './academic-year-semester-filter.request.dto';
 

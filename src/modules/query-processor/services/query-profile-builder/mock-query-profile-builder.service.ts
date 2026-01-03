@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { TokenUsage } from 'src/common/types/token-usage.type';
+import { TokenUsage } from 'src/shared/domain/types/token-usage.type';
 
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
 import { QueryProfile } from '../../types/query-profile.type';

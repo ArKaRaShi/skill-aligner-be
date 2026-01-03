@@ -1,11 +1,10 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import { TokenUsage } from 'src/shared/domain/types/token-usage.type';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/core/llm/contracts/i-llm-router-service.contract';
-
-import { TokenUsage } from 'src/common/types/token-usage.type';
+} from 'src/shared/infrastructure/llm/contracts/i-llm-router-service.contract';
 
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
 import { QueryProfileBuilderPromptFactory } from '../../prompts/query-profile-builder';

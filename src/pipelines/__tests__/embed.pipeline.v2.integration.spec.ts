@@ -4,12 +4,10 @@ import { Test, TestingModule } from '@nestjs/testing';
 import {
   EmbeddingModels,
   EmbeddingProviders,
-} from 'src/core/embedding/constants/model.constant';
+} from 'src/shared/infrastructure/embedding/constants/model.constant';
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
+import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { v4 as uuidv4 } from 'uuid';
-
-import { AppConfigService } from 'src/config/app-config.service';
-
-import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 
 import { parseVector } from 'src/modules/course/repositories/helpers/vector.helper';
 

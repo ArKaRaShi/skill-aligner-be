@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 
-import { BaseResponseDto } from 'src/common/adapters/primary/dto/responses/base.response.dto';
+import { BaseResponseDto } from 'src/shared/api/dto/responses/base.response.dto';
 
 import { AnswerQuestionRequestDto } from './dto/requests/answer-question.request.dto';
 import { AnswerQuestionResponseDto } from './dto/responses/answer-question.response.dto';

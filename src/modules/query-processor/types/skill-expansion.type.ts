@@ -1,5 +1,5 @@
-import { LlmInfo } from 'src/common/types/llm-info.type';
-import { TokenUsage } from 'src/common/types/token-usage.type';
+import { LlmInfo } from 'src/shared/domain/types/llm-info.type';
+import { TokenUsage } from 'src/shared/domain/types/token-usage.type';
 
 export type TSkill = {
   skill: string;

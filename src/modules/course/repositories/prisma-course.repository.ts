@@ -2,14 +2,13 @@ import { Inject, Injectable } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
+import { Identifier } from 'src/shared/domain/value-objects/identifier';
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
-} from 'src/core/embedding/contracts/i-embedding-client.contract';
-
-import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
-import { SortOrder } from 'src/common/constants/sort-order.constant';
-import { Identifier } from 'src/common/domain/types/identifier';
+} from 'src/shared/infrastructure/embedding/contracts/i-embedding-client.contract';
+import { PrismaService } from 'src/shared/kernel/database/prisma.service';
+import { SortOrder } from 'src/shared/utilities/constants/sort-order.constant';
 
 import {
   FindCoursesByLearningOutcomeIdsParams,
@@ -36,10 +35,11 @@ export class PrismaCourseRepository implements ICourseRepository {
     private readonly embeddingClient: IEmbeddingClient,
   ) {}
 
+  // eslint-disable-next-line @typescript-eslint/require-await
   async findCoursesBySkillsViaLO({
-    skills,
-    matchesPerSkill,
-    threshold,
+    skills: _skills,
+    matchesPerSkill: _matchesPerSkill,
+    threshold: _threshold,
   }: FindCoursesBySkillsParams): Promise<Map<string, CourseMatch[]>> {
     // Implementation has been moved to PrismaCourseLearningOutcomeRepository
     return new Map<string, CourseMatch[]>();

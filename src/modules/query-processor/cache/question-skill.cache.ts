@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { BaseLocalCache } from 'src/common/adapters/secondary/cache/base-local.cache';
+import { BaseLocalCache } from 'src/shared/infrastructure/cache/base-local.cache';
 
 import { TSkillExpansion } from '../types/skill-expansion.type';
 

@@ -1,5 +1,5 @@
-import { CloEmbeddingMetadata } from 'src/common/domain/types/clo-embedding-metadata';
-import { Identifier } from 'src/common/domain/types/identifier';
+import { CloEmbeddingMetadata } from 'src/shared/domain/types/clo-embedding-metadata';
+import { Identifier } from 'src/shared/domain/value-objects/identifier';
 
 export type Course = {
   courseId: Identifier;

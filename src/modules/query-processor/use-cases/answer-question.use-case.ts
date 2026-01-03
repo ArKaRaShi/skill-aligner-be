@@ -1,18 +1,19 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import { IUseCase } from 'src/shared/application/contracts/i-use-case.contract';
+import { Identifier } from 'src/shared/domain/value-objects/identifier';
 import {
   EmbeddingModels,
   EmbeddingProviders,
   VectorDimensions,
-} from 'src/core/embedding/clients';
-
-import { AppConfigService } from 'src/config/app-config.service';
-
-import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
-import { Identifier } from 'src/common/domain/types/identifier';
-import { ArrayHelper } from 'src/common/helpers/array.helper';
-import { TimeLogger, TimingMap } from 'src/common/helpers/time-logger.helper';
-import { TokenLogger, TokenMap } from 'src/common/helpers/token-logger.helper';
+} from 'src/shared/infrastructure/embedding/clients';
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
+import { ArrayHelper } from 'src/shared/utilities/array.helper';
+import { TimeLogger, TimingMap } from 'src/shared/utilities/time-logger.helper';
+import {
+  TokenLogger,
+  TokenMap,
+} from 'src/shared/utilities/token-logger.helper';
 
 import {
   I_CAMPUS_REPOSITORY_TOKEN,

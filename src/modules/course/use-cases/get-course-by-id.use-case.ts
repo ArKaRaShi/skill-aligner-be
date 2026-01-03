@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 
-import { IUseCase } from 'src/common/application/contracts/i-use-case.contract';
+import { IUseCase } from 'src/shared/application/contracts/i-use-case.contract';
 
 import {
   I_COURSE_REPOSITORY_TOKEN,

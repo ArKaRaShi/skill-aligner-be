@@ -1,8 +1,7 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import * as path from 'node:path';
-
-import { HashHelper } from 'src/common/helpers/hash.helper';
+import { HashHelper } from 'src/shared/utilities/hash.helper';
 
 import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import {
@@ -16,7 +15,6 @@ import {
   QUESTION_SET_V6,
   QuestionSetItem,
 } from '../test-set/question-classifier/question-set-v6.constant';
-import { QUESTION_SET_V8 } from '../test-set/question-classifier/question-set-v8.constant';
 import {
   ClassClassificationMetrics,
   ClassificationMetadata,
@@ -186,7 +184,7 @@ export class QuestionClassificationEvaluatorService {
         category: actualCategory,
         reason,
         llmInfo,
-        tokenUsage,
+        tokenUsage: _tokenUsage,
       } = await this.questionClassifierService.classify({
         question: questionObj.question,
         promptVersion,

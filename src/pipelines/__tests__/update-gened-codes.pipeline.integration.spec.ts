@@ -1,8 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { v4 as uuidv4 } from 'uuid';
-
-import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
 
 import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import { ProcessedGenEdRow } from 'src/modules/course/pipelines/types/raw-gened-row.type';

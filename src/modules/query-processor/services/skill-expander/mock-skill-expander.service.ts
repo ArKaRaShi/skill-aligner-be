@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
-import { LlmInfo } from 'src/common/types/llm-info.type';
-import { TokenUsage } from 'src/common/types/token-usage.type';
+import { LlmInfo } from 'src/shared/domain/types/llm-info.type';
+import { TokenUsage } from 'src/shared/domain/types/token-usage.type';
 
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
 import {
@@ -11,7 +11,7 @@ import {
 
 @Injectable()
 export class MockSkillExpanderService implements ISkillExpanderService {
-  async expandSkills(question: string): Promise<TSkillExpansion> {
+  async expandSkills(_question: string): Promise<TSkillExpansion> {
     await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate async delay
     const tokenUsage: TokenUsage = {
       model: 'mock-model',
@@ -44,7 +44,7 @@ export class MockSkillExpanderService implements ISkillExpanderService {
     };
   }
 
-  async expandSkillsV2(question: string): Promise<TSkillExpansionV2> {
+  async expandSkillsV2(_question: string): Promise<TSkillExpansionV2> {
     await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate async delay
     const tokenUsage: TokenUsage = {
       model: 'mock-model',

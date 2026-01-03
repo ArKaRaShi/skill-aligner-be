@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiBody } from '@nestjs/swagger';
 
-import { BaseResponseDto } from 'src/common/adapters/primary/dto/responses/base.response.dto';
+import { BaseResponseDto } from 'src/shared/api/dto/responses/base.response.dto';
 
 import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
 

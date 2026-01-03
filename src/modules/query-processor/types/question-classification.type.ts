@@ -1,7 +1,6 @@
+import { LlmInfo } from 'src/shared/domain/types/llm-info.type';
+import { TokenUsage } from 'src/shared/domain/types/token-usage.type';
 import { z } from 'zod';
-
-import { LlmInfo } from 'src/common/types/llm-info.type';
-import { TokenUsage } from 'src/common/types/token-usage.type';
 
 import {
   CategoryEnum,

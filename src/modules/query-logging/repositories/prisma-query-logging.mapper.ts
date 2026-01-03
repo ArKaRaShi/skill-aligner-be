@@ -3,7 +3,7 @@ import {
   QueryProcessStep as PrismaQueryProcessStep,
 } from '@prisma/client';
 
-import { Identifier } from 'src/common/domain/types/identifier';
+import { Identifier } from 'src/shared/domain/value-objects/identifier';
 
 import {
   QueryProcessLog,

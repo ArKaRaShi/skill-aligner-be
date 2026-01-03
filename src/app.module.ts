@@ -2,13 +2,13 @@ import { ClassSerializerInterceptor, Module } from '@nestjs/common';
 import { APP_INTERCEPTOR, Reflector } from '@nestjs/core';
 
 import { AppController } from './app.controller';
-import { CommonSecondaryAdapterModules } from './common/adapters/secondary';
-import { AppConfigModule } from './config/app-config.module';
-import { EmbeddingModule, LoggerModule } from './core';
 import { CampusModule, CourseModule, QueryProcessorModule } from './modules';
 import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryLoggingModule } from './modules/query-logging/query-logging.module';
 import { PipelineModule } from './pipelines/pipeline.module';
+import { EmbeddingModule, LoggerModule } from './shared/infrastructure';
+import { AppConfigModule } from './shared/kernel/config/app-config.module';
+import { CommonSecondaryAdapterModules } from './shared/kernel/database';
 
 @Module({
   imports: [

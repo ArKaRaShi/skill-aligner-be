@@ -4,9 +4,8 @@ import { encode } from '@toon-format/toon';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/core/llm/contracts/i-llm-router-service.contract';
-
-import { AppConfigService } from 'src/config/app-config.service';
+} from 'src/shared/infrastructure/llm/contracts/i-llm-router-service.contract';
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,

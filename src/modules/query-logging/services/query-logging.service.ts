@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 
-import { Identifier } from 'src/common/domain/types/identifier';
+import { Identifier } from 'src/shared/domain/value-objects/identifier';
 
 import {
   I_QUERY_LOGGING_REPOSITORY,

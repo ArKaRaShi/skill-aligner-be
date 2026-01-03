@@ -5,10 +5,10 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger, PinoLogger } from 'nestjs-pino';
 
 import { AppModule } from './app.module';
-import { AppConfigService } from './config/app-config.service';
 import { CampusModule } from './modules/campus/campus.module';
 import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryProcessorModule } from './modules/query-processor/query-processor.module';
+import { AppConfigService } from './shared/kernel/config/app-config.service';
 
 function logEnvironmentVariables(
   appConfigService: AppConfigService,

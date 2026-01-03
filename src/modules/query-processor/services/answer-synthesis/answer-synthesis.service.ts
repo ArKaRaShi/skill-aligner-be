@@ -1,13 +1,12 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
+import { LlmInfo } from 'src/shared/domain/types/llm-info.type';
+import { TokenUsage } from 'src/shared/domain/types/token-usage.type';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/core/llm/contracts/i-llm-router-service.contract';
-
-import { LlmInfo } from 'src/common/types/llm-info.type';
-import { TokenUsage } from 'src/common/types/token-usage.type';
+} from 'src/shared/infrastructure/llm/contracts/i-llm-router-service.contract';
 
 import { AggregatedCourseSkills } from 'src/modules/course/types/course.type';
 

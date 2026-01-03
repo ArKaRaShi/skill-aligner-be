@@ -1,13 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { Identifier } from 'src/shared/domain/value-objects/identifier';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
-} from 'src/core/llm/contracts/i-llm-router-service.contract';
-
-import { AppConfigService } from 'src/config/app-config.service';
-
-import { Identifier } from 'src/common/domain/types/identifier';
+} from 'src/shared/infrastructure/llm/contracts/i-llm-router-service.contract';
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,

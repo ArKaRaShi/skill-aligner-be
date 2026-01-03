@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
+import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import { CleanCourseWithCLO } from 'src/modules/course/pipelines/types/clean-course.type';

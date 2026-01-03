@@ -5,10 +5,9 @@ import { Prisma } from '@prisma/client';
 import {
   I_EMBEDDING_CLIENT_TOKEN,
   IEmbeddingClient,
-} from 'src/core/embedding/contracts/i-embedding-client.contract';
-import { EmbeddingHelper } from 'src/core/embedding/helpers/embedding.helper';
-
-import { PrismaService } from 'src/common/adapters/secondary/prisma/prisma.service';
+} from 'src/shared/infrastructure/embedding/contracts/i-embedding-client.contract';
+import { EmbeddingHelper } from 'src/shared/infrastructure/embedding/helpers/embedding.helper';
+import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import {
   FindLosBySkillsParams,
