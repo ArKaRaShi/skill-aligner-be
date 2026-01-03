@@ -18,12 +18,9 @@ interface ValidationConfig {
   QUESTION_CLASSIFIER_LLM_MODEL?: string;
   SKILL_EXPANDER_LLM_PROVIDER?: string;
   SKILL_EXPANDER_LLM_MODEL?: string;
-  ANSWER_GENERATOR_LLM_PROVIDER?: string;
-  ANSWER_GENERATOR_LLM_MODEL?: string;
   TOOL_DISPATCHER_LLM_MODEL?: string;
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE?: boolean;
   USE_MOCK_SKILL_EXPANDER_SERVICE?: boolean;
-  USE_MOCK_ANSWER_GENERATOR_SERVICE?: boolean;
   USE_QUESTION_CLASSIFIER_CACHE?: boolean;
   USE_SKILL_EXPANDER_CACHE?: boolean;
 }
@@ -371,53 +368,6 @@ describe('appConfigValidationSchema', () => {
     });
   });
 
-  describe('ANSWER_GENERATOR_LLM_PROVIDER', () => {
-    const envKey = 'ANSWER_GENERATOR_LLM_PROVIDER';
-
-    it.each(['openrouter', 'openai'])('accepts %s', (provider) => {
-      const { error } = validate({ ...requiredFields, [envKey]: provider });
-      expect(error).toBeUndefined();
-    });
-
-    it('rejects unsupported providers', () => {
-      expectErrorMessage(
-        { ...requiredFields, [envKey]: 'unknown' },
-        '"ANSWER_GENERATOR_LLM_PROVIDER" must be one of [openrouter, openai]',
-      );
-    });
-
-    it('defaults to AppConfigDefault when omitted', () => {
-      const value = requireValid({ ...requiredFields });
-      expect(value[envKey]).toBe(
-        AppConfigDefault.ANSWER_GENERATOR_LLM_PROVIDER,
-      );
-    });
-  });
-
-  describe('ANSWER_GENERATOR_LLM_MODEL', () => {
-    const envKey = 'ANSWER_GENERATOR_LLM_MODEL';
-
-    it('accepts string values', () => {
-      const { error } = validate({
-        ...requiredFields,
-        [envKey]: 'openrouter/orca-mini-3b-v2',
-      });
-      expect(error).toBeUndefined();
-    });
-
-    it('rejects non-string values', () => {
-      expectErrorMessage(
-        { ...requiredFields, [envKey]: 123 as unknown as string },
-        `"${envKey}" should be a type of 'text'`,
-      );
-    });
-
-    it('defaults to AppConfigDefault when omitted', () => {
-      const value = requireValid({ ...requiredFields });
-      expect(value[envKey]).toBe(AppConfigDefault.ANSWER_GENERATOR_LLM_MODEL);
-    });
-  });
-
   describe('USE_MOCK_QUESTION_CLASSIFIER_SERVICE', () => {
     const envKey = 'USE_MOCK_QUESTION_CLASSIFIER_SERVICE';
 
@@ -466,32 +416,6 @@ describe('appConfigValidationSchema', () => {
       const value = requireValid({ ...requiredFields });
       expect(value[envKey]).toBe(
         AppConfigDefault.USE_MOCK_SKILL_EXPANDER_SERVICE,
-      );
-    });
-  });
-
-  describe('USE_MOCK_ANSWER_GENERATOR_SERVICE', () => {
-    const envKey = 'USE_MOCK_ANSWER_GENERATOR_SERVICE';
-
-    it.each([true, false])('accepts boolean value %s', (flag) => {
-      const { error } = validate({ ...requiredFields, [envKey]: flag });
-      expect(error).toBeUndefined();
-    });
-
-    it('rejects non-boolean values', () => {
-      expectErrorMessage(
-        {
-          ...requiredFields,
-          [envKey]: 'invalid' as unknown as boolean,
-        },
-        `"${envKey}" should be a type of 'boolean'`,
-      );
-    });
-
-    it('defaults to AppConfigDefault when omitted', () => {
-      const value = requireValid({ ...requiredFields });
-      expect(value[envKey]).toBe(
-        AppConfigDefault.USE_MOCK_ANSWER_GENERATOR_SERVICE,
       );
     });
   });

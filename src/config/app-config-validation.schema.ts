@@ -93,20 +93,6 @@ export const appConfigValidationSchema = Joi.object({
       'string.base': `"SKILL_EXPANDER_LLM_MODEL" should be a type of 'text'`,
     }),
 
-  ANSWER_GENERATOR_LLM_PROVIDER: Joi.string()
-    .valid('openrouter', 'openai')
-    .default(AppConfigDefault.ANSWER_GENERATOR_LLM_PROVIDER)
-    .messages({
-      'string.base': `"ANSWER_GENERATOR_LLM_PROVIDER" should be a type of 'text'`,
-      'any.only': `"ANSWER_GENERATOR_LLM_PROVIDER" must be one of [openrouter, openai]`,
-    }),
-
-  ANSWER_GENERATOR_LLM_MODEL: Joi.string()
-    .default(AppConfigDefault.ANSWER_GENERATOR_LLM_MODEL)
-    .messages({
-      'string.base': `"ANSWER_GENERATOR_LLM_MODEL" should be a type of 'text'`,
-    }),
-
   DEFAULT_LLM_PROVIDER: Joi.string()
     .valid('openrouter', 'openai')
     .default(AppConfigDefault.DEFAULT_LLM_PROVIDER)
@@ -127,12 +113,6 @@ export const appConfigValidationSchema = Joi.object({
       'string.base': `"ANSWER_SYNTHESIS_LLM_MODEL" should be a type of 'text'`,
     }),
 
-  COURSE_CLASSIFICATION_LLM_MODEL: Joi.string()
-    .default(AppConfigDefault.COURSE_CLASSIFICATION_LLM_MODEL)
-    .messages({
-      'string.base': `"COURSE_CLASSIFICATION_LLM_MODEL" should be a type of 'text'`,
-    }),
-
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE: Joi.boolean()
     .default(AppConfigDefault.USE_MOCK_QUESTION_CLASSIFIER_SERVICE)
     .messages({
@@ -143,12 +123,6 @@ export const appConfigValidationSchema = Joi.object({
     .default(AppConfigDefault.USE_MOCK_SKILL_EXPANDER_SERVICE)
     .messages({
       'boolean.base': `"USE_MOCK_SKILL_EXPANDER_SERVICE" should be a type of 'boolean'`,
-    }),
-
-  USE_MOCK_ANSWER_GENERATOR_SERVICE: Joi.boolean()
-    .default(AppConfigDefault.USE_MOCK_ANSWER_GENERATOR_SERVICE)
-    .messages({
-      'boolean.base': `"USE_MOCK_ANSWER_GENERATOR_SERVICE" should be a type of 'boolean'`,
     }),
 
   USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE: Joi.boolean()

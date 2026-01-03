@@ -39,16 +39,7 @@ function logEnvironmentVariables(appConfigService: AppConfigService) {
     `SKILL_EXPANDER_LLM_MODEL: ${appConfigService.skillExpanderLlmModel}`,
   );
   console.log(
-    `COURSE_CLASSIFICATION_LLM_MODEL: ${appConfigService.courseClassificationLlmModel}`,
-  );
-  console.log(
     `ANSWER_SYNTHESIS_LLM_MODEL: ${appConfigService.answerSynthesisLlmModel}`,
-  );
-  console.log(
-    `ANSWER_GENERATOR_LLM_PROVIDER: ${appConfigService.answerGeneratorLlmProvider}`,
-  );
-  console.log(
-    `ANSWER_GENERATOR_LLM_MODEL: ${appConfigService.answerGeneratorLlmModel}`,
   );
   console.log(`EMBEDDING_PROVIDER: ${appConfigService.embeddingProvider}`);
   console.log(
@@ -59,9 +50,6 @@ function logEnvironmentVariables(appConfigService: AppConfigService) {
   );
   console.log(
     `USE_MOCK_SKILL_EXPANDER_SERVICE: ${appConfigService.useMockSkillExpanderService}`,
-  );
-  console.log(
-    `USE_MOCK_ANSWER_GENERATOR_SERVICE: ${appConfigService.useMockAnswerGeneratorService}`,
   );
   console.log(
     `USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE: ${appConfigService.useMockQueryProfileBuilderService}`,

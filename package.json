@@ -27,6 +27,7 @@
     "test:integration": "jest --config ./test/jest-integration.json --runInBand",
     "test": "bun run test:unit && bun run test:integration",
     "seed:courses": "ts-node -r tsconfig-paths/register prisma/seeds/course.seed.ts",
+    "typecheck": "tsc --noEmit",
     "prepare": "husky"
   },
   "dependencies": {

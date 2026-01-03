@@ -329,52 +329,6 @@ describe('AppConfigService', () => {
     });
   });
 
-  describe('answerGeneratorLlmProvider', () => {
-    it('should return ANSWER_GENERATOR_LLM_PROVIDER from config', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue('openai');
-
-      const provider = appConfigService.answerGeneratorLlmProvider;
-      expect(provider).toBe('openai');
-      expect(spy).toHaveBeenCalledWith('ANSWER_GENERATOR_LLM_PROVIDER');
-
-      spy.mockRestore();
-    });
-
-    it('should return default ANSWER_GENERATOR_LLM_PROVIDER when undefined', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
-
-      const provider = appConfigService.answerGeneratorLlmProvider;
-      expect(provider).toBe(AppConfigDefault.ANSWER_GENERATOR_LLM_PROVIDER);
-      expect(spy).toHaveBeenCalledWith('ANSWER_GENERATOR_LLM_PROVIDER');
-
-      spy.mockRestore();
-    });
-  });
-
-  describe('answerGeneratorLlmModel', () => {
-    it('should return ANSWER_GENERATOR_LLM_MODEL from config', () => {
-      const spy = jest
-        .spyOn(configService, 'get')
-        .mockReturnValue('openai/gpt-4o-mini');
-
-      const model = appConfigService.answerGeneratorLlmModel;
-      expect(model).toBe('openai/gpt-4o-mini');
-      expect(spy).toHaveBeenCalledWith('ANSWER_GENERATOR_LLM_MODEL');
-
-      spy.mockRestore();
-    });
-
-    it('should return default ANSWER_GENERATOR_LLM_MODEL when undefined', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
-
-      const model = appConfigService.answerGeneratorLlmModel;
-      expect(model).toBe(AppConfigDefault.ANSWER_GENERATOR_LLM_MODEL);
-      expect(spy).toHaveBeenCalledWith('ANSWER_GENERATOR_LLM_MODEL');
-
-      spy.mockRestore();
-    });
-  });
-
   describe('useMockQuestionClassifierService', () => {
     it('should return USE_MOCK_QUESTION_CLASSIFIER_SERVICE from config', () => {
       const spy = jest.spyOn(configService, 'get').mockReturnValue(true);
@@ -414,28 +368,6 @@ describe('AppConfigService', () => {
       const flag = appConfigService.useMockSkillExpanderService;
       expect(flag).toBe(AppConfigDefault.USE_MOCK_SKILL_EXPANDER_SERVICE);
       expect(spy).toHaveBeenCalledWith('USE_MOCK_SKILL_EXPANDER_SERVICE');
-
-      spy.mockRestore();
-    });
-  });
-
-  describe('useMockAnswerGeneratorService', () => {
-    it('should return USE_MOCK_ANSWER_GENERATOR_SERVICE from config', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue(true);
-
-      const flag = appConfigService.useMockAnswerGeneratorService;
-      expect(flag).toBe(true);
-      expect(spy).toHaveBeenCalledWith('USE_MOCK_ANSWER_GENERATOR_SERVICE');
-
-      spy.mockRestore();
-    });
-
-    it('should return default USE_MOCK_ANSWER_GENERATOR_SERVICE when undefined', () => {
-      const spy = jest.spyOn(configService, 'get').mockReturnValue(undefined);
-
-      const flag = appConfigService.useMockAnswerGeneratorService;
-      expect(flag).toBe(AppConfigDefault.USE_MOCK_ANSWER_GENERATOR_SERVICE);
-      expect(spy).toHaveBeenCalledWith('USE_MOCK_ANSWER_GENERATOR_SERVICE');
 
       spy.mockRestore();
     });

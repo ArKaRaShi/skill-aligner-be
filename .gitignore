@@ -63,3 +63,7 @@ data/*.json
 data/courses.csv
 
 src/modules/**/*.json
+
+.claude/
+docs/
+CLAUDE.md

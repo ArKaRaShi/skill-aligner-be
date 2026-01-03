@@ -13,18 +13,13 @@ import { CourseModule } from '../course/course.module';
 import { FacultyModule } from '../faculty/faculty.module';
 import { QuestionClassifierCache } from './cache/question-classifier.cache';
 import { QuestionSkillCache } from './cache/question-skill.cache';
-import { I_ANSWER_GENERATOR_SERVICE_TOKEN } from './contracts/i-answer-generator-service.contract';
 import { I_ANSWER_SYNTHESIS_SERVICE_TOKEN } from './contracts/i-answer-synthesis-service.contract';
-import { I_COURSE_CLASSIFICATION_SERVICE_TOKEN } from './contracts/i-course-classification-service.contract';
 import { I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN } from './contracts/i-course-relevance-filter-service.contract';
 import { I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN } from './contracts/i-query-profile-builder-service.contract';
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
 import { QueryProcessorController } from './query-processor.controller';
-import { MockAnswerGeneratorService } from './services/answer-generator/mock-answer-generator.service';
-import { ObjectBasedAnswerGeneratorService } from './services/answer-generator/object-based-answer-generator.service';
 import { AnswerSynthesisService } from './services/answer-synthesis/answer-synthesis.service';
-import { CourseClassificationService } from './services/course-classification/course-classification.service';
 import { CourseRelevanceFilterService } from './services/course-relevance-filter/course-relevance-filter.service';
 import { MockQueryProfileBuilderService } from './services/query-profile-builder/mock-query-profile-builder.service';
 import { QueryProfileBuilderService } from './services/query-profile-builder/query-profile-builder.service';
@@ -32,8 +27,6 @@ import { MockQuestionClassifierService } from './services/question-classifier/mo
 import { QuestionClassifierService } from './services/question-classifier/question-classifier.service';
 import { MockSkillExpanderService } from './services/skill-expander/mock-skill-expander.service';
 import { SkillExpanderService } from './services/skill-expander/skill-expander.service';
-import { QueryStrategyFactory } from './strategies/query-strategy.factory';
-import { SkillQueryStrategy } from './strategies/skill-query.strategy';
 import { QueryProcessorUseCases } from './use-cases';
 
 @Module({
@@ -96,20 +89,6 @@ import { QueryProcessorUseCases } from './use-cases';
       },
     },
     {
-      provide: I_ANSWER_GENERATOR_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
-      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
-        if (config.useMockAnswerGeneratorService) {
-          console.log('Creating MockAnswerGeneratorService');
-          return new MockAnswerGeneratorService(llmRouter);
-        }
-        return new ObjectBasedAnswerGeneratorService(
-          llmRouter,
-          config.answerGeneratorLlmModel,
-        );
-      },
-    },
-    {
       provide: I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
       inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
       useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
@@ -119,18 +98,6 @@ import { QueryProcessorUseCases } from './use-cases';
         return new QueryProfileBuilderService(
           llmRouter,
           config.queryProfileBuilderLlmModel,
-        );
-      },
-    },
-    {
-      provide: I_COURSE_CLASSIFICATION_SERVICE_TOKEN,
-      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
-      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
-        // The CourseClassificationService is not mocked for now
-        // but this can be extended in future if needed
-        return new CourseClassificationService(
-          llmRouter,
-          config.courseClassificationLlmModel,
         );
       },
     },
@@ -158,10 +125,6 @@ import { QueryProcessorUseCases } from './use-cases';
         );
       },
     },
-
-    // Strategies and Factory
-    QueryStrategyFactory,
-    SkillQueryStrategy,
   ],
   exports: [
     I_QUESTION_CLASSIFIER_SERVICE_TOKEN,

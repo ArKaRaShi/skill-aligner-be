@@ -106,17 +106,6 @@ export class AppConfigService {
   }
 
   /**
-   * @deprecated Use defaultLlmProvider instead. This is kept for backward compatibility.
-   */
-  get answerGeneratorLlmProvider(): 'openrouter' | 'openai' {
-    const provider =
-      this.configService.get<'openrouter' | 'openai'>(
-        'ANSWER_GENERATOR_LLM_PROVIDER',
-      ) ?? AppConfigDefault.ANSWER_GENERATOR_LLM_PROVIDER;
-    return provider as 'openrouter' | 'openai';
-  }
-
-  /**
    * Gets the default LLM provider to use when no provider is specified.
    * @returns The default provider name ('openrouter' or 'openai')
    */
@@ -125,13 +114,6 @@ export class AppConfigService {
       this.configService.get<'openrouter' | 'openai'>('DEFAULT_LLM_PROVIDER') ??
       AppConfigDefault.DEFAULT_LLM_PROVIDER;
     return provider as 'openrouter' | 'openai';
-  }
-
-  get answerGeneratorLlmModel(): string {
-    return (
-      this.configService.get<string>('ANSWER_GENERATOR_LLM_MODEL') ??
-      AppConfigDefault.ANSWER_GENERATOR_LLM_MODEL
-    );
   }
 
   get useMockQuestionClassifierService(): boolean {
@@ -145,13 +127,6 @@ export class AppConfigService {
     return (
       this.configService.get<boolean>('USE_MOCK_SKILL_EXPANDER_SERVICE') ??
       AppConfigDefault.USE_MOCK_SKILL_EXPANDER_SERVICE
-    );
-  }
-
-  get useMockAnswerGeneratorService(): boolean {
-    return (
-      this.configService.get<boolean>('USE_MOCK_ANSWER_GENERATOR_SERVICE') ??
-      AppConfigDefault.USE_MOCK_ANSWER_GENERATOR_SERVICE
     );
   }
 
@@ -195,13 +170,6 @@ export class AppConfigService {
     return (
       this.configService.get<string>('ANSWER_SYNTHESIS_LLM_MODEL') ??
       AppConfigDefault.ANSWER_SYNTHESIS_LLM_MODEL
-    );
-  }
-
-  get courseClassificationLlmModel(): string {
-    return (
-      this.configService.get<string>('COURSE_CLASSIFICATION_LLM_MODEL') ??
-      AppConfigDefault.COURSE_CLASSIFICATION_LLM_MODEL
     );
   }
 
