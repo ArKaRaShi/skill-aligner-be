@@ -94,13 +94,7 @@ describe('LlmRouterService', () => {
     );
 
     // Create service instance with mocked dependencies
-    service = new LlmRouterService(
-      mockProviderRegistry,
-      mockModelRegistry,
-      {
-        defaultLlmProvider: mockOpenRouterProviderName,
-      } as any, // AppConfigService - only defaultLlmProvider is used
-    );
+    service = new LlmRouterService(mockProviderRegistry, mockModelRegistry);
   });
 
   describe('generateText', () => {
@@ -110,7 +104,7 @@ describe('LlmRouterService', () => {
       model: validModel,
     };
 
-    it('should route to default provider (openrouter) when no provider specified', async () => {
+    it('should route to first available provider (openrouter) when no provider specified', async () => {
       mockProviderRegistry.getProvider.mockClear();
 
       const mockProvider = {
@@ -196,7 +190,6 @@ describe('LlmRouterService', () => {
     });
 
     it('should throw error when model is not available on specified provider', async () => {
-      mockModelRegistry.isModelRegistered.mockReturnValue(true);
       mockModelRegistry.getProvidersForModel.mockReturnValue([
         mockOpenRouterProviderName,
       ]);
@@ -208,9 +201,6 @@ describe('LlmRouterService', () => {
         `Model '${validModel}' is not available on provider '${mockOpenAIProviderName}'. Available providers for this model: ${mockOpenRouterProviderName}`,
       );
 
-      expect(mockModelRegistry.isModelRegistered).toHaveBeenCalledWith(
-        validModel,
-      );
       expect(mockModelRegistry.getProvidersForModel).toHaveBeenCalledWith(
         validModel,
       );
@@ -231,7 +221,7 @@ describe('LlmRouterService', () => {
       model: validModel,
     };
 
-    it('should route to default provider (openrouter) when no provider specified', async () => {
+    it('should route to first available provider (openrouter) when no provider specified', async () => {
       mockProviderRegistry.getProvider.mockClear();
 
       const mockProvider = {
@@ -306,7 +296,6 @@ describe('LlmRouterService', () => {
     });
 
     it('should throw error when model is not available on specified provider', async () => {
-      mockModelRegistry.isModelRegistered.mockReturnValue(true);
       mockModelRegistry.getProvidersForModel.mockReturnValue([
         mockOpenRouterProviderName,
       ]);
@@ -318,9 +307,6 @@ describe('LlmRouterService', () => {
         `Model '${validModel}' is not available on provider '${mockOpenAIProviderName}'. Available providers for this model: ${mockOpenRouterProviderName}`,
       );
 
-      expect(mockModelRegistry.isModelRegistered).toHaveBeenCalledWith(
-        validModel,
-      );
       expect(mockModelRegistry.getProvidersForModel).toHaveBeenCalledWith(
         validModel,
       );
@@ -335,7 +321,7 @@ describe('LlmRouterService', () => {
       model: validModel,
     };
 
-    it('should use openrouter as default provider', async () => {
+    it('should use first available provider (openrouter)', async () => {
       mockProviderRegistry.getProvider.mockClear();
 
       const mockProvider = {
@@ -399,7 +385,6 @@ describe('LlmRouterService', () => {
     });
 
     it('should provide helpful error message for model not available on provider', async () => {
-      mockModelRegistry.isModelAvailable.mockReturnValue(false);
       mockModelRegistry.getProvidersForModel.mockReturnValue([
         mockOpenRouterProviderName,
       ]);
@@ -409,6 +394,90 @@ describe('LlmRouterService', () => {
         service.generateText(mockGenerateTextInput, mockOpenAIProviderName),
       ).rejects.toThrow(
         `Model '${validModel}' is not available on provider '${mockOpenAIProviderName}'`,
+      );
+    });
+
+    it('should reject provider-prefixed model ID (e.g., "openai/gpt-4o-mini") without explicit provider', async () => {
+      const modelId = 'openai/gpt-4o-mini';
+
+      await expect(
+        service.generateText({ ...mockGenerateTextInput, model: modelId }),
+      ).rejects.toThrow(
+        `Provider-prefixed model IDs like '${modelId}' are not allowed without explicit provider parameter. Use base model name 'gpt-4o-mini' instead, or specify the provider explicitly.`,
+      );
+    });
+
+    it('should resolve provider-prefixed model ID with different provider (e.g., "openai/gpt-4o-mini" + "openrouter")', async () => {
+      const modelId = 'openai/gpt-4o-mini';
+      mockProviderRegistry.getProvider.mockClear();
+
+      const mockProvider = {
+        generateText: jest.fn().mockResolvedValue({
+          text: 'result',
+          model: modelId,
+          inputTokens: 0,
+          outputTokens: 0,
+        }),
+        generateObject: jest.fn(),
+        getProviderName: jest.fn().mockReturnValue(mockOpenRouterProviderName),
+      };
+
+      // Model registry should resolve openai/gpt-4o-mini + openrouter → openai/gpt-4o-mini
+      mockModelRegistry.resolveModelId.mockImplementation(
+        (model: string, provider?: string) => {
+          if (
+            model === 'openai/gpt-4o-mini' &&
+            provider === mockOpenRouterProviderName
+          ) {
+            return modelId; // openrouter also has this model ID
+          }
+          if (model.includes('/')) {
+            if (provider && model.split('/')[0] !== provider) {
+              // Extract base model and resolve to specified provider
+              const baseModel = model.split('/').slice(1).join('/');
+              if (
+                baseModel === validModel &&
+                provider === mockOpenRouterProviderName
+              ) {
+                return modelId;
+              }
+              return undefined;
+            }
+            return model;
+          }
+          const providerName = provider || mockOpenRouterProviderName;
+          return providerName === mockOpenRouterProviderName
+            ? `openai/${model}`
+            : model;
+        },
+      );
+
+      // getProviderForModelId should return the provider for the resolved model ID
+      mockModelRegistry.getProviderForModelId.mockReturnValue(
+        mockOpenRouterProviderName,
+      );
+
+      // getProvidersForModel should return available providers for the base model
+      mockModelRegistry.getProvidersForModel.mockReturnValue([
+        mockOpenRouterProviderName,
+        mockOpenAIProviderName,
+      ]);
+
+      mockProviderRegistry.getProvider.mockReturnValue(mockProvider);
+      mockProviderRegistry.hasProvider.mockReturnValue(true);
+
+      await service.generateText(
+        { ...mockGenerateTextInput, model: modelId },
+        mockOpenRouterProviderName,
+      );
+
+      // Should have resolved to openrouter provider with the same model ID
+      expect(mockModelRegistry.resolveModelId).toHaveBeenCalledWith(
+        modelId,
+        mockOpenRouterProviderName,
+      );
+      expect(mockProviderRegistry.getProvider).toHaveBeenCalledWith(
+        mockOpenRouterProviderName,
       );
     });
   });

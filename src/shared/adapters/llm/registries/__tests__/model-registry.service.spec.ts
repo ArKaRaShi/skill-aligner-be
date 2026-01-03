@@ -98,10 +98,13 @@ describe('ModelRegistryService', () => {
       expect(service.resolveModelId('openai/gpt-4o-mini')).toBe(
         'openai/gpt-4o-mini',
       );
-      expect(() =>
-        service.resolveModelId('openai/gpt-4o-mini', 'openai'),
-      ).toThrow(
-        "Model ID 'openai/gpt-4o-mini' belongs to provider 'openrouter', not 'openai'. Either remove the provider parameter or use 'openrouter'",
+      // When provider matches the model ID's provider, return the model ID itself
+      expect(service.resolveModelId('openai/gpt-4o-mini', 'openrouter')).toBe(
+        'openai/gpt-4o-mini',
+      );
+      // When provider doesn't match, extract base model and resolve to the specified provider
+      expect(service.resolveModelId('openai/gpt-4o-mini', 'openai')).toBe(
+        'gpt-4o-mini',
       );
     });
 

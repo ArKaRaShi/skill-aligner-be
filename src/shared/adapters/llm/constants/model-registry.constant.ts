@@ -1,17 +1,6 @@
 import { LLMModelRegistration } from '../types/model.type';
 
-/**
- * Unified LLM model registry constant.
- * Single source of truth for all model registrations, including:
- * - Base model names
- * - Provider-specific model IDs
- * - Provider information
- * - Cost rates
- *
- * This constant is used by both ModelRegistryService and TokenCostCalculator.
- * When adding a new model, add an entry here with all required data.
- */
-export const LLM_MODEL_REGISTRATIONS: LLMModelRegistration[] = [
+const OPENROUTER_LLM_MODELS_REGISTRATIONS: LLMModelRegistration[] = [
   // OpenRouter models
   {
     baseModel: 'gpt-4o-mini',
@@ -67,6 +56,9 @@ export const LLM_MODEL_REGISTRATIONS: LLMModelRegistration[] = [
       outputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
     },
   },
+];
+
+const OPENAI_LLM_MODELS_REGISTRATIONS: LLMModelRegistration[] = [
   // OpenAI models
   {
     baseModel: 'gpt-4o-mini',
@@ -95,4 +87,20 @@ export const LLM_MODEL_REGISTRATIONS: LLMModelRegistration[] = [
       outputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
     },
   },
+];
+
+/**
+ * Unified LLM model registry constant.
+ * Single source of truth for all model registrations, including:
+ * - Base model names
+ * - Provider-specific model IDs
+ * - Provider information
+ * - Cost rates
+ *
+ * This constant is used by both ModelRegistryService and TokenCostCalculator.
+ * When adding a new model, add an entry here with all required data.
+ */
+export const LLM_MODEL_REGISTRATIONS: LLMModelRegistration[] = [
+  ...OPENROUTER_LLM_MODELS_REGISTRATIONS,
+  ...OPENAI_LLM_MODELS_REGISTRATIONS,
 ];

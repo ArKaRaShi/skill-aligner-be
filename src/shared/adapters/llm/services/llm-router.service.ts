@@ -1,6 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
 
-import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { z } from 'zod';
 
 import {
@@ -20,9 +19,9 @@ import { IProviderRegistry } from '../contracts/i-provider-registry.contract';
  *
  * Provider Selection Logic:
  * 1. If provider is specified, use that provider (validate availability)
- * 2. If provider is not specified, fallback to configured default provider
- * 3. Validate model is available on selected provider
- * 4. Throw descriptive errors for invalid configurations
+ * 2. If provider is not specified, use the first available provider from the model registry
+ *    (providers are checked in registration order: openrouter first, then openai, etc.)
+ * 3. If no provider supports the model, throw an error
  */
 @Injectable()
 export class LlmRouterService implements ILlmRouterService {
@@ -31,7 +30,6 @@ export class LlmRouterService implements ILlmRouterService {
   constructor(
     private readonly providerRegistry: IProviderRegistry,
     private readonly modelRegistry: IModelRegistry,
-    private readonly appConfigService: AppConfigService,
   ) {}
 
   /**
@@ -82,62 +80,69 @@ export class LlmRouterService implements ILlmRouterService {
   /**
    * Resolves to appropriate provider and provider-specific model ID for a given model and optional provider parameter.
    *
-   * Accepts both base model names (e.g., 'gpt-4.1-mini') and provider-specific model IDs (e.g., 'openai/gpt-4.1-mini').
-   * Always resolves to the provider-specific model ID.
+   * Provider Selection Logic:
+   * 1. If provider is specified, use that provider (validate availability)
+   * 2. If provider is not specified and model is base name, use first available provider from registry
+   * 3. If provider is not specified and model contains "/" (provider-prefixed), reject it
    *
-   * @param model - The model identifier (base model name or provider-specific model ID)
+   * @param model - The model identifier (base model name only, e.g., 'gpt-4.1-mini')
    * @param provider - Optional provider name
    * @returns Object containing the resolved provider instance and provider-specific model ID
-   * @throws Error if provider not found or model not available on provider
+   * @throws Error if provider not found, model not available, or provider-prefixed model used without explicit provider
    */
   private resolveProviderAndModel(
     model: string,
     provider?: string,
   ): { selectedProvider: ILlmProviderClient; resolvedModel: string } {
-    // Determine which provider to use
-    const providerName = provider || this.appConfigService.defaultLlmProvider;
+    let providerName: string;
 
-    // Validate provider exists first
-    if (!this.providerRegistry.hasProvider(providerName)) {
-      const availableProviders = this.providerRegistry.getAllProviders();
-      throw new Error(
-        `Provider '${providerName}' not found. Available providers: ${availableProviders.join(', ') || 'none'}`,
-      );
+    // If provider is explicitly specified, use it
+    if (provider) {
+      providerName = provider;
+      // Validate provider exists
+      if (!this.providerRegistry.hasProvider(providerName)) {
+        const availableProviders = this.providerRegistry.getAllProviders();
+        throw new Error(
+          `Provider '${providerName}' not found. Available providers: ${availableProviders.join(', ') || 'none'}`,
+        );
+      }
+    } else {
+      // Provider not specified - reject provider-prefixed model IDs
+      if (model.includes('/')) {
+        throw new Error(
+          `Provider-prefixed model IDs like '${model}' are not allowed without explicit provider parameter. Use base model name '${model.split('/').slice(1).join('/')}' instead, or specify the provider explicitly.`,
+        );
+      }
+
+      // Base model name - use the first available provider from the model registry
+      const availableProvidersForModel =
+        this.modelRegistry.getProvidersForModel(model);
+
+      if (availableProvidersForModel.length === 0) {
+        const availableModels = this.modelRegistry.getAllModels();
+        throw new Error(
+          `Model '${model}' is not supported by any registered provider. Available models: ${availableModels.join(', ') || 'none'}`,
+        );
+      }
+
+      providerName = availableProvidersForModel[0]; // Use first available provider
     }
 
-    // Resolve model ID using the model registry (handles both base model and model ID)
+    // Resolve model ID using the model registry
     const resolvedModel = this.modelRegistry.resolveModelId(
       model,
       providerName,
     );
 
     if (!resolvedModel) {
-      // If model is not a model ID, check if it's a base model
-      if (!this.modelRegistry.isModelRegistered(model)) {
-        const availableModels = this.modelRegistry.getAllModels();
-        throw new Error(
-          `Model '${model}' is not registered. Available models: ${availableModels.join(', ') || 'none'}`,
-        );
-      }
-      // Model is registered but provider not available or base model without provider
       const availableProvidersForModel =
         this.modelRegistry.getProvidersForModel(model);
-      if (availableProvidersForModel.length === 0) {
-        throw new Error(
-          `Model '${model}' is registered but has no available providers. Please check the model registry configuration.`,
-        );
-      }
-      if (!provider) {
-        throw new Error(
-          `Model '${model}' is a base model and requires a provider. Available providers: ${availableProvidersForModel.join(', ')}`,
-        );
-      }
       throw new Error(
         `Model '${model}' is not available on provider '${providerName}'. Available providers for this model: ${availableProvidersForModel.join(', ')}`,
       );
     }
 
-    // Get the provider for the resolved model ID (should match the providerName)
+    // Get the provider for the resolved model ID
     const modelIdProvider =
       this.modelRegistry.getProviderForModelId(resolvedModel);
     if (!modelIdProvider) {

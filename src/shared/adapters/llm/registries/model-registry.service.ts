@@ -201,13 +201,20 @@ export class ModelRegistryService implements IModelRegistry {
 
     if (modelIdProvider) {
       // Incoming model is a provider-specific model ID
-      // If provider is specified, it must match the model ID's provider
-      if (provider && provider !== modelIdProvider) {
-        throw new Error(
-          `Model ID '${model}' belongs to provider '${modelIdProvider}', not '${provider}'. Either remove the provider parameter or use '${modelIdProvider}'`,
-        );
+      if (provider) {
+        if (provider === modelIdProvider) {
+          // Provider matches, return the model ID itself
+          return model;
+        }
+        // Provider doesn't match - extract base model and resolve to the specified provider
+        const baseModel = model.split('/').slice(1).join('/');
+        const baseModelProviderMap = this.modelRegistrations.get(baseModel);
+        if (baseModelProviderMap) {
+          return baseModelProviderMap.get(provider);
+        }
+        return undefined;
       }
-      // Return the model ID itself (it's already provider-specific)
+      // No provider specified, return the model ID itself
       return model;
     }
 
