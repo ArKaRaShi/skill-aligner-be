@@ -47,7 +47,7 @@ export class LlmRouterService implements ILlmRouterService {
       provider,
     );
     this.logger.debug(
-      `Routing generateText for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
+      `[LLM Provider] Routing generateText for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
     );
 
     return selectedProvider.generateText({
@@ -69,7 +69,7 @@ export class LlmRouterService implements ILlmRouterService {
       provider,
     );
     this.logger.debug(
-      `Routing generateObject for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
+      `[LLM Provider] Routing generateObject for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
     );
 
     return selectedProvider.generateObject({

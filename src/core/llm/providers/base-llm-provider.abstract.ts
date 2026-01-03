@@ -59,7 +59,7 @@ export abstract class BaseLlmProvider implements ILlmProviderClient {
     request: any,
   ): void {
     this.logger.log(
-      `[${method}] usage: ${JSON.stringify(usage, null, 2)}\nproviderMetadata: ${JSON.stringify(providerMetadata, null, 2)}\nrequest: ${JSON.stringify(request, null, 2)}`,
+      `[LLM Provider] [${method}] usage: ${JSON.stringify(usage, null, 2)}\nproviderMetadata: ${JSON.stringify(providerMetadata, null, 2)}\nrequest: ${JSON.stringify(request, null, 2)}`,
     );
   }
 
