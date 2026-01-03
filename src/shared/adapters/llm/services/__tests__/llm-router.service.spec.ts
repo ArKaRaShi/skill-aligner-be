@@ -97,7 +97,9 @@ describe('LlmRouterService', () => {
     service = new LlmRouterService(
       mockProviderRegistry,
       mockModelRegistry,
-      {} as any, // AppConfigService - not used in most tests
+      {
+        defaultLlmProvider: mockOpenRouterProviderName,
+      } as any, // AppConfigService - only defaultLlmProvider is used
     );
   });
 
