@@ -209,36 +209,65 @@ model CourseClickLog {
 enum QueryStatus {
   PENDING
   COMPLETED
+  EARLY_EXIT        // Query exited early (irrelevant/dangerous classification)
   FAILED
+  TIMEOUT
 
   @@map("query_status")
 }
 
 model QueryProcessLog {
-  id           String             @id @db.Uuid
-  question     String
-  status       QueryStatus        @default(PENDING)
-  createdAt    DateTime           @default(now()) @map("created_at")
-  updatedAt    DateTime           @updatedAt @map("updated_at")
+  id        String             @id @db.Uuid
+  status    QueryStatus        @default(PENDING)
+  question  String
+
+  // JSONB fields - flexible, no migration needed for new fields
+  input     Json?              // Query input parameters
+  output    Json?              // Final results (answer, courses, classification)
+  metrics   Json?              // Aggregated metrics (duration, tokens, cost, counts)
+  metadata  Json?              // Additional data (sessionId, userId, etc.)
+  error     Json?              // Error info (code, message, stack)
+
+  // Timestamps
+  startedAt   DateTime         @default(now()) @map("started_at")
+  completedAt DateTime?        @map("completed_at")
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @updatedAt @map("updated_at")
+
+  // Relations
   processSteps QueryProcessStep[]
 
+  @@index([status])
+  @@index([startedAt])
   @@map("query_process_logs")
 }
 
 model QueryProcessStep {
-  id          String          @id @db.Uuid
-  queryLogId  String          @map("query_log_id") @db.Uuid
-  processLog  QueryProcessLog @relation(fields: [queryLogId], references: [id], onDelete: Cascade)
-  stepName    String          @map("step_name")
-  stepOrder   Int             @map("step_order")
-  startedAt   DateTime        @map("started_at")
-  completedAt DateTime?       @map("completed_at")
-  duration    Int?            @map("duration")
-  input       Json?           @map("input")
-  output      Json?           @map("output")
-  metadata    Json?           @map("metadata")
-  createdAt   DateTime        @default(now()) @map("created_at")
-  updatedAt   DateTime        @updatedAt @map("updated_at")
+  id         String          @id @db.Uuid
+  queryLogId String          @map("query_log_id") @db.Uuid
+  processLog QueryProcessLog @relation(fields: [queryLogId], references: [id], onDelete: Cascade)
 
+  // Core fields (for indexing)
+  stepName   String          @map("step_name")
+  stepOrder  Int             @map("step_order")
+
+  // JSONB fields - flexible storage
+  input      Json?           // Input data for this step
+  output     Json?           // Output data from this step
+  llm        Json?           // LLM config (provider, model, version, params, tokens, cost)
+  embedding  Json?           // Embedding config (model, provider, dimension, etc.) - for COURSE_RETRIEVAL step
+  metrics    Json?           // Timing, duration
+  error      Json?           // Error info (code, message, details)
+
+  // Timestamps
+  startedAt   DateTime       @default(now()) @map("started_at")
+  completedAt DateTime?      @map("completed_at")
+  duration    Int?           @map("duration") // milliseconds
+  createdAt   DateTime       @default(now()) @map("created_at")
+  updatedAt   DateTime       @updatedAt @map("updated_at")
+
+  @@index([queryLogId])
+  @@index([stepName])
+  @@index([startedAt])
   @@map("query_process_steps")
 }
