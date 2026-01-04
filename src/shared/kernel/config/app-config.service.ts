@@ -53,6 +53,13 @@ export class AppConfigService {
     );
   }
 
+  get embeddingModel(): string {
+    return (
+      this.configService.get<string>('EMBEDDING_MODEL') ??
+      AppConfigDefault.EMBEDDING_MODEL
+    );
+  }
+
   get embeddingProvider(): 'local' | 'openai' | 'openrouter' {
     const embeddingProvider =
       this.configService.get<string>('EMBEDDING_PROVIDER') ??

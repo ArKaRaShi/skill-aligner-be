@@ -8,6 +8,7 @@ import { Identifier } from 'src/shared/contracts/types/identifier';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import {
+  FindLosBySkillsOutput,
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
   ICourseLearningOutcomeRepository,
 } from '../../contracts/i-course-learning-outcome-repository.contract';
@@ -130,25 +131,127 @@ describe('CourseRetrieverService', () => {
 
   describe('getCoursesWithLosBySkillsWithFilter', () => {
     it('returns empty arrays per skill when no learning outcomes are found', async () => {
-      loRepository.findLosBySkills.mockResolvedValue(
+      const mockEmbeddingsUsage = new Map([
+        [
+          'skill1',
+          {
+            model: 'e5-base',
+            provider: 'e5',
+            dimension: 768,
+            embeddedText: 'skill1',
+            generatedAt: new Date().toISOString(),
+          },
+        ],
+        [
+          'skill2',
+          {
+            model: 'e5-base',
+            provider: 'e5',
+            dimension: 768,
+            embeddedText: 'skill2',
+            generatedAt: new Date().toISOString(),
+          },
+        ],
+      ]);
+      const mockOutput: FindLosBySkillsOutput = {
+        losBySkill: new Map([
+          ['skill1', []],
+          ['skill2', []],
+        ]),
+        embeddingsUsage: mockEmbeddingsUsage,
+      };
+      loRepository.findLosBySkills.mockResolvedValue(mockOutput);
+
+      const result =
+        await service.getCoursesWithLosBySkillsWithFilter(baseParams);
+
+      expect(result.coursesBySkill).toEqual(
         new Map([
           ['skill1', []],
           ['skill2', []],
         ]),
+      );
+      expect(result.embeddingsUsage).toEqual(mockEmbeddingsUsage);
+      expect(
+        courseRepository.findCourseByLearningOutcomeIds,
+      ).not.toHaveBeenCalled();
+    });
+
+    it('passes through embedding usage metadata from repository', async () => {
+      const lo1 = buildMatchedLearningOutcome({
+        loId: 'lo-1' as Identifier,
+        similarityScore: 0.9,
+      });
+
+      const mockEmbeddingsUsage = new Map([
+        [
+          'skill1',
+          {
+            model: 'e5-base',
+            provider: 'e5',
+            dimension: 768,
+            embeddedText: 'skill1',
+            generatedAt: '2024-01-01T00:00:00.000Z',
+            promptTokens: 5,
+            totalTokens: 5,
+          },
+        ],
+        [
+          'skill2',
+          {
+            model: 'e5-base',
+            provider: 'e5',
+            dimension: 768,
+            embeddedText: 'skill2',
+            generatedAt: '2024-01-01T00:00:01.000Z',
+            promptTokens: 6,
+            totalTokens: 6,
+          },
+        ],
+      ]);
+
+      const mockOutput: FindLosBySkillsOutput = {
+        losBySkill: new Map([
+          ['skill1', [lo1]],
+          ['skill2', []],
+        ]),
+        embeddingsUsage: mockEmbeddingsUsage,
+      };
+      loRepository.findLosBySkills.mockResolvedValue(mockOutput);
+
+      const course = buildCourse({
+        courseLearningOutcomes: [
+          buildLearningOutcome({ loId: 'lo-1' as Identifier }),
+        ],
+      });
+
+      courseRepository.findCourseByLearningOutcomeIds.mockResolvedValue(
+        new Map<Identifier, Course[]>([['lo-1' as Identifier, [course]]]),
       );
 
       const result =
         await service.getCoursesWithLosBySkillsWithFilter(baseParams);
 
-      expect(result).toEqual(
-        new Map([
-          ['skill1', []],
-          ['skill2', []],
-        ]),
-      );
-      expect(
-        courseRepository.findCourseByLearningOutcomeIds,
-      ).not.toHaveBeenCalled();
+      // Verify embedding metadata is passed through correctly
+      expect(result.embeddingsUsage.size).toBe(2);
+      expect(result.embeddingsUsage.get('skill1')).toEqual({
+        model: 'e5-base',
+        provider: 'e5',
+        dimension: 768,
+        embeddedText: 'skill1',
+        generatedAt: '2024-01-01T00:00:00.000Z',
+        promptTokens: 5,
+        totalTokens: 5,
+      });
+      expect(result.embeddingsUsage.get('skill2')).toEqual({
+        model: 'e5-base',
+        provider: 'e5',
+        dimension: 768,
+        embeddedText: 'skill2',
+        generatedAt: '2024-01-01T00:00:01.000Z',
+        promptTokens: 6,
+        totalTokens: 6,
+      });
     });
 
     it('aggregates courses by skill and merges matched learning outcomes per course', async () => {
@@ -161,12 +264,14 @@ describe('CourseRetrieverService', () => {
         similarityScore: 0.8,
       });
 
-      loRepository.findLosBySkills.mockResolvedValue(
-        new Map([
+      const mockOutput: FindLosBySkillsOutput = {
+        losBySkill: new Map([
           ['skill1', [lo1, lo2]],
           ['skill2', []],
         ]),
-      );
+        embeddingsUsage: new Map(),
+      };
+      loRepository.findLosBySkills.mockResolvedValue(mockOutput);
 
       const course = buildCourse({
         courseLearningOutcomes: [
@@ -185,7 +290,7 @@ describe('CourseRetrieverService', () => {
       const result =
         await service.getCoursesWithLosBySkillsWithFilter(baseParams);
 
-      const matches = result.get('skill1');
+      const matches = result.coursesBySkill.get('skill1');
       expect(matches).toHaveLength(1);
 
       const [courseMatch] = matches as CourseWithLearningOutcomeV2Match[];

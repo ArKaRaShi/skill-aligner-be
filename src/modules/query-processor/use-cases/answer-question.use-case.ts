@@ -162,7 +162,7 @@ export class AnswerQuestionUseCase
 
     this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
 
-    const skillCoursesMap =
+    const { coursesBySkill: skillCoursesMap } =
       await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
         skills: skillItems.map((item) => item.skill),
         embeddingConfiguration:

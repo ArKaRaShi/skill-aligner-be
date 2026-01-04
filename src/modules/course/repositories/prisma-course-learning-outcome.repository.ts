@@ -6,9 +6,11 @@ import {
   I_EMBEDDING_ROUTER_SERVICE_TOKEN,
   IEmbeddingRouterService,
 } from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
+import { EmbeddingResultMetadata } from 'src/shared/adapters/embedding/providers/base-embedding-provider.abstract';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import {
+  FindLosBySkillsOutput,
   FindLosBySkillsParams,
   ICourseLearningOutcomeRepository,
 } from '../contracts/i-course-learning-outcome-repository.contract';
@@ -35,9 +37,12 @@ export class PrismaCourseLearningOutcomeRepository
     facultyId,
     isGenEd,
     academicYearSemesters,
-  }: FindLosBySkillsParams): Promise<Map<string, MatchedLearningOutcome[]>> {
+  }: FindLosBySkillsParams): Promise<FindLosBySkillsOutput> {
     if (!skills.length) {
-      return new Map<string, MatchedLearningOutcome[]>();
+      return {
+        losBySkill: new Map<string, MatchedLearningOutcome[]>(),
+        embeddingsUsage: new Map(),
+      };
     }
 
     // Validate the embedding configuration has required fields
@@ -47,7 +52,7 @@ export class PrismaCourseLearningOutcomeRepository
       );
     }
 
-    // Generate embeddings for all skills
+    // Generate embeddings for all skills and capture metadata
     const skillsWithEmbeddings = await Promise.all(
       skills.map(async (skill) => {
         const embeddingResponse = await this.embeddingRouterService.embedOne({
@@ -59,12 +64,16 @@ export class PrismaCourseLearningOutcomeRepository
         return {
           skill,
           vector: embeddingResponse.vector,
+          metadata: embeddingResponse.metadata,
         };
       }),
     );
 
     if (!skillsWithEmbeddings.length) {
-      return new Map<string, MatchedLearningOutcome[]>();
+      return {
+        losBySkill: new Map<string, MatchedLearningOutcome[]>(),
+        embeddingsUsage: new Map(),
+      };
     }
 
     const embeddingDimension = skillsWithEmbeddings[0]?.vector.length ?? 0;
@@ -110,7 +119,7 @@ export class PrismaCourseLearningOutcomeRepository
     `;
 
     const queryResults = await Promise.all(
-      skillsWithEmbeddings.map(async ({ skill, vector }) => {
+      skillsWithEmbeddings.map(async ({ skill, vector, metadata }) => {
         const vectorArraySql = Prisma.sql`ARRAY[${Prisma.join(
           vector.map((value) => Prisma.sql`${value}`),
         )}]::float4[]`;
@@ -185,15 +194,17 @@ export class PrismaCourseLearningOutcomeRepository
           similarityScore: Number(row.similarity),
         }));
 
-        return { skill, cloMatches };
+        return { skill, cloMatches, metadata };
       }),
     );
 
-    const result = new Map<string, MatchedLearningOutcome[]>();
-    for (const { skill, cloMatches } of queryResults) {
-      result.set(skill, cloMatches);
+    const losBySkill = new Map<string, MatchedLearningOutcome[]>();
+    const embeddingsUsage = new Map<string, EmbeddingResultMetadata>();
+    for (const { skill, cloMatches, metadata } of queryResults) {
+      losBySkill.set(skill, cloMatches);
+      embeddingsUsage.set(skill, metadata);
     }
 
-    return result;
+    return { losBySkill, embeddingsUsage };
   }
 }

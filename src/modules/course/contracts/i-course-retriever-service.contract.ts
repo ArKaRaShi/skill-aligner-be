@@ -1,3 +1,4 @@
+import { EmbeddingResultMetadata } from 'src/shared/adapters/embedding/providers/base-embedding-provider.abstract';
 import { EmbeddingMetadata } from 'src/shared/contracts/types/embedding.type';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
@@ -21,13 +22,21 @@ export type FindCoursesWithLosBySkillsWithFilterParams = {
   academicYearSemesters?: AcademicYearSemesterFilter[];
 };
 
+type Skill = string;
+
+// Output type including embedding usage per skill
+export type CourseRetrieverOutput = {
+  coursesBySkill: Map<Skill, CourseWithLearningOutcomeV2Match[]>;
+  embeddingsUsage: Map<Skill, EmbeddingResultMetadata>;
+};
+
 export interface ICourseRetrieverService {
   /**
    * Find courses by skills with optional filters.
    * @param params - The parameters for finding courses by skills.
-   * @returns A map where the key is the skill and the value is an array of courses with learning outcome matche and all learning outcomes.
+   * @returns Courses grouped by skill, plus embedding usage metadata per skill.
    */
   getCoursesWithLosBySkillsWithFilter: (
     params: FindCoursesWithLosBySkillsWithFilterParams,
-  ) => Promise<Map<string, CourseWithLearningOutcomeV2Match[]>>;
+  ) => Promise<CourseRetrieverOutput>;
 }

@@ -16,6 +16,7 @@ import {
   ICourseRepository,
 } from '../contracts/i-course-repository.contract';
 import {
+  CourseRetrieverOutput,
   FindCoursesWithLosBySkillsWithFilterParams,
   ICourseRetrieverService,
 } from '../contracts/i-course-retriever-service.contract';
@@ -50,10 +51,8 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     facultyId,
     isGenEd,
     academicYearSemesters,
-  }: FindCoursesWithLosBySkillsWithFilterParams): Promise<
-    Map<string, CourseWithLearningOutcomeV2Match[]>
-  > {
-    let learningOutcomesBySkills =
+  }: FindCoursesWithLosBySkillsWithFilterParams): Promise<CourseRetrieverOutput> {
+    const repositoryResult =
       await this.courseLearningOutcomeRepository.findLosBySkills({
         skills,
         embeddingConfiguration,
@@ -64,6 +63,8 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         isGenEd,
         academicYearSemesters,
       });
+    let learningOutcomesBySkills = repositoryResult.losBySkill;
+    const embeddingsUsage = repositoryResult.embeddingsUsage;
 
     // Optionally filter non-relevant learning outcomes using LLM
     if (enableLlmFilter) {
@@ -159,7 +160,10 @@ export class CourseRetrieverService implements ICourseRetrieverService {
       coursesBySkills.set(skill, sortedCourseMatches);
     }
 
-    return coursesBySkills;
+    return {
+      coursesBySkill: coursesBySkills,
+      embeddingsUsage,
+    };
   }
 
   /**

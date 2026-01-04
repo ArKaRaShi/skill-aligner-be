@@ -5,7 +5,15 @@ import {
   IModelRegistry,
 } from '../../adapters/llm/contracts/i-model-registry.contract';
 import { AppConfigService } from '../../kernel/config/app-config.service';
-import { IEmbeddingClient } from './contracts/i-embedding-client.contract';
+import {
+  IEmbeddingClient,
+  LOCAL_PROVIDER_TOKEN,
+  OPENROUTER_PROVIDER_TOKEN,
+} from './contracts/i-embedding-client.contract';
+import {
+  I_EMBEDDING_PROVIDER_REGISTRY_TOKEN,
+  IEmbeddingProviderRegistry,
+} from './contracts/i-embedding-provider-registry.contract';
 import { I_EMBEDDING_ROUTER_SERVICE_TOKEN } from './contracts/i-embedding-router-service.contract';
 import { LocalEmbeddingProvider } from './providers/local-embedding.provider';
 import { OpenRouterEmbeddingProvider } from './providers/openrouter-embedding.provider';
@@ -13,10 +21,6 @@ import { EmbeddingModelRegistryService } from './registries/embedding-model-regi
 import { EmbeddingProviderRegistry } from './registries/embedding-provider-registry.service';
 import { EmbeddingRouterService } from './services/embedding-router.service';
 import { initSemanticsHttpClient } from './utils/semantics-http-client';
-
-// Provider tokens
-export const LOCAL_PROVIDER_TOKEN = Symbol('LOCAL_PROVIDER');
-export const OPENROUTER_PROVIDER_TOKEN = Symbol('OPENROUTER_PROVIDER');
 
 @Module({
   providers: [
@@ -52,7 +56,7 @@ export const OPENROUTER_PROVIDER_TOKEN = Symbol('OPENROUTER_PROVIDER');
 
     // Provider Registry
     {
-      provide: Symbol('EMBEDDING_PROVIDER_REGISTRY'),
+      provide: I_EMBEDDING_PROVIDER_REGISTRY_TOKEN,
       useClass: EmbeddingProviderRegistry,
     },
 
@@ -60,13 +64,13 @@ export const OPENROUTER_PROVIDER_TOKEN = Symbol('OPENROUTER_PROVIDER');
     {
       provide: I_EMBEDDING_ROUTER_SERVICE_TOKEN,
       inject: [
-        Symbol('EMBEDDING_PROVIDER_REGISTRY'),
+        I_EMBEDDING_PROVIDER_REGISTRY_TOKEN,
         I_MODEL_REGISTRY_TOKEN,
         LOCAL_PROVIDER_TOKEN,
         OPENROUTER_PROVIDER_TOKEN,
       ],
       useFactory: (
-        providerRegistry: EmbeddingProviderRegistry,
+        providerRegistry: IEmbeddingProviderRegistry,
         modelRegistry: IModelRegistry,
         localProvider: IEmbeddingClient,
         openrouterProvider: IEmbeddingClient,

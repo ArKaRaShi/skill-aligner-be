@@ -57,8 +57,10 @@ export class OpenRouterEmbeddingProvider extends BaseEmbeddingClient {
       },
     });
 
+    const { promptTokens, totalTokens } = response.usage || {};
+
     const embedding = response.data[0].embedding as number[];
-    const metadata = this.buildMetadata(text);
+    const metadata = this.buildMetadata(text, promptTokens, totalTokens);
 
     return { vector: embedding, metadata };
   }
@@ -75,6 +77,8 @@ export class OpenRouterEmbeddingProvider extends BaseEmbeddingClient {
       },
     });
 
+    const { promptTokens, totalTokens } = response.usage || {};
+
     return response.data.map((item) => {
       const { index } = item;
 
@@ -87,7 +91,7 @@ export class OpenRouterEmbeddingProvider extends BaseEmbeddingClient {
       }
 
       const text = texts[index];
-      const metadata = this.buildMetadata(text);
+      const metadata = this.buildMetadata(text, promptTokens, totalTokens);
       return {
         vector: item.embedding as number[],
         metadata,

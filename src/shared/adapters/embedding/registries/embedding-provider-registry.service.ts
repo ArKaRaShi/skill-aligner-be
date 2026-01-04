@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
 
 import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
+import { IEmbeddingProviderRegistry } from '../contracts/i-embedding-provider-registry.contract';
 
 /**
  * Simple provider registry for embedding providers.
  * Manages embedding provider instances and their availability.
  */
 @Injectable()
-export class EmbeddingProviderRegistry {
+export class EmbeddingProviderRegistry implements IEmbeddingProviderRegistry {
   private readonly providers = new Map<string, IEmbeddingClient>();
 
   registerProvider(name: string, provider: IEmbeddingClient): void {

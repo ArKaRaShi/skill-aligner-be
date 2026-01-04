@@ -153,15 +153,16 @@ export class AppController {
       return { error: 'At least one skill must be provided' };
     }
 
-    const result = await this.courseLearningOutcomeRepository.findLosBySkills({
-      skills,
-      embeddingConfiguration: this.resolveEmbeddingConfiguration({
-        dimension: embeddingDimensionQuery,
-      }),
-      threshold,
-      topN,
-      isGenEd: isGenEd,
-    });
+    const { losBySkill: result } =
+      await this.courseLearningOutcomeRepository.findLosBySkills({
+        skills,
+        embeddingConfiguration: this.resolveEmbeddingConfiguration({
+          dimension: embeddingDimensionQuery,
+        }),
+        threshold,
+        topN,
+        isGenEd: isGenEd,
+      });
 
     const arrayResult = Array.from(result.entries()).map(([skill, los]) => {
       return {
@@ -250,7 +251,7 @@ export class AppController {
 
     console.log(`Processing ${skills.length} skills:`, skills);
 
-    const result =
+    const { coursesBySkill: result } =
       await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
         skills,
         embeddingConfiguration: this.resolveEmbeddingConfiguration({

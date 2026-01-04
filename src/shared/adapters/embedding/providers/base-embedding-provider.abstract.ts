@@ -18,6 +18,8 @@ export type EmbeddingResultMetadata = {
   dimension: number;
   embeddedText: string; // The text that was embedded
   generatedAt: string;
+  promptTokens?: number; // Input tokens
+  totalTokens?: number; // Total tokens (prompt + completion, though embeddings have no completion)
 };
 
 export type EmbedResult = {
@@ -65,13 +67,19 @@ export abstract class BaseEmbeddingClient implements IEmbeddingClient {
     params: EmbedManyParams,
   ): Promise<EmbedResult[]>;
 
-  protected buildMetadata(embeddedText: string): EmbeddingResultMetadata {
+  protected buildMetadata(
+    embeddedText: string,
+    promptTokens?: number,
+    totalTokens?: number,
+  ): EmbeddingResultMetadata {
     return {
       model: this.model,
       provider: this.provider,
       dimension: this.dimension,
       generatedAt: new Date().toISOString(),
       embeddedText,
+      promptTokens,
+      totalTokens,
     };
   }
 }

@@ -4,8 +4,9 @@ import {
   EmbedResult,
 } from '../providers/base-embedding-provider.abstract';
 
-// Token removed - use I_EMBEDDING_ROUTER_SERVICE_TOKEN instead
-// export const I_EMBEDDING_CLIENT_TOKEN = Symbol('I_EMBEDDING_CLIENT');
+// Provider tokens
+export const LOCAL_PROVIDER_TOKEN = Symbol('LOCAL_PROVIDER');
+export const OPENROUTER_PROVIDER_TOKEN = Symbol('OPENROUTER_PROVIDER');
 
 export interface IEmbeddingClient {
   embedOne(params: EmbedOneParams): Promise<EmbedResult>;

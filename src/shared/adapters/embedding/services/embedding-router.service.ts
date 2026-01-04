@@ -2,13 +2,13 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { IModelRegistry } from '../../../adapters/llm/contracts/i-model-registry.contract';
 import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
+import { IEmbeddingProviderRegistry } from '../contracts/i-embedding-provider-registry.contract';
 import {
   EmbedManyRouterParams,
   EmbedOneRouterParams,
   IEmbeddingRouterService,
 } from '../contracts/i-embedding-router-service.contract';
 import { EmbedResult } from '../providers/base-embedding-provider.abstract';
-import { EmbeddingProviderRegistry } from '../registries/embedding-provider-registry.service';
 
 /**
  * Embedding router service.
@@ -24,7 +24,7 @@ export class EmbeddingRouterService implements IEmbeddingRouterService {
   private readonly logger = new Logger(EmbeddingRouterService.name);
 
   constructor(
-    private readonly providerRegistry: EmbeddingProviderRegistry,
+    private readonly providerRegistry: IEmbeddingProviderRegistry,
     private readonly modelRegistry: IModelRegistry,
   ) {}
 

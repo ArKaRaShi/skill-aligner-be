@@ -53,13 +53,25 @@ export const appConfigValidationSchema = Joi.object({
       'string.uri': `"SEMANTICS_API_BASE_URL" must be a valid URI`,
     }),
 
+  EMBEDDING_MODEL: Joi.string()
+    .valid('e5-base', 'text-embedding-3-small')
+    .default(AppConfigDefault.EMBEDDING_MODEL)
+    .messages({
+      'string.base': `"EMBEDDING_MODEL" should be a type of 'text'`,
+      'any.only': `"EMBEDDING_MODEL" must be one of [e5-base, text-embedding-3-small]`,
+    }),
+
   EMBEDDING_PROVIDER: Joi.string()
     .valid('local', 'openai', 'openrouter')
     .default(AppConfigDefault.EMBEDDING_PROVIDER)
+    .optional()
     .messages({
       'string.base': `"EMBEDDING_PROVIDER" should be a type of 'text'`,
       'any.only': `"EMBEDDING_PROVIDER" must be one of [local, openai, openrouter]`,
-    }),
+    })
+    .description(
+      'Deprecated: Use EMBEDDING_MODEL instead. Router resolves provider from model.',
+    ),
 
   QUESTION_CLASSIFIER_LLM_MODEL: Joi.string()
     .default(AppConfigDefault.QUESTION_CLASSIFIER_LLM_MODEL)
@@ -71,6 +83,18 @@ export const appConfigValidationSchema = Joi.object({
     .default(AppConfigDefault.SKILL_EXPANDER_LLM_MODEL)
     .messages({
       'string.base': `"SKILL_EXPANDER_LLM_MODEL" should be a type of 'text'`,
+    }),
+
+  FILTER_LO_LLM_MODEL: Joi.string()
+    .default(AppConfigDefault.FILTER_LO_LLM_MODEL)
+    .messages({
+      'string.base': `"FILTER_LO_LLM_MODEL" should be a type of 'text'`,
+    }),
+
+  QUERY_PROFILE_BUILDER_LLM_MODEL: Joi.string()
+    .default(AppConfigDefault.QUERY_PROFILE_BUILDER_LLM_MODEL)
+    .messages({
+      'string.base': `"QUERY_PROFILE_BUILDER_LLM_MODEL" should be a type of 'text'`,
     }),
 
   DEFAULT_LLM_PROVIDER: Joi.string()
@@ -85,6 +109,12 @@ export const appConfigValidationSchema = Joi.object({
     .default(AppConfigDefault.ANSWER_SYNTHESIS_LLM_MODEL)
     .messages({
       'string.base': `"ANSWER_SYNTHESIS_LLM_MODEL" should be a type of 'text'`,
+    }),
+
+  COURSE_RELEVANCE_FILTER_LLM_MODEL: Joi.string()
+    .default(AppConfigDefault.COURSE_RELEVANCE_FILTER_LLM_MODEL)
+    .messages({
+      'string.base': `"COURSE_RELEVANCE_FILTER_LLM_MODEL" should be a type of 'text'`,
     }),
 
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE: Joi.boolean()

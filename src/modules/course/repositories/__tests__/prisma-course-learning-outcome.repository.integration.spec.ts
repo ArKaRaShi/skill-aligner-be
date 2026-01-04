@@ -479,7 +479,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
 
   describe('findLosBySkills with filters', () => {
     it('should find learning outcomes without filters', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -501,7 +501,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by campusId (first campus)', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -531,7 +531,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by campusId (second campus)', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วางแผน'],
         threshold: 0.5,
         topN: 10,
@@ -554,7 +554,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by facultyId (first faculty)', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -583,7 +583,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by facultyId (second faculty)', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['จัดการทีม'],
         threshold: 0.5,
         topN: 10,
@@ -606,7 +606,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by isGenEd = true', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -635,7 +635,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by isGenEd = false', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['สื่อสาร'],
         threshold: 0.5,
         topN: 10,
@@ -664,7 +664,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by multiple criteria (first campus)', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -695,7 +695,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by multiple criteria (second campus)', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วางแผน'],
         threshold: 0.5,
         topN: 10,
@@ -724,7 +724,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should return filtered results when isGenEd filter excludes some results', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -753,7 +753,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should handle multiple skills with filters', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์', 'สื่อสาร'],
         threshold: 0.5,
         topN: 10,
@@ -795,7 +795,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by academicYear filters', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -827,7 +827,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by academic year and semesters', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -859,7 +859,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by multiple academicYear entries', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -891,7 +891,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by multiple semesters within a year', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -928,7 +928,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by mixed academic year and semester entries', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -963,7 +963,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should return no results for non-matching academic years', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -981,7 +981,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should return no results for non-matching semesters within a year', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -1044,7 +1044,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
 
       // No additional linking table is needed; CLO is already associated with course6
 
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -1092,7 +1092,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         },
       });
 
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -1121,7 +1121,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     it('should deduplicate CLOs when they have multiple course-CLO relations', async () => {
       // Using real embedding client
 
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -1149,7 +1149,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     it('should keep highest similarity when CLO appears multiple times with different courses', async () => {
       // Using real embedding client
 
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.3,
         topN: 10,
@@ -1201,7 +1201,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       });
 
       try {
-        const result = await repository.findLosBySkills({
+        const { losBySkill: result } = await repository.findLosBySkills({
           skills: ['วิเคราะห์'],
           threshold: 0.5,
           topN: 1,
@@ -1251,7 +1251,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should find learning outcomes with 1536-dimension embeddings', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -1275,7 +1275,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should filter by campusId with 1536-dimension embeddings', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -1306,7 +1306,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         data: { hasEmbedding1536: false },
       });
 
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -1323,7 +1323,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should handle mixed skills with 1536-dimension embeddings', async () => {
-      const result = await repository.findLosBySkills({
+      const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์', 'สื่อสาร'],
         threshold: 0.5,
         topN: 10,
@@ -1355,6 +1355,69 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       expect(communicationCloIds).toContain(MOCK_CLO1_ID);
       expect(communicationCloIds).toContain(MOCK_CLO2_ID);
       expect(communicationCloIds).toContain(MOCK_CLO7_ID);
+    });
+  });
+
+  describe('findLosBySkills embedding metadata', () => {
+    it('should return embedding usage metadata for each skill', async () => {
+      const { embeddingsUsage } = await repository.findLosBySkills({
+        skills: ['วิเคราะห์', 'สื่อสาร'],
+        threshold: 0.5,
+        topN: 10,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
+      });
+
+      // Verify embeddingsUsage map has entries for each skill
+      expect(embeddingsUsage.size).toBe(2);
+      expect(embeddingsUsage.has('วิเคราะห์')).toBe(true);
+      expect(embeddingsUsage.has('สื่อสาร')).toBe(true);
+
+      // Verify embedding metadata structure for 'วิเคราะห์'
+      const analysisMetadata = embeddingsUsage.get('วิเคราะห์')!;
+      expect(analysisMetadata).toBeDefined();
+      expect(analysisMetadata.model).toBe('e5-base');
+      expect(analysisMetadata.provider).toBe('e5');
+      expect(analysisMetadata.dimension).toBe(768);
+      expect(analysisMetadata.embeddedText).toBe('test'); // Mock returns hardcoded 'test'
+      expect(analysisMetadata.generatedAt).toBeDefined();
+      expect(typeof analysisMetadata.generatedAt).toBe('string');
+
+      // Verify embedding metadata structure for 'สื่อสาร'
+      const communicationMetadata = embeddingsUsage.get('สื่อสาร')!;
+      expect(communicationMetadata).toBeDefined();
+      expect(communicationMetadata.model).toBe('e5-base');
+      expect(communicationMetadata.provider).toBe('e5');
+      expect(communicationMetadata.dimension).toBe(768);
+      expect(communicationMetadata.embeddedText).toBe('test'); // Mock returns hardcoded 'test'
+      expect(communicationMetadata.generatedAt).toBeDefined();
+    });
+
+    it('should include token counts in embedding metadata when available', async () => {
+      const { embeddingsUsage } = await repository.findLosBySkills({
+        skills: ['วิเคราะห์'],
+        threshold: 0.5,
+        topN: 10,
+        embeddingConfiguration: {
+          model: 'e5-base',
+          provider: 'e5',
+          dimension: 768,
+        },
+      });
+
+      const metadata = embeddingsUsage.get('วิเคราะห์')!;
+      // Token counts may be undefined for local models
+      if (metadata.promptTokens !== undefined) {
+        expect(typeof metadata.promptTokens).toBe('number');
+        expect(metadata.promptTokens).toBeGreaterThan(0);
+      }
+      if (metadata.totalTokens !== undefined) {
+        expect(typeof metadata.totalTokens).toBe('number');
+        expect(metadata.totalTokens).toBeGreaterThan(0);
+      }
     });
   });
 });

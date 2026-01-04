@@ -10,7 +10,8 @@ export const AppConfigDefault = {
   OPENROUTER_API_KEY: '',
   OPENROUTER_BASE_URL: 'https://openrouter.ai/api/v1',
 
-  EMBEDDING_PROVIDER: 'local',
+  EMBEDDING_MODEL: 'e5-base', // Model-first: specify model, router resolves provider
+  EMBEDDING_PROVIDER: 'local', // Deprecated: Use EMBEDDING_MODEL instead
   SEMANTICS_API_BASE_URL: 'http://localhost:8000/api/v1/semantics',
   QUESTION_CLASSIFIER_LLM_MODEL: 'orca-mini-3b-v2',
   SKILL_EXPANDER_LLM_MODEL: 'orca-mini-3b-v2',
