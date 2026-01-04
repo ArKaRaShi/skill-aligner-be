@@ -22,16 +22,38 @@ export type GenerateObjectInput<TSchema extends z.ZodTypeAny> = {
 export type GenerateTextOutput = {
   text: string;
   model: string;
+  /** Our router's selected provider: "openrouter" or "openai" */
+  provider?: string;
   inputTokens: number;
   outputTokens: number;
+  finishReason?: string;
+  warnings?: Array<any>;
+  /** Actual backend provider used (e.g., OpenRouter→Azure, OpenAI→undefined) */
+  providerMetadata?: Record<string, any>;
+  response?: {
+    timestamp?: Date;
+    modelId?: string;
+    headers?: Record<string, string>;
+  };
   hyperParameters?: Record<string, any>;
 };
 
 export type GenerateObjectOutput<TSchema extends z.ZodTypeAny> = {
   model: string;
+  /** Our router's selected provider: "openrouter" or "openai" */
+  provider?: string;
   inputTokens: number;
   outputTokens: number;
   object: z.infer<TSchema>;
+  finishReason?: string;
+  warnings?: Array<any>;
+  /** Actual backend provider used (e.g., OpenRouter→Azure, OpenAI→undefined) */
+  providerMetadata?: Record<string, any>;
+  response?: {
+    timestamp?: Date;
+    modelId?: string;
+    headers?: Record<string, string>;
+  };
   hyperParameters?: Record<string, any>;
 };
 

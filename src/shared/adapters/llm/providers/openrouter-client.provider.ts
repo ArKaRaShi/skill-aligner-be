@@ -53,7 +53,14 @@ export class OpenRouterClientProvider
     this.validateGenerateTextInput({ prompt, systemPrompt, model });
 
     try {
-      const { text, usage } = await aiGenerateText({
+      const {
+        text,
+        usage,
+        finishReason,
+        warnings,
+        providerMetadata,
+        response,
+      } = await aiGenerateText({
         model: this.openRouter(model),
         prompt,
         system: systemPrompt,
@@ -72,8 +79,13 @@ export class OpenRouterClientProvider
       return {
         text,
         model,
+        provider: this.getProviderName(),
         inputTokens: usage?.inputTokens ?? 0,
         outputTokens: usage?.outputTokens ?? 0,
+        finishReason,
+        warnings,
+        providerMetadata,
+        response,
         hyperParameters: LLM_HYPER_PARAMETERS,
       };
     } catch (error) {
@@ -90,7 +102,14 @@ export class OpenRouterClientProvider
     this.validateGenerateObjectInput({ prompt, systemPrompt, schema, model });
 
     try {
-      const { object, usage } = await aiGenerateObject({
+      const {
+        object,
+        usage,
+        finishReason,
+        warnings,
+        providerMetadata,
+        response,
+      } = await aiGenerateObject({
         model: this.openRouter(model),
         schema,
         prompt,
@@ -109,9 +128,14 @@ export class OpenRouterClientProvider
 
       return {
         model,
+        provider: this.getProviderName(),
         inputTokens: usage?.inputTokens ?? 0,
         outputTokens: usage?.outputTokens ?? 0,
         object: object as z.infer<TSchema>,
+        finishReason,
+        warnings,
+        providerMetadata,
+        response,
         hyperParameters: LLM_HYPER_PARAMETERS,
       };
     } catch (error) {
