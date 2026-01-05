@@ -203,7 +203,7 @@ export class AnswerQuestionUseCase
       for (const filterResult of relevanceFilterResults) {
         this.tokenLogger.addTokenUsage(
           tokenMap,
-          'step4-course-classification',
+          'step4-course-relevance-filter',
           filterResult.tokenUsage,
         );
         for (const [
@@ -348,10 +348,10 @@ export class AnswerQuestionUseCase
       'step2-skill-inference': this.timeLogger.formatDuration(
         timing.AnswerQuestionUseCaseExecute_Step2?.duration,
       ),
-      'step3-retrieval': this.timeLogger.formatDuration(
+      'step3-course-retrieval': this.timeLogger.formatDuration(
         timing.AnswerQuestionUseCaseExecute_Step3?.duration,
       ),
-      'step4-course-classification': this.timeLogger.formatDuration(
+      'step4-course-relevance-filter': this.timeLogger.formatDuration(
         timing.AnswerQuestionUseCaseExecute_Step4?.duration,
       ),
       'step5-answer-synthesis': this.timeLogger.formatDuration(
