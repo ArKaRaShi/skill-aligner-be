@@ -141,7 +141,7 @@ export class CourseRelevanceFilterService
             systemPrompt,
             promptVersion,
             schemaName: 'CourseRelevanceFilterResultSchema',
-            schemaShape: CourseRelevanceFilterResultSchema.shape,
+            // schemaShape excluded - Zod schema objects contain non-serializable functions
             finishReason,
             warnings,
             providerMetadata,
@@ -323,7 +323,7 @@ export class CourseRelevanceFilterService
             systemPrompt,
             promptVersion,
             schemaName: 'CourseRelevanceFilterResultSchemaV2',
-            schemaShape: CourseRelevanceFilterResultSchemaV2.shape,
+            // schemaShape excluded - Zod schema objects contain non-serializable functions
             finishReason,
             warnings,
             providerMetadata,

@@ -90,7 +90,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
       systemPrompt,
       promptVersion,
       schemaName: 'QuestionClassificationSchema',
-      schemaShape: QuestionClassificationSchema.shape,
+      // schemaShape excluded - Zod schema objects contain non-serializable functions
       finishReason,
       warnings,
       providerMetadata,

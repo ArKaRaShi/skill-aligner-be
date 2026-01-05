@@ -304,7 +304,6 @@ describe('QueryPipelineLoggerService', () => {
           ),
           userPrompt: 'Classify this',
           schemaName: undefined,
-          schemaShape: undefined,
           fullMetadata: {
             finishReason: undefined,
             warnings: undefined,
@@ -717,7 +716,7 @@ describe('QueryPipelineLoggerService', () => {
         userPrompt: 'Help me',
         promptVersion: '1.0',
         schemaName: 'MySchema',
-        schemaShape: { type: 'object' },
+        // schemaShape excluded - Zod schema objects contain non-serializable functions
         finishReason: 'stop',
         warnings: [],
         providerMetadata: { key: 'value' },
@@ -758,7 +757,7 @@ describe('QueryPipelineLoggerService', () => {
             ),
             userPrompt: 'Help me',
             schemaName: 'MySchema',
-            schemaShape: { type: 'object' },
+            // schemaShape excluded - Zod schema objects contain non-serializable functions
             fullMetadata: {
               finishReason: 'stop',
               warnings: [],

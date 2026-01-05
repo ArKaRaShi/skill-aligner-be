@@ -31,7 +31,6 @@ const createMockLlmInfo = (overrides?: Partial<LlmInfo>): LlmInfo => ({
   userPrompt: 'Test user prompt',
   promptVersion: 'V11',
   schemaName: 'TestSchema',
-  schemaShape: {},
   finishReason: 'stop',
   warnings: [],
   providerMetadata: {
@@ -318,7 +317,7 @@ describe('QueryLogging (Integration)', () => {
       expect(llmInfo.cost).toBeDefined();
       expect(llmInfo.cost).toBeGreaterThan(0);
       expect(llmInfo.schemaName).toBeDefined();
-      expect(llmInfo.schemaShape).toBeDefined();
+      // schemaShape excluded - Zod schema objects contain non-serializable functions
       expect(llmInfo.fullMetadata).toBeDefined();
       expect(llmInfo.fullMetadata.finishReason).toBe('stop');
       expect(llmInfo.fullMetadata.warnings).toEqual([]);

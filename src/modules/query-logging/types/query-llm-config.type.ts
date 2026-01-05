@@ -11,7 +11,6 @@ export interface StepLlmConfig {
   systemPromptHash?: string; // SHA-256 hash of system prompt
   userPrompt?: string; // User/formatted prompt sent to LLM
   schemaName?: string; // Schema name for evaluation
-  schemaShape?: object; // Schema structure (Zod shape)
 
   // Token usage & cost (extracted for easy access)
   tokenUsage?: {

@@ -31,6 +31,9 @@ export class CourseRetrieverService implements ICourseRetrieverService {
   private readonly logger = new Logger(CourseRetrieverService.name);
   private readonly filterLoPromptFactory = FilterLoPromptFactory();
 
+  private readonly embeddingModel: string;
+  private readonly embeddingProvider: string;
+
   constructor(
     @Inject(I_COURSE_REPOSITORY_TOKEN)
     private readonly courseRepository: ICourseRepository,
@@ -39,11 +42,13 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
     private readonly llmRouter: ILlmRouterService,
     private readonly appConfigService: AppConfigService,
-  ) {}
+  ) {
+    this.embeddingModel = this.appConfigService.embeddingModel;
+    this.embeddingProvider = this.appConfigService.embeddingProvider;
+  }
 
   async getCoursesWithLosBySkillsWithFilter({
     skills,
-    embeddingConfiguration,
     loThreshold,
     topNLos,
     enableLlmFilter,
@@ -55,7 +60,10 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     const repositoryResult =
       await this.courseLearningOutcomeRepository.findLosBySkills({
         skills,
-        embeddingConfiguration,
+        embeddingConfiguration: {
+          model: this.embeddingModel,
+          provider: this.embeddingProvider,
+        },
         threshold: loThreshold,
         topN: topNLos,
         campusId,

@@ -37,6 +37,7 @@ function logEnvironmentVariables(
     },
     embedding: {
       provider: appConfigService.embeddingProvider,
+      model: appConfigService.embeddingModel,
       semanticsApiUrl: appConfigService.semanticsApiBaseUrl,
     },
     mockServices: {

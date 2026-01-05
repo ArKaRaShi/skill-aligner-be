@@ -76,7 +76,6 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
       systemPrompt,
       promptVersion,
       schemaName: undefined,
-      schemaShape: undefined,
       finishReason: llmResult.finishReason,
       warnings: llmResult.warnings,
       providerMetadata: llmResult.providerMetadata,

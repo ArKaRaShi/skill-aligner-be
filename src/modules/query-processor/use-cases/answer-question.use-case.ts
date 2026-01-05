@@ -1,9 +1,5 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
-import {
-  EmbeddingModels,
-  EmbeddingProviders,
-} from 'src/shared/adapters/embedding/constants/embedding-models.constant';
 import { IUseCase } from 'src/shared/contracts/i-use-case.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
@@ -124,6 +120,14 @@ export class AnswerQuestionUseCase
         classificationResult.tokenUsage,
       );
 
+      this.logger.debug(
+        `Question classification LLM info: ${JSON.stringify(
+          classificationResult.llmInfo,
+          null,
+          2,
+        )}`,
+      );
+
       this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
 
       // Log classification and query profile steps
@@ -175,10 +179,12 @@ export class AnswerQuestionUseCase
       // Direct implementation copied from SkillQueryStrategy
       this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
+      this.logger.log('[DEBUG] Calling skillExpanderService.expandSkills...');
       const skillExpansion = await this.skillExpanderService.expandSkills(
         question,
         QueryPipelinePromptConfig.SKILL_EXPANSION,
       );
+      this.logger.log('[DEBUG] skillExpanderService.expandSkills completed');
       const skillItems = skillExpansion.skillItems;
 
       this.tokenLogger.addTokenUsage(
@@ -208,18 +214,6 @@ export class AnswerQuestionUseCase
       const retrieverResult =
         await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
           skills: skillItems.map((item) => item.skill),
-          embeddingConfiguration:
-            this.appConfigService.embeddingProvider === EmbeddingProviders.LOCAL
-              ? {
-                  model: EmbeddingModels.E5_BASE,
-                  provider: EmbeddingProviders.LOCAL,
-                  dimension: 768,
-                }
-              : {
-                  model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-                  provider: EmbeddingProviders.OPENROUTER,
-                  dimension: 1536,
-                },
           loThreshold: 0,
           topNLos: 10,
           isGenEd,
@@ -394,6 +388,9 @@ export class AnswerQuestionUseCase
     classification: TClassificationCategory,
     reason: string,
   ): Promise<AnswerQuestionUseCaseOutput | null> {
+    this.logger.debug(
+      `Checking for fallback answer for classification: ${classification}, reason: ${reason}`,
+    );
     if (classification === 'irrelevant') {
       const output = {
         answer: 'ขออภัย คำถามของคุณอยู่นอกขอบเขตที่เราสามารถช่วยได้',
@@ -422,6 +419,9 @@ export class AnswerQuestionUseCase
       return output;
     }
 
+    this.logger.debug(
+      `No fallback answer for classification: ${classification}, reason: ${reason}`,
+    );
     return null;
   }
 

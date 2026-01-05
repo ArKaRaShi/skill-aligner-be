@@ -291,7 +291,8 @@ export class QueryPipelineLoggerService {
       systemPromptHash: HashHelper.generateHashSHA256(llmInfo.systemPrompt),
       userPrompt: llmInfo.userPrompt,
       schemaName: llmInfo.schemaName,
-      schemaShape: llmInfo.schemaShape,
+      // schemaShape excluded - Zod schema objects contain non-serializable functions
+      // Use schemaName for identifying the schema structure
       tokenUsage, // Populated if inputTokens/outputTokens available
       cost, // Calculated if tokens available
       fullMetadata: {

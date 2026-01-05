@@ -51,12 +51,14 @@ export class SkillExpanderService implements ISkillExpanderService {
     const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const userPrompt = getUserPrompt(question);
 
+    this.logger.log('[DEBUG] Calling llmRouter.generateObject...');
     const result = await this.llmRouter.generateObject({
       prompt: userPrompt,
       systemPrompt,
       schema: SkillExpansionSchema,
       model: this.modelName,
     });
+    this.logger.log('[DEBUG] llmRouter.generateObject completed');
 
     const {
       object: { skills },
@@ -85,7 +87,7 @@ export class SkillExpanderService implements ISkillExpanderService {
       systemPrompt,
       promptVersion,
       schemaName: 'SkillExpansionSchema',
-      schemaShape: SkillExpansionSchema.shape,
+      // schemaShape excluded - Zod schema objects contain non-serializable functions
       finishReason,
       warnings,
       providerMetadata,
@@ -147,7 +149,7 @@ export class SkillExpanderService implements ISkillExpanderService {
       systemPrompt,
       promptVersion,
       schemaName: 'SkillExpansionV2Schema',
-      schemaShape: SkillExpansionV2Schema.shape,
+      // schemaShape excluded - Zod schema objects contain non-serializable functions
       finishReason,
       warnings,
       providerMetadata,

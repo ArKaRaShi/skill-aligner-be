@@ -223,7 +223,6 @@ export class AppController {
     @Query('threshold') thresholdQuery?: string,
     @Query('topN') topNQuery?: string,
     @Query('isGenEd') isGenEdQuery?: string,
-    @Query('embeddingDimension') embeddingDimensionQuery?: string,
   ): Promise<any> {
     console.time('CourseRetrieverServiceTest');
 
@@ -254,9 +253,6 @@ export class AppController {
     const { coursesBySkill: result } =
       await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
         skills,
-        embeddingConfiguration: this.resolveEmbeddingConfiguration({
-          dimension: embeddingDimensionQuery,
-        }),
         loThreshold: threshold,
         topNLos: topN,
         enableLlmFilter: false,

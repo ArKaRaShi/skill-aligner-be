@@ -9,7 +9,6 @@ export type LlmInfo = {
   userPrompt: string;
   promptVersion: string;
   schemaName?: string;
-  schemaShape?: object;
   finishReason?: string;
   warnings?: Array<any>;
   /** Actual backend provider used (e.g., OpenRouter→Azure, OpenAI→undefined) */

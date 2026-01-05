@@ -33,13 +33,11 @@ export class EmbeddingRouterService implements IEmbeddingRouterService {
    */
   async embedOne(params: EmbedOneRouterParams): Promise<EmbedResult> {
     const { text, model, provider, role } = params;
-    const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
-      model,
-      provider,
-    );
+    const { selectedProvider, resolvedModel, providerName } =
+      this.resolveProviderAndModel(model, provider);
 
     this.logger.debug(
-      `Routing embedOne for model '${model}' to provider '${this.getProviderName(selectedProvider)}' using model ID '${resolvedModel}'`,
+      `Routing embedOne for model '${model}' to provider '${providerName}' using model ID '${resolvedModel}'`,
     );
 
     return selectedProvider.embedOne({
@@ -53,13 +51,11 @@ export class EmbeddingRouterService implements IEmbeddingRouterService {
    */
   async embedMany(params: EmbedManyRouterParams): Promise<EmbedResult[]> {
     const { texts, model, provider, role } = params;
-    const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
-      model,
-      provider,
-    );
+    const { selectedProvider, resolvedModel, providerName } =
+      this.resolveProviderAndModel(model, provider);
 
     this.logger.debug(
-      `Routing embedMany for model '${model}' to provider '${this.getProviderName(selectedProvider)}' using model ID '${resolvedModel}'`,
+      `Routing embedMany for model '${model}' to provider '${providerName}' using model ID '${resolvedModel}'`,
     );
 
     return selectedProvider.embedMany({
@@ -78,13 +74,17 @@ export class EmbeddingRouterService implements IEmbeddingRouterService {
    *
    * @param model - The model identifier (base model name only, e.g., 'e5-base')
    * @param provider - Optional provider name
-   * @returns Object containing the resolved provider instance and provider-specific model ID
+   * @returns Object containing the resolved provider instance, provider name, and provider-specific model ID
    * @throws Error if provider not found, model not available, or provider-prefixed model used without explicit provider
    */
   private resolveProviderAndModel(
     model: string,
     provider?: string,
-  ): { selectedProvider: IEmbeddingClient; resolvedModel: string } {
+  ): {
+    selectedProvider: IEmbeddingClient;
+    resolvedModel: string;
+    providerName: string;
+  } {
     let providerName: string;
 
     // If provider is explicitly specified, use it
@@ -151,12 +151,6 @@ export class EmbeddingRouterService implements IEmbeddingRouterService {
 
     const selectedProvider = this.providerRegistry.getProvider(providerName);
 
-    return { selectedProvider, resolvedModel };
-  }
-
-  private getProviderName(_provider: IEmbeddingClient): string {
-    // For now, return a generic name since IEmbeddingClient doesn't expose getProviderName()
-    // This can be refined if providers extend a base class with that method
-    return 'embedding-provider';
+    return { selectedProvider, resolvedModel, providerName };
   }
 }

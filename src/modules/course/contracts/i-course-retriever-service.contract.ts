@@ -1,5 +1,4 @@
 import { EmbeddingUsage } from 'src/shared/contracts/types/embedding-usage.type';
-import { EmbeddingMetadata } from 'src/shared/contracts/types/embedding.type';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import { CourseWithLearningOutcomeV2Match } from '../types/course.type';
@@ -11,7 +10,6 @@ export const I_COURSE_RETRIEVER_SERVICE_TOKEN = Symbol(
 
 export type FindCoursesWithLosBySkillsWithFilterParams = {
   skills: string[];
-  embeddingConfiguration: EmbeddingMetadata;
   loThreshold?: number;
   topNLos?: number;
   vectorDimension?: number;

@@ -1,5 +1,4 @@
 import { EmbeddingUsage } from 'src/shared/contracts/types/embedding-usage.type';
-import { EmbeddingMetadata } from 'src/shared/contracts/types/embedding.type';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
@@ -15,7 +14,10 @@ export type AcademicYearSemesterFilter = {
 
 export type FindLosBySkillsParams = {
   skills: string[];
-  embeddingConfiguration: EmbeddingMetadata;
+  embeddingConfiguration: {
+    model: string;
+    provider: string;
+  };
   threshold?: number;
   topN?: number;
   campusId?: Identifier;

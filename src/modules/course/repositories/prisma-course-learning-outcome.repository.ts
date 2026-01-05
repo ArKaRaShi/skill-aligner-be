@@ -85,13 +85,9 @@ export class PrismaCourseLearningOutcomeRepository
     const embeddingDimension = skillsWithEmbeddings[0]?.vector.length ?? 0;
     const vectorType = Prisma.raw(`vector(${embeddingDimension})`);
     const embeddingColumnName =
-      embeddingConfiguration.dimension === 768
-        ? 'embedding_768'
-        : 'embedding_1536';
+      embeddingDimension === 768 ? 'embedding_768' : 'embedding_1536';
     const hasEmbeddingColumnName =
-      embeddingConfiguration.dimension === 768
-        ? 'has_embedding_768'
-        : 'has_embedding_1536';
+      embeddingDimension === 768 ? 'has_embedding_768' : 'has_embedding_1536';
 
     const academicYearSemesterClauses = (academicYearSemesters ?? []).map(
       ({ academicYear, semesters }) => {

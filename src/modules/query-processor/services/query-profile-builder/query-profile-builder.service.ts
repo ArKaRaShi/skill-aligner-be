@@ -63,7 +63,7 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
       systemPrompt,
       promptVersion: 'v2',
       schemaName: 'QueryProfileBuilderSchema',
-      schemaShape: QueryProfileBuilderSchema.shape,
+      // schemaShape excluded - Zod schema objects contain non-serializable functions
       finishReason,
       warnings,
       providerMetadata,
