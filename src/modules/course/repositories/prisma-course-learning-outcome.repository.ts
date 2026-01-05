@@ -6,8 +6,8 @@ import {
   I_EMBEDDING_ROUTER_SERVICE_TOKEN,
   IEmbeddingRouterService,
 } from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
-import { EmbeddingResultMetadata } from 'src/shared/adapters/embedding/providers/base-embedding-provider.abstract';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
+import { estimateTokens } from 'src/shared/utils/token-estimation.util';
 
 import {
   FindLosBySkillsOutput,
@@ -41,7 +41,10 @@ export class PrismaCourseLearningOutcomeRepository
     if (!skills.length) {
       return {
         losBySkill: new Map<string, MatchedLearningOutcome[]>(),
-        embeddingsUsage: new Map(),
+        embeddingUsage: {
+          bySkill: [],
+          totalTokens: 0,
+        },
       };
     }
 
@@ -72,7 +75,10 @@ export class PrismaCourseLearningOutcomeRepository
     if (!skillsWithEmbeddings.length) {
       return {
         losBySkill: new Map<string, MatchedLearningOutcome[]>(),
-        embeddingsUsage: new Map(),
+        embeddingUsage: {
+          bySkill: [],
+          totalTokens: 0,
+        },
       };
     }
 
@@ -199,12 +205,50 @@ export class PrismaCourseLearningOutcomeRepository
     );
 
     const losBySkill = new Map<string, MatchedLearningOutcome[]>();
-    const embeddingsUsage = new Map<string, EmbeddingResultMetadata>();
+
+    // Build bySkill array for EmbeddingUsage
+    const bySkill: Array<{
+      skill: string;
+      model: string;
+      provider: string;
+      dimension: number;
+      embeddedText: string;
+      generatedAt: string;
+      promptTokens: number;
+      totalTokens: number;
+    }> = [];
+
     for (const { skill, cloMatches, metadata } of queryResults) {
       losBySkill.set(skill, cloMatches);
-      embeddingsUsage.set(skill, metadata);
+
+      // Extract or estimate tokens
+      const promptTokens =
+        metadata.promptTokens ?? estimateTokens(metadata.embeddedText);
+      const totalTokens = metadata.totalTokens ?? promptTokens;
+
+      bySkill.push({
+        skill,
+        model: metadata.model,
+        provider: metadata.provider,
+        dimension: metadata.dimension,
+        embeddedText: metadata.embeddedText,
+        generatedAt: metadata.generatedAt,
+        promptTokens,
+        totalTokens,
+      });
     }
 
-    return { losBySkill, embeddingsUsage };
+    // Aggregate total tokens across all skills
+    const totalTokens = bySkill.reduce(
+      (sum, item) => sum + item.totalTokens,
+      0,
+    );
+
+    const embeddingUsage = {
+      bySkill,
+      totalTokens,
+    };
+
+    return { losBySkill, embeddingUsage };
   }
 }

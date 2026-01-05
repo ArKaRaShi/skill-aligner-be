@@ -1,4 +1,4 @@
-import type { EmbeddingResultMetadata } from '../../../../shared/adapters/embedding/providers/base-embedding-provider.abstract';
+import type { EmbeddingUsage } from '../../../../shared/contracts/types/embedding-usage.type';
 import type { Identifier } from '../../../../shared/contracts/types/identifier';
 import type { LlmInfo } from '../../../../shared/contracts/types/llm-info.type';
 import { HashHelper } from '../../../../shared/utils/hash.helper';
@@ -386,10 +386,10 @@ describe('QueryPipelineLoggerService', () => {
       // Arrange
       const input = { skills: ['AI', 'ML'] };
       const output = { courseCount: 10 };
-      const embeddingResult: Map<string, EmbeddingResultMetadata> = new Map([
-        [
-          'AI',
+      const embeddingUsage: EmbeddingUsage = {
+        bySkill: [
           {
+            skill: 'AI',
             model: 'e5-base',
             provider: 'local',
             dimension: 768,
@@ -398,10 +398,8 @@ describe('QueryPipelineLoggerService', () => {
             promptTokens: 2,
             totalTokens: 2,
           },
-        ],
-        [
-          'ML',
           {
+            skill: 'ML',
             model: 'e5-base',
             provider: 'local',
             dimension: 768,
@@ -411,7 +409,8 @@ describe('QueryPipelineLoggerService', () => {
             totalTokens: 2,
           },
         ],
-      ]);
+        totalTokens: 4,
+      };
       const mockStep: QueryProcessStep = {
         id: mockStepId,
         queryLogId: mockQueryLogId,
@@ -424,7 +423,7 @@ describe('QueryPipelineLoggerService', () => {
       mockRepository.createStep.mockResolvedValue(mockStep);
 
       // Act
-      await service.courseRetrieval(input, output, embeddingResult);
+      await service.courseRetrieval(input, output, embeddingUsage);
 
       // Assert
       expect(mockRepository.createStep).toHaveBeenCalledWith({
@@ -437,14 +436,14 @@ describe('QueryPipelineLoggerService', () => {
         completedAt: expect.any(Date),
         duration: expect.any(Number),
         output,
-        embedding: expect.objectContaining({
+        embedding: {
           model: 'e5-base',
           provider: 'local',
           dimension: 768,
           totalTokens: 4,
+          bySkill: embeddingUsage.bySkill,
           skillsCount: 2,
-          embeddingsUsage: expect.any(Map),
-        }),
+        },
       });
     });
   });

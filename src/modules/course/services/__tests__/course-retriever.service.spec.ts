@@ -131,34 +131,36 @@ describe('CourseRetrieverService', () => {
 
   describe('getCoursesWithLosBySkillsWithFilter', () => {
     it('returns empty arrays per skill when no learning outcomes are found', async () => {
-      const mockEmbeddingsUsage = new Map([
-        [
-          'skill1',
-          {
-            model: 'e5-base',
-            provider: 'e5',
-            dimension: 768,
-            embeddedText: 'skill1',
-            generatedAt: new Date().toISOString(),
-          },
-        ],
-        [
-          'skill2',
-          {
-            model: 'e5-base',
-            provider: 'e5',
-            dimension: 768,
-            embeddedText: 'skill2',
-            generatedAt: new Date().toISOString(),
-          },
-        ],
-      ]);
       const mockOutput: FindLosBySkillsOutput = {
         losBySkill: new Map([
           ['skill1', []],
           ['skill2', []],
         ]),
-        embeddingsUsage: mockEmbeddingsUsage,
+        embeddingUsage: {
+          bySkill: [
+            {
+              skill: 'skill1',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill1',
+              generatedAt: new Date().toISOString(),
+              promptTokens: 0,
+              totalTokens: 0,
+            },
+            {
+              skill: 'skill2',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill2',
+              generatedAt: new Date().toISOString(),
+              promptTokens: 0,
+              totalTokens: 0,
+            },
+          ],
+          totalTokens: 0,
+        },
       };
       loRepository.findLosBySkills.mockResolvedValue(mockOutput);
 
@@ -171,7 +173,6 @@ describe('CourseRetrieverService', () => {
           ['skill2', []],
         ]),
       );
-      expect(result.embeddingsUsage).toEqual(mockEmbeddingsUsage);
       expect(
         courseRepository.findCourseByLearningOutcomeIds,
       ).not.toHaveBeenCalled();
@@ -183,39 +184,36 @@ describe('CourseRetrieverService', () => {
         similarityScore: 0.9,
       });
 
-      const mockEmbeddingsUsage = new Map([
-        [
-          'skill1',
-          {
-            model: 'e5-base',
-            provider: 'e5',
-            dimension: 768,
-            embeddedText: 'skill1',
-            generatedAt: '2024-01-01T00:00:00.000Z',
-            promptTokens: 5,
-            totalTokens: 5,
-          },
-        ],
-        [
-          'skill2',
-          {
-            model: 'e5-base',
-            provider: 'e5',
-            dimension: 768,
-            embeddedText: 'skill2',
-            generatedAt: '2024-01-01T00:00:01.000Z',
-            promptTokens: 6,
-            totalTokens: 6,
-          },
-        ],
-      ]);
-
       const mockOutput: FindLosBySkillsOutput = {
         losBySkill: new Map([
           ['skill1', [lo1]],
           ['skill2', []],
         ]),
-        embeddingsUsage: mockEmbeddingsUsage,
+        embeddingUsage: {
+          bySkill: [
+            {
+              skill: 'skill1',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill1',
+              generatedAt: '2024-01-01T00:00:00.000Z',
+              promptTokens: 5,
+              totalTokens: 5,
+            },
+            {
+              skill: 'skill2',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill2',
+              generatedAt: '2024-01-01T00:00:01.000Z',
+              promptTokens: 6,
+              totalTokens: 6,
+            },
+          ],
+          totalTokens: 11,
+        },
       };
       loRepository.findLosBySkills.mockResolvedValue(mockOutput);
 
@@ -233,8 +231,9 @@ describe('CourseRetrieverService', () => {
         await service.getCoursesWithLosBySkillsWithFilter(baseParams);
 
       // Verify embedding metadata is passed through correctly
-      expect(result.embeddingsUsage.size).toBe(2);
-      expect(result.embeddingsUsage.get('skill1')).toEqual({
+      expect(result.embeddingUsage.bySkill).toHaveLength(2);
+      expect(result.embeddingUsage.bySkill[0]).toEqual({
+        skill: 'skill1',
         model: 'e5-base',
         provider: 'e5',
         dimension: 768,
@@ -243,7 +242,8 @@ describe('CourseRetrieverService', () => {
         promptTokens: 5,
         totalTokens: 5,
       });
-      expect(result.embeddingsUsage.get('skill2')).toEqual({
+      expect(result.embeddingUsage.bySkill[1]).toEqual({
+        skill: 'skill2',
         model: 'e5-base',
         provider: 'e5',
         dimension: 768,
@@ -269,7 +269,31 @@ describe('CourseRetrieverService', () => {
           ['skill1', [lo1, lo2]],
           ['skill2', []],
         ]),
-        embeddingsUsage: new Map(),
+        embeddingUsage: {
+          bySkill: [
+            {
+              skill: 'skill1',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill1',
+              generatedAt: new Date().toISOString(),
+              promptTokens: 0,
+              totalTokens: 0,
+            },
+            {
+              skill: 'skill2',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill2',
+              generatedAt: new Date().toISOString(),
+              promptTokens: 0,
+              totalTokens: 0,
+            },
+          ],
+          totalTokens: 0,
+        },
       };
       loRepository.findLosBySkills.mockResolvedValue(mockOutput);
 

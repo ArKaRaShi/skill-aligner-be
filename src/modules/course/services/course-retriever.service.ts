@@ -64,7 +64,6 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         academicYearSemesters,
       });
     let learningOutcomesBySkills = repositoryResult.losBySkill;
-    const embeddingsUsage = repositoryResult.embeddingsUsage;
 
     // Optionally filter non-relevant learning outcomes using LLM
     if (enableLlmFilter) {
@@ -162,7 +161,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
 
     return {
       coursesBySkill: coursesBySkills,
-      embeddingsUsage,
+      embeddingUsage: repositoryResult.embeddingUsage,
     };
   }
 

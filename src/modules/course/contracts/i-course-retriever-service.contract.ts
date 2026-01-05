@@ -1,4 +1,4 @@
-import { EmbeddingResultMetadata } from 'src/shared/adapters/embedding/providers/base-embedding-provider.abstract';
+import { EmbeddingUsage } from 'src/shared/contracts/types/embedding-usage.type';
 import { EmbeddingMetadata } from 'src/shared/contracts/types/embedding.type';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
@@ -24,17 +24,17 @@ export type FindCoursesWithLosBySkillsWithFilterParams = {
 
 type Skill = string;
 
-// Output type including embedding usage per skill
+// Output type including embedding usage per skill and aggregated usage
 export type CourseRetrieverOutput = {
   coursesBySkill: Map<Skill, CourseWithLearningOutcomeV2Match[]>;
-  embeddingsUsage: Map<Skill, EmbeddingResultMetadata>;
+  embeddingUsage: EmbeddingUsage;
 };
 
 export interface ICourseRetrieverService {
   /**
    * Find courses by skills with optional filters.
    * @param params - The parameters for finding courses by skills.
-   * @returns Courses grouped by skill, plus embedding usage metadata per skill.
+   * @returns Courses grouped by skill, plus embedding usage metadata per skill and aggregated usage.
    */
   getCoursesWithLosBySkillsWithFilter: (
     params: FindCoursesWithLosBySkillsWithFilterParams,

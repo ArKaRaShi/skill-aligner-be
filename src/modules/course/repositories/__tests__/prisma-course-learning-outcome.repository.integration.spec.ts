@@ -1360,7 +1360,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
 
   describe('findLosBySkills embedding metadata', () => {
     it('should return embedding usage metadata for each skill', async () => {
-      const { embeddingsUsage } = await repository.findLosBySkills({
+      const { embeddingUsage } = await repository.findLosBySkills({
         skills: ['วิเคราะห์', 'สื่อสาร'],
         threshold: 0.5,
         topN: 10,
@@ -1371,24 +1371,25 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         },
       });
 
-      // Verify embeddingsUsage map has entries for each skill
-      expect(embeddingsUsage.size).toBe(2);
-      expect(embeddingsUsage.has('วิเคราะห์')).toBe(true);
-      expect(embeddingsUsage.has('สื่อสาร')).toBe(true);
+      // Verify embeddingUsage has entries for each skill
+      expect(embeddingUsage.bySkill).toHaveLength(2);
+      expect(embeddingUsage.totalTokens).toBeGreaterThan(0);
 
-      // Verify embedding metadata structure for 'วิเคราะห์'
-      const analysisMetadata = embeddingsUsage.get('วิเคราะห์')!;
-      expect(analysisMetadata).toBeDefined();
+      // Verify embedding metadata structure for first skill
+      const analysisMetadata = embeddingUsage.bySkill[0];
+      expect(analysisMetadata.skill).toBe('วิเคราะห์');
       expect(analysisMetadata.model).toBe('e5-base');
       expect(analysisMetadata.provider).toBe('e5');
       expect(analysisMetadata.dimension).toBe(768);
       expect(analysisMetadata.embeddedText).toBe('test'); // Mock returns hardcoded 'test'
       expect(analysisMetadata.generatedAt).toBeDefined();
       expect(typeof analysisMetadata.generatedAt).toBe('string');
+      expect(analysisMetadata.promptTokens).toBeGreaterThan(0);
+      expect(analysisMetadata.totalTokens).toBeGreaterThan(0);
 
-      // Verify embedding metadata structure for 'สื่อสาร'
-      const communicationMetadata = embeddingsUsage.get('สื่อสาร')!;
-      expect(communicationMetadata).toBeDefined();
+      // Verify embedding metadata structure for second skill
+      const communicationMetadata = embeddingUsage.bySkill[1];
+      expect(communicationMetadata.skill).toBe('สื่อสาร');
       expect(communicationMetadata.model).toBe('e5-base');
       expect(communicationMetadata.provider).toBe('e5');
       expect(communicationMetadata.dimension).toBe(768);
@@ -1397,7 +1398,7 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     it('should include token counts in embedding metadata when available', async () => {
-      const { embeddingsUsage } = await repository.findLosBySkills({
+      const { embeddingUsage } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
         threshold: 0.5,
         topN: 10,
@@ -1408,16 +1409,12 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         },
       });
 
-      const metadata = embeddingsUsage.get('วิเคราะห์')!;
-      // Token counts may be undefined for local models
-      if (metadata.promptTokens !== undefined) {
-        expect(typeof metadata.promptTokens).toBe('number');
-        expect(metadata.promptTokens).toBeGreaterThan(0);
-      }
-      if (metadata.totalTokens !== undefined) {
-        expect(typeof metadata.totalTokens).toBe('number');
-        expect(metadata.totalTokens).toBeGreaterThan(0);
-      }
+      const metadata = embeddingUsage.bySkill[0];
+      // Token counts should always be present (estimated if not from API)
+      expect(typeof metadata.promptTokens).toBe('number');
+      expect(metadata.promptTokens).toBeGreaterThan(0);
+      expect(typeof metadata.totalTokens).toBe('number');
+      expect(metadata.totalTokens).toBeGreaterThan(0);
     });
   });
 });

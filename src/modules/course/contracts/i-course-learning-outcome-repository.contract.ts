@@ -1,4 +1,4 @@
-import { EmbeddingResultMetadata } from 'src/shared/adapters/embedding/providers/base-embedding-provider.abstract';
+import { EmbeddingUsage } from 'src/shared/contracts/types/embedding-usage.type';
 import { EmbeddingMetadata } from 'src/shared/contracts/types/embedding.type';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
@@ -28,14 +28,14 @@ type Skill = string;
 
 export type FindLosBySkillsOutput = {
   losBySkill: Map<Skill, MatchedLearningOutcome[]>;
-  embeddingsUsage: Map<Skill, EmbeddingResultMetadata>;
+  embeddingUsage: EmbeddingUsage;
 };
 
 export interface ICourseLearningOutcomeRepository {
   /**
    * Find learning outcomes by multiple skills via semantic search.
    * @param params The parameters for finding learning outcomes.
-   * @returns Learning outcomes grouped by skill, plus embedding usage metadata per skill.
+   * @returns Learning outcomes grouped by skill, plus embedding usage metadata per skill and aggregated usage.
    */
   findLosBySkills({
     skills,

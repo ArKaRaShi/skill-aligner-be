@@ -4,6 +4,20 @@
 export type Skill = string;
 
 /**
+ * Per-skill embedding usage with token counts.
+ */
+export interface SkillEmbeddingUsage {
+  skill: string;
+  model: string;
+  provider: string;
+  dimension: number;
+  embeddedText: string;
+  generatedAt: string;
+  promptTokens: number;
+  totalTokens: number;
+}
+
+/**
  * Embedding configuration stored in QueryProcessStep.embedding
  */
 export interface StepEmbeddingConfig {
@@ -11,18 +25,7 @@ export interface StepEmbeddingConfig {
   provider: string; // e.g., "local", "openrouter"
   dimension: number; // 768 or 1536
   totalTokens?: number; // Total tokens across all skills
-  embeddingsUsage: Map<
-    Skill,
-    {
-      model: string;
-      provider: string;
-      dimension: number;
-      embeddedText: string; // The text that was embedded
-      generatedAt: string;
-      promptTokens?: number; // Input tokens (actual for OpenRouter, undefined for local)
-      totalTokens?: number;
-    }
-  >; // Per-skill metadata
+  bySkill?: SkillEmbeddingUsage[]; // Per-skill token usage array
   skillsCount?: number; // Number of skills embedded
   threshold?: number; // Similarity threshold
   topN?: number; // Max results per skill

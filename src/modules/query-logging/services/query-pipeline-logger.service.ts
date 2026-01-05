@@ -1,12 +1,9 @@
-import type { EmbeddingResultMetadata } from '../../../shared/adapters/embedding/providers/base-embedding-provider.abstract';
+import type { EmbeddingUsage } from '../../../shared/contracts/types/embedding-usage.type';
 import type { Identifier } from '../../../shared/contracts/types/identifier';
 import type { LlmInfo } from '../../../shared/contracts/types/llm-info.type';
 import { HashHelper } from '../../../shared/utils/hash.helper';
 import type { IQueryLoggingRepository } from '../contracts/i-query-logging-repository.contract';
-import type {
-  Skill,
-  StepEmbeddingConfig,
-} from '../types/query-embedding-config.type';
+import type { StepEmbeddingConfig } from '../types/query-embedding-config.type';
 import type { StepLlmConfig } from '../types/query-llm-config.type';
 import type { QueryProcessLogWithSteps } from '../types/query-log-step.type';
 import type {
@@ -27,7 +24,7 @@ import type { StepName } from '../types/query-status.type';
  */
 export class QueryPipelineLoggerService {
   private queryLogId?: Identifier;
-  private stepStartTimes = new Map<StepName, Date>();
+  private readonly stepStartTimes = new Map<StepName, Date>();
 
   constructor(private readonly repository: IQueryLoggingRepository) {}
 
@@ -126,7 +123,7 @@ export class QueryPipelineLoggerService {
   async courseRetrieval(
     input?: Record<string, any>,
     output?: Record<string, any>,
-    embeddingResult?: Map<Skill, EmbeddingResultMetadata>,
+    embeddingUsage?: EmbeddingUsage,
   ): Promise<void> {
     await this.logStep(
       'COURSE_RETRIEVAL',
@@ -134,7 +131,7 @@ export class QueryPipelineLoggerService {
       input,
       output,
       undefined,
-      embeddingResult,
+      embeddingUsage,
     );
   }
 
@@ -191,7 +188,7 @@ export class QueryPipelineLoggerService {
     input?: Record<string, any>,
     output?: Record<string, any>,
     llmInfo?: LlmInfo,
-    embeddingResult?: Map<Skill, EmbeddingResultMetadata>,
+    embeddingUsage?: EmbeddingUsage,
   ): Promise<void> {
     const queryLogId = this.ensureQueryLogExists();
     const startTime = new Date();
@@ -214,8 +211,8 @@ export class QueryPipelineLoggerService {
       duration,
       output: output ? this.serializeOutput(output) : undefined,
       llm: llmInfo ? this.extractLlmInfo(llmInfo) : undefined,
-      embedding: embeddingResult
-        ? this.extractEmbeddingInfo(embeddingResult)
+      embedding: embeddingUsage
+        ? this.extractEmbeddingInfo(embeddingUsage)
         : undefined,
     });
   }
@@ -286,38 +283,19 @@ export class QueryPipelineLoggerService {
   }
 
   /**
-   * Extract embedding info from result to StepEmbeddingConfig format.
+   * Extract embedding info from EmbeddingUsage to StepEmbeddingConfig format.
    * @private
    */
-
   private extractEmbeddingInfo(
-    embeddingResult: Map<Skill, EmbeddingResultMetadata>,
+    embeddingUsage: EmbeddingUsage,
   ): StepEmbeddingConfig {
-    const entries = Array.from(embeddingResult.entries());
-
     return {
-      model: entries[0]?.[1].model ?? '',
-      provider: entries[0]?.[1].provider ?? '',
-      dimension: entries[0]?.[1].dimension ?? 0,
-      totalTokens: entries.reduce(
-        (sum, [, metadata]) => sum + (metadata.totalTokens ?? 0),
-        0,
-      ),
-      embeddingsUsage: new Map(
-        entries.map(([skill, metadata]) => [
-          skill,
-          {
-            model: metadata.model,
-            provider: metadata.provider,
-            dimension: metadata.dimension,
-            embeddedText: metadata.embeddedText,
-            generatedAt: metadata.generatedAt,
-            promptTokens: metadata.promptTokens,
-            totalTokens: metadata.totalTokens,
-          },
-        ]),
-      ),
-      skillsCount: embeddingResult.size,
+      model: embeddingUsage.bySkill[0]?.model ?? '',
+      provider: embeddingUsage.bySkill[0]?.provider ?? '',
+      dimension: embeddingUsage.bySkill[0]?.dimension ?? 0,
+      totalTokens: embeddingUsage.totalTokens,
+      bySkill: embeddingUsage.bySkill,
+      skillsCount: embeddingUsage.bySkill.length,
     };
   }
 
