@@ -31,6 +31,7 @@ import {
   IFacultyRepository,
 } from 'src/modules/faculty/contracts/i-faculty.contract';
 import { Faculty } from 'src/modules/faculty/types/faculty.type';
+import { QueryPipelineLoggerService } from 'src/modules/query-logging/services/query-pipeline-logger.service';
 
 import {
   I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
@@ -85,219 +86,334 @@ export class AnswerQuestionUseCase
     private readonly campusRepository: ICampusRepository,
     @Inject(I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN)
     private readonly courseRelevanceFilterService: ICourseRelevanceFilterService,
+    private readonly queryPipelineLoggerService: QueryPipelineLoggerService,
     private readonly appConfigService: AppConfigService,
   ) {}
 
   async execute(
     input: AnswerQuestionUseCaseInput,
   ): Promise<AnswerQuestionUseCaseOutput> {
-    const { question, isGenEd } = input;
-    // More token usage but reduces latency
-    const timing = this.timeLogger.initializeTiming();
-    const tokenMap = this.tokenLogger.initializeTokenMap();
+    const { question, isGenEd, campusId, facultyId, academicYearSemesters } =
+      input;
 
-    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute');
-    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
+    // Start query logging
+    await this.queryPipelineLoggerService.start(question, {
+      question,
+      campusId,
+      facultyId,
+      isGenEd,
+      academicYearSemesters,
+    });
 
-    const [classificationResult, queryProfileResult] = await Promise.all([
-      this.questionClassifierService.classify({
-        question,
-        promptVersion: QuestionClassificationPromptVersions.V11,
-      }),
-      this.queryProfileBuilderService.buildQueryProfile(question),
-    ]);
+    try {
+      // More token usage but reduces latency
+      const timing = this.timeLogger.initializeTiming();
+      const tokenMap = this.tokenLogger.initializeTokenMap();
 
-    this.tokenLogger.addTokenUsage(
-      tokenMap,
-      'step1-basic-preparation',
-      classificationResult.tokenUsage,
-    );
+      this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute');
+      this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
 
-    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
+      const [classificationResult, queryProfileResult] = await Promise.all([
+        this.questionClassifierService.classify({
+          question,
+          promptVersion: QuestionClassificationPromptVersions.V11,
+        }),
+        this.queryProfileBuilderService.buildQueryProfile(question),
+      ]);
 
-    this.logger.log(
-      `Question classification result: ${JSON.stringify(
+      this.tokenLogger.addTokenUsage(
+        tokenMap,
+        'step1-basic-preparation',
+        classificationResult.tokenUsage,
+      );
+
+      this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step1');
+
+      // Log classification and query profile steps
+      await this.queryPipelineLoggerService.classification(
+        { question, promptVersion: QuestionClassificationPromptVersions.V11 },
         {
           category: classificationResult.category,
           reason: classificationResult.reason,
         },
-        null,
-        2,
-      )}`,
-    );
-    this.logger.log(
-      `Query profile result: ${JSON.stringify(queryProfileResult, null, 2)}`,
-    );
+        classificationResult.llmInfo,
+      );
 
-    // if (classificationResult.category === 'relevant') {
-    //   return this.returnEmptyOutput();
-    // }
+      await this.queryPipelineLoggerService.queryProfile(
+        { question },
+        queryProfileResult,
+        queryProfileResult.llmInfo,
+      );
 
-    const fallbackResponse = this.getFallbackAnswerForClassification(
-      classificationResult.category,
-    );
+      this.logger.log(
+        `Question classification result: ${JSON.stringify(
+          {
+            category: classificationResult.category,
+            reason: classificationResult.reason,
+          },
+          null,
+          2,
+        )}`,
+      );
+      this.logger.log(
+        `Query profile result: ${JSON.stringify(queryProfileResult, null, 2)}`,
+      );
 
-    if (fallbackResponse) {
-      return fallbackResponse;
-    }
+      // if (classificationResult.category === 'relevant') {
+      //   return this.returnEmptyOutput();
+      // }
 
-    // Direct implementation copied from SkillQueryStrategy
-    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
+      const fallbackResponse = await this.getFallbackAnswerForClassification(
+        classificationResult.category,
+        classificationResult.reason,
+      );
 
-    const skillExpansion = await this.skillExpanderService.expandSkills(
-      question,
-      SkillExpansionPromptVersions.V10,
-    );
-    const skillItems = skillExpansion.skillItems;
+      if (fallbackResponse) {
+        return fallbackResponse;
+      }
 
-    this.tokenLogger.addTokenUsage(
-      tokenMap,
-      'step2-skill-inference',
-      skillExpansion.tokenUsage,
-    );
+      // Direct implementation copied from SkillQueryStrategy
+      this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
-    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
+      const skillExpansion = await this.skillExpanderService.expandSkills(
+        question,
+        SkillExpansionPromptVersions.V10,
+      );
+      const skillItems = skillExpansion.skillItems;
 
-    this.logger.log(`Expanded skills: ${JSON.stringify(skillItems, null, 2)}`);
+      this.tokenLogger.addTokenUsage(
+        tokenMap,
+        'step2-skill-inference',
+        skillExpansion.tokenUsage,
+      );
 
-    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
+      this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step2');
 
-    const { coursesBySkill: skillCoursesMap } =
-      await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
-        skills: skillItems.map((item) => item.skill),
-        embeddingConfiguration:
-          this.appConfigService.embeddingProvider === EmbeddingProviders.LOCAL
-            ? {
-                model: EmbeddingModels.E5_BASE,
-                provider: EmbeddingProviders.LOCAL,
-                dimension: 768,
-              }
-            : {
-                model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-                provider: EmbeddingProviders.OPENROUTER,
-                dimension: 1536,
-              },
-        loThreshold: 0,
-        topNLos: 10,
-        isGenEd,
-        enableLlmFilter: false,
-      });
-    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
+      // Log skill expansion step
+      await this.queryPipelineLoggerService.skillExpansion(
+        { question, promptVersion: SkillExpansionPromptVersions.V10 },
+        { skillItems },
+        skillExpansion.llmInfo,
+      );
 
-    // Add filter before aggregation
-    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
-    const filteredSkillCoursesMap = new Map<
-      string,
-      CourseWithLearningOutcomeV2MatchWithScore[]
-    >();
-    const useFilter = true;
-    if (useFilter) {
-      const relevanceFilterResults =
-        await this.courseRelevanceFilterService.batchFilterCoursesBySkillV2(
-          question,
-          queryProfileResult,
-          skillCoursesMap,
-          CourseRelevanceFilterPromptVersions.V4, // lower than v4 is binary classification
-        );
+      this.logger.log(
+        `Expanded skills: ${JSON.stringify(skillItems, null, 2)}`,
+      );
 
-      for (const filterResult of relevanceFilterResults) {
-        this.tokenLogger.addTokenUsage(
-          tokenMap,
-          'step4-course-relevance-filter',
-          filterResult.tokenUsage,
-        );
-        for (const [
-          skill,
-          courses,
-        ] of filterResult.relevantCoursesBySkill.entries()) {
-          if (!filteredSkillCoursesMap.has(skill)) {
-            filteredSkillCoursesMap.set(skill, []);
+      this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
+
+      const retrieverResult =
+        await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
+          skills: skillItems.map((item) => item.skill),
+          embeddingConfiguration:
+            this.appConfigService.embeddingProvider === EmbeddingProviders.LOCAL
+              ? {
+                  model: EmbeddingModels.E5_BASE,
+                  provider: EmbeddingProviders.LOCAL,
+                  dimension: 768,
+                }
+              : {
+                  model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+                  provider: EmbeddingProviders.OPENROUTER,
+                  dimension: 1536,
+                },
+          loThreshold: 0,
+          topNLos: 10,
+          isGenEd,
+          enableLlmFilter: false,
+          campusId,
+          facultyId,
+          academicYearSemesters,
+        });
+      const { coursesBySkill: skillCoursesMap, embeddingUsage } =
+        retrieverResult;
+      this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step3');
+
+      // Log course retrieval step with embedding usage
+      await this.queryPipelineLoggerService.courseRetrieval(
+        {
+          skills: skillItems.map((item) => item.skill),
+          threshold: 0,
+          topN: 10,
+        },
+        { courseCount: skillCoursesMap.size },
+        embeddingUsage,
+      );
+
+      // Add filter before aggregation
+      this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+      const filteredSkillCoursesMap = new Map<
+        string,
+        CourseWithLearningOutcomeV2MatchWithScore[]
+      >();
+      const useFilter = true;
+      if (useFilter) {
+        const relevanceFilterResults =
+          await this.courseRelevanceFilterService.batchFilterCoursesBySkillV2(
+            question,
+            queryProfileResult,
+            skillCoursesMap,
+            CourseRelevanceFilterPromptVersions.V4, // lower than v4 is binary classification
+          );
+
+        // Log course filter step
+        for (const filterResult of relevanceFilterResults) {
+          for (const [
+            skill,
+            courses,
+          ] of filterResult.relevantCoursesBySkill.entries()) {
+            await this.queryPipelineLoggerService.courseFilter(
+              { skill, question },
+              { filteredCount: courses.length },
+              filterResult.llmInfo,
+            );
           }
-          filteredSkillCoursesMap.get(skill)!.push(...courses);
+
+          this.tokenLogger.addTokenUsage(
+            tokenMap,
+            'step4-course-relevance-filter',
+            filterResult.tokenUsage,
+          );
+          for (const [
+            skill,
+            courses,
+          ] of filterResult.relevantCoursesBySkill.entries()) {
+            if (!filteredSkillCoursesMap.has(skill)) {
+              filteredSkillCoursesMap.set(skill, []);
+            }
+            filteredSkillCoursesMap.get(skill)!.push(...courses);
+          }
         }
       }
-    }
-    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
+      this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step4');
 
-    // Aggregate courses with their matched skills
-    const courseMap =
-      filteredSkillCoursesMap.size > 0
-        ? this.aggregateCourseSkillsWithScore(filteredSkillCoursesMap)
-        : this.aggregateCourseSkillsWithNoScore(skillCoursesMap);
+      // Aggregate courses with their matched skills
+      const courseMap =
+        filteredSkillCoursesMap.size > 0
+          ? this.aggregateCourseSkillsWithScore(filteredSkillCoursesMap)
+          : this.aggregateCourseSkillsWithNoScore(skillCoursesMap);
 
-    const aggregatedCourseSkills: AggregatedCourseSkills[] = [
-      ...Array.from(courseMap.values()),
-    ];
+      const aggregatedCourseSkills: AggregatedCourseSkills[] = [
+        ...Array.from(courseMap.values()),
+      ];
 
-    if (aggregatedCourseSkills.length === 0) {
-      return {
-        answer: 'ขออภัย เราไม่พบรายวิชาที่เกี่ยวข้องกับคำถามของคุณ',
-        suggestQuestion: 'อยากเรียนการเงินส่วนบุคคล',
-        relatedCourses: [],
+      if (aggregatedCourseSkills.length === 0) {
+        const emptyResult = {
+          answer: 'ขออภัย เราไม่พบรายวิชาที่เกี่ยวข้องกับคำถามของคุณ',
+          suggestQuestion: 'อยากเรียนการเงินส่วนบุคคล',
+          relatedCourses: [],
+        };
+
+        await this.queryPipelineLoggerService.complete(
+          { answer: emptyResult.answer, relatedCourses: [] },
+          { counts: { coursesReturned: 0 } },
+        );
+
+        return emptyResult;
+      }
+
+      // Rank courses by score descending
+      const rankedCourses = ArrayHelper.sortByNumberKeyDesc(
+        aggregatedCourseSkills,
+        'score',
+      );
+
+      // Proceed with answer synthesis using ranked and retained courses
+      this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
+      const synthesisResult =
+        await this.answerSynthesisService.synthesizeAnswer({
+          question,
+          promptVersion: AnswerSynthesisPromptVersions.V7,
+          queryProfile: queryProfileResult,
+          aggregatedCourseSkills: rankedCourses.filter(
+            (course) => course.score >= 1,
+          ),
+        });
+
+      this.tokenLogger.addTokenUsage(
+        tokenMap,
+        'step5-answer-synthesis',
+        synthesisResult.tokenUsage,
+      );
+
+      this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
+
+      // Log answer synthesis step
+      await this.queryPipelineLoggerService.answerSynthesis(
+        { question, promptVersion: AnswerSynthesisPromptVersions.V7 },
+        { answer: synthesisResult.answerText },
+        synthesisResult.llmInfo,
+      );
+
+      this.logger.log(
+        `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
+      );
+
+      // Transform to CourseView
+      const relatedCourses = await this.transformToCourseViews(rankedCourses);
+
+      const result = {
+        answer: synthesisResult.answerText,
+        suggestQuestion: null,
+        relatedCourses,
       };
+
+      this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute');
+      this.logExecutionMetrics(timing, tokenMap);
+
+      // Complete query logging
+      await this.queryPipelineLoggerService.complete(
+        {
+          answer: result.answer,
+          suggestQuestion: result.suggestQuestion ?? undefined,
+          relatedCourses: relatedCourses.map((c) => ({
+            courseCode: c.subjectCode,
+            courseName: c.subjectName,
+          })),
+        },
+        { counts: { coursesReturned: relatedCourses.length } },
+      );
+
+      return result;
+    } catch (error) {
+      await this.queryPipelineLoggerService.fail({
+        message: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined,
+      });
+      throw error;
     }
-
-    // Rank courses by score descending
-    const rankedCourses = ArrayHelper.sortByNumberKeyDesc(
-      aggregatedCourseSkills,
-      'score',
-    );
-
-    // Proceed with answer synthesis using ranked and retained courses
-    this.timeLogger.startTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
-    const synthesisResult = await this.answerSynthesisService.synthesizeAnswer({
-      question,
-      promptVersion: AnswerSynthesisPromptVersions.V7,
-      queryProfile: queryProfileResult,
-      aggregatedCourseSkills: rankedCourses.filter(
-        (course) => course.score >= 1,
-      ),
-    });
-
-    this.tokenLogger.addTokenUsage(
-      tokenMap,
-      'step5-answer-synthesis',
-      synthesisResult.tokenUsage,
-    );
-
-    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute_Step5');
-
-    this.logger.log(
-      `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
-    );
-
-    // Transform to CourseView
-    const relatedCourses = await this.transformToCourseViews(rankedCourses);
-
-    const result = {
-      answer: synthesisResult.answerText,
-      suggestQuestion: null,
-      relatedCourses,
-    };
-
-    this.timeLogger.endTiming(timing, 'AnswerQuestionUseCaseExecute');
-    this.logExecutionMetrics(timing, tokenMap);
-
-    return result;
   }
 
-  private getFallbackAnswerForClassification(
+  private async getFallbackAnswerForClassification(
     classification: TClassificationCategory,
-  ): AnswerQuestionUseCaseOutput | null {
+    reason: string,
+  ): Promise<AnswerQuestionUseCaseOutput | null> {
     if (classification === 'irrelevant') {
-      return {
+      const output = {
         answer: 'ขออภัย คำถามของคุณอยู่นอกขอบเขตที่เราสามารถช่วยได้',
         suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
         relatedCourses: [],
       };
+
+      await this.queryPipelineLoggerService.earlyExit({
+        classification: { category: classification, reason },
+      });
+
+      return output;
     }
 
     if (classification === 'dangerous') {
-      return {
+      const output = {
         answer: 'ขออภัย คำถามของคุณมีเนื้อหาที่ไม่เหมาะสมหรือเป็นอันตราย',
         suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
         relatedCourses: [],
       };
+
+      await this.queryPipelineLoggerService.earlyExit({
+        classification: { category: classification, reason },
+      });
+
+      return output;
     }
 
     return null;
