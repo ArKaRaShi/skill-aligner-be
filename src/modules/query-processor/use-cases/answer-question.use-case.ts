@@ -2,7 +2,6 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { IUseCase } from 'src/shared/contracts/i-use-case.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
-import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { ArrayHelper } from 'src/shared/utils/array.helper';
 import { TimeLogger, TimingMap } from 'src/shared/utils/time-logger.helper';
 import { TokenLogger, TokenMap } from 'src/shared/utils/token-logger.helper';
@@ -80,7 +79,6 @@ export class AnswerQuestionUseCase
     @Inject(I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN)
     private readonly courseRelevanceFilterService: ICourseRelevanceFilterService,
     private readonly queryPipelineLoggerService: QueryPipelineLoggerService,
-    private readonly appConfigService: AppConfigService,
   ) {}
 
   async execute(
