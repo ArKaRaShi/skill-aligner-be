@@ -57,6 +57,8 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
     const llmInfo: LlmInfo = {
       model: this.modelName,
       provider,
+      inputTokens,
+      outputTokens,
       userPrompt,
       systemPrompt,
       promptVersion: 'v2',

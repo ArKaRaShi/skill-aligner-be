@@ -20,6 +20,8 @@ export class MockSkillExpanderService implements ISkillExpanderService {
     };
     const llmInfo: LlmInfo = {
       model: 'mock-model',
+      inputTokens: 0,
+      outputTokens: 0,
       userPrompt: 'Mock user prompt',
       systemPrompt: 'Mock system prompt',
       promptVersion: 'v1',
@@ -53,6 +55,8 @@ export class MockSkillExpanderService implements ISkillExpanderService {
     };
     const llmInfo: LlmInfo = {
       model: 'mock-model',
+      inputTokens: 0,
+      outputTokens: 0,
       userPrompt: 'Mock user prompt',
       systemPrompt: 'Mock system prompt',
       promptVersion: 'v2',

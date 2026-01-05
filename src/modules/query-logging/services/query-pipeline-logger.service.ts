@@ -2,6 +2,7 @@ import type { EmbeddingUsage } from '../../../shared/contracts/types/embedding-u
 import type { Identifier } from '../../../shared/contracts/types/identifier';
 import type { LlmInfo } from '../../../shared/contracts/types/llm-info.type';
 import { HashHelper } from '../../../shared/utils/hash.helper';
+import { TokenCostCalculator } from '../../../shared/utils/token-cost-calculator.helper';
 import type { IQueryLoggingRepository } from '../contracts/i-query-logging-repository.contract';
 import type { StepEmbeddingConfig } from '../types/query-embedding-config.type';
 import type { StepLlmConfig } from '../types/query-llm-config.type';
@@ -264,6 +265,25 @@ export class QueryPipelineLoggerService {
    */
 
   private extractLlmInfo(llmInfo: LlmInfo): StepLlmConfig {
+    // Calculate tokenUsage (if tokens available)
+    const tokenUsage =
+      llmInfo.inputTokens !== undefined && llmInfo.outputTokens !== undefined
+        ? {
+            input: llmInfo.inputTokens,
+            output: llmInfo.outputTokens,
+            total: llmInfo.inputTokens + llmInfo.outputTokens,
+          }
+        : undefined;
+
+    // Calculate cost (if tokens available)
+    const cost = tokenUsage
+      ? TokenCostCalculator.estimateCost({
+          inputTokens: tokenUsage.input,
+          outputTokens: tokenUsage.output,
+          model: llmInfo.model,
+        }).estimatedCost
+      : undefined;
+
     return {
       provider: llmInfo.provider,
       model: llmInfo.model,
@@ -272,6 +292,8 @@ export class QueryPipelineLoggerService {
       userPrompt: llmInfo.userPrompt,
       schemaName: llmInfo.schemaName,
       schemaShape: llmInfo.schemaShape,
+      tokenUsage, // Populated if inputTokens/outputTokens available
+      cost, // Calculated if tokens available
       fullMetadata: {
         finishReason: llmInfo.finishReason,
         warnings: llmInfo.warnings,

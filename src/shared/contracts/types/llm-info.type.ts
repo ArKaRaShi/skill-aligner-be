@@ -2,6 +2,9 @@ export type LlmInfo = {
   model: string;
   /** Our router's selected provider: "openrouter" or "openai" */
   provider?: string;
+  /** Token usage from LLM SDK response */
+  inputTokens?: number;
+  outputTokens?: number;
   systemPrompt: string;
   userPrompt: string;
   promptVersion: string;

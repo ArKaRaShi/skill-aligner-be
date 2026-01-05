@@ -84,6 +84,8 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     const llmInfo: LlmInfo = {
       model: this.modelName,
       provider,
+      inputTokens,
+      outputTokens,
       userPrompt,
       systemPrompt,
       promptVersion,

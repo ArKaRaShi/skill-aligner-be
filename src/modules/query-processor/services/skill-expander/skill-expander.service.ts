@@ -79,6 +79,8 @@ export class SkillExpanderService implements ISkillExpanderService {
     const llmInfo: LlmInfo = {
       model: this.modelName,
       provider,
+      inputTokens,
+      outputTokens,
       userPrompt,
       systemPrompt,
       promptVersion,
@@ -139,6 +141,8 @@ export class SkillExpanderService implements ISkillExpanderService {
     const llmInfo: LlmInfo = {
       model: this.modelName,
       provider,
+      inputTokens,
+      outputTokens,
       userPrompt,
       systemPrompt,
       promptVersion,

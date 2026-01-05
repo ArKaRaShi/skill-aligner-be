@@ -68,6 +68,8 @@ export class CourseRelevanceFilterService
             };
             const llmInfo: LlmInfo = {
               model: this.modelName,
+              inputTokens: 0,
+              outputTokens: 0,
               userPrompt: '',
               systemPrompt: '',
               promptVersion,
@@ -133,6 +135,8 @@ export class CourseRelevanceFilterService
           const llmInfo: LlmInfo = {
             model: this.modelName,
             provider,
+            inputTokens,
+            outputTokens,
             userPrompt,
             systemPrompt,
             promptVersion,
@@ -250,6 +254,8 @@ export class CourseRelevanceFilterService
             };
             const llmInfo: LlmInfo = {
               model: this.modelName,
+              inputTokens: 0,
+              outputTokens: 0,
               userPrompt: '',
               systemPrompt: '',
               promptVersion,
@@ -311,6 +317,8 @@ export class CourseRelevanceFilterService
           const llmInfo: LlmInfo = {
             model: this.modelName,
             provider,
+            inputTokens,
+            outputTokens,
             userPrompt,
             systemPrompt,
             promptVersion,

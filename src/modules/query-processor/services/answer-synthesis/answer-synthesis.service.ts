@@ -70,6 +70,8 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     const llmInfo: LlmInfo = {
       model: llmResult.model,
       provider: llmResult.provider,
+      inputTokens: llmResult.inputTokens,
+      outputTokens: llmResult.outputTokens,
       userPrompt: synthesisPrompt,
       systemPrompt,
       promptVersion,
