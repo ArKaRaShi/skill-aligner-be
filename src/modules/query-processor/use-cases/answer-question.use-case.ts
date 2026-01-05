@@ -33,6 +33,7 @@ import {
 import { Faculty } from 'src/modules/faculty/types/faculty.type';
 import { QueryPipelineLoggerService } from 'src/modules/query-logging/services/query-pipeline-logger.service';
 
+import { QueryPipelinePromptConfig } from '../constants';
 import {
   I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
   IAnswerSynthesisService,
@@ -53,10 +54,6 @@ import {
   I_SKILL_EXPANDER_SERVICE_TOKEN,
   ISkillExpanderService,
 } from '../contracts/i-skill-expander-service.contract';
-import { AnswerSynthesisPromptVersions } from '../prompts/answer-synthesis';
-import { CourseRelevanceFilterPromptVersions } from '../prompts/course-relevance-filter';
-import { QuestionClassificationPromptVersions } from '../prompts/question-classification';
-import { SkillExpansionPromptVersions } from '../prompts/skill-expansion';
 import { TClassificationCategory } from '../types/question-classification.type';
 import { AnswerQuestionUseCaseInput } from './inputs/answer-question.use-case.input';
 import { AnswerQuestionUseCaseOutput } from './outputs/answer-question.use-case.output';
@@ -116,7 +113,7 @@ export class AnswerQuestionUseCase
       const [classificationResult, queryProfileResult] = await Promise.all([
         this.questionClassifierService.classify({
           question,
-          promptVersion: QuestionClassificationPromptVersions.V11,
+          promptVersion: QueryPipelinePromptConfig.CLASSIFICATION,
         }),
         this.queryProfileBuilderService.buildQueryProfile(question),
       ]);
@@ -131,7 +128,10 @@ export class AnswerQuestionUseCase
 
       // Log classification and query profile steps
       await this.queryPipelineLoggerService.classification(
-        { question, promptVersion: QuestionClassificationPromptVersions.V11 },
+        {
+          question,
+          promptVersion: QueryPipelinePromptConfig.CLASSIFICATION,
+        },
         {
           category: classificationResult.category,
           reason: classificationResult.reason,
@@ -177,7 +177,7 @@ export class AnswerQuestionUseCase
 
       const skillExpansion = await this.skillExpanderService.expandSkills(
         question,
-        SkillExpansionPromptVersions.V10,
+        QueryPipelinePromptConfig.SKILL_EXPANSION,
       );
       const skillItems = skillExpansion.skillItems;
 
@@ -191,7 +191,10 @@ export class AnswerQuestionUseCase
 
       // Log skill expansion step
       await this.queryPipelineLoggerService.skillExpansion(
-        { question, promptVersion: SkillExpansionPromptVersions.V10 },
+        {
+          question,
+          promptVersion: QueryPipelinePromptConfig.SKILL_EXPANSION,
+        },
         { skillItems },
         skillExpansion.llmInfo,
       );
@@ -253,7 +256,7 @@ export class AnswerQuestionUseCase
             question,
             queryProfileResult,
             skillCoursesMap,
-            CourseRelevanceFilterPromptVersions.V4, // lower than v4 is binary classification
+            QueryPipelinePromptConfig.COURSE_RELEVANCE_FILTER, // lower than v4 is binary classification
           );
 
         // Log course filter step
@@ -323,7 +326,7 @@ export class AnswerQuestionUseCase
       const synthesisResult =
         await this.answerSynthesisService.synthesizeAnswer({
           question,
-          promptVersion: AnswerSynthesisPromptVersions.V7,
+          promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
           queryProfile: queryProfileResult,
           aggregatedCourseSkills: rankedCourses.filter(
             (course) => course.score >= 1,
@@ -340,7 +343,10 @@ export class AnswerQuestionUseCase
 
       // Log answer synthesis step
       await this.queryPipelineLoggerService.answerSynthesis(
-        { question, promptVersion: AnswerSynthesisPromptVersions.V7 },
+        {
+          question,
+          promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
+        },
         { answer: synthesisResult.answerText },
         synthesisResult.llmInfo,
       );
