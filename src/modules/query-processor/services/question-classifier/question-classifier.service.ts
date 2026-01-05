@@ -56,13 +56,24 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const userPrompt = getUserPrompt(question);
 
-    const { object, inputTokens, outputTokens } =
-      await this.llmRouter.generateObject({
-        prompt: userPrompt,
-        systemPrompt,
-        schema: QuestionClassificationSchema,
-        model: this.modelName,
-      });
+    const result = await this.llmRouter.generateObject({
+      prompt: userPrompt,
+      systemPrompt,
+      schema: QuestionClassificationSchema,
+      model: this.modelName,
+    });
+
+    const {
+      object,
+      inputTokens,
+      outputTokens,
+      provider,
+      finishReason,
+      warnings,
+      providerMetadata,
+      response,
+      hyperParameters,
+    } = result;
 
     const tokenUsage: TokenUsage = {
       model: this.modelName,
@@ -72,9 +83,17 @@ export class QuestionClassifierService implements IQuestionClassifierService {
 
     const llmInfo: LlmInfo = {
       model: this.modelName,
+      provider,
       userPrompt,
       systemPrompt,
       promptVersion,
+      schemaName: 'QuestionClassificationSchema',
+      schemaShape: QuestionClassificationSchema.shape,
+      finishReason,
+      warnings,
+      providerMetadata,
+      response,
+      hyperParameters,
     };
 
     const classificationResult: TQuestionClassification = {

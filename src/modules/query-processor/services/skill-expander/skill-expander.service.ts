@@ -51,16 +51,24 @@ export class SkillExpanderService implements ISkillExpanderService {
     const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const userPrompt = getUserPrompt(question);
 
-    const {
-      object: { skills },
-      inputTokens,
-      outputTokens,
-    } = await this.llmRouter.generateObject({
+    const result = await this.llmRouter.generateObject({
       prompt: userPrompt,
       systemPrompt,
       schema: SkillExpansionSchema,
       model: this.modelName,
     });
+
+    const {
+      object: { skills },
+      inputTokens,
+      outputTokens,
+      provider,
+      finishReason,
+      warnings,
+      providerMetadata,
+      response,
+      hyperParameters,
+    } = result;
 
     const tokenUsage: TokenUsage = {
       model: this.modelName,
@@ -70,20 +78,28 @@ export class SkillExpanderService implements ISkillExpanderService {
 
     const llmInfo: LlmInfo = {
       model: this.modelName,
+      provider,
       userPrompt,
       systemPrompt,
       promptVersion,
+      schemaName: 'SkillExpansionSchema',
+      schemaShape: SkillExpansionSchema.shape,
+      finishReason,
+      warnings,
+      providerMetadata,
+      response,
+      hyperParameters,
     };
 
-    const result: TSkillExpansion = {
+    const expansionResult: TSkillExpansion = {
       skillItems: skills,
       llmInfo,
       tokenUsage,
     };
     if (this.useCache) {
-      this.cache.store(question, result);
+      this.cache.store(question, expansionResult);
     }
-    return result;
+    return expansionResult;
   }
 
   async expandSkillsV2(
@@ -95,13 +111,24 @@ export class SkillExpanderService implements ISkillExpanderService {
 
     const userPrompt = getUserPrompt(question);
 
-    const { object, inputTokens, outputTokens } =
-      await this.llmRouter.generateObject({
-        prompt: userPrompt,
-        systemPrompt,
-        schema: SkillExpansionV2Schema,
-        model: this.modelName,
-      });
+    const result = await this.llmRouter.generateObject({
+      prompt: userPrompt,
+      systemPrompt,
+      schema: SkillExpansionV2Schema,
+      model: this.modelName,
+    });
+
+    const {
+      object,
+      inputTokens,
+      outputTokens,
+      provider,
+      finishReason,
+      warnings,
+      providerMetadata,
+      response,
+      hyperParameters,
+    } = result;
 
     const tokenUsage: TokenUsage = {
       model: this.modelName,
@@ -111,12 +138,20 @@ export class SkillExpanderService implements ISkillExpanderService {
 
     const llmInfo: LlmInfo = {
       model: this.modelName,
+      provider,
       userPrompt,
       systemPrompt,
       promptVersion,
+      schemaName: 'SkillExpansionV2Schema',
+      schemaShape: SkillExpansionV2Schema.shape,
+      finishReason,
+      warnings,
+      providerMetadata,
+      response,
+      hyperParameters,
     };
 
-    const result: TSkillExpansionV2 = {
+    const expansionResultV2: TSkillExpansionV2 = {
       skillItems: object.skills.map((item) => ({
         skill: item.skill,
         learningOutcome: item.learning_outcome,
@@ -125,7 +160,7 @@ export class SkillExpanderService implements ISkillExpanderService {
       llmInfo,
       tokenUsage,
     };
-    return result;
+    return expansionResultV2;
   }
 
   private normalizeSkillName(name: string): string {

@@ -69,9 +69,17 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
 
     const llmInfo: LlmInfo = {
       model: llmResult.model,
+      provider: llmResult.provider,
       userPrompt: synthesisPrompt,
       systemPrompt,
       promptVersion,
+      schemaName: undefined,
+      schemaShape: undefined,
+      finishReason: llmResult.finishReason,
+      warnings: llmResult.warnings,
+      providerMetadata: llmResult.providerMetadata,
+      response: llmResult.response,
+      hyperParameters: llmResult.hyperParameters,
     };
 
     const synthesisResult: AnswerSynthesisResult = {

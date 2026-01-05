@@ -4,6 +4,7 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
+import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
 import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
@@ -26,22 +27,46 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
 
     const { getPrompts } = QueryProfileBuilderPromptFactory();
     const { getUserPrompt, systemPrompt } = getPrompts('v2');
+    const userPrompt = getUserPrompt(query);
 
-    const {
-      object: profileData,
-      inputTokens,
-      outputTokens,
-    } = await this.llmRouter.generateObject({
-      prompt: getUserPrompt(query),
+    const result = await this.llmRouter.generateObject({
+      prompt: userPrompt,
       systemPrompt,
       schema: QueryProfileBuilderSchema,
       model: this.modelName,
     });
 
+    const {
+      object: profileData,
+      inputTokens,
+      outputTokens,
+      provider,
+      finishReason,
+      warnings,
+      providerMetadata,
+      response,
+      hyperParameters,
+    } = result;
+
     const tokenUsage: TokenUsage = {
       model: this.modelName,
       inputTokens,
       outputTokens,
+    };
+
+    const llmInfo: LlmInfo = {
+      model: this.modelName,
+      provider,
+      userPrompt,
+      systemPrompt,
+      promptVersion: 'v2',
+      schemaName: 'QueryProfileBuilderSchema',
+      schemaShape: QueryProfileBuilderSchema.shape,
+      finishReason,
+      warnings,
+      providerMetadata,
+      response,
+      hyperParameters,
     };
 
     this.logger.log(
@@ -50,6 +75,7 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
 
     return {
       ...profileData,
+      llmInfo,
       tokenUsage,
     };
   }

@@ -95,13 +95,24 @@ export class CourseRelevanceFilterService
             `[CourseRelevanceFilter] Courses data for skill "${skill}": ${coursesData}`,
           );
 
-          const { object, inputTokens, outputTokens } =
-            await this.llmRouter.generateObject({
-              prompt: getUserPrompt(question, skill, coursesData),
-              systemPrompt,
-              schema: CourseRelevanceFilterResultSchema,
-              model: this.modelName,
-            });
+          const result = await this.llmRouter.generateObject({
+            prompt: getUserPrompt(question, skill, coursesData),
+            systemPrompt,
+            schema: CourseRelevanceFilterResultSchema,
+            model: this.modelName,
+          });
+
+          const {
+            object,
+            inputTokens,
+            outputTokens,
+            provider,
+            finishReason,
+            warnings,
+            providerMetadata,
+            response,
+            hyperParameters,
+          } = result;
 
           this.logger.log(
             `[CourseRelevanceFilter] Generated relevance filter for skill "${skill}": ${JSON.stringify(
@@ -117,11 +128,21 @@ export class CourseRelevanceFilterService
             outputTokens,
           };
 
+          const userPrompt = getUserPrompt(question, skill, coursesData);
+
           const llmInfo: LlmInfo = {
             model: this.modelName,
-            userPrompt: getUserPrompt(question, skill, coursesData),
+            provider,
+            userPrompt,
             systemPrompt,
             promptVersion,
+            schemaName: 'CourseRelevanceFilterResultSchema',
+            schemaShape: CourseRelevanceFilterResultSchema.shape,
+            finishReason,
+            warnings,
+            providerMetadata,
+            response,
+            hyperParameters,
           };
 
           const courseItems: CourseRelevanceFilterItem[] = object.courses.map(
@@ -252,13 +273,24 @@ export class CourseRelevanceFilterService
             `[CourseRelevanceFilterV2] Courses data for skill "${skill}": ${coursesData}`,
           );
 
-          const { object, inputTokens, outputTokens } =
-            await this.llmRouter.generateObject({
-              prompt: getUserPrompt(question, skill, coursesData),
-              systemPrompt,
-              schema: CourseRelevanceFilterResultSchemaV2,
-              model: this.modelName,
-            });
+          const result = await this.llmRouter.generateObject({
+            prompt: getUserPrompt(question, skill, coursesData),
+            systemPrompt,
+            schema: CourseRelevanceFilterResultSchemaV2,
+            model: this.modelName,
+          });
+
+          const {
+            object,
+            inputTokens,
+            outputTokens,
+            provider,
+            finishReason,
+            warnings,
+            providerMetadata,
+            response,
+            hyperParameters,
+          } = result;
 
           this.logger.log(
             `[CourseRelevanceFilterV2] Generated relevance filter for skill "${skill}": ${JSON.stringify(
@@ -274,11 +306,21 @@ export class CourseRelevanceFilterService
             outputTokens,
           };
 
+          const userPrompt = getUserPrompt(question, skill, coursesData);
+
           const llmInfo: LlmInfo = {
             model: this.modelName,
-            userPrompt: getUserPrompt(question, skill, coursesData),
+            provider,
+            userPrompt,
             systemPrompt,
             promptVersion,
+            schemaName: 'CourseRelevanceFilterResultSchemaV2',
+            schemaShape: CourseRelevanceFilterResultSchemaV2.shape,
+            finishReason,
+            warnings,
+            providerMetadata,
+            response,
+            hyperParameters,
           };
 
           // Process the LLM response to add scores to courses
