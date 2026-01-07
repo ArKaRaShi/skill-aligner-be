@@ -1,21 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import {
-  I_LLM_ROUTER_SERVICE_TOKEN,
-  ILlmRouterService,
-} from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
+import { ILlmRouterService } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
-import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import {
   FindLosBySkillsOutput,
-  I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
   ICourseLearningOutcomeRepository,
 } from '../../contracts/i-course-learning-outcome-repository.contract';
-import {
-  I_COURSE_REPOSITORY_TOKEN,
-  ICourseRepository,
-} from '../../contracts/i-course-repository.contract';
+import { ICourseRepository } from '../../contracts/i-course-repository.contract';
 import { FindCoursesWithLosBySkillsWithFilterParams } from '../../contracts/i-course-retriever-service.contract';
 import {
   LearningOutcome,
@@ -71,12 +63,6 @@ const buildCourse = (overrides: Partial<Course> = {}): Course => ({
   ...overrides,
 });
 
-const embeddingConfiguration = {
-  model: 'e5-base',
-  provider: 'e5',
-  dimension: 768,
-} as const;
-
 describe('CourseRetrieverService', () => {
   let service: CourseRetrieverService;
   let courseRepository: jest.Mocked<ICourseRepository>;
@@ -101,20 +87,21 @@ describe('CourseRetrieverService', () => {
       }),
     } as Partial<jest.Mocked<ILlmRouterService>>;
 
-    const mockAppConfigService = {
-      filterLoLlmModel: jest.fn().mockReturnValue('gpt-4'),
-    };
-
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        CourseRetrieverService,
-        { provide: I_COURSE_REPOSITORY_TOKEN, useValue: courseRepository },
         {
-          provide: I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
-          useValue: loRepository,
+          provide: CourseRetrieverService,
+          useFactory: () => {
+            return new CourseRetrieverService(
+              courseRepository,
+              loRepository,
+              mockLlmRouter as jest.Mocked<ILlmRouterService>,
+              'e5-base', // embeddingModel
+              'local', // embeddingProvider (optional, but we provide it)
+              'gpt-4', // filterLoLlmModel
+            );
+          },
         },
-        { provide: I_LLM_ROUTER_SERVICE_TOKEN, useValue: mockLlmRouter },
-        { provide: AppConfigService, useValue: mockAppConfigService },
       ],
     }).compile();
 
@@ -123,7 +110,6 @@ describe('CourseRetrieverService', () => {
 
   const baseParams: FindCoursesWithLosBySkillsWithFilterParams = {
     skills: ['skill1', 'skill2'],
-    embeddingConfiguration,
     loThreshold: 0.5,
     topNLos: 10,
     enableLlmFilter: false,

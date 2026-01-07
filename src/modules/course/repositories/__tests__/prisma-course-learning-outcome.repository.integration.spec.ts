@@ -486,7 +486,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
       });
 
@@ -508,7 +507,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         campusId: campus1Id,
       });
@@ -538,7 +536,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         campusId: campus2Id,
       });
@@ -561,7 +558,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         facultyId: faculty1Id,
       });
@@ -590,7 +586,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         facultyId: faculty2Id,
       });
@@ -613,7 +608,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         isGenEd: true,
       });
@@ -642,7 +636,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         isGenEd: false,
       });
@@ -671,7 +664,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         campusId: campus1Id,
         facultyId: faculty1Id,
@@ -702,7 +694,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         campusId: campus2Id,
         facultyId: faculty2Id,
@@ -731,7 +722,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         isGenEd: false, // This should exclude CLOs from courses with isGenEd=true
       });
@@ -760,7 +750,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         isGenEd: true,
       });
@@ -802,7 +791,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         academicYearSemesters: [{ academicYear: 2023 }],
       });
@@ -834,7 +822,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         academicYearSemesters: [{ academicYear: 2023, semesters: [1] }],
       });
@@ -866,7 +853,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         academicYearSemesters: [{ academicYear: 2023 }, { academicYear: 2024 }],
       });
@@ -898,7 +884,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         academicYearSemesters: [
           {
@@ -935,7 +920,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         academicYearSemesters: [
           { academicYear: 2023, semesters: [1] },
@@ -970,7 +954,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         academicYearSemesters: [{ academicYear: 2024 }],
       });
@@ -988,7 +971,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         academicYearSemesters: [{ academicYear: 2023, semesters: [2] }],
       });
@@ -1051,7 +1033,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         academicYearSemesters: [
           { academicYear: 2023, semesters: [1] },
@@ -1099,7 +1080,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
       });
 
@@ -1128,7 +1108,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         campusId: campus1Id, // Filter to first campus where courses 5 and 6 are located
       });
@@ -1156,7 +1135,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
         campusId: campus1Id,
       });
@@ -1208,7 +1186,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
           embeddingConfiguration: {
             model: 'e5-base',
             provider: 'e5',
-            dimension: 768,
           },
           campusId: campus1Id,
         });
@@ -1258,7 +1235,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'openai/text-embedding-3-small',
           provider: 'openrouter',
-          dimension: 1536,
         },
       });
 
@@ -1282,7 +1258,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'openai/text-embedding-3-small',
           provider: 'openrouter',
-          dimension: 1536,
         },
         campusId: campus1Id,
       });
@@ -1313,7 +1288,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'openai/text-embedding-3-small',
           provider: 'openrouter',
-          dimension: 1536,
         },
       });
 
@@ -1330,7 +1304,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'openai/text-embedding-3-small',
           provider: 'openrouter',
-          dimension: 1536,
         },
       });
 
@@ -1367,7 +1340,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
       });
 
@@ -1405,7 +1377,6 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         embeddingConfiguration: {
           model: 'e5-base',
           provider: 'e5',
-          dimension: 768,
         },
       });
 

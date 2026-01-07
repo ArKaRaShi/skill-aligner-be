@@ -28,16 +28,9 @@ export class LoggerModule {
                         messageFormat: '[{context}] {msg}',
                       },
                     },
-              // Customize request logging to exclude body
+              // Disable request logging
               serializers: {
-                req: (req: any) => ({
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-                  method: req.method,
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-                  url: req.url,
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-                  headers: req.headers,
-                }),
+                req: () => undefined,
               },
             },
           }),

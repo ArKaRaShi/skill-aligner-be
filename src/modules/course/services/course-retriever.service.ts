@@ -1,11 +1,10 @@
-import { Inject, Injectable, Logger } from '@nestjs/common';
+import { Inject, Injectable, Logger, Optional } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
@@ -31,9 +30,6 @@ export class CourseRetrieverService implements ICourseRetrieverService {
   private readonly logger = new Logger(CourseRetrieverService.name);
   private readonly filterLoPromptFactory = FilterLoPromptFactory();
 
-  private readonly embeddingModel: string;
-  private readonly embeddingProvider: string;
-
   constructor(
     @Inject(I_COURSE_REPOSITORY_TOKEN)
     private readonly courseRepository: ICourseRepository,
@@ -41,11 +37,10 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     private readonly courseLearningOutcomeRepository: ICourseLearningOutcomeRepository,
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
     private readonly llmRouter: ILlmRouterService,
-    private readonly appConfigService: AppConfigService,
-  ) {
-    this.embeddingModel = this.appConfigService.embeddingModel;
-    this.embeddingProvider = this.appConfigService.embeddingProvider;
-  }
+    private readonly embeddingModel: string,
+    @Optional() private readonly embeddingProvider: string = 'local',
+    private readonly filterLoLlmModel: string,
+  ) {}
 
   async getCoursesWithLosBySkillsWithFilter({
     skills,
@@ -199,7 +194,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         prompt: getUserPrompt(skill, encodedLoList),
         systemPrompt: systemPrompt,
         schema: FilterLoSchema,
-        model: this.appConfigService.filterLoLlmModel,
+        model: this.filterLoLlmModel,
       });
 
       const filteredLos: FilterLoItem[] = object.learning_outcomes.map(
