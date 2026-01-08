@@ -75,7 +75,7 @@ export class PrismaQueryLoggingMapper {
       stepName: prismaStep.stepName as any,
       stepOrder: prismaStep.stepOrder,
       input: prismaStep.input as Record<string, any> | undefined,
-      output: prismaStep.output as Record<string, any> | undefined,
+      output: prismaStep.output as any, // JSONB data - already serialized (Maps → Objects)
       llm: prismaStep.llm as StepLlmConfig | undefined,
       embedding: prismaStep.embedding as StepEmbeddingConfig | undefined,
       metrics: prismaStep.metrics as Record<string, any> | undefined,

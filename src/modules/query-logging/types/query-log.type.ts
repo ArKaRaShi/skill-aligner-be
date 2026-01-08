@@ -65,28 +65,33 @@ export interface ClassificationInfo {
  */
 export interface QueryLogMetrics {
   totalDuration?: number; // milliseconds
-  totalTokens?: TokenTotals;
-  totalCost?: number;
-  embeddingCost?: number; // Separate embedding cost (may be 0 for local models)
-  cache?: CacheStats;
+  tokens?: TokenBreakdown;
+  costs?: CostBreakdown;
   counts?: CountStats;
 }
 
 /**
- * Token totals.
+ * Token breakdown separating LLM and embedding tokens.
  */
-export interface TokenTotals {
-  input: number;
-  output: number;
-  total: number;
+export interface TokenBreakdown {
+  llm?: {
+    input: number;
+    output: number;
+    total: number;
+  };
+  embedding?: {
+    total: number;
+  };
+  total: number; // llm.total + embedding.total
 }
 
 /**
- * Cache statistics.
+ * Cost breakdown separating LLM and embedding costs.
  */
-export interface CacheStats {
-  hits: number;
-  misses: number;
+export interface CostBreakdown {
+  llm?: number;
+  embedding?: number;
+  total: number; // llm + embedding
 }
 
 /**
@@ -94,8 +99,6 @@ export interface CacheStats {
  */
 export interface CountStats {
   skillsExtracted?: number;
-  coursesRetrieved?: number;
-  coursesFiltered?: number;
   coursesReturned?: number;
 }
 

@@ -43,10 +43,23 @@ export abstract class BaseEmbeddingClient implements IEmbeddingClient {
    * @returns - The embedding result containing the vector and metadata.
    */
   async embedOne(params: EmbedOneParams): Promise<EmbedResult> {
-    return this.doEmbedOne({
-      text: params.text,
-      role: params.role,
-    });
+    // Default 30 second timeout for embedding operations
+    const timeoutMs = 30_000;
+    return Promise.race([
+      this.doEmbedOne({
+        text: params.text,
+        role: params.role,
+      }),
+      new Promise<never>((_, reject) =>
+        setTimeout(
+          () =>
+            reject(
+              new Error(`Embedding request timed out after ${timeoutMs}ms`),
+            ),
+          timeoutMs,
+        ),
+      ),
+    ]);
   }
 
   /**
@@ -55,10 +68,23 @@ export abstract class BaseEmbeddingClient implements IEmbeddingClient {
    * @returns - An array of embedding results containing vectors and metadata.
    */
   async embedMany(params: EmbedManyParams): Promise<EmbedResult[]> {
-    return this.doEmbedMany({
-      texts: params.texts,
-      role: params.role,
-    });
+    // Default 30 second timeout for embedding operations
+    const timeoutMs = 30_000;
+    return Promise.race([
+      this.doEmbedMany({
+        texts: params.texts,
+        role: params.role,
+      }),
+      new Promise<never>((_, reject) =>
+        setTimeout(
+          () =>
+            reject(
+              new Error(`Embedding request timed out after ${timeoutMs}ms`),
+            ),
+          timeoutMs,
+        ),
+      ),
+    ]);
   }
 
   protected abstract doEmbedOne(params: EmbedOneParams): Promise<EmbedResult>;

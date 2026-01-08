@@ -52,6 +52,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     isGenEd,
     academicYearSemesters,
   }: FindCoursesWithLosBySkillsWithFilterParams): Promise<CourseRetrieverOutput> {
+    this.logger.debug(`Retrieving courses for skills: ${skills.join(', ')}`);
     const repositoryResult =
       await this.courseLearningOutcomeRepository.findLosBySkills({
         skills,
@@ -67,14 +68,15 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         academicYearSemesters,
       });
     let learningOutcomesBySkills = repositoryResult.losBySkill;
+    this.logger.debug(
+      `Retrieved learning outcomes for skills: ${[
+        ...learningOutcomesBySkills.keys(),
+      ].join(', ')}`,
+    );
 
     // Optionally filter non-relevant learning outcomes using LLM
     if (enableLlmFilter) {
-      this.logger.log(
-        `Filtering non-relevant learning outcomes using LLM for skills: ${[
-          ...learningOutcomesBySkills.keys(),
-        ].join(', ')}`,
-      );
+      this.logger.debug(`Filtering non-relevant learning outcomes using LLM`);
       learningOutcomesBySkills =
         await this.filterNonRelevantLearningOutcomesForSkills(
           learningOutcomesBySkills,
@@ -99,6 +101,9 @@ export class CourseRetrieverService implements ICourseRetrieverService {
       const learningOutcomeIds = learningOutcomes.map((lo) => lo.loId);
 
       // Retrieve courses by learning outcome IDs
+      this.logger.debug(
+        `Retrieving courses for skill: ${skill} with LO IDs: ${learningOutcomeIds.join(', ')}`,
+      );
       const coursesByLearningOutcomeIds =
         await this.courseRepository.findCourseByLearningOutcomeIds({
           learningOutcomeIds,
@@ -161,6 +166,8 @@ export class CourseRetrieverService implements ICourseRetrieverService {
 
       coursesBySkills.set(skill, sortedCourseMatches);
     }
+
+    this.logger.debug(`Completed course retrieval for all skills`);
 
     return {
       coursesBySkill: coursesBySkills,

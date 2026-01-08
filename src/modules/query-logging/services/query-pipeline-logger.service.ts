@@ -1,12 +1,26 @@
+import type { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
+import type { QueryProfile } from 'src/modules/query-processor/types/query-profile.type';
+
 import type { EmbeddingUsage } from '../../../shared/contracts/types/embedding-usage.type';
 import type { Identifier } from '../../../shared/contracts/types/identifier';
 import type { LlmInfo } from '../../../shared/contracts/types/llm-info.type';
 import { HashHelper } from '../../../shared/utils/hash.helper';
 import { TokenCostCalculator } from '../../../shared/utils/token-cost-calculator.helper';
+import type {
+  AggregatedCourseSkills,
+  CourseWithLearningOutcomeV2MatchWithRelevance,
+} from '../../query-processor/types/course-aggregation.type';
+import type { CourseRelevanceFilterResultV2 } from '../../query-processor/types/course-relevance-filter.type';
 import type { IQueryLoggingRepository } from '../contracts/i-query-logging-repository.contract';
+import { QueryPipelineMetrics } from '../helpers/query-pipeline-metrics.helper';
+import { SerializationHelper } from '../helpers/serialization.helper';
 import type { StepEmbeddingConfig } from '../types/query-embedding-config.type';
 import type { StepLlmConfig } from '../types/query-llm-config.type';
-import type { QueryProcessLogWithSteps } from '../types/query-log-step.type';
+import type {
+  CourseAggregationStepOutput,
+  CourseFilterStepOutput,
+  QueryProcessLogWithSteps,
+} from '../types/query-log-step.type';
 import type {
   QueryLogError,
   QueryLogInput,
@@ -25,7 +39,6 @@ import type { StepName } from '../types/query-status.type';
  */
 export class QueryPipelineLoggerService {
   private queryLogId?: Identifier;
-  private readonly stepStartTimes = new Map<StepName, Date>();
 
   constructor(private readonly repository: IQueryLoggingRepository) {}
 
@@ -62,13 +75,18 @@ export class QueryPipelineLoggerService {
   /**
    * Early exit for irrelevant/dangerous questions.
    * @param output - Classification output (category, reason)
+   * @param metrics - Optional metrics including totalDuration
    */
-  async earlyExit(output: QueryLogOutput): Promise<void> {
+  async earlyExit(
+    output: QueryLogOutput,
+    metrics?: Partial<QueryLogMetrics>,
+  ): Promise<void> {
     const queryLogId = this.ensureQueryLogExists();
     await this.repository.updateQueryLog(queryLogId, {
       status: 'EARLY_EXIT',
       completedAt: new Date(),
       output,
+      metrics,
     });
   }
 
@@ -87,75 +105,302 @@ export class QueryPipelineLoggerService {
 
   /**
    * QUESTION_CLASSIFICATION step (order: 1).
+   * Stores raw classification output only (no metrics needed).
    */
-  async classification(
-    input?: Record<string, any>,
-    output?: Record<string, any>,
-    llmInfo?: LlmInfo,
-  ): Promise<void> {
-    await this.logStep('QUESTION_CLASSIFICATION', 1, input, output, llmInfo);
+  async classification(data: {
+    question: string;
+    promptVersion: string;
+    classificationResult: {
+      category: string;
+      reason: string;
+      llmInfo: LlmInfo;
+    };
+    duration?: number;
+  }): Promise<void> {
+    const input = {
+      question: data.question,
+      promptVersion: data.promptVersion,
+    };
+
+    // Store only raw output (no metrics needed for simple step)
+    const output = {
+      raw: {
+        category: data.classificationResult.category,
+        reason: data.classificationResult.reason,
+      },
+    };
+
+    await this.logStep(
+      'QUESTION_CLASSIFICATION',
+      1,
+      input,
+      output,
+      data.classificationResult.llmInfo,
+      undefined,
+      data.duration,
+    );
   }
 
   /**
    * QUERY_PROFILE_BUILDING step (order: 2).
+   * Stores raw query profile output only (no metrics needed).
    */
-  async queryProfile(
-    input?: Record<string, any>,
-    output?: Record<string, any>,
-    llmInfo?: LlmInfo,
-  ): Promise<void> {
-    await this.logStep('QUERY_PROFILE_BUILDING', 2, input, output, llmInfo);
+  async queryProfile(data: {
+    question: string;
+    queryProfileResult: QueryProfile;
+    duration?: number;
+  }): Promise<void> {
+    const input = { question: data.question };
+
+    // Store only raw output (core data only, no llmInfo/tokenUsage)
+    const output = {
+      raw: {
+        intents: data.queryProfileResult.intents,
+        preferences: data.queryProfileResult.preferences,
+        background: data.queryProfileResult.background,
+        language: data.queryProfileResult.language,
+      },
+    };
+
+    await this.logStep(
+      'QUERY_PROFILE_BUILDING',
+      2,
+      input,
+      output,
+      data.queryProfileResult.llmInfo,
+      undefined,
+      data.duration,
+    );
   }
 
   /**
    * SKILL_EXPANSION step (order: 3).
+   * Stores raw skill expansion output only (no metrics needed).
    */
-  async skillExpansion(
-    input?: Record<string, any>,
-    output?: Record<string, any>,
-    llmInfo?: LlmInfo,
-  ): Promise<void> {
-    await this.logStep('SKILL_EXPANSION', 3, input, output, llmInfo);
+  async skillExpansion(data: {
+    question: string;
+    promptVersion: string;
+    skillExpansionResult: {
+      skillItems: Array<{ skill: string; reason: string }>;
+      llmInfo: LlmInfo;
+    };
+    duration?: number;
+  }): Promise<void> {
+    const input = {
+      question: data.question,
+      promptVersion: data.promptVersion,
+    };
+
+    // Store only raw output (no metrics needed for simple step)
+    const output = {
+      raw: {
+        skillItems: data.skillExpansionResult.skillItems,
+      },
+    };
+
+    await this.logStep(
+      'SKILL_EXPANSION',
+      3,
+      input,
+      output,
+      data.skillExpansionResult.llmInfo,
+      undefined,
+      data.duration,
+    );
   }
 
   /**
    * COURSE_RETRIEVAL step (order: 4).
+   * Stores raw skill courses map only (no metrics needed).
    */
-  async courseRetrieval(
-    input?: Record<string, any>,
-    output?: Record<string, any>,
-    embeddingUsage?: EmbeddingUsage,
-  ): Promise<void> {
+  async courseRetrieval(data: {
+    skills: string[];
+    skillCoursesMap: Map<string, CourseWithLearningOutcomeV2Match[]>;
+    embeddingUsage?: EmbeddingUsage;
+    duration?: number;
+  }): Promise<void> {
+    const input = {
+      skills: data.skills,
+      threshold: 0,
+      topN: 10,
+    };
+
+    // Store only raw output (no metrics needed for simple step)
+    const output = {
+      raw: {
+        skills: data.skills,
+        skillCoursesMap: SerializationHelper.serializeMap(data.skillCoursesMap), // <-- Serialize Map to Object
+        embeddingUsage: data.embeddingUsage,
+      },
+    };
+
     await this.logStep(
       'COURSE_RETRIEVAL',
       4,
       input,
       output,
       undefined,
-      embeddingUsage,
+      data.embeddingUsage,
+      data.duration,
     );
   }
 
   /**
    * COURSE_RELEVANCE_FILTER step (order: 5).
+   * Stores BOTH raw filter result AND calculated metrics.
    */
-  async courseFilter(
-    input?: Record<string, any>,
-    output?: Record<string, any>,
-    llmInfo?: LlmInfo,
-  ): Promise<void> {
-    await this.logStep('COURSE_RELEVANCE_FILTER', 5, input, output, llmInfo);
+  async courseFilter(data: {
+    question: string;
+    relevanceFilterResults: CourseRelevanceFilterResultV2[];
+    duration?: number;
+  }): Promise<void> {
+    // Iterate through each filter result
+    for (const filterResult of data.relevanceFilterResults) {
+      // Serialize Maps to Objects for JSONB storage
+      const serializedResult =
+        SerializationHelper.serializeCourseFilterResult(filterResult);
+
+      // Collect all unique skills from ALL three Maps (accepted, rejected, missing)
+      const allSkills = new Set<string>();
+      for (const skill of filterResult.llmAcceptedCoursesBySkill.keys()) {
+        allSkills.add(skill);
+      }
+      for (const skill of filterResult.llmRejectedCoursesBySkill.keys()) {
+        allSkills.add(skill);
+      }
+      for (const skill of filterResult.llmMissingCoursesBySkill.keys()) {
+        allSkills.add(skill);
+      }
+
+      // If no skills found in any Map, still log the result (LLM was called but returned empty)
+      if (allSkills.size === 0) {
+        // Log with minimal info to show the filter step was executed
+        await this.logStep(
+          'COURSE_RELEVANCE_FILTER',
+          5,
+          { question: data.question, skills: [] },
+          { raw: serializedResult, metrics: undefined },
+          filterResult.llmInfo,
+          undefined,
+          data.duration,
+        );
+        continue;
+      }
+
+      // For each skill in the result, create a log record
+      for (const skill of allSkills) {
+        // Build input object
+        const input = { skill, question: data.question };
+
+        // Calculate metrics using helper
+        const metrics: CourseFilterStepOutput =
+          QueryPipelineMetrics.calculateSkillFilterMetrics(skill, filterResult);
+
+        // Store BOTH raw (serialized) and metrics
+        const output = {
+          raw: serializedResult, // <-- Now with Objects instead of Maps
+          metrics,
+        };
+
+        // Log one record per skill with raw + metrics
+        await this.logStep(
+          'COURSE_RELEVANCE_FILTER',
+          5,
+          input,
+          output,
+          filterResult.llmInfo,
+          undefined,
+          data.duration,
+        );
+      }
+    }
   }
 
   /**
-   * ANSWER_SYNTHESIS step (order: 6).
+   * COURSE_AGGREGATION step (order: 6).
+   * Stores BOTH raw aggregation data AND calculated metrics.
    */
-  async answerSynthesis(
-    input?: Record<string, any>,
-    output?: Record<string, any>,
-    llmInfo?: LlmInfo,
-  ): Promise<void> {
-    await this.logStep('ANSWER_SYNTHESIS', 6, input, output, llmInfo);
+  async courseAggregation(data: {
+    filteredSkillCoursesMap: Map<
+      string,
+      CourseWithLearningOutcomeV2MatchWithRelevance[]
+    >;
+    rankedCourses: AggregatedCourseSkills[];
+    duration?: number;
+  }): Promise<void> {
+    // Build input object
+    const input = {
+      skillCount: data.filteredSkillCoursesMap.size,
+      rawCourseCount: Array.from(data.filteredSkillCoursesMap.values()).reduce(
+        (sum, courses) => sum + courses.length,
+        0,
+      ),
+    };
+
+    // Calculate metrics using helper
+    const metrics: CourseAggregationStepOutput =
+      QueryPipelineMetrics.calculateAggregationMetrics(
+        data.filteredSkillCoursesMap,
+        data.rankedCourses,
+      );
+
+    // Store BOTH raw and metrics
+    const output = {
+      raw: {
+        filteredSkillCoursesMap: SerializationHelper.serializeMap(
+          data.filteredSkillCoursesMap,
+        ), // <-- Serialize Map to Object
+        rankedCourses: data.rankedCourses,
+      },
+      metrics,
+    };
+
+    // Log the step with raw + metrics
+    await this.logStep(
+      'COURSE_AGGREGATION',
+      6,
+      input,
+      output,
+      undefined,
+      undefined,
+      data.duration,
+    );
+  }
+
+  /**
+   * ANSWER_SYNTHESIS step (order: 7).
+   * Stores raw synthesis output only (no metrics needed).
+   */
+  async answerSynthesis(data: {
+    question: string;
+    promptVersion: string;
+    synthesisResult: {
+      answerText: string;
+      llmInfo: LlmInfo;
+    };
+    duration?: number;
+  }): Promise<void> {
+    const input = {
+      question: data.question,
+      promptVersion: data.promptVersion,
+    };
+
+    // Store only raw output (no metrics needed for simple step)
+    const output = {
+      raw: {
+        answer: data.synthesisResult.answerText,
+      },
+    };
+
+    await this.logStep(
+      'ANSWER_SYNTHESIS',
+      7,
+      input,
+      output,
+      data.synthesisResult.llmInfo,
+      undefined,
+      data.duration,
+    );
   }
 
   /**
@@ -180,7 +425,7 @@ export class QueryPipelineLoggerService {
   }
 
   /**
-   * Log a step with start/end timing and data.
+   * Log a step with completion data.
    * @private
    */
   private async logStep(
@@ -190,9 +435,9 @@ export class QueryPipelineLoggerService {
     output?: Record<string, any>,
     llmInfo?: LlmInfo,
     embeddingUsage?: EmbeddingUsage,
+    duration?: number,
   ): Promise<void> {
     const queryLogId = this.ensureQueryLogExists();
-    const startTime = new Date();
 
     // Create step
     const step = await this.repository.createStep({
@@ -202,13 +447,9 @@ export class QueryPipelineLoggerService {
       input: this.serializeOutput(input),
     });
 
-    // Calculate duration
-    const completedAt = new Date();
-    const duration = completedAt.getTime() - startTime.getTime();
-
-    // Update step with completion data
+    // Update step with completion data (duration passed from caller)
     await this.repository.updateStep(step.id, {
-      completedAt,
+      completedAt: new Date(),
       duration,
       output: output ? this.serializeOutput(output) : undefined,
       llm: llmInfo ? this.extractLlmInfo(llmInfo) : undefined,
@@ -220,7 +461,7 @@ export class QueryPipelineLoggerService {
 
   /**
    * Serialize output by converting Map to Object for JSONB storage.
-   * Handles nested Maps, Arrays, and plain objects recursively.
+   * Handles nested Maps, Arrays, Dates, and plain objects recursively.
    * @private
    */
 
@@ -242,6 +483,11 @@ export class QueryPipelineLoggerService {
     if (Array.isArray(data)) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return data.map((item) => this.serializeOutput(item));
+    }
+
+    // Handle Date - convert to ISO string for JSONB storage
+    if (data instanceof Date) {
+      return data.toISOString();
     }
 
     // Handle plain object - recursively process values

@@ -1,7 +1,7 @@
 import {
   getQueryProfileBuilderUserPromptV2,
   QUERY_PROFILE_BUILDER_SYSTEM_PROMPT_V2,
-} from './query-profile-builder-v2.prompt';
+} from './archives/query-profile-builder-v2.prompt';
 import {
   getQueryProfileBuilderUserPrompt,
   QUERY_PROFILE_BUILDER_SYSTEM_PROMPT,

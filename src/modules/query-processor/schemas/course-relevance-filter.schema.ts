@@ -36,9 +36,10 @@ export const CourseFilterSchemaV2 = z.object({
     .describe('Name of the course'),
   score: z
     .number()
-    .int()
-    .min(0, 'Score must be at least 0')
-    .max(3, 'Score must be at most 3')
+    .int('Score must be an integer')
+    .refine((val) => val >= 0 && val <= 3, {
+      message: 'Score must be exactly 0, 1, 2, or 3',
+    })
     .describe('Relevance score from 0-3 based on alignment'),
   reason: z
     .string()

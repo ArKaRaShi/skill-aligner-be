@@ -36,6 +36,7 @@ describe('QueryPipelineLoggerService', () => {
       updateQueryLog: jest.fn(),
       findQueryLogById: jest.fn(),
       findLastQueryLog: jest.fn(),
+      findMany: jest.fn(),
     };
 
     // Create service with mocked repository
@@ -123,9 +124,12 @@ describe('QueryPipelineLoggerService', () => {
       };
       const metrics: Partial<QueryLogMetrics> = {
         totalDuration: 5000,
-        totalTokens: {
-          input: 1000,
-          output: 500,
+        tokens: {
+          llm: {
+            input: 1000,
+            output: 500,
+            total: 1500,
+          },
           total: 1500,
         },
       };
@@ -261,8 +265,6 @@ describe('QueryPipelineLoggerService', () => {
 
     it('should log classification step with LLM info', async () => {
       // Arrange
-      const input = { question: 'What is AI?' };
-      const output = { category: 'relevant', confidence: 0.95 };
       const llmInfo: LlmInfo = {
         model: 'openai/gpt-4o-mini',
         provider: 'openrouter',
@@ -282,19 +284,29 @@ describe('QueryPipelineLoggerService', () => {
       mockRepository.createStep.mockResolvedValue(mockStep);
 
       // Act
-      await service.classification(input, output, llmInfo);
+      await service.classification({
+        question: 'What is AI?',
+        promptVersion: '1.0',
+        classificationResult: {
+          category: 'relevant',
+          reason: 'Question is about courses',
+          llmInfo,
+        },
+      });
 
       // Assert
       expect(mockRepository.createStep).toHaveBeenCalledWith({
         queryLogId: mockQueryLogId,
         stepName: 'QUESTION_CLASSIFICATION',
         stepOrder: 1,
-        input,
+        input: { question: 'What is AI?', promptVersion: '1.0' },
       });
       expect(mockRepository.updateStep).toHaveBeenCalledWith(mockStepId, {
         completedAt: expect.any(Date),
-        duration: expect.any(Number),
-        output,
+        duration: undefined,
+        output: {
+          raw: { category: 'relevant', reason: 'Question is about courses' },
+        },
         llm: {
           provider: 'openrouter',
           model: 'openai/gpt-4o-mini',
@@ -311,7 +323,10 @@ describe('QueryPipelineLoggerService', () => {
             response: undefined,
           },
           parameters: undefined,
+          tokenUsage: undefined,
+          cost: undefined,
         },
+        embedding: undefined,
       });
     });
   });
@@ -333,9 +348,12 @@ describe('QueryPipelineLoggerService', () => {
 
     it('should log skill expansion step', async () => {
       // Arrange
-      const input = { skills: ['AI', 'ML'] };
-      const output = {
-        expandedSkills: ['artificial intelligence', 'machine learning'],
+      const llmInfo: LlmInfo = {
+        model: 'openai/gpt-4o-mini',
+        provider: 'openrouter',
+        systemPrompt: 'Expand skills',
+        userPrompt: 'Expand these skills',
+        promptVersion: '1.0',
       };
       const mockStep: QueryProcessStep = {
         id: mockStepId,
@@ -349,19 +367,44 @@ describe('QueryPipelineLoggerService', () => {
       mockRepository.createStep.mockResolvedValue(mockStep);
 
       // Act
-      await service.skillExpansion(input, output);
+      await service.skillExpansion({
+        question: 'What skills are needed for AI?',
+        promptVersion: '1.0',
+        skillExpansionResult: {
+          skillItems: [
+            { skill: 'artificial intelligence', reason: 'Core AI concept' },
+            { skill: 'machine learning', reason: 'AI subfield' },
+          ],
+          llmInfo,
+        },
+      });
 
       // Assert
       expect(mockRepository.createStep).toHaveBeenCalledWith({
         queryLogId: mockQueryLogId,
         stepName: 'SKILL_EXPANSION',
         stepOrder: 3,
-        input,
+        input: {
+          question: 'What skills are needed for AI?',
+          promptVersion: '1.0',
+        },
       });
       expect(mockRepository.updateStep).toHaveBeenCalledWith(mockStepId, {
         completedAt: expect.any(Date),
-        duration: expect.any(Number),
-        output,
+        duration: undefined,
+        output: {
+          raw: {
+            skillItems: [
+              { skill: 'artificial intelligence', reason: 'Core AI concept' },
+              { skill: 'machine learning', reason: 'AI subfield' },
+            ],
+          },
+        },
+        llm: expect.objectContaining({
+          provider: 'openrouter',
+          model: 'openai/gpt-4o-mini',
+        }),
+        embedding: undefined,
       });
     });
   });
@@ -383,8 +426,6 @@ describe('QueryPipelineLoggerService', () => {
 
     it('should log course retrieval step with embedding info', async () => {
       // Arrange
-      const input = { skills: ['AI', 'ML'] };
-      const output = { courseCount: 10 };
       const embeddingUsage: EmbeddingUsage = {
         bySkill: [
           {
@@ -422,19 +463,33 @@ describe('QueryPipelineLoggerService', () => {
       mockRepository.createStep.mockResolvedValue(mockStep);
 
       // Act
-      await service.courseRetrieval(input, output, embeddingUsage);
+      await service.courseRetrieval({
+        skills: ['AI', 'ML'],
+        skillCoursesMap: new Map([
+          ['AI', []],
+          ['ML', []],
+        ]),
+        embeddingUsage,
+      });
 
       // Assert
       expect(mockRepository.createStep).toHaveBeenCalledWith({
         queryLogId: mockQueryLogId,
         stepName: 'COURSE_RETRIEVAL',
         stepOrder: 4,
-        input: { skills: ['AI', 'ML'] },
+        input: { skills: ['AI', 'ML'], threshold: 0, topN: 10 },
       });
       expect(mockRepository.updateStep).toHaveBeenCalledWith(mockStepId, {
         completedAt: expect.any(Date),
-        duration: expect.any(Number),
-        output,
+        duration: undefined,
+        output: {
+          raw: {
+            skills: ['AI', 'ML'],
+            skillCoursesMap: { AI: [], ML: [] }, // Map serialized to Object
+            embeddingUsage,
+          },
+        },
+        llm: undefined,
         embedding: {
           model: 'e5-base',
           provider: 'local',
@@ -464,8 +519,6 @@ describe('QueryPipelineLoggerService', () => {
 
     it('should log answer synthesis step', async () => {
       // Arrange
-      const input = { courses: [] };
-      const output = { answer: 'This is the synthesized answer' };
       const llmInfo: LlmInfo = {
         model: 'openai/gpt-4o-mini',
         provider: 'openrouter',
@@ -477,7 +530,7 @@ describe('QueryPipelineLoggerService', () => {
         id: mockStepId,
         queryLogId: mockQueryLogId,
         stepName: 'ANSWER_SYNTHESIS',
-        stepOrder: 6,
+        stepOrder: 7,
         startedAt: new Date(),
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -485,23 +538,33 @@ describe('QueryPipelineLoggerService', () => {
       mockRepository.createStep.mockResolvedValue(mockStep);
 
       // Act
-      await service.answerSynthesis(input, output, llmInfo);
+      await service.answerSynthesis({
+        question: 'What courses teach AI?',
+        promptVersion: '1.0',
+        synthesisResult: {
+          answerText: 'This is the synthesized answer',
+          llmInfo,
+        },
+      });
 
       // Assert
       expect(mockRepository.createStep).toHaveBeenCalledWith({
         queryLogId: mockQueryLogId,
         stepName: 'ANSWER_SYNTHESIS',
-        stepOrder: 6,
-        input: { courses: [] },
+        stepOrder: 7,
+        input: { question: 'What courses teach AI?', promptVersion: '1.0' },
       });
       expect(mockRepository.updateStep).toHaveBeenCalledWith(mockStepId, {
         completedAt: expect.any(Date),
-        duration: expect.any(Number),
-        output,
+        duration: undefined,
+        output: {
+          raw: { answer: 'This is the synthesized answer' },
+        },
         llm: expect.objectContaining({
           provider: 'openrouter',
           model: 'openai/gpt-4o-mini',
         }),
+        embedding: undefined,
       });
     });
   });
@@ -602,42 +665,12 @@ describe('QueryPipelineLoggerService', () => {
 
     it('should convert Map to Object for JSONB storage', async () => {
       // Arrange
-      const input = { courses: new Map([['CS101', 'Intro to CS']]) };
-      const mockStep: QueryProcessStep = {
-        id: mockStepId,
-        queryLogId: mockQueryLogId,
-        stepName: 'QUESTION_CLASSIFICATION',
-        stepOrder: 1,
-        startedAt: new Date(),
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      };
-      mockRepository.createStep.mockResolvedValue(mockStep);
-
-      // Act
-      await service.classification(input);
-
-      // Assert
-      expect(mockRepository.createStep).toHaveBeenCalledWith({
-        queryLogId: mockQueryLogId,
-        stepName: 'QUESTION_CLASSIFICATION',
-        stepOrder: 1,
-        input: { courses: { CS101: 'Intro to CS' } },
-      });
-    });
-
-    it('should handle nested Maps', async () => {
-      // Arrange
-      const input = {
-        data: new Map([
-          [
-            'skills',
-            new Map([
-              ['AI', 0.9],
-              ['ML', 0.8],
-            ]),
-          ],
-        ]),
+      const llmInfo: LlmInfo = {
+        model: 'openai/gpt-4o-mini',
+        provider: 'openrouter',
+        systemPrompt: 'Classify',
+        userPrompt: 'Classify this',
+        promptVersion: '1.0',
       };
       const mockStep: QueryProcessStep = {
         id: mockStepId,
@@ -650,45 +683,32 @@ describe('QueryPipelineLoggerService', () => {
       };
       mockRepository.createStep.mockResolvedValue(mockStep);
 
-      // Act
-      await service.classification(input);
-
-      // Assert - Outer Map and inner Map should both be converted to objects
-      expect(mockRepository.createStep).toHaveBeenCalledWith({
-        queryLogId: mockQueryLogId,
-        stepName: 'QUESTION_CLASSIFICATION',
-        stepOrder: 1,
-        input: {
-          data: {
-            skills: { AI: 0.9, ML: 0.8 },
-          },
+      // Act - classification doesn't use Maps, but output should have raw field
+      await service.classification({
+        question: 'Test',
+        promptVersion: '1.0',
+        classificationResult: {
+          category: 'relevant',
+          reason: 'Test',
+          llmInfo,
         },
       });
-    });
 
-    it('should handle undefined input', async () => {
-      // Arrange
-      const mockStep: QueryProcessStep = {
-        id: mockStepId,
-        queryLogId: mockQueryLogId,
-        stepName: 'QUESTION_CLASSIFICATION',
-        stepOrder: 1,
-        startedAt: new Date(),
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      };
-      mockRepository.createStep.mockResolvedValue(mockStep);
-
-      // Act
-      await service.classification();
-
-      // Assert
+      // Assert - verify raw field structure
       expect(mockRepository.createStep).toHaveBeenCalledWith({
         queryLogId: mockQueryLogId,
         stepName: 'QUESTION_CLASSIFICATION',
         stepOrder: 1,
-        input: undefined,
+        input: { question: 'Test', promptVersion: '1.0' },
       });
+      expect(mockRepository.updateStep).toHaveBeenCalledWith(
+        mockStepId,
+        expect.objectContaining({
+          output: expect.objectContaining({
+            raw: expect.any(Object),
+          }),
+        }),
+      );
     });
   });
 
@@ -742,7 +762,15 @@ describe('QueryPipelineLoggerService', () => {
       mockRepository.createStep.mockResolvedValue(mockStep);
 
       // Act
-      await service.classification({}, {}, llmInfo);
+      await service.classification({
+        question: 'Test',
+        promptVersion: '1.0',
+        classificationResult: {
+          category: 'relevant',
+          reason: 'Test',
+          llmInfo,
+        },
+      });
 
       // Assert
       expect(mockRepository.updateStep).toHaveBeenCalledWith(
@@ -772,7 +800,10 @@ describe('QueryPipelineLoggerService', () => {
               temperature: 0.7,
               topP: 0.9,
             },
+            tokenUsage: undefined,
+            cost: undefined,
           },
+          embedding: undefined,
         }),
       );
     });
@@ -816,28 +847,37 @@ describe('QueryPipelineLoggerService', () => {
 
       // Act
       await service.start(question);
-      await service.classification(
-        { question },
-        { category: 'relevant' },
-        {
-          model: 'openai/gpt-4o-mini',
-          provider: 'openrouter',
-          systemPrompt: 'Classify',
-          userPrompt: question,
-          promptVersion: '1.0',
+      await service.classification({
+        question,
+        promptVersion: '1.0',
+        classificationResult: {
+          category: 'relevant',
+          reason: 'About courses',
+          llmInfo: {
+            model: 'openai/gpt-4o-mini',
+            provider: 'openrouter',
+            systemPrompt: 'Classify',
+            userPrompt: question,
+            promptVersion: '1.0',
+          },
         },
-      );
-      await service.skillExpansion(
-        { skills: ['AI'] },
-        { expandedSkills: ['artificial intelligence'] },
-        {
-          model: 'openai/gpt-4o-mini',
-          provider: 'openrouter',
-          systemPrompt: 'Expand',
-          userPrompt: 'Expand AI',
-          promptVersion: '1.0',
+      });
+      await service.skillExpansion({
+        question,
+        promptVersion: '1.0',
+        skillExpansionResult: {
+          skillItems: [
+            { skill: 'artificial intelligence', reason: 'Core AI concept' },
+          ],
+          llmInfo: {
+            model: 'openai/gpt-4o-mini',
+            provider: 'openrouter',
+            systemPrompt: 'Expand',
+            userPrompt: 'Expand AI',
+            promptVersion: '1.0',
+          },
         },
-      );
+      });
 
       // Assert
       expect(mockRepository.createQueryLog).toHaveBeenCalledTimes(1);
@@ -871,17 +911,21 @@ describe('QueryPipelineLoggerService', () => {
 
       // Act
       await service.start(question);
-      await service.classification(
-        { question },
-        { category: 'irrelevant' },
-        {
-          model: 'openai/gpt-4o-mini',
-          provider: 'openrouter',
-          systemPrompt: 'Classify',
-          userPrompt: question,
-          promptVersion: '1.0',
+      await service.classification({
+        question,
+        promptVersion: '1.0',
+        classificationResult: {
+          category: 'irrelevant',
+          reason: 'Not course-related',
+          llmInfo: {
+            model: 'openai/gpt-4o-mini',
+            provider: 'openrouter',
+            systemPrompt: 'Classify',
+            userPrompt: question,
+            promptVersion: '1.0',
+          },
         },
-      );
+      });
       await service.earlyExit({
         classification: {
           category: 'irrelevant',

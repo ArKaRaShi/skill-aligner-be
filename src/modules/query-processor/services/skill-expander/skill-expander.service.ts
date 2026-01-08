@@ -4,8 +4,7 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { QuestionSkillCache } from '../../cache/question-skill.cache';
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
@@ -60,43 +59,17 @@ export class SkillExpanderService implements ISkillExpanderService {
     });
     this.logger.log('[DEBUG] llmRouter.generateObject completed');
 
-    const {
-      object: { skills },
-      inputTokens,
-      outputTokens,
-      provider,
-      finishReason,
-      warnings,
-      providerMetadata,
-      response,
-      hyperParameters,
-    } = result;
-
-    const tokenUsage: TokenUsage = {
-      model: this.modelName,
-      inputTokens,
-      outputTokens,
-    };
-
-    const llmInfo: LlmInfo = {
-      model: this.modelName,
-      provider,
-      inputTokens,
-      outputTokens,
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      result,
+      result.model,
       userPrompt,
       systemPrompt,
       promptVersion,
-      schemaName: 'SkillExpansionSchema',
-      // schemaShape excluded - Zod schema objects contain non-serializable functions
-      finishReason,
-      warnings,
-      providerMetadata,
-      response,
-      hyperParameters,
-    };
+      'SkillExpansionSchema',
+    );
 
     const expansionResult: TSkillExpansion = {
-      skillItems: skills,
+      skillItems: result.object.skills,
       llmInfo,
       tokenUsage,
     };
@@ -122,43 +95,17 @@ export class SkillExpanderService implements ISkillExpanderService {
       model: this.modelName,
     });
 
-    const {
-      object,
-      inputTokens,
-      outputTokens,
-      provider,
-      finishReason,
-      warnings,
-      providerMetadata,
-      response,
-      hyperParameters,
-    } = result;
-
-    const tokenUsage: TokenUsage = {
-      model: this.modelName,
-      inputTokens,
-      outputTokens,
-    };
-
-    const llmInfo: LlmInfo = {
-      model: this.modelName,
-      provider,
-      inputTokens,
-      outputTokens,
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      result,
+      result.model,
       userPrompt,
       systemPrompt,
       promptVersion,
-      schemaName: 'SkillExpansionV2Schema',
-      // schemaShape excluded - Zod schema objects contain non-serializable functions
-      finishReason,
-      warnings,
-      providerMetadata,
-      response,
-      hyperParameters,
-    };
+      'SkillExpansionV2Schema',
+    );
 
     const expansionResultV2: TSkillExpansionV2 = {
-      skillItems: object.skills.map((item) => ({
+      skillItems: result.object.skills.map((item) => ({
         skill: item.skill,
         learningOutcome: item.learning_outcome,
         reason: item.reason,

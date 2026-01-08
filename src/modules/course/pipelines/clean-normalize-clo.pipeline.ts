@@ -11,6 +11,8 @@ export class CleanNormalizeCLOPipeline {
     // Add subject codes to explicitly ignore here
     '02184251-67', // only contains LO name LLO1, LLO1, ..., no meaningful content
     '01140521-65', // only contain ทดสอบ
+    '01134432-65', // mostly vague and makes no sense
+    '03652141-66', // mostly vague and makes no sense
   ]);
 
   static async execute(): Promise<CleanCourseWithCLO[]> {

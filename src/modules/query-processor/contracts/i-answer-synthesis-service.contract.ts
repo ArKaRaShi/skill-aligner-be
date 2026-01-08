@@ -1,7 +1,6 @@
-import { AggregatedCourseSkills } from 'src/modules/course/types/course.type';
-
 import { AnswerSynthesisPromptVersion } from '../prompts/answer-synthesis';
 import { AnswerSynthesisResult } from '../types/answer-synthesis.type';
+import { AggregatedCourseSkills } from '../types/course-aggregation.type';
 import { QueryProfile } from '../types/query-profile.type';
 
 export const I_ANSWER_SYNTHESIS_SERVICE_TOKEN = Symbol(

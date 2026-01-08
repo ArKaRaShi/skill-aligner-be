@@ -4,8 +4,7 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
 import { QueryProfileBuilderPromptFactory } from '../../prompts/query-profile-builder';
@@ -36,47 +35,21 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
       model: this.modelName,
     });
 
-    const {
-      object: profileData,
-      inputTokens,
-      outputTokens,
-      provider,
-      finishReason,
-      warnings,
-      providerMetadata,
-      response,
-      hyperParameters,
-    } = result;
-
-    const tokenUsage: TokenUsage = {
-      model: this.modelName,
-      inputTokens,
-      outputTokens,
-    };
-
-    const llmInfo: LlmInfo = {
-      model: this.modelName,
-      provider,
-      inputTokens,
-      outputTokens,
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      result,
+      result.model,
       userPrompt,
       systemPrompt,
-      promptVersion: 'v2',
-      schemaName: 'QueryProfileBuilderSchema',
-      // schemaShape excluded - Zod schema objects contain non-serializable functions
-      finishReason,
-      warnings,
-      providerMetadata,
-      response,
-      hyperParameters,
-    };
+      'v2',
+      'QueryProfileBuilderSchema',
+    );
 
     this.logger.log(
-      `Generated query profile: ${JSON.stringify(profileData, null, 2)}`,
+      `Generated query profile: ${JSON.stringify(result.object, null, 2)}`,
     );
 
     return {
-      ...profileData,
+      ...result.object,
       llmInfo,
       tokenUsage,
     };

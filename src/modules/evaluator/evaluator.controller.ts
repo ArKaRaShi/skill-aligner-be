@@ -5,9 +5,9 @@ import { BaseResponseDto } from 'src/shared/contracts/api/base.response.dto';
 
 import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
 
-import { QuestionClassificationEvaluatorService } from './services/question-classification-evaluator.service';
-import { QuestionSetCreatorService } from './services/question-set-creator.service';
-import { CollapsedIterationMetrics } from './types/test-result.type';
+import { QuestionClassificationEvaluatorService } from './question-classification/evaluators/question-classification-evaluator.service';
+import { QuestionSetCreatorService } from './shared/services/question-set-creator.service';
+import { CollapsedIterationMetrics } from './shared/types/test-result.type';
 
 @Controller('evaluator')
 export class EvaluatorController {

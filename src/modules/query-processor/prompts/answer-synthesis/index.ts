@@ -1,24 +1,4 @@
 import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V2,
-  getAnswerSynthesisUserPromptV2,
-} from './answer-synthesis-v2.prompt';
-import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V3,
-  getAnswerSynthesisUserPromptV3,
-} from './answer-synthesis-v3.prompt';
-import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V4,
-  getAnswerSynthesisUserPromptV4,
-} from './answer-synthesis-v4.prompt';
-import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V5,
-  getAnswerSynthesisUserPromptV5,
-} from './answer-synthesis-v5.prompt';
-import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V6,
-  getAnswerSynthesisUserPromptV6,
-} from './answer-synthesis-v6.prompt';
-import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT_V7,
   getAnswerSynthesisUserPromptV7,
 } from './answer-synthesis-v7.prompt';
@@ -26,6 +6,26 @@ import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT,
   getAnswerSynthesisUserPrompt,
 } from './answer-synthesis.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V2,
+  getAnswerSynthesisUserPromptV2,
+} from './archives/answer-synthesis-v2.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V3,
+  getAnswerSynthesisUserPromptV3,
+} from './archives/answer-synthesis-v3.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V4,
+  getAnswerSynthesisUserPromptV4,
+} from './archives/answer-synthesis-v4.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V5,
+  getAnswerSynthesisUserPromptV5,
+} from './archives/answer-synthesis-v5.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V6,
+  getAnswerSynthesisUserPromptV6,
+} from './archives/answer-synthesis-v6.prompt';
 
 type AnswerSynthesisPrompt = {
   systemPrompt: string;

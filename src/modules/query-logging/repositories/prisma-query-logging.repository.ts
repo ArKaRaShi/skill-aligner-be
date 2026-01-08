@@ -180,6 +180,24 @@ export class PrismaQueryLoggingRepository implements IQueryLoggingRepository {
 
     return PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog);
   }
+
+  async findMany(options?: {
+    take?: number;
+    skip?: number;
+    orderBy?: { createdAt: 'asc' | 'desc' };
+  }): Promise<QueryProcessLog[]> {
+    const prismaLogs = await this.prisma.queryProcessLog.findMany({
+      take: options?.take,
+      skip: options?.skip,
+      orderBy: options?.orderBy
+        ? { createdAt: options.orderBy.createdAt }
+        : undefined,
+    });
+
+    return prismaLogs.map((prismaLog) =>
+      PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog),
+    );
+  }
 }
 
 // Provide the token for dependency injection

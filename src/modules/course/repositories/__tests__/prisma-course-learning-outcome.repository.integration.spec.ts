@@ -1,3 +1,4 @@
+import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import {
@@ -5,6 +6,7 @@ import {
   IEmbeddingRouterService,
 } from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import { PrismaCourseLearningOutcomeRepository } from '../prisma-course-learning-outcome.repository';
@@ -123,6 +125,8 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       providers: [
         PrismaCourseLearningOutcomeRepository,
         PrismaService,
+        AppConfigService,
+        ConfigService,
         {
           provide: I_EMBEDDING_ROUTER_SERVICE_TOKEN,
           useValue: mockEmbeddingRouterService,
@@ -459,16 +463,24 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
     });
 
     // Mock embedding client response for 768-dimension
-    mockEmbeddingRouterService.embedOne.mockResolvedValue({
-      vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_768), // Use a neutral vector
-      metadata: {
-        model: 'e5-base',
-        provider: 'e5',
-        dimension: 768,
-        embeddedText: 'test',
-        generatedAt: new Date().toISOString(),
+    // embedMany returns an array of embeddings, one per input text
+    mockEmbeddingRouterService.embedMany.mockImplementation(
+      ({ texts }: { texts: string[] }) => {
+        // Return one embedding per text, all with the same neutral vector
+        return Promise.resolve(
+          texts.map(() => ({
+            vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_768),
+            metadata: {
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'test',
+              generatedAt: new Date().toISOString(),
+            },
+          })),
+        );
       },
-    });
+    );
   });
 
   afterAll(async () => {
@@ -1062,16 +1074,18 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         [0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55, 0.5],
         VECTOR_DIMENSION_768,
       );
-      mockEmbeddingRouterService.embedOne.mockResolvedValue({
-        vector: queryVector,
-        metadata: {
-          model: 'e5-base',
-          provider: 'e5',
-          dimension: 768,
-          embeddedText: 'test',
-          generatedAt: new Date().toISOString(),
+      mockEmbeddingRouterService.embedMany.mockResolvedValue([
+        {
+          vector: queryVector,
+          metadata: {
+            model: 'e5-base',
+            provider: 'e5',
+            dimension: 768,
+            embeddedText: 'test',
+            generatedAt: new Date().toISOString(),
+          },
         },
-      });
+      ]);
 
       const { losBySkill: result } = await repository.findLosBySkills({
         skills: ['วิเคราะห์'],
@@ -1160,16 +1174,18 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
         [0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55],
         VECTOR_DIMENSION_768,
       );
-      mockEmbeddingRouterService.embedOne.mockResolvedValueOnce({
-        vector: queryVector,
-        metadata: {
-          model: 'e5-base',
-          provider: 'e5',
-          dimension: 768,
-          embeddedText: 'test',
-          generatedAt: new Date().toISOString(),
+      mockEmbeddingRouterService.embedMany.mockResolvedValueOnce([
+        {
+          vector: queryVector,
+          metadata: {
+            model: 'e5-base',
+            provider: 'e5',
+            dimension: 768,
+            embeddedText: 'test',
+            generatedAt: new Date().toISOString(),
+          },
         },
-      });
+      ]);
 
       // Force CLO7 and CLO8 to share the same vector so we can verify that all CLOs
       // tied to a selected vector are returned even when topN restricts scoring.
@@ -1215,16 +1231,22 @@ describe('PrismaCourseLearningOutcomeRepository (Integration)', () => {
       });
 
       // Mock embedding client response for 1536-dimension
-      mockEmbeddingRouterService.embedOne.mockResolvedValue({
-        vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_1536),
-        metadata: {
-          model: 'openai/text-embedding-3-small',
-          provider: 'openrouter',
-          dimension: 1536,
-          embeddedText: 'test',
-          generatedAt: new Date().toISOString(),
+      mockEmbeddingRouterService.embedMany.mockImplementation(
+        ({ texts }: { texts: string[] }) => {
+          return Promise.resolve(
+            texts.map(() => ({
+              vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_1536),
+              metadata: {
+                model: 'openai/text-embedding-3-small',
+                provider: 'openrouter',
+                dimension: 1536,
+                embeddedText: 'test',
+                generatedAt: new Date().toISOString(),
+              },
+            })),
+          );
         },
-      });
+      );
     });
 
     it('should find learning outcomes with 1536-dimension embeddings', async () => {

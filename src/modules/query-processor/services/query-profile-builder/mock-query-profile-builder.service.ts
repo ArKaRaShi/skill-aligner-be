@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
 import { QueryProfile } from '../../types/query-profile.type';
@@ -15,16 +15,16 @@ export class MockQueryProfileBuilderService
     const lowerQuery = query.toLowerCase();
 
     // Mock logic based on common patterns
-    const tokenUsage: TokenUsage = {
-      model: 'mock-model',
-      inputTokens: 0,
-      outputTokens: 0,
-    };
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildEmpty(
+      'mock-model',
+      'v2',
+    );
     const profile: QueryProfile = {
       intents: [],
       preferences: [],
       background: [],
       language: 'th',
+      llmInfo,
       tokenUsage,
     };
 

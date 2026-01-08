@@ -48,6 +48,7 @@ export class OpenRouterEmbeddingProvider extends BaseEmbeddingClient {
   }
 
   protected async doEmbedOne({ text }: EmbedOneParams): Promise<EmbedResult> {
+    this.logger.debug('Generating embedding for single text input.');
     const response = await this.openRouter.embeddings.generate({
       model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
       input: text,
@@ -62,12 +63,17 @@ export class OpenRouterEmbeddingProvider extends BaseEmbeddingClient {
     const embedding = response.data[0].embedding as number[];
     const metadata = this.buildMetadata(text, promptTokens, totalTokens);
 
+    this.logger.debug(
+      'Successfully generated embedding for single text input.',
+    );
+
     return { vector: embedding, metadata };
   }
 
   protected async doEmbedMany({
     texts,
   }: EmbedManyParams): Promise<EmbedResult[]> {
+    this.logger.debug('Generating embeddings for multiple text inputs.');
     const response = await this.openRouter.embeddings.generate({
       model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
       input: texts,

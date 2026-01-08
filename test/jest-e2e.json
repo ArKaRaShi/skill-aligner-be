@@ -11,6 +11,7 @@
     "^.+\\.(t|j)s$": "ts-jest"
   },
   "transformIgnorePatterns": ["node_modules/(?!(uuid|@openrouter)/)"],
+  "setupFilesAfterEnv": ["<rootDir>/test/jest-e2e.setup.ts"],
   "collectCoverage": true,
   "collectCoverageFrom": [
     "<rootDir>/src/**/*.{ts,js}",

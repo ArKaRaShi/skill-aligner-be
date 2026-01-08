@@ -101,11 +101,12 @@ export class InspectEmbeddingsPipeline {
 }
 
 async function runInspectEmbeddingsPipeline() {
-  const mockConfigService = {
+  const mockConfig: AppConfigService = {
+    nodeEnv: process.env.NODE_ENV || 'development',
     openRouterApiKey: process.env.OPENROUTER_API_KEY || '',
   } as AppConfigService;
-  const prisma = new PrismaService();
-  const pipeline = new InspectEmbeddingsPipeline(prisma, mockConfigService);
+  const prisma = new PrismaService(mockConfig);
+  const pipeline = new InspectEmbeddingsPipeline(prisma, mockConfig);
 
   await pipeline.queryAndLogTop5('data analysis and visualization');
 }

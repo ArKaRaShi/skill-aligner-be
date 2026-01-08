@@ -106,4 +106,15 @@ export interface IQueryLoggingRepository {
   findLastQueryLog(
     includeSteps?: boolean,
   ): Promise<QueryProcessLog | QueryProcessLogWithSteps | null>;
+
+  /**
+   * Find multiple query logs
+   * @param options - Query options
+   * @returns Array of query logs
+   */
+  findMany(options?: {
+    take?: number;
+    skip?: number;
+    orderBy?: { createdAt: 'asc' | 'desc' };
+  }): Promise<QueryProcessLog[]>;
 }

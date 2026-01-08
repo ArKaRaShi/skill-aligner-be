@@ -94,7 +94,7 @@ async function runPipeline({
 }
 
 runPipeline({
-  loadAndSaveCoursesCsvToJson: false,
+  loadAndSaveCoursesCsvToJson: true,
   loadAndSaveGenEdCsvToJson: true,
 })
   .then(() => {

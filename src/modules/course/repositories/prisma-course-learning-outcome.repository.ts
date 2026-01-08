@@ -55,22 +55,19 @@ export class PrismaCourseLearningOutcomeRepository
       );
     }
 
-    // Generate embeddings for all skills and capture metadata
-    const skillsWithEmbeddings = await Promise.all(
-      skills.map(async (skill) => {
-        const embeddingResponse = await this.embeddingRouterService.embedOne({
-          text: skill,
-          model: embeddingConfiguration.model,
-          role: 'query',
-        });
+    // Generate embeddings for all skills using batch API (single API call)
+    const embeddingResponses = await this.embeddingRouterService.embedMany({
+      texts: skills,
+      model: embeddingConfiguration.model,
+      role: 'query', // for e5 model
+    });
 
-        return {
-          skill,
-          vector: embeddingResponse.vector,
-          metadata: embeddingResponse.metadata,
-        };
-      }),
-    );
+    // Map responses back to skills with their skill names
+    const skillsWithEmbeddings = skills.map((skill, index) => ({
+      skill,
+      vector: embeddingResponses[index].vector,
+      metadata: embeddingResponses[index].metadata,
+    }));
 
     if (!skillsWithEmbeddings.length) {
       return {

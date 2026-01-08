@@ -1,0 +1,31 @@
+import {
+  Course,
+  CourseWithLearningOutcomeV2Match,
+} from 'src/modules/course/types/course.type';
+import { MatchedSkillLearningOutcomes } from 'src/modules/course/types/skill-learning-outcome.type';
+
+/**
+ * Relevance information from LLM filtering.
+ * score: 0 (dropped), 1-3 (relevance levels)
+ * reason: explanation from LLM, empty string if no LLM
+ */
+export type RelevanceResult = {
+  score: number;
+  reason: string;
+};
+
+/**
+ * Course with LLM relevance filtering applied.
+ * Used after course relevance filter step in query processing.
+ */
+export type CourseWithLearningOutcomeV2MatchWithRelevance =
+  CourseWithLearningOutcomeV2Match & RelevanceResult;
+
+/**
+ * Aggregated course with matched skills and final relevance score.
+ * Result of merging/filtering courses across multiple skills.
+ */
+export type AggregatedCourseSkills = Course & {
+  matchedSkills: MatchedSkillLearningOutcomes[];
+  relevanceScore: number;
+};

@@ -5,10 +5,7 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
-
-import { AggregatedCourseSkills } from 'src/modules/course/types/course.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import {
   AnswerSynthesizeInput,
@@ -16,6 +13,7 @@ import {
 } from '../../contracts/i-answer-synthesis-service.contract';
 import { AnswerSynthesisPromptFactory } from '../../prompts/answer-synthesis';
 import { AnswerSynthesisResult } from '../../types/answer-synthesis.type';
+import { AggregatedCourseSkills } from '../../types/course-aggregation.type';
 import { QueryProfile } from '../../types/query-profile.type';
 
 @Injectable()
@@ -61,27 +59,14 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
       )}`,
     );
 
-    const tokenUsage: TokenUsage = {
-      model: llmResult.model,
-      inputTokens: llmResult.inputTokens,
-      outputTokens: llmResult.outputTokens,
-    };
-
-    const llmInfo: LlmInfo = {
-      model: llmResult.model,
-      provider: llmResult.provider,
-      inputTokens: llmResult.inputTokens,
-      outputTokens: llmResult.outputTokens,
-      userPrompt: synthesisPrompt,
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      llmResult,
+      llmResult.model,
+      synthesisPrompt,
       systemPrompt,
       promptVersion,
-      schemaName: undefined,
-      finishReason: llmResult.finishReason,
-      warnings: llmResult.warnings,
-      providerMetadata: llmResult.providerMetadata,
-      response: llmResult.response,
-      hyperParameters: llmResult.hyperParameters,
-    };
+      undefined, // no schema for generateText
+    );
 
     const synthesisResult: AnswerSynthesisResult = {
       answerText: llmResult.text,

@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import {
   IQuestionClassifierService,
@@ -18,20 +17,10 @@ export class MockQuestionClassifierService
   ): Promise<TQuestionClassification> {
     const { question, promptVersion } = input;
 
-    // Simple mock logic based on keywords
-    const tokenUsage: TokenUsage = {
-      model: 'mock-model',
-      inputTokens: 0,
-      outputTokens: 0,
-    };
-    const llmInfo: LlmInfo = {
-      model: 'mock-model',
-      inputTokens: 0,
-      outputTokens: 0,
-      userPrompt: 'Mock user prompt',
-      systemPrompt: 'Mock system prompt',
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildEmpty(
+      'mock-model',
       promptVersion,
-    };
+    );
 
     const classification: TQuestionClassification = {
       category: 'relevant',

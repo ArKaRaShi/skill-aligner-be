@@ -1,3 +1,4 @@
+import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import {
@@ -5,6 +6,7 @@ import {
   IEmbeddingRouterService,
 } from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import { PrismaCourseRepository } from '../prisma-course.repository';
@@ -49,6 +51,8 @@ describe('PrismaCourseRepository (Integration) - findCourseByLearningOutcomeIds'
       providers: [
         PrismaCourseRepository,
         PrismaService,
+        AppConfigService,
+        ConfigService,
         {
           provide: I_EMBEDDING_ROUTER_SERVICE_TOKEN,
           useValue: mockEmbeddingRouterService,

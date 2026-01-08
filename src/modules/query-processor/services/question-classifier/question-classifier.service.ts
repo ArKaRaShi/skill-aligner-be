@@ -4,8 +4,7 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { QuestionClassifierCache } from '../../cache/question-classifier.cache';
 import {
@@ -63,43 +62,17 @@ export class QuestionClassifierService implements IQuestionClassifierService {
       model: this.modelName,
     });
 
-    const {
-      object,
-      inputTokens,
-      outputTokens,
-      provider,
-      finishReason,
-      warnings,
-      providerMetadata,
-      response,
-      hyperParameters,
-    } = result;
-
-    const tokenUsage: TokenUsage = {
-      model: this.modelName,
-      inputTokens,
-      outputTokens,
-    };
-
-    const llmInfo: LlmInfo = {
-      model: this.modelName,
-      provider,
-      inputTokens,
-      outputTokens,
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      result,
+      result.model,
       userPrompt,
       systemPrompt,
       promptVersion,
-      schemaName: 'QuestionClassificationSchema',
-      // schemaShape excluded - Zod schema objects contain non-serializable functions
-      finishReason,
-      warnings,
-      providerMetadata,
-      response,
-      hyperParameters,
-    };
+      'QuestionClassificationSchema',
+    );
 
     const classificationResult: TQuestionClassification = {
-      ...object,
+      ...result.object,
       llmInfo,
       tokenUsage,
     };

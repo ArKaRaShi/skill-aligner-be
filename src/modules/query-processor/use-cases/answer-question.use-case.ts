@@ -56,6 +56,7 @@ import {
   AggregatedCourseSkills,
   CourseWithLearningOutcomeV2MatchWithRelevance,
 } from '../types/course-aggregation.type';
+import { CourseRelevanceFilterResultV2 } from '../types/course-relevance-filter.type';
 import { TClassificationCategory } from '../types/question-classification.type';
 import { AnswerQuestionUseCaseInput } from './inputs/answer-question.use-case.input';
 import { AnswerQuestionUseCaseOutput } from './outputs/answer-question.use-case.output';
@@ -141,18 +142,6 @@ export class AnswerQuestionUseCase
         QueryPipelineTimingSteps.STEP1_BASIC_PREPARATION,
       );
 
-      // Log classification and query profile steps
-      await this.queryPipelineLoggerService.classification({
-        question,
-        promptVersion: QueryPipelinePromptConfig.CLASSIFICATION,
-        classificationResult,
-      });
-
-      await this.queryPipelineLoggerService.queryProfile({
-        question,
-        queryProfileResult,
-      });
-
       this.logger.log(
         `Question classification result: ${JSON.stringify(
           {
@@ -166,6 +155,22 @@ export class AnswerQuestionUseCase
       this.logger.log(
         `Query profile result: ${JSON.stringify(queryProfileResult, null, 2)}`,
       );
+
+      // Log classification and query profile steps with duration
+      const step1Duration =
+        timing[QueryPipelineTimingSteps.STEP1_BASIC_PREPARATION]?.duration;
+      await this.queryPipelineLoggerService.classification({
+        question,
+        promptVersion: QueryPipelinePromptConfig.CLASSIFICATION,
+        classificationResult,
+        duration: step1Duration,
+      });
+
+      await this.queryPipelineLoggerService.queryProfile({
+        question,
+        queryProfileResult,
+        duration: step1Duration,
+      });
 
       // if (classificationResult.category === 'relevant') {
       //   return this.returnEmptyOutput();
@@ -205,16 +210,18 @@ export class AnswerQuestionUseCase
         QueryPipelineTimingSteps.STEP2_SKILL_INFERENCE,
       );
 
-      // Log skill expansion step
+      this.logger.log(
+        `Expanded skills: ${JSON.stringify(skillItems, null, 2)}`,
+      );
+
+      // Log skill expansion step with duration
       await this.queryPipelineLoggerService.skillExpansion({
         question,
         promptVersion: QueryPipelinePromptConfig.SKILL_EXPANSION,
         skillExpansionResult: skillExpansion,
+        duration:
+          timing[QueryPipelineTimingSteps.STEP2_SKILL_INFERENCE]?.duration,
       });
-
-      this.logger.log(
-        `Expanded skills: ${JSON.stringify(skillItems, null, 2)}`,
-      );
 
       this.timeLogger.startTiming(
         timing,
@@ -239,11 +246,13 @@ export class AnswerQuestionUseCase
         QueryPipelineTimingSteps.STEP3_COURSE_RETRIEVAL,
       );
 
-      // Log course retrieval step with embedding usage
+      // Log course retrieval step with embedding usage and duration
       await this.queryPipelineLoggerService.courseRetrieval({
         skills: skillItems.map((item) => item.skill),
         skillCoursesMap,
         embeddingUsage,
+        duration:
+          timing[QueryPipelineTimingSteps.STEP3_COURSE_RETRIEVAL]?.duration,
       });
 
       // Add filter before aggregation
@@ -256,20 +265,15 @@ export class AnswerQuestionUseCase
         CourseWithLearningOutcomeV2MatchWithRelevance[]
       >();
       const useFilter = true;
+      let relevanceFilterResults: CourseRelevanceFilterResultV2[] | undefined;
       if (useFilter) {
-        const relevanceFilterResults =
+        relevanceFilterResults =
           await this.courseRelevanceFilterService.batchFilterCoursesBySkillV2(
             question,
             queryProfileResult,
             skillCoursesMap,
             QueryPipelinePromptConfig.COURSE_RELEVANCE_FILTER, // lower than v4 is binary classification
           );
-
-        // Log course filter step (logger handles iteration internally)
-        await this.queryPipelineLoggerService.courseFilter({
-          question,
-          relevanceFilterResults,
-        });
 
         // Add tokens and build filtered map
         for (const filterResult of relevanceFilterResults) {
@@ -293,6 +297,17 @@ export class AnswerQuestionUseCase
         timing,
         QueryPipelineTimingSteps.STEP4_COURSE_RELEVANCE_FILTER,
       );
+
+      // Log course filter step with duration (logger handles iteration internally)
+      if (useFilter && relevanceFilterResults) {
+        await this.queryPipelineLoggerService.courseFilter({
+          question,
+          relevanceFilterResults,
+          duration:
+            timing[QueryPipelineTimingSteps.STEP4_COURSE_RELEVANCE_FILTER]
+              ?.duration,
+        });
+      }
 
       // Step5: Course Aggregation
       this.timeLogger.startTiming(
@@ -343,10 +358,12 @@ export class AnswerQuestionUseCase
         QueryPipelineTimingSteps.STEP5_COURSE_AGGREGATION,
       );
 
-      // Log course aggregation step (NEW - previously unlogged)
+      // Log course aggregation step with duration
       await this.queryPipelineLoggerService.courseAggregation({
         filteredSkillCoursesMap,
         rankedCourses,
+        duration:
+          timing[QueryPipelineTimingSteps.STEP5_COURSE_AGGREGATION]?.duration,
       });
 
       // Proceed with answer synthesis using ranked and retained courses
@@ -376,16 +393,18 @@ export class AnswerQuestionUseCase
         QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS,
       );
 
-      // Log answer synthesis step
+      this.logger.log(
+        `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
+      );
+
+      // Log answer synthesis step with duration
       await this.queryPipelineLoggerService.answerSynthesis({
         question,
         promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
         synthesisResult,
+        duration:
+          timing[QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS]?.duration,
       });
-
-      this.logger.log(
-        `Answer synthesis result: ${JSON.stringify(synthesisResult, null, 2)}`,
-      );
 
       // Transform to CourseView
       const relatedCourses = await this.transformToCourseViews(rankedCourses);

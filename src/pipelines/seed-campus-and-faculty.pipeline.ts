@@ -146,7 +146,7 @@ export class SeedCampusAndFacultyPipeline {
   }) {
     const cleanedCoursesWithCLO: CleanCourseWithCLO[] =
       await FileHelper.loadLatestJson<CleanCourseWithCLO[]>(
-        'src/modules/course/pipelines/data/cleaned/valid_courses_with_clo',
+        'src/modules/course/pipelines/data/cleaned/clean_courses_with_clo',
       );
 
     if (deleteExisting) {
