@@ -18,75 +18,6 @@ model User {
   @@map("users")
 }
 
-// enum SourceType {
-//   SYNTHESIZED
-//   EXTERNAL
-// }
-
-// enum SkillCategory {
-//   SOFT
-//   HARD
-//   UNCERTAIN
-// }
-
-// model Skill {
-//   id                 String                     @id @db.Uuid
-//   skillNameEn        String                     @unique @map("skill_name_en")
-//   skillDescriptionEn String                     @map("skill_description_en")
-//   skillCategory      SkillCategory              @map("skill_category")
-//   sourceName         String                     @map("source_name")
-//   sourceType         SourceType                 @map("source_type")
-//   metadata           Json?
-//   createdAt          DateTime                   @default(now()) @map("created_at")
-//   updatedAt          DateTime                   @updatedAt @map("updated_at")
-//   embeddingEn        Unsupported("vector(768)")
-//   occupationSkills   OccupationSkill[]
-
-//   @@map("skills")
-// }
-
-// model OccupationSkill {
-//   id           String     @id @db.Uuid
-//   occupationId String     @map("occupation_id") @db.Uuid
-//   occupation   Occupation @relation(fields: [occupationId], references: [id])
-//   skillId      String     @map("skill_id") @db.Uuid
-//   skill        Skill      @relation(fields: [skillId], references: [id])
-//   metadata     Json?
-//   createdAt    DateTime   @default(now()) @map("created_at")
-
-//   @@unique([occupationId, skillId], name: "unique_occupation_skill")
-//   @@map("occupation_skills")
-// }
-
-// model Occupation {
-//   id               String            @id @db.Uuid
-//   occupationNameEn String            @map("occupation_name_en")
-//   descriptionEn    String            @map("description_en")
-//   sourceName       String            @map("source_name")
-//   sourceType       SourceType        @map("source_type")
-//   createdAt        DateTime          @default(now()) @map("created_at")
-//   updatedAt        DateTime          @updatedAt @map("updated_at")
-//   metadata         Json?
-//   clusterId        String            @map("cluster_id") @db.Uuid
-//   cluster          Cluster           @relation(fields: [clusterId], references: [id])
-//   occupationSkills OccupationSkill[]
-
-//   @@map("occupations")
-// }
-
-// model Cluster {
-//   id            String       @id @db.Uuid
-//   clusterNameEn String       @unique @map("cluster_name")
-//   sourceName    String       @map("source_name")
-//   sourceType    SourceType   @map("source_type")
-//   createdAt     DateTime     @default(now()) @map("created_at")
-//   updatedAt     DateTime     @updatedAt @map("updated_at")
-//   metadata      Json?
-//   occupations   Occupation[]
-
-//   @@map("clusters")
-// }
-
 model Campus {
   id        String    @id @db.Uuid
   code      String    @unique
@@ -182,17 +113,6 @@ model CourseLearningOutcomeVector {
   @@map("course_learning_outcome_vectors")
 }
 
-model QuestionLog {
-  id              String           @id @db.Uuid
-  questionText    String
-  role            String?
-  mentionRoles    String[]         @map("mention_roles")
-  mentionSkills   String[]         @map("mention_skills")
-  metadata        Json?
-  createdAt       DateTime         @default(now()) @map("created_at")
-  courseClickLogs CourseClickLog[]
-}
-
 model CourseClickLog {
   id         String      @id @db.Uuid
   questionId String      @map("question_id") @db.Uuid
@@ -209,7 +129,7 @@ model CourseClickLog {
 enum QueryStatus {
   PENDING
   COMPLETED
-  EARLY_EXIT        // Query exited early (irrelevant/dangerous classification)
+  EARLY_EXIT // Query exited early (irrelevant/dangerous classification)
   FAILED
   TIMEOUT
 
@@ -217,22 +137,22 @@ enum QueryStatus {
 }
 
 model QueryProcessLog {
-  id        String             @id @db.Uuid
-  status    QueryStatus        @default(PENDING)
-  question  String
+  id       String      @id @db.Uuid
+  status   QueryStatus @default(PENDING)
+  question String
 
   // JSONB fields - flexible, no migration needed for new fields
-  input     Json?              // Query input parameters
-  output    Json?              // Final results (answer, courses, classification)
-  metrics   Json?              // Aggregated metrics (duration, tokens, cost, counts)
-  metadata  Json?              // Additional data (sessionId, userId, etc.)
-  error     Json?              // Error info (code, message, stack)
+  input    Json? // Query input parameters
+  output   Json? // Final results (answer, courses, classification)
+  metrics  Json? // Aggregated metrics (duration, tokens, cost, counts)
+  metadata Json? // Additional data (sessionId, userId, etc.)
+  error    Json? // Error info (code, message, stack)
 
   // Timestamps
-  startedAt   DateTime         @default(now()) @map("started_at")
-  completedAt DateTime?        @map("completed_at")
-  createdAt   DateTime         @default(now()) @map("created_at")
-  updatedAt   DateTime         @updatedAt @map("updated_at")
+  startedAt   DateTime  @default(now()) @map("started_at")
+  completedAt DateTime? @map("completed_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
 
   // Relations
   processSteps QueryProcessStep[]
@@ -248,26 +168,93 @@ model QueryProcessStep {
   processLog QueryProcessLog @relation(fields: [queryLogId], references: [id], onDelete: Cascade)
 
   // Core fields (for indexing)
-  stepName   String          @map("step_name")
-  stepOrder  Int             @map("step_order")
+  stepName  String @map("step_name")
+  stepOrder Int    @map("step_order")
 
   // JSONB fields - flexible storage
-  input      Json?           // Input data for this step
-  output     Json?           // Output data from this step
-  llm        Json?           // LLM config (provider, model, version, params, tokens, cost)
-  embedding  Json?           // Embedding config (model, provider, dimension, etc.) - for COURSE_RETRIEVAL step
-  metrics    Json?           // Timing, duration
-  error      Json?           // Error info (code, message, details)
+  input     Json? // Input data for this step
+  output    Json? // Output data from this step
+  llm       Json? // LLM config (provider, model, version, params, tokens, cost)
+  embedding Json? // Embedding config (model, provider, dimension, etc.) - for COURSE_RETRIEVAL step
+  metrics   Json? // Timing, duration
+  error     Json? // Error info (code, message, details)
 
   // Timestamps
-  startedAt   DateTime       @default(now()) @map("started_at")
-  completedAt DateTime?      @map("completed_at")
-  duration    Int?           @map("duration") // milliseconds
-  createdAt   DateTime       @default(now()) @map("created_at")
-  updatedAt   DateTime       @updatedAt @map("updated_at")
+  startedAt   DateTime  @default(now()) @map("started_at")
+  completedAt DateTime? @map("completed_at")
+  duration    Int?      @map("duration") // milliseconds
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
 
   @@index([queryLogId])
   @@index([stepName])
   @@index([startedAt])
   @@map("query_process_steps")
+}
+
+model QuestionLog {
+  id                  String                @id @db.Uuid
+  questionText        String
+  role                String?
+  metadata            Json?
+  createdAt           DateTime              @default(now()) @map("created_at")
+  relatedProcessLogId String?               @map("related_process_log_id") @db.Uuid
+  courseClickLogs     CourseClickLog[]
+  analyses            QuestionLogAnalysis[]
+
+  @@index([createdAt])
+  @@index([relatedProcessLogId])
+  @@map("question_logs")
+}
+
+model QuestionLogAnalysis {
+  id            String      @id @db.Uuid
+  questionLogId String      @map("question_log_id") @db.Uuid
+  questionLog   QuestionLog @relation(fields: [questionLogId], references: [id], onDelete: Cascade)
+
+  extractionVersion String   @map("extraction_version")
+  extractionNumber  Int      @map("extraction_number")
+  modelUsed         String   @map("model_used")
+  extractedAt       DateTime @default(now()) @map("extracted_at")
+
+  overallQuality String @map("overall_quality")
+  entityCounts   Json?  @map("entity_counts")
+
+  extractionCost Decimal @map("extraction_cost")
+  tokensUsed     Int     @map("tokens_used")
+
+  reasoning String?  @map("reasoning")
+  llm       Json?    @map("llm_metadata")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  entities ExtractedEntity[]
+
+  @@unique([questionLogId, extractionVersion, extractionNumber], name: "unique_extraction_version_number")
+  @@index([questionLogId])
+  @@index([extractedAt])
+  @@index([extractionVersion])
+  @@index([overallQuality])
+  @@map("question_log_analyses")
+}
+
+model ExtractedEntity {
+  id         String              @id @db.Uuid
+  analysisId String              @map("analysis_id") @db.Uuid
+  analysis   QuestionLogAnalysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+
+  type            String
+  name            String
+  normalizedLabel String @map("normalized_label")
+  confidence      String
+  source          String
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([analysisId])
+  @@index([type])
+  @@index([normalizedLabel])
+  @@index([confidence])
+  @@index([type, confidence])
+  @@index([type, normalizedLabel])
+  @@map("extracted_entities")
 }
