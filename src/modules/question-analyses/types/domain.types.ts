@@ -12,6 +12,20 @@ import type {
 } from './core.enums';
 
 /**
+ * Question log domain model
+ * Represents a user's question with metadata
+ * Matches QuestionLog Prisma model
+ */
+export interface QuestionLog {
+  id: string;
+  questionText: string;
+  role: string | null;
+  metadata: Record<string, unknown> | null;
+  createdAt: Date;
+  relatedProcessLogId: string | null;
+}
+
+/**
  * Question log analysis domain model
  * Represents a single extraction run for a question log
  * Matches QuestionLogAnalysis Prisma model

@@ -12,7 +12,6 @@ import {
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import type { Identifier } from 'src/shared/contracts/types/identifier';
 import type { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
-import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import {
   QuestionAnalysisEntityTypes,
@@ -23,6 +22,10 @@ import {
   I_QUESTION_LOG_ANALYSIS_REPOSITORY_TOKEN,
   IQuestionLogAnalysisRepository,
 } from '../contracts/repositories/i-question-log-analysis-repository.contract';
+import {
+  I_QUESTION_LOG_REPOSITORY_TOKEN,
+  IQuestionLogRepository,
+} from '../contracts/repositories/i-question-log-repository.contract';
 import type {
   CreateExtractedEntityInput,
   CreateQuestionLogAnalysisInput,
@@ -55,9 +58,10 @@ export class QuestionExtractionService implements IQuestionExtractionService {
   private readonly logger = new Logger(QuestionExtractionService.name);
 
   constructor(
-    private readonly prisma: PrismaService,
     @Inject(I_QUESTION_LOG_ANALYSIS_REPOSITORY_TOKEN)
     private readonly repository: IQuestionLogAnalysisRepository,
+    @Inject(I_QUESTION_LOG_REPOSITORY_TOKEN)
+    private readonly questionLogRepository: IQuestionLogRepository,
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
     private readonly llmRouter: ILlmRouterService,
   ) {}
@@ -72,9 +76,9 @@ export class QuestionExtractionService implements IQuestionExtractionService {
     );
 
     // 1. Fetch question log
-    const questionLog = await this.prisma.questionLog.findUnique({
-      where: { id: questionLogId },
-    });
+    const questionLog = await this.questionLogRepository.findById(
+      questionLogId as Identifier,
+    );
 
     if (!questionLog) {
       throw new Error(
@@ -118,28 +122,28 @@ export class QuestionExtractionService implements IQuestionExtractionService {
     // 4. Transform LLM output to repository input
     const entities: CreateExtractedEntityInput[] = [
       ...this.mapEntities(
-        extractionData.mentionTopics ?? [],
+        extractionData.mentionTopics,
         QuestionAnalysisEntityTypes.TOPIC,
       ),
       ...this.mapEntities(
-        extractionData.mentionSkills ?? [],
+        extractionData.mentionSkills,
         QuestionAnalysisEntityTypes.SKILL,
       ),
       ...this.mapEntities(
-        extractionData.mentionTasks ?? [],
+        extractionData.mentionTasks,
         QuestionAnalysisEntityTypes.TASK,
       ),
       ...this.mapEntities(
-        extractionData.mentionRoles ?? [],
+        extractionData.mentionRoles,
         QuestionAnalysisEntityTypes.ROLE,
       ),
     ];
 
     const entityCounts = {
-      topics: extractionData.mentionTopics?.length ?? 0,
-      skills: extractionData.mentionSkills?.length ?? 0,
-      tasks: extractionData.mentionTasks?.length ?? 0,
-      roles: extractionData.mentionRoles?.length ?? 0,
+      topics: extractionData.mentionTopics.length,
+      skills: extractionData.mentionSkills.length,
+      tasks: extractionData.mentionTasks.length,
+      roles: extractionData.mentionRoles.length,
     };
 
     // Build LlmInfo from LLM response

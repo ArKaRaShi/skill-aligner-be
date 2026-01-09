@@ -36,29 +36,24 @@ export const EntityExtractionSchema = z.object({
   mentionTopics: z
     .array(ExtractedEntitySchema)
     .describe('Broad knowledge areas extracted from the question')
-    .optional()
     .default([]),
   mentionSkills: z
     .array(ExtractedEntitySchema)
     .describe('Specific, measurable abilities extracted from the question')
-    .optional()
     .default([]),
   mentionTasks: z
     .array(ExtractedEntitySchema)
     .describe('Concrete activities requiring skills')
-    .optional()
     .default([]),
   mentionRoles: z
     .array(ExtractedEntitySchema)
     .describe('Job or position titles')
-    .optional()
     .default([]),
   unmappedConcepts: z
     .array(z.string())
     .describe(
       'Concepts mentioned but not fitting the 4 types (e.g., course codes)',
     )
-    .optional()
     .default([]),
   overallQuality: z
     .enum(['high', 'medium', 'low', 'none'])

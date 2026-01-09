@@ -44,7 +44,11 @@ export type {
 } from './extraction.types';
 
 // Domain model types
-export type { QuestionLogAnalysis, ExtractedEntityDb } from './domain.types';
+export type {
+  QuestionLog,
+  QuestionLogAnalysis,
+  ExtractedEntityDb,
+} from './domain.types';
 
 // Analytics types
 export type {

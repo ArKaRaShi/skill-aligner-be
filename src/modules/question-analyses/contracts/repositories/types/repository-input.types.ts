@@ -11,6 +11,43 @@ import type {
   ExtractionSource,
 } from '../../../types/core.enums';
 
+// ============================================================================
+// QuestionLog Repository Input Types
+// ============================================================================
+
+/**
+ * Input data for creating a question log
+ */
+export interface CreateQuestionLogInput {
+  questionText: string;
+  role?: string;
+  metadata?: Record<string, unknown>;
+  relatedProcessLogId?: string;
+}
+
+/**
+ * Input data for updating a question log
+ */
+export type UpdateQuestionLogInput = Partial<
+  Pick<
+    CreateQuestionLogInput,
+    'questionText' | 'role' | 'metadata' | 'relatedProcessLogId'
+  >
+>;
+
+/**
+ * Filter parameters for finding question logs
+ */
+export interface FindQuestionLogsParams {
+  relatedProcessLogId?: string;
+  limit?: number;
+  offset?: number;
+}
+
+// ============================================================================
+// QuestionLogAnalysis Repository Input Types
+// ============================================================================
+
 /**
  * Input data for creating an extracted entity
  */
