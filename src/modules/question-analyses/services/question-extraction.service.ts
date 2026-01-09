@@ -15,6 +15,11 @@ import type { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import {
+  QuestionAnalysisEntityTypes,
+  QuestionAnalysisExtractionConfig,
+  QuestionAnalysisLlmConfig,
+} from '../constants';
+import {
   I_QUESTION_LOG_ANALYSIS_REPOSITORY_TOKEN,
   IQuestionLogAnalysisRepository,
 } from '../contracts/repositories/i-question-log-analysis-repository.contract';
@@ -25,10 +30,10 @@ import type {
 import type { IQuestionExtractionService } from '../contracts/services/i-question-extraction-service.contract';
 import type { ExtractFromQuestionInput } from '../contracts/services/types/service-input.types';
 import {
-  ENTITY_EXTRACTION_SYSTEM_PROMPT,
-  EntityExtractionSchema,
-  getEntityExtractionUserPrompt,
-} from '../prompts/entity-extraction.prompt';
+  EntityExtractionPromptFactory,
+  EntityExtractionPromptVersions,
+} from '../prompts/entity-extraction';
+import { EntityExtractionSchema } from '../schemas/entity-extraction.schema';
 import type { EntityType } from '../types/core.enums';
 import type {
   ExtractionHistoryEntry,
@@ -87,14 +92,19 @@ export class QuestionExtractionService implements IQuestionExtractionService {
       `Extraction number for version ${extractionVersion}: ${extractionNumber}`,
     );
 
+    const { getPrompts } = EntityExtractionPromptFactory();
+    const { systemPrompt, getUserPrompt } = getPrompts(
+      EntityExtractionPromptVersions.V1,
+    );
+
     // 3. Call LLM for extraction
     const startTime = Date.now();
 
     const llmResult = await this.llmRouter.generateObject({
-      prompt: getEntityExtractionUserPrompt(questionLog.questionText),
-      systemPrompt: ENTITY_EXTRACTION_SYSTEM_PROMPT,
+      prompt: getUserPrompt(questionLog.questionText),
+      systemPrompt: systemPrompt,
       schema: EntityExtractionSchema,
-      model: model ?? 'gpt-4.1-mini',
+      model: model ?? QuestionAnalysisLlmConfig.DEFAULT_MODEL,
     });
 
     const duration = Date.now() - startTime;
@@ -107,10 +117,22 @@ export class QuestionExtractionService implements IQuestionExtractionService {
 
     // 4. Transform LLM output to repository input
     const entities: CreateExtractedEntityInput[] = [
-      ...this.mapEntities(extractionData.mentionTopics ?? [], 'topic'),
-      ...this.mapEntities(extractionData.mentionSkills ?? [], 'skill'),
-      ...this.mapEntities(extractionData.mentionTasks ?? [], 'task'),
-      ...this.mapEntities(extractionData.mentionRoles ?? [], 'role'),
+      ...this.mapEntities(
+        extractionData.mentionTopics ?? [],
+        QuestionAnalysisEntityTypes.TOPIC,
+      ),
+      ...this.mapEntities(
+        extractionData.mentionSkills ?? [],
+        QuestionAnalysisEntityTypes.SKILL,
+      ),
+      ...this.mapEntities(
+        extractionData.mentionTasks ?? [],
+        QuestionAnalysisEntityTypes.TASK,
+      ),
+      ...this.mapEntities(
+        extractionData.mentionRoles ?? [],
+        QuestionAnalysisEntityTypes.ROLE,
+      ),
     ];
 
     const entityCounts = {
@@ -126,10 +148,10 @@ export class QuestionExtractionService implements IQuestionExtractionService {
       provider: llmResult.provider,
       inputTokens: llmResult.inputTokens,
       outputTokens: llmResult.outputTokens,
-      systemPrompt: ENTITY_EXTRACTION_SYSTEM_PROMPT,
-      userPrompt: getEntityExtractionUserPrompt(questionLog.questionText),
-      promptVersion: 'v1',
-      schemaName: 'EntityExtractionSchema',
+      systemPrompt,
+      userPrompt: getUserPrompt(questionLog.questionText),
+      promptVersion: QuestionAnalysisLlmConfig.PROMPT_VERSION,
+      schemaName: QuestionAnalysisLlmConfig.SCHEMA_NAME,
       finishReason: llmResult.finishReason,
       warnings: llmResult.warnings,
       providerMetadata: llmResult.providerMetadata,
@@ -144,7 +166,7 @@ export class QuestionExtractionService implements IQuestionExtractionService {
       modelUsed: llmInfo.model,
       overallQuality: extractionData.overallQuality,
       entityCounts,
-      extractionCost: 0, // Will be calculated by TokenCostCalculator if needed
+      extractionCost: QuestionAnalysisExtractionConfig.DEFAULT_EXTRACTION_COST, // Will be calculated by TokenCostCalculator if needed
       tokensUsed: (llmInfo.inputTokens ?? 0) + (llmInfo.outputTokens ?? 0),
       reasoning: extractionData.reasoning,
       llm: llmInfo,

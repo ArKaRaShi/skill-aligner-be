@@ -2,6 +2,10 @@ import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from 'src/shared/kernel/database';
 
+import {
+  QuestionAnalysisExtractionConfig,
+  QuestionAnalysisQualityLevels,
+} from '../constants';
 import { IQuestionAnalyticsRepository } from '../contracts/repositories/i-question-analytics-repository.contract';
 import {
   EntityDetailsRaw,
@@ -25,20 +29,18 @@ import type {
 export class PrismaQuestionAnalyticsRepository
   implements IQuestionAnalyticsRepository
 {
-  private readonly DEFAULT_LIMIT = 20;
-
   constructor(private readonly prisma: PrismaService) {}
 
   async getTrending(
     entityType: EntityType,
     startDate: Date,
     endDate: Date,
-    limit = this.DEFAULT_LIMIT,
+    limit: number = QuestionAnalysisExtractionConfig.DEFAULT_QUERY_LIMIT,
   ): Promise<TrendingResult[]> {
     const rows = await this.prisma.$queryRaw<TrendingResultRaw[]>`
       SELECT normalized_label, COUNT(*) as count
       FROM extracted_entities
-      WHERE type = ${entityType}::entity_type
+      WHERE type = ${entityType}
         AND created_at >= ${startDate}
         AND created_at <= ${endDate}
       GROUP BY normalized_label
@@ -57,13 +59,13 @@ export class PrismaQuestionAnalyticsRepository
   async getEntityQuestionExamples(
     entityType: EntityType,
     normalizedLabel: string,
-    limit = this.DEFAULT_LIMIT,
+    limit: number = QuestionAnalysisExtractionConfig.DEFAULT_QUERY_LIMIT,
   ): Promise<EntityQuestionExamples> {
     // First, get the entity details (name, type) from a recent extraction
     const entityRow = await this.prisma.$queryRaw<EntityDetailsRaw[]>`
       SELECT name, normalized_label, type
       FROM extracted_entities
-      WHERE type = ${entityType}::entity_type
+      WHERE type = ${entityType}
         AND normalized_label = ${normalizedLabel}
       LIMIT 1
     `;
@@ -81,6 +83,8 @@ export class PrismaQuestionAnalyticsRepository
     }
 
     // Get example questions containing this entity
+    // First, find all questions that contain the searched entity
+    // Then, get ALL entities for those questions
     const questionRows = await this.prisma.$queryRaw<QuestionWithEntitiesRaw[]>`
       SELECT DISTINCT
         ql.id as question_log_id,
@@ -92,11 +96,17 @@ export class PrismaQuestionAnalyticsRepository
       FROM question_logs ql
       INNER JOIN question_log_analyses qla ON qla.question_log_id = ql.id
       INNER JOIN extracted_entities ee ON ee.analysis_id = qla.id
-      WHERE ee.type = ${entityType}::entity_type
-        AND ee.normalized_label = ${normalizedLabel}
+      WHERE ql.id IN (
+        SELECT DISTINCT ql2.id
+        FROM question_logs ql2
+        INNER JOIN question_log_analyses qla2 ON qla2.question_log_id = ql2.id
+        INNER JOIN extracted_entities ee2 ON ee2.analysis_id = qla2.id
+        WHERE ee2.type = ${entityType}
+          AND ee2.normalized_label = ${normalizedLabel}
+        LIMIT ${limit * QuestionAnalysisExtractionConfig.QUESTION_FETCH_MULTIPLIER}
+      )
       GROUP BY ql.id, ql.question_text, ee.type, ee.name, ee.normalized_label
       ORDER BY extracted_at DESC
-      LIMIT ${limit * 2}
     `;
 
     // Group by question log and collect entities
@@ -154,10 +164,10 @@ export class PrismaQuestionAnalyticsRepository
         COALESCE(SUM(extraction_cost), 0) as total_cost,
         COALESCE(SUM(tokens_used), 0) as total_tokens,
         COUNT(DISTINCT question_log_id) as total_questions,
-        SUM(CASE WHEN overall_quality = 'high' THEN 1 ELSE 0 END) as high_quality,
-        SUM(CASE WHEN overall_quality = 'medium' THEN 1 ELSE 0 END) as medium_quality,
-        SUM(CASE WHEN overall_quality = 'low' THEN 1 ELSE 0 END) as low_quality,
-        SUM(CASE WHEN overall_quality = 'none' THEN 1 ELSE 0 END) as none_quality
+        SUM(CASE WHEN overall_quality = ${QuestionAnalysisQualityLevels.HIGH} THEN 1 ELSE 0 END) as high_quality,
+        SUM(CASE WHEN overall_quality = ${QuestionAnalysisQualityLevels.MEDIUM} THEN 1 ELSE 0 END) as medium_quality,
+        SUM(CASE WHEN overall_quality = ${QuestionAnalysisQualityLevels.LOW} THEN 1 ELSE 0 END) as low_quality,
+        SUM(CASE WHEN overall_quality = ${QuestionAnalysisQualityLevels.NONE} THEN 1 ELSE 0 END) as none_quality
       FROM question_log_analyses
     `;
 
@@ -203,7 +213,9 @@ export class PrismaQuestionAnalyticsRepository
     return distribution;
   }
 
-  async getTopQuestions(limit = this.DEFAULT_LIMIT): Promise<TopQuestion[]> {
+  async getTopQuestions(
+    limit: number = QuestionAnalysisExtractionConfig.DEFAULT_QUERY_LIMIT,
+  ): Promise<TopQuestion[]> {
     const rows = await this.prisma.$queryRaw<TopQuestionRaw[]>`
       SELECT
         ql.id as question_log_id,

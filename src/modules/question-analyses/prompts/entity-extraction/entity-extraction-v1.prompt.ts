@@ -1,90 +1,29 @@
-import { z } from 'zod';
-
 /**
- * Zod schema for entity extraction from user questions
- * Used to validate LLM responses
+ * User prompt generator function
+ * Creates a user-specific prompt for entity extraction
+ *
+ * @param questionText - The user's question text
+ * @returns Formatted user prompt
  */
+export const getEntityExtractionUserPromptV1 = (questionText: string): string =>
+  `
+Extract ALL 4 concept types from this question:
 
-/**
- * Single entity extraction schema
- * Common structure for all entity types
- */
-const ExtractedEntitySchema = z.object({
-  name: z.string().describe('The entity name as mentioned or inferred'),
-  normalizedLabel: z
-    .string()
-    .describe(
-      'Lowercase, hyphenated version: e.g., "machine-learning", "data-scientist"',
-    ),
-  confidence: z
-    .enum(['HIGH', 'MEDIUM', 'LOW'])
-    .describe(
-      'Confidence level: HIGH (explicit), MEDIUM (inferred), LOW (uncertain)',
-    ),
-  source: z
-    .enum(['explicit', 'inferred'])
-    .describe(
-      'Source: explicit (direct mention) or inferred (derived from context)',
-    ),
-});
+"${questionText}"
 
-/**
- * Complete entity extraction schema
- * Matches the system prompt output format
- */
-export const EntityExtractionSchema = z.object({
-  mentionTopics: z
-    .array(ExtractedEntitySchema)
-    .describe('Broad knowledge areas extracted from the question')
-    .optional()
-    .default([]),
-  mentionSkills: z
-    .array(ExtractedEntitySchema)
-    .describe('Specific, measurable abilities extracted from the question')
-    .optional()
-    .default([]),
-  mentionTasks: z
-    .array(ExtractedEntitySchema)
-    .describe('Concrete activities requiring skills')
-    .optional()
-    .default([]),
-  mentionRoles: z
-    .array(ExtractedEntitySchema)
-    .describe('Job or position titles')
-    .optional()
-    .default([]),
-  unmappedConcepts: z
-    .array(z.string())
-    .describe(
-      'Concepts mentioned but not fitting the 4 types (e.g., course codes)',
-    )
-    .optional()
-    .default([]),
-  overallQuality: z
-    .enum(['high', 'medium', 'low', 'none'])
-    .describe(
-      'Overall extraction quality: high (HIGH confidence + clear intent), medium (MEDIUM confidence + reasonable intent), low (LOW confidence + ambiguous), none (no entities)',
-    ),
-  reasoning: z
-    .string()
-    .describe('Brief explanation of the extraction quality assessment'),
-});
-
-/**
- * Type inference from Zod schema
- */
-export type EntityExtraction = z.infer<typeof EntityExtractionSchema>;
+Consider: Topics, Skills, Tasks, and Roles that appear or are implied.
+`;
 
 /**
  * System prompt for entity extraction
  * Includes concept type definitions, confidence levels, and examples
  */
-export const ENTITY_EXTRACTION_SYSTEM_PROMPT = `
+export const ENTITY_EXTRACTION_SYSTEM_PROMPT_V1 = `
 You are an entity extraction system for course recommendation queries.
 
 Your task: Extract concepts from user questions based on 4 concept types.
 
-CONCEPT TYPES (from classification system):
+CONCEPT TYPES DEFINITIONS:
 
 1. TOPIC: Broad knowledge area
    - Examples: "AI", "Personal Finance", "Cooking", "Data Science", "Machine Learning"
@@ -182,72 +121,5 @@ Question: "อยากเป็น Data Scientist ต้องมีทัก�
   "reasoning": "Explicit role mention with clear learning intent. Topic (Data Science) inferred from role."
 }
 
-Question: "สอนทำเว็บไหม"
-{
-  "mentionTopics": [],
-  "mentionSkills": [
-    {"name": "web development", "normalizedLabel": "web-development", "confidence": "MEDIUM", "source": "inferred"}
-  ],
-  "mentionTasks": [
-    {"name": "Making a Website", "normalizedLabel": "making-a-website", "confidence": "HIGH", "source": "explicit"}
-  ],
-  "mentionRoles": [],
-  "unmappedConcepts": [],
-  "overallQuality": "medium",
-  "reasoning": "Explicit task (ทำเว็บ) with inferred skill. Learning intent is clear from question structure."
-}
-
-Question: "I want to learn cooking"
-{
-  "mentionTopics": [
-    {"name": "Cooking", "normalizedLabel": "cooking", "confidence": "HIGH", "source": "explicit"}
-  ],
-  "mentionSkills": [],
-  "mentionTasks": [],
-  "mentionRoles": [],
-  "unmappedConcepts": [],
-  "overallQuality": "high",
-  "reasoning": "Explicit topic with clear learning intent"
-}
-
-Question: "คอร์ส 01420473-66 สอนอะไรบ้าง?"
-{
-  "mentionTopics": [],
-  "mentionSkills": [],
-  "mentionTasks": [],
-  "mentionRoles": [],
-  "unmappedConcepts": ["01420473-66"],
-  "overallQuality": "none",
-  "reasoning": "Specific course code question, not relevant for entity extraction"
-}
-
-Question: "พรุ่งนี้ฝนจะตกไหม?" (Will it rain tomorrow?)
-{
-  "mentionTopics": [],
-  "mentionSkills": [],
-  "mentionTasks": [],
-  "mentionRoles": [],
-  "unmappedConcepts": [],
-  "overallQuality": "none",
-  "reasoning": "Weather question, no learnable concepts or skills detected"
-}
-
 Return JSON matching the schema above. Arrays can be EMPTY if no entities found.
-`.trim();
-
-/**
- * User prompt generator function
- * Creates a user-specific prompt for entity extraction
- *
- * @param questionText - The user's question text
- * @returns Formatted user prompt
- */
-export const getEntityExtractionUserPrompt = (questionText: string): string => {
-  return `Extract ALL 4 concept types from this question:
-
-"${questionText}"
-
-Consider: Topics, Skills, Tasks, and Roles that appear or are implied.
-
-Return JSON with mentionTopics, mentionSkills, mentionTasks, mentionRoles, unmappedConcepts, overallQuality, and reasoning.`;
-};
+`;

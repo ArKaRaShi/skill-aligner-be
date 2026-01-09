@@ -194,7 +194,7 @@ model QueryProcessStep {
 
 model QuestionLog {
   id                  String                @id @db.Uuid
-  questionText        String
+  questionText        String                @map("question_text")
   role                String?
   metadata            Json?
   createdAt           DateTime              @default(now()) @map("created_at")

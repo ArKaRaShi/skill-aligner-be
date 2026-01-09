@@ -12,6 +12,7 @@ import { PrismaGlobalMapper } from 'src/shared/kernel/database/mappers/prisma-gl
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { v4 as uuidv4 } from 'uuid';
 
+import { QuestionAnalysisExtractionConfig } from '../constants';
 import { IQuestionLogAnalysisRepository } from '../contracts/repositories/i-question-log-analysis-repository.contract';
 import type {
   CreateQuestionLogAnalysisInput,
@@ -143,7 +144,9 @@ export class PrismaQuestionLogAnalysisRepository
       },
     });
 
-    return lastAnalysis ? lastAnalysis.extractionNumber + 1 : 1;
+    return lastAnalysis
+      ? lastAnalysis.extractionNumber + 1
+      : QuestionAnalysisExtractionConfig.STARTING_EXTRACTION_NUMBER;
   }
 
   /**
