@@ -335,10 +335,21 @@ async function findQuestionLogsForBatch(
     );
   }
 
+  // Filter by classification: only RELEVANT questions worth extracting
+  const relevantLogs = filteredLogs.filter((log) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+    const category = (log.metadata as any)?.classification?.category;
+    return category === 'relevant';
+  });
+
+  logger.log(
+    `Filtered to ${relevantLogs.length} RELEVANT logs (excluding irrelevant/dangerous)`,
+  );
+
   // Find logs without analysis
   const logsWithoutAnalysis: string[] = [];
 
-  for (const log of filteredLogs) {
+  for (const log of relevantLogs) {
     const analyses = await analysisRepo.findByQuestionLogId(
       log.id as Identifier,
     );
@@ -352,7 +363,7 @@ async function findQuestionLogsForBatch(
   }
 
   logger.log(
-    `Found ${logsWithoutAnalysis.length} question logs without analysis`,
+    `Found ${logsWithoutAnalysis.length} question logs without analysis (all RELEVANT)`,
   );
 
   return logsWithoutAnalysis;

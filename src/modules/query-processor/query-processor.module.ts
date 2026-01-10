@@ -12,6 +12,7 @@ import { CampusModule } from '../campus/campus.module';
 import { CourseModule } from '../course/course.module';
 import { FacultyModule } from '../faculty/faculty.module';
 import { QueryLoggingModule } from '../query-logging/query-logging.module';
+import { QuestionAnalysesModule } from '../question-analyses/question-analyses.module';
 import { QuestionClassifierCache } from './cache/question-classifier.cache';
 import { QuestionSkillCache } from './cache/question-skill.cache';
 import { I_ANSWER_SYNTHESIS_SERVICE_TOKEN } from './contracts/i-answer-synthesis-service.contract';
@@ -38,6 +39,7 @@ import { QueryProcessorUseCases } from './use-cases';
     CourseModule,
     GptLlmModule,
     QueryLoggingModule,
+    QuestionAnalysesModule,
   ],
   controllers: [QueryProcessorController],
   providers: [

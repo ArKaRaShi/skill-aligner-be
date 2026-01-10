@@ -25,6 +25,10 @@ import {
 } from 'src/modules/faculty/contracts/i-faculty.contract';
 import { Faculty } from 'src/modules/faculty/types/faculty.type';
 import { QueryPipelineLoggerService } from 'src/modules/query-logging/services/query-pipeline-logger.service';
+import {
+  I_QUESTION_LOG_REPOSITORY_TOKEN,
+  type IQuestionLogRepository,
+} from 'src/modules/question-analyses/contracts/repositories/i-question-log-repository.contract';
 
 import {
   QueryPipelineDisplayKeys,
@@ -86,6 +90,8 @@ export class AnswerQuestionUseCase
     private readonly campusRepository: ICampusRepository,
     @Inject(I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN)
     private readonly courseRelevanceFilterService: ICourseRelevanceFilterService,
+    @Inject(I_QUESTION_LOG_REPOSITORY_TOKEN)
+    private readonly questionLogRepository: IQuestionLogRepository,
     private readonly queryPipelineLoggerService: QueryPipelineLoggerService,
   ) {}
 
@@ -171,6 +177,32 @@ export class AnswerQuestionUseCase
         queryProfileResult,
         duration: step1Duration,
       });
+
+      // Create QuestionLog with classification metadata for analytics
+      // This captures ALL questions (relevant, irrelevant, dangerous) for audit trail
+      // Entity extraction will only process RELEVANT questions
+      let questionLogId: Identifier | null = null;
+      try {
+        const questionLog = await this.questionLogRepository.create({
+          questionText: question,
+          metadata: {
+            classification: {
+              category: classificationResult.category,
+              reason: classificationResult.reason,
+              classifiedAt: new Date().toISOString(),
+            },
+            llmInfo: classificationResult.llmInfo,
+            tokenUsage: classificationResult.tokenUsage,
+          },
+        });
+        questionLogId = questionLog.id as Identifier;
+        this.logger.debug(`QuestionLog created with ID: ${questionLogId}`);
+      } catch (error) {
+        // Log error but don't fail the pipeline - QuestionLog is for analytics only
+        this.logger.error(
+          `Failed to create QuestionLog: ${error instanceof Error ? error.message : String(error)}`,
+        );
+      }
 
       // if (classificationResult.category === 'relevant') {
       //   return this.returnEmptyOutput();
