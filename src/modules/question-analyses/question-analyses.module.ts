@@ -95,6 +95,7 @@ import { QuestionExtractionService } from './services/question-extraction.servic
     },
   ],
   exports: [
+    I_QUESTION_LOG_REPOSITORY_TOKEN,
     I_QUESTION_EXTRACTION_SERVICE_TOKEN,
     I_QUESTION_ANALYTICS_SERVICE_TOKEN,
   ],

@@ -101,8 +101,8 @@ export class AnswerQuestionUseCase
     const { question, isGenEd, campusId, facultyId, academicYearSemesters } =
       input;
 
-    // Start query logging
-    await this.queryPipelineLoggerService.start(question, {
+    // Start query logging and capture processLogId for QuestionLog linking
+    const processLogId = await this.queryPipelineLoggerService.start(question, {
       question,
       campusId,
       facultyId,
@@ -185,6 +185,7 @@ export class AnswerQuestionUseCase
       try {
         const questionLog = await this.questionLogRepository.create({
           questionText: question,
+          relatedProcessLogId: processLogId, // Link to QueryProcessLog for analysis
           metadata: {
             classification: {
               category: classificationResult.category,
@@ -196,7 +197,9 @@ export class AnswerQuestionUseCase
           },
         });
         questionLogId = questionLog.id as Identifier;
-        this.logger.debug(`QuestionLog created with ID: ${questionLogId}`);
+        this.logger.debug(
+          `QuestionLog created with ID: ${questionLogId}, linked to processLogId: ${processLogId}`,
+        );
       } catch (error) {
         // Log error but don't fail the pipeline - QuestionLog is for analytics only
         this.logger.error(
