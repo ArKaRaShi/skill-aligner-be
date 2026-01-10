@@ -16,12 +16,14 @@ import { QuestionAnalysesModule } from '../question-analyses/question-analyses.m
 import { QuestionClassifierCache } from './cache/question-classifier.cache';
 import { QuestionSkillCache } from './cache/question-skill.cache';
 import { I_ANSWER_SYNTHESIS_SERVICE_TOKEN } from './contracts/i-answer-synthesis-service.contract';
+import { I_COURSE_AGGREGATION_SERVICE_TOKEN } from './contracts/i-course-aggregation-service.contract';
 import { I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN } from './contracts/i-course-relevance-filter-service.contract';
 import { I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN } from './contracts/i-query-profile-builder-service.contract';
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
 import { QueryProcessorController } from './query-processor.controller';
 import { AnswerSynthesisService } from './services/answer-synthesis/answer-synthesis.service';
+import { CourseAggregationService } from './services/course-aggregation/course-aggregation.service';
 import { CourseRelevanceFilterService } from './services/course-relevance-filter/course-relevance-filter.service';
 import { MockQueryProfileBuilderService } from './services/query-profile-builder/mock-query-profile-builder.service';
 import { QueryProfileBuilderService } from './services/query-profile-builder/query-profile-builder.service';
@@ -128,6 +130,10 @@ import { QueryProcessorUseCases } from './use-cases';
           config.answerSynthesisLlmModel,
         );
       },
+    },
+    {
+      provide: I_COURSE_AGGREGATION_SERVICE_TOKEN,
+      useClass: CourseAggregationService,
     },
   ],
   exports: [

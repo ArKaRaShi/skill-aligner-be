@@ -29,3 +29,24 @@ export type AggregatedCourseSkills = Course & {
   matchedSkills: MatchedSkillLearningOutcomes[];
   relevanceScore: number;
 };
+
+/**
+ * Input for course aggregation service
+ */
+export type CourseAggregationInput = {
+  /** Map of skill -> courses with LLM relevance scores (from filter step) */
+  filteredSkillCoursesMap?: Map<
+    string,
+    CourseWithLearningOutcomeV2MatchWithRelevance[]
+  >;
+  /** Map of skill -> courses without scores (fallback when filter disabled) */
+  rawSkillCoursesMap: Map<string, CourseWithLearningOutcomeV2Match[]>;
+};
+
+/**
+ * Output from course aggregation service
+ */
+export type CourseAggregationOutput = {
+  /** Deduplicated and ranked courses */
+  rankedCourses: AggregatedCourseSkills[];
+};

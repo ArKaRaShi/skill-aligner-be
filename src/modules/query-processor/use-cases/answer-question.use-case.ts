@@ -2,7 +2,6 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { IUseCase } from 'src/shared/contracts/i-use-case.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
-import { ArrayHelper } from 'src/shared/utils/array.helper';
 import { TimeLogger, TimingMap } from 'src/shared/utils/time-logger.helper';
 import { TokenLogger, TokenMap } from 'src/shared/utils/token-logger.helper';
 
@@ -15,10 +14,7 @@ import {
   I_COURSE_RETRIEVER_SERVICE_TOKEN,
   ICourseRetrieverService,
 } from 'src/modules/course/contracts/i-course-retriever-service.contract';
-import {
-  CourseView,
-  CourseWithLearningOutcomeV2Match,
-} from 'src/modules/course/types/course.type';
+import { CourseView } from 'src/modules/course/types/course.type';
 import {
   I_FACULTY_REPOSITORY_TOKEN,
   IFacultyRepository,
@@ -40,6 +36,10 @@ import {
   I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
   IAnswerSynthesisService,
 } from '../contracts/i-answer-synthesis-service.contract';
+import {
+  I_COURSE_AGGREGATION_SERVICE_TOKEN,
+  ICourseAggregationService,
+} from '../contracts/i-course-aggregation-service.contract';
 import {
   I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN,
   ICourseRelevanceFilterService,
@@ -80,6 +80,8 @@ export class AnswerQuestionUseCase
     private readonly queryProfileBuilderService: IQueryProfileBuilderService,
     @Inject(I_SKILL_EXPANDER_SERVICE_TOKEN)
     private readonly skillExpanderService: ISkillExpanderService,
+    @Inject(I_COURSE_AGGREGATION_SERVICE_TOKEN)
+    private readonly courseAggregationService: ICourseAggregationService,
     @Inject(I_ANSWER_SYNTHESIS_SERVICE_TOKEN)
     private readonly answerSynthesisService: IAnswerSynthesisService,
     @Inject(I_COURSE_RETRIEVER_SERVICE_TOKEN)
@@ -349,17 +351,15 @@ export class AnswerQuestionUseCase
         QueryPipelineTimingSteps.STEP5_COURSE_AGGREGATION,
       );
 
-      // Aggregate courses with their matched skills
-      const courseMap =
-        filteredSkillCoursesMap.size > 0
-          ? this.aggregateCourseSkillsWithScore(filteredSkillCoursesMap)
-          : this.aggregateCourseSkillsWithNoScore(skillCoursesMap);
+      // Aggregate courses using the course aggregation service
+      const aggregationResult = this.courseAggregationService.aggregate({
+        filteredSkillCoursesMap,
+        rawSkillCoursesMap: skillCoursesMap,
+      });
 
-      const aggregatedCourseSkills: AggregatedCourseSkills[] = [
-        ...Array.from(courseMap.values()),
-      ];
+      const { rankedCourses } = aggregationResult;
 
-      if (aggregatedCourseSkills.length === 0) {
+      if (rankedCourses.length === 0) {
         // End Step5 timing before early exit
         this.timeLogger.endTiming(
           timing,
@@ -379,12 +379,6 @@ export class AnswerQuestionUseCase
 
         return emptyResult;
       }
-
-      // Rank courses by score descending
-      const rankedCourses = ArrayHelper.sortByNumberKeyDesc(
-        aggregatedCourseSkills,
-        'relevanceScore',
-      );
 
       // End Step5: Course Aggregation (after ranking completes)
       this.timeLogger.endTiming(
@@ -610,92 +604,5 @@ export class AnswerQuestionUseCase
     this.logger.log(
       `Execution metrics: ${JSON.stringify(combinedResults, null, 2)}`,
     );
-  }
-
-  private aggregateCourseSkillsWithNoScore(
-    skillCoursesMap: Map<string, CourseWithLearningOutcomeV2Match[]>,
-  ): Map<string, AggregatedCourseSkills> {
-    const courseMap = new Map<string, AggregatedCourseSkills>();
-
-    for (const [skill, courses] of skillCoursesMap.entries()) {
-      for (const course of courses) {
-        const subjectCode = course.subjectCode;
-
-        if (!courseMap.has(subjectCode)) {
-          // Create a new AggregatedCourseSkills entry for this course
-          courseMap.set(subjectCode, {
-            id: course.id,
-            campusId: course.campusId,
-            facultyId: course.facultyId,
-            subjectCode: course.subjectCode,
-            subjectName: course.subjectName,
-            isGenEd: course.isGenEd,
-            courseLearningOutcomes: course.allLearningOutcomes,
-            courseOfferings: course.courseOfferings,
-            courseClickLogs: [],
-            metadata: course.metadata,
-            createdAt: course.createdAt,
-            updatedAt: course.updatedAt,
-            matchedSkills: [],
-            relevanceScore: 3, // default score when no LLM filter
-          });
-        }
-
-        // Add the current skill and its matched learning outcomes to the course
-        const aggregatedCourse = courseMap.get(subjectCode)!;
-        aggregatedCourse.matchedSkills.push({
-          skill: skill,
-          learningOutcomes: course.matchedLearningOutcomes,
-        });
-      }
-    }
-    return courseMap;
-  }
-
-  private aggregateCourseSkillsWithScore(
-    skillCoursesMap: Map<
-      string,
-      CourseWithLearningOutcomeV2MatchWithRelevance[]
-    >,
-  ): Map<string, AggregatedCourseSkills> {
-    const courseMap = new Map<string, AggregatedCourseSkills>();
-
-    for (const [skill, courses] of skillCoursesMap.entries()) {
-      for (const course of courses) {
-        const subjectCode = course.subjectCode;
-
-        if (!courseMap.has(subjectCode)) {
-          // Create a new AggregatedCourseSkills entry for this course
-          courseMap.set(subjectCode, {
-            id: course.id,
-            campusId: course.campusId,
-            facultyId: course.facultyId,
-            subjectCode: course.subjectCode,
-            subjectName: course.subjectName,
-            isGenEd: course.isGenEd,
-            courseLearningOutcomes: course.allLearningOutcomes,
-            courseOfferings: course.courseOfferings,
-            courseClickLogs: [],
-            metadata: course.metadata,
-            createdAt: course.createdAt,
-            updatedAt: course.updatedAt,
-            matchedSkills: [],
-            relevanceScore: course.score,
-          });
-        }
-
-        // Add the current skill and its matched learning outcomes to the course
-        const aggregatedCourse = courseMap.get(subjectCode)!;
-        aggregatedCourse.matchedSkills.push({
-          skill: skill,
-          learningOutcomes: course.matchedLearningOutcomes,
-        });
-        // Update the course score if the new score is higher
-        if (course.score > aggregatedCourse.relevanceScore) {
-          aggregatedCourse.relevanceScore = course.score;
-        }
-      }
-    }
-    return courseMap;
   }
 }
