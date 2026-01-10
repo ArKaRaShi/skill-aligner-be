@@ -278,6 +278,20 @@ export class AnswerQuestionUseCase
         });
       const { coursesBySkill: skillCoursesMap, embeddingUsage } =
         retrieverResult;
+
+      // Add embedding tokens to token map for Step 3
+      if (embeddingUsage && embeddingUsage.bySkill.length > 0) {
+        this.tokenLogger.addTokenUsage(
+          tokenMap,
+          QueryPipelineTokenCategories.STEP3_COURSE_RETRIEVAL,
+          {
+            model: embeddingUsage.bySkill[0].model,
+            inputTokens: embeddingUsage.totalTokens,
+            outputTokens: 0,
+          },
+        );
+      }
+
       this.timeLogger.endTiming(
         timing,
         QueryPipelineTimingSteps.STEP3_COURSE_RETRIEVAL,
