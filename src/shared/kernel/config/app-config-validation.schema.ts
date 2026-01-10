@@ -117,6 +117,12 @@ export const appConfigValidationSchema = Joi.object({
       'string.base': `"COURSE_RELEVANCE_FILTER_LLM_MODEL" should be a type of 'text'`,
     }),
 
+  QUESTION_EXTRACTION_LLM_MODEL: Joi.string()
+    .default(AppConfigDefault.QUESTION_EXTRACTION_LLM_MODEL)
+    .messages({
+      'string.base': `"QUESTION_EXTRACTION_LLM_MODEL" should be a type of 'text'`,
+    }),
+
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE: Joi.boolean()
     .default(AppConfigDefault.USE_MOCK_QUESTION_CLASSIFIER_SERVICE)
     .messages({

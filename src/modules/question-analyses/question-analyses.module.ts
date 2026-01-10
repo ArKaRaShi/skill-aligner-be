@@ -19,6 +19,7 @@ import {
   type ILlmRouterService,
 } from '../../shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
+import { AppConfigService } from '../../shared/kernel/config/app-config.service';
 import {
   I_QUESTION_ANALYTICS_REPOSITORY_TOKEN,
   type IQuestionAnalyticsRepository,
@@ -65,11 +66,13 @@ import { QuestionExtractionService } from './services/question-extraction.servic
     {
       provide: I_QUESTION_EXTRACTION_SERVICE_TOKEN,
       inject: [
+        AppConfigService,
         I_QUESTION_LOG_ANALYSIS_REPOSITORY_TOKEN,
         I_QUESTION_LOG_REPOSITORY_TOKEN,
         I_LLM_ROUTER_SERVICE_TOKEN,
       ],
       useFactory: (
+        config: AppConfigService,
         repository: IQuestionLogAnalysisRepository,
         questionLogRepository: IQuestionLogRepository,
         llmRouter: ILlmRouterService,
@@ -78,6 +81,7 @@ import { QuestionExtractionService } from './services/question-extraction.servic
           repository,
           questionLogRepository,
           llmRouter,
+          config.questionExtractionLlmModel,
         );
       },
     },

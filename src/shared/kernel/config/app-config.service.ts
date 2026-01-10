@@ -148,6 +148,13 @@ export class AppConfigService {
     );
   }
 
+  get questionExtractionLlmModel(): string {
+    return (
+      this.configService.get<string>('QUESTION_EXTRACTION_LLM_MODEL') ??
+      AppConfigDefault.QUESTION_EXTRACTION_LLM_MODEL
+    );
+  }
+
   get useMockQueryProfileBuilderService(): boolean {
     return (
       this.configService.get<boolean>(

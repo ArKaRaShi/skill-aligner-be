@@ -56,7 +56,12 @@ describe('QuestionExtractionService (Unit)', () => {
             questionLogRepo: IQuestionLogRepository,
             llm: ILlmRouterService,
           ) => {
-            return new QuestionExtractionService(repo, questionLogRepo, llm);
+            return new QuestionExtractionService(
+              repo,
+              questionLogRepo,
+              llm,
+              'gpt-4o-mini', // Mock model name
+            );
           },
           inject: [
             I_QUESTION_LOG_ANALYSIS_REPOSITORY_TOKEN,

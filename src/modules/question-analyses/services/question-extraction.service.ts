@@ -64,6 +64,7 @@ export class QuestionExtractionService implements IQuestionExtractionService {
     private readonly questionLogRepository: IQuestionLogRepository,
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
     private readonly llmRouter: ILlmRouterService,
+    private readonly modelName: string,
   ) {}
 
   async extractFromQuestion(
@@ -108,7 +109,7 @@ export class QuestionExtractionService implements IQuestionExtractionService {
       prompt: getUserPrompt(questionLog.questionText),
       systemPrompt: systemPrompt,
       schema: EntityExtractionSchema,
-      model: model ?? QuestionAnalysisLlmConfig.DEFAULT_MODEL,
+      model: model ?? this.modelName,
     });
 
     const duration = Date.now() - startTime;
