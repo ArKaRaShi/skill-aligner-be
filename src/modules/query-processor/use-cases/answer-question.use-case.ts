@@ -305,7 +305,6 @@ export class AnswerQuestionUseCase
         relevanceFilterResults =
           await this.courseRelevanceFilterService.batchFilterCoursesBySkillV2(
             question,
-            queryProfileResult,
             skillCoursesMap,
             QueryPipelinePromptConfig.COURSE_RELEVANCE_FILTER, // lower than v4 is binary classification
           );
@@ -411,7 +410,7 @@ export class AnswerQuestionUseCase
         await this.answerSynthesisService.synthesizeAnswer({
           question,
           promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
-          queryProfile: queryProfileResult,
+          language: queryProfileResult.language,
           aggregatedCourseSkills: rankedCourses.filter(
             (course) => course.relevanceScore >= 1,
           ),

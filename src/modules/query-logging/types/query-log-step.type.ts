@@ -1,6 +1,9 @@
+import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
+
 import type { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 
 import type { Identifier } from '../../../shared/contracts/types/identifier';
+import type { Language } from '../../query-processor/schemas/query-profile-builder.schema';
 import type {
   AggregatedCourseSkills,
   CourseWithLearningOutcomeV2MatchWithRelevance,
@@ -26,24 +29,12 @@ export type ClassificationRawOutput = {
 
 /**
  * Raw output from QUERY_PROFILE_BUILDING step.
- * Logger stores the query profile data (intents, preferences, background, language).
+ * Logger stores only the language detected by QueryProfileBuilder.
  *
  * NOTE: llmInfo and tokenUsage are stored in the step's llm field, not in raw output.
  */
 export type QueryProfileRawOutput = {
-  intents: Array<{
-    original: string;
-    augmented: 'ask-skills' | 'ask-occupation' | 'unknown';
-  }>;
-  preferences: Array<{
-    original: string;
-    augmented: string;
-  }>;
-  background: Array<{
-    original: string;
-    augmented: string;
-  }>;
-  language: 'en' | 'th';
+  language: Language;
 };
 
 /**
@@ -284,6 +275,35 @@ export interface CourseFilterStepOutput {
   };
   avgScore?: number;
 }
+
+/**
+ * Merged metrics output for COURSE_RELEVANCE_FILTER step.
+ * Contains per-skill breakdown in a single array instead of N database records.
+ */
+export type CourseFilterMergedMetrics = {
+  allSkillsMetrics: CourseFilterSkillWithLlm[];
+  summary?: {
+    totalSkills: number;
+    totalAccepted: number;
+    totalRejected: number;
+    totalMissing: number;
+    overallAvgScore: number;
+  };
+};
+
+/**
+ * Extended skill metrics with per-skill LLM info and token usage.
+ * Unlike CourseFilterStepOutput, this includes llmInfo and tokenUsage
+ * because each skill has its own LLM call (Promise.all concurrent).
+ */
+export type CourseFilterSkillWithLlm = CourseFilterStepOutput & {
+  llmInfo?: LlmInfo;
+  tokenUsage?: {
+    input: number;
+    output: number;
+    total: number;
+  };
+};
 
 // ============================================================================
 // AGGREGATION STEP TYPES

@@ -91,8 +91,7 @@ describe('QueryStepParserHelper', () => {
 
       // Assert
       expect(result).toEqual(validQueryProfileRawOutput);
-      expect(result.intents).toHaveLength(1);
-      expect(result.intents[0].augmented).toBe('ask-skills');
+      expect(result.language).toBe('en');
     });
 
     it('should parse SKILL_EXPANSION step output', () => {
@@ -375,13 +374,10 @@ describe('QueryStepParserHelper', () => {
 
       // Assert
       expect(result).toEqual(validQueryProfileRawOutput);
-      expect(result.intents).toHaveLength(1);
-      expect(result.preferences).toHaveLength(1);
-      expect(result.background).toHaveLength(1);
       expect(result.language).toBe('en');
     });
 
-    it('should throw Zod error for invalid intents type', () => {
+    it('should throw Zod error for invalid language type', () => {
       // Act & Assert
       expect(() => {
         helper.parseQueryProfileRaw(invalidQueryProfileRawOutput);
@@ -407,24 +403,6 @@ describe('QueryStepParserHelper', () => {
 
       // Assert
       expect(result.language).toBe('th');
-    });
-
-    it('should accept empty arrays for intents, preferences, background', () => {
-      // Arrange
-      const emptyQueryProfile = {
-        intents: [],
-        preferences: [],
-        background: [],
-        language: 'en' as const,
-      };
-
-      // Act
-      const result = helper.parseQueryProfileRaw(emptyQueryProfile);
-
-      // Assert
-      expect(result.intents).toEqual([]);
-      expect(result.preferences).toEqual([]);
-      expect(result.background).toEqual([]);
     });
   });
 
@@ -1078,9 +1056,6 @@ describe('QueryStepParserHelper', () => {
         {
           stepName: STEP_NAME.QUERY_PROFILE_BUILDING,
           data: {
-            intents: [],
-            preferences: [],
-            background: [],
             language: 'en',
           },
         },

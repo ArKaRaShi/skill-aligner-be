@@ -176,9 +176,8 @@ export class TestSetTransformer {
   /**
    * Enrich logs with COURSE_RELEVANCE_FILTER step data
    *
-   * IMPORTANT: Returns one enriched log per query log (grouped)
-   * Because the logger creates multiple DB records for this step (one per skill),
-   * we group them into a single entry with all skills.
+   * Returns one enriched log per query log with all skills in a single step.
+   * The logger now creates ONE step with allSkillsMetrics array instead of N steps (one per skill).
    */
   async toCourseFilterEnrichedLogs(
     queryLogIds: string[],
@@ -192,26 +191,26 @@ export class TestSetTransformer {
     const results: QueryLogWithCourseFilterGrouped[] = [];
 
     for (const log of logs) {
-      // Get ALL COURSE_RELEVANCE_FILTER steps (one per skill)
-      const steps = log.processSteps?.filter(
+      // Get SINGLE COURSE_RELEVANCE_FILTER step (contains all skills in allSkillsMetrics)
+      const step = log.processSteps?.find(
         (s) => s.stepName === STEP_NAME.COURSE_RELEVANCE_FILTER,
       );
 
-      if (!steps || steps.length === 0) {
+      if (!step) {
         throw new Error(
           `Query log ${log.id} missing COURSE_RELEVANCE_FILTER step`,
         );
       }
 
-      // Group all steps under one query log entry
+      // Return with single step in array (for compatibility with existing type)
       results.push({
         ...log,
-        courseFilterSteps: steps,
+        courseFilterSteps: [step], // Single step with allSkillsMetrics array inside
       });
     }
 
     this.logger.log(
-      `Created ${results.length} grouped enriched entries from ${logs.length} query logs (${results.reduce((sum, log) => sum + log.courseFilterSteps.length, 0)} total skill steps)`,
+      `Created ${results.length} enriched entries from ${logs.length} query logs`,
     );
     return results;
   }

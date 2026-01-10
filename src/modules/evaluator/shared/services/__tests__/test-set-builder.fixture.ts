@@ -21,6 +21,7 @@ import type {
   QueryProcessLogWithSteps,
   QueryProcessStep,
   QueryProfileRawOutput,
+  ServiceMetrics,
   SkillExpansionRawOutput,
 } from 'src/modules/query-logging/types/query-log-step.type';
 import { STEP_NAME } from 'src/modules/query-logging/types/query-status.type';
@@ -108,41 +109,8 @@ export const createMockAnswerSynthesisRawOutput = (
 });
 
 // ============================================================================
-// LAYER 3: QUERY PROFILE (First Complex Type)
+// LAYER 3: QUERY PROFILE
 // ============================================================================
-
-/**
- * Intent item with original/augmented structure
- */
-export const createMockIntentItem = (
-  overrides: Partial<QueryProfileRawOutput['intents'][number]> = {},
-): QueryProfileRawOutput['intents'][number] => ({
-  original: 'learning',
-  augmented: 'ask-skills',
-  ...overrides,
-});
-
-/**
- * Preference item with original/augmented structure
- */
-export const createMockPreferenceItem = (
-  overrides: Partial<QueryProfileRawOutput['preferences'][number]> = {},
-): QueryProfileRawOutput['preferences'][number] => ({
-  original: 'practical',
-  augmented: 'practical',
-  ...overrides,
-});
-
-/**
- * Background item with original/augmented structure
- */
-export const createMockBackgroundItem = (
-  overrides: Partial<QueryProfileRawOutput['background'][number]> = {},
-): QueryProfileRawOutput['background'][number] => ({
-  original: 'beginner',
-  augmented: 'beginner',
-  ...overrides,
-});
 
 /**
  * Type-safe factory for QueryProfileRawOutput
@@ -150,20 +118,6 @@ export const createMockBackgroundItem = (
 export const createMockQueryProfileRawOutput = (
   overrides: Partial<QueryProfileRawOutput> = {},
 ): QueryProfileRawOutput => ({
-  intents: [
-    createMockIntentItem({ original: 'learning', augmented: 'ask-skills' }),
-    createMockIntentItem({
-      original: 'skill development',
-      augmented: 'ask-skills',
-    }),
-  ],
-  preferences: [
-    createMockPreferenceItem({ original: 'practical', augmented: 'practical' }),
-    createMockPreferenceItem({ original: 'hands-on', augmented: 'hands-on' }),
-  ],
-  background: [
-    createMockBackgroundItem({ original: 'beginner', augmented: 'beginner' }),
-  ],
   language: 'en',
   ...overrides,
 });
@@ -946,10 +900,10 @@ export const createMockEnrichedLogWithCourseFilter = (
 };
 
 /**
- * Factory for creating enriched log with multiple CourseFilter steps (grouped)
- * Simulates the transformer's grouped structure for COURSE_RELEVANCE_FILTER
+ * Factory for creating enriched log with CourseFilter step (merged structure)
+ * Simulates the transformer's NEW merged structure for COURSE_RELEVANCE_FILTER
  *
- * Each step represents one skill with its own metrics, common fields are duplicated
+ * Creates a SINGLE step with allSkillsMetrics array (one entry per skill)
  */
 export const createMockEnrichedLogWithCourseFilterGrouped = (
   stepOverrides: Partial<QueryProcessStep> = {},
@@ -957,73 +911,103 @@ export const createMockEnrichedLogWithCourseFilterGrouped = (
 ): QueryProcessLogWithSteps & {
   courseFilterSteps: QueryProcessStep[];
 } => {
-  // Create multiple filter steps, one per skill
-  const courseFilterSteps = Array.from({ length: skillCount }, (_, i) =>
-    createMockCourseFilterStep({
-      ...stepOverrides,
-      id: createMockId(`step-course-filter-${i + 1}`),
-      input: { skill: `skill-${i + 1}` },
-      output: {
-        raw: createMockCourseFilterRawOutput(),
-        metrics: {
-          skill: `skill-${i + 1}`,
-          inputCount: 10 + i,
-          acceptedCourses: [
-            {
-              courseCode: `CS${100 + i}`,
-              courseName: `Course ${i + 1}`,
-              score: 3,
-              reason: 'Highly relevant',
-              matchedLos: [
-                {
-                  id: `lo-${i + 1}`,
-                  name: `Learning Outcome ${i + 1}`,
-                },
-              ],
-            },
-          ],
-          rejectedCourses: [
-            {
-              courseCode: `CS${200 + i}`,
-              courseName: `Rejected Course ${i + 1}`,
-              score: 0,
-              reason: 'Not relevant',
-              matchedLos: [],
-            },
-          ],
-          missingCourses: [
-            {
-              courseCode: `CS${300 + i}`,
-              courseName: `Missing Course ${i + 1}`,
-              score: 0,
-              reason: 'Missing from LLM response',
-              matchedLos: [],
-            },
-          ],
-          acceptedCount: 1,
-          rejectedCount: 1,
-          missingCount: 1,
-          llmDecisionRate: 0.6 + i * 0.1,
-          llmRejectionRate: 0.5,
-          llmFallbackRate: 0.3,
-          scoreDistribution: {
-            score1: 1,
-            score2: i,
-            score3: 0,
+  // Build allSkillsMetrics array with per-skill data
+  const allSkillsMetrics = Array.from({ length: skillCount }, (_, i) => ({
+    skill: `skill-${i + 1}`,
+    inputCount: 10 + i,
+    acceptedCourses: [
+      {
+        courseCode: `CS${100 + i}`,
+        courseName: `Course ${i + 1}`,
+        score: 3,
+        reason: 'Highly relevant',
+        matchedLos: [
+          {
+            id: `lo-${i + 1}`,
+            name: `Learning Outcome ${i + 1}`,
           },
-          avgScore: 2.5,
-        },
+        ],
       },
-    }),
-  );
+    ],
+    rejectedCourses: [
+      {
+        courseCode: `CS${200 + i}`,
+        courseName: `Rejected Course ${i + 1}`,
+        score: 0,
+        reason: 'Not relevant',
+        matchedLos: [],
+      },
+    ],
+    missingCourses: [
+      {
+        courseCode: `CS${300 + i}`,
+        courseName: `Missing Course ${i + 1}`,
+        score: 0,
+        reason: 'Missing from LLM response',
+        matchedLos: [],
+      },
+    ],
+    acceptedCount: 1,
+    rejectedCount: 1,
+    missingCount: 1,
+    llmDecisionRate: 0.6 + i * 0.1,
+    llmRejectionRate: 0.5,
+    llmFallbackRate: 0.3,
+    scoreDistribution: {
+      score1: 1,
+      score2: i,
+      score3: 0,
+    },
+    avgScore: 2.5,
+    // Per-skill LLM info (each skill has its own concurrent LLM call)
+    llmInfo: {
+      model: 'gpt-4',
+      provider: 'openai',
+      promptVersion: 'V5',
+      systemPrompt: 'You are a helpful assistant',
+      userPrompt: 'Filter courses for relevance',
+    },
+    // Per-skill token usage
+    tokenUsage: {
+      input: 200,
+      output: 100,
+      total: 300,
+    },
+  }));
+
+  // Create SINGLE filter step with merged metrics
+  const courseFilterStep = createMockCourseFilterStep({
+    ...stepOverrides,
+    id: createMockId('step-course-filter-1'),
+    input: {
+      skills: allSkillsMetrics.map((m) => m.skill),
+      skillCount: allSkillsMetrics.length,
+      question: 'What skills do I need for data analysis?',
+    },
+    output: {
+      raw: createMockCourseFilterRawOutput(),
+      metrics: {
+        allSkillsMetrics,
+        summary: {
+          totalSkills: skillCount,
+          totalAccepted: skillCount,
+          totalRejected: skillCount,
+          totalMissing: skillCount,
+          overallAvgScore: 2.5,
+        },
+      } as unknown as ServiceMetrics, // Cast to ServiceMetrics type
+    },
+    // Step-level llm is now undefined (per-skill llmInfo is in allSkillsMetrics)
+    llm: undefined,
+  });
 
   const baseLog = createMockQueryProcessLogBase({
-    processSteps: courseFilterSteps,
+    processSteps: [courseFilterStep],
   });
 
   return {
     ...baseLog,
-    courseFilterSteps,
+    courseFilterSteps: [courseFilterStep], // Single step in array for compatibility
   };
 };
 

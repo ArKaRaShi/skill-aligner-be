@@ -9,6 +9,11 @@ export const LLM_MAX_OUTPUT_TOKENS = 10_000;
 // Max retry attempts for failed API requests (with exponential backoff)
 export const LLM_MAX_RETRIES = 1;
 
+// Request timeout in milliseconds (30 seconds)
+// NOTE: This is an infrastructure setting, NOT a model hyperparameter
+// Used with AbortSignal.timeout() in generateText/generateObject calls
+export const LLM_REQUEST_TIMEOUT = 30_000;
+
 // Combined hyperparameters for spreading into AI SDK calls
 export const LLM_HYPER_PARAMETERS = {
   temperature: LLM_TEMPERATURE,

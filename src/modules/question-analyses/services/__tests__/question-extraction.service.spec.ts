@@ -138,6 +138,7 @@ describe('QuestionExtractionService (Unit)', () => {
     });
 
     it('should extract entities and store analysis', async () => {
+      // Cost calculated for gpt-4o-mini: 100 input * $0.15/M + 50 output * $0.6/M = $0.000045
       const mockAnalysis = {
         id: 'analysis-1',
         questionLogId: mockQuestionLogId,
@@ -146,7 +147,7 @@ describe('QuestionExtractionService (Unit)', () => {
         modelUsed: 'gpt-4o-mini',
         overallQuality: 'high',
         entityCounts: { topics: 1, skills: 1, tasks: 0, roles: 0 },
-        extractionCost: 0.001,
+        extractionCost: 0.000045,
         tokensUsed: 150,
         reasoning: 'Clear learning intent',
         llm: {
@@ -201,6 +202,7 @@ describe('QuestionExtractionService (Unit)', () => {
     });
 
     it('should call LLM with correct parameters', async () => {
+      // Cost calculated for gpt-4o-mini: 100 input * $0.15/M + 50 output * $0.6/M = $0.000045
       const mockAnalysis = {
         id: 'analysis-1',
         questionLogId: mockQuestionLogId,
@@ -209,7 +211,7 @@ describe('QuestionExtractionService (Unit)', () => {
         modelUsed: 'gpt-4o-mini',
         overallQuality: 'high',
         entityCounts: { topics: 1, skills: 1, tasks: 0, roles: 0 },
-        extractionCost: 0.001,
+        extractionCost: 0.000045,
         tokensUsed: 150,
         reasoning: 'Clear learning intent',
         llm: null,
@@ -253,6 +255,7 @@ describe('QuestionExtractionService (Unit)', () => {
     });
 
     it('should auto-increment extraction number', async () => {
+      // Cost calculated for gpt-4o-mini: 100 input * $0.15/M + 50 output * $0.6/M = $0.000045
       const mockAnalysis = {
         id: 'analysis-1',
         questionLogId: mockQuestionLogId,
@@ -261,7 +264,7 @@ describe('QuestionExtractionService (Unit)', () => {
         modelUsed: 'gpt-4o-mini',
         overallQuality: 'high',
         entityCounts: { topics: 1, skills: 1, tasks: 0, roles: 0 },
-        extractionCost: 0.001,
+        extractionCost: 0.000045,
         tokensUsed: 150,
         reasoning: 'Clear learning intent',
         llm: null,
@@ -289,6 +292,7 @@ describe('QuestionExtractionService (Unit)', () => {
     });
 
     it('should calculate entity counts correctly', async () => {
+      // Cost calculated for gpt-4o-mini: 100 input * $0.15/M + 50 output * $0.6/M = $0.000045
       const mockAnalysis = {
         id: 'analysis-1',
         questionLogId: mockQuestionLogId,
@@ -297,7 +301,7 @@ describe('QuestionExtractionService (Unit)', () => {
         modelUsed: 'gpt-4o-mini',
         overallQuality: 'high',
         entityCounts: { topics: 1, skills: 1, tasks: 0, roles: 0 },
-        extractionCost: 0.001,
+        extractionCost: 0.000045,
         tokensUsed: 150,
         reasoning: 'Clear learning intent',
         llm: null,
@@ -322,6 +326,7 @@ describe('QuestionExtractionService (Unit)', () => {
     });
 
     it('should handle empty extraction', async () => {
+      // Cost calculated for gpt-4o-mini: 50 input * $0.15/M + 20 output * $0.6/M = $0.0000195
       const emptyResponse: GenerateObjectOutput<any> = {
         model: 'gpt-4o-mini',
         inputTokens: 50,
@@ -345,7 +350,7 @@ describe('QuestionExtractionService (Unit)', () => {
         modelUsed: 'gpt-4o-mini',
         overallQuality: 'none',
         entityCounts: { topics: 0, skills: 0, tasks: 0, roles: 0 },
-        extractionCost: 0.001,
+        extractionCost: 0.0000195,
         tokensUsed: 70,
         reasoning: 'No entities found',
         llm: null,
@@ -370,6 +375,85 @@ describe('QuestionExtractionService (Unit)', () => {
         roles: 0,
       });
     });
+
+    it('should calculate extraction cost using TokenCostCalculator for known models', async () => {
+      // Cost calculated for gpt-4o-mini: 100 input * $0.15/M + 50 output * $0.6/M = $0.000045
+      const mockAnalysis = {
+        id: 'analysis-1',
+        questionLogId: mockQuestionLogId,
+        extractionVersion: 'v1',
+        extractionNumber: 1,
+        modelUsed: 'gpt-4o-mini',
+        overallQuality: 'high',
+        entityCounts: { topics: 1, skills: 1, tasks: 0, roles: 0 },
+        extractionCost: 0.000045,
+        tokensUsed: 150,
+        reasoning: 'Clear learning intent',
+        llm: null,
+        createdAt: new Date(),
+        extractedAt: new Date(),
+        entities: [],
+      };
+
+      repository.create.mockResolvedValue(mockAnalysis as any);
+
+      await service.extractFromQuestion({
+        questionLogId: mockQuestionLogId,
+        extractionVersion: 'v1',
+        model: 'gpt-4o-mini',
+      });
+
+      // Verify the repository was called with the calculated cost
+      expect(repository.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          extractionCost: 0.000045,
+          tokensUsed: 150,
+        }),
+      );
+    });
+
+    it('should return zero cost for unknown models', async () => {
+      const unknownModelResponse: GenerateObjectOutput<any> = {
+        model: 'unknown-model-x',
+        inputTokens: 100,
+        outputTokens: 50,
+        object: mockExtractionResult,
+      };
+
+      const mockAnalysis = {
+        id: 'analysis-1',
+        questionLogId: mockQuestionLogId,
+        extractionVersion: 'v1',
+        extractionNumber: 1,
+        modelUsed: 'unknown-model-x',
+        overallQuality: 'high',
+        entityCounts: { topics: 1, skills: 1, tasks: 0, roles: 0 },
+        extractionCost: 0,
+        tokensUsed: 150,
+        reasoning: 'Clear learning intent',
+        llm: null,
+        createdAt: new Date(),
+        extractedAt: new Date(),
+        entities: [],
+      };
+
+      llmRouter.generateObject.mockResolvedValue(unknownModelResponse);
+      repository.create.mockResolvedValue(mockAnalysis as any);
+
+      await service.extractFromQuestion({
+        questionLogId: mockQuestionLogId,
+        extractionVersion: 'v1',
+        model: 'unknown-model-x',
+      });
+
+      // Verify the cost is 0 for unknown models
+      expect(repository.create).toHaveBeenCalledWith(
+        expect.objectContaining({
+          extractionCost: 0,
+          tokensUsed: 150,
+        }),
+      );
+    });
   });
 
   describe('getExtractionHistory', () => {
@@ -385,6 +469,7 @@ describe('QuestionExtractionService (Unit)', () => {
     });
 
     it('should return extraction history', async () => {
+      // Cost calculated for gpt-4o-mini with different token counts
       const mockAnalyses = [
         {
           id: 'analysis-1' as Identifier,
@@ -394,7 +479,7 @@ describe('QuestionExtractionService (Unit)', () => {
           modelUsed: 'gpt-4o-mini',
           overallQuality: 'high',
           entityCounts: { topics: 1, skills: 1, tasks: 0, roles: 0 },
-          extractionCost: 0.001,
+          extractionCost: 0.000045,
           tokensUsed: 100,
           reasoning: 'First extraction',
           llm: null,

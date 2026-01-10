@@ -21,20 +21,7 @@ export const ClassificationRawOutputSchema = z.object({
 // QUERY PROFILE STEP
 // ============================================================================
 
-const IntentQueryTransformationSchema = z.object({
-  original: z.string(),
-  augmented: z.enum(['ask-skills', 'ask-occupation', 'unknown']),
-});
-
-const QueryTransformationSchema = z.object({
-  original: z.string(),
-  augmented: z.string(),
-});
-
 export const QueryProfileRawOutputSchema = z.object({
-  intents: z.array(IntentQueryTransformationSchema),
-  preferences: z.array(QueryTransformationSchema),
-  background: z.array(QueryTransformationSchema),
   language: z.enum(['en', 'th']),
 });
 

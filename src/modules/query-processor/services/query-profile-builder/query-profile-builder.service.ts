@@ -25,7 +25,7 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
     this.logger.log(`Building query profile for: "${query}"`);
 
     const { getPrompts } = QueryProfileBuilderPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v2');
+    const { getUserPrompt, systemPrompt } = getPrompts('v3');
     const userPrompt = getUserPrompt(query);
 
     const result = await this.llmRouter.generateObject({
@@ -40,7 +40,7 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
       result.model,
       userPrompt,
       systemPrompt,
-      'v2',
+      'v3',
       'QueryProfileBuilderSchema',
     );
 

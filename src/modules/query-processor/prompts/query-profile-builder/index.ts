@@ -3,6 +3,10 @@ import {
   QUERY_PROFILE_BUILDER_SYSTEM_PROMPT_V2,
 } from './archives/query-profile-builder-v2.prompt';
 import {
+  getQueryProfileBuilderUserPromptV3,
+  QUERY_PROFILE_BUILDER_SYSTEM_PROMPT_V3,
+} from './query-profile-builder-v3.prompt';
+import {
   getQueryProfileBuilderUserPrompt,
   QUERY_PROFILE_BUILDER_SYSTEM_PROMPT,
 } from './query-profile-builder.prompt';
@@ -13,7 +17,7 @@ type QueryProfileBuilderPrompt = {
 };
 
 const QueryProfileBuilderPrompts: Record<
-  'v1' | 'v2',
+  'v1' | 'v2' | 'v3',
   QueryProfileBuilderPrompt
 > = {
   v1: {
@@ -23,6 +27,10 @@ const QueryProfileBuilderPrompts: Record<
   v2: {
     systemPrompt: QUERY_PROFILE_BUILDER_SYSTEM_PROMPT_V2,
     getUserPrompt: getQueryProfileBuilderUserPromptV2,
+  },
+  v3: {
+    systemPrompt: QUERY_PROFILE_BUILDER_SYSTEM_PROMPT_V3,
+    getUserPrompt: getQueryProfileBuilderUserPromptV3,
   },
 };
 

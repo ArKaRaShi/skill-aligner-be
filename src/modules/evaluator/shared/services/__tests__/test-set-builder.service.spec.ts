@@ -4,6 +4,7 @@ import { TestSetTransformer } from '../../transformers/test-set.transformer';
 import { TestSetBuilderService } from '../test-set-builder.service';
 import {
   createMockEnrichedLog,
+  createMockEnrichedLogWithAggregation,
   createMockEnrichedLogWithAnswerSynthesis,
   createMockEnrichedLogWithCourseFilterGrouped,
   createMockEnrichedLogWithCourseRetrieval,
@@ -137,16 +138,8 @@ describe('TestSetBuilderService', () => {
 
       expect(result).toHaveLength(1);
       expect(result[0].queryLogId).toBe(createId('log-123'));
+      // QueryProfileRawOutput now only contains language (not full profile)
       expect(result[0].queryProfile).toEqual({
-        intents: [
-          { original: 'learning', augmented: 'ask-skills' },
-          { original: 'skill development', augmented: 'ask-skills' },
-        ],
-        preferences: [
-          { original: 'practical', augmented: 'practical' },
-          { original: 'hands-on', augmented: 'hands-on' },
-        ],
-        background: [{ original: 'beginner', augmented: 'beginner' }],
         language: 'en',
       });
       expect(result[0].llmModel).toBe('gpt-4');
@@ -239,14 +232,15 @@ describe('TestSetBuilderService', () => {
         stepId: createId('step-course-filter-1'),
       });
 
+      // All skills now share the same stepId (single step with allSkillsMetrics array)
       expect(result[0].metricsBySkill['skill-2']).toMatchObject({
         inputCount: 11,
-        stepId: createId('step-course-filter-2'),
+        stepId: createId('step-course-filter-1'), // Same stepId for all skills
       });
 
       expect(result[0].metricsBySkill['skill-3']).toMatchObject({
         inputCount: 12,
-        stepId: createId('step-course-filter-3'),
+        stepId: createId('step-course-filter-1'), // Same stepId for all skills
       });
 
       // Raw output should be serialized
@@ -277,33 +271,57 @@ describe('TestSetBuilderService', () => {
 
       const result = await service.buildCourseFilterTestSet(['log-123']);
 
-      expect(result[0].metricsBySkill['skill-1']).toMatchObject({
-        inputCount: 0,
-        acceptedCount: 0,
-        rejectedCount: 0,
-        missingCount: 0,
-        llmDecisionRate: 0,
-        llmRejectionRate: 0,
-        llmFallbackRate: 0,
+      // When metrics are missing, allSkillsMetrics is empty, so metricsBySkill is empty
+      expect(result[0].metricsBySkill).toEqual({});
+      expect(result[0].llmInfoBySkill).toEqual({});
+      expect(result[0].tokenUsageBySkill).toEqual({});
+      expect(result[0].totalTokenUsage).toEqual({
+        input: 0,
+        output: 0,
+        total: 0,
       });
+      // Top-level LLM fields should be undefined when no skills metrics
+      expect(result[0].llmModel).toBeUndefined();
+      expect(result[0].llmProvider).toBeUndefined();
+      expect(result[0].promptVersion).toBeUndefined();
     });
   });
 
   describe('buildCourseAggregationTestSet', () => {
-    it('should build test set from COURSE_AGGREGATION enriched logs, creating one entry per skill', async () => {
+    it('should build test set from COURSE_AGGREGATION enriched logs, creating one entry per question', async () => {
       mockTransformer.toCourseAggregationEnrichedLogs.mockResolvedValue([
         mockEnrichedLog,
       ]);
 
       const result = await service.buildCourseAggregationTestSet(['log-123']);
 
-      // Should create entries for each skill in the Map
-      expect(result.length).toBeGreaterThan(0);
+      // Should create ONE entry per query log (not one per skill)
+      expect(result).toHaveLength(1);
       expect(result[0].queryLogId).toBe(createId('log-123'));
-      expect(result[0].skill).toBeDefined();
-      expect(result[0].courses).toBeDefined();
+      expect(result[0].question).toBe(
+        'What skills do I need for data analysis?',
+      );
+      // Contains both input (filteredSkillCoursesMap) and output (rankedCourses)
+      expect(result[0].filteredSkillCoursesMap).toBeDefined();
+      expect(result[0].rankedCourses).toBeDefined();
       expect(result[0].rankedCourses).toHaveLength(1);
       expect(result[0].duration).toBe(500);
+    });
+
+    it('should handle missing raw output gracefully', async () => {
+      const logWithoutRawOutput = createMockEnrichedLogWithAggregation({
+        output: undefined,
+      });
+
+      mockTransformer.toCourseAggregationEnrichedLogs.mockResolvedValue([
+        logWithoutRawOutput,
+      ]);
+
+      const result = await service.buildCourseAggregationTestSet(['log-123']);
+
+      expect(result).toHaveLength(1);
+      expect(result[0].filteredSkillCoursesMap).toEqual({});
+      expect(result[0].rankedCourses).toEqual([]);
     });
   });
 

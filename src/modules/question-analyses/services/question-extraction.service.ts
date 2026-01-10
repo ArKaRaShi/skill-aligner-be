@@ -12,10 +12,10 @@ import {
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import type { Identifier } from 'src/shared/contracts/types/identifier';
 import type { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
+import { TokenCostCalculator } from 'src/shared/utils/token-cost-calculator.helper';
 
 import {
   QuestionAnalysisEntityTypes,
-  QuestionAnalysisExtractionConfig,
   QuestionAnalysisLlmConfig,
 } from '../constants';
 import {
@@ -164,6 +164,13 @@ export class QuestionExtractionService implements IQuestionExtractionService {
       hyperParameters: llmResult.hyperParameters,
     };
 
+    // Calculate extraction cost based on token usage
+    const costEstimate = TokenCostCalculator.estimateCost({
+      model: llmInfo.model,
+      inputTokens: llmInfo.inputTokens ?? 0,
+      outputTokens: llmInfo.outputTokens ?? 0,
+    });
+
     const analysisInput: CreateQuestionLogAnalysisInput = {
       questionLogId: questionLogId,
       extractionVersion,
@@ -171,7 +178,7 @@ export class QuestionExtractionService implements IQuestionExtractionService {
       modelUsed: llmInfo.model,
       overallQuality: extractionData.overallQuality,
       entityCounts,
-      extractionCost: QuestionAnalysisExtractionConfig.DEFAULT_EXTRACTION_COST, // Will be calculated by TokenCostCalculator if needed
+      extractionCost: costEstimate.estimatedCost,
       tokensUsed: (llmInfo.inputTokens ?? 0) + (llmInfo.outputTokens ?? 0),
       reasoning: extractionData.reasoning,
       llm: llmInfo,

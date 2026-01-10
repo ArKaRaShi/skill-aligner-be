@@ -29,7 +29,6 @@ import {
   CourseRelevanceFilterResult,
   CourseRelevanceFilterResultV2,
 } from '../../types/course-relevance-filter.type';
-import { QueryProfile } from '../../types/query-profile.type';
 
 @Injectable()
 export class CourseRelevanceFilterService
@@ -52,7 +51,6 @@ export class CourseRelevanceFilterService
 
   async batchFilterCoursesBySkill(
     question: string,
-    queryProfile: QueryProfile,
     skillCourseMatchMap: CourseMatchMap,
     promptVersion: CourseRelevanceFilterPromptVersion,
   ): Promise<CourseRelevanceFilterResult[]> {
@@ -144,7 +142,6 @@ export class CourseRelevanceFilterService
 
   async batchFilterCoursesBySkillV2(
     question: string,
-    queryProfile: QueryProfile,
     skillCourseMatchMap: CourseMatchMap,
     promptVersion: CourseRelevanceFilterPromptVersion,
   ): Promise<CourseRelevanceFilterResultV2[]> {

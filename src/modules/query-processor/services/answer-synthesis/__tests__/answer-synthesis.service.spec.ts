@@ -27,9 +27,6 @@ describe('AnswerSynthesisService', () => {
   const createTestQueryProfile = (
     overrides: Partial<QueryProfile> = {},
   ): QueryProfile => ({
-    intents: [],
-    preferences: [],
-    background: [],
     language: 'en',
     tokenUsage: {
       model: testModelName,
@@ -131,7 +128,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -169,11 +166,7 @@ describe('AnswerSynthesisService', () => {
       // Given
       const question = 'What courses for web development?';
       const queryProfile = createTestQueryProfile({
-        intents: [{ original: 'web dev', augmented: 'ask-skills' }],
-        preferences: [{ original: 'online', augmented: 'flexible schedule' }],
-        background: [
-          { original: 'beginner', augmented: 'no prior experience' },
-        ],
+        language: 'en',
       });
       const aggregatedCourseSkills = [
         createTestCourse('CS201', 'Web Development'),
@@ -193,7 +186,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -203,7 +196,7 @@ describe('AnswerSynthesisService', () => {
       // Then: Verify context contains course information
       const callArgs = llmRouter.generateText.mock.calls[0][0];
       expect(callArgs.prompt).toContain('Courses with skills:');
-      expect(callArgs.prompt).toContain('User Query Profile:');
+      expect(callArgs.prompt).toContain('Language:');
 
       // Verify snake_case transformation in context
       expect(callArgs.prompt).toContain('subject_name'); // transformed from subjectName
@@ -231,7 +224,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -268,7 +261,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -354,7 +347,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -393,7 +386,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -429,7 +422,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -445,19 +438,6 @@ describe('AnswerSynthesisService', () => {
       // Given
       const question = 'มีหลักสูตรเกี่ยวกับการเขียนโปรแกรมไหมไทย';
       const queryProfile = createTestQueryProfile({
-        intents: [
-          {
-            original: 'programming',
-            augmented: 'ask-skills',
-          },
-        ],
-        preferences: [
-          {
-            original: 'เรอนบ่าย',
-            augmented: 'flexible',
-          },
-        ],
-        background: [],
         language: 'th',
       });
       const aggregatedCourseSkills = [
@@ -477,7 +457,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -486,27 +466,16 @@ describe('AnswerSynthesisService', () => {
 
       // Then: Verify context includes Thai query profile
       const callArgs = llmRouter.generateText.mock.calls[0][0];
-      expect(callArgs.prompt).toContain('User Query Profile:');
+      expect(callArgs.prompt).toContain('Language:');
       expect(callArgs.prompt).toContain('th'); // language field
       expect(result.answerText).toContain('แนะนำหลักสูตร CS101');
     });
 
-    it('should include all query profile fields in context', async () => {
+    it('should include language in context', async () => {
       // Given
       const question = 'What courses for data science?';
       const queryProfile = createTestQueryProfile({
-        intents: [
-          { original: 'data science', augmented: 'ask-skills' },
-          { original: 'analytics', augmented: 'ask-occupation' },
-        ],
-        preferences: [
-          { original: 'part-time', augmented: 'flexible schedule' },
-          { original: 'online', augmented: 'remote learning' },
-        ],
-        background: [
-          { original: 'beginner', augmented: 'no prior experience' },
-          { original: 'career change', augmented: 'transitioning fields' },
-        ],
+        language: 'en',
       });
       const aggregatedCourseSkills = [
         createTestCourse('CS301', 'Data Science'),
@@ -525,19 +494,17 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
       // When
       await service.synthesizeAnswer(input);
 
-      // Then: Verify all profile sections are in context
+      // Then: Verify language is in context
       const callArgs = llmRouter.generateText.mock.calls[0][0];
-      expect(callArgs.prompt).toContain('data science'); // intent
-      expect(callArgs.prompt).toContain('part-time'); // preference
-      expect(callArgs.prompt).toContain('beginner'); // background
-      expect(callArgs.prompt).toContain('en'); // language
+      expect(callArgs.prompt).toContain('Language:');
+      expect(callArgs.prompt).toContain('en'); // language field
     });
 
     it('should set schemaName to undefined (text generation, not structured output)', async () => {
@@ -559,7 +526,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -591,7 +558,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -610,7 +577,7 @@ describe('AnswerSynthesisService', () => {
       // Given
       const question = 'Test';
       const queryProfile = createTestQueryProfile({
-        intents: [{ original: 'test', augmented: 'ask-skills' }],
+        language: 'en',
       });
       const aggregatedCourseSkills = [createTestCourse('CS101', 'Test')];
 
@@ -627,7 +594,7 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        queryProfile,
+        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -637,7 +604,7 @@ describe('AnswerSynthesisService', () => {
       // Then: Verify JSON encoding in context
       const callArgs = llmRouter.generateText.mock.calls[0][0];
       expect(callArgs.prompt).toContain('Courses with skills:');
-      expect(callArgs.prompt).toContain('User Query Profile:');
+      expect(callArgs.prompt).toContain('Language:');
       // The actual encoded JSON will be in the string
     });
   });

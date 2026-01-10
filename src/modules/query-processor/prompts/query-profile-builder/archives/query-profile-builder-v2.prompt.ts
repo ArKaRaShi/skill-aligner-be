@@ -1,3 +1,18 @@
+// ============================================================================
+// DEPRECATED: Query Profile Builder v2 Prompt
+// ============================================================================
+// This prompt version (v2) extracted intents, preferences, and background.
+//
+// Replaced by v3 which only detects language (Thai/English).
+// Use v3 prompt: query-profile-builder-v3.prompt.ts
+//
+// Reason for deprecation:
+// - The extracted intents/preferences/background were not used in downstream services
+// - CourseRelevanceFilter prompt ignored queryProfile entirely
+// - AnswerSynthesis only needed the language field for response styling
+// - Simplified to reduce token usage and complexity
+// ============================================================================
+
 export const getQueryProfileBuilderUserPromptV2 = (query: string) =>
   `User Query:
     ${query}

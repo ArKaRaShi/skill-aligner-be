@@ -7,8 +7,9 @@ import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
-import { PrismaQueryLoggingRepositoryProvider } from '../repositories/prisma-query-logging.repository';
-import { QueryPipelineLoggerService } from '../services/query-pipeline-logger.service';
+import { PrismaQueryLoggingRepositoryProvider } from 'src/modules/query-logging/repositories/prisma-query-logging.repository';
+
+import { QueryPipelineLoggerService } from '../../../query-pipeline-logger.service';
 
 // Test constants
 const CAMPUS_ID = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa' as Identifier;
@@ -220,11 +221,8 @@ describe('QueryLogging (Integration)', () => {
       await logger.queryProfile({
         question,
         queryProfileResult: {
-          intents: [],
-          preferences: [],
-          background: [],
           language: 'en',
-          llmInfo: createMockLlmInfo({ promptVersion: 'V1' }),
+          llmInfo: createMockLlmInfo({ promptVersion: 'V3' }),
           tokenUsage: {
             model: 'gpt-4',
             inputTokens: 100,

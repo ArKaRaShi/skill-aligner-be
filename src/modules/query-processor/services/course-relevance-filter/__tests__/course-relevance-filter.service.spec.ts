@@ -9,7 +9,6 @@ import { Identifier } from 'src/shared/contracts/types/identifier';
 import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 
 import { CourseRelevanceFilterPromptVersion } from '../../../prompts/course-relevance-filter';
-import { QueryProfile } from '../../../types/query-profile.type';
 import { CourseRelevanceFilterService } from '../course-relevance-filter.service';
 
 // Mock @toon-format/toon to avoid ESM import issues
@@ -94,12 +93,10 @@ describe('CourseRelevanceFilterService', () => {
         CourseWithLearningOutcomeV2Match[]
       >([['python', []]]);
       const question = 'What courses cover web development?';
-      const queryProfile = {} as QueryProfile;
 
       // When
       const result = await service.batchFilterCoursesBySkillV2(
         question,
-        queryProfile,
         skillCourseMatchMap,
         testPromptVersion,
       );
@@ -129,7 +126,6 @@ describe('CourseRelevanceFilterService', () => {
       ];
       const skillCourseMatchMap = new Map([['python', courses]]);
       const question = 'What courses cover python?';
-      const queryProfile = {} as QueryProfile;
 
       llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
@@ -159,7 +155,6 @@ describe('CourseRelevanceFilterService', () => {
       // When
       const result = await service.batchFilterCoursesBySkillV2(
         question,
-        queryProfile,
         skillCourseMatchMap,
         testPromptVersion,
       );
@@ -183,7 +178,6 @@ describe('CourseRelevanceFilterService', () => {
       ];
       const skillCourseMatchMap = new Map([['python', courses]]);
       const question = 'What courses cover python?';
-      const queryProfile = {} as QueryProfile;
 
       llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
@@ -219,7 +213,6 @@ describe('CourseRelevanceFilterService', () => {
       // When
       const result = await service.batchFilterCoursesBySkillV2(
         question,
-        queryProfile,
         skillCourseMatchMap,
         testPromptVersion,
       );
@@ -245,7 +238,6 @@ describe('CourseRelevanceFilterService', () => {
       ];
       const skillCourseMatchMap = new Map([['python', courses]]);
       const question = 'What courses cover python?';
-      const queryProfile = {} as QueryProfile;
 
       llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
@@ -293,7 +285,6 @@ describe('CourseRelevanceFilterService', () => {
       // When
       const result = await service.batchFilterCoursesBySkillV2(
         question,
-        queryProfile,
         skillCourseMatchMap,
         testPromptVersion,
       );
@@ -328,7 +319,6 @@ describe('CourseRelevanceFilterService', () => {
       ];
       const skillCourseMatchMap = new Map([['python', courses]]);
       const question = 'What courses cover python?';
-      const queryProfile = {} as QueryProfile;
 
       // LLM only returns CS101, CS103, CS105 (missing CS102, CS104)
       llmRouter.generateObject.mockResolvedValue({
@@ -365,7 +355,6 @@ describe('CourseRelevanceFilterService', () => {
       // When
       const result = await service.batchFilterCoursesBySkillV2(
         question,
-        queryProfile,
         skillCourseMatchMap,
         testPromptVersion,
       );
@@ -392,7 +381,6 @@ describe('CourseRelevanceFilterService', () => {
       const courses = [createTestCourse('CS101', 'Python Basics')];
       const skillCourseMatchMap = new Map([['python', courses]]);
       const question = 'What courses cover python?';
-      const queryProfile = {} as QueryProfile;
 
       llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
@@ -419,7 +407,6 @@ describe('CourseRelevanceFilterService', () => {
       // When
       const result = await service.batchFilterCoursesBySkillV2(
         question,
-        queryProfile,
         skillCourseMatchMap,
         testPromptVersion,
       );
@@ -454,7 +441,6 @@ describe('CourseRelevanceFilterService', () => {
       ];
       const skillCourseMatchMap = new Map([['python', courses]]);
       const question = 'What courses cover python?';
-      const queryProfile = {} as QueryProfile;
 
       llmRouter.generateObject.mockResolvedValue({
         model: testModelName,
@@ -482,7 +468,6 @@ describe('CourseRelevanceFilterService', () => {
       // When
       const result = await service.batchFilterCoursesBySkill(
         question,
-        queryProfile,
         skillCourseMatchMap,
         testPromptVersion,
       );

@@ -152,12 +152,9 @@ export class QueryPipelineLoggerService {
   }): Promise<void> {
     const input = { question: data.question };
 
-    // Store only raw output (core data only, no llmInfo/tokenUsage)
+    // Store only raw output (language only - what QueryProfileBuilderSchema returns)
     const output = {
       raw: {
-        intents: data.queryProfileResult.intents,
-        preferences: data.queryProfileResult.preferences,
-        background: data.queryProfileResult.background,
         language: data.queryProfileResult.language,
       },
     };
@@ -248,72 +245,121 @@ export class QueryPipelineLoggerService {
   /**
    * COURSE_RELEVANCE_FILTER step (order: 5).
    * Stores BOTH raw filter result AND calculated metrics.
+   *
+   * NOTE: Creates a SINGLE log entry with all skills merged.
+   * Each filterResult comes from ONE concurrent LLM call (Promise.all)
+   * but may contain MULTIPLE skills across its three Maps (accepted/rejected/missing).
+   * Each filterResult has its own llmInfo and tokenUsage which we preserve per-skill.
    */
   async courseFilter(data: {
     question: string;
     relevanceFilterResults: CourseRelevanceFilterResultV2[];
     duration?: number;
   }): Promise<void> {
-    // Iterate through each filter result
+    // Collect all skills metrics across ALL filter results
+    const allSkillsMetrics: (CourseFilterStepOutput & {
+      llmInfo?: LlmInfo;
+      tokenUsage?: { input: number; output: number; total: number };
+    })[] = [];
+
+    let serializedResult: Record<string, unknown> | undefined;
+
     for (const filterResult of data.relevanceFilterResults) {
-      // Serialize Maps to Objects for JSONB storage
-      const serializedResult =
-        SerializationHelper.serializeCourseFilterResult(filterResult);
-
-      // Collect all unique skills from ALL three Maps (accepted, rejected, missing)
-      const allSkills = new Set<string>();
-      for (const skill of filterResult.llmAcceptedCoursesBySkill.keys()) {
-        allSkills.add(skill);
-      }
-      for (const skill of filterResult.llmRejectedCoursesBySkill.keys()) {
-        allSkills.add(skill);
-      }
-      for (const skill of filterResult.llmMissingCoursesBySkill.keys()) {
-        allSkills.add(skill);
+      // Serialize Maps to Objects for JSONB storage (use first result for serialization)
+      if (!serializedResult) {
+        serializedResult =
+          SerializationHelper.serializeCourseFilterResult(filterResult);
       }
 
-      // If no skills found in any Map, still log the result (LLM was called but returned empty)
+      // Collect all unique skills from this result's three Maps
+      const allSkills = new Set<string>([
+        ...filterResult.llmAcceptedCoursesBySkill.keys(),
+        ...filterResult.llmRejectedCoursesBySkill.keys(),
+        ...filterResult.llmMissingCoursesBySkill.keys(),
+      ]);
+
+      // If no skills found in this result, skip it
       if (allSkills.size === 0) {
-        // Log with minimal info to show the filter step was executed
-        await this.logStep(
-          'COURSE_RELEVANCE_FILTER',
-          5,
-          { question: data.question, skills: [] },
-          { raw: serializedResult, metrics: undefined },
-          filterResult.llmInfo,
-          undefined,
-          data.duration,
-        );
         continue;
       }
 
-      // For each skill in the result, create a log record
+      // Calculate metrics for each skill in this result, with llmInfo/tokenUsage
       for (const skill of allSkills) {
-        // Build input object
-        const input = { skill, question: data.question };
-
-        // Calculate metrics using helper
-        const metrics: CourseFilterStepOutput =
-          QueryPipelineMetrics.calculateSkillFilterMetrics(skill, filterResult);
-
-        // Store BOTH raw (serialized) and metrics
-        const output = {
-          raw: serializedResult, // <-- Now with Objects instead of Maps
-          metrics,
-        };
-
-        // Log one record per skill with raw + metrics
-        await this.logStep(
-          'COURSE_RELEVANCE_FILTER',
-          5,
-          input,
-          output,
-          filterResult.llmInfo,
-          undefined,
-          data.duration,
+        const metrics = QueryPipelineMetrics.calculateSkillFilterMetrics(
+          skill,
+          filterResult,
         );
+
+        allSkillsMetrics.push({
+          ...metrics,
+          llmInfo: filterResult.llmInfo, // Per-skill LLM info
+          tokenUsage: filterResult.tokenUsage
+            ? {
+                input: filterResult.tokenUsage.inputTokens,
+                output: filterResult.tokenUsage.outputTokens,
+                total:
+                  filterResult.tokenUsage.inputTokens +
+                  filterResult.tokenUsage.outputTokens,
+              }
+            : undefined,
+        });
       }
     }
+
+    // If no skills found at all, log minimal entry
+    if (allSkillsMetrics.length === 0) {
+      await this.logStep(
+        'COURSE_RELEVANCE_FILTER',
+        5,
+        { question: data.question, skills: [], skillCount: 0 },
+        {
+          raw: serializedResult || {},
+          metrics: { allSkillsMetrics: [], summary: undefined },
+        },
+        undefined, // Step-level llm field removed (per-skill llmInfo in allSkillsMetrics)
+        undefined,
+        data.duration,
+      );
+      return;
+    }
+
+    // Calculate summary stats across all skills
+    const summary = {
+      totalSkills: allSkillsMetrics.length,
+      totalAccepted: allSkillsMetrics.reduce(
+        (sum, m) => sum + m.acceptedCount,
+        0,
+      ),
+      totalRejected: allSkillsMetrics.reduce(
+        (sum, m) => sum + m.rejectedCount,
+        0,
+      ),
+      totalMissing: allSkillsMetrics.reduce(
+        (sum, m) => sum + m.missingCount,
+        0,
+      ),
+      overallAvgScore:
+        allSkillsMetrics.reduce((sum, m) => sum + (m.avgScore || 0), 0) /
+        allSkillsMetrics.length,
+    };
+
+    // Create SINGLE log entry with all skills merged (OUTSIDE the loop!)
+    await this.logStep(
+      'COURSE_RELEVANCE_FILTER',
+      5,
+      {
+        skills: allSkillsMetrics.map((m) => m.skill),
+        skillCount: allSkillsMetrics.length,
+        question: data.question,
+      },
+      {
+        raw: serializedResult,
+        metrics: { allSkillsMetrics, summary }, // Merged metrics with per-skill llmInfo/tokenUsage
+      },
+      undefined, // Step-level llm field removed (per-skill llmInfo in allSkillsMetrics)
+      undefined,
+      data.duration,
+    );
   }
 
   /**

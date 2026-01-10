@@ -1,12 +1,15 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
+import { ConcurrencyLimiter } from 'src/shared/utils/concurrency-limiter.helper';
+
 import { AppModule } from '../../../app.module';
 import { EvaluationResultManagerService } from '../course-retrieval/evaluators/evaluation-result-manager.service';
 import { CourseRetrievalTestSetLoaderService } from '../course-retrieval/loaders/course-retrieval-test-set-loader.service';
 import { I_COURSE_RETRIEVER_EVALUATION_RUNNER_TOKEN } from '../course-retrieval/runners/course-retriever-evaluation-runner.service';
 import { CourseRetrieverEvaluationRunnerService } from '../course-retrieval/runners/course-retriever-evaluation-runner.service';
 import type { EvaluateRetrieverOutput } from '../course-retrieval/types/course-retrieval.types';
+import type { EvaluateRetrieverInput } from '../course-retrieval/types/course-retrieval.types';
 
 // ============================================================================
 // TYPES
@@ -150,7 +153,7 @@ Evaluation Modes:
      bunx ts-node .../evaluate-from-json.cli.ts test-set-v1.json --query-log-id "abc123" --skill "data analysis"
 
 Notes:
-  - Evaluations are processed sequentially (one skill at a time, not batch/parallel)
+  - Evaluations are processed per question with concurrency control (2 skills at a time)
   - Each skill is evaluated independently with its own set of retrieved courses
   - Results are saved to data/evaluation/course-retriever/<test-set-name>/iteration-<n>/
 
@@ -226,73 +229,96 @@ async function bootstrap() {
     );
     const resultManager = appContext.get(EvaluationResultManagerService);
 
-    logger.log('Starting evaluation (sequential, not batch)...');
+    logger.log('Starting evaluation (concurrent per question)...');
 
-    // Run evaluations sequentially and collect results
+    // Group evaluator inputs by testCaseId
+    const groupedByTestCase = new Map<string, EvaluateRetrieverInput[]>();
+    for (const input of evaluatorInputs) {
+      const key = input.testCaseId ?? 'ungrouped';
+      if (!groupedByTestCase.has(key)) {
+        groupedByTestCase.set(key, []);
+      }
+      groupedByTestCase.get(key)!.push(input);
+    }
+
+    logger.log(`Grouped into ${groupedByTestCase.size} test cases`);
+
+    // Run evaluations per testCaseId with concurrency control
     const results: EvaluateRetrieverOutput[] = [];
-    for (let i = 0; i < evaluatorInputs.length; i++) {
-      const input = evaluatorInputs[i];
-      const progress = `[${i + 1}/${evaluatorInputs.length}]`;
+    let globalIndex = 0;
 
+    for (const [testCaseId, inputs] of groupedByTestCase) {
       logger.log(
-        `${progress} Evaluating: skill="${input.skill}" testCaseId="${input.testCaseId}"`,
+        `Processing testCaseId "${testCaseId}" with ${inputs.length} skills...`,
       );
 
-      // Use runEvaluator for each input and collect result
-      const result = await runner.runEvaluator(
-        {
-          iterationNumber: args.iteration,
-          prefixDir: testSetName,
-        },
-        input,
+      // Create concurrency limiter for this group (limit=2)
+      const limiter = new ConcurrencyLimiter(2);
+
+      // Process all skills in this group with concurrency=2
+      const groupResults = await Promise.all(
+        inputs.map((input) =>
+          limiter.add(async () => {
+            globalIndex++;
+            const progress = `[${globalIndex}/${evaluatorInputs.length}]`;
+            logger.log(
+              `${progress} Evaluating: skill="${input.skill}" testCaseId="${input.testCaseId}"`,
+            );
+            return runner.runEvaluator(
+              {
+                iterationNumber: args.iteration,
+                prefixDir: testSetName,
+              },
+              input,
+            );
+          }),
+        ),
       );
-      results.push(result);
+
+      results.push(...groupResults);
+      logger.log(`Completed testCaseId "${testCaseId}"`);
     }
 
     // Aggregate and save metrics if we have results
     if (results.length > 0) {
-      // Group results by testCaseId
-      const groupedByTestCase = new Map<string, EvaluateRetrieverOutput[]>();
-      for (const result of results) {
-        const testCaseId = result.testCaseId ?? 'unknown';
-        if (!groupedByTestCase.has(testCaseId)) {
-          groupedByTestCase.set(testCaseId, []);
-        }
-        groupedByTestCase.get(testCaseId)!.push(result);
-      }
-
       logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
       logger.log('Aggregating metrics...');
 
-      // Calculate and save metrics for each testCase
-      for (const [testCaseId, testCaseResults] of groupedByTestCase.entries()) {
-        const metrics = resultManager.calculateIterationMetrics({
-          iterationNumber: args.iteration,
-          records: testCaseResults,
-        });
+      // Calculate iteration metrics for ALL results at once
+      // The calculateIterationMetrics method handles grouping by testCaseId internally
+      const metrics = resultManager.calculateIterationMetrics({
+        iterationNumber: args.iteration,
+        records: results,
+      });
 
-        // Save test case metrics
-        await resultManager.saveTestCaseMetrics({
-          testSetName,
-          iterationNumber: args.iteration,
-          testCaseMetrics: metrics.testCaseMetrics,
-        });
+      // Save test case metrics
+      await resultManager.saveTestCaseMetrics({
+        testSetName,
+        iterationNumber: args.iteration,
+        testCaseMetrics: metrics.testCaseMetrics,
+      });
 
-        // Save iteration metrics
-        await resultManager.saveIterationMetrics({
-          testSetName,
-          iterationNumber: args.iteration,
-          metrics,
-        });
+      // Save iteration metrics (call ONCE for all test cases, not per-testCase)
+      await resultManager.saveIterationMetrics({
+        testSetName,
+        iterationNumber: args.iteration,
+        metrics,
+      });
 
+      logger.log(
+        `Aggregated ${results.length} skills across ${metrics.totalCases} test cases`,
+      );
+      logger.log(
+        `  Macro avg skill relevance: ${metrics.macroAvg.averageSkillRelevance}/3`,
+      );
+      logger.log(
+        `  Micro avg skill relevance: ${metrics.microAvg.averageSkillRelevance}/3`,
+      );
+
+      // Log per-testCase summary
+      for (const testCaseMetric of metrics.testCaseMetrics) {
         logger.log(
-          `Aggregated ${testCaseResults.length} skills for testCase "${testCaseId}"`,
-        );
-        logger.log(
-          `  Macro avg skill relevance: ${metrics.macroAvg.averageSkillRelevance}/3`,
-        );
-        logger.log(
-          `  Micro avg skill relevance: ${metrics.microAvg.averageSkillRelevance}/3`,
+          `  TestCase "${testCaseMetric.question}": ${testCaseMetric.totalSkills} skills`,
         );
       }
 

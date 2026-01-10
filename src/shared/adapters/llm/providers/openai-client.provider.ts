@@ -10,7 +10,8 @@ import { z } from 'zod';
 import {
   LLM_HYPER_PARAMETERS,
   LLM_MAX_RETRIES_CONFIG,
-} from '../constants/llm-hyper-parameters.constant';
+  LLM_REQUEST_TIMEOUT,
+} from '../constants/llm-config.constant';
 import {
   GenerateObjectInput,
   GenerateObjectOutput,
@@ -51,6 +52,7 @@ export class OpenAIClientProvider
           model: this.openai(model),
           prompt,
           system: systemPrompt,
+          abortSignal: AbortSignal.timeout(LLM_REQUEST_TIMEOUT),
           ...LLM_MAX_RETRIES_CONFIG,
           ...LLM_HYPER_PARAMETERS,
         });
@@ -95,6 +97,7 @@ export class OpenAIClientProvider
           schema,
           prompt,
           system: systemPrompt,
+          abortSignal: AbortSignal.timeout(LLM_REQUEST_TIMEOUT),
           ...LLM_MAX_RETRIES_CONFIG,
           ...LLM_HYPER_PARAMETERS,
         });

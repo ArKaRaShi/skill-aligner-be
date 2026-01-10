@@ -12,9 +12,9 @@ import {
   IAnswerSynthesisService,
 } from '../../contracts/i-answer-synthesis-service.contract';
 import { AnswerSynthesisPromptFactory } from '../../prompts/answer-synthesis';
+import { Language } from '../../schemas/query-profile-builder.schema';
 import { AnswerSynthesisResult } from '../../types/answer-synthesis.type';
 import { AggregatedCourseSkills } from '../../types/course-aggregation.type';
-import { QueryProfile } from '../../types/query-profile.type';
 
 @Injectable()
 export class AnswerSynthesisService implements IAnswerSynthesisService {
@@ -29,9 +29,8 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
   async synthesizeAnswer(
     input: AnswerSynthesizeInput,
   ): Promise<AnswerSynthesisResult> {
-    const { question, promptVersion, queryProfile, aggregatedCourseSkills } =
-      input;
-    const context = this.buildContext(aggregatedCourseSkills, queryProfile);
+    const { question, promptVersion, language, aggregatedCourseSkills } = input;
+    const context = this.buildContext(aggregatedCourseSkills, language);
 
     this.logger.log(
       `[AnswerSynthesis] Synthesizing answer for question: "${question}" using model: ${this.modelName}`,
@@ -80,7 +79,7 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
 
   private buildContext(
     aggregatedCourseSkills: AggregatedCourseSkills[],
-    queryProfile: QueryProfile,
+    language: Language,
   ): string {
     const exposedDetails = aggregatedCourseSkills.map((courseSkills) => {
       return {
@@ -101,7 +100,6 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     });
 
     const encodedContext = encode(exposedDetails);
-    const encodedQueryProfile = encode(queryProfile);
-    return `Courses with skills:\n${encodedContext}\n\nUser Query Profile:\n${encodedQueryProfile}`;
+    return `Courses with skills:\n${encodedContext}\n\nLanguage: ${language}`;
   }
 }

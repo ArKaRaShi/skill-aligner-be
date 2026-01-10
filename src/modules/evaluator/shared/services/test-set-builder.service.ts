@@ -7,6 +7,7 @@ import type {
   AnswerSynthesisRawOutput,
   ClassificationRawOutput,
   CourseAggregationRawOutput,
+  CourseFilterMergedMetrics,
   CourseFilterRawOutput,
   CourseRetrievalRawOutput,
   QueryProfileRawOutput,
@@ -182,6 +183,7 @@ export class TestSetBuilderService {
    * Returns SERIALIZED type (ready for JSON storage)
    *
    * Comprehensive structure with raw output, LLM metadata, and metrics
+   * Now reads from single step with allSkillsMetrics array.
    */
   async buildCourseFilterTestSet(
     queryLogIds: string[],
@@ -194,86 +196,76 @@ export class TestSetBuilderService {
       await this.transformer.toCourseFilterEnrichedLogs(queryLogIds);
 
     return enrichedLogs.map((log) => {
-      const firstStep = log.courseFilterSteps[0];
+      const step = log.courseFilterSteps[0]; // Single step now
 
       // 1. Get and serialize raw output (same for all skills)
-      const rawOutput = firstStep.output?.raw as CourseFilterRawOutput;
+      const rawOutput = step.output?.raw as CourseFilterRawOutput;
       const serializedRaw = rawOutput
         ? SerializationHelper.serializeCourseFilterResult(rawOutput)
         : undefined;
 
-      // 2. Build per-skill Records
+      // 2. Get merged metrics from step.output.metrics
+      const mergedMetrics = step.output
+        ?.metrics as unknown as CourseFilterMergedMetrics;
+      const allSkillsMetrics = mergedMetrics?.allSkillsMetrics || [];
+
+      // 3. Build per-skill Records from allSkillsMetrics array
       const llmInfoBySkill: Record<string, any> = {};
       const tokenUsageBySkill: Record<string, any> = {};
       const metricsBySkill: Record<string, any> = {};
       const totalTokenUsage = { input: 0, output: 0, total: 0 };
 
-      for (const step of log.courseFilterSteps) {
-        const skill = step.input?.skill as string;
+      for (const skillMetrics of allSkillsMetrics) {
+        const skill = skillMetrics.skill;
 
-        // LLM info from step.llm
-        if (step.llm) {
+        // Get per-skill llmInfo from the skill's metrics (not from step.llm)
+        if (skillMetrics.llmInfo) {
           llmInfoBySkill[skill] = {
-            model: step.llm.model,
-            provider: step.llm.provider,
-            systemPrompt: step.llm.userPrompt,
-            userPrompt: step.llm.userPrompt,
-            promptVersion: step.llm.promptVersion,
+            model: skillMetrics.llmInfo.model,
+            provider: skillMetrics.llmInfo.provider,
+            systemPrompt: skillMetrics.llmInfo.systemPrompt,
+            userPrompt: skillMetrics.llmInfo.userPrompt,
+            promptVersion: skillMetrics.llmInfo.promptVersion,
           };
         }
 
-        // Token usage
-        if (step.llm?.tokenUsage) {
-          tokenUsageBySkill[skill] = step.llm.tokenUsage;
-          totalTokenUsage.input += step.llm.tokenUsage.input;
-          totalTokenUsage.output += step.llm.tokenUsage.output;
-          totalTokenUsage.total += step.llm.tokenUsage.total;
+        // Get per-skill tokenUsage from the skill's metrics
+        if (skillMetrics.tokenUsage) {
+          tokenUsageBySkill[skill] = skillMetrics.tokenUsage;
+          totalTokenUsage.input += skillMetrics.tokenUsage.input;
+          totalTokenUsage.output += skillMetrics.tokenUsage.output;
+          totalTokenUsage.total += skillMetrics.tokenUsage.total;
         }
 
-        // Metrics from output.metrics
-        const metrics = step.output?.metrics;
-        if (metrics) {
-          const filterMetrics =
-            metrics as import('src/modules/query-logging/types/query-log-step.type').CourseFilterStepOutput;
-          metricsBySkill[skill] = {
-            inputCount: filterMetrics.inputCount,
-            acceptedCount: filterMetrics.acceptedCount,
-            rejectedCount: filterMetrics.rejectedCount,
-            missingCount: filterMetrics.missingCount,
-            llmDecisionRate: filterMetrics.llmDecisionRate,
-            llmRejectionRate: filterMetrics.llmRejectionRate,
-            llmFallbackRate: filterMetrics.llmFallbackRate,
-            scoreDistribution: filterMetrics.scoreDistribution,
-            avgScore: filterMetrics.avgScore,
-            stepId: step.id,
-          };
-        } else {
-          this.logger.warn(`No metrics for step ${step.id}, skill ${skill}`);
-          metricsBySkill[skill] = {
-            inputCount: 0,
-            acceptedCount: 0,
-            rejectedCount: 0,
-            missingCount: 0,
-            llmDecisionRate: 0,
-            llmRejectionRate: 0,
-            llmFallbackRate: 0,
-            scoreDistribution: { score1: 0, score2: 0, score3: 0 },
-            stepId: step.id,
-          };
-        }
+        // Metrics from allSkillsMetrics array
+        metricsBySkill[skill] = {
+          inputCount: skillMetrics.inputCount,
+          acceptedCount: skillMetrics.acceptedCount,
+          rejectedCount: skillMetrics.rejectedCount,
+          missingCount: skillMetrics.missingCount,
+          llmDecisionRate: skillMetrics.llmDecisionRate,
+          llmRejectionRate: skillMetrics.llmRejectionRate,
+          llmFallbackRate: skillMetrics.llmFallbackRate,
+          scoreDistribution: skillMetrics.scoreDistribution,
+          avgScore: skillMetrics.avgScore,
+          stepId: step.id,
+        };
       }
+
+      // Get top-level LLM fields from first skill's llmInfo (all concurrent calls use same model)
+      const firstSkillLlmInfo = allSkillsMetrics[0]?.llmInfo;
 
       return {
         queryLogId: log.id,
         question: log.question,
-        llmModel: firstStep?.llm?.model,
-        llmProvider: firstStep?.llm?.provider,
-        promptVersion: firstStep?.llm?.promptVersion,
-        duration: firstStep?.duration,
+        llmModel: firstSkillLlmInfo?.model, // From first skill (all same model)
+        llmProvider: firstSkillLlmInfo?.provider,
+        promptVersion: firstSkillLlmInfo?.promptVersion,
+        duration: step?.duration,
         rawOutput: serializedRaw,
         llmInfoBySkill,
         totalTokenUsage,
-        tokenUsageBySkill,
+        tokenUsageBySkill, // YES - per-skill token usage (each skill has its own LLM call)
         metricsBySkill,
       };
     });
@@ -282,7 +274,7 @@ export class TestSetBuilderService {
   /**
    * Build test set from COURSE_AGGREGATION step
    * Returns SERIALIZED type (ready for JSON storage)
-   * Creates ONE entry per skill (flattened from the Map structure)
+   * Creates ONE entry per question (with all skills' filtered courses and final ranked courses)
    */
   async buildCourseAggregationTestSet(
     queryLogIds: string[],
@@ -294,41 +286,33 @@ export class TestSetBuilderService {
     const enrichedLogs =
       await this.transformer.toCourseAggregationEnrichedLogs(queryLogIds);
 
-    const results: CourseAggregationTestSetSerialized[] = [];
-
-    for (const log of enrichedLogs) {
+    return enrichedLogs.map((log) => {
       const step = log.aggregationStep;
       const raw = step.output?.raw as CourseAggregationRawOutput;
 
       if (!raw) {
         this.logger.warn(`No raw output for query log ${log.id}`);
-        continue;
+        return {
+          queryLogId: log.id,
+          question: log.question,
+          filteredSkillCoursesMap: {},
+          rankedCourses: [],
+          duration: step.duration,
+        };
       }
 
       // Serialize Map to Object for JSON storage
       const serializedRaw =
         SerializationHelper.serializeCourseAggregationResult(raw);
 
-      // Get all skills from the filteredSkillCoursesMap
-      const skills = Object.keys(serializedRaw.filteredSkillCoursesMap);
-
-      // Create one entry per skill
-      for (const skill of skills) {
-        results.push({
-          queryLogId: log.id,
-          question: log.question,
-          skill,
-          courses: serializedRaw.filteredSkillCoursesMap[skill] || [],
-          rankedCourses: raw?.rankedCourses ?? [],
-          duration: step.duration,
-        });
-      }
-    }
-
-    this.logger.log(
-      `Created ${results.length} test entries from ${queryLogIds.length} query logs`,
-    );
-    return results;
+      return {
+        queryLogId: log.id,
+        question: log.question,
+        filteredSkillCoursesMap: serializedRaw.filteredSkillCoursesMap,
+        rankedCourses: raw.rankedCourses ?? [],
+        duration: step.duration,
+      };
+    });
   }
 
   /**

@@ -29,7 +29,7 @@ export const QueryPipelinePromptConfig = {
    * Step 2: Skill expansion
    * Extracts skills from the user's question
    */
-  SKILL_EXPANSION: SkillExpansionPromptVersions.V10,
+  SKILL_EXPANSION: SkillExpansionPromptVersions.V9,
 
   /**
    * Step 4: Course relevance filter

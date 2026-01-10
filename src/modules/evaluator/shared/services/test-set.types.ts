@@ -110,13 +110,15 @@ export type CourseFilterTestSetSerialized = {
 
 /**
  * Serialized test set for COURSE_AGGREGATION step (JSON storage)
- * One entry per skill (flattened from the Map structure)
+ * One entry per question (contains all skills' filtered courses and final ranked courses)
  */
 export type CourseAggregationTestSetSerialized = {
   queryLogId: string;
   question: string;
-  skill: string; // The skill name (key from the Map)
-  courses: CourseWithLearningOutcomeV2MatchWithRelevance[];
+  filteredSkillCoursesMap: Record<
+    string,
+    CourseWithLearningOutcomeV2MatchWithRelevance[]
+  >;
   rankedCourses: AggregatedCourseSkills[];
   duration?: number;
 };

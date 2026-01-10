@@ -92,39 +92,15 @@ export const missingFieldClassificationRawOutput = {
 // ============================================================================
 
 export const validQueryProfileRawOutput = {
-  intents: [
-    {
-      original: 'What courses teach Python?',
-      augmented: 'ask-skills',
-    },
-  ],
-  preferences: [
-    {
-      original: 'I prefer online courses',
-      augmented: 'Preference for online learning format',
-    },
-  ],
-  background: [
-    {
-      original: 'I have CS background',
-      augmented: 'User has Computer Science background',
-    },
-  ],
   language: 'en',
 };
 
 export const invalidQueryProfileRawOutput = {
-  intents: 'not-an-array', // Should be array
-  preferences: [],
-  background: [],
-  language: 'en',
+  language: 'invalid', // Should be 'en' or 'th'
 };
 
 export const invalidLanguageQueryProfileRawOutput = {
-  intents: [],
-  preferences: [],
-  background: [],
-  language: 'fr', // Should be 'en' or 'th'
+  language: 'fr', // Not a valid language
 };
 
 // ============================================================================
