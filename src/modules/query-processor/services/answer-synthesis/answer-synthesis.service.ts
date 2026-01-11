@@ -85,6 +85,7 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
       return {
         subject_name: courseSkills.subjectName,
         subject_code: courseSkills.subjectCode,
+        relevance_score: courseSkills.relevanceScore,
         matched_skills_and_learning_outcomes: courseSkills.matchedSkills.map(
           (ms) => {
             const learningOutcomes = ms.learningOutcomes.map((lo) => ({

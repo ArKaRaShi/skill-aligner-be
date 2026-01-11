@@ -201,6 +201,7 @@ describe('AnswerSynthesisService', () => {
       // Verify snake_case transformation in context
       expect(callArgs.prompt).toContain('subject_name'); // transformed from subjectName
       expect(callArgs.prompt).toContain('subject_code'); // transformed from subjectCode
+      expect(callArgs.prompt).toContain('relevance_score'); // relevance score is included
       expect(callArgs.prompt).toContain('matched_skills_and_learning_outcomes'); // transformed from matchedSkills
       expect(callArgs.prompt).toContain('learning_outcome_name'); // transformed from cleanedName
     });
@@ -569,6 +570,7 @@ describe('AnswerSynthesisService', () => {
       const callArgs = llmRouter.generateText.mock.calls[0][0];
       expect(callArgs.prompt).toContain('subject_name'); // not subjectName
       expect(callArgs.prompt).toContain('subject_code'); // not subjectCode
+      expect(callArgs.prompt).toContain('relevance_score'); // relevance score is included
       expect(callArgs.prompt).toContain('matched_skills_and_learning_outcomes'); // not matchedSkills
       expect(callArgs.prompt).toContain('learning_outcome_name'); // not cleanedName
     });
