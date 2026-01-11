@@ -135,6 +135,7 @@ describe('QueryPipelineReaderService Integration - Single Step Operations', () =
       // Act - Log query profile step
       await loggerService.queryProfile({
         question: testQuestion,
+        promptVersion: 'v3',
         queryProfileResult: {
           language: 'en',
           llmInfo: createMockLlmInfo({ promptVersion: 'v3' }),

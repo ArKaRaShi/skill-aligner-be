@@ -4,6 +4,7 @@ import { NestFactory } from '@nestjs/core';
 import { ConcurrencyLimiter } from 'src/shared/utils/concurrency-limiter.helper';
 
 import { AppModule } from '../../../app.module';
+import { EvaluationProgressTrackerService } from '../course-retrieval/evaluators/evaluation-progress-tracker.service';
 import { EvaluationResultManagerService } from '../course-retrieval/evaluators/evaluation-result-manager.service';
 import { CourseRetrievalTestSetLoaderService } from '../course-retrieval/loaders/course-retrieval-test-set-loader.service';
 import { I_COURSE_RETRIEVER_EVALUATION_RUNNER_TOKEN } from '../course-retrieval/runners/course-retriever-evaluation-runner.service';
@@ -22,6 +23,8 @@ interface CliArgs {
   outputDir?: string;
   testSetName?: string;
   iteration: number; // Always set, defaults to 1
+  resume: boolean; // Skip already-completed evaluations
+  resetProgress: boolean; // Reset progress file for this iteration
   help: boolean;
 }
 
@@ -45,6 +48,8 @@ function parseArgs(): CliArgs | null {
   const result: CliArgs = {
     filename: '',
     iteration: 1,
+    resume: false,
+    resetProgress: false,
     help: false,
   };
 
@@ -55,6 +60,18 @@ function parseArgs(): CliArgs | null {
     if (arg === '--help' || arg === '-h') {
       result.help = true;
       return result;
+    }
+
+    if (arg === '--resume') {
+      result.resume = true;
+      i++;
+      continue;
+    }
+
+    if (arg === '--reset-progress') {
+      result.resetProgress = true;
+      i++;
+      continue;
     }
 
     if (arg === '--query-log-id' && args[i + 1]) {
@@ -140,6 +157,8 @@ Options:
   --skill <name>        Filter to specific skill (requires --query-log-id)
   --test-set-name <n>   Custom test set name for result grouping (default: filename without .json)
   --iteration <number>  Iteration number for results (default: 1)
+  --resume              Skip already-completed evaluations (resumable mode)
+  --reset-progress      Reset progress file for this iteration (start fresh)
   --help, -h            Show this help message
 
 Evaluation Modes:
@@ -152,6 +171,11 @@ Evaluation Modes:
   3. Specific skill from specific queryLogId:
      bunx ts-node .../evaluate-from-json.cli.ts test-set-v1.json --query-log-id "abc123" --skill "data analysis"
 
+Resumable Evaluation:
+  - Use --resume to skip already-completed evaluations after a crash/interruption
+  - Progress is tracked in .progress.json file in the iteration directory
+  - Use --reset-progress to start fresh (deletes progress file)
+
 Notes:
   - Evaluations are processed per question with concurrency control (2 skills at a time)
   - Each skill is evaluated independently with its own set of retrieved courses
@@ -160,6 +184,12 @@ Notes:
 Examples:
   # Load and evaluate all skills from test-set-v1.json
   bunx ts-node .../evaluate-from-json.cli.ts test-set-v1.json
+
+  # Resume evaluation after crash (skip completed)
+  bunx ts-node .../evaluate-from-json.cli.ts test-set-v1.json --resume
+
+  # Reset progress and start fresh
+  bunx ts-node .../evaluate-from-json.cli.ts test-set-v1.json --reset-progress
 
   # Evaluate specific skill with custom test set name
   bunx ts-node .../evaluate-from-json.cli.ts test-set-v1.json --query-log-id "abc123" --skill "python" --test-set-name "my-experiment"
@@ -195,15 +225,33 @@ async function bootstrap() {
     logger.log(`Skill: ${args.skill}`);
   }
   logger.log(`Iteration: ${args.iteration}`);
+  logger.log(`Resume mode: ${args.resume ? 'ON' : 'OFF'}`);
   logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 
   const appContext = await NestFactory.createApplicationContext(AppModule);
 
   try {
-    // Load test set from JSON
+    // Get services
     const loader = appContext.get(CourseRetrievalTestSetLoaderService);
+    const runner = appContext.get<CourseRetrieverEvaluationRunnerService>(
+      I_COURSE_RETRIEVER_EVALUATION_RUNNER_TOKEN,
+    );
+    const resultManager = appContext.get(EvaluationResultManagerService);
+    const progressTracker = appContext.get(EvaluationProgressTrackerService);
+
     const testSetName = args.testSetName ?? args.filename.replace('.json', '');
 
+    // Handle reset progress flag
+    if (args.resetProgress) {
+      logger.log('Resetting progress file...');
+      await progressTracker.resetProgress({
+        testSetName,
+        iterationNumber: args.iteration,
+      });
+      logger.log('Progress reset complete');
+    }
+
+    // Load test set from JSON
     logger.log(`Loading test set "${testSetName}"...`);
 
     const evaluatorInputs = await loader.loadForEvaluator(
@@ -223,17 +271,70 @@ async function bootstrap() {
 
     logger.log(`Loaded ${evaluatorInputs.length} evaluator inputs`);
 
-    // Get runner and result manager
-    const runner = appContext.get<CourseRetrieverEvaluationRunnerService>(
-      I_COURSE_RETRIEVER_EVALUATION_RUNNER_TOKEN,
-    );
-    const resultManager = appContext.get(EvaluationResultManagerService);
+    // Filter out already-completed evaluations if resume mode is enabled
+    let inputsToProcess = evaluatorInputs;
+    let previouslyCompleted: EvaluateRetrieverInput[] = [];
+    let progressFile = await progressTracker.loadProgress({
+      testSetName,
+      iterationNumber: args.iteration,
+    });
+
+    if (args.resume) {
+      logger.log('Resume mode: filtering completed evaluations...');
+      const filtered = await progressTracker.filterCompleted({
+        inputs: evaluatorInputs,
+        testSetName,
+        iterationNumber: args.iteration,
+      });
+      inputsToProcess = filtered.pending;
+      previouslyCompleted = filtered.completed;
+      progressFile = filtered.progress;
+
+      logger.log(`Previously completed: ${previouslyCompleted.length}`);
+      logger.log(`Remaining to process: ${inputsToProcess.length}`);
+
+      if (inputsToProcess.length === 0) {
+        logger.log(
+          'All evaluations already completed! Loading existing results...',
+        );
+        const existingResults = await progressTracker.loadCompletedResults({
+          progress: progressFile,
+        });
+
+        // Aggregate and show metrics for existing results
+        if (existingResults.length > 0) {
+          const metrics = resultManager.calculateIterationMetrics({
+            iterationNumber: args.iteration,
+            records: existingResults as EvaluateRetrieverOutput[],
+          });
+
+          logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+          logger.log('Existing Evaluation Results:');
+          logger.log(
+            `  Macro avg skill relevance: ${metrics.macroAvg.averageSkillRelevance}/3`,
+          );
+          logger.log(
+            `  Micro avg skill relevance: ${metrics.microAvg.averageSkillRelevance}/3`,
+          );
+          logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        }
+
+        await appContext.close();
+        process.exit(0);
+      }
+    }
+
+    if (args.resume && inputsToProcess.length > 0) {
+      logger.log(
+        `Continuing with ${inputsToProcess.length} pending evaluations`,
+      );
+    }
 
     logger.log('Starting evaluation (concurrent per question)...');
 
     // Group evaluator inputs by testCaseId
     const groupedByTestCase = new Map<string, EvaluateRetrieverInput[]>();
-    for (const input of evaluatorInputs) {
+    for (const input of inputsToProcess) {
       const key = input.testCaseId ?? 'ungrouped';
       if (!groupedByTestCase.has(key)) {
         groupedByTestCase.set(key, []);
@@ -260,17 +361,34 @@ async function bootstrap() {
         inputs.map((input) =>
           limiter.add(async () => {
             globalIndex++;
-            const progress = `[${globalIndex}/${evaluatorInputs.length}]`;
+            const totalIndex = args.resume
+              ? globalIndex + previouslyCompleted.length
+              : globalIndex;
+            const progress = `[${totalIndex}/${evaluatorInputs.length}]`;
             logger.log(
               `${progress} Evaluating: skill="${input.skill}" testCaseId="${input.testCaseId}"`,
             );
-            return runner.runEvaluator(
+
+            const result = await runner.runEvaluator(
               {
                 iterationNumber: args.iteration,
                 prefixDir: testSetName,
               },
               input,
             );
+
+            // Mark as completed in progress file
+            if (args.resume) {
+              const resultFileName = `evaluation-${Date.now()}.json`;
+              const resultFilePath = `${testSetName}/iteration-${args.iteration}/${resultFileName}`;
+              await progressTracker.markCompleted({
+                progress: progressFile,
+                input,
+                resultFile: resultFilePath,
+              });
+            }
+
+            return result;
           }),
         ),
       );
@@ -279,8 +397,18 @@ async function bootstrap() {
       logger.log(`Completed testCaseId "${testCaseId}"`);
     }
 
+    // Combine with previously completed results if in resume mode
+    const allResults = args.resume
+      ? [
+          ...(await progressTracker.loadCompletedResults({
+            progress: progressFile,
+          })),
+          ...results,
+        ]
+      : results;
+
     // Aggregate and save metrics if we have results
-    if (results.length > 0) {
+    if (allResults.length > 0) {
       logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
       logger.log('Aggregating metrics...');
 
@@ -288,7 +416,7 @@ async function bootstrap() {
       // The calculateIterationMetrics method handles grouping by testCaseId internally
       const metrics = resultManager.calculateIterationMetrics({
         iterationNumber: args.iteration,
-        records: results,
+        records: allResults as EvaluateRetrieverOutput[],
       });
 
       // Save test case metrics
@@ -306,7 +434,7 @@ async function bootstrap() {
       });
 
       logger.log(
-        `Aggregated ${results.length} skills across ${metrics.totalCases} test cases`,
+        `Aggregated ${allResults.length} skills across ${metrics.totalCases} test cases`,
       );
       logger.log(
         `  Macro avg skill relevance: ${metrics.macroAvg.averageSkillRelevance}/3`,

@@ -128,7 +128,10 @@ export class AnswerQuestionUseCase
           question,
           promptVersion: QueryPipelinePromptConfig.CLASSIFICATION,
         }),
-        this.queryProfileBuilderService.buildQueryProfile(question),
+        this.queryProfileBuilderService.buildQueryProfile(
+          question,
+          QueryPipelinePromptConfig.QUERY_PROFILE_BUILDER,
+        ),
       ]);
 
       this.tokenLogger.addTokenUsage(
@@ -176,6 +179,7 @@ export class AnswerQuestionUseCase
 
       await this.queryPipelineLoggerService.queryProfile({
         question,
+        promptVersion: QueryPipelinePromptConfig.QUERY_PROFILE_BUILDER,
         queryProfileResult,
         duration: step1Duration,
       });

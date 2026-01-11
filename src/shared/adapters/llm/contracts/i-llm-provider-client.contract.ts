@@ -9,6 +9,8 @@ export type GenerateTextInput = {
   systemPrompt: string;
   model: string;
   provider?: string; // Optional provider specification
+  /** Request timeout in milliseconds (overrides default LLM_REQUEST_TIMEOUT) */
+  timeout?: number;
 };
 
 export type GenerateObjectInput<TSchema extends z.ZodTypeAny> = {
@@ -17,6 +19,8 @@ export type GenerateObjectInput<TSchema extends z.ZodTypeAny> = {
   schema: TSchema;
   model: string;
   provider?: string; // Optional provider specification
+  /** Request timeout in milliseconds (overrides default LLM_REQUEST_TIMEOUT) */
+  timeout?: number;
 };
 
 export type GenerateTextOutput = {
@@ -66,6 +70,7 @@ export interface ILlmProviderClient {
     prompt,
     systemPrompt,
     model,
+    timeout,
   }: GenerateTextInput): Promise<GenerateTextOutput>;
 
   /**
@@ -77,6 +82,7 @@ export interface ILlmProviderClient {
     systemPrompt,
     schema,
     model,
+    timeout,
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>>;
 
   /**

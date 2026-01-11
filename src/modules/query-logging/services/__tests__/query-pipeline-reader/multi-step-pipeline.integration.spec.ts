@@ -89,6 +89,7 @@ describe('QueryPipelineReaderService Integration - Multi-Step Pipeline', () => {
 
       await loggerService.queryProfile({
         question: testQuestion,
+        promptVersion: 'v3',
         queryProfileResult: {
           language: 'en',
           llmInfo: createMockLlmInfo({ promptVersion: 'v3' }),
@@ -205,6 +206,7 @@ describe('QueryPipelineReaderService Integration - Multi-Step Pipeline', () => {
 
       await loggerService.queryProfile({
         question: testQuestion,
+        promptVersion: 'v3',
         queryProfileResult: {
           language: 'en',
           llmInfo: createMockLlmInfo({ promptVersion: 'v3' }),

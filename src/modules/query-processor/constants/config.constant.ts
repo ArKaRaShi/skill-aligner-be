@@ -1,5 +1,6 @@
 import { AnswerSynthesisPromptVersions } from '../prompts/answer-synthesis';
 import { CourseRelevanceFilterPromptVersions } from '../prompts/course-relevance-filter';
+import { QueryProfileBuilderPromptVersions } from '../prompts/query-profile-builder';
 import { QuestionClassificationPromptVersions } from '../prompts/question-classification';
 import { SkillExpansionPromptVersions } from '../prompts/skill-expansion';
 
@@ -26,6 +27,12 @@ export const QueryPipelinePromptConfig = {
   CLASSIFICATION: QuestionClassificationPromptVersions.V11,
 
   /**
+   * Step 1: Query profile builder
+   * Detects language and builds query profile (runs in parallel with classification)
+   */
+  QUERY_PROFILE_BUILDER: QueryProfileBuilderPromptVersions.V3,
+
+  /**
    * Step 2: Skill expansion
    * Extracts skills from the user's question
    */
@@ -35,7 +42,7 @@ export const QueryPipelinePromptConfig = {
    * Step 4: Course relevance filter
    * Filters courses by relevance to the question (runs after course retrieval)
    */
-  COURSE_RELEVANCE_FILTER: CourseRelevanceFilterPromptVersions.V5,
+  COURSE_RELEVANCE_FILTER: CourseRelevanceFilterPromptVersions.V6,
 
   /**
    * Step 5: Course aggregation

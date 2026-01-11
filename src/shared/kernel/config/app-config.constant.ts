@@ -21,6 +21,7 @@ export const AppConfigDefault = {
   ANSWER_SYNTHESIS_LLM_MODEL: 'orca-mini-3b-v2',
   COURSE_RELEVANCE_FILTER_LLM_MODEL: 'orca-mini-3b-v2',
   QUESTION_EXTRACTION_LLM_MODEL: 'gpt-4o-mini', // Entity extraction requires structured output
+  COURSE_RETRIEVER_EVALUATOR_LLM_MODEL: 'gpt-4.1-mini',
   USE_MOCK_QUESTION_CLASSIFIER_SERVICE: false,
   USE_MOCK_SKILL_EXPANDER_SERVICE: false,
   USE_MOCK_QUERY_PROFILE_BUILDER_SERVICE: false,

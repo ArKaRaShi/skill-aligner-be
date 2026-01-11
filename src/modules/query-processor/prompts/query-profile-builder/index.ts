@@ -34,6 +34,15 @@ const QueryProfileBuilderPrompts: Record<
   },
 };
 
+export const QueryProfileBuilderPromptVersions = {
+  V1: 'v1',
+  V2: 'v2',
+  V3: 'v3',
+} as const;
+
+export type QueryProfileBuilderPromptVersion =
+  (typeof QueryProfileBuilderPromptVersions)[keyof typeof QueryProfileBuilderPromptVersions];
+
 export const QueryProfileBuilderPromptFactory = () => {
   const getPrompts = (version: keyof typeof QueryProfileBuilderPrompts) => {
     const prompts = QueryProfileBuilderPrompts[version];

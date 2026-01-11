@@ -220,6 +220,7 @@ describe('QueryLogging (Integration)', () => {
 
       await logger.queryProfile({
         question,
+        promptVersion: 'V3',
         queryProfileResult: {
           language: 'en',
           llmInfo: createMockLlmInfo({ promptVersion: 'V3' }),

@@ -1,4 +1,4 @@
-import { Inject, Injectable, Optional } from '@nestjs/common';
+import { Inject, Injectable, Logger, Optional } from '@nestjs/common';
 
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
@@ -29,6 +29,7 @@ export class CourseRetrieverEvaluator
     IEvaluator<CourseRetrieverEvaluatorInput, CourseRetrieverEvaluatorOutput>
 {
   private readonly MODEL_NAME: string;
+  private readonly logger = new Logger(CourseRetrieverEvaluator.name);
 
   constructor(
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
@@ -49,6 +50,13 @@ export class CourseRetrieverEvaluator
         'CourseRetrieverEvaluator: MODEL_NAME is not configured.',
       );
     }
+
+    this.logger.debug(
+      `Using LLM model: ${this.MODEL_NAME} for course retriever evaluation.`,
+    );
+    this.logger.log(
+      `Evaluating course retriever for question: "${question}" with skill: "${skill}" and ${retrievedCourses.length} retrieved courses.`,
+    );
 
     // build prompts
     const userPrompt = getCourseRetrieverEvaluatorUserPrompt(
@@ -71,6 +79,7 @@ export class CourseRetrieverEvaluator
       systemPrompt: systemPrompt,
       model: this.MODEL_NAME,
       schema,
+      timeout: 60_000, // 60 second timeout for course evaluation
     });
 
     // Validate and type-narrow the LLM response

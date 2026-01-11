@@ -485,6 +485,7 @@ describe('QueryPipelineReaderService Integration - Metadata Types', () => {
 
       await loggerService.queryProfile({
         question: testQuestion,
+        promptVersion: 'v3',
         queryProfileResult: {
           language: 'en',
           llmInfo: createMockLlmInfo({ promptVersion: 'v3' }),

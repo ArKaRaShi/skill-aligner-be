@@ -147,10 +147,14 @@ export class QueryPipelineLoggerService {
    */
   async queryProfile(data: {
     question: string;
+    promptVersion: string;
     queryProfileResult: QueryProfile;
     duration?: number;
   }): Promise<void> {
-    const input = { question: data.question };
+    const input = {
+      question: data.question,
+      promptVersion: data.promptVersion,
+    };
 
     // Store only raw output (language only - what QueryProfileBuilderSchema returns)
     const output = {
@@ -262,15 +266,43 @@ export class QueryPipelineLoggerService {
       tokenUsage?: { input: number; output: number; total: number };
     })[] = [];
 
-    let serializedResult: Record<string, unknown> | undefined;
+    // Initialize merged result structure to combine all filter results
+    const mergedResult = {
+      llmAcceptedCoursesBySkill: {} as Record<
+        string,
+        CourseWithLearningOutcomeV2MatchWithRelevance[]
+      >,
+      llmRejectedCoursesBySkill: {} as Record<
+        string,
+        CourseWithLearningOutcomeV2MatchWithRelevance[]
+      >,
+      llmMissingCoursesBySkill: {} as Record<
+        string,
+        CourseWithLearningOutcomeV2MatchWithRelevance[]
+      >,
+    };
+
+    // Merge all filter results into a single structure
+    for (const filterResult of data.relevanceFilterResults) {
+      const serialized =
+        SerializationHelper.serializeCourseFilterResult(filterResult);
+      Object.assign(
+        mergedResult.llmAcceptedCoursesBySkill,
+        serialized.llmAcceptedCoursesBySkill,
+      );
+      Object.assign(
+        mergedResult.llmRejectedCoursesBySkill,
+        serialized.llmRejectedCoursesBySkill,
+      );
+      Object.assign(
+        mergedResult.llmMissingCoursesBySkill,
+        serialized.llmMissingCoursesBySkill,
+      );
+    }
+
+    const serializedResult = mergedResult as Record<string, unknown>;
 
     for (const filterResult of data.relevanceFilterResults) {
-      // Serialize Maps to Objects for JSONB storage (use first result for serialization)
-      if (!serializedResult) {
-        serializedResult =
-          SerializationHelper.serializeCourseFilterResult(filterResult);
-      }
-
       // Collect all unique skills from this result's three Maps
       const allSkills = new Set<string>([
         ...filterResult.llmAcceptedCoursesBySkill.keys(),

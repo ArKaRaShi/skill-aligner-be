@@ -7,7 +7,10 @@ import {
 import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
-import { QueryProfileBuilderPromptFactory } from '../../prompts/query-profile-builder';
+import {
+  QueryProfileBuilderPromptFactory,
+  QueryProfileBuilderPromptVersion,
+} from '../../prompts/query-profile-builder';
 import { QueryProfileBuilderSchema } from '../../schemas/query-profile-builder.schema';
 import { QueryProfile } from '../../types/query-profile.type';
 
@@ -21,11 +24,14 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
     private readonly modelName: string,
   ) {}
 
-  async buildQueryProfile(query: string): Promise<QueryProfile> {
+  async buildQueryProfile(
+    query: string,
+    promptVersion: QueryProfileBuilderPromptVersion,
+  ): Promise<QueryProfile> {
     this.logger.log(`Building query profile for: "${query}"`);
 
     const { getPrompts } = QueryProfileBuilderPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v3');
+    const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const userPrompt = getUserPrompt(query);
 
     const result = await this.llmRouter.generateObject({
@@ -40,7 +46,7 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
       result.model,
       userPrompt,
       systemPrompt,
-      'v3',
+      promptVersion,
       'QueryProfileBuilderSchema',
     );
 

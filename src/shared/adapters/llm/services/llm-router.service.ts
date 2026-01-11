@@ -36,7 +36,7 @@ export class LlmRouterService implements ILlmRouterService {
    * Generates a raw text completion using specified model and prompts.
    */
   async generateText(
-    { prompt, systemPrompt, model }: GenerateTextInput,
+    { prompt, systemPrompt, model, timeout }: GenerateTextInput,
     provider?: string,
   ): Promise<GenerateTextOutput> {
     const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
@@ -51,6 +51,7 @@ export class LlmRouterService implements ILlmRouterService {
       prompt,
       systemPrompt,
       model: resolvedModel,
+      timeout,
     });
   }
 
@@ -58,7 +59,13 @@ export class LlmRouterService implements ILlmRouterService {
    * Generates a structured object by asking model to fill a Zod schema.
    */
   async generateObject<TSchema extends z.ZodTypeAny>(
-    { prompt, systemPrompt, schema, model }: GenerateObjectInput<TSchema>,
+    {
+      prompt,
+      systemPrompt,
+      schema,
+      model,
+      timeout,
+    }: GenerateObjectInput<TSchema>,
     provider?: string,
   ): Promise<GenerateObjectOutput<TSchema>> {
     const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
@@ -74,6 +81,7 @@ export class LlmRouterService implements ILlmRouterService {
       systemPrompt,
       schema,
       model: resolvedModel,
+      timeout,
     });
   }
 

@@ -1,9 +1,15 @@
 import { Module } from '@nestjs/common';
 
+import {
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from '../../shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
+import { AppConfigService } from '../../shared/kernel/config/app-config.service';
 import { QueryLoggingModule } from '../query-logging/query-logging.module';
 import { QueryProcessorModule } from '../query-processor/query-processor.module';
 import { CourseRetrieverEvaluator } from './course-retrieval/evaluators/course-retriever.evaluator';
+import { EvaluationProgressTrackerService } from './course-retrieval/evaluators/evaluation-progress-tracker.service';
 import { EvaluationResultManagerService } from './course-retrieval/evaluators/evaluation-result-manager.service';
 import { CourseRetrievalTestSetLoaderService } from './course-retrieval/loaders/course-retrieval-test-set-loader.service';
 import {
@@ -22,8 +28,21 @@ import { TestSetTransformer } from './shared/transformers/test-set.transformer';
   providers: [
     QuestionSetCreatorService,
     QuestionClassificationEvaluatorService,
-    CourseRetrieverEvaluator,
+    {
+      provide: CourseRetrieverEvaluator,
+      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (
+        config: AppConfigService,
+        llmRouter: ILlmRouterService,
+      ): CourseRetrieverEvaluator => {
+        return new CourseRetrieverEvaluator(
+          llmRouter,
+          config.courseRetrieverEvaluatorLlmModel,
+        );
+      },
+    },
     EvaluationResultManagerService,
+    EvaluationProgressTrackerService,
     TestSetTransformer,
     TestSetBuilderService,
     CourseRetrievalTestSetLoaderService,

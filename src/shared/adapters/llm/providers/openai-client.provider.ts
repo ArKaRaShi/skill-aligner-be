@@ -43,8 +43,12 @@ export class OpenAIClientProvider
     prompt,
     systemPrompt,
     model,
+    timeout,
   }: GenerateTextInput): Promise<GenerateTextOutput> {
     this.validateGenerateTextInput({ prompt, systemPrompt, model });
+
+    // Use provided timeout or fall back to default
+    const requestTimeout = timeout ?? LLM_REQUEST_TIMEOUT;
 
     try {
       const { text, usage, finishReason, warnings, response } =
@@ -52,7 +56,7 @@ export class OpenAIClientProvider
           model: this.openai(model),
           prompt,
           system: systemPrompt,
-          abortSignal: AbortSignal.timeout(LLM_REQUEST_TIMEOUT),
+          abortSignal: AbortSignal.timeout(requestTimeout),
           ...LLM_MAX_RETRIES_CONFIG,
           ...LLM_HYPER_PARAMETERS,
         });
@@ -87,8 +91,12 @@ export class OpenAIClientProvider
     systemPrompt,
     schema,
     model,
+    timeout,
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>> {
     this.validateGenerateObjectInput({ prompt, systemPrompt, schema, model });
+
+    // Use provided timeout or fall back to default
+    const requestTimeout = timeout ?? LLM_REQUEST_TIMEOUT;
 
     try {
       const { object, usage, finishReason, warnings, response } =
@@ -97,7 +105,7 @@ export class OpenAIClientProvider
           schema,
           prompt,
           system: systemPrompt,
-          abortSignal: AbortSignal.timeout(LLM_REQUEST_TIMEOUT),
+          abortSignal: AbortSignal.timeout(requestTimeout),
           ...LLM_MAX_RETRIES_CONFIG,
           ...LLM_HYPER_PARAMETERS,
         });

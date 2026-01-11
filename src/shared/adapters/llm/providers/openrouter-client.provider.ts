@@ -50,49 +50,57 @@ export class OpenRouterClientProvider
     prompt,
     systemPrompt,
     model,
+    timeout,
   }: GenerateTextInput): Promise<GenerateTextOutput> {
     this.validateGenerateTextInput({ prompt, systemPrompt, model });
 
-    try {
-      const {
-        text,
-        usage,
-        finishReason,
-        warnings,
-        providerMetadata,
-        response,
-      } = await aiGenerateText({
-        model: this.openRouter(model),
-        prompt,
-        system: systemPrompt,
-        abortSignal: AbortSignal.timeout(LLM_REQUEST_TIMEOUT),
-        ...LLM_MAX_RETRIES_CONFIG,
-        ...LLM_HYPER_PARAMETERS,
-      });
+    // Use provided timeout or fall back to default
+    const requestTimeout = timeout ?? LLM_REQUEST_TIMEOUT;
 
-      // Optional: Log method call for debugging
-      // this.logMethodCall(
-      //   OpenRouterClientProvider.prototype.generateText.name,
-      //   usage,
-      //   {},
-      //   {},
-      // );
+    return this.retryOnTimeout(
+      async () => {
+        const {
+          text,
+          usage,
+          finishReason,
+          warnings,
+          providerMetadata,
+          response,
+        } = await aiGenerateText({
+          model: this.openRouter(model),
+          prompt,
+          system: systemPrompt,
+          abortSignal: AbortSignal.timeout(requestTimeout),
+          ...LLM_MAX_RETRIES_CONFIG,
+          ...LLM_HYPER_PARAMETERS,
+        });
 
-      return {
-        text,
+        // Optional: Log method call for debugging
+        // this.logMethodCall(
+        //   OpenRouterClientProvider.prototype.generateText.name,
+        //   usage,
+        //   {},
+        //   {},
+        // );
+
+        return {
+          text,
+          model,
+          provider: this.getProviderName(),
+          inputTokens: usage?.inputTokens ?? 0,
+          outputTokens: usage?.outputTokens ?? 0,
+          finishReason,
+          warnings,
+          providerMetadata,
+          response,
+          hyperParameters: LLM_HYPER_PARAMETERS,
+        };
+      },
+      {
+        operationName: 'generateText',
         model,
-        provider: this.getProviderName(),
-        inputTokens: usage?.inputTokens ?? 0,
-        outputTokens: usage?.outputTokens ?? 0,
-        finishReason,
-        warnings,
-        providerMetadata,
-        response,
-        hyperParameters: LLM_HYPER_PARAMETERS,
-      };
-    } catch (error) {
-      throw this.createProviderError('generate text', model, error as Error);
-    }
+      },
+    );
   }
 
   async generateObject<TSchema extends z.ZodTypeAny>({
@@ -100,49 +108,57 @@ export class OpenRouterClientProvider
     systemPrompt,
     schema,
     model,
+    timeout,
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>> {
     this.validateGenerateObjectInput({ prompt, systemPrompt, schema, model });
 
-    try {
-      const {
-        object,
-        usage,
-        finishReason,
-        warnings,
-        providerMetadata,
-        response,
-      } = await aiGenerateObject({
-        model: this.openRouter(model),
-        schema,
-        prompt,
-        system: systemPrompt,
-        abortSignal: AbortSignal.timeout(LLM_REQUEST_TIMEOUT),
-        ...LLM_MAX_RETRIES_CONFIG,
-        ...LLM_HYPER_PARAMETERS,
-      });
+    // Use provided timeout or fall back to default
+    const requestTimeout = timeout ?? LLM_REQUEST_TIMEOUT;
 
-      // Optional: Log method call for debugging
-      // this.logMethodCall(
-      //   OpenRouterClientProvider.prototype.generateObject.name,
-      //   usage,
-      //   {},
-      //   {},
-      // );
+    return this.retryOnTimeout(
+      async () => {
+        const {
+          object,
+          usage,
+          finishReason,
+          warnings,
+          providerMetadata,
+          response,
+        } = await aiGenerateObject({
+          model: this.openRouter(model),
+          schema,
+          prompt,
+          system: systemPrompt,
+          abortSignal: AbortSignal.timeout(requestTimeout),
+          ...LLM_MAX_RETRIES_CONFIG,
+          ...LLM_HYPER_PARAMETERS,
+        });
 
-      return {
+        // Optional: Log method call for debugging
+        // this.logMethodCall(
+        //   OpenRouterClientProvider.prototype.generateObject.name,
+        //   usage,
+        //   {},
+        //   {},
+        // );
+
+        return {
+          model,
+          provider: this.getProviderName(),
+          inputTokens: usage?.inputTokens ?? 0,
+          outputTokens: usage?.outputTokens ?? 0,
+          object: object as z.infer<TSchema>,
+          finishReason,
+          warnings,
+          providerMetadata,
+          response,
+          hyperParameters: LLM_HYPER_PARAMETERS,
+        };
+      },
+      {
+        operationName: 'generateObject',
         model,
-        provider: this.getProviderName(),
-        inputTokens: usage?.inputTokens ?? 0,
-        outputTokens: usage?.outputTokens ?? 0,
-        object: object as z.infer<TSchema>,
-        finishReason,
-        warnings,
-        providerMetadata,
-        response,
-        hyperParameters: LLM_HYPER_PARAMETERS,
-      };
-    } catch (error) {
-      throw this.createProviderError('generate object', model, error as Error);
-    }
+      },
+    );
   }
 }
