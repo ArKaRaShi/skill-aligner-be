@@ -54,7 +54,7 @@ export const QueryPipelinePromptConfig = {
    * Step 6: Answer synthesis
    * Generates the final answer based on retrieved and filtered courses
    */
-  ANSWER_SYNTHESIS: AnswerSynthesisPromptVersions.V7,
+  ANSWER_SYNTHESIS: AnswerSynthesisPromptVersions.V9,
 } as const;
 
 /**

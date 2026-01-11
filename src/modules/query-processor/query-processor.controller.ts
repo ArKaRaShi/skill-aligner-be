@@ -1,6 +1,6 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 
-import { BaseResponseDto } from 'src/shared/contracts/api/base.response.dto';
+import { SuccessResponseDto } from 'src/shared/contracts/api/base.response.dto';
 
 import { AnswerQuestionRequestDto } from './dto/requests/answer-question.request.dto';
 import { AnswerQuestionResponseDto } from './dto/responses/answer-question.response.dto';
@@ -14,9 +14,10 @@ export class QueryProcessorController {
   constructor(private readonly answerQuestionUseCase: AnswerQuestionUseCase) {}
 
   @Post('/query-processor/answer-question')
+  @HttpCode(HttpStatus.OK)
   async answerQuestion(
     @Body() body: AnswerQuestionRequestDto,
-  ): Promise<BaseResponseDto<AnswerQuestionResponseDto>> {
+  ): Promise<SuccessResponseDto<AnswerQuestionResponseDto>> {
     const { question, isGenEd } = body;
     const { answer, suggestQuestion, relatedCourses } =
       await this.answerQuestionUseCase.execute(
@@ -32,7 +33,7 @@ export class QueryProcessorController {
       relatedCourses: CourseResponseMapper.toCourseOutputDto(relatedCourses),
     };
 
-    return new BaseResponseDto<AnswerQuestionResponseDto>({
+    return new SuccessResponseDto<AnswerQuestionResponseDto>({
       message: 'Question answered successfully',
       data: mappedResult,
     });

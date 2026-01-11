@@ -1,7 +1,7 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { ApiBody } from '@nestjs/swagger';
 
-import { BaseResponseDto } from 'src/shared/contracts/api/base.response.dto';
+import { SuccessResponseDto } from 'src/shared/contracts/api/base.response.dto';
 
 import { QuestionClassificationPromptVersion } from 'src/modules/query-processor/prompts/question-classification';
 
@@ -17,15 +17,17 @@ export class EvaluatorController {
   ) {}
 
   @Post('/question-set/generate')
-  async generateQuestionSet(): Promise<BaseResponseDto<null>> {
+  @HttpCode(HttpStatus.OK)
+  async generateQuestionSet(): Promise<SuccessResponseDto<null>> {
     await this.questionSetCreatorService.createQuestionSet();
-    return new BaseResponseDto<null>({
+    return new SuccessResponseDto<null>({
       message: 'Question set generation completed successfully',
       data: null,
     });
   }
 
   @Post('/question-classification/evaluate')
+  @HttpCode(HttpStatus.OK)
   @ApiBody({
     schema: {
       type: 'object',
@@ -53,20 +55,21 @@ export class EvaluatorController {
       prefixDir: string;
       promptVersion: QuestionClassificationPromptVersion;
     },
-  ): Promise<BaseResponseDto<null>> {
+  ): Promise<SuccessResponseDto<null>> {
     const { currentIteration, prefixDir, promptVersion } = body;
     await this.questionClassificationEvaluatorService.evaluateTestSet(
       currentIteration,
       prefixDir,
       promptVersion,
     );
-    return new BaseResponseDto<null>({
+    return new SuccessResponseDto<null>({
       message: 'Question classification evaluation completed successfully',
       data: null,
     });
   }
 
   @Post('/question-classification/collapsed-metrics')
+  @HttpCode(HttpStatus.OK)
   @ApiBody({
     schema: {
       type: 'object',
@@ -90,14 +93,14 @@ export class EvaluatorController {
       prefixDir: string;
       iterationNumbers: number[];
     },
-  ): Promise<BaseResponseDto<CollapsedIterationMetrics[]>> {
+  ): Promise<SuccessResponseDto<CollapsedIterationMetrics[]>> {
     const { prefixDir, iterationNumbers } = body;
     const collapsedMetrics =
       await this.questionClassificationEvaluatorService.getCollapsedIterationMetrics(
         iterationNumbers,
         prefixDir,
       );
-    return new BaseResponseDto<CollapsedIterationMetrics[]>({
+    return new SuccessResponseDto<CollapsedIterationMetrics[]>({
       message: 'Collapsed iteration metrics generated successfully',
       data: collapsedMetrics,
     });
