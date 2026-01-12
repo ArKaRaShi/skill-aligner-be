@@ -176,6 +176,90 @@ describe('SkillExpanderService', () => {
       expect(result.tokenUsage.inputTokens).toBe(50);
       expect(result.tokenUsage.outputTokens).toBe(10);
     });
+
+    it('should deduplicate duplicate skills from LLM (keeping first occurrence)', async () => {
+      // Given: LLM returns skills with duplicates
+      const question = 'What skills do I need for full stack development?';
+      cache.lookup = jest.fn().mockReturnValue(null);
+
+      const llmSkills = [
+        { skill: 'JavaScript', reason: 'Frontend language' },
+        { skill: 'Python', reason: 'Backend language' },
+        { skill: 'JavaScript', reason: 'Full stack language' }, // Duplicate
+        { skill: 'SQL', reason: 'Database language' },
+      ];
+
+      llmRouter.generateObject = jest.fn().mockResolvedValue({
+        object: { skills: llmSkills },
+        model: testModelName,
+        inputTokens: 120,
+        outputTokens: 80,
+        provider: 'openrouter',
+        finishReason: 'stop',
+        warnings: [],
+      });
+
+      // When
+      const result = await service.expandSkills(question, testPromptVersion);
+
+      // Then: Should have 3 unique skills (JavaScript duplicated once removed)
+      expect(result.skillItems).toHaveLength(3);
+      // First occurrence should be kept
+      expect(result.skillItems[0]).toEqual({
+        skill: 'JavaScript',
+        reason: 'Frontend language',
+      });
+      expect(result.skillItems[1]).toEqual({
+        skill: 'Python',
+        reason: 'Backend language',
+      });
+      expect(result.skillItems[2]).toEqual({
+        skill: 'SQL',
+        reason: 'Database language',
+      });
+      // Second JavaScript should be removed
+      expect(
+        result.skillItems.filter((s) => s.skill === 'JavaScript'),
+      ).toHaveLength(1);
+    });
+
+    it('should deduplicate case-insensitive skills from LLM', async () => {
+      // Given: LLM returns skills with same name but different cases
+      const question = 'What skills for web dev?';
+      cache.lookup = jest.fn().mockReturnValue(null);
+
+      const llmSkills = [
+        { skill: 'javascript', reason: 'All lowercase' },
+        { skill: 'JavaScript', reason: 'Camel case' }, // Duplicate (different case)
+        { skill: 'JAVASCRIPT', reason: 'All uppercase' }, // Duplicate (different case)
+        { skill: 'React', reason: 'Library' },
+      ];
+
+      llmRouter.generateObject = jest.fn().mockResolvedValue({
+        object: { skills: llmSkills },
+        model: testModelName,
+        inputTokens: 100,
+        outputTokens: 50,
+        provider: 'openrouter',
+        finishReason: 'stop',
+        warnings: [],
+      });
+
+      // When
+      const result = await service.expandSkills(question, testPromptVersion);
+
+      // Then: Should have 2 unique skills (all JavaScript variations treated as one)
+      expect(result.skillItems).toHaveLength(2);
+      // First occurrence should be kept
+      expect(result.skillItems[0]).toEqual({
+        skill: 'javascript',
+        reason: 'All lowercase',
+      });
+      expect(result.skillItems[1]).toEqual({
+        skill: 'React',
+        reason: 'Library',
+      });
+    });
   });
 
   describe('expandSkillsV2 (V2)', () => {
@@ -355,6 +439,125 @@ describe('SkillExpanderService', () => {
       expect(result.llmInfo.providerMetadata).toEqual({ key: 'value' });
       expect(result.llmInfo.response).toBeDefined();
       expect(result.llmInfo.hyperParameters).toEqual({ temperature: 0.7 });
+    });
+
+    it('should deduplicate duplicate skills from LLM (keeping first occurrence)', async () => {
+      // Given: LLM returns skills with duplicates
+      const question = 'What skills do I need for full stack development?';
+
+      const llmSkills = [
+        {
+          skill: 'JavaScript',
+          learning_outcome: 'Can build frontend',
+          reason: 'Frontend language',
+        },
+        {
+          skill: 'Python',
+          learning_outcome: 'Can build backend',
+          reason: 'Backend language',
+        },
+        {
+          skill: 'JavaScript',
+          learning_outcome: 'Can build full stack',
+          reason: 'Full stack language',
+        }, // Duplicate
+        {
+          skill: 'SQL',
+          learning_outcome: 'Can query databases',
+          reason: 'Database language',
+        },
+      ];
+
+      llmRouter.generateObject = jest.fn().mockResolvedValue({
+        object: { skills: llmSkills },
+        model: testModelName,
+        inputTokens: 150,
+        outputTokens: 100,
+        provider: 'openrouter',
+        finishReason: 'stop',
+        warnings: [],
+      });
+
+      // When
+      const result = await service.expandSkillsV2(question, testPromptVersion);
+
+      // Then: Should have 3 unique skills (JavaScript duplicated once removed)
+      expect(result.skillItems).toHaveLength(3);
+      // First occurrence should be kept
+      expect(result.skillItems[0]).toEqual({
+        skill: 'JavaScript',
+        learningOutcome: 'Can build frontend',
+        reason: 'Frontend language',
+      });
+      expect(result.skillItems[1]).toEqual({
+        skill: 'Python',
+        learningOutcome: 'Can build backend',
+        reason: 'Backend language',
+      });
+      expect(result.skillItems[2]).toEqual({
+        skill: 'SQL',
+        learningOutcome: 'Can query databases',
+        reason: 'Database language',
+      });
+      // Second JavaScript should be removed
+      expect(
+        result.skillItems.filter((s) => s.skill === 'JavaScript'),
+      ).toHaveLength(1);
+    });
+
+    it('should deduplicate case-insensitive skills from LLM', async () => {
+      // Given: LLM returns skills with same name but different cases
+      const question = 'What skills for web dev?';
+
+      const llmSkills = [
+        {
+          skill: 'javascript',
+          learning_outcome: 'All lowercase outcome',
+          reason: 'All lowercase',
+        },
+        {
+          skill: 'JavaScript',
+          learning_outcome: 'Camel case outcome',
+          reason: 'Camel case',
+        }, // Duplicate (different case)
+        {
+          skill: 'JAVASCRIPT',
+          learning_outcome: 'All uppercase outcome',
+          reason: 'All uppercase',
+        }, // Duplicate (different case)
+        {
+          skill: 'React',
+          learning_outcome: 'Library outcome',
+          reason: 'Library',
+        },
+      ];
+
+      llmRouter.generateObject = jest.fn().mockResolvedValue({
+        object: { skills: llmSkills },
+        model: testModelName,
+        inputTokens: 120,
+        outputTokens: 80,
+        provider: 'openrouter',
+        finishReason: 'stop',
+        warnings: [],
+      });
+
+      // When
+      const result = await service.expandSkillsV2(question, testPromptVersion);
+
+      // Then: Should have 2 unique skills (all JavaScript variations treated as one)
+      expect(result.skillItems).toHaveLength(2);
+      // First occurrence should be kept
+      expect(result.skillItems[0]).toEqual({
+        skill: 'javascript',
+        learningOutcome: 'All lowercase outcome',
+        reason: 'All lowercase',
+      });
+      expect(result.skillItems[1]).toEqual({
+        skill: 'React',
+        learningOutcome: 'Library outcome',
+        reason: 'Library',
+      });
     });
   });
 

@@ -56,6 +56,7 @@ import {
   I_SKILL_EXPANDER_SERVICE_TOKEN,
   ISkillExpanderService,
 } from '../contracts/i-skill-expander-service.contract';
+import { CourseFilterHelper } from '../helpers/course-filter.helper';
 import {
   AggregatedCourseSkills,
   CourseWithLearningOutcomeV2MatchWithRelevance,
@@ -315,37 +316,29 @@ export class AnswerQuestionUseCase
         timing,
         QueryPipelineTimingSteps.STEP4_COURSE_RELEVANCE_FILTER,
       );
-      const filteredSkillCoursesMap = new Map<
-        string,
-        CourseWithLearningOutcomeV2MatchWithRelevance[]
-      >();
       const useFilter = true;
       let relevanceFilterResults: CourseRelevanceFilterResultV2[] | undefined;
+      let filteredSkillCoursesMap: Map<
+        string,
+        CourseWithLearningOutcomeV2MatchWithRelevance[]
+      > = new Map();
+
       if (useFilter) {
         relevanceFilterResults =
           await this.courseRelevanceFilterService.batchFilterCoursesBySkillV2(
             question,
             skillCoursesMap,
-            QueryPipelinePromptConfig.COURSE_RELEVANCE_FILTER, // lower than v4 is binary classification
+            QueryPipelinePromptConfig.COURSE_RELEVANCE_FILTER,
           );
 
-        // Add tokens and build filtered map
-        for (const filterResult of relevanceFilterResults) {
-          this.tokenLogger.addTokenUsage(
-            tokenMap,
-            QueryPipelineTokenCategories.STEP4_COURSE_RELEVANCE_FILTER,
-            filterResult.tokenUsage,
-          );
-          for (const [
-            skill,
-            courses,
-          ] of filterResult.llmAcceptedCoursesBySkill.entries()) {
-            if (!filteredSkillCoursesMap.has(skill)) {
-              filteredSkillCoursesMap.set(skill, []);
-            }
-            filteredSkillCoursesMap.get(skill)!.push(...courses);
-          }
-        }
+        // Aggregate accepted courses and track token usage via helper
+        const { aggregatedMap } = CourseFilterHelper.aggregateFilteredCourses(
+          relevanceFilterResults,
+          tokenMap,
+          QueryPipelineTokenCategories.STEP4_COURSE_RELEVANCE_FILTER,
+          this.tokenLogger,
+        );
+        filteredSkillCoursesMap = aggregatedMap;
       }
       this.timeLogger.endTiming(
         timing,

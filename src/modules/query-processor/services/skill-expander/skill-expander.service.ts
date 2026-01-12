@@ -69,7 +69,7 @@ export class SkillExpanderService implements ISkillExpanderService {
     );
 
     const expansionResult: TSkillExpansion = {
-      skillItems: result.object.skills,
+      skillItems: this.deduplicateSkills(result.object.skills),
       llmInfo,
       tokenUsage,
     };
@@ -105,31 +105,31 @@ export class SkillExpanderService implements ISkillExpanderService {
     );
 
     const expansionResultV2: TSkillExpansionV2 = {
-      skillItems: result.object.skills.map((item) => ({
-        skill: item.skill,
-        learningOutcome: item.learning_outcome,
-        reason: item.reason,
-      })),
+      skillItems: this.deduplicateSkills(
+        result.object.skills.map((item) => ({
+          skill: item.skill,
+          learningOutcome: item.learning_outcome,
+          reason: item.reason,
+        })),
+      ),
       llmInfo,
       tokenUsage,
     };
     return expansionResultV2;
   }
 
-  private normalizeSkillName(name: string): string {
-    if (!name) {
-      return '';
+  private deduplicateSkills<T extends { skill: string }>(skills: T[]): T[] {
+    const seen = new Set<string>();
+    const uniqueSkills: T[] = [];
+
+    for (const skill of skills) {
+      const skillKey = skill.skill.toLowerCase();
+      if (!seen.has(skillKey)) {
+        seen.add(skillKey);
+        uniqueSkills.push(skill);
+      }
     }
 
-    const cleaned = name
-      .replace(/[^A-Za-z0-9\s]/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-
-    if (!cleaned) {
-      return '';
-    }
-
-    return cleaned.toLowerCase();
+    return uniqueSkills;
   }
 }
