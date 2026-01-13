@@ -468,12 +468,14 @@ export class AnswerQuestionStreamUseCase {
             QueryPipelineTimingSteps.STEP5_COURSE_AGGREGATION,
           );
 
-          await this.queryPipelineLoggerService.complete(
+          await this.queryPipelineLoggerService.completeWithRawMetrics(
             {
               answer: 'ขออภัย เราไม่พบรายวิชาที่เกี่ยวข้องกับคำถามของคุณ',
               relatedCourses: [],
             },
-            { counts: { coursesReturned: 0 } },
+            timing,
+            tokenMap,
+            0,
           );
 
           emit({
@@ -564,8 +566,8 @@ export class AnswerQuestionStreamUseCase {
         this.timeLogger.endTiming(timing, QueryPipelineTimingSteps.OVERALL);
         this.logExecutionMetrics(timing, tokenMap);
 
-        // Complete query logging
-        await this.queryPipelineLoggerService.complete(
+        // Complete query logging with metrics
+        await this.queryPipelineLoggerService.completeWithRawMetrics(
           {
             answer: synthesisResult.answerText,
             suggestQuestion: undefined,
@@ -574,7 +576,9 @@ export class AnswerQuestionStreamUseCase {
               courseName: c.subjectName,
             })),
           },
-          { counts: { coursesReturned: relatedCourses.length } },
+          timing,
+          tokenMap,
+          relatedCourses.length,
         );
 
         // Emit final result

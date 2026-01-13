@@ -457,8 +457,8 @@ export class AnswerQuestionUseCase
       this.timeLogger.endTiming(timing, QueryPipelineTimingSteps.OVERALL);
       this.logExecutionMetrics(timing, tokenMap);
 
-      // Complete query logging
-      await this.queryPipelineLoggerService.complete(
+      // Complete query logging with metrics
+      await this.queryPipelineLoggerService.completeWithRawMetrics(
         {
           answer: result.answer,
           suggestQuestion: result.suggestQuestion ?? undefined,
@@ -467,7 +467,9 @@ export class AnswerQuestionUseCase
             courseName: c.subjectName,
           })),
         },
-        { counts: { coursesReturned: relatedCourses.length } },
+        timing,
+        tokenMap,
+        relatedCourses.length,
       );
 
       return result;

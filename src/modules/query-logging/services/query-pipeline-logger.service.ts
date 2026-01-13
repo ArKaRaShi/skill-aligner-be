@@ -5,7 +5,12 @@ import type { EmbeddingUsage } from '../../../shared/contracts/types/embedding-u
 import type { Identifier } from '../../../shared/contracts/types/identifier';
 import type { LlmInfo } from '../../../shared/contracts/types/llm-info.type';
 import { HashHelper } from '../../../shared/utils/hash.helper';
+import { TimingMap } from '../../../shared/utils/time-logger.helper';
 import { TokenCostCalculator } from '../../../shared/utils/token-cost-calculator.helper';
+import {
+  TokenLogger,
+  TokenMap,
+} from '../../../shared/utils/token-logger.helper';
 import type {
   AggregatedCourseSkills,
   CourseWithLearningOutcomeV2MatchWithRelevance,
@@ -70,6 +75,25 @@ export class QueryPipelineLoggerService {
       output,
       metrics,
     });
+  }
+
+  /**
+   * Complete a query log with raw timing, token, and count data.
+   * This convenience method builds the metrics object internally.
+   *
+   * @param output - Final output (answer, courses)
+   * @param timing - Timing map with duration information
+   * @param tokenMap - Token map with token usage data
+   * @param coursesReturned - Number of courses returned
+   */
+  async completeWithRawMetrics(
+    output: QueryLogOutput,
+    timing: TimingMap,
+    tokenMap: TokenMap,
+    coursesReturned: number,
+  ): Promise<void> {
+    const metrics = this.buildMetrics(timing, tokenMap, coursesReturned);
+    await this.complete(output, metrics);
   }
 
   /**
@@ -643,6 +667,76 @@ export class QueryPipelineLoggerService {
       totalTokens: embeddingUsage.totalTokens,
       bySkill: embeddingUsage.bySkill,
       skillsCount: embeddingUsage.bySkill.length,
+    };
+  }
+
+  /**
+   * Build metrics from timing map, token map, and courses returned.
+   * This method transforms raw timing/token data into the QueryLogMetrics format.
+   *
+   * @param timing - Timing map with duration information
+   * @param tokenMap - Token map with token usage data
+   * @param coursesReturned - Number of courses returned
+   * @returns Formatted metrics for database persistence
+   * @private
+   */
+  private buildMetrics(
+    timing: TimingMap,
+    tokenMap: TokenMap,
+    coursesReturned: number,
+  ): {
+    totalDuration?: number;
+    tokens?: {
+      llm?: { input: number; output: number; total: number };
+      embedding?: { total: number };
+      total: number;
+    };
+    costs?: {
+      llm?: number;
+      embedding?: number;
+      total: number;
+    };
+    counts?: {
+      coursesReturned: number;
+    };
+  } {
+    const tokenLogger = new TokenLogger();
+    const tokenSummary = tokenLogger.getSummary(tokenMap);
+
+    // Calculate LLM total tokens
+    const llmInputTokens = tokenSummary.totalTokens?.inputTokens ?? 0;
+    const llmOutputTokens = tokenSummary.totalTokens?.outputTokens ?? 0;
+    const llmTotalTokens = llmInputTokens + llmOutputTokens;
+
+    // Calculate embedding tokens
+    const embeddingTotalTokens =
+      tokenSummary.byCategory['embedding']?.tokenCount.inputTokens ?? 0;
+
+    // Calculate total tokens
+    const totalTokens = llmTotalTokens + embeddingTotalTokens;
+
+    // Get costs from token summary
+    const llmCost = tokenSummary.byCategory['llm']?.cost ?? 0;
+    const embeddingCost = tokenSummary.byCategory['embedding']?.cost ?? 0;
+    const totalCost = tokenSummary.totalCost ?? 0;
+
+    // Find the overall timing step (usually 'OVERALL')
+    const overallTiming = Object.values(timing).find((t) => t.duration);
+    const totalDuration = overallTiming?.duration;
+
+    return {
+      totalDuration,
+      tokens: {
+        llm: {
+          input: llmInputTokens,
+          output: llmOutputTokens,
+          total: llmTotalTokens,
+        },
+        embedding: { total: embeddingTotalTokens },
+        total: totalTokens,
+      },
+      costs: { llm: llmCost, embedding: embeddingCost, total: totalCost },
+      counts: { coursesReturned },
     };
   }
 
