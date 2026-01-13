@@ -198,6 +198,52 @@ export class PrismaQueryLoggingRepository implements IQueryLoggingRepository {
       PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog),
     );
   }
+
+  async findManyWithMetrics(options?: {
+    startDate?: Date;
+    endDate?: Date;
+    status?: QueryStatus[];
+    hasMetrics?: boolean;
+    take?: number;
+    skip?: number;
+  }): Promise<QueryProcessLog[]> {
+    const where: Record<string, unknown> = {};
+
+    if (options?.status && options.status.length > 0) {
+      where.status = { in: options.status };
+    }
+
+    if (options?.startDate || options?.endDate) {
+      where.completedAt = {};
+      if (options.startDate) {
+        where.completedAt = {
+          ...(where.completedAt as object),
+          gte: options.startDate,
+        };
+      }
+      if (options.endDate) {
+        where.completedAt = {
+          ...(where.completedAt as object),
+          lte: options.endDate,
+        };
+      }
+    }
+
+    if (options?.hasMetrics) {
+      where.metrics = { not: null };
+    }
+
+    const prismaLogs = await this.prisma.queryProcessLog.findMany({
+      where: Object.keys(where).length > 0 ? where : undefined,
+      take: options?.take,
+      skip: options?.skip,
+      orderBy: { completedAt: 'desc' },
+    });
+
+    return prismaLogs.map((prismaLog) =>
+      PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog),
+    );
+  }
 }
 
 // Provide the token for dependency injection

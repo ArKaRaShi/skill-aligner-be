@@ -29,6 +29,7 @@ export const createMockRepository =
     findQueryLogById: jest.fn(),
     findLastQueryLog: jest.fn(),
     findMany: jest.fn(),
+    findManyWithMetrics: jest.fn(),
   });
 
 // Create a mock QueryProcessLog with defaults

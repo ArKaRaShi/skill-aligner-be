@@ -1,5 +1,16 @@
 import { PrismaClient } from '@prisma/client';
 
+/**
+ * Delete specific log entries by ID.
+ *
+ * ⚠️  DANGER: This will DELETE data from the database!
+ *
+ * Usage:
+ *   bunx ts-node --require tsconfig-paths/register src/clean-single.ts
+ *
+ * IMPORTANT: This script is protected and will NOT run automatically.
+ * You must explicitly call main() to execute the cleanup.
+ */
 async function main() {
   const prisma = new PrismaClient();
   try {
@@ -26,9 +37,13 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  console.error('💥 Failed to clean logs:', e);
-  process.exit(1);
-});
+// Only run if this file is executed directly (not imported)
+// This prevents accidental execution during test compilation
+if (require.main === module) {
+  main().catch((e) => {
+    console.error('💥 Failed to clean logs:', e);
+    process.exit(1);
+  });
+}
 
-// bunx ts-node --require tsconfig-paths/register src/clean-single.ts
+export { main };

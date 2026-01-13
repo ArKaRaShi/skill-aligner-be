@@ -18,5 +18,6 @@ import { UpdateGenEdCodesPipeline } from './update-gened-codes.pipeline';
     SeedCourseAndLoPipeline,
     UpdateGenEdCodesPipeline,
   ],
+  exports: [PipelineModule],
 })
 export class PipelineModule {}

@@ -1,9 +1,9 @@
 import { validateDatabaseUrlForIntegrationTests } from './utils/database-safety';
 
 /**
- * Jest Integration Test Setup
+ * Jest Unit Test Setup
  *
- * This file runs before all integration tests to ensure safety:
+ * This file runs before all unit tests to ensure safety:
  * - Sets NODE_ENV to 'test' for safety checks
  * - Validates that tests are not running against production/dev databases
  * - Prevents accidental data loss or corruption

@@ -1,5 +1,16 @@
 import { PrismaClient } from '@prisma/client';
 
+/**
+ * Database cleanup script - Deletes all logs from the database.
+ *
+ * ⚠️  DANGER: This will DELETE ALL DATA from question logs and query process logs tables!
+ *
+ * Usage:
+ *   bunx ts-node --require tsconfig-paths/register src/clean.ts
+ *
+ * IMPORTANT: This script is protected and will NOT run automatically.
+ * You must explicitly call main() to execute the cleanup.
+ */
 async function main() {
   const prisma = new PrismaClient();
   try {
@@ -19,9 +30,13 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  console.error('💥 Failed to clean logs:', e);
-  process.exit(1);
-});
+// Only run if this file is executed directly (not imported)
+// This prevents accidental execution during test compilation
+if (require.main === module) {
+  main().catch((e) => {
+    console.error('💥 Failed to clean logs:', e);
+    process.exit(1);
+  });
+}
 
-// bunx ts-node --require tsconfig-paths/register src/clean.ts
+export { main };

@@ -117,4 +117,18 @@ export interface IQueryLoggingRepository {
     skip?: number;
     orderBy?: { createdAt: 'asc' | 'desc' };
   }): Promise<QueryProcessLog[]>;
+
+  /**
+   * Find query logs with metrics filtering options
+   * @param options - Filter options for querying logs with metrics
+   * @returns Array of query logs
+   */
+  findManyWithMetrics(options?: {
+    startDate?: Date;
+    endDate?: Date;
+    status?: QueryStatus[];
+    hasMetrics?: boolean;
+    take?: number;
+    skip?: number;
+  }): Promise<QueryProcessLog[]>;
 }
