@@ -5,18 +5,16 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
-
-import { AggregatedCourseSkills } from 'src/modules/course/types/course.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import {
   AnswerSynthesizeInput,
   IAnswerSynthesisService,
 } from '../../contracts/i-answer-synthesis-service.contract';
 import { AnswerSynthesisPromptFactory } from '../../prompts/answer-synthesis';
+import { Language } from '../../schemas/query-profile-builder.schema';
 import { AnswerSynthesisResult } from '../../types/answer-synthesis.type';
-import { QueryProfile } from '../../types/query-profile.type';
+import { AggregatedCourseSkills } from '../../types/course-aggregation.type';
 
 @Injectable()
 export class AnswerSynthesisService implements IAnswerSynthesisService {
@@ -31,9 +29,8 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
   async synthesizeAnswer(
     input: AnswerSynthesizeInput,
   ): Promise<AnswerSynthesisResult> {
-    const { question, promptVersion, queryProfile, aggregatedCourseSkills } =
-      input;
-    const context = this.buildContext(aggregatedCourseSkills, queryProfile);
+    const { question, promptVersion, language, aggregatedCourseSkills } = input;
+    const context = this.buildContext(aggregatedCourseSkills, language);
 
     this.logger.log(
       `[AnswerSynthesis] Synthesizing answer for question: "${question}" using model: ${this.modelName}`,
@@ -61,18 +58,14 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
       )}`,
     );
 
-    const tokenUsage: TokenUsage = {
-      model: llmResult.model,
-      inputTokens: llmResult.inputTokens,
-      outputTokens: llmResult.outputTokens,
-    };
-
-    const llmInfo: LlmInfo = {
-      model: llmResult.model,
-      userPrompt: synthesisPrompt,
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      llmResult,
+      llmResult.model,
+      synthesisPrompt,
       systemPrompt,
       promptVersion,
-    };
+      undefined, // no schema for generateText
+    );
 
     const synthesisResult: AnswerSynthesisResult = {
       answerText: llmResult.text,
@@ -86,12 +79,13 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
 
   private buildContext(
     aggregatedCourseSkills: AggregatedCourseSkills[],
-    queryProfile: QueryProfile,
+    language: Language,
   ): string {
     const exposedDetails = aggregatedCourseSkills.map((courseSkills) => {
       return {
         subject_name: courseSkills.subjectName,
         subject_code: courseSkills.subjectCode,
+        relevance_score: courseSkills.relevanceScore,
         matched_skills_and_learning_outcomes: courseSkills.matchedSkills.map(
           (ms) => {
             const learningOutcomes = ms.learningOutcomes.map((lo) => ({
@@ -107,7 +101,6 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     });
 
     const encodedContext = encode(exposedDetails);
-    const encodedQueryProfile = encode(queryProfile);
-    return `Courses with skills:\n${encodedContext}\n\nUser Query Profile:\n${encodedQueryProfile}`;
+    return `Courses with skills:\n${encodedContext}\n\nLanguage: ${language}`;
   }
 }

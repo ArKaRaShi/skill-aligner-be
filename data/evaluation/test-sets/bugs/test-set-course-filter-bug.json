@@ -1,0 +1,2593 @@
+[
+  {
+    "queryLogId": "6950f2ee-95af-4950-a8f6-edc5b5ab0522",
+    "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+    "llmModel": "openai/gpt-4.1-nano",
+    "llmProvider": "OpenRouter",
+    "promptVersion": "v5",
+    "duration": 4243,
+    "rawOutput": {
+      "llmAcceptedCoursesBySkill": {
+        "การบริหารการเงินส่วนบุคคล": [
+          {
+            "id": "3d0fb829-a0d2-4714-aab9-cbeb538ff99e",
+            "score": 3,
+            "reason": "Learning outcomes explicitly cover personal financial planning and management, directly aligning with the user's need.",
+            "isGenEd": false,
+            "campusId": "73a88718-a96c-46aa-8cda-f61548758cec",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:07.677Z",
+            "facultyId": "8a96f3ce-28cf-48f4-9dc4-545ceef5e8c8",
+            "updatedAt": "2026-01-10T12:05:07.677Z",
+            "subjectCode": "04305212-67",
+            "subjectName": "การบริหารการเงินส่วนบุคคล",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "44726717-4beb-4a0c-90d4-accd174e571e",
+                "courseId": "3d0fb829-a0d2-4714-aab9-cbeb538ff99e",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:07.678Z",
+                "academicYear": 2568
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "4b8ed0ea-c2b8-4030-8f25-18047704b537",
+                "createdAt": "2026-01-10T12:05:07.680Z",
+                "updatedAt": "2026-01-10T12:06:56.898Z",
+                "cleanedName": "สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล",
+                "originalName": "นิสิตสามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "003eef49-84cd-4677-8484-ed32065ebb03",
+                "createdAt": "2026-01-10T12:05:07.678Z",
+                "updatedAt": "2026-01-10T12:06:56.900Z",
+                "cleanedName": "สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้",
+                "originalName": "นิสิตสามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "4b8ed0ea-c2b8-4030-8f25-18047704b537",
+                "createdAt": "2026-01-10T12:05:07.680Z",
+                "updatedAt": "2026-01-10T12:06:56.898Z",
+                "cleanedName": "สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล",
+                "originalName": "นิสิตสามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8734314701983774,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "003eef49-84cd-4677-8484-ed32065ebb03",
+                "createdAt": "2026-01-10T12:05:07.678Z",
+                "updatedAt": "2026-01-10T12:06:56.900Z",
+                "cleanedName": "สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้",
+                "originalName": "นิสิตสามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8672187486626272,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "003eef49-84cd-4677-8484-ed32065ebb03",
+                "createdAt": "2026-01-10T12:05:07.678Z",
+                "updatedAt": "2026-01-10T12:06:56.900Z",
+                "cleanedName": "สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้",
+                "originalName": "นิสิตสามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          }
+        ]
+      },
+      "llmRejectedCoursesBySkill": {
+        "การบริหารการเงินส่วนบุคคล": []
+      },
+      "llmMissingCoursesBySkill": {
+        "การบริหารการเงินส่วนบุคคล": [
+          {
+            "id": "7c1b7a73-a5f9-4233-8981-9a1cb1d1e27a",
+            "score": 0,
+            "reason": "Not found in LLM response",
+            "isGenEd": false,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:08.769Z",
+            "facultyId": "6c3dc5ae-01ab-4d37-a534-f514f0fb1757",
+            "updatedAt": "2026-01-10T12:05:08.769Z",
+            "subjectCode": "01137522-68",
+            "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "59cfdc69-561d-4a53-8b63-25164711ae1b",
+                "courseId": "7c1b7a73-a5f9-4233-8981-9a1cb1d1e27a",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:08.769Z",
+                "academicYear": 2568
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "609ff833-b11a-4ade-b3ab-d945ea2086d3",
+                "createdAt": "2026-01-10T12:05:08.776Z",
+                "updatedAt": "2026-01-10T12:07:01.069Z",
+                "cleanedName": "อธิบายหลักการบัญชีบริหาร",
+                "originalName": "อธิบายหลักการบัญชีบริหาร",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "f08a9a38-1da9-453c-a740-2acbe9406586",
+                "createdAt": "2026-01-10T12:05:08.773Z",
+                "updatedAt": "2026-01-10T12:07:01.067Z",
+                "cleanedName": "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์",
+                "originalName": "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "704f5aaf-ee3d-4937-84c5-e75482102a2b",
+                "createdAt": "2026-01-10T12:05:08.770Z",
+                "updatedAt": "2026-01-10T12:07:01.070Z",
+                "cleanedName": "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์",
+                "originalName": "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "609ff833-b11a-4ade-b3ab-d945ea2086d3",
+                "createdAt": "2026-01-10T12:05:08.776Z",
+                "updatedAt": "2026-01-10T12:07:01.069Z",
+                "cleanedName": "อธิบายหลักการบัญชีบริหาร",
+                "originalName": "อธิบายหลักการบัญชีบริหาร",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.861699955260765,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "f08a9a38-1da9-453c-a740-2acbe9406586",
+                "createdAt": "2026-01-10T12:05:08.773Z",
+                "updatedAt": "2026-01-10T12:07:01.067Z",
+                "cleanedName": "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์",
+                "originalName": "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "704f5aaf-ee3d-4937-84c5-e75482102a2b",
+                "createdAt": "2026-01-10T12:05:08.770Z",
+                "updatedAt": "2026-01-10T12:07:01.070Z",
+                "cleanedName": "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์",
+                "originalName": "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "5d508522-3ec9-4c14-93fd-7e46380bb514",
+            "score": 0,
+            "reason": "Not found in LLM response",
+            "isGenEd": false,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:17.943Z",
+            "facultyId": "267a1c50-70f6-461a-8036-ed99c4c3e595",
+            "updatedAt": "2026-01-10T12:05:17.943Z",
+            "subjectCode": "01057533-64",
+            "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "cc5eb0e6-cba7-4d27-91b7-a0e2085528d1",
+                "courseId": "5d508522-3ec9-4c14-93fd-7e46380bb514",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:17.953Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "5f09af1b-40fb-43fd-b178-9dd6e2708eb8",
+                "courseId": "5d508522-3ec9-4c14-93fd-7e46380bb514",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:17.951Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "0b0eccda-6409-46d8-9af0-380d40346035",
+                "courseId": "5d508522-3ec9-4c14-93fd-7e46380bb514",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:17.948Z",
+                "academicYear": 2566
+              },
+              {
+                "id": "20f4c8a8-921a-4eca-8cca-705ee3157978",
+                "courseId": "5d508522-3ec9-4c14-93fd-7e46380bb514",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:17.946Z",
+                "academicYear": 2565
+              },
+              {
+                "id": "34c113ce-d08a-4d2f-bc0e-ddd596a3c90a",
+                "courseId": "5d508522-3ec9-4c14-93fd-7e46380bb514",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:17.943Z",
+                "academicYear": 2564
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "a9483be5-d7f0-4629-98f0-8410788d45f8",
+                "createdAt": "2026-01-10T12:05:17.978Z",
+                "updatedAt": "2026-01-10T12:07:21.772Z",
+                "cleanedName": "วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน",
+                "originalName": "วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "3174e460-0217-4e28-bef6-89b826d8b1b2",
+                "createdAt": "2026-01-10T12:05:17.964Z",
+                "updatedAt": "2026-01-10T12:07:21.772Z",
+                "cleanedName": "เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้",
+                "originalName": "เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "236c2873-380f-410e-9458-22b105eb7e06",
+                "createdAt": "2026-01-10T12:05:17.956Z",
+                "updatedAt": "2026-01-10T12:06:18.494Z",
+                "cleanedName": "คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง",
+                "originalName": "คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "0e8b055a-6361-4732-a4bc-f249e0580bca",
+                "createdAt": "2026-01-10T12:05:17.944Z",
+                "updatedAt": "2026-01-10T12:07:20.891Z",
+                "cleanedName": "วิเคราะห์งบการเงินเบื้องต้นได้",
+                "originalName": "วิเคราะห์งบการเงินเบื้องต้นได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "0e8b055a-6361-4732-a4bc-f249e0580bca",
+                "createdAt": "2026-01-10T12:05:17.944Z",
+                "updatedAt": "2026-01-10T12:07:20.891Z",
+                "cleanedName": "วิเคราะห์งบการเงินเบื้องต้นได้",
+                "originalName": "วิเคราะห์งบการเงินเบื้องต้นได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8578765988349915,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "a9483be5-d7f0-4629-98f0-8410788d45f8",
+                "createdAt": "2026-01-10T12:05:17.978Z",
+                "updatedAt": "2026-01-10T12:07:21.772Z",
+                "cleanedName": "วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน",
+                "originalName": "วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "3174e460-0217-4e28-bef6-89b826d8b1b2",
+                "createdAt": "2026-01-10T12:05:17.964Z",
+                "updatedAt": "2026-01-10T12:07:21.772Z",
+                "cleanedName": "เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้",
+                "originalName": "เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "236c2873-380f-410e-9458-22b105eb7e06",
+                "createdAt": "2026-01-10T12:05:17.956Z",
+                "updatedAt": "2026-01-10T12:06:18.494Z",
+                "cleanedName": "คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง",
+                "originalName": "คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "4006cd9c-1bfa-4659-bb59-372c006a5828",
+            "score": 0,
+            "reason": "Not found in LLM response",
+            "isGenEd": false,
+            "campusId": "62ba4c87-246f-4b6d-8819-24ebe254cab7",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:10.026Z",
+            "facultyId": "d2afa5f7-f451-449b-82e8-d0ccaa9579eb",
+            "updatedAt": "2026-01-10T12:05:10.026Z",
+            "subjectCode": "03760434-64",
+            "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "581e4fc3-8606-4df7-b646-51d70924d651",
+                "courseId": "4006cd9c-1bfa-4659-bb59-372c006a5828",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:10.031Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "12eb24d4-fab2-4a2a-9e6b-f8f729b0b074",
+                "courseId": "4006cd9c-1bfa-4659-bb59-372c006a5828",
+                "semester": 0,
+                "createdAt": "2026-01-10T12:05:10.029Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "333fa7ac-2efc-4709-9b04-dc1d7421e6cc",
+                "courseId": "4006cd9c-1bfa-4659-bb59-372c006a5828",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:10.026Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "cfc1260f-0b71-49d1-a11f-063137daf74a",
+                "createdAt": "2026-01-10T12:05:10.045Z",
+                "updatedAt": "2026-01-10T12:07:06.273Z",
+                "cleanedName": "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์",
+                "originalName": "1. อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "18ff334c-ef31-45a5-ae90-4fb0aeee750d",
+                "createdAt": "2026-01-10T12:05:10.040Z",
+                "updatedAt": "2026-01-10T12:07:06.273Z",
+                "cleanedName": "สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์",
+                "originalName": "2. สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "61349c8b-2d4a-41ce-85e0-b482a573aea4",
+                "createdAt": "2026-01-10T12:05:10.034Z",
+                "updatedAt": "2026-01-10T12:07:06.273Z",
+                "cleanedName": "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์",
+                "originalName": "3. จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "9da38bf2-275d-444e-835c-c7334b5b9c9f",
+                "createdAt": "2026-01-10T12:05:10.027Z",
+                "updatedAt": "2026-01-10T12:07:06.270Z",
+                "cleanedName": "ใช้ช้อมูลการบัญชีบริหารที่เป็นตัวเงินและไม่เป็นตัวเงินเพื่อประเมินผลการปฏิบัติงานเชิงกลยุทธ์ของกิจการ",
+                "originalName": "ใช้ช้อมูลการบัญชีบริหารที่เป็นตัวเงินและไม่เป็นตัวเงินเพื่อประเมินผลการปฏิบัติงานเชิงกลยุทธ์ของกิจการ",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "cfc1260f-0b71-49d1-a11f-063137daf74a",
+                "createdAt": "2026-01-10T12:05:10.045Z",
+                "updatedAt": "2026-01-10T12:07:06.273Z",
+                "cleanedName": "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์",
+                "originalName": "1. อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8497607618427746,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "61349c8b-2d4a-41ce-85e0-b482a573aea4",
+                "createdAt": "2026-01-10T12:05:10.034Z",
+                "updatedAt": "2026-01-10T12:07:06.273Z",
+                "cleanedName": "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์",
+                "originalName": "3. จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.854219913482666,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "18ff334c-ef31-45a5-ae90-4fb0aeee750d",
+                "createdAt": "2026-01-10T12:05:10.040Z",
+                "updatedAt": "2026-01-10T12:07:06.273Z",
+                "cleanedName": "สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์",
+                "originalName": "2. สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "61349c8b-2d4a-41ce-85e0-b482a573aea4",
+                "createdAt": "2026-01-10T12:05:10.034Z",
+                "updatedAt": "2026-01-10T12:07:06.273Z",
+                "cleanedName": "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์",
+                "originalName": "3. จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "9da38bf2-275d-444e-835c-c7334b5b9c9f",
+                "createdAt": "2026-01-10T12:05:10.027Z",
+                "updatedAt": "2026-01-10T12:07:06.270Z",
+                "cleanedName": "ใช้ช้อมูลการบัญชีบริหารที่เป็นตัวเงินและไม่เป็นตัวเงินเพื่อประเมินผลการปฏิบัติงานเชิงกลยุทธ์ของกิจการ",
+                "originalName": "ใช้ช้อมูลการบัญชีบริหารที่เป็นตัวเงินและไม่เป็นตัวเงินเพื่อประเมินผลการปฏิบัติงานเชิงกลยุทธ์ของกิจการ",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+            "score": 0,
+            "reason": "Not found in LLM response",
+            "isGenEd": false,
+            "campusId": "62ba4c87-246f-4b6d-8819-24ebe254cab7",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:11.281Z",
+            "facultyId": "d2afa5f7-f451-449b-82e8-d0ccaa9579eb",
+            "updatedAt": "2026-01-10T12:05:11.281Z",
+            "subjectCode": "03760112-64",
+            "subjectName": "หลักการบัญชีชั้นกลาง I",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "f2ec48ed-e422-45c4-a3f4-62e8f945924c",
+                "courseId": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:11.300Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "ab0349da-0b99-44a9-8737-42807afa8468",
+                "courseId": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:11.297Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "63fb10a6-baad-4c96-81e1-c03bc88ecb8f",
+                "courseId": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:11.295Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "b5ebc41e-21ff-4328-9dad-7e6e3714d626",
+                "courseId": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:11.293Z",
+                "academicYear": 2566
+              },
+              {
+                "id": "283da0eb-1d4f-4314-a108-db24a128cba0",
+                "courseId": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:11.291Z",
+                "academicYear": 2566
+              },
+              {
+                "id": "8bb241a3-83e0-4025-8e30-d7664e77d373",
+                "courseId": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:11.289Z",
+                "academicYear": 2565
+              },
+              {
+                "id": "21adca31-ffe1-4602-8e8a-15bb5d1b140b",
+                "courseId": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:11.286Z",
+                "academicYear": 2565
+              },
+              {
+                "id": "bf67a2e4-fe66-4763-b549-d00247a5837a",
+                "courseId": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:11.284Z",
+                "academicYear": 2564
+              },
+              {
+                "id": "a403a354-47c4-450b-b0e0-cc1dbb7ab18f",
+                "courseId": "5fb4d08c-de3a-4b27-97c5-6ab6a6387f0c",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:11.281Z",
+                "academicYear": 2564
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "16892d80-de8e-48dc-940a-02c4d53d3909",
+                "createdAt": "2026-01-10T12:05:11.333Z",
+                "updatedAt": "2026-01-10T12:07:10.152Z",
+                "cleanedName": "สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้",
+                "originalName": "สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "be71312e-ec38-4437-b71b-7e1a1262902c",
+                "createdAt": "2026-01-10T12:05:11.315Z",
+                "updatedAt": "2026-01-10T12:07:10.152Z",
+                "cleanedName": "สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้",
+                "originalName": "สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "e824bff9-ee9a-4915-9d96-3c11f41e9e71",
+                "createdAt": "2026-01-10T12:05:11.302Z",
+                "updatedAt": "2026-01-10T12:07:09.798Z",
+                "cleanedName": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้",
+                "originalName": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "6e18614b-c88f-4654-83a2-607cf7403fb4",
+                "createdAt": "2026-01-10T12:05:11.282Z",
+                "updatedAt": "2026-01-10T12:07:09.798Z",
+                "cleanedName": "มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา",
+                "originalName": "มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "e824bff9-ee9a-4915-9d96-3c11f41e9e71",
+                "createdAt": "2026-01-10T12:05:11.302Z",
+                "updatedAt": "2026-01-10T12:07:09.798Z",
+                "cleanedName": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้",
+                "originalName": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8483782410621643,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "16892d80-de8e-48dc-940a-02c4d53d3909",
+                "createdAt": "2026-01-10T12:05:11.333Z",
+                "updatedAt": "2026-01-10T12:07:10.152Z",
+                "cleanedName": "สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้",
+                "originalName": "สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "be71312e-ec38-4437-b71b-7e1a1262902c",
+                "createdAt": "2026-01-10T12:05:11.315Z",
+                "updatedAt": "2026-01-10T12:07:10.152Z",
+                "cleanedName": "สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้",
+                "originalName": "สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "6e18614b-c88f-4654-83a2-607cf7403fb4",
+                "createdAt": "2026-01-10T12:05:11.282Z",
+                "updatedAt": "2026-01-10T12:07:09.798Z",
+                "cleanedName": "มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา",
+                "originalName": "มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "259ecb78-90d5-486e-a013-47525b6e8396",
+            "score": 0,
+            "reason": "Not found in LLM response",
+            "isGenEd": false,
+            "campusId": "62ba4c87-246f-4b6d-8819-24ebe254cab7",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:10.837Z",
+            "facultyId": "d2afa5f7-f451-449b-82e8-d0ccaa9579eb",
+            "updatedAt": "2026-01-10T12:05:10.837Z",
+            "subjectCode": "03760431-64",
+            "subjectName": "การวางแผนและการควบคุมกำไร",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "de6100ce-75fb-4ae7-b62f-c847be683009",
+                "courseId": "259ecb78-90d5-486e-a013-47525b6e8396",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:10.841Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "b62d957c-1f8a-4588-8303-6abc58a11e8c",
+                "courseId": "259ecb78-90d5-486e-a013-47525b6e8396",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:10.838Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "b1ad6723-fa63-4ae7-9f68-66475e8ac91d",
+                "createdAt": "2026-01-10T12:05:10.848Z",
+                "updatedAt": "2026-01-10T12:07:09.035Z",
+                "cleanedName": "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+                "originalName": "1ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "93b84f94-f909-459d-a2d0-91563e146fdd",
+                "createdAt": "2026-01-10T12:05:10.844Z",
+                "updatedAt": "2026-01-10T12:07:09.035Z",
+                "cleanedName": "จัดทำงบประมาณธุรกิจต่างๆ",
+                "originalName": "จัดทำงบประมาณธุรกิจต่างๆ",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "a5c7a7a0-ae3f-4aea-a95e-6914b47ceb1b",
+                "createdAt": "2026-01-10T12:05:10.838Z",
+                "updatedAt": "2026-01-10T12:07:08.554Z",
+                "cleanedName": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร",
+                "originalName": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "93b84f94-f909-459d-a2d0-91563e146fdd",
+                "createdAt": "2026-01-10T12:05:10.844Z",
+                "updatedAt": "2026-01-10T12:07:09.035Z",
+                "cleanedName": "จัดทำงบประมาณธุรกิจต่างๆ",
+                "originalName": "จัดทำงบประมาณธุรกิจต่างๆ",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8478147983551025,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "b1ad6723-fa63-4ae7-9f68-66475e8ac91d",
+                "createdAt": "2026-01-10T12:05:10.848Z",
+                "updatedAt": "2026-01-10T12:07:09.035Z",
+                "cleanedName": "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+                "originalName": "1ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "a5c7a7a0-ae3f-4aea-a95e-6914b47ceb1b",
+                "createdAt": "2026-01-10T12:05:10.838Z",
+                "updatedAt": "2026-01-10T12:07:08.554Z",
+                "cleanedName": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร",
+                "originalName": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "9f17c064-f4cb-4c63-b571-bf3d190e774a",
+            "score": 0,
+            "reason": "Not found in LLM response",
+            "isGenEd": false,
+            "campusId": "627adc2f-ac3e-4628-9422-4283f9573900",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:04:55.967Z",
+            "facultyId": "6f541554-349d-4e99-b533-b80ca8ea00c4",
+            "updatedAt": "2026-01-10T12:04:55.967Z",
+            "subjectCode": "02802211-67",
+            "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "8d9499c6-89a7-4020-bcea-65bcb8ea6376",
+                "courseId": "9f17c064-f4cb-4c63-b571-bf3d190e774a",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:04:55.967Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "65de3beb-6054-41f3-8a05-4568ef3cc19d",
+                "createdAt": "2026-01-10T12:04:55.970Z",
+                "updatedAt": "2026-01-10T12:06:09.995Z",
+                "cleanedName": "สามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้",
+                "originalName": "นิสิตสามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "c0dc4bb6-a07a-4a49-8513-2ec268e81305",
+                "createdAt": "2026-01-10T12:04:55.967Z",
+                "updatedAt": "2026-01-10T12:06:09.995Z",
+                "cleanedName": "สามารถนำเสนอข้อมูลทางการเงินที่กำหนดให้เพื่อสาธิตการตัดสินใจและวางแผนธุรกิจบริการได้",
+                "originalName": "นิสิตสามารถนำเสนอข้อมูลทางการเงินที่กำหนดให้เพื่อสาธิตการตัดสินใจและวางแผนธุรกิจบริการได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "65de3beb-6054-41f3-8a05-4568ef3cc19d",
+                "createdAt": "2026-01-10T12:04:55.970Z",
+                "updatedAt": "2026-01-10T12:06:09.995Z",
+                "cleanedName": "สามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้",
+                "originalName": "นิสิตสามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8469196557998657,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "c0dc4bb6-a07a-4a49-8513-2ec268e81305",
+                "createdAt": "2026-01-10T12:04:55.967Z",
+                "updatedAt": "2026-01-10T12:06:09.995Z",
+                "cleanedName": "สามารถนำเสนอข้อมูลทางการเงินที่กำหนดให้เพื่อสาธิตการตัดสินใจและวางแผนธุรกิจบริการได้",
+                "originalName": "นิสิตสามารถนำเสนอข้อมูลทางการเงินที่กำหนดให้เพื่อสาธิตการตัดสินใจและวางแผนธุรกิจบริการได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "70bb58db-024b-4f2f-a124-7949c7782181",
+            "score": 0,
+            "reason": "Not found in LLM response",
+            "isGenEd": false,
+            "campusId": "62ba4c87-246f-4b6d-8819-24ebe254cab7",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:22.417Z",
+            "facultyId": "d2afa5f7-f451-449b-82e8-d0ccaa9579eb",
+            "updatedAt": "2026-01-10T12:05:22.417Z",
+            "subjectCode": "03760111-64",
+            "subjectName": "หลักการบัญชีเบื้องต้น",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "726f3da2-cbbc-480a-87bc-c73585db9940",
+                "courseId": "70bb58db-024b-4f2f-a124-7949c7782181",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:22.427Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "3d9ea8fe-9101-466d-803f-113c41f326f8",
+                "courseId": "70bb58db-024b-4f2f-a124-7949c7782181",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:22.425Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "fee807ed-f9b7-4127-9f8f-a80c3c1e8013",
+                "courseId": "70bb58db-024b-4f2f-a124-7949c7782181",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:22.423Z",
+                "academicYear": 2566
+              },
+              {
+                "id": "dd12754d-326c-4971-962d-047aad62a01d",
+                "courseId": "70bb58db-024b-4f2f-a124-7949c7782181",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:22.420Z",
+                "academicYear": 2565
+              },
+              {
+                "id": "978ed737-8ff8-4fc6-bbed-67893119d54f",
+                "courseId": "70bb58db-024b-4f2f-a124-7949c7782181",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:22.417Z",
+                "academicYear": 2564
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "26550c1e-2016-4448-9702-d34e74ec04f4",
+                "createdAt": "2026-01-10T12:05:22.461Z",
+                "updatedAt": "2026-01-10T12:07:33.831Z",
+                "cleanedName": "สามารถแสดงออกถึงการมีความซื่อสัตย์ สุจริต มีความรับผิดชอบต่องานที่ได้รับมอบหมาย และ สามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี",
+                "originalName": "สามารถแสดงออกถึงการมีความซื่อสัตย์ สุจริต มีความรับผิดชอบต่องานที่ได้รับมอบหมาย และ สามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "db7d4624-830a-4b20-b29c-276d2ad6fbd0",
+                "createdAt": "2026-01-10T12:05:22.454Z",
+                "updatedAt": "2026-01-10T12:07:33.831Z",
+                "cleanedName": "สามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์",
+                "originalName": "CLO2\tสามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "ec1813bd-2126-4bbc-85f4-2e595698123e",
+                "createdAt": "2026-01-10T12:05:22.446Z",
+                "updatedAt": "2026-01-10T12:07:33.831Z",
+                "cleanedName": "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง",
+                "originalName": "CLO3\tสามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "6856b2a5-28fa-4947-a075-42ca353e95d6",
+                "createdAt": "2026-01-10T12:05:22.438Z",
+                "updatedAt": "2026-01-10T12:07:33.831Z",
+                "cleanedName": "สามารถอธิบายหลักเบื้องต้นของภาษีมูลค่าเพิ่ม และ การควบคุมภายในเกี่ยวกับเงินสดได้",
+                "originalName": "CLO4\tสามารถอธิบายหลักเบื้องต้นของภาษีมูลค่าเพิ่ม และ การควบคุมภายในเกี่ยวกับเงินสดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "8dbfb849-200a-4378-a2e8-8877dc1e097b",
+                "createdAt": "2026-01-10T12:05:22.430Z",
+                "updatedAt": "2026-01-10T12:07:33.830Z",
+                "cleanedName": "สามารถปฏิบัติงานภายใต้ระบบใบสำคัญ และ จัดทำกรณีศึกษาเสมือนจริงแบบกลุ่มได้",
+                "originalName": "CLO5\tสามารถปฏิบัติงานภายใต้ระบบใบสำคัญ และ จัดทำกรณีศึกษาเสมือนจริงแบบกลุ่มได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "421b16c3-ecd6-4c17-a6f6-595cc8dab345",
+                "createdAt": "2026-01-10T12:05:22.418Z",
+                "updatedAt": "2026-01-10T12:07:33.830Z",
+                "cleanedName": "แสดงถึงความรับผิดชอบต่อหน้าที่โดยการตรงต่อเวลา",
+                "originalName": "CLO6\tแสดงถึงความรับผิดชอบต่อหน้าที่โดยการตรงต่อเวลา",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "ec1813bd-2126-4bbc-85f4-2e595698123e",
+                "createdAt": "2026-01-10T12:05:22.446Z",
+                "updatedAt": "2026-01-10T12:07:33.831Z",
+                "cleanedName": "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง",
+                "originalName": "CLO3\tสามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8437132835388184,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "26550c1e-2016-4448-9702-d34e74ec04f4",
+                "createdAt": "2026-01-10T12:05:22.461Z",
+                "updatedAt": "2026-01-10T12:07:33.831Z",
+                "cleanedName": "สามารถแสดงออกถึงการมีความซื่อสัตย์ สุจริต มีความรับผิดชอบต่องานที่ได้รับมอบหมาย และ สามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี",
+                "originalName": "สามารถแสดงออกถึงการมีความซื่อสัตย์ สุจริต มีความรับผิดชอบต่องานที่ได้รับมอบหมาย และ สามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "db7d4624-830a-4b20-b29c-276d2ad6fbd0",
+                "createdAt": "2026-01-10T12:05:22.454Z",
+                "updatedAt": "2026-01-10T12:07:33.831Z",
+                "cleanedName": "สามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์",
+                "originalName": "CLO2\tสามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "6856b2a5-28fa-4947-a075-42ca353e95d6",
+                "createdAt": "2026-01-10T12:05:22.438Z",
+                "updatedAt": "2026-01-10T12:07:33.831Z",
+                "cleanedName": "สามารถอธิบายหลักเบื้องต้นของภาษีมูลค่าเพิ่ม และ การควบคุมภายในเกี่ยวกับเงินสดได้",
+                "originalName": "CLO4\tสามารถอธิบายหลักเบื้องต้นของภาษีมูลค่าเพิ่ม และ การควบคุมภายในเกี่ยวกับเงินสดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "8dbfb849-200a-4378-a2e8-8877dc1e097b",
+                "createdAt": "2026-01-10T12:05:22.430Z",
+                "updatedAt": "2026-01-10T12:07:33.830Z",
+                "cleanedName": "สามารถปฏิบัติงานภายใต้ระบบใบสำคัญ และ จัดทำกรณีศึกษาเสมือนจริงแบบกลุ่มได้",
+                "originalName": "CLO5\tสามารถปฏิบัติงานภายใต้ระบบใบสำคัญ และ จัดทำกรณีศึกษาเสมือนจริงแบบกลุ่มได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "421b16c3-ecd6-4c17-a6f6-595cc8dab345",
+                "createdAt": "2026-01-10T12:05:22.418Z",
+                "updatedAt": "2026-01-10T12:07:33.830Z",
+                "cleanedName": "แสดงถึงความรับผิดชอบต่อหน้าที่โดยการตรงต่อเวลา",
+                "originalName": "CLO6\tแสดงถึงความรับผิดชอบต่อหน้าที่โดยการตรงต่อเวลา",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          }
+        ]
+      },
+      "llmInfo": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "response": {
+          "id": "gen-1768046913-RBvaJbiYIhzR3bJG7Tcp",
+          "headers": {
+            "date": "Sat, 10 Jan 2026 12:08:33 GMT",
+            "vary": "Accept-Encoding",
+            "cf-ray": "9bbc0f799fd5272b-BKK",
+            "server": "cloudflare",
+            "connection": "keep-alive",
+            "content-type": "application/json",
+            "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+            "content-encoding": "gzip",
+            "transfer-encoding": "chunked",
+            "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+            "x-content-type-options": "nosniff",
+            "access-control-allow-origin": "*"
+          },
+          "modelId": "openai/gpt-4.1-nano",
+          "timestamp": "2026-01-10T12:08:34.387Z"
+        },
+        "warnings": [],
+        "schemaName": "CourseRelevanceFilterResultSchemaV2",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nมีวิชาสอนการบริหารเงินตัวเองไหม\n\nSkill:\nการบริหารการเงินส่วนบุคคล\n\nCourses:\n[8]:\n  -\n    course_code: 04305212-67\n    course_name: การบริหารการเงินส่วนบุคคล\n    learning_outcomes[2]: สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล,สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้\n  -\n    course_code: 01137522-68\n    course_name: การบัญชีบริหารเชิงกลยุทธ์\n    learning_outcomes[3]: อธิบายหลักการบัญชีบริหาร,ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์,เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์\n  -\n    course_code: 01057533-64\n    course_name: การจัดการการดำเนินงานในอุตสาหกรรมเกษตร\n    learning_outcomes[4]: วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน,เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้,คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง,วิเคราะห์งบการเงินเบื้องต้นได้\n  -\n    course_code: 03760434-64\n    course_name: การบัญชีบริหารเชิงกลยุทธ์\n    learning_outcomes[4]: อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์,สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์,จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์,ใช้ช้อมูลการบัญชีบริหารที่เป็นตัวเงินและไม่เป็นตัวเงินเพื่อประเมินผลการปฏิบัติงานเชิงกลยุทธ์ของกิจการ\n  -\n    course_code: 03760112-64\n    course_name: หลักการบัญชีชั้นกลาง I\n    learning_outcomes[4]: สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้,สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้,สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้,มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา\n  -\n    course_code: 03760431-64\n    course_name: การวางแผนและการควบคุมกำไร\n    learning_outcomes[3]: ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร,จัดทำงบประมาณธุรกิจต่างๆ,วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร\n  -\n    course_code: 02802211-67\n    course_name: การจัดการการเงินเฉพาะงานบริการ\n    learning_outcomes[2]: สามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้,สามารถนำเสนอข้อมูลทางการเงินที่กำหนดให้เพื่อสาธิตการตัดสินใจและวางแผนธุรกิจบริการได้\n  -\n    course_code: 03760111-64\n    course_name: หลักการบัญชีเบื้องต้น\n    learning_outcomes[6]: สามารถแสดงออกถึงการมีความซื่อสัตย์ สุจริต มีความรับผิดชอบต่องานที่ได้รับมอบหมาย และ สามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี,สามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์,สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง,สามารถอธิบายหลักเบื้องต้นของภาษีมูลค่าเพิ่ม และ การควบคุมภายในเกี่ยวกับเงินสดได้,สามารถปฏิบัติงานภายใต้ระบบใบสำคัญ และ จัดทำกรณีศึกษาเสมือนจริงแบบกลุ่มได้,แสดงถึงความรับผิดชอบต่อหน้าที่โดยการตรงต่อเวลา\n",
+        "inputTokens": 1673,
+        "finishReason": "stop",
+        "outputTokens": 59,
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "promptVersion": "v5",
+        "hyperParameters": {
+          "temperature": 0,
+          "maxOutputTokens": 10000
+        },
+        "providerMetadata": {
+          "openrouter": {
+            "usage": {
+              "cost": 0.0001909,
+              "costDetails": {
+                "upstreamInferenceCost": 0
+              },
+              "totalTokens": 1732,
+              "promptTokens": 1673,
+              "completionTokens": 59,
+              "promptTokensDetails": {
+                "cachedTokens": 0
+              },
+              "completionTokensDetails": {
+                "reasoningTokens": 0
+              }
+            },
+            "provider": "OpenAI"
+          }
+        }
+      },
+      "tokenUsage": {
+        "model": "openai/gpt-4.1-nano",
+        "inputTokens": 1673,
+        "outputTokens": 59
+      }
+    },
+    "llmInfoBySkill": {
+      "การบริหารการเงินส่วนบุคคล": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nมีวิชาสอนการบริหารเงินตัวเองไหม\n\nSkill:\nการบริหารการเงินส่วนบุคคล\n\nCourses:\n[8]:\n  -\n    course_code: 04305212-67\n    course_name: การบริหารการเงินส่วนบุคคล\n    learning_outcomes[2]: สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล,สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้\n  -\n    course_code: 01137522-68\n    course_name: การบัญชีบริหารเชิงกลยุทธ์\n    learning_outcomes[3]: อธิบายหลักการบัญชีบริหาร,ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์,เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์\n  -\n    course_code: 01057533-64\n    course_name: การจัดการการดำเนินงานในอุตสาหกรรมเกษตร\n    learning_outcomes[4]: วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน,เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้,คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง,วิเคราะห์งบการเงินเบื้องต้นได้\n  -\n    course_code: 03760434-64\n    course_name: การบัญชีบริหารเชิงกลยุทธ์\n    learning_outcomes[4]: อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์,สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์,จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์,ใช้ช้อมูลการบัญชีบริหารที่เป็นตัวเงินและไม่เป็นตัวเงินเพื่อประเมินผลการปฏิบัติงานเชิงกลยุทธ์ของกิจการ\n  -\n    course_code: 03760112-64\n    course_name: หลักการบัญชีชั้นกลาง I\n    learning_outcomes[4]: สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้,สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้,สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้,มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา\n  -\n    course_code: 03760431-64\n    course_name: การวางแผนและการควบคุมกำไร\n    learning_outcomes[3]: ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร,จัดทำงบประมาณธุรกิจต่างๆ,วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร\n  -\n    course_code: 02802211-67\n    course_name: การจัดการการเงินเฉพาะงานบริการ\n    learning_outcomes[2]: สามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้,สามารถนำเสนอข้อมูลทางการเงินที่กำหนดให้เพื่อสาธิตการตัดสินใจและวางแผนธุรกิจบริการได้\n  -\n    course_code: 03760111-64\n    course_name: หลักการบัญชีเบื้องต้น\n    learning_outcomes[6]: สามารถแสดงออกถึงการมีความซื่อสัตย์ สุจริต มีความรับผิดชอบต่องานที่ได้รับมอบหมาย และ สามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี,สามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์,สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง,สามารถอธิบายหลักเบื้องต้นของภาษีมูลค่าเพิ่ม และ การควบคุมภายในเกี่ยวกับเงินสดได้,สามารถปฏิบัติงานภายใต้ระบบใบสำคัญ และ จัดทำกรณีศึกษาเสมือนจริงแบบกลุ่มได้,แสดงถึงความรับผิดชอบต่อหน้าที่โดยการตรงต่อเวลา\n",
+        "promptVersion": "v5"
+      },
+      "การวางแผนการเงิน": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nมีวิชาสอนการบริหารเงินตัวเองไหม\n\nSkill:\nการวางแผนการเงิน\n\nCourses:\n[8]:\n  -\n    course_code: 01999041-67\n    course_name: เศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี\n    learning_outcomes[4]: วิเคราะห์เหตุการณ์ที่เกี่ยวข้องกับเศรษฐกิจในปัจจุบันได้,วางแผนการเงินในปัจจุบันและอนาคตรวมถึงนำไปปฏิบัติเป็นกิจวัตรประจำวันได้,เชื่อมโยงองค์ประกอบที่สำคัญของแผนธุรกิจเพื่อเตรียมความพร้อมในการเป็นผู้ประกอบการได้,\"\"\n  -\n    course_code: 01057533-64\n    course_name: การจัดการการดำเนินงานในอุตสาหกรรมเกษตร\n    learning_outcomes[4]: วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน,เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้,คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง,วิเคราะห์งบการเงินเบื้องต้นได้\n  -\n    course_code: 03760431-64\n    course_name: การวางแผนและการควบคุมกำไร\n    learning_outcomes[3]: ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร,จัดทำงบประมาณธุรกิจต่างๆ,วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร\n  -\n    course_code: 03760112-64\n    course_name: หลักการบัญชีชั้นกลาง I\n    learning_outcomes[4]: สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้,สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้,สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้,มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา\n  -\n    course_code: 04305212-67\n    course_name: การบริหารการเงินส่วนบุคคล\n    learning_outcomes[2]: สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล,สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้\n  -\n    course_code: 01074541-68\n    course_name: การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม\n    learning_outcomes[3]: เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ,คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น,ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม\n  -\n    course_code: 03760324-64\n    course_name: การบัญชีระหว่างประเทศ\n    learning_outcomes[3]: สามารถบอกความแตกต่างของการบัญชีระหว่างประเทศ,สามารถระบุความแตกต่างของนโยการบัญชีที่สำคัญ,สามารถวิเคราะห์รายงานทางการเงิน\n  -\n    course_code: 01137515-68\n    course_name: การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ\n    learning_outcomes[3]: วิเคราะห์ข้อมูลในรายงานทางการเงิน,นำเทคโนโลยีมาใช้ประกอบกับการวิเคราะห์ข้อมูลในรายงานทางการเงิน เพื่อสนับสนุนการตัดสินใจ สื่อสาร และให้คำแนะนำแก่ผู้ที่เกี่ยวข้องได้,ประเมินมูลค่ากิจการ ประเมินราคาหลักทรัพย์ และวิเคราะห์ความคุ้มค่าโครงการจากข้อมูลในรายงานทางการเงิน\n",
+        "promptVersion": "v5"
+      },
+      "การลงทุนเบื้องต้น": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nมีวิชาสอนการบริหารเงินตัวเองไหม\n\nSkill:\nการลงทุนเบื้องต้น\n\nCourses:\n[8]:\n  -\n    course_code: 03651431-65\n    course_name: คณิตศาสตร์การลงทุน\n    learning_outcomes[4]: อธิบายหลักการและประเภทของการลงทุนได้,วิเคราะห์เหตุปัจจุบันสำหรับการตัดสินใจ ลงทุนได้,ใช้หลักการทางคณิตศาสตร์ในการวิเคราะห์ มูลค่าของการลงทุนแต่ละประเภทได้,แสดงออกถึงความซื่อสัตย์ทางวิชาการ และการเคารพกฎระเบียบและค่านิยมอันดีงามของสังคม และสามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้\n  -\n    course_code: 01057533-64\n    course_name: การจัดการการดำเนินงานในอุตสาหกรรมเกษตร\n    learning_outcomes[4]: วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน,เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้,คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง,วิเคราะห์งบการเงินเบื้องต้นได้\n  -\n    course_code: 01999043-67\n    course_name: การคิดสร้างสรรค์เพื่อการจัดการคุณค่า\n    learning_outcomes[3]: สามารถแก้ไขปัญหาได้อย่างสร้างสรรค์ โดยมีความรับผิดชอบต่อส่วนรวม,อธิบายหลักการป้องกันและแก้ปัญหาในธุรกิจและอุตสาหกรรมได้,สามารถวางแผนการลงทุน โดยนำปัจจัยที่เกี่ยวข้องมาใช้ใน การวิเคราะห์ได้\n  -\n    course_code: 01074541-68\n    course_name: การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม\n    learning_outcomes[3]: เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ,คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น,ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม\n  -\n    course_code: 06901111-66\n    course_name: หลักการจัดการธุรกิจเบื้องต้นสำหรับอุตสาหกรรมการท่องเที่ยว\n    learning_outcomes[2]: สามารถอธิบายความรู้เกี่ยวกับการจัดการธุรกิจเบื้องต้น,สามารถสรุปองค์ประกอบและโครงสร้างธุรกิจ\n  -\n    course_code: 04305211-67\n    course_name: การจัดการทางการเงิน I\n    learning_outcomes[2]: สามารถอธิบาย หลักการเบื้องต้นเกี่ยวกับการเงินธุรกิจ ได้,สามารถมูลค่าเงินตามเวลา การจัดทำงบประมาณลงทุน ความรู้พื้นฐานเกี่ยวกับโครงสร้างเงินทุน การจัดการเงินทุนหมุนเวียนสำหรับการวิเคราะห์บริษัท และหลักการพัฒนาอย่างยั่งยืนและธรรมมาภิบาลของบริษัทจดทะเบียน ได้\n  -\n    course_code: 01140131-68\n    course_name: การจำลองสถานการณ์ทางธุรกิจ\n    learning_outcomes[3]: อธิบายหลักการพื้นฐานทางธุรกิจได้,วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้,ตัดสินใจทางธุรกิจ โดยโปรแกรมได้\n  -\n    course_code: 04201373-65\n    course_name: เคมีพอลิเมอร์\n    learning_outcomes[8]: อธิบายแนวคิดพื้นฐานทางพอลิเมอร์,อธิบายความสัมพันธ์ระหว่างโครงสร้าง น้ำหนักโมเลกุล และสมบัติของพอลิเมอร์,อธิบายปฏิกิริยาพอลิเมอไรเซชันและกลไก,อธิบายวิธีการสังเคราะห์และกลไกการเกิดพอลิเมอไรเซชันร่วม,อธิบายกระบวนการเตรียมและสมบัติของเทอร์โมพลาสติกและเทอร์โมเซต,เชื่อมโยงความสัมพันธ์ระหว่างสมบัติของพอลิเมอร์และกระบวนการขึ้นรูปพอลิเมอร์ให้เหมาะสมกับผลิตภัณฑ์,นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ,แสดงออกถึงความรับผิดชอบ ความมีวินัย และตรงต่อเวลา\n",
+        "promptVersion": "v5"
+      },
+      "การวิเคราะห์งบการเงิน": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nมีวิชาสอนการบริหารเงินตัวเองไหม\n\nSkill:\nการวิเคราะห์งบการเงิน\n\nCourses:\n[10]:\n  -\n    course_code: 01057533-64\n    course_name: การจัดการการดำเนินงานในอุตสาหกรรมเกษตร\n    learning_outcomes[4]: วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน,เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้,คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง,วิเคราะห์งบการเงินเบื้องต้นได้\n  -\n    course_code: 03760324-64\n    course_name: การบัญชีระหว่างประเทศ\n    learning_outcomes[3]: สามารถบอกความแตกต่างของการบัญชีระหว่างประเทศ,สามารถระบุความแตกต่างของนโยการบัญชีที่สำคัญ,สามารถวิเคราะห์รายงานทางการเงิน\n  -\n    course_code: 01137515-68\n    course_name: การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ\n    learning_outcomes[3]: วิเคราะห์ข้อมูลในรายงานทางการเงิน,นำเทคโนโลยีมาใช้ประกอบกับการวิเคราะห์ข้อมูลในรายงานทางการเงิน เพื่อสนับสนุนการตัดสินใจ สื่อสาร และให้คำแนะนำแก่ผู้ที่เกี่ยวข้องได้,ประเมินมูลค่ากิจการ ประเมินราคาหลักทรัพย์ และวิเคราะห์ความคุ้มค่าโครงการจากข้อมูลในรายงานทางการเงิน\n  -\n    course_code: 03760442-64\n    course_name: การบัญชีนิติวิทยาเบื้องต้น\n    learning_outcomes[3]: สามารถตรวจสอบความทุจริตที่เกิดขึ้นจากรายงานทางการเงินได้,สามารถวิเคราะห์งบการเงินเพื่อสืบสวนหาข้อเท็จจริงเกี่ยวกับประเด็นที่ต้องการทราบจากงบการเงินได้,สามารถนำเทคโนโลยีมีช่วยในการสืบสวนและวิเคราะห์รายงานทางการเงินได้\n  -\n    course_code: 06901231-66\n    course_name: การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว\n    learning_outcomes[2]: สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน,สามารถสร้างระบบการรายงานข้อสนเทศทางการบัญชีและการเงิน\n  -\n    course_code: 01074541-68\n    course_name: การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม\n    learning_outcomes[3]: เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ,คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น,ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม\n  -\n    course_code: 03760112-64\n    course_name: หลักการบัญชีชั้นกลาง I\n    learning_outcomes[4]: สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้,สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้,สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้,มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา\n  -\n    course_code: 03760363-64\n    course_name: การวิเคราะห์ข้อมูลสำหรับการบัญชี\n    learning_outcomes[4]: เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ,ใช้เครื่องมือการวิเคราะห์ข้อมูลประเภทต่างๆ ได้ สอดคล้องกับประเภทของข้อมูล,ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี,จัดทำรายงานที่ได้จากการวิเคราะห์ข้อมูลเพื่อนำเสนอผู้บริหารและผู้ที่เกี่ยวข้องได้อย่างเหมาะสม\n  -\n    course_code: 03759211-67\n    course_name: การจัดการทางการเงิน I\n    learning_outcomes[4]: สามารถอธิบายวัตถุประสงค์และความสำคัญของการจัดการทางการเงิน จุดมุ่งหมาย บทบาทหน้าที่ของผู้บริหารการเงินได้,สามารถอธิบายแนวความคิดทางการเงิน ได้แก่ มูลค่าเงินตามเวลา ความเสี่ยงและผลตอบแทนได้,สามารถอธิบายการวิเคราะห์ทางการเงิน เพื่อนำไปใช้ประกอบการตัดสินใจทางการเงินได้,สามารถอธิบายการจัดหาเงินทุนของธุรกิจและการบริหารสินทรัพย์ของธุรกิจได้\n  -\n    course_code: 03760431-64\n    course_name: การวางแผนและการควบคุมกำไร\n    learning_outcomes[3]: ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร,จัดทำงบประมาณธุรกิจต่างๆ,วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร\n",
+        "promptVersion": "v5"
+      },
+      "การจัดทำงบประมาณ": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nมีวิชาสอนการบริหารเงินตัวเองไหม\n\nSkill:\nการจัดทำงบประมาณ\n\nCourses:\n[9]:\n  -\n    course_code: 03760431-64\n    course_name: การวางแผนและการควบคุมกำไร\n    learning_outcomes[3]: ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร,จัดทำงบประมาณธุรกิจต่างๆ,วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร\n  -\n    course_code: 03760201-64\n    course_name: การบัญชีเพื่อการจัดการธุรกิจ\n    learning_outcomes[5]: อธิบายความหมาย แนวคิด หลักการ และความสำคัญของการบัญชีเพื่อการจัดการ รูปแบบกระบวนการผลิต และประเภทต้นทุน,สามารถคำนวณต้นทุนผลิตภัณฑ์  จัดทำงบต้นทุนผลิต และงบกำไรขาดทุนเพื่อใช้ในการบริหารจัดการ,สามารถการจัดทำงบประมาณของธุรกิจผลิต,สามารถนำข้อมูลต้นทุนมาวิเคราะห์เพื่อใช้ในการวางแผน ควบคุม ประเมินผลปฏิบัติงาน และการตัดสินใจลงทุน,มีทักษะในการประสานงานกับผู้อื่น  การทำงานร่วมกับผู้อื่นได้อย่างมีความรับผิดชอบ\n  -\n    course_code: 01057533-64\n    course_name: การจัดการการดำเนินงานในอุตสาหกรรมเกษตร\n    learning_outcomes[4]: วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน,เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้,คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง,วิเคราะห์งบการเงินเบื้องต้นได้\n  -\n    course_code: 03602351-65\n    course_name: การวิเคราะห์ต้นทุนทางอุตสาหกรรม\n    learning_outcomes[3]: สามารถหาต้นทุนการผลิต จัดทำงบประมาณต้นทุนการผลิตและองค์ประกอบของต้นทุนการผลิต,สามารถจัดทำงบประมาณกรณีสายการผลิตมีลักษณะแบบงานสั่งผลิตและแบบกระบวนการ,สามารถวิเคราะห์และหาความสัมพันธ์ระหว่างต้นทุน ปริมาณและกำไรได้\n  -\n    course_code: 03760112-64\n    course_name: หลักการบัญชีชั้นกลาง I\n    learning_outcomes[4]: สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้,สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้,สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้,มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา\n  -\n    course_code: 03760211-64\n    course_name: หลักการบัญชีชั้นกลาง ll\n    learning_outcomes[4]: สามารถบันทึกบัญชีและแสดงมูลค่าของหนี้สินในงบการเงินได้,สามารถบันทึกบัญชีและแสดงมูลค่าของส่วนของเจ้าของในงบการเงินได้,สามารถจัดทำและนำเสนองบกระแสเงินสดได้,มีความรับผิดชอบต่อหน้าที่ ซื่อสัตย์ และตรงต่อเวลา\n  -\n    course_code: 03602433-65\n    course_name: วิศวกรรมการซ่อมบำรุง\n    learning_outcomes[7]: สามารถอธิบายหลักการพื้นฐานของการจัดการการบำรุงรักษา รวมถึงกลยุทธ์การบำรุงรักษาเชิงป้องกัน คาดการณ์ และแก้ไข การบำรุงรักษาที่เน้นความน่าเชื่อถือ (rcm) การบำรุงรักษาแบบทวีผลโดยทุกคนมีส่วนร่วม (tpm),สามารถบอกแนวทางการใช้เทคโนโลยีการบำรุงรักษาที่ทันสมัย,สามารถวางแผนและจัดตารางกิจกรรมการบำรุงรักษา รวมถึงการจัดลำดับความสำคัญของงานบำรุงรักษา การจัดสรรทรัพยากร,สามารถวิเคราะห์ความน่าเชื่อถือของระบบและอุปกรณ์อุตสาหกรรมโดยใช้เทคนิคต่าง ๆ,สามารถอธิบายหลักการประยุกต์ระบบการจัดการการบำรุงรักษาด้วยคอมพิวเตอร์ (cmms) และเครื่องมือซอฟต์แวร์ที่เกี่ยวข้องกับการบำรุงรักษา,สามารถจำแนกประเภทการจัดทำงบประมาณ การประมาณต้นทุน และเทคนิคการควบคุมต้นทุนสำหรับกิจกรรมการบำรุงรักษา,มีทักษะการสื่อสารและความเป็นผู้นำที่มีประสิทธิภาพเพื่อทำงานร่วมกับทีมข้ามสายงาน สื่อสารแผนการบำรุงรักษาและลำดับความสำคัญ\n  -\n    course_code: 01074541-68\n    course_name: การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม\n    learning_outcomes[3]: เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ,คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น,ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม\n  -\n    course_code: 01137522-68\n    course_name: การบัญชีบริหารเชิงกลยุทธ์\n    learning_outcomes[3]: อธิบายหลักการบัญชีบริหาร,ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์,เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์\n",
+        "promptVersion": "v5"
+      }
+    },
+    "totalTokenUsage": {
+      "input": 8559,
+      "output": 2246,
+      "total": 10805
+    },
+    "tokenUsageBySkill": {
+      "การบริหารการเงินส่วนบุคคล": {
+        "input": 1673,
+        "total": 1732,
+        "output": 59
+      },
+      "การวางแผนการเงิน": {
+        "input": 1542,
+        "total": 2090,
+        "output": 548
+      },
+      "การลงทุนเบื้องต้น": {
+        "input": 1618,
+        "total": 2062,
+        "output": 444
+      },
+      "การวิเคราะห์งบการเงิน": {
+        "input": 1759,
+        "total": 2327,
+        "output": 568
+      },
+      "การจัดทำงบประมาณ": {
+        "input": 1967,
+        "total": 2594,
+        "output": 627
+      }
+    },
+    "metricsBySkill": {
+      "การบริหารการเงินส่วนบุคคล": {
+        "inputCount": 8,
+        "acceptedCount": 1,
+        "rejectedCount": 0,
+        "missingCount": 7,
+        "llmDecisionRate": 0.125,
+        "llmRejectionRate": 0,
+        "llmFallbackRate": 0.875,
+        "scoreDistribution": {
+          "score1": 0,
+          "score2": 0,
+          "score3": 1
+        },
+        "avgScore": 3,
+        "stepId": "3ca3b226-782b-430e-9b8a-8660f6d03412"
+      },
+      "การวางแผนการเงิน": {
+        "inputCount": 8,
+        "acceptedCount": 3,
+        "rejectedCount": 5,
+        "missingCount": 0,
+        "llmDecisionRate": 1,
+        "llmRejectionRate": 0.625,
+        "llmFallbackRate": 0,
+        "scoreDistribution": {
+          "score1": 1,
+          "score2": 1,
+          "score3": 1
+        },
+        "avgScore": 2,
+        "stepId": "3ca3b226-782b-430e-9b8a-8660f6d03412"
+      },
+      "การลงทุนเบื้องต้น": {
+        "inputCount": 8,
+        "acceptedCount": 6,
+        "rejectedCount": 2,
+        "missingCount": 0,
+        "llmDecisionRate": 1,
+        "llmRejectionRate": 0.25,
+        "llmFallbackRate": 0,
+        "scoreDistribution": {
+          "score1": 3,
+          "score2": 2,
+          "score3": 1
+        },
+        "avgScore": 1.666666666666667,
+        "stepId": "3ca3b226-782b-430e-9b8a-8660f6d03412"
+      },
+      "การวิเคราะห์งบการเงิน": {
+        "inputCount": 10,
+        "acceptedCount": 10,
+        "rejectedCount": 0,
+        "missingCount": 0,
+        "llmDecisionRate": 1,
+        "llmRejectionRate": 0,
+        "llmFallbackRate": 0,
+        "scoreDistribution": {
+          "score1": 3,
+          "score2": 4,
+          "score3": 3
+        },
+        "avgScore": 2,
+        "stepId": "3ca3b226-782b-430e-9b8a-8660f6d03412"
+      },
+      "การจัดทำงบประมาณ": {
+        "inputCount": 9,
+        "acceptedCount": 8,
+        "rejectedCount": 1,
+        "missingCount": 0,
+        "llmDecisionRate": 1,
+        "llmRejectionRate": 0.1111111111111111,
+        "llmFallbackRate": 0,
+        "scoreDistribution": {
+          "score1": 2,
+          "score2": 4,
+          "score3": 2
+        },
+        "avgScore": 2,
+        "stepId": "3ca3b226-782b-430e-9b8a-8660f6d03412"
+      }
+    }
+  },
+  {
+    "queryLogId": "d62c16a6-9d2c-43d2-ba68-932ee00bfdff",
+    "question": "สนใจภาษาจีน เริ่มยังไงดี",
+    "llmModel": "openai/gpt-4.1-nano",
+    "llmProvider": "OpenRouter",
+    "promptVersion": "v5",
+    "duration": 7740,
+    "rawOutput": {
+      "llmAcceptedCoursesBySkill": {
+        "การเรียนรู้ภาษาจีน": [
+          {
+            "id": "522a022d-194a-428c-ad15-0f913ad0770e",
+            "score": 2,
+            "reason": "Includes basic language skills like grammar, communication, and translation, relevant for starting to learn Chinese.",
+            "isGenEd": false,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:08.992Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:05:08.992Z",
+            "subjectCode": "01362111-68",
+            "subjectName": "ภาษาจีนพื้นฐาน I",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "e3d39832-7920-4c5f-a5f6-166f1f187d1b",
+                "courseId": "522a022d-194a-428c-ad15-0f913ad0770e",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:08.993Z",
+                "academicYear": 2568
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "c2947d84-445e-44b8-a1ff-e3fda80a29de",
+                "createdAt": "2026-01-10T12:05:08.997Z",
+                "updatedAt": "2026-01-10T12:07:02.212Z",
+                "cleanedName": "อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้",
+                "originalName": "1.อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้\r\n\r\n",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "974f4663-3263-43d7-9e90-375899e852ef",
+                "createdAt": "2026-01-10T12:05:08.995Z",
+                "updatedAt": "2026-01-10T12:07:02.210Z",
+                "cleanedName": "ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้",
+                "originalName": "2.ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "4857dfc8-13c1-4075-a72f-40022089666c",
+                "createdAt": "2026-01-10T12:05:08.993Z",
+                "updatedAt": "2026-01-10T12:07:01.815Z",
+                "cleanedName": "แปลประโยคภาษาจีนพื้นฐานได้",
+                "originalName": "3.แปลประโยคภาษาจีนพื้นฐานได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "974f4663-3263-43d7-9e90-375899e852ef",
+                "createdAt": "2026-01-10T12:05:08.995Z",
+                "updatedAt": "2026-01-10T12:07:02.210Z",
+                "cleanedName": "ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้",
+                "originalName": "2.ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8756160997037922,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "4857dfc8-13c1-4075-a72f-40022089666c",
+                "createdAt": "2026-01-10T12:05:08.993Z",
+                "updatedAt": "2026-01-10T12:07:01.815Z",
+                "cleanedName": "แปลประโยคภาษาจีนพื้นฐานได้",
+                "originalName": "3.แปลประโยคภาษาจีนพื้นฐานได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8689539691494101,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "c2947d84-445e-44b8-a1ff-e3fda80a29de",
+                "createdAt": "2026-01-10T12:05:08.997Z",
+                "updatedAt": "2026-01-10T12:07:02.212Z",
+                "cleanedName": "อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้",
+                "originalName": "1.อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้\r\n\r\n",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "4857dfc8-13c1-4075-a72f-40022089666c",
+                "createdAt": "2026-01-10T12:05:08.993Z",
+                "updatedAt": "2026-01-10T12:07:01.815Z",
+                "cleanedName": "แปลประโยคภาษาจีนพื้นฐานได้",
+                "originalName": "3.แปลประโยคภาษาจีนพื้นฐานได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "364b1364-a7dc-47f4-bf6d-6a76d9e3c933",
+            "score": 2,
+            "reason": "Focuses on pronunciation, writing, and vocabulary usage, useful for foundational Chinese learning.",
+            "isGenEd": true,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:02.424Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:05:28.057Z",
+            "subjectCode": "01362201-67",
+            "subjectName": "ภาษาจีน III",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "bc7feba1-5d03-40f3-a6d9-265b1895d8d6",
+                "courseId": "364b1364-a7dc-47f4-bf6d-6a76d9e3c933",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.431Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "170f3a6e-079c-4428-84a6-f3b8855f8fea",
+                "courseId": "364b1364-a7dc-47f4-bf6d-6a76d9e3c933",
+                "semester": 0,
+                "createdAt": "2026-01-10T12:05:02.429Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "fafeb5f3-2b06-4e84-8473-299a1c180732",
+                "courseId": "364b1364-a7dc-47f4-bf6d-6a76d9e3c933",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:02.427Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "da5f831d-2e99-4813-a1f4-d5169a1a91e3",
+                "courseId": "364b1364-a7dc-47f4-bf6d-6a76d9e3c933",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.425Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "83b58603-3142-4d4c-8e89-82023861872b",
+                "createdAt": "2026-01-10T12:05:02.439Z",
+                "updatedAt": "2026-01-10T12:06:34.013Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "ec45f92b-6a11-4c09-9744-4ab931482a87",
+                "createdAt": "2026-01-10T12:05:02.433Z",
+                "updatedAt": "2026-01-10T12:06:34.003Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "866603f7-d2d7-4f7e-ad18-522bea880827",
+                "createdAt": "2026-01-10T12:05:02.425Z",
+                "updatedAt": "2026-01-10T12:06:34.003Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "ec45f92b-6a11-4c09-9744-4ab931482a87",
+                "createdAt": "2026-01-10T12:05:02.433Z",
+                "updatedAt": "2026-01-10T12:06:34.003Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8743819258922916,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "83b58603-3142-4d4c-8e89-82023861872b",
+                "createdAt": "2026-01-10T12:05:02.439Z",
+                "updatedAt": "2026-01-10T12:06:34.013Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "866603f7-d2d7-4f7e-ad18-522bea880827",
+                "createdAt": "2026-01-10T12:05:02.425Z",
+                "updatedAt": "2026-01-10T12:06:34.003Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "b86179ad-c45f-43ed-bbf3-c6c51a3d45c2",
+            "score": 2,
+            "reason": "Covers pronunciation, writing, and vocabulary in context, aligned with beginner Chinese learning.",
+            "isGenEd": true,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:02.409Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:05:28.052Z",
+            "subjectCode": "01362101-67",
+            "subjectName": "ภาษาจีน I",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "b0467bc9-bb95-4117-ad5f-c87b5e5a3751",
+                "courseId": "b86179ad-c45f-43ed-bbf3-c6c51a3d45c2",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.413Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "cce4c238-1703-4ecc-9666-9cac01cf8059",
+                "courseId": "b86179ad-c45f-43ed-bbf3-c6c51a3d45c2",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:02.411Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "74d0053e-1bff-4905-9bb1-526e95e0dfb1",
+                "courseId": "b86179ad-c45f-43ed-bbf3-c6c51a3d45c2",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.409Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "eb9e03e6-6877-4788-9436-991c1ad23143",
+                "createdAt": "2026-01-10T12:05:02.420Z",
+                "updatedAt": "2026-01-10T12:06:34.003Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "27c800ac-48d5-4e02-a11c-abccada7bdc2",
+                "createdAt": "2026-01-10T12:05:02.416Z",
+                "updatedAt": "2026-01-10T12:06:33.632Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "6c4c3987-d8ad-414a-bb64-79969560deb6",
+                "createdAt": "2026-01-10T12:05:02.409Z",
+                "updatedAt": "2026-01-10T12:06:33.635Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "27c800ac-48d5-4e02-a11c-abccada7bdc2",
+                "createdAt": "2026-01-10T12:05:02.416Z",
+                "updatedAt": "2026-01-10T12:06:33.632Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8743819258922916,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "eb9e03e6-6877-4788-9436-991c1ad23143",
+                "createdAt": "2026-01-10T12:05:02.420Z",
+                "updatedAt": "2026-01-10T12:06:34.003Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "6c4c3987-d8ad-414a-bb64-79969560deb6",
+                "createdAt": "2026-01-10T12:05:02.409Z",
+                "updatedAt": "2026-01-10T12:06:33.635Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "e1ffc228-0f55-47b4-9bd4-d0b19005af95",
+            "score": 2,
+            "reason": "Builds on basic skills with higher-level communication, relevant for progressing in Chinese language learning.",
+            "isGenEd": true,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:02.198Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:05:28.054Z",
+            "subjectCode": "01362102-67",
+            "subjectName": "ภาษาจีน II",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "7c761afe-0510-475c-81eb-065de4b6023f",
+                "courseId": "e1ffc228-0f55-47b4-9bd4-d0b19005af95",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.203Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "fba6a12e-4d54-4a5b-8569-f487c18b0496",
+                "courseId": "e1ffc228-0f55-47b4-9bd4-d0b19005af95",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:02.200Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "c90b510a-beb0-4e50-b235-153ac7b3e2ba",
+                "courseId": "e1ffc228-0f55-47b4-9bd4-d0b19005af95",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.198Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "54476fd7-9368-471e-bd7d-0cf0e235573c",
+                "createdAt": "2026-01-10T12:05:02.210Z",
+                "updatedAt": "2026-01-10T12:06:33.209Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "8bd79e79-cd11-4dac-85e1-6a0f29445dee",
+                "createdAt": "2026-01-10T12:05:02.205Z",
+                "updatedAt": "2026-01-10T12:06:33.211Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "0561be10-05f1-4ca3-8827-6fcc3202473b",
+                "createdAt": "2026-01-10T12:05:02.199Z",
+                "updatedAt": "2026-01-10T12:06:33.208Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "8bd79e79-cd11-4dac-85e1-6a0f29445dee",
+                "createdAt": "2026-01-10T12:05:02.205Z",
+                "updatedAt": "2026-01-10T12:06:33.211Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8743819258922916,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "54476fd7-9368-471e-bd7d-0cf0e235573c",
+                "createdAt": "2026-01-10T12:05:02.210Z",
+                "updatedAt": "2026-01-10T12:06:33.209Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "0561be10-05f1-4ca3-8827-6fcc3202473b",
+                "createdAt": "2026-01-10T12:05:02.199Z",
+                "updatedAt": "2026-01-10T12:06:33.208Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "703b6bf6-6ab1-4328-8b8f-b2d9c8bb956a",
+            "score": 2,
+            "reason": "Advanced vocabulary and structure, suitable for further developing Chinese language skills.",
+            "isGenEd": true,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:02.186Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:05:28.063Z",
+            "subjectCode": "01362301-67",
+            "subjectName": "ภาษาจีน V",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "c9514f0f-d1ce-47d9-94f9-f58f8feccff5",
+                "courseId": "703b6bf6-6ab1-4328-8b8f-b2d9c8bb956a",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.189Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "d2e5a083-d3f9-47a5-9819-eb9fa6c5ccbf",
+                "courseId": "703b6bf6-6ab1-4328-8b8f-b2d9c8bb956a",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.186Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "6ef6e1db-3473-49b8-b108-02081c05f7c9",
+                "createdAt": "2026-01-10T12:05:02.195Z",
+                "updatedAt": "2026-01-10T12:06:33.205Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "0c9db56c-d3a3-482e-b4dc-9a370e69add0",
+                "createdAt": "2026-01-10T12:05:02.191Z",
+                "updatedAt": "2026-01-10T12:06:33.207Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "fbd8f978-25a0-48da-80be-f04d0abd77e3",
+                "createdAt": "2026-01-10T12:05:02.187Z",
+                "updatedAt": "2026-01-10T12:06:33.198Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "0c9db56c-d3a3-482e-b4dc-9a370e69add0",
+                "createdAt": "2026-01-10T12:05:02.191Z",
+                "updatedAt": "2026-01-10T12:06:33.207Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8743819258922916,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "6ef6e1db-3473-49b8-b108-02081c05f7c9",
+                "createdAt": "2026-01-10T12:05:02.195Z",
+                "updatedAt": "2026-01-10T12:06:33.205Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "fbd8f978-25a0-48da-80be-f04d0abd77e3",
+                "createdAt": "2026-01-10T12:05:02.187Z",
+                "updatedAt": "2026-01-10T12:06:33.198Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "09b5d5c4-57c3-4442-9466-b1e746c308ee",
+            "score": 2,
+            "reason": "Similar to other language courses, focusing on pronunciation, writing, and vocabulary for learning Chinese.",
+            "isGenEd": true,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:02.169Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:05:28.060Z",
+            "subjectCode": "01362202-67",
+            "subjectName": "ภาษาจีน IV",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "440e41b4-a4ec-40c8-a587-e4f2bfe10360",
+                "courseId": "09b5d5c4-57c3-4442-9466-b1e746c308ee",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.174Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "9e396896-10c1-49d5-9071-f3d2d3b31b16",
+                "courseId": "09b5d5c4-57c3-4442-9466-b1e746c308ee",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:02.172Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "2d6df5c7-3e67-47ab-a8a0-e95ff8f511d5",
+                "courseId": "09b5d5c4-57c3-4442-9466-b1e746c308ee",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:02.169Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "35fdcf96-ec72-4ff4-86f0-21da048a002a",
+                "createdAt": "2026-01-10T12:05:02.182Z",
+                "updatedAt": "2026-01-10T12:06:33.197Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "03f87f15-de04-466f-bb5a-75907f9ec4e2",
+                "createdAt": "2026-01-10T12:05:02.177Z",
+                "updatedAt": "2026-01-10T12:06:33.197Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "4f5aedf1-bbbe-493e-ad1f-4538d51025ec",
+                "createdAt": "2026-01-10T12:05:02.170Z",
+                "updatedAt": "2026-01-10T12:06:33.211Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "03f87f15-de04-466f-bb5a-75907f9ec4e2",
+                "createdAt": "2026-01-10T12:05:02.177Z",
+                "updatedAt": "2026-01-10T12:06:33.197Z",
+                "cleanedName": "สามารถเขียนอักษรจีนได้",
+                "originalName": "สามารถเขียนอักษรจีนได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8743819258922916,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "35fdcf96-ec72-4ff4-86f0-21da048a002a",
+                "createdAt": "2026-01-10T12:05:02.182Z",
+                "updatedAt": "2026-01-10T12:06:33.197Z",
+                "cleanedName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "originalName": "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "4f5aedf1-bbbe-493e-ad1f-4538d51025ec",
+                "createdAt": "2026-01-10T12:05:02.170Z",
+                "updatedAt": "2026-01-10T12:06:33.211Z",
+                "cleanedName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "originalName": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "c947da79-f08e-405e-9f18-2ec8376443aa",
+            "score": 1,
+            "reason": "Focuses on social and cultural language use, less on foundational language learning skills.",
+            "isGenEd": false,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:06.726Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:05:06.726Z",
+            "subjectCode": "01396281-67",
+            "subjectName": "ภาษาจีนเชิงสังคมและวัฒนธรรม",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "27335a10-a506-4ca1-b6b4-46861ac745f7",
+                "courseId": "c947da79-f08e-405e-9f18-2ec8376443aa",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:06.727Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "f89ba7d4-d9ab-441d-99d9-c97cc441241d",
+                "createdAt": "2026-01-10T12:05:06.729Z",
+                "updatedAt": "2026-01-10T12:06:49.934Z",
+                "cleanedName": "ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้",
+                "originalName": "ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "1528d746-3f32-435f-adab-74a04b070c1e",
+                "createdAt": "2026-01-10T12:05:06.727Z",
+                "updatedAt": "2026-01-10T12:06:49.933Z",
+                "cleanedName": "ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้",
+                "originalName": "ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "f89ba7d4-d9ab-441d-99d9-c97cc441241d",
+                "createdAt": "2026-01-10T12:05:06.729Z",
+                "updatedAt": "2026-01-10T12:06:49.934Z",
+                "cleanedName": "ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้",
+                "originalName": "ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8738623521883,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "1528d746-3f32-435f-adab-74a04b070c1e",
+                "createdAt": "2026-01-10T12:05:06.727Z",
+                "updatedAt": "2026-01-10T12:06:49.933Z",
+                "cleanedName": "ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้",
+                "originalName": "ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "5c413db1-db9f-4bfb-b516-6a67ebac0408",
+            "score": 1,
+            "reason": "Business conversation skills are specialized and not aligned with starting Chinese language learning.",
+            "isGenEd": false,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:04:55.209Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:04:55.209Z",
+            "subjectCode": "01396141-67",
+            "subjectName": "สนทนาภาษาจีนธุรกิจ I",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "75789633-1642-412b-b383-d56de1eaec4a",
+                "courseId": "5c413db1-db9f-4bfb-b516-6a67ebac0408",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:04:55.215Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "35d1a816-1445-4400-ba34-052c574fd6a3",
+                "courseId": "5c413db1-db9f-4bfb-b516-6a67ebac0408",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:04:55.210Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "bfbd7004-8b1d-45c0-bf1c-3732f16b3b35",
+                "createdAt": "2026-01-10T12:04:55.220Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ",
+                "originalName": "ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ\r\n",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "c3f62c98-509d-4eb7-8e52-77ab74e727eb",
+                "createdAt": "2026-01-10T12:04:55.211Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้",
+                "originalName": "เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "bfbd7004-8b1d-45c0-bf1c-3732f16b3b35",
+                "createdAt": "2026-01-10T12:04:55.220Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ",
+                "originalName": "ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ\r\n",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8723919499504527,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "c3f62c98-509d-4eb7-8e52-77ab74e727eb",
+                "createdAt": "2026-01-10T12:04:55.211Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้",
+                "originalName": "เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "76574731-4029-4984-a776-bfe235274349",
+            "score": 2,
+            "reason": "Enhances basic communication skills, relevant for learning Chinese.",
+            "isGenEd": false,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:05:07.187Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:05:07.187Z",
+            "subjectCode": "01362112-63",
+            "subjectName": "ภาษาจีนพื้นฐาน II",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "7461e321-50d7-4e79-8213-4c38f9969d82",
+                "courseId": "76574731-4029-4984-a776-bfe235274349",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:05:07.198Z",
+                "academicYear": 2568
+              },
+              {
+                "id": "45ca0073-f7f9-4e72-93a1-1b4bd7d0a834",
+                "courseId": "76574731-4029-4984-a776-bfe235274349",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:07.196Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "22ccf793-b6e6-42f8-bd25-222b5711bcfd",
+                "courseId": "76574731-4029-4984-a776-bfe235274349",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:07.194Z",
+                "academicYear": 2566
+              },
+              {
+                "id": "8fc268b4-8252-49de-8e58-40969976becf",
+                "courseId": "76574731-4029-4984-a776-bfe235274349",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:07.191Z",
+                "academicYear": 2565
+              },
+              {
+                "id": "022f4e75-4a77-479d-89ca-c5bd5bf7a73b",
+                "courseId": "76574731-4029-4984-a776-bfe235274349",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:07.189Z",
+                "academicYear": 2564
+              },
+              {
+                "id": "07bcbeed-65f0-45bc-9220-e05ef0f30fd6",
+                "courseId": "76574731-4029-4984-a776-bfe235274349",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:05:07.187Z",
+                "academicYear": 2563
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "3e650cd2-f32b-4966-b7b8-954fade86a97",
+                "createdAt": "2026-01-10T12:05:07.200Z",
+                "updatedAt": "2026-01-10T12:06:53.033Z",
+                "cleanedName": "สามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้",
+                "originalName": "นิสิตสามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "29e36e67-8a1f-4d5b-a4ff-49bdaa65ca69",
+                "createdAt": "2026-01-10T12:05:07.188Z",
+                "updatedAt": "2026-01-10T12:06:53.031Z",
+                "cleanedName": "มีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น",
+                "originalName": "นิสิตมีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "3e650cd2-f32b-4966-b7b8-954fade86a97",
+                "createdAt": "2026-01-10T12:05:07.200Z",
+                "updatedAt": "2026-01-10T12:06:53.033Z",
+                "cleanedName": "สามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้",
+                "originalName": "นิสิตสามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8604712229826716,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "29e36e67-8a1f-4d5b-a4ff-49bdaa65ca69",
+                "createdAt": "2026-01-10T12:05:07.188Z",
+                "updatedAt": "2026-01-10T12:06:53.031Z",
+                "cleanedName": "มีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น",
+                "originalName": "นิสิตมีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8694196006482724,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "29e36e67-8a1f-4d5b-a4ff-49bdaa65ca69",
+                "createdAt": "2026-01-10T12:05:07.188Z",
+                "updatedAt": "2026-01-10T12:06:53.031Z",
+                "cleanedName": "มีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น",
+                "originalName": "นิสิตมีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "76fbddbd-5e6b-4de2-9bb1-3d70e97d7b8e",
+            "score": 1,
+            "reason": "Focuses on business language and cultural understanding, not on beginner language acquisition.",
+            "isGenEd": false,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:04:55.228Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:04:55.228Z",
+            "subjectCode": "01396211-67",
+            "subjectName": "ภาษาจีนธุรกิจ III",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "a4b0c50a-bb1f-4867-b72a-d3817b712798",
+                "courseId": "76fbddbd-5e6b-4de2-9bb1-3d70e97d7b8e",
+                "semester": 1,
+                "createdAt": "2026-01-10T12:04:55.228Z",
+                "academicYear": 2568
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "db3e61ec-969e-4da6-9be9-9de49f2969ac",
+                "createdAt": "2026-01-10T12:04:55.238Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+                "originalName": "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "21aaf7f7-a798-49fe-9e5a-23ea7ae7cd70",
+                "createdAt": "2026-01-10T12:04:55.233Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+                "originalName": "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "e8a1b268-a11d-408d-a980-3c404504d8c0",
+                "createdAt": "2026-01-10T12:04:55.229Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้",
+                "originalName": "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "21aaf7f7-a798-49fe-9e5a-23ea7ae7cd70",
+                "createdAt": "2026-01-10T12:04:55.233Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+                "originalName": "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8599270838477342,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "db3e61ec-969e-4da6-9be9-9de49f2969ac",
+                "createdAt": "2026-01-10T12:04:55.238Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+                "originalName": "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "e8a1b268-a11d-408d-a980-3c404504d8c0",
+                "createdAt": "2026-01-10T12:04:55.229Z",
+                "updatedAt": "2026-01-10T12:06:05.820Z",
+                "cleanedName": "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้",
+                "originalName": "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          },
+          {
+            "id": "5fb5229e-b820-4a44-8dc9-e01047463e10",
+            "score": 1,
+            "reason": "Advanced business Chinese, not suitable for initial learning.",
+            "isGenEd": false,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:04:55.107Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:04:55.107Z",
+            "subjectCode": "01396312-67",
+            "subjectName": "ภาษาจีนธุรกิจ VI",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "c8580ec0-65cb-4e89-9242-b041d515b859",
+                "courseId": "5fb5229e-b820-4a44-8dc9-e01047463e10",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:04:55.108Z",
+                "academicYear": 2567
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "73c44478-c2ec-4fe2-8746-ba4ef5a8388a",
+                "createdAt": "2026-01-10T12:04:55.117Z",
+                "updatedAt": "2026-01-10T12:06:05.469Z",
+                "cleanedName": "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+                "originalName": "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "1385d919-1afe-4aec-8a6f-d2fb281954ac",
+                "createdAt": "2026-01-10T12:04:55.113Z",
+                "updatedAt": "2026-01-10T12:06:05.467Z",
+                "cleanedName": "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+                "originalName": "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "7e2253a6-233a-4293-996d-28d21eadb7ad",
+                "createdAt": "2026-01-10T12:04:55.108Z",
+                "updatedAt": "2026-01-10T12:06:04.298Z",
+                "cleanedName": "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้",
+                "originalName": "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "1385d919-1afe-4aec-8a6f-d2fb281954ac",
+                "createdAt": "2026-01-10T12:04:55.113Z",
+                "updatedAt": "2026-01-10T12:06:05.467Z",
+                "cleanedName": "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+                "originalName": "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8599270838477342,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "73c44478-c2ec-4fe2-8746-ba4ef5a8388a",
+                "createdAt": "2026-01-10T12:04:55.117Z",
+                "updatedAt": "2026-01-10T12:06:05.469Z",
+                "cleanedName": "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+                "originalName": "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "7e2253a6-233a-4293-996d-28d21eadb7ad",
+                "createdAt": "2026-01-10T12:04:55.108Z",
+                "updatedAt": "2026-01-10T12:06:04.298Z",
+                "cleanedName": "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้",
+                "originalName": "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          }
+        ]
+      },
+      "llmRejectedCoursesBySkill": {
+        "การเรียนรู้ภาษาจีน": [
+          {
+            "id": "89712902-8d33-4c56-ba30-f673da4b916c",
+            "score": 0,
+            "reason": "Learning outcomes focus on linguistics and research, not on learning Chinese language skills for communication.",
+            "isGenEd": false,
+            "campusId": "77048458-31d6-42b0-b77c-cf9bb05cb5a8",
+            "metadata": null,
+            "createdAt": "2026-01-10T12:04:56.294Z",
+            "facultyId": "69aebfc1-bae3-4854-b9b7-5ccfc3d804d6",
+            "updatedAt": "2026-01-10T12:04:56.294Z",
+            "subjectCode": "01362571-66",
+            "subjectName": "ภาษาศาสตร์ภาษาจีน",
+            "courseClickLogs": [],
+            "courseOfferings": [
+              {
+                "id": "520665ad-dd2d-43cf-97cb-ccf0ea0ab8e0",
+                "courseId": "89712902-8d33-4c56-ba30-f673da4b916c",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:04:56.297Z",
+                "academicYear": 2567
+              },
+              {
+                "id": "155514b7-3567-4c1a-87c4-af65e3da4584",
+                "courseId": "89712902-8d33-4c56-ba30-f673da4b916c",
+                "semester": 2,
+                "createdAt": "2026-01-10T12:04:56.294Z",
+                "academicYear": 2566
+              }
+            ],
+            "allLearningOutcomes": [
+              {
+                "loId": "ed369af1-788a-4429-8dc6-8de165d45de5",
+                "createdAt": "2026-01-10T12:04:56.305Z",
+                "updatedAt": "2026-01-10T12:06:12.033Z",
+                "cleanedName": "เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน",
+                "originalName": "นิสิตเข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "91cdd4dd-eafb-4d54-9767-0b2b73093c4d",
+                "createdAt": "2026-01-10T12:04:56.300Z",
+                "updatedAt": "2026-01-10T12:06:12.033Z",
+                "cleanedName": "สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "originalName": "นิสิตสามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "c317af68-9e29-49b2-a49a-d8fa7dd8e514",
+                "createdAt": "2026-01-10T12:04:56.295Z",
+                "updatedAt": "2026-01-10T12:06:12.034Z",
+                "cleanedName": "สามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "originalName": "นิสิตสามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ],
+            "matchedLearningOutcomes": [
+              {
+                "loId": "ed369af1-788a-4429-8dc6-8de165d45de5",
+                "createdAt": "2026-01-10T12:04:56.305Z",
+                "updatedAt": "2026-01-10T12:06:12.033Z",
+                "cleanedName": "เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน",
+                "originalName": "นิสิตเข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.891485187665073,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "91cdd4dd-eafb-4d54-9767-0b2b73093c4d",
+                "createdAt": "2026-01-10T12:04:56.300Z",
+                "updatedAt": "2026-01-10T12:06:12.033Z",
+                "cleanedName": "สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "originalName": "นิสิตสามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "similarityScore": 0.8759792112105854,
+                "hasEmbedding1536": false
+              }
+            ],
+            "remainingLearningOutcomes": [
+              {
+                "loId": "91cdd4dd-eafb-4d54-9767-0b2b73093c4d",
+                "createdAt": "2026-01-10T12:04:56.300Z",
+                "updatedAt": "2026-01-10T12:06:12.033Z",
+                "cleanedName": "สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "originalName": "นิสิตสามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              },
+              {
+                "loId": "c317af68-9e29-49b2-a49a-d8fa7dd8e514",
+                "createdAt": "2026-01-10T12:04:56.295Z",
+                "updatedAt": "2026-01-10T12:06:12.034Z",
+                "cleanedName": "สามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "originalName": "นิสิตสามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+                "skipEmbedding": false,
+                "hasEmbedding768": true,
+                "hasEmbedding1536": false
+              }
+            ]
+          }
+        ]
+      },
+      "llmMissingCoursesBySkill": {
+        "การเรียนรู้ภาษาจีน": []
+      },
+      "llmInfo": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "response": {
+          "id": "gen-1768048201-5dXNG41nzBZ20vul9Ond",
+          "headers": {
+            "date": "Sat, 10 Jan 2026 12:30:01 GMT",
+            "vary": "Accept-Encoding",
+            "cf-ray": "9bbc2eeb2b46d32a-BKK",
+            "server": "cloudflare",
+            "connection": "keep-alive",
+            "content-type": "application/json",
+            "referrer-policy": "no-referrer, strict-origin-when-cross-origin",
+            "content-encoding": "gzip",
+            "transfer-encoding": "chunked",
+            "permissions-policy": "payment=(self \"https://checkout.stripe.com\" \"https://connect-js.stripe.com\" \"https://js.stripe.com\" \"https://*.js.stripe.com\" \"https://hooks.stripe.com\")",
+            "x-content-type-options": "nosniff",
+            "access-control-allow-origin": "*"
+          },
+          "modelId": "openai/gpt-4.1-nano",
+          "timestamp": "2026-01-10T12:30:06.233Z"
+        },
+        "warnings": [],
+        "schemaName": "CourseRelevanceFilterResultSchemaV2",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nสนใจภาษาจีน เริ่มยังไงดี\n\nSkill:\nการเรียนรู้ภาษาจีน\n\nCourses:\n[12]:\n  -\n    course_code: 01362571-66\n    course_name: ภาษาศาสตร์ภาษาจีน\n    learning_outcomes[3]: เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน,สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้,สามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้\n  -\n    course_code: 01362111-68\n    course_name: ภาษาจีนพื้นฐาน I\n    learning_outcomes[3]: อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้,ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้,แปลประโยคภาษาจีนพื้นฐานได้\n  -\n    course_code: 01362201-67\n    course_name: ภาษาจีน III\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362101-67\n    course_name: ภาษาจีน I\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362102-67\n    course_name: ภาษาจีน II\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362301-67\n    course_name: ภาษาจีน V\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362202-67\n    course_name: ภาษาจีน IV\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01396281-67\n    course_name: ภาษาจีนเชิงสังคมและวัฒนธรรม\n    learning_outcomes[2]: ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้,ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้\n  -\n    course_code: 01396141-67\n    course_name: สนทนาภาษาจีนธุรกิจ I\n    learning_outcomes[2]: ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ,เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้\n  -\n    course_code: 01362112-63\n    course_name: ภาษาจีนพื้นฐาน II\n    learning_outcomes[2]: สามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้,มีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น\n  -\n    course_code: 01396211-67\n    course_name: ภาษาจีนธุรกิจ III\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01396312-67\n    course_name: ภาษาจีนธุรกิจ VI\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n",
+        "inputTokens": 1633,
+        "finishReason": "stop",
+        "outputTokens": 702,
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "promptVersion": "v5",
+        "hyperParameters": {
+          "temperature": 0,
+          "maxOutputTokens": 10000
+        },
+        "providerMetadata": {
+          "openrouter": {
+            "usage": {
+              "cost": 0.0004441,
+              "costDetails": {
+                "upstreamInferenceCost": 0
+              },
+              "totalTokens": 2335,
+              "promptTokens": 1633,
+              "completionTokens": 702,
+              "promptTokensDetails": {
+                "cachedTokens": 0
+              },
+              "completionTokensDetails": {
+                "reasoningTokens": 0
+              }
+            },
+            "provider": "OpenAI"
+          }
+        }
+      },
+      "tokenUsage": {
+        "model": "openai/gpt-4.1-nano",
+        "inputTokens": 1633,
+        "outputTokens": 702
+      }
+    },
+    "llmInfoBySkill": {
+      "การเรียนรู้ภาษาจีน": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nสนใจภาษาจีน เริ่มยังไงดี\n\nSkill:\nการเรียนรู้ภาษาจีน\n\nCourses:\n[12]:\n  -\n    course_code: 01362571-66\n    course_name: ภาษาศาสตร์ภาษาจีน\n    learning_outcomes[3]: เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน,สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้,สามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้\n  -\n    course_code: 01362111-68\n    course_name: ภาษาจีนพื้นฐาน I\n    learning_outcomes[3]: อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้,ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้,แปลประโยคภาษาจีนพื้นฐานได้\n  -\n    course_code: 01362201-67\n    course_name: ภาษาจีน III\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362101-67\n    course_name: ภาษาจีน I\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362102-67\n    course_name: ภาษาจีน II\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362301-67\n    course_name: ภาษาจีน V\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362202-67\n    course_name: ภาษาจีน IV\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01396281-67\n    course_name: ภาษาจีนเชิงสังคมและวัฒนธรรม\n    learning_outcomes[2]: ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้,ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้\n  -\n    course_code: 01396141-67\n    course_name: สนทนาภาษาจีนธุรกิจ I\n    learning_outcomes[2]: ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ,เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้\n  -\n    course_code: 01362112-63\n    course_name: ภาษาจีนพื้นฐาน II\n    learning_outcomes[2]: สามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้,มีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น\n  -\n    course_code: 01396211-67\n    course_name: ภาษาจีนธุรกิจ III\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01396312-67\n    course_name: ภาษาจีนธุรกิจ VI\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n",
+        "promptVersion": "v5"
+      },
+      "การฟังและพูดภาษาจีน": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nสนใจภาษาจีน เริ่มยังไงดี\n\nSkill:\nการฟังและพูดภาษาจีน\n\nCourses:\n[16]:\n  -\n    course_code: 01396281-67\n    course_name: ภาษาจีนเชิงสังคมและวัฒนธรรม\n    learning_outcomes[2]: ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้,ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้\n  -\n    course_code: 01396141-67\n    course_name: สนทนาภาษาจีนธุรกิจ I\n    learning_outcomes[2]: ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ,เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้\n  -\n    course_code: 01362571-66\n    course_name: ภาษาศาสตร์ภาษาจีน\n    learning_outcomes[3]: เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน,สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้,สามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้\n  -\n    course_code: 01362111-68\n    course_name: ภาษาจีนพื้นฐาน I\n    learning_outcomes[3]: อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้,ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้,แปลประโยคภาษาจีนพื้นฐานได้\n  -\n    course_code: 01362112-63\n    course_name: ภาษาจีนพื้นฐาน II\n    learning_outcomes[2]: สามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้,มีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น\n  -\n    course_code: 01396211-67\n    course_name: ภาษาจีนธุรกิจ III\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01396312-67\n    course_name: ภาษาจีนธุรกิจ VI\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01396241-67\n    course_name: สนทนาภาษาจีนธุรกิจ III\n    learning_outcomes[3]: วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้,สาธิตการใช้ประโยคตามสถานการณ์ที่ได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการสนทนาทางธุรกิจได้\n  -\n    course_code: 01396342-67\n    course_name: สนทนาภาษาจีนธุรกิจ VI\n    learning_outcomes[3]: วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้,สาธิตการใช้ประโยคตามสถานการณ์ที่ได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการสนทนาทางธุรกิจได้\n  -\n    course_code: 01362201-67\n    course_name: ภาษาจีน III\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362101-67\n    course_name: ภาษาจีน I\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362102-67\n    course_name: ภาษาจีน II\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362301-67\n    course_name: ภาษาจีน V\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362202-67\n    course_name: ภาษาจีน IV\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01396242-67\n    course_name: สนทนาภาษาจีนธุรกิจ IV\n    learning_outcomes[3]: วิเคราะห์ประโยคที่ใช้สื่อสาร  ทางธุรกิจได้,สาธิตการใช้ประโยคตาม  สถานการณ์ที่ได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้อง  กับการสนทนาทางธุรกิจได้\n  -\n    course_code: 01355111-68\n    course_name: ทักษะการฟังและการพูดภาษาอังกฤษ\n    learning_outcomes[5]: อธิบายคำศัพท์และสำนวนเกี่ยวกับเรื่องพื้นฐานในชีวิตประจำวัน ได้,ฟังเพื่อจับใจความสำคัญและพูดโต้ตอบแสดงความคิดเห็นในหัว ข้อต่างๆ โดยใช้โครงสร้างภาษาอังกฤษถูกต้อง,ใช้ความรู้ ทักษะในการฟัง พูด เพื่อนำเสนอเป็นภาษาอังกฤษได้,สืบค้น เลือกใช้และนำเสนอข้อมูลผ่านสื่ออิเล็กทรอนิกส์ได้น่าสนใจ,ประเมินการเรียนรู้ของตนเองเพื่อพัฒนาการเรียนรู้ของตนเอง อย่างต่อเนื่อง\n",
+        "promptVersion": "v5"
+      },
+      "การอ่านและเขียนอักษรจีน": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nสนใจภาษาจีน เริ่มยังไงดี\n\nSkill:\nการอ่านและเขียนอักษรจีน\n\nCourses:\n[11]:\n  -\n    course_code: 01362201-67\n    course_name: ภาษาจีน III\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362101-67\n    course_name: ภาษาจีน I\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362102-67\n    course_name: ภาษาจีน II\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362301-67\n    course_name: ภาษาจีน V\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362202-67\n    course_name: ภาษาจีน IV\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01396281-67\n    course_name: ภาษาจีนเชิงสังคมและวัฒนธรรม\n    learning_outcomes[2]: ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้,ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้\n  -\n    course_code: 01362571-66\n    course_name: ภาษาศาสตร์ภาษาจีน\n    learning_outcomes[3]: เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน,สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้,สามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้\n  -\n    course_code: 01396141-67\n    course_name: สนทนาภาษาจีนธุรกิจ I\n    learning_outcomes[2]: ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ,เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้\n  -\n    course_code: 01396111-67\n    course_name: ภาษาจีนธุรกิจ I\n    learning_outcomes[3]: ระบุตัวพินอิน ตัวอักษรจีน คำศัพท์ และประโยคพื้นฐานตามสถานการณ์ได้,เขียนตัวพินอิน ตัวอักษรจีนได้ถูกต้องตามหลักการ,สื่อสารด้วยภาษาจีนตามสถานการณ์ทางธุรกิจที่กำหนดได้\n  -\n    course_code: 01362111-68\n    course_name: ภาษาจีนพื้นฐาน I\n    learning_outcomes[3]: อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้,ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้,แปลประโยคภาษาจีนพื้นฐานได้\n  -\n    course_code: 01358101-67\n    course_name: ภาษาญี่ปุ่นเบื้องต้น I\n    learning_outcomes[3]: อ่านและเขียนตัวอักษรญี่ปุ่นได้,ใช้คำศัพท์และไวยากรณ์ภาษาญี่ปุ่นขั้นต้นได้,แสดงความรับผิดชอบต่องานที่ได้รับมอบหมาย และมีความตรงต่อเวลา\n",
+        "promptVersion": "v5"
+      },
+      "วัฒนธรรมจีน": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nสนใจภาษาจีน เริ่มยังไงดี\n\nSkill:\nวัฒนธรรมจีน\n\nCourses:\n[18]:\n  -\n    course_code: 01396212-67\n    course_name: ภาษาจีนธุรกิจ IV\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษษจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01396211-67\n    course_name: ภาษาจีนธุรกิจ III\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01396312-67\n    course_name: ภาษาจีนธุรกิจ VI\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01396382-67\n    course_name: ภาษาและวัฒนธรรมในองค์กรจีน\n    learning_outcomes[2]: อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้,อธิบายและเชื่อมโยงแนวคิดด้านสังคม เศรษฐกิจและวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01396242-67\n    course_name: สนทนาภาษาจีนธุรกิจ IV\n    learning_outcomes[3]: วิเคราะห์ประโยคที่ใช้สื่อสาร  ทางธุรกิจได้,สาธิตการใช้ประโยคตาม  สถานการณ์ที่ได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้อง  กับการสนทนาทางธุรกิจได้\n  -\n    course_code: 01396241-67\n    course_name: สนทนาภาษาจีนธุรกิจ III\n    learning_outcomes[3]: วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้,สาธิตการใช้ประโยคตามสถานการณ์ที่ได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการสนทนาทางธุรกิจได้\n  -\n    course_code: 01396342-67\n    course_name: สนทนาภาษาจีนธุรกิจ VI\n    learning_outcomes[3]: วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้,สาธิตการใช้ประโยคตามสถานการณ์ที่ได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการสนทนาทางธุรกิจได้\n  -\n    course_code: 01396322-67\n    course_name: งานประพันธ์จีน II\n    learning_outcomes[2]: มีความรู้เกี่ยวกับงานประพันธ์จีนโดยเฉพาะนำมาเชื่อมโยงกับภาษาที่ใช้การทำธุรกิจ,มีความเข้าใจวัฒนธรรมจีนและความเป็นจีน สามารถนำมาประยุกต์กับจริยธรรมในทางวิชาการและวิชาชีพได้\n  -\n    course_code: 01396281-67\n    course_name: ภาษาจีนเชิงสังคมและวัฒนธรรม\n    learning_outcomes[2]: ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้,ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้\n  -\n    course_code: 01396323-67\n    course_name: การอ่านภาษาจีนผ่านสื่อสารสนเทศ\n    learning_outcomes[3]: อธิบายและสรุปจับใจความสำคัญได้,วิเคราะห์และเชื่อมโยงแนวคิดด้านสังคม วัฒนธรรมและธุรกิจจีนได้,นำเสนอหน้าชั้นเรียนโดยใช้เทคโนโลยีสารสนเทศได้\n  -\n    course_code: 01362571-66\n    course_name: ภาษาศาสตร์ภาษาจีน\n    learning_outcomes[3]: เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน,สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้,สามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้\n  -\n    course_code: 01362111-68\n    course_name: ภาษาจีนพื้นฐาน I\n    learning_outcomes[3]: อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้,ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้,แปลประโยคภาษาจีนพื้นฐานได้\n  -\n    course_code: 01396221-67\n    course_name: การอ่านภาษาจีนเพื่องานอาชีพ I\n    learning_outcomes[2]: อธิบายและสรุปจับใจความสำคัญได้,อธิบายและเชื่อมโยงแนวคิดด้านสังคม เศรษฐกิจและวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01362201-67\n    course_name: ภาษาจีน III\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362101-67\n    course_name: ภาษาจีน I\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362102-67\n    course_name: ภาษาจีน II\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362301-67\n    course_name: ภาษาจีน V\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362202-67\n    course_name: ภาษาจีน IV\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n",
+        "promptVersion": "v5"
+      },
+      "การใช้เทคโนโลยีในการเรียนภาษาจีน": {
+        "model": "openai/gpt-4.1-nano",
+        "provider": "OpenRouter",
+        "systemPrompt": "\nYou are a precise course relevance evaluator.\nYour task is to score courses based on their alignment with the user's question context and specified skill.\n\nInstructions:\n1. Evaluate each course based on BOTH the course name AND learning outcomes\n2. Assign a score from 0-3 according to the rubric\n3. Provide a concise reason explaining your score\n4. Be strict in your evaluation - learning outcomes are PRIMARY evidence\n5. Course name is SECONDARY evidence but still important for context\n6. For any score above 0, the course must demonstrate at least implicit coverage or application of the required skill, as evidenced by its learning outcomes.\n\nScoring Rubric:\n\nScore 3 (Strong Alignment):\n- Course learning outcomes strongly and explicitly address the required skill.\n- The course context (topic, domain, application focus) clearly aligns with the user's question intent.\n- The skill is a core focus, not incidental.\nThis course directly helps the user achieve what they are explicit or implicit asking for.\n\nScore 2 (Moderate Alignment):\n- At least one learning outcome meaningfully addresses the required skill.\n- The course context is generally aligned, but the skill is not the primary focus.\n- Other learning outcomes are broader, foundational, or only partially relevant.\nThis course is useful background or partial preparation for the user's explicit or implicit needs.\n\nScore 1 (Weak or Contextual Misalignment):\n- At least one learning outcome mentions or uses the required skill.\n- The course context does not align with the user's question intent.\n- The skill is applied in a different domain or for a different purpose.\nThe skill exists, but the course helps in a different situation than what the user explicit or implicit asked for.\n\nScore 0 (Total Mismatch):\n- The required skill is not meaningfully covered in the learning outcomes.\n- The course context is clearly unrelated to the user's question.\nThis course does not help with the user's explicit or implicit needs.\n\nOutput Format:\nRespond in the following JSON format:\n{\n  \"courses\": [\n    {\n      \"course_code\": \"<Course Code>\",\n      \"course_name\": \"<Course Name>\",\n      \"score\": <0|1|2|3>,\n      \"reason\": \"<Concise sentence explaining the score>\"\n    }\n  ]\n}\n",
+        "userPrompt": "\nEvaluate the relevance of the following courses using the scoring rubric.\n\nUser Question:\nสนใจภาษาจีน เริ่มยังไงดี\n\nSkill:\nการใช้เทคโนโลยีในการเรียนภาษาจีน\n\nCourses:\n[12]:\n  -\n    course_code: 01396281-67\n    course_name: ภาษาจีนเชิงสังคมและวัฒนธรรม\n    learning_outcomes[2]: ฟัง พูด อ่านและเขียนภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมได้,ใช้เทคโนโลยีในการแสวงหาข้อมูลภาษาจีนที่เกี่ยวข้องกับสังคมและวัฒนธรรมและนำเสนอเได้\n  -\n    course_code: 01362111-68\n    course_name: ภาษาจีนพื้นฐาน I\n    learning_outcomes[3]: อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้,ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้,แปลประโยคภาษาจีนพื้นฐานได้\n  -\n    course_code: 01362571-66\n    course_name: ภาษาศาสตร์ภาษาจีน\n    learning_outcomes[3]: เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน,สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้,สามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้\n  -\n    course_code: 02198232-67\n    course_name: เทคโนโลยีเพื่อการจัดการเรียนรู้\n    learning_outcomes[4]: อธิบายแนวคิด ทฤษฎีที่เกี่ยวข้องกับสื่อ นวัตกรรม และเทคโนโลยีสารสนเทศเพื่อการเรียนรู้,ใช้เทคโนโลยีเพื่อประโยชน์ทางด้านการพัฒนาคุณภาพการจัดเรียนรู้,ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า,รวบรวมและใช้เทคโนโลยีดิจิทัลเพื่อการเรียนรู้ในรูปแบบออนไลน์ ออนไซด์ และผสมผสาน\n  -\n    course_code: 01358562-66\n    course_name: การสอนไวยากรณ์ภาษาญี่ปุ่น\n    learning_outcomes[5]: แสดงออกถึงความซื่อสัตย์ทางวิชาการในด้านการสอนไวยากรณ์ภาษาญี่ปุ่น,กำหนดโจทย์ปัญหาเกี่ยวกับการสอนไวยากรณ์ภาษาญี่ปุ่น,ใช้เทคโนโลยีสารสนเทศเพื่อค้นคว้าข้อมูลเกี่ยวกับการสอนไวยากรณ์ภาษาญี่ปุ่น,ใช้เครื่องมือในการสร้างกระบวนวิจัยในด้านการสอนภาษาญี่ปุ่น,เรียนรู้เพื่อพัฒนาตนเองในด้านการสอนไวยากรณ์ภาษาญี่ปุ่น\n  -\n    course_code: 01396211-67\n    course_name: ภาษาจีนธุรกิจ III\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01396312-67\n    course_name: ภาษาจีนธุรกิจ VI\n    learning_outcomes[3]: วิเคราะห์โครงสร้างและหลักไวยากรณ์,สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้,อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้\n  -\n    course_code: 01362201-67\n    course_name: ภาษาจีน III\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362101-67\n    course_name: ภาษาจีน I\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362102-67\n    course_name: ภาษาจีน II\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362301-67\n    course_name: ภาษาจีน V\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n  -\n    course_code: 01362202-67\n    course_name: ภาษาจีน IV\n    learning_outcomes[3]: สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง,สามารถเขียนอักษรจีนได้,สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้\n",
+        "promptVersion": "v5"
+      }
+    },
+    "totalTokenUsage": {
+      "input": 9287,
+      "output": 4015,
+      "total": 13302
+    },
+    "tokenUsageBySkill": {
+      "การเรียนรู้ภาษาจีน": {
+        "input": 1633,
+        "total": 2335,
+        "output": 702
+      },
+      "การฟังและพูดภาษาจีน": {
+        "input": 2070,
+        "total": 2826,
+        "output": 756
+      },
+      "การอ่านและเขียนอักษรจีน": {
+        "input": 1573,
+        "total": 2247,
+        "output": 674
+      },
+      "วัฒนธรรมจีน": {
+        "input": 2207,
+        "total": 3365,
+        "output": 1158
+      },
+      "การใช้เทคโนโลยีในการเรียนภาษาจีน": {
+        "input": 1804,
+        "total": 2529,
+        "output": 725
+      }
+    },
+    "metricsBySkill": {
+      "การเรียนรู้ภาษาจีน": {
+        "inputCount": 12,
+        "acceptedCount": 11,
+        "rejectedCount": 1,
+        "missingCount": 0,
+        "llmDecisionRate": 1,
+        "llmRejectionRate": 0.08333333333333333,
+        "llmFallbackRate": 0,
+        "scoreDistribution": {
+          "score1": 4,
+          "score2": 7,
+          "score3": 0
+        },
+        "avgScore": 1.636363636363636,
+        "stepId": "584b69ba-73b1-4c45-a017-5130ebcb46c1"
+      },
+      "การฟังและพูดภาษาจีน": {
+        "inputCount": 16,
+        "acceptedCount": 14,
+        "rejectedCount": 1,
+        "missingCount": 1,
+        "llmDecisionRate": 0.9375,
+        "llmRejectionRate": 0.06666666666666667,
+        "llmFallbackRate": 0.0625,
+        "scoreDistribution": {
+          "score1": 6,
+          "score2": 6,
+          "score3": 2
+        },
+        "avgScore": 1.714285714285714,
+        "stepId": "584b69ba-73b1-4c45-a017-5130ebcb46c1"
+      },
+      "การอ่านและเขียนอักษรจีน": {
+        "inputCount": 11,
+        "acceptedCount": 10,
+        "rejectedCount": 1,
+        "missingCount": 0,
+        "llmDecisionRate": 1,
+        "llmRejectionRate": 0.09090909090909091,
+        "llmFallbackRate": 0,
+        "scoreDistribution": {
+          "score1": 3,
+          "score2": 1,
+          "score3": 6
+        },
+        "avgScore": 2.3,
+        "stepId": "584b69ba-73b1-4c45-a017-5130ebcb46c1"
+      },
+      "วัฒนธรรมจีน": {
+        "inputCount": 18,
+        "acceptedCount": 18,
+        "rejectedCount": 0,
+        "missingCount": 0,
+        "llmDecisionRate": 1,
+        "llmRejectionRate": 0,
+        "llmFallbackRate": 0,
+        "scoreDistribution": {
+          "score1": 1,
+          "score2": 11,
+          "score3": 6
+        },
+        "avgScore": 2.277777777777778,
+        "stepId": "584b69ba-73b1-4c45-a017-5130ebcb46c1"
+      },
+      "การใช้เทคโนโลยีในการเรียนภาษาจีน": {
+        "inputCount": 12,
+        "acceptedCount": 2,
+        "rejectedCount": 10,
+        "missingCount": 0,
+        "llmDecisionRate": 1,
+        "llmRejectionRate": 0.8333333333333334,
+        "llmFallbackRate": 0,
+        "scoreDistribution": {
+          "score1": 0,
+          "score2": 1,
+          "score3": 1
+        },
+        "avgScore": 2.5,
+        "stepId": "584b69ba-73b1-4c45-a017-5130ebcb46c1"
+      }
+    }
+  }
+]

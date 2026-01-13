@@ -1,0 +1,111 @@
+import { Injectable } from '@nestjs/common';
+
+import { IEmbeddingClient } from '../contracts/i-embedding-client.contract';
+
+export type EmbedOneParams = {
+  text: string;
+  role?: 'query' | 'passage';
+};
+
+export type EmbedManyParams = {
+  texts: string[];
+  role?: 'query' | 'passage';
+};
+
+export type EmbeddingResultMetadata = {
+  model: string;
+  provider: string;
+  dimension: number;
+  embeddedText: string; // The text that was embedded
+  generatedAt: string;
+  promptTokens?: number; // Input tokens
+  totalTokens?: number; // Total tokens (prompt + completion, though embeddings have no completion)
+};
+
+export type EmbedResult = {
+  vector: number[];
+  metadata: EmbeddingResultMetadata;
+};
+
+@Injectable()
+export abstract class BaseEmbeddingClient implements IEmbeddingClient {
+  constructor(
+    protected readonly model: string,
+    protected readonly provider: string,
+    protected readonly dimension: number,
+  ) {
+    // Validation is now handled by the registry/router, not here
+  }
+
+  /**
+   * Embeds a single text into its corresponding vector.
+   * @param params - Parameters for embedding one text.
+   * @returns - The embedding result containing the vector and metadata.
+   */
+  async embedOne(params: EmbedOneParams): Promise<EmbedResult> {
+    // Default 30 second timeout for embedding operations
+    const timeoutMs = 30_000;
+    return Promise.race([
+      this.doEmbedOne({
+        text: params.text,
+        role: params.role,
+      }),
+      new Promise<never>((_, reject) =>
+        setTimeout(
+          () =>
+            reject(
+              new Error(`Embedding request timed out after ${timeoutMs}ms`),
+            ),
+          timeoutMs,
+        ),
+      ),
+    ]);
+  }
+
+  /**
+   * Embeds multiple texts into their corresponding vectors.
+   * @param params - Parameters for embedding many texts.
+   * @returns - An array of embedding results containing vectors and metadata.
+   */
+  async embedMany(params: EmbedManyParams): Promise<EmbedResult[]> {
+    // Default 30 second timeout for embedding operations
+    const timeoutMs = 30_000;
+    return Promise.race([
+      this.doEmbedMany({
+        texts: params.texts,
+        role: params.role,
+      }),
+      new Promise<never>((_, reject) =>
+        setTimeout(
+          () =>
+            reject(
+              new Error(`Embedding request timed out after ${timeoutMs}ms`),
+            ),
+          timeoutMs,
+        ),
+      ),
+    ]);
+  }
+
+  protected abstract doEmbedOne(params: EmbedOneParams): Promise<EmbedResult>;
+
+  protected abstract doEmbedMany(
+    params: EmbedManyParams,
+  ): Promise<EmbedResult[]>;
+
+  protected buildMetadata(
+    embeddedText: string,
+    promptTokens?: number,
+    totalTokens?: number,
+  ): EmbeddingResultMetadata {
+    return {
+      model: this.model,
+      provider: this.provider,
+      dimension: this.dimension,
+      generatedAt: new Date().toISOString(),
+      embeddedText,
+      promptTokens,
+      totalTokens,
+    };
+  }
+}

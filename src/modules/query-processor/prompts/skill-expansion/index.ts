@@ -1,23 +1,23 @@
 import {
   EXPAND_SKILL_SYSTEM_PROMPT_V2,
   getExpandSkillUserPromptV2,
-} from './expand-skill-v2.prompt';
+} from './archives/expand-skill-v2.prompt';
 import {
   EXPAND_SKILL_SYSTEM_PROMPT_V4,
   getExpandSkillUserPromptV4,
-} from './expand-skill-v4.prompt';
+} from './archives/expand-skill-v4.prompt';
 import {
   EXPAND_SKILL_SYSTEM_PROMPT_V5,
   getExpandSkillUserPromptV5,
-} from './expand-skill-v5.prompt';
+} from './archives/expand-skill-v5.prompt';
 import {
   EXPAND_SKILL_SYSTEM_PROMPT_V7,
   getExpandSkillUserPromptV7,
-} from './expand-skill-v7.prompt';
+} from './archives/expand-skill-v7.prompt';
 import {
   EXPAND_SKILL_SYSTEM_PROMPT_V8,
   getExpandSkillUserPromptV8,
-} from './expand-skill-v8.prompt';
+} from './archives/expand-skill-v8.prompt';
 import {
   EXPAND_SKILL_SYSTEM_PROMPT_V9,
   getExpandSkillUserPromptV9,

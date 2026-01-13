@@ -8,7 +8,7 @@
     "overallRecall": 0.9787037037037036,
     "macroPrecision": 0.9743589743589745,
     "macroRecall": 0.9787037037037036,
-    "timestamp": "2025-12-24T07:19:28.638Z"
+    "timestamp": "2026-01-13T09:10:36.412Z"
   },
   "classMetrics": [
     {
@@ -20,7 +20,7 @@
       "recall": 0.9861111111111112,
       "macroPrecision": 1,
       "macroRecall": 0.9861111111111112,
-      "timestamp": "2025-12-24T07:19:28.638Z"
+      "timestamp": "2026-01-13T09:10:36.411Z"
     },
     {
       "classLabel": "irrelevant",
@@ -31,7 +31,7 @@
       "recall": 1,
       "macroPrecision": 0.9230769230769231,
       "macroRecall": 1,
-      "timestamp": "2025-12-24T07:19:28.638Z"
+      "timestamp": "2026-01-13T09:10:36.411Z"
     },
     {
       "classLabel": "dangerous",
@@ -42,7 +42,7 @@
       "recall": 0.95,
       "macroPrecision": 1,
       "macroRecall": 0.95,
-      "timestamp": "2025-12-24T07:19:28.638Z"
+      "timestamp": "2026-01-13T09:10:36.412Z"
     }
   ],
   "macroMetrics": [
@@ -50,7 +50,7 @@
       "iteration": 1,
       "macroPrecision": 0.9743589743589745,
       "macroRecall": 0.9787037037037036,
-      "timestamp": "2025-12-24T07:19:28.638Z",
+      "timestamp": "2026-01-13T09:10:36.412Z",
       "classBreakdown": [
         {
           "className": "relevant",

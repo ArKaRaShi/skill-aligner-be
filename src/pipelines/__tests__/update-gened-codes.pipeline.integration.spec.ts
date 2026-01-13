@@ -1,9 +1,11 @@
+import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
+import { FileHelper } from 'src/shared/utils/file';
 import { v4 as uuidv4 } from 'uuid';
 
-import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import { ProcessedGenEdRow } from 'src/modules/course/pipelines/types/raw-gened-row.type';
 
 import { UpdateGenEdCodesPipeline } from '../update-gened-codes.pipeline';
@@ -68,7 +70,12 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
 
   beforeAll(async () => {
     moduleRef = await Test.createTestingModule({
-      providers: [UpdateGenEdCodesPipeline, PrismaService],
+      providers: [
+        UpdateGenEdCodesPipeline,
+        PrismaService,
+        AppConfigService,
+        ConfigService,
+      ],
     }).compile();
 
     pipeline = moduleRef.get(UpdateGenEdCodesPipeline);

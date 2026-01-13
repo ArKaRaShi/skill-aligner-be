@@ -1,4 +1,4 @@
-import { EmbeddingMetadata } from 'src/shared/adapters/embedding/clients';
+import { EmbeddingUsage } from 'src/shared/contracts/types/embedding-usage.type';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
@@ -14,7 +14,10 @@ export type AcademicYearSemesterFilter = {
 
 export type FindLosBySkillsParams = {
   skills: string[];
-  embeddingConfiguration: EmbeddingMetadata;
+  embeddingConfiguration: {
+    model: string;
+    provider: string;
+  };
   threshold?: number;
   topN?: number;
   campusId?: Identifier;
@@ -23,11 +26,18 @@ export type FindLosBySkillsParams = {
   academicYearSemesters?: AcademicYearSemesterFilter[];
 };
 
+type Skill = string;
+
+export type FindLosBySkillsOutput = {
+  losBySkill: Map<Skill, MatchedLearningOutcome[]>;
+  embeddingUsage: EmbeddingUsage;
+};
+
 export interface ICourseLearningOutcomeRepository {
   /**
    * Find learning outcomes by multiple skills via semantic search.
    * @param params The parameters for finding learning outcomes.
-   * @returns A map where the key is the skill and the value is an array of learning outcome matches.
+   * @returns Learning outcomes grouped by skill, plus embedding usage metadata per skill and aggregated usage.
    */
   findLosBySkills({
     skills,
@@ -40,5 +50,5 @@ export interface ICourseLearningOutcomeRepository {
     facultyId,
     isGenEd,
     academicYearSemesters,
-  }: FindLosBySkillsParams): Promise<Map<string, MatchedLearningOutcome[]>>;
+  }: FindLosBySkillsParams): Promise<FindLosBySkillsOutput>;
 }

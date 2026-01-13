@@ -8,6 +8,7 @@
   },
   "testMatch": ["<rootDir>/**/*.spec.ts"],
   "testPathIgnorePatterns": ["/node_modules/", "\\.integration\\.spec\\.ts$"],
+  "setupFilesAfterEnv": ["<rootDir>/test/jest.unit.setup.ts"],
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
   },

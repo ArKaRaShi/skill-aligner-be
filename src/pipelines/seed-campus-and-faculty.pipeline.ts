@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
+import { FileHelper } from 'src/shared/utils/file';
 import { v4 as uuidv4 } from 'uuid';
 
-import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import { CleanCourseWithCLO } from 'src/modules/course/pipelines/types/clean-course.type';
 
 export type CampusFacultyMap = Map<
@@ -146,7 +146,7 @@ export class SeedCampusAndFacultyPipeline {
   }) {
     const cleanedCoursesWithCLO: CleanCourseWithCLO[] =
       await FileHelper.loadLatestJson<CleanCourseWithCLO[]>(
-        'src/modules/course/pipelines/data/cleaned/valid_courses_with_clo',
+        'src/modules/course/pipelines/data/cleaned/clean_courses_with_clo',
       );
 
     if (deleteExisting) {

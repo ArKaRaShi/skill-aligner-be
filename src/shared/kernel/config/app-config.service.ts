@@ -53,11 +53,18 @@ export class AppConfigService {
     );
   }
 
-  get embeddingProvider(): 'e5' | 'openai' | 'openrouter' {
+  get embeddingModel(): string {
+    return (
+      this.configService.get<string>('EMBEDDING_MODEL') ??
+      AppConfigDefault.EMBEDDING_MODEL
+    );
+  }
+
+  get embeddingProvider(): 'local' | 'openai' | 'openrouter' {
     const embeddingProvider =
       this.configService.get<string>('EMBEDDING_PROVIDER') ??
       AppConfigDefault.EMBEDDING_PROVIDER;
-    return embeddingProvider as 'e5' | 'openai' | 'openrouter';
+    return embeddingProvider as 'local' | 'openai' | 'openrouter';
   }
 
   get questionClassifierLlmModel(): string {
@@ -138,6 +145,20 @@ export class AppConfigService {
     return (
       this.configService.get<string>('COURSE_RELEVANCE_FILTER_LLM_MODEL') ??
       AppConfigDefault.COURSE_RELEVANCE_FILTER_LLM_MODEL
+    );
+  }
+
+  get questionExtractionLlmModel(): string {
+    return (
+      this.configService.get<string>('QUESTION_EXTRACTION_LLM_MODEL') ??
+      AppConfigDefault.QUESTION_EXTRACTION_LLM_MODEL
+    );
+  }
+
+  get courseRetrieverEvaluatorLlmModel(): string {
+    return (
+      this.configService.get<string>('COURSE_RETRIEVER_EVALUATOR_LLM_MODEL') ??
+      AppConfigDefault.COURSE_RETRIEVER_EVALUATOR_LLM_MODEL
     );
   }
 

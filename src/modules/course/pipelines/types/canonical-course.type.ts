@@ -1,10 +1,10 @@
-type CanonicalCLO = {
+export type CanonicalCLO = {
   cloNo: number;
   cloNameTh: string;
   cloId?: string; // optional if DB will generate
 };
 
-type CanonicalCourse = {
+export type CanonicalCourse = {
   campusCode: string;
   facultyCode: string;
   academicYear: number;

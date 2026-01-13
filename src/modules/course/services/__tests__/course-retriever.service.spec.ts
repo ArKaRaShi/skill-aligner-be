@@ -1,20 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import {
-  I_LLM_ROUTER_SERVICE_TOKEN,
-  ILlmRouterService,
-} from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
+import { ILlmRouterService } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { Identifier } from 'src/shared/contracts/types/identifier';
-import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import {
-  I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
+  FindLosBySkillsOutput,
   ICourseLearningOutcomeRepository,
 } from '../../contracts/i-course-learning-outcome-repository.contract';
-import {
-  I_COURSE_REPOSITORY_TOKEN,
-  ICourseRepository,
-} from '../../contracts/i-course-repository.contract';
+import { ICourseRepository } from '../../contracts/i-course-repository.contract';
 import { FindCoursesWithLosBySkillsWithFilterParams } from '../../contracts/i-course-retriever-service.contract';
 import {
   LearningOutcome,
@@ -70,12 +63,6 @@ const buildCourse = (overrides: Partial<Course> = {}): Course => ({
   ...overrides,
 });
 
-const embeddingConfiguration = {
-  model: 'e5-base',
-  provider: 'e5',
-  dimension: 768,
-} as const;
-
 describe('CourseRetrieverService', () => {
   let service: CourseRetrieverService;
   let courseRepository: jest.Mocked<ICourseRepository>;
@@ -100,20 +87,21 @@ describe('CourseRetrieverService', () => {
       }),
     } as Partial<jest.Mocked<ILlmRouterService>>;
 
-    const mockAppConfigService = {
-      filterLoLlmModel: jest.fn().mockReturnValue('gpt-4'),
-    };
-
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        CourseRetrieverService,
-        { provide: I_COURSE_REPOSITORY_TOKEN, useValue: courseRepository },
         {
-          provide: I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
-          useValue: loRepository,
+          provide: CourseRetrieverService,
+          useFactory: () => {
+            return new CourseRetrieverService(
+              courseRepository,
+              loRepository,
+              mockLlmRouter as jest.Mocked<ILlmRouterService>,
+              'e5-base', // embeddingModel
+              'local', // embeddingProvider (optional, but we provide it)
+              'gpt-4', // filterLoLlmModel
+            );
+          },
         },
-        { provide: I_LLM_ROUTER_SERVICE_TOKEN, useValue: mockLlmRouter },
-        { provide: AppConfigService, useValue: mockAppConfigService },
       ],
     }).compile();
 
@@ -122,7 +110,6 @@ describe('CourseRetrieverService', () => {
 
   const baseParams: FindCoursesWithLosBySkillsWithFilterParams = {
     skills: ['skill1', 'skill2'],
-    embeddingConfiguration,
     loThreshold: 0.5,
     topNLos: 10,
     enableLlmFilter: false,
@@ -130,17 +117,43 @@ describe('CourseRetrieverService', () => {
 
   describe('getCoursesWithLosBySkillsWithFilter', () => {
     it('returns empty arrays per skill when no learning outcomes are found', async () => {
-      loRepository.findLosBySkills.mockResolvedValue(
-        new Map([
+      const mockOutput: FindLosBySkillsOutput = {
+        losBySkill: new Map([
           ['skill1', []],
           ['skill2', []],
         ]),
-      );
+        embeddingUsage: {
+          bySkill: [
+            {
+              skill: 'skill1',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill1',
+              generatedAt: new Date().toISOString(),
+              promptTokens: 0,
+              totalTokens: 0,
+            },
+            {
+              skill: 'skill2',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill2',
+              generatedAt: new Date().toISOString(),
+              promptTokens: 0,
+              totalTokens: 0,
+            },
+          ],
+          totalTokens: 0,
+        },
+      };
+      loRepository.findLosBySkills.mockResolvedValue(mockOutput);
 
       const result =
         await service.getCoursesWithLosBySkillsWithFilter(baseParams);
 
-      expect(result).toEqual(
+      expect(result.coursesBySkill).toEqual(
         new Map([
           ['skill1', []],
           ['skill2', []],
@@ -149,6 +162,82 @@ describe('CourseRetrieverService', () => {
       expect(
         courseRepository.findCourseByLearningOutcomeIds,
       ).not.toHaveBeenCalled();
+    });
+
+    it('passes through embedding usage metadata from repository', async () => {
+      const lo1 = buildMatchedLearningOutcome({
+        loId: 'lo-1' as Identifier,
+        similarityScore: 0.9,
+      });
+
+      const mockOutput: FindLosBySkillsOutput = {
+        losBySkill: new Map([
+          ['skill1', [lo1]],
+          ['skill2', []],
+        ]),
+        embeddingUsage: {
+          bySkill: [
+            {
+              skill: 'skill1',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill1',
+              generatedAt: '2024-01-01T00:00:00.000Z',
+              promptTokens: 5,
+              totalTokens: 5,
+            },
+            {
+              skill: 'skill2',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill2',
+              generatedAt: '2024-01-01T00:00:01.000Z',
+              promptTokens: 6,
+              totalTokens: 6,
+            },
+          ],
+          totalTokens: 11,
+        },
+      };
+      loRepository.findLosBySkills.mockResolvedValue(mockOutput);
+
+      const course = buildCourse({
+        courseLearningOutcomes: [
+          buildLearningOutcome({ loId: 'lo-1' as Identifier }),
+        ],
+      });
+
+      courseRepository.findCourseByLearningOutcomeIds.mockResolvedValue(
+        new Map<Identifier, Course[]>([['lo-1' as Identifier, [course]]]),
+      );
+
+      const result =
+        await service.getCoursesWithLosBySkillsWithFilter(baseParams);
+
+      // Verify embedding metadata is passed through correctly
+      expect(result.embeddingUsage.bySkill).toHaveLength(2);
+      expect(result.embeddingUsage.bySkill[0]).toEqual({
+        skill: 'skill1',
+        model: 'e5-base',
+        provider: 'e5',
+        dimension: 768,
+        embeddedText: 'skill1',
+        generatedAt: '2024-01-01T00:00:00.000Z',
+        promptTokens: 5,
+        totalTokens: 5,
+      });
+      expect(result.embeddingUsage.bySkill[1]).toEqual({
+        skill: 'skill2',
+        model: 'e5-base',
+        provider: 'e5',
+        dimension: 768,
+        embeddedText: 'skill2',
+        generatedAt: '2024-01-01T00:00:01.000Z',
+        promptTokens: 6,
+        totalTokens: 6,
+      });
     });
 
     it('aggregates courses by skill and merges matched learning outcomes per course', async () => {
@@ -161,12 +250,38 @@ describe('CourseRetrieverService', () => {
         similarityScore: 0.8,
       });
 
-      loRepository.findLosBySkills.mockResolvedValue(
-        new Map([
+      const mockOutput: FindLosBySkillsOutput = {
+        losBySkill: new Map([
           ['skill1', [lo1, lo2]],
           ['skill2', []],
         ]),
-      );
+        embeddingUsage: {
+          bySkill: [
+            {
+              skill: 'skill1',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill1',
+              generatedAt: new Date().toISOString(),
+              promptTokens: 0,
+              totalTokens: 0,
+            },
+            {
+              skill: 'skill2',
+              model: 'e5-base',
+              provider: 'e5',
+              dimension: 768,
+              embeddedText: 'skill2',
+              generatedAt: new Date().toISOString(),
+              promptTokens: 0,
+              totalTokens: 0,
+            },
+          ],
+          totalTokens: 0,
+        },
+      };
+      loRepository.findLosBySkills.mockResolvedValue(mockOutput);
 
       const course = buildCourse({
         courseLearningOutcomes: [
@@ -185,7 +300,7 @@ describe('CourseRetrieverService', () => {
       const result =
         await service.getCoursesWithLosBySkillsWithFilter(baseParams);
 
-      const matches = result.get('skill1');
+      const matches = result.coursesBySkill.get('skill1');
       expect(matches).toHaveLength(1);
 
       const [courseMatch] = matches as CourseWithLearningOutcomeV2Match[];

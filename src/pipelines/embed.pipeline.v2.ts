@@ -2,12 +2,10 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { Prisma } from '@prisma/client';
 
-import {
-  E5EmbeddingClient,
-  OpenRouterEmbeddingClient,
-} from 'src/shared/adapters/embedding/clients';
-import type { EmbedResult } from 'src/shared/adapters/embedding/clients/base-embedding.client';
-import { initSemanticsHttpClient } from 'src/shared/adapters/http/semantics-http-client';
+import type { EmbedResult } from 'src/shared/adapters/embedding/providers/base-embedding-provider.abstract';
+import { LocalEmbeddingProvider } from 'src/shared/adapters/embedding/providers/local-embedding.provider';
+import { OpenRouterEmbeddingProvider } from 'src/shared/adapters/embedding/providers/openrouter-embedding.provider';
+import { initSemanticsHttpClient } from 'src/shared/adapters/embedding/utils/semantics-http-client';
 import { EmbeddingMetadataJson } from 'src/shared/contracts/types/stored-embedding-metadata.type';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
@@ -256,15 +254,15 @@ export class EmbedPipelineV2 {
     }
   }
 
-  private getE5EmbeddingClient(): E5EmbeddingClient {
+  private getE5EmbeddingClient(): LocalEmbeddingProvider {
     const semanticsClient = initSemanticsHttpClient({
       baseURL: this.appConfigService.semanticsApiBaseUrl,
     });
-    return new E5EmbeddingClient({ client: semanticsClient });
+    return new LocalEmbeddingProvider({ client: semanticsClient });
   }
 
-  private getOpenRouterEmbeddingClient(): OpenRouterEmbeddingClient {
-    return new OpenRouterEmbeddingClient({
+  private getOpenRouterEmbeddingClient(): OpenRouterEmbeddingProvider {
+    return new OpenRouterEmbeddingProvider({
       apiKey: this.appConfigService.openRouterApiKey,
     });
   }

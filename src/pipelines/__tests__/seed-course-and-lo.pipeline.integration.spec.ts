@@ -1,5 +1,7 @@
+import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
 import { CleanCourseWithCLO } from 'src/modules/course/pipelines/types/clean-course.type';
@@ -48,7 +50,12 @@ describe('SeedCourseAndLoPipeline (Integration)', () => {
   let prisma: PrismaService;
   beforeAll(async () => {
     moduleRef = await Test.createTestingModule({
-      providers: [SeedCourseAndLoPipeline, PrismaService],
+      providers: [
+        SeedCourseAndLoPipeline,
+        PrismaService,
+        AppConfigService,
+        ConfigService,
+      ],
     }).compile();
 
     pipeline = moduleRef.get(SeedCourseAndLoPipeline);
@@ -221,9 +228,7 @@ describe('SeedCourseAndLoPipeline (Integration)', () => {
       await seedTestData();
 
       // Mock FileHelper to return our test data
-      const { FileHelper } = await import(
-        'src/modules/course/pipelines/helpers/file.helper'
-      );
+      const { FileHelper } = await import('src/shared/utils/file');
       jest
         .spyOn(FileHelper, 'loadLatestJson')
         .mockResolvedValue(mockCleanCoursesWithCLO);
@@ -272,9 +277,7 @@ describe('SeedCourseAndLoPipeline (Integration)', () => {
       });
 
       // Mock FileHelper to return empty data
-      const { FileHelper } = await import(
-        'src/modules/course/pipelines/helpers/file.helper'
-      );
+      const { FileHelper } = await import('src/shared/utils/file');
       jest.spyOn(FileHelper, 'loadLatestJson').mockResolvedValue([]);
 
       await pipeline.execute({
@@ -291,9 +294,7 @@ describe('SeedCourseAndLoPipeline (Integration)', () => {
       await seedTestData();
 
       // Mock FileHelper to return test data
-      const { FileHelper } = await import(
-        'src/modules/course/pipelines/helpers/file.helper'
-      );
+      const { FileHelper } = await import('src/shared/utils/file');
       jest
         .spyOn(FileHelper, 'loadLatestJson')
         .mockResolvedValue(mockCleanCoursesWithCLO);

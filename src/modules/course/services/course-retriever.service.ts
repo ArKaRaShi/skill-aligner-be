@@ -1,11 +1,10 @@
-import { Inject, Injectable, Logger } from '@nestjs/common';
+import { Inject, Injectable, Logger, Optional } from '@nestjs/common';
 
 import { encode } from '@toon-format/toon';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
@@ -16,6 +15,7 @@ import {
   ICourseRepository,
 } from '../contracts/i-course-repository.contract';
 import {
+  CourseRetrieverOutput,
   FindCoursesWithLosBySkillsWithFilterParams,
   ICourseRetrieverService,
 } from '../contracts/i-course-retriever-service.contract';
@@ -37,12 +37,13 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     private readonly courseLearningOutcomeRepository: ICourseLearningOutcomeRepository,
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
     private readonly llmRouter: ILlmRouterService,
-    private readonly appConfigService: AppConfigService,
+    private readonly embeddingModel: string,
+    @Optional() private readonly embeddingProvider: string = 'local',
+    private readonly filterLoLlmModel: string,
   ) {}
 
   async getCoursesWithLosBySkillsWithFilter({
     skills,
-    embeddingConfiguration,
     loThreshold,
     topNLos,
     enableLlmFilter,
@@ -50,13 +51,15 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     facultyId,
     isGenEd,
     academicYearSemesters,
-  }: FindCoursesWithLosBySkillsWithFilterParams): Promise<
-    Map<string, CourseWithLearningOutcomeV2Match[]>
-  > {
-    let learningOutcomesBySkills =
+  }: FindCoursesWithLosBySkillsWithFilterParams): Promise<CourseRetrieverOutput> {
+    this.logger.debug(`Retrieving courses for skills: ${skills.join(', ')}`);
+    const repositoryResult =
       await this.courseLearningOutcomeRepository.findLosBySkills({
         skills,
-        embeddingConfiguration,
+        embeddingConfiguration: {
+          model: this.embeddingModel,
+          provider: this.embeddingProvider,
+        },
         threshold: loThreshold,
         topN: topNLos,
         campusId,
@@ -64,14 +67,16 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         isGenEd,
         academicYearSemesters,
       });
+    let learningOutcomesBySkills = repositoryResult.losBySkill;
+    this.logger.debug(
+      `Retrieved learning outcomes for skills: ${[
+        ...learningOutcomesBySkills.keys(),
+      ].join(', ')}`,
+    );
 
     // Optionally filter non-relevant learning outcomes using LLM
     if (enableLlmFilter) {
-      this.logger.log(
-        `Filtering non-relevant learning outcomes using LLM for skills: ${[
-          ...learningOutcomesBySkills.keys(),
-        ].join(', ')}`,
-      );
+      this.logger.debug(`Filtering non-relevant learning outcomes using LLM`);
       learningOutcomesBySkills =
         await this.filterNonRelevantLearningOutcomesForSkills(
           learningOutcomesBySkills,
@@ -96,6 +101,9 @@ export class CourseRetrieverService implements ICourseRetrieverService {
       const learningOutcomeIds = learningOutcomes.map((lo) => lo.loId);
 
       // Retrieve courses by learning outcome IDs
+      this.logger.debug(
+        `Retrieving courses for skill: ${skill} with LO IDs: ${learningOutcomeIds.join(', ')}`,
+      );
       const coursesByLearningOutcomeIds =
         await this.courseRepository.findCourseByLearningOutcomeIds({
           learningOutcomeIds,
@@ -159,7 +167,12 @@ export class CourseRetrieverService implements ICourseRetrieverService {
       coursesBySkills.set(skill, sortedCourseMatches);
     }
 
-    return coursesBySkills;
+    this.logger.debug(`Completed course retrieval for all skills`);
+
+    return {
+      coursesBySkill: coursesBySkills,
+      embeddingUsage: repositoryResult.embeddingUsage,
+    };
   }
 
   /**
@@ -188,7 +201,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         prompt: getUserPrompt(skill, encodedLoList),
         systemPrompt: systemPrompt,
         schema: FilterLoSchema,
-        model: this.appConfigService.filterLoLlmModel,
+        model: this.filterLoLlmModel,
       });
 
       const filteredLos: FilterLoItem[] = object.learning_outcomes.map(

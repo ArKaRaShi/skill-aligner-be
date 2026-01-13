@@ -4,8 +4,7 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { QuestionSkillCache } from '../../cache/question-skill.cache';
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
@@ -51,39 +50,33 @@ export class SkillExpanderService implements ISkillExpanderService {
     const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const userPrompt = getUserPrompt(question);
 
-    const {
-      object: { skills },
-      inputTokens,
-      outputTokens,
-    } = await this.llmRouter.generateObject({
+    this.logger.log('[DEBUG] Calling llmRouter.generateObject...');
+    const result = await this.llmRouter.generateObject({
       prompt: userPrompt,
       systemPrompt,
       schema: SkillExpansionSchema,
       model: this.modelName,
     });
+    this.logger.log('[DEBUG] llmRouter.generateObject completed');
 
-    const tokenUsage: TokenUsage = {
-      model: this.modelName,
-      inputTokens,
-      outputTokens,
-    };
-
-    const llmInfo: LlmInfo = {
-      model: this.modelName,
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      result,
+      result.model,
       userPrompt,
       systemPrompt,
       promptVersion,
-    };
+      'SkillExpansionSchema',
+    );
 
-    const result: TSkillExpansion = {
-      skillItems: skills,
+    const expansionResult: TSkillExpansion = {
+      skillItems: this.deduplicateSkills(result.object.skills),
       llmInfo,
       tokenUsage,
     };
     if (this.useCache) {
-      this.cache.store(question, result);
+      this.cache.store(question, expansionResult);
     }
-    return result;
+    return expansionResult;
   }
 
   async expandSkillsV2(
@@ -95,53 +88,48 @@ export class SkillExpanderService implements ISkillExpanderService {
 
     const userPrompt = getUserPrompt(question);
 
-    const { object, inputTokens, outputTokens } =
-      await this.llmRouter.generateObject({
-        prompt: userPrompt,
-        systemPrompt,
-        schema: SkillExpansionV2Schema,
-        model: this.modelName,
-      });
-
-    const tokenUsage: TokenUsage = {
+    const result = await this.llmRouter.generateObject({
+      prompt: userPrompt,
+      systemPrompt,
+      schema: SkillExpansionV2Schema,
       model: this.modelName,
-      inputTokens,
-      outputTokens,
-    };
+    });
 
-    const llmInfo: LlmInfo = {
-      model: this.modelName,
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      result,
+      result.model,
       userPrompt,
       systemPrompt,
       promptVersion,
-    };
+      'SkillExpansionV2Schema',
+    );
 
-    const result: TSkillExpansionV2 = {
-      skillItems: object.skills.map((item) => ({
-        skill: item.skill,
-        learningOutcome: item.learning_outcome,
-        reason: item.reason,
-      })),
+    const expansionResultV2: TSkillExpansionV2 = {
+      skillItems: this.deduplicateSkills(
+        result.object.skills.map((item) => ({
+          skill: item.skill,
+          learningOutcome: item.learning_outcome,
+          reason: item.reason,
+        })),
+      ),
       llmInfo,
       tokenUsage,
     };
-    return result;
+    return expansionResultV2;
   }
 
-  private normalizeSkillName(name: string): string {
-    if (!name) {
-      return '';
+  private deduplicateSkills<T extends { skill: string }>(skills: T[]): T[] {
+    const seen = new Set<string>();
+    const uniqueSkills: T[] = [];
+
+    for (const skill of skills) {
+      const skillKey = skill.skill.toLowerCase();
+      if (!seen.has(skillKey)) {
+        seen.add(skillKey);
+        uniqueSkills.push(skill);
+      }
     }
 
-    const cleaned = name
-      .replace(/[^A-Za-z0-9\s]/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-
-    if (!cleaned) {
-      return '';
-    }
-
-    return cleaned.toLowerCase();
+    return uniqueSkills;
   }
 }

@@ -4,10 +4,13 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
-import { QueryProfileBuilderPromptFactory } from '../../prompts/query-profile-builder';
+import {
+  QueryProfileBuilderPromptFactory,
+  QueryProfileBuilderPromptVersion,
+} from '../../prompts/query-profile-builder';
 import { QueryProfileBuilderSchema } from '../../schemas/query-profile-builder.schema';
 import { QueryProfile } from '../../types/query-profile.type';
 
@@ -21,35 +24,39 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
     private readonly modelName: string,
   ) {}
 
-  async buildQueryProfile(query: string): Promise<QueryProfile> {
+  async buildQueryProfile(
+    query: string,
+    promptVersion: QueryProfileBuilderPromptVersion,
+  ): Promise<QueryProfile> {
     this.logger.log(`Building query profile for: "${query}"`);
 
     const { getPrompts } = QueryProfileBuilderPromptFactory();
-    const { getUserPrompt, systemPrompt } = getPrompts('v2');
+    const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
+    const userPrompt = getUserPrompt(query);
 
-    const {
-      object: profileData,
-      inputTokens,
-      outputTokens,
-    } = await this.llmRouter.generateObject({
-      prompt: getUserPrompt(query),
+    const result = await this.llmRouter.generateObject({
+      prompt: userPrompt,
       systemPrompt,
       schema: QueryProfileBuilderSchema,
       model: this.modelName,
     });
 
-    const tokenUsage: TokenUsage = {
-      model: this.modelName,
-      inputTokens,
-      outputTokens,
-    };
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      result,
+      result.model,
+      userPrompt,
+      systemPrompt,
+      promptVersion,
+      'QueryProfileBuilderSchema',
+    );
 
     this.logger.log(
-      `Generated query profile: ${JSON.stringify(profileData, null, 2)}`,
+      `Generated query profile: ${JSON.stringify(result.object, null, 2)}`,
     );
 
     return {
-      ...profileData,
+      ...result.object,
+      llmInfo,
       tokenUsage,
     };
   }

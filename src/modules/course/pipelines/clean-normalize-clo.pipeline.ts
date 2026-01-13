@@ -1,4 +1,5 @@
-import { FileHelper } from './helpers/file.helper';
+import { FileHelper } from 'src/shared/utils/file';
+
 import { CleanCourseWithCLO } from './types/clean-course.type';
 import { RawCourseWithCLOJsonRow } from './types/raw-course-row.type';
 
@@ -10,6 +11,8 @@ export class CleanNormalizeCLOPipeline {
     // Add subject codes to explicitly ignore here
     '02184251-67', // only contains LO name LLO1, LLO1, ..., no meaningful content
     '01140521-65', // only contain ทดสอบ
+    '01134432-65', // mostly vague and makes no sense
+    '03652141-66', // mostly vague and makes no sense
   ]);
 
   static async execute(): Promise<CleanCourseWithCLO[]> {

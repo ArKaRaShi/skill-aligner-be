@@ -3,13 +3,14 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 
 import {
-  I_EMBEDDING_CLIENT_TOKEN,
-  IEmbeddingClient,
-} from 'src/shared/adapters/embedding/contracts/i-embedding-client.contract';
-import { EmbeddingHelper } from 'src/shared/adapters/embedding/helpers/embedding.helper';
+  I_EMBEDDING_ROUTER_SERVICE_TOKEN,
+  IEmbeddingRouterService,
+} from 'src/shared/adapters/embedding/contracts/i-embedding-router-service.contract';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
+import { estimateTokens } from 'src/shared/utils/token-estimation.util';
 
 import {
+  FindLosBySkillsOutput,
   FindLosBySkillsParams,
   ICourseLearningOutcomeRepository,
 } from '../contracts/i-course-learning-outcome-repository.contract';
@@ -23,8 +24,8 @@ export class PrismaCourseLearningOutcomeRepository
 {
   constructor(
     private readonly prisma: PrismaService,
-    @Inject(I_EMBEDDING_CLIENT_TOKEN)
-    private readonly embeddingClient: IEmbeddingClient,
+    @Inject(I_EMBEDDING_ROUTER_SERVICE_TOKEN)
+    private readonly embeddingRouterService: IEmbeddingRouterService,
   ) {}
 
   async findLosBySkills({
@@ -36,47 +37,54 @@ export class PrismaCourseLearningOutcomeRepository
     facultyId,
     isGenEd,
     academicYearSemesters,
-  }: FindLosBySkillsParams): Promise<Map<string, MatchedLearningOutcome[]>> {
+  }: FindLosBySkillsParams): Promise<FindLosBySkillsOutput> {
     if (!skills.length) {
-      return new Map<string, MatchedLearningOutcome[]>();
+      return {
+        losBySkill: new Map<string, MatchedLearningOutcome[]>(),
+        embeddingUsage: {
+          bySkill: [],
+          totalTokens: 0,
+        },
+      };
     }
 
-    // Validate the embedding configuration
-    if (!EmbeddingHelper.isRegistered(embeddingConfiguration)) {
+    // Validate the embedding configuration has required fields
+    if (!embeddingConfiguration.model || !embeddingConfiguration.provider) {
       throw new Error(
-        `Invalid embedding configuration: ${JSON.stringify(embeddingConfiguration)}`,
+        `Invalid embedding configuration: model and provider are required`,
       );
     }
 
-    // Generate embeddings for all skills
-    const skillsWithEmbeddings = await Promise.all(
-      skills.map(async (skill) => {
-        const embeddingResponse = await this.embeddingClient.embedOne({
-          text: skill,
-          role: 'query',
-        });
+    // Generate embeddings for all skills using batch API (single API call)
+    const embeddingResponses = await this.embeddingRouterService.embedMany({
+      texts: skills,
+      model: embeddingConfiguration.model,
+      role: 'query', // for e5 model
+    });
 
-        return {
-          skill,
-          vector: embeddingResponse.vector,
-        };
-      }),
-    );
+    // Map responses back to skills with their skill names
+    const skillsWithEmbeddings = skills.map((skill, index) => ({
+      skill,
+      vector: embeddingResponses[index].vector,
+      metadata: embeddingResponses[index].metadata,
+    }));
 
     if (!skillsWithEmbeddings.length) {
-      return new Map<string, MatchedLearningOutcome[]>();
+      return {
+        losBySkill: new Map<string, MatchedLearningOutcome[]>(),
+        embeddingUsage: {
+          bySkill: [],
+          totalTokens: 0,
+        },
+      };
     }
 
     const embeddingDimension = skillsWithEmbeddings[0]?.vector.length ?? 0;
     const vectorType = Prisma.raw(`vector(${embeddingDimension})`);
     const embeddingColumnName =
-      embeddingConfiguration.dimension === 768
-        ? 'embedding_768'
-        : 'embedding_1536';
+      embeddingDimension === 768 ? 'embedding_768' : 'embedding_1536';
     const hasEmbeddingColumnName =
-      embeddingConfiguration.dimension === 768
-        ? 'has_embedding_768'
-        : 'has_embedding_1536';
+      embeddingDimension === 768 ? 'has_embedding_768' : 'has_embedding_1536';
 
     const academicYearSemesterClauses = (academicYearSemesters ?? []).map(
       ({ academicYear, semesters }) => {
@@ -110,7 +118,7 @@ export class PrismaCourseLearningOutcomeRepository
     `;
 
     const queryResults = await Promise.all(
-      skillsWithEmbeddings.map(async ({ skill, vector }) => {
+      skillsWithEmbeddings.map(async ({ skill, vector, metadata }) => {
         const vectorArraySql = Prisma.sql`ARRAY[${Prisma.join(
           vector.map((value) => Prisma.sql`${value}`),
         )}]::float4[]`;
@@ -185,15 +193,55 @@ export class PrismaCourseLearningOutcomeRepository
           similarityScore: Number(row.similarity),
         }));
 
-        return { skill, cloMatches };
+        return { skill, cloMatches, metadata };
       }),
     );
 
-    const result = new Map<string, MatchedLearningOutcome[]>();
-    for (const { skill, cloMatches } of queryResults) {
-      result.set(skill, cloMatches);
+    const losBySkill = new Map<string, MatchedLearningOutcome[]>();
+
+    // Build bySkill array for EmbeddingUsage
+    const bySkill: Array<{
+      skill: string;
+      model: string;
+      provider: string;
+      dimension: number;
+      embeddedText: string;
+      generatedAt: string;
+      promptTokens: number;
+      totalTokens: number;
+    }> = [];
+
+    for (const { skill, cloMatches, metadata } of queryResults) {
+      losBySkill.set(skill, cloMatches);
+
+      // Extract or estimate tokens
+      const promptTokens =
+        metadata.promptTokens ?? estimateTokens(metadata.embeddedText);
+      const totalTokens = metadata.totalTokens ?? promptTokens;
+
+      bySkill.push({
+        skill,
+        model: metadata.model,
+        provider: metadata.provider,
+        dimension: metadata.dimension,
+        embeddedText: metadata.embeddedText,
+        generatedAt: metadata.generatedAt,
+        promptTokens,
+        totalTokens,
+      });
     }
 
-    return result;
+    // Aggregate total tokens across all skills
+    const totalTokens = bySkill.reduce(
+      (sum, item) => sum + item.totalTokens,
+      0,
+    );
+
+    const embeddingUsage = {
+      bySkill,
+      totalTokens,
+    };
+
+    return { losBySkill, embeddingUsage };
   }
 }

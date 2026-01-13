@@ -28,6 +28,10 @@ export class LoggerModule {
                         messageFormat: '[{context}] {msg}',
                       },
                     },
+              // Disable request logging
+              serializers: {
+                req: () => undefined,
+              },
             },
           }),
         }),

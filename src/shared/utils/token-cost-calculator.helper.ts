@@ -1,5 +1,6 @@
 import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 
+import { EMBEDDING_MODEL_REGISTRATIONS } from '../adapters/embedding/constants/embedding-models.constant';
 import { LLM_MODEL_REGISTRATIONS } from '../adapters/llm/constants/model-registry.constant';
 
 export type TokenCostEstimate = TokenUsage & {
@@ -13,7 +14,10 @@ export type TokenCostEstimateSummary = {
 };
 
 export class TokenCostCalculator {
-  private static readonly AVAILABLE_ESTIMATIONS = LLM_MODEL_REGISTRATIONS;
+  private static readonly AVAILABLE_ESTIMATIONS = [
+    ...LLM_MODEL_REGISTRATIONS,
+    ...EMBEDDING_MODEL_REGISTRATIONS,
+  ];
 
   static estimateCost({
     inputTokens,

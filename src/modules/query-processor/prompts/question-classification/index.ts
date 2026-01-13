@@ -1,35 +1,39 @@
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V2,
   getClassificationUserPromptV2,
-} from './classify-question-v2.prompt';
+} from './archives/classify-question-v2.prompt';
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V3,
   getClassificationUserPromptV3,
-} from './classify-question-v3.prompt';
+} from './archives/classify-question-v3.prompt';
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V4,
   getClassificationUserPromptV4,
-} from './classify-question-v4.prompt';
+} from './archives/classify-question-v4.prompt';
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V5,
   getClassificationUserPromptV5,
-} from './classify-question-v5.prompt';
+} from './archives/classify-question-v5.prompt';
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V6,
   getClassificationUserPromptV6,
-} from './classify-question-v6.prompt';
+} from './archives/classify-question-v6.prompt';
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V7,
   getClassificationUserPromptV7,
-} from './classify-question-v7.prompt';
+} from './archives/classify-question-v7.prompt';
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V8,
   getClassificationUserPromptV8,
-} from './classify-question-v8.prompt';
+} from './archives/classify-question-v8.prompt';
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V9,
   getClassificationUserPromptV9,
-} from './classify-question-v9.prompt';
+} from './archives/classify-question-v9.prompt';
+import {
+  CLASSIFY_QUESTION_SYSTEM_PROMPT_V12,
+  getClassificationUserPromptV12,
+} from './archives/classify-question-v12.prompt';
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V10,
   getClassificationUserPromptV10,
@@ -38,10 +42,6 @@ import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT_V11,
   getClassificationUserPromptV11,
 } from './classify-question-v11.prompt';
-import {
-  CLASSIFY_QUESTION_SYSTEM_PROMPT_V12,
-  getClassificationUserPromptV12,
-} from './classify-question-v12.prompt';
 import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT,
   getClassificationUserPrompt,

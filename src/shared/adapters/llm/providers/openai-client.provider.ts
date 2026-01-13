@@ -8,6 +8,11 @@ import {
 import { z } from 'zod';
 
 import {
+  LLM_HYPER_PARAMETERS,
+  LLM_MAX_RETRIES_CONFIG,
+  LLM_REQUEST_TIMEOUT,
+} from '../constants/llm-config.constant';
+import {
   GenerateObjectInput,
   GenerateObjectOutput,
   GenerateTextInput,
@@ -38,22 +43,23 @@ export class OpenAIClientProvider
     prompt,
     systemPrompt,
     model,
+    timeout,
   }: GenerateTextInput): Promise<GenerateTextOutput> {
     this.validateGenerateTextInput({ prompt, systemPrompt, model });
 
-    const hyperParameters = {
-      temperature: 0,
-      maxOutputTokens: 10_000,
-    };
+    // Use provided timeout or fall back to default
+    const requestTimeout = timeout ?? LLM_REQUEST_TIMEOUT;
 
     try {
-      const { text, usage } = await aiGenerateText({
-        model: this.openai(model),
-        prompt,
-        system: systemPrompt,
-        maxRetries: 1,
-        ...hyperParameters,
-      });
+      const { text, usage, finishReason, warnings, response } =
+        await aiGenerateText({
+          model: this.openai(model),
+          prompt,
+          system: systemPrompt,
+          abortSignal: AbortSignal.timeout(requestTimeout),
+          ...LLM_MAX_RETRIES_CONFIG,
+          ...LLM_HYPER_PARAMETERS,
+        });
 
       // Optional: Log method call for debugging
       // this.logMethodCall(
@@ -66,9 +72,14 @@ export class OpenAIClientProvider
       return {
         text,
         model,
+        provider: this.getProviderName(),
         inputTokens: usage?.inputTokens ?? 0,
         outputTokens: usage?.outputTokens ?? 0,
-        hyperParameters,
+        finishReason,
+        warnings,
+        providerMetadata: undefined,
+        response,
+        hyperParameters: LLM_HYPER_PARAMETERS,
       };
     } catch (error) {
       throw this.createProviderError('generate text', model, error as Error);
@@ -80,23 +91,24 @@ export class OpenAIClientProvider
     systemPrompt,
     schema,
     model,
+    timeout,
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>> {
     this.validateGenerateObjectInput({ prompt, systemPrompt, schema, model });
 
-    const hyperParameters = {
-      temperature: 0,
-      maxOutputTokens: 10_000,
-    };
+    // Use provided timeout or fall back to default
+    const requestTimeout = timeout ?? LLM_REQUEST_TIMEOUT;
 
     try {
-      const { object, usage } = await aiGenerateObject({
-        model: this.openai(model),
-        schema,
-        prompt,
-        system: systemPrompt,
-        maxRetries: 1,
-        ...hyperParameters,
-      });
+      const { object, usage, finishReason, warnings, response } =
+        await aiGenerateObject({
+          model: this.openai(model),
+          schema,
+          prompt,
+          system: systemPrompt,
+          abortSignal: AbortSignal.timeout(requestTimeout),
+          ...LLM_MAX_RETRIES_CONFIG,
+          ...LLM_HYPER_PARAMETERS,
+        });
 
       // Optional: Log method call for debugging
       // this.logMethodCall(
@@ -108,10 +120,15 @@ export class OpenAIClientProvider
 
       return {
         model,
+        provider: this.getProviderName(),
         inputTokens: usage?.inputTokens ?? 0,
         outputTokens: usage?.outputTokens ?? 0,
         object: object as z.infer<TSchema>,
-        hyperParameters,
+        finishReason,
+        warnings,
+        providerMetadata: undefined,
+        response,
+        hyperParameters: LLM_HYPER_PARAMETERS,
       };
     } catch (error) {
       throw this.createProviderError('generate object', model, error as Error);

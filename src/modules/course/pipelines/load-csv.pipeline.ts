@@ -1,4 +1,5 @@
-import { FileHelper } from './helpers/file.helper';
+import { FileHelper } from 'src/shared/utils/file';
+
 import {
   RawCourseWithCLOCsvRow,
   RawCourseWithCLOJsonRow,
@@ -93,7 +94,7 @@ async function runPipeline({
 }
 
 runPipeline({
-  loadAndSaveCoursesCsvToJson: false,
+  loadAndSaveCoursesCsvToJson: true,
   loadAndSaveGenEdCsvToJson: true,
 })
   .then(() => {

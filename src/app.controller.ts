@@ -17,15 +17,14 @@ import {
   ICourseRetrieverService,
 } from './modules/course/contracts/i-course-retriever-service.contract';
 import {
-  EmbeddingMetadata,
   EmbeddingModels,
   EmbeddingProviders,
-} from './shared/adapters/embedding/constants/model.constant';
+} from './shared/adapters/embedding/constants/embedding-models.constant';
 import {
-  I_EMBEDDING_CLIENT_TOKEN,
-  IEmbeddingClient,
-} from './shared/adapters/embedding/contracts/i-embedding-client.contract';
-import { EmbeddingHelper } from './shared/adapters/embedding/helpers/embedding.helper';
+  I_EMBEDDING_ROUTER_SERVICE_TOKEN,
+  type IEmbeddingRouterService,
+} from './shared/adapters/embedding/contracts/i-embedding-router-service.contract';
+import { EmbeddingMetadata } from './shared/contracts/types/embedding.type';
 
 @Controller()
 export class AppController {
@@ -34,8 +33,8 @@ export class AppController {
     private readonly courseLearningOutcomeRepository: ICourseLearningOutcomeRepository,
     @Inject(I_COURSE_RETRIEVER_SERVICE_TOKEN)
     private readonly courseRetrieverService: ICourseRetrieverService,
-    @Inject(I_EMBEDDING_CLIENT_TOKEN)
-    private readonly embeddingClient: IEmbeddingClient,
+    @Inject(I_EMBEDDING_ROUTER_SERVICE_TOKEN)
+    private readonly embeddingRouterService: IEmbeddingRouterService,
   ) {}
 
   private resolveEmbeddingConfiguration({
@@ -54,13 +53,16 @@ export class AppController {
       provider:
         dimensionNumber === 1536
           ? EmbeddingProviders.OPENROUTER
-          : EmbeddingProviders.E5,
+          : EmbeddingProviders.LOCAL,
       dimension: dimensionNumber,
     };
 
-    if (!EmbeddingHelper.isRegistered(config)) {
+    // Validate that the dimension matches the model's expected dimension
+    const expectedDimension =
+      config.model === EmbeddingModels.E5_BASE ? 768 : 1536;
+    if (config.dimension !== expectedDimension) {
       throw new BadRequestException(
-        `Unsupported embedding dimension: ${dimensionNumber}`,
+        `Dimension mismatch: model '${config.model}' expects ${expectedDimension} dimensions, got ${config.dimension}`,
       );
     }
 
@@ -151,15 +153,16 @@ export class AppController {
       return { error: 'At least one skill must be provided' };
     }
 
-    const result = await this.courseLearningOutcomeRepository.findLosBySkills({
-      skills,
-      embeddingConfiguration: this.resolveEmbeddingConfiguration({
-        dimension: embeddingDimensionQuery,
-      }),
-      threshold,
-      topN,
-      isGenEd: isGenEd,
-    });
+    const { losBySkill: result } =
+      await this.courseLearningOutcomeRepository.findLosBySkills({
+        skills,
+        embeddingConfiguration: this.resolveEmbeddingConfiguration({
+          dimension: embeddingDimensionQuery,
+        }),
+        threshold,
+        topN,
+        isGenEd: isGenEd,
+      });
 
     const arrayResult = Array.from(result.entries()).map(([skill, los]) => {
       return {
@@ -220,7 +223,6 @@ export class AppController {
     @Query('threshold') thresholdQuery?: string,
     @Query('topN') topNQuery?: string,
     @Query('isGenEd') isGenEdQuery?: string,
-    @Query('embeddingDimension') embeddingDimensionQuery?: string,
   ): Promise<any> {
     console.time('CourseRetrieverServiceTest');
 
@@ -248,12 +250,9 @@ export class AppController {
 
     console.log(`Processing ${skills.length} skills:`, skills);
 
-    const result =
+    const { coursesBySkill: result } =
       await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
         skills,
-        embeddingConfiguration: this.resolveEmbeddingConfiguration({
-          dimension: embeddingDimensionQuery,
-        }),
         loThreshold: threshold,
         topNLos: topN,
         enableLlmFilter: false,
@@ -484,8 +483,9 @@ export class AppController {
     console.time('EmbeddingTest');
 
     try {
-      const result = await this.embeddingClient.embedOne({
+      const result = await this.embeddingRouterService.embedOne({
         text: query.trim(),
+        model: 'e5-base',
         role: 'query',
       });
 

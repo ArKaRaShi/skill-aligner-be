@@ -4,8 +4,7 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
-import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
-import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { QuestionClassifierCache } from '../../cache/question-classifier.cache';
 import {
@@ -56,29 +55,24 @@ export class QuestionClassifierService implements IQuestionClassifierService {
     const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
     const userPrompt = getUserPrompt(question);
 
-    const { object, inputTokens, outputTokens } =
-      await this.llmRouter.generateObject({
-        prompt: userPrompt,
-        systemPrompt,
-        schema: QuestionClassificationSchema,
-        model: this.modelName,
-      });
-
-    const tokenUsage: TokenUsage = {
+    const result = await this.llmRouter.generateObject({
+      prompt: userPrompt,
+      systemPrompt,
+      schema: QuestionClassificationSchema,
       model: this.modelName,
-      inputTokens,
-      outputTokens,
-    };
+    });
 
-    const llmInfo: LlmInfo = {
-      model: this.modelName,
+    const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+      result,
+      result.model,
       userPrompt,
       systemPrompt,
       promptVersion,
-    };
+      'QuestionClassificationSchema',
+    );
 
     const classificationResult: TQuestionClassification = {
-      ...object,
+      ...result.object,
       llmInfo,
       tokenUsage,
     };

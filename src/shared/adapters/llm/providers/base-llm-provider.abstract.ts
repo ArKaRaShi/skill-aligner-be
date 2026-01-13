@@ -3,6 +3,10 @@ import { Logger } from '@nestjs/common';
 import { z } from 'zod';
 
 import {
+  LLM_MAX_TIMEOUT_RETRIES,
+  LLM_RETRY_DELAY_MS,
+} from '../constants/llm-config.constant';
+import {
   GenerateObjectInput,
   GenerateObjectOutput,
   GenerateTextInput,
@@ -107,6 +111,73 @@ export abstract class BaseLlmProvider implements ILlmProviderClient {
   ): Error {
     return new Error(
       `${this.providerName} failed to ${operation} for model '${model}': ${originalError.message}`,
+    );
+  }
+
+  /**
+   * Checks if an error is a timeout/abort error that should trigger retry.
+   */
+  protected isTimeoutError(error: unknown): boolean {
+    if (error instanceof Error) {
+      const errorMessage = error.message.toLowerCase();
+      const errorName = error.name.toLowerCase();
+
+      return (
+        errorName === 'aborterror' ||
+        errorMessage.includes('timeout') ||
+        errorMessage.includes('aborted') ||
+        errorMessage.includes('abort')
+      );
+    }
+    return false;
+  }
+
+  /**
+   * Wraps an async operation with retry logic for timeout/abort errors only.
+   * This is needed because the AI SDK's built-in maxRetries doesn't consistently
+   * handle AbortError from AbortSignal.timeout().
+   *
+   * @param operation - The async operation to execute
+   * @param context - Context for logging (method name, model, etc.)
+   * @returns Promise with the operation result
+   */
+  protected async retryOnTimeout<T>(
+    operation: () => Promise<T>,
+    context: {
+      operationName: string;
+      model?: string;
+    },
+  ): Promise<T> {
+    const maxRetries = LLM_MAX_TIMEOUT_RETRIES;
+    const delayMs = LLM_RETRY_DELAY_MS;
+
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      try {
+        this.logger.log(
+          `[${context.operationName}] Attempt ${attempt + 1} of ${
+            maxRetries + 1
+          }`,
+        );
+        return await operation();
+      } catch (error) {
+        // Only retry on timeout/abort errors
+        if (this.isTimeoutError(error) && attempt < maxRetries) {
+          this.logger.warn(
+            `[${context.operationName}] Timeout/abort error detected (attempt ${attempt + 1}/${maxRetries + 1}). Retrying after ${delayMs}ms...`,
+          );
+
+          // Wait before retrying
+          await new Promise((resolve) => setTimeout(resolve, delayMs));
+        } else {
+          // Don't retry on non-timeout errors or if we've exhausted retries
+          throw error;
+        }
+      }
+    }
+
+    // Should never reach here since we either return success or throw in the loop
+    throw new Error(
+      `${this.providerName} failed during ${context.operationName}: Unknown error`,
     );
   }
 }

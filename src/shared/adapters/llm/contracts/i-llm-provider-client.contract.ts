@@ -9,6 +9,8 @@ export type GenerateTextInput = {
   systemPrompt: string;
   model: string;
   provider?: string; // Optional provider specification
+  /** Request timeout in milliseconds (overrides default LLM_REQUEST_TIMEOUT) */
+  timeout?: number;
 };
 
 export type GenerateObjectInput<TSchema extends z.ZodTypeAny> = {
@@ -17,21 +19,45 @@ export type GenerateObjectInput<TSchema extends z.ZodTypeAny> = {
   schema: TSchema;
   model: string;
   provider?: string; // Optional provider specification
+  /** Request timeout in milliseconds (overrides default LLM_REQUEST_TIMEOUT) */
+  timeout?: number;
 };
 
 export type GenerateTextOutput = {
   text: string;
   model: string;
+  /** Our router's selected provider: "openrouter" or "openai" */
+  provider?: string;
   inputTokens: number;
   outputTokens: number;
+  finishReason?: string;
+  warnings?: Array<any>;
+  /** Actual backend provider used (e.g., OpenRouter→Azure, OpenAI→undefined) */
+  providerMetadata?: Record<string, any>;
+  response?: {
+    timestamp?: Date;
+    modelId?: string;
+    headers?: Record<string, string>;
+  };
   hyperParameters?: Record<string, any>;
 };
 
 export type GenerateObjectOutput<TSchema extends z.ZodTypeAny> = {
   model: string;
+  /** Our router's selected provider: "openrouter" or "openai" */
+  provider?: string;
   inputTokens: number;
   outputTokens: number;
   object: z.infer<TSchema>;
+  finishReason?: string;
+  warnings?: Array<any>;
+  /** Actual backend provider used (e.g., OpenRouter→Azure, OpenAI→undefined) */
+  providerMetadata?: Record<string, any>;
+  response?: {
+    timestamp?: Date;
+    modelId?: string;
+    headers?: Record<string, string>;
+  };
   hyperParameters?: Record<string, any>;
 };
 
@@ -44,6 +70,7 @@ export interface ILlmProviderClient {
     prompt,
     systemPrompt,
     model,
+    timeout,
   }: GenerateTextInput): Promise<GenerateTextOutput>;
 
   /**
@@ -55,6 +82,7 @@ export interface ILlmProviderClient {
     systemPrompt,
     schema,
     model,
+    timeout,
   }: GenerateObjectInput<TSchema>): Promise<GenerateObjectOutput<TSchema>>;
 
   /**

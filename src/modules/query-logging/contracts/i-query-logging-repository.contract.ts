@@ -1,88 +1,134 @@
-import { Identifier } from 'src/shared/contracts/types/identifier';
-
-import {
-  QueryProcessLog,
+import type { Identifier } from '../../../shared/contracts/types/identifier';
+import type { StepEmbeddingConfig } from '../types/query-embedding-config.type';
+import type { StepLlmConfig } from '../types/query-llm-config.type';
+import type {
   QueryProcessLogWithSteps,
   QueryProcessStep,
-} from '../types/query-logging.type';
+  StepError,
+} from '../types/query-log-step.type';
+import type {
+  QueryLogError,
+  QueryLogInput,
+  QueryLogMetrics,
+  QueryLogOutput,
+  QueryProcessLog,
+} from '../types/query-log.type';
+import type { QueryStatus, StepName } from '../types/query-status.type';
 
-export const I_QUERY_LOGGING_REPOSITORY = Symbol('IQueryLoggingRepository');
+export const I_QUERY_LOGGING_REPOSITORY_TOKEN = Symbol(
+  'IQueryLoggingRepository',
+);
 
+/**
+ * Repository contract for query logging data access.
+ */
 export interface IQueryLoggingRepository {
   /**
-   * Create a new query process log
-   * @param question - The user question to log
-   * @returns The created query process log
+   * Create a new query log entry
+   * @param data - The query log data
+   * @returns The created query log
    */
-  create(query: { question: string }): Promise<QueryProcessLog>;
+  createQueryLog(data: {
+    question: string;
+    input?: QueryLogInput;
+  }): Promise<QueryProcessLog>;
 
   /**
-   * Create a new query process step
-   *
-   * queryLogId must exist before creating step
-   *
-   * @param step - The step data to create
-   * @returns The created query process step
+   * Create a new process step
+   * @param data - The step data
+   * @returns The created step
    */
-  createStep(step: {
+  createStep(data: {
     queryLogId: Identifier;
-    stepName: string;
+    stepName: StepName;
     stepOrder: number;
-    startedAt: Date;
-    input?: Record<string, unknown> | null;
+    input?: Record<string, any>;
   }): Promise<QueryProcessStep>;
 
   /**
-   * Update a query process step
-   * @param id - The step ID to update
-   * @param data - The data to update
-   * @returns The updated query process step
+   * Find a step by ID
+   * @param stepId - The step ID
+   * @returns The step, or null if not found
+   */
+  findStepById(stepId: Identifier): Promise<QueryProcessStep | null>;
+
+  /**
+   * Update a step with completion data
+   * @param stepId - The step ID
+   * @param data - The update data
+   * @returns The updated step
    */
   updateStep(
-    id: Identifier,
+    stepId: Identifier,
     data: {
       completedAt?: Date;
       duration?: number;
-      output?: Record<string, unknown> | null;
-      metadata?: Record<string, unknown> | null;
+      output?: Record<string, any>;
+      llm?: StepLlmConfig;
+      embedding?: StepEmbeddingConfig;
+      error?: StepError;
     },
   ): Promise<QueryProcessStep>;
 
   /**
-   * Update query process log status
-   * @param id - The query log ID to update
-   * @param status - The new status
-   * @returns The updated query process log
+   * Update a query log
+   * @param queryLogId - The query log ID
+   * @param data - The update data
+   * @returns The updated query log
    */
-  updateStatus(
-    id: Identifier,
-    status: 'PENDING' | 'COMPLETED' | 'FAILED',
+  updateQueryLog(
+    queryLogId: Identifier,
+    data: {
+      status?: QueryStatus;
+      completedAt?: Date;
+      output?: QueryLogOutput;
+      metrics?: Partial<QueryLogMetrics>;
+      error?: QueryLogError;
+    },
   ): Promise<QueryProcessLog>;
 
   /**
-   * Find query process log by ID with optional steps inclusion
-   * @param id - The query log ID to find
-   * @param options - Options to include related steps
-   * @returns The query process log with steps if requested
+   * Find a query log by ID
+   * @param queryLogId - The query log ID
+   * @param includeSteps - Whether to include related steps
+   * @returns The query log, or null if not found
    */
-  findById(
-    id: Identifier,
-    options?: { includeSteps?: boolean },
-  ): Promise<QueryProcessLogWithSteps | null>;
+  findQueryLogById(
+    queryLogId: Identifier,
+    includeSteps?: boolean,
+  ): Promise<QueryProcessLog | QueryProcessLogWithSteps | null>;
 
   /**
-   * Find most recent query process log
-   * @param options - Options to include related steps
-   * @returns The most recent query process log with steps if requested
+   * Find the last query log
+   * @param includeSteps - Whether to include related steps
+   * @returns The last query log, or null if none exist
    */
-  findLatest(options?: {
-    includeSteps?: boolean;
-  }): Promise<QueryProcessLogWithSteps | null>;
+  findLastQueryLog(
+    includeSteps?: boolean,
+  ): Promise<QueryProcessLog | QueryProcessLogWithSteps | null>;
 
   /**
-   * Find a query process step by ID
-   * @param id - The step ID to find
-   * @returns The query process step, or null if not found
+   * Find multiple query logs
+   * @param options - Query options
+   * @returns Array of query logs
    */
-  findStepById(id: Identifier): Promise<QueryProcessStep | null>;
+  findMany(options?: {
+    take?: number;
+    skip?: number;
+    orderBy?: { createdAt: 'asc' | 'desc' };
+  }): Promise<QueryProcessLog[]>;
+
+  /**
+   * Find query logs with metrics filtering options
+   * @param options - Filter options for querying logs with metrics
+   * @returns Array of query logs
+   */
+  findManyWithMetrics(options?: {
+    startDate?: Date;
+    endDate?: Date;
+    status?: QueryStatus[];
+    hasMetrics?: boolean;
+    take?: number;
+    skip?: number;
+  }): Promise<QueryProcessLog[]>;
 }

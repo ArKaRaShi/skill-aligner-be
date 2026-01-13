@@ -1,78 +1,104 @@
-import { Identifier } from 'src/shared/contracts/types/identifier';
+import type { Identifier } from '../../../shared/contracts/types/identifier';
+import type { StepEmbeddingConfig } from '../types/query-embedding-config.type';
+import type { StepLlmConfig } from '../types/query-llm-config.type';
+import type { QueryProcessLogWithSteps } from '../types/query-log-step.type';
+import type {
+  QueryLogError,
+  QueryLogInput,
+  QueryLogMetrics,
+  QueryLogOutput,
+} from '../types/query-log.type';
+import type { QueryStatus, StepName } from '../types/query-status.type';
 
-import {
-  QueryProcessLogWithSteps,
-  QueryStatus,
-} from '../types/query-logging.type';
+export const I_QUERY_LOGGING_SERVICE_TOKEN = Symbol('IQueryLoggingService');
 
-export const I_QUERY_LOGGING_SERVICE = Symbol('IQueryLoggingService');
-
+/**
+ * Service contract for query logging operations.
+ */
 export interface IQueryLoggingService {
   /**
    * Create a new query log entry
-   * @param question - The user question to log
-   * @returns The identifier of created query log
+   * @param question - The user's question
+   * @param input - Optional input parameters to store
+   * @returns The ID of the created query log
    */
-  createQueryLog(question: string): Promise<Identifier>;
+  createQueryLog(question: string, input?: QueryLogInput): Promise<Identifier>;
 
   /**
    * Start a new process step
-   * @param queryLogId - The identifier of query log
-   * @param stepName - The name of step to start
-   * @param stepOrder - The order of step in process
-   * @param input - The input data for step
-   * @returns The identifier of started process step
+   * @param queryLogId - The parent query log ID
+   * @param stepName - Name of the step
+   * @param stepOrder - Order of the step in the pipeline
+   * @param input - Optional input data for this step
+   * @returns The ID of the created step
    */
   startStep(
     queryLogId: Identifier,
-    stepName: string,
+    stepName: StepName,
     stepOrder: number,
-    input?: Record<string, unknown> | null,
+    input?: Record<string, any>,
   ): Promise<Identifier>;
 
   /**
-   * Complete a process step
-   * @param queryStepId - The identifier of query step
-   * @param output - The output of the completed step
-   * @param metadata - Additional metadata related to step
+   * Complete a step successfully
+   * Calculates duration automatically based on startedAt
+   * @param stepId - The step ID
+   * @param output - Optional output data from this step
+   * @param llm - Optional LLM configuration and usage
+   * @param embedding - Optional embedding configuration (for COURSE_RETRIEVAL step)
    */
   completeStep(
-    queryStepId: Identifier,
-    output?: Record<string, unknown> | null,
-    metadata?: Record<string, unknown> | null,
+    stepId: Identifier,
+    output?: Record<string, any>,
+    llm?: StepLlmConfig,
+    embedding?: StepEmbeddingConfig,
   ): Promise<void>;
 
   /**
-   * Fail a process step
-   * @param queryStepId - The identifier of query step
-   * @param errorMessage - The error message associated with the failure
-   * @param metadata - Additional metadata related to the failure
+   * Mark a step as failed
+   * @param stepId - The step ID
+   * @param error - Error object with code and message
    */
-  failStep(
-    queryStepId: Identifier,
-    errorMessage: string,
-    metadata?: Record<string, unknown> | null,
-  ): Promise<void>;
+  failStep(stepId: Identifier, error: QueryLogError): Promise<void>;
 
   /**
-   * Update the status of a query log
-   * @param queryLogId - The identifier of the query log
-   * @param status - The new status to set
+   * Update the overall query log status
+   * @param queryLogId - The query log ID
+   * @param status - New status
    */
   updateQueryStatus(queryLogId: Identifier, status: QueryStatus): Promise<void>;
 
   /**
-   * Retrieve the full query log with all steps by ID
-   * @param queryLogId - The identifier of the query log to retrieve
-   * @returns The complete query log including all process steps
+   * Complete a query log with final results
+   * @param queryLogId - The query log ID
+   * @param output - Final output (answer, courses)
+   * @param metrics - Aggregated metrics (duration, tokens, cost, counts)
+   */
+  completeLog(
+    queryLogId: Identifier,
+    output: QueryLogOutput,
+    metrics?: Partial<QueryLogMetrics>,
+  ): Promise<void>;
+
+  /**
+   * Mark a query log as failed
+   * @param queryLogId - The query log ID
+   * @param error - Error information
+   */
+  failLog(queryLogId: Identifier, error: QueryLogError): Promise<void>;
+
+  /**
+   * Get a full query log with all steps
+   * @param queryLogId - The query log ID
+   * @returns Query log with steps, or null if not found
    */
   getFullQueryLogById(
     queryLogId: Identifier,
   ): Promise<QueryProcessLogWithSteps | null>;
 
   /**
-   * Retrieve the most recent query log with all steps
-   * @returns The most recent complete query log including all process steps, or null if none exist
+   * Get the most recent query log
+   * @returns Most recent query log with steps, or null if none exist
    */
   getLastQueryLog(): Promise<QueryProcessLogWithSteps | null>;
 }

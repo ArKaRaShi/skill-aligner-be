@@ -1,138 +1,253 @@
 import { Injectable } from '@nestjs/common';
 
-import { Prisma } from '@prisma/client';
-
-import { Identifier } from 'src/shared/contracts/types/identifier';
-import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { v4 as uuidv4 } from 'uuid';
 
-import { IQueryLoggingRepository } from '../contracts/i-query-logging-repository.contract';
-import {
-  QueryProcessLog,
+import type { Identifier } from '../../../shared/contracts/types/identifier';
+import { PrismaService } from '../../../shared/kernel/database/prisma.service';
+import { I_QUERY_LOGGING_REPOSITORY_TOKEN } from '../contracts/i-query-logging-repository.contract';
+import type { IQueryLoggingRepository } from '../contracts/i-query-logging-repository.contract';
+import type { StepEmbeddingConfig } from '../types/query-embedding-config.type';
+import type { StepLlmConfig } from '../types/query-llm-config.type';
+import type {
   QueryProcessLogWithSteps,
   QueryProcessStep,
-  QueryStatus,
-} from '../types/query-logging.type';
+  StepError,
+} from '../types/query-log-step.type';
+import type {
+  QueryLogError,
+  QueryLogInput,
+  QueryLogMetrics,
+  QueryLogOutput,
+  QueryProcessLog,
+} from '../types/query-log.type';
+import type { QueryStatus, StepName } from '../types/query-status.type';
 import { PrismaQueryLoggingMapper } from './prisma-query-logging.mapper';
 
+/**
+ * Prisma-based repository for Query Logging.
+ *
+ * Implements data access for query process logs and steps using Prisma ORM.
+ * JSONB fields are stored as Prisma JsonValue and mapped to domain types.
+ */
 @Injectable()
 export class PrismaQueryLoggingRepository implements IQueryLoggingRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(query: { question: string }): Promise<QueryProcessLog> {
-    const created = await this.prisma.queryProcessLog.create({
+  async createQueryLog(data: {
+    question: string;
+    input?: QueryLogInput;
+  }): Promise<QueryProcessLog> {
+    const prismaLog = await this.prisma.queryProcessLog.create({
       data: {
         id: uuidv4(),
-        question: query.question,
+        question: data.question,
+        input: (data.input as any) ?? undefined,
+        status: 'PENDING',
       },
     });
 
-    return PrismaQueryLoggingMapper.toDomainQueryLog(created);
+    return PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog);
   }
 
-  async createStep(step: {
-    queryLogId: string;
-    stepName: string;
+  async createStep(data: {
+    queryLogId: Identifier;
+    stepName: StepName;
     stepOrder: number;
-    startedAt: Date;
-    input?: Record<string, unknown> | null;
+    input?: Record<string, any>;
   }): Promise<QueryProcessStep> {
-    const created = await this.prisma.queryProcessStep.create({
+    const prismaStep = await this.prisma.queryProcessStep.create({
       data: {
         id: uuidv4(),
-        queryLogId: step.queryLogId,
-        stepName: step.stepName,
-        stepOrder: step.stepOrder,
-        startedAt: step.startedAt,
-        input: step.input as Prisma.JsonObject,
+        queryLogId: data.queryLogId as string,
+        stepName: data.stepName,
+        stepOrder: data.stepOrder,
+        input: data.input as any,
       },
     });
 
-    return PrismaQueryLoggingMapper.toDomainQueryStep(created);
+    return PrismaQueryLoggingMapper.toDomainQueryProcessStep(prismaStep);
+  }
+
+  async findStepById(stepId: Identifier): Promise<QueryProcessStep | null> {
+    const prismaStep = await this.prisma.queryProcessStep.findUnique({
+      where: { id: stepId as string },
+    });
+
+    if (!prismaStep) {
+      return null;
+    }
+
+    return PrismaQueryLoggingMapper.toDomainQueryProcessStep(prismaStep);
   }
 
   async updateStep(
-    id: string,
+    stepId: Identifier,
     data: {
       completedAt?: Date;
       duration?: number;
-      output?: Record<string, unknown> | null;
-      metadata?: Record<string, unknown> | null;
+      output?: Record<string, any>;
+      llm?: StepLlmConfig;
+      embedding?: StepEmbeddingConfig;
+      error?: StepError;
     },
   ): Promise<QueryProcessStep> {
-    const updated = await this.prisma.queryProcessStep.update({
-      where: { id },
+    const prismaStep = await this.prisma.queryProcessStep.update({
+      where: { id: stepId as string },
       data: {
         completedAt: data.completedAt,
         duration: data.duration,
-        output: data.output as Prisma.JsonObject,
-        metadata: data.metadata as Prisma.JsonObject,
+        output: data.output as any,
+        llm: data.llm as any,
+        embedding: data.embedding as any,
+        error: data.error as any,
       },
     });
 
-    return PrismaQueryLoggingMapper.toDomainQueryStep(updated);
+    return PrismaQueryLoggingMapper.toDomainQueryProcessStep(prismaStep);
   }
 
-  async updateStatus(
-    id: Identifier,
-    status: QueryStatus,
+  async updateQueryLog(
+    queryLogId: Identifier,
+    data: {
+      status?: QueryStatus;
+      completedAt?: Date;
+      output?: QueryLogOutput;
+      metrics?: Partial<QueryLogMetrics>;
+      error?: QueryLogError;
+    },
   ): Promise<QueryProcessLog> {
-    const updated = await this.prisma.queryProcessLog.update({
-      where: { id },
-      data: { status },
-    });
-
-    return PrismaQueryLoggingMapper.toDomainQueryLog(updated);
-  }
-
-  async findById(
-    id: Identifier,
-    options?: { includeSteps?: boolean },
-  ): Promise<QueryProcessLogWithSteps | null> {
-    const queryLogWithSteps = await this.prisma.queryProcessLog.findUnique({
-      where: { id },
-      include: {
-        processSteps: options?.includeSteps ?? false,
+    const prismaLog = await this.prisma.queryProcessLog.update({
+      where: { id: queryLogId as string },
+      data: {
+        status: data.status,
+        completedAt: data.completedAt,
+        output: data.output as any,
+        metrics: data.metrics as any,
+        error: data.error as any,
       },
     });
 
-    if (!queryLogWithSteps) {
-      return null;
-    }
-
-    return PrismaQueryLoggingMapper.toDomainQueryLogWithSteps(
-      queryLogWithSteps,
-    );
+    return PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog);
   }
 
-  async findLatest(options?: {
-    includeSteps?: boolean;
-  }): Promise<QueryProcessLogWithSteps | null> {
-    const queryLogWithSteps = await this.prisma.queryProcessLog.findFirst({
-      orderBy: { createdAt: 'desc' },
+  async findQueryLogById(
+    queryLogId: Identifier,
+    includeSteps = false,
+  ): Promise<QueryProcessLog | QueryProcessLogWithSteps | null> {
+    const prismaLog = await this.prisma.queryProcessLog.findUnique({
+      where: { id: queryLogId as string },
       include: {
-        processSteps: options?.includeSteps ?? false,
+        processSteps: includeSteps,
       },
     });
 
-    if (!queryLogWithSteps) {
+    if (!prismaLog) {
       return null;
     }
 
-    return PrismaQueryLoggingMapper.toDomainQueryLogWithSteps(
-      queryLogWithSteps,
+    if (includeSteps) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      return PrismaQueryLoggingMapper.toDomainQueryProcessLogWithSteps(
+        prismaLog as any,
+      );
+    }
+
+    return PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog);
+  }
+
+  async findLastQueryLog(
+    includeSteps = false,
+  ): Promise<QueryProcessLog | QueryProcessLogWithSteps | null> {
+    const prismaLog = await this.prisma.queryProcessLog.findFirst({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      include: {
+        processSteps: includeSteps,
+      },
+    });
+
+    if (!prismaLog) {
+      return null;
+    }
+
+    if (includeSteps) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      return PrismaQueryLoggingMapper.toDomainQueryProcessLogWithSteps(
+        prismaLog as any,
+      );
+    }
+
+    return PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog);
+  }
+
+  async findMany(options?: {
+    take?: number;
+    skip?: number;
+    orderBy?: { createdAt: 'asc' | 'desc' };
+  }): Promise<QueryProcessLog[]> {
+    const prismaLogs = await this.prisma.queryProcessLog.findMany({
+      take: options?.take,
+      skip: options?.skip,
+      orderBy: options?.orderBy
+        ? { createdAt: options.orderBy.createdAt }
+        : undefined,
+    });
+
+    return prismaLogs.map((prismaLog) =>
+      PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog),
     );
   }
 
-  async findStepById(id: Identifier): Promise<QueryProcessStep | null> {
-    const queryStep = await this.prisma.queryProcessStep.findUnique({
-      where: { id },
-    });
+  async findManyWithMetrics(options?: {
+    startDate?: Date;
+    endDate?: Date;
+    status?: QueryStatus[];
+    hasMetrics?: boolean;
+    take?: number;
+    skip?: number;
+  }): Promise<QueryProcessLog[]> {
+    const where: Record<string, unknown> = {};
 
-    if (!queryStep) {
-      return null;
+    if (options?.status && options.status.length > 0) {
+      where.status = { in: options.status };
     }
 
-    return PrismaQueryLoggingMapper.toDomainQueryStep(queryStep);
+    if (options?.startDate || options?.endDate) {
+      where.completedAt = {};
+      if (options.startDate) {
+        where.completedAt = {
+          ...(where.completedAt as object),
+          gte: options.startDate,
+        };
+      }
+      if (options.endDate) {
+        where.completedAt = {
+          ...(where.completedAt as object),
+          lte: options.endDate,
+        };
+      }
+    }
+
+    if (options?.hasMetrics) {
+      where.metrics = { not: null };
+    }
+
+    const prismaLogs = await this.prisma.queryProcessLog.findMany({
+      where: Object.keys(where).length > 0 ? where : undefined,
+      take: options?.take,
+      skip: options?.skip,
+      orderBy: { completedAt: 'desc' },
+    });
+
+    return prismaLogs.map((prismaLog) =>
+      PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog),
+    );
   }
 }
+
+// Provide the token for dependency injection
+export const PrismaQueryLoggingRepositoryProvider = {
+  provide: I_QUERY_LOGGING_REPOSITORY_TOKEN,
+  useClass: PrismaQueryLoggingRepository,
+};

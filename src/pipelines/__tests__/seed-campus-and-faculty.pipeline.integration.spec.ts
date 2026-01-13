@@ -1,8 +1,10 @@
+import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
+import { FileHelper } from 'src/shared/utils/file';
 
-import { FileHelper } from 'src/modules/course/pipelines/helpers/file.helper';
 import { CleanCourseWithCLO } from 'src/modules/course/pipelines/types/clean-course.type';
 
 import { SeedCampusAndFacultyPipeline } from '../seed-campus-and-faculty.pipeline';
@@ -59,7 +61,12 @@ describe('SeedCampusAndFacultyPipeline (Integration)', () => {
 
   beforeAll(async () => {
     moduleRef = await Test.createTestingModule({
-      providers: [SeedCampusAndFacultyPipeline, PrismaService],
+      providers: [
+        SeedCampusAndFacultyPipeline,
+        PrismaService,
+        AppConfigService,
+        ConfigService,
+      ],
     }).compile();
 
     pipeline = moduleRef.get(SeedCampusAndFacultyPipeline);
