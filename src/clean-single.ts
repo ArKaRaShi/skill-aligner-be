@@ -17,7 +17,7 @@ async function main() {
     const deletedQueryProcessLogs = await prisma.queryProcessLog.deleteMany({
       where: {
         id: {
-          in: ['4fbaf337-ebe3-464b-90f0-c1c1ef58a0d1'],
+          notIn: ['fdb7e094-0f73-4c7f-9a8d-c5d3844b9c87'],
         },
       },
     });
@@ -25,7 +25,7 @@ async function main() {
     const deletedQuestionLogs = await prisma.questionLog.deleteMany({
       where: {
         id: {
-          in: ['287b5b2c-a538-484b-8fca-758de0612571'],
+          notIn: ['f23b18d6-cc6c-4da1-bf66-11564272847d'],
         },
       },
     });
@@ -47,3 +47,5 @@ if (require.main === module) {
 }
 
 export { main };
+
+// bunx ts-node --require tsconfig-paths/register src/clean-single.ts

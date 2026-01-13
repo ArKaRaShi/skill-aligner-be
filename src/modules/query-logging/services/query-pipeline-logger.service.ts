@@ -703,21 +703,35 @@ export class QueryPipelineLoggerService {
     const tokenLogger = new TokenLogger();
     const tokenSummary = tokenLogger.getSummary(tokenMap);
 
-    // Calculate LLM total tokens
-    const llmInputTokens = tokenSummary.totalTokens?.inputTokens ?? 0;
-    const llmOutputTokens = tokenSummary.totalTokens?.outputTokens ?? 0;
+    // Step 3 is the embedding step, all others are LLM
+    const embeddingStepKey = 'step3-course-retrieval';
+
+    // Aggregate LLM tokens (all steps except embedding)
+    let llmInputTokens = 0;
+    let llmOutputTokens = 0;
+    let llmCost = 0;
+
+    // Aggregate embedding tokens (step3 only)
+    let embeddingTotalTokens = 0;
+    let embeddingCost = 0;
+
+    for (const [categoryKey, categoryData] of Object.entries(
+      tokenSummary.byCategory,
+    )) {
+      if (categoryKey === embeddingStepKey) {
+        // This is embedding
+        embeddingTotalTokens += categoryData.tokenCount.inputTokens;
+        embeddingCost += categoryData.cost;
+      } else {
+        // This is LLM
+        llmInputTokens += categoryData.tokenCount.inputTokens;
+        llmOutputTokens += categoryData.tokenCount.outputTokens;
+        llmCost += categoryData.cost;
+      }
+    }
+
     const llmTotalTokens = llmInputTokens + llmOutputTokens;
-
-    // Calculate embedding tokens
-    const embeddingTotalTokens =
-      tokenSummary.byCategory['embedding']?.tokenCount.inputTokens ?? 0;
-
-    // Calculate total tokens
     const totalTokens = llmTotalTokens + embeddingTotalTokens;
-
-    // Get costs from token summary
-    const llmCost = tokenSummary.byCategory['llm']?.cost ?? 0;
-    const embeddingCost = tokenSummary.byCategory['embedding']?.cost ?? 0;
     const totalCost = tokenSummary.totalCost ?? 0;
 
     // Find the overall timing step (usually 'OVERALL')

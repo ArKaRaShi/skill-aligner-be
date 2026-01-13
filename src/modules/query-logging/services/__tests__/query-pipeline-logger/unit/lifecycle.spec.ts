@@ -287,8 +287,8 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
         },
       };
 
-      const llmKey = 'llm' as Identifier;
-      const embeddingKey = 'embedding' as Identifier;
+      const llmKey = 'step1-basic-preparation' as Identifier;
+      const embeddingKey = 'step3-course-retrieval' as Identifier;
       const tokenMap: TokenMap = {
         [llmKey]: [
           {
