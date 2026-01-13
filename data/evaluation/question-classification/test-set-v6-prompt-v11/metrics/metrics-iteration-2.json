@@ -1,5 +1,5 @@
 {
-  "iterationNumber": 1,
+  "iterationNumber": 2,
   "overallMetrics": {
     "totalQuestions": 200,
     "totalCorrectClassifications": 197,
@@ -8,7 +8,7 @@
     "overallRecall": 0.9787037037037036,
     "macroPrecision": 0.9743589743589745,
     "macroRecall": 0.9787037037037036,
-    "timestamp": "2026-01-13T09:10:36.412Z"
+    "timestamp": "2026-01-13T09:10:48.248Z"
   },
   "classMetrics": [
     {
@@ -20,7 +20,7 @@
       "recall": 0.9861111111111112,
       "macroPrecision": 1,
       "macroRecall": 0.9861111111111112,
-      "timestamp": "2026-01-13T09:10:36.411Z"
+      "timestamp": "2026-01-13T09:10:48.248Z"
     },
     {
       "classLabel": "irrelevant",
@@ -31,7 +31,7 @@
       "recall": 1,
       "macroPrecision": 0.9230769230769231,
       "macroRecall": 1,
-      "timestamp": "2026-01-13T09:10:36.411Z"
+      "timestamp": "2026-01-13T09:10:48.248Z"
     },
     {
       "classLabel": "dangerous",
@@ -42,15 +42,15 @@
       "recall": 0.95,
       "macroPrecision": 1,
       "macroRecall": 0.95,
-      "timestamp": "2026-01-13T09:10:36.412Z"
+      "timestamp": "2026-01-13T09:10:48.248Z"
     }
   ],
   "macroMetrics": [
     {
-      "iteration": 1,
+      "iteration": 2,
       "macroPrecision": 0.9743589743589745,
       "macroRecall": 0.9787037037037036,
-      "timestamp": "2026-01-13T09:10:36.412Z",
+      "timestamp": "2026-01-13T09:10:48.248Z",
       "classBreakdown": [
         {
           "className": "relevant",

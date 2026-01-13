@@ -1,0 +1,32 @@
+[
+  {
+    "queryLogId": "6950f2ee-95af-4950-a8f6-edc5b5ab0522",
+    "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+    "queryProfile": {
+      "language": "th"
+    },
+    "llmModel": "openai/gpt-4.1-nano",
+    "llmProvider": "OpenRouter",
+    "duration": 1809,
+    "tokenUsage": {
+      "input": 342,
+      "total": 349,
+      "output": 7
+    }
+  },
+  {
+    "queryLogId": "d62c16a6-9d2c-43d2-ba68-932ee00bfdff",
+    "question": "สนใจภาษาจีน เริ่มยังไงดี",
+    "queryProfile": {
+      "language": "th"
+    },
+    "llmModel": "openai/gpt-4.1-nano",
+    "llmProvider": "OpenRouter",
+    "duration": 1382,
+    "tokenUsage": {
+      "input": 342,
+      "total": 349,
+      "output": 7
+    }
+  }
+]

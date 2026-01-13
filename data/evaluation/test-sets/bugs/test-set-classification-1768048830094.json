@@ -1,0 +1,32 @@
+[
+  {
+    "queryLogId": "6950f2ee-95af-4950-a8f6-edc5b5ab0522",
+    "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+    "category": "relevant",
+    "reason": "Direct/Explicit Concept Request (Pattern A) - user is asking about courses related to personal finance management, which is a teachable skill.",
+    "llmModel": "openai/gpt-4.1-nano",
+    "llmProvider": "OpenRouter",
+    "promptVersion": "v11",
+    "duration": 1809,
+    "tokenUsage": {
+      "input": 1171,
+      "total": 1212,
+      "output": 41
+    }
+  },
+  {
+    "queryLogId": "d62c16a6-9d2c-43d2-ba68-932ee00bfdff",
+    "question": "สนใจภาษาจีน เริ่มยังไงดี",
+    "category": "relevant",
+    "reason": "Outcome/Goal-Oriented (Pattern B) - user expresses interest in learning Chinese language and asks about how to start, indicating a desire to acquire language skills.",
+    "llmModel": "openai/gpt-4.1-nano",
+    "llmProvider": "OpenRouter",
+    "promptVersion": "v11",
+    "duration": 1382,
+    "tokenUsage": {
+      "input": 1171,
+      "total": 1216,
+      "output": 45
+    }
+  }
+]
