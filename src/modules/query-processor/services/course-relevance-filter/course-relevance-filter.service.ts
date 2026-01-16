@@ -12,6 +12,7 @@ import { z } from 'zod';
 
 import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 
+import { QueryPipelineConfig } from '../../constants';
 import { ICourseRelevanceFilterService } from '../../contracts/i-course-relevance-filter-service.contract';
 import {
   CourseRelevanceFilterPromptFactory,
@@ -35,13 +36,6 @@ export class CourseRelevanceFilterService
   implements ICourseRelevanceFilterService
 {
   private readonly logger = new Logger(CourseRelevanceFilterService.name);
-  /**
-   * Minimum score for a course to be considered relevant
-   * LLM returns scores 0-3 where:
-   * - 0 = not relevant (dropped)
-   * - 1, 2, 3 = relevant (with increasing relevance)
-   */
-  private readonly MIN_RELEVANCE_SCORE = 1;
 
   constructor(
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
@@ -166,8 +160,13 @@ export class CourseRelevanceFilterService
           );
 
           const coursesData = this.buildCoursesDataV2(courses);
+          const preview =
+            coursesData.length >
+            QueryPipelineConfig.LOGGING_COURSE_DATA_PREVIEW_LIMIT
+              ? `${coursesData.slice(0, QueryPipelineConfig.LOGGING_COURSE_DATA_PREVIEW_LIMIT)}... (${courses.length} courses total)`
+              : coursesData;
           this.logger.log(
-            `[CourseRelevanceFilterV2] Courses data for skill "${skill}": ${coursesData}`,
+            `[CourseRelevanceFilterV2] Courses data for skill "${skill}": ${preview}`,
           );
 
           const llmResult = await this.callLlmRelevanceFilter(
@@ -254,6 +253,7 @@ export class CourseRelevanceFilterService
       systemPrompt,
       schema,
       model: this.modelName,
+      timeout: QueryPipelineConfig.LLM_STEP_TIMEOUTS.COURSE_RELEVANCE_FILTERING,
     });
   }
 
@@ -421,7 +421,7 @@ export class CourseRelevanceFilterService
       ]
     >(
       (acc, course) => {
-        if (course.score < this.MIN_RELEVANCE_SCORE) {
+        if (course.score < QueryPipelineConfig.COURSE_RELEVANCE_MIN_SCORE) {
           acc[0].push(course);
         } else {
           acc[1].push(course);

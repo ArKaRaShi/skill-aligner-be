@@ -7,6 +7,7 @@ import {
 import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { QuestionClassifierCache } from '../../cache/question-classifier.cache';
+import { QueryPipelineConfig } from '../../constants/config.constant';
 import {
   IQuestionClassifierService,
   QuestionClassifyInput,
@@ -60,6 +61,7 @@ export class QuestionClassifierService implements IQuestionClassifierService {
       systemPrompt,
       schema: QuestionClassificationSchema,
       model: this.modelName,
+      timeout: QueryPipelineConfig.LLM_STEP_TIMEOUTS.QUESTION_CLASSIFICATION,
     });
 
     const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(

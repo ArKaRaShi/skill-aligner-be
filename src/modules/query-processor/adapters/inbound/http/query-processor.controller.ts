@@ -1,27 +1,32 @@
 import {
   Body,
   Controller,
-  Header,
   HttpCode,
   HttpStatus,
+  Inject,
   Post,
+  Res,
 } from '@nestjs/common';
-import { MessageEvent } from '@nestjs/common';
 
-import { Observable } from 'rxjs';
+import { Response } from 'express';
+import { I_SSE_EMITTER_FACTORY_TOKEN } from 'src/shared/adapters/sse/sse-emitter.factory';
+import { SseEmitterFactory } from 'src/shared/adapters/sse/sse-emitter.factory';
 import { SuccessResponseDto } from 'src/shared/contracts/api/base.response.dto';
 
+import { StepSseEvent } from '../../../types/sse-event.type';
+import { AnswerQuestionStreamUseCase } from '../../../use-cases/answer-question-stream.use-case';
+import { AnswerQuestionUseCase } from '../../../use-cases/answer-question.use-case';
+import { AnswerQuestionUseCaseInput } from '../../../use-cases/inputs/answer-question.use-case.input';
 import { AnswerQuestionRequestDto } from './dto/requests/answer-question.request.dto';
 import { AnswerQuestionResponseDto } from './dto/responses/answer-question.response.dto';
 import { CourseResponseMapper } from './mappers/course-response.mapper';
-import { AnswerQuestionStreamUseCase } from './use-cases/answer-question-stream.use-case';
-import { AnswerQuestionUseCase } from './use-cases/answer-question.use-case';
-import { AnswerQuestionUseCaseInput } from './use-cases/inputs/answer-question.use-case.input';
 
 @Controller()
 export class QueryProcessorController {
   // TODO: This must be wrapped in facade pattern if there are multiple use-cases
   constructor(
+    @Inject(I_SSE_EMITTER_FACTORY_TOKEN)
+    private readonly sseEmitterFactory: SseEmitterFactory,
     private readonly answerQuestionUseCase: AnswerQuestionUseCase,
     private readonly answerQuestionStreamUseCase: AnswerQuestionStreamUseCase,
   ) {}
@@ -53,14 +58,27 @@ export class QueryProcessorController {
   }
 
   @Post('/query-processor/answer-question-stream')
-  @Header('Content-Type', 'text/event-stream')
-  @Header('Cache-Control', 'no-cache')
-  @Header('Connection', 'keep-alive')
-  answerQuestionStream(
+  @HttpCode(HttpStatus.OK)
+  async answerQuestionStream(
     @Body() body: AnswerQuestionRequestDto,
-  ): Observable<MessageEvent> {
-    return this.answerQuestionStreamUseCase.execute(
-      new AnswerQuestionUseCaseInput(body),
-    );
+    @Res({ passthrough: false }) response: Response,
+  ): Promise<void> {
+    console.log('[Controller] SSE stream request received:', body.question);
+
+    // Create emitter using factory
+    const emitter = this.sseEmitterFactory.create<StepSseEvent>(response);
+
+    try {
+      // Execute pipeline with emitter
+      await this.answerQuestionStreamUseCase.execute(
+        new AnswerQuestionUseCaseInput(body),
+        emitter,
+      );
+      console.log('[Controller] Pipeline completed successfully');
+      emitter.complete();
+    } catch (error) {
+      console.error('[Controller] Pipeline error:', error);
+      emitter.error(error as Error);
+    }
   }
 }

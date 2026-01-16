@@ -22,6 +22,10 @@ import {
   COURSE_RELEVANCE_FILTER_SYSTEM_PROMPT_V6,
   getCourseRelevanceFilterUserPromptV6,
 } from './course-relevance-filter-v6.prompt';
+import {
+  COURSE_RELEVANCE_FILTER_SYSTEM_PROMPT_V7,
+  getCourseRelevanceFilterUserPromptV7,
+} from './course-relevance-filter-v7.prompt';
 
 type CourseRelevanceFilterPrompt = {
   systemPrompt: string;
@@ -39,6 +43,7 @@ export const CourseRelevanceFilterPromptVersions = {
   V4: 'v4',
   V5: 'v5',
   V6: 'v6',
+  V7: 'v7',
 } as const;
 
 export type CourseRelevanceFilterPromptVersion =
@@ -71,6 +76,10 @@ const CourseRelevanceFilterPrompts: Record<
   v6: {
     systemPrompt: COURSE_RELEVANCE_FILTER_SYSTEM_PROMPT_V6,
     getUserPrompt: getCourseRelevanceFilterUserPromptV6,
+  },
+  v7: {
+    systemPrompt: COURSE_RELEVANCE_FILTER_SYSTEM_PROMPT_V7,
+    getUserPrompt: getCourseRelevanceFilterUserPromptV7,
   },
 };
 

@@ -20,9 +20,10 @@ export const LLM_HYPER_PARAMETERS = {
 // Timeout Configuration
 // ============================================================================
 
-// Request timeout in milliseconds (15 seconds)
+// Request timeout in milliseconds (15 seconds default)
 // NOTE: This is an infrastructure setting, NOT a model hyperparameter
 // Used with AbortSignal.timeout() in generateText/generateObject calls
+// Individual steps can override this by passing timeout parameter
 export const LLM_REQUEST_TIMEOUT = 15_000;
 
 // ============================================================================

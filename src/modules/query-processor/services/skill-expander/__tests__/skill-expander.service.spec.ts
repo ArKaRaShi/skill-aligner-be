@@ -125,12 +125,14 @@ describe('SkillExpanderService', () => {
 
       // Then
       expect(cache.lookup).toHaveBeenCalledWith(question);
-      expect(llmRouter.generateObject).toHaveBeenCalledWith({
-        prompt: expect.any(String),
-        systemPrompt: expect.any(String),
-        schema: expect.any(Object),
-        model: testModelName,
-      });
+      expect(llmRouter.generateObject).toHaveBeenCalledWith(
+        expect.objectContaining({
+          prompt: expect.any(String),
+          systemPrompt: expect.any(String),
+          schema: expect.any(Object),
+          model: testModelName,
+        }),
+      );
 
       expect(result.skillItems).toEqual(llmSkills);
       expect(result.tokenUsage).toEqual({
@@ -294,12 +296,14 @@ describe('SkillExpanderService', () => {
       const result = await service.expandSkillsV2(question, testPromptVersion);
 
       // Then
-      expect(llmRouter.generateObject).toHaveBeenCalledWith({
-        prompt: expect.any(String),
-        systemPrompt: expect.any(String),
-        schema: expect.any(Object), // SkillExpansionV2Schema
-        model: testModelName,
-      });
+      expect(llmRouter.generateObject).toHaveBeenCalledWith(
+        expect.objectContaining({
+          prompt: expect.any(String),
+          systemPrompt: expect.any(String),
+          schema: expect.any(Object), // SkillExpansionV2Schema
+          model: testModelName,
+        }),
+      );
 
       expect(result.skillItems).toHaveLength(2);
       expect(result.skillItems[0]).toEqual({

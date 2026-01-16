@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 
 import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 
+import { QueryPipelineConfig } from '../../constants';
 import { ICourseAggregationService } from '../../contracts/i-course-aggregation-service.contract';
 import {
   AggregatedCourseSkills,
@@ -70,10 +71,15 @@ export class CourseAggregationService implements ICourseAggregationService {
         // Convert to CourseWithLearningOutcomeV2MatchWithRelevance with default score
         const courseWithScore: CourseWithLearningOutcomeV2MatchWithRelevance = {
           ...course,
-          score: 3, // Default score when no LLM filter
+          score: QueryPipelineConfig.COURSE_AGGREGATION_DEFAULT_SCORE,
           reason: '',
         };
-        this.mergeCourseIntoMap(courseMap, courseWithScore, skill, 3);
+        this.mergeCourseIntoMap(
+          courseMap,
+          courseWithScore,
+          skill,
+          QueryPipelineConfig.COURSE_AGGREGATION_DEFAULT_SCORE,
+        );
       }
     }
     return courseMap;

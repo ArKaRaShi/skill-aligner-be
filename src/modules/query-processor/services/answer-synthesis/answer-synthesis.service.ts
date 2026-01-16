@@ -1,12 +1,12 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
-import { encode } from '@toon-format/toon';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
+import { QueryPipelineConfig } from '../../constants/config.constant';
 import {
   AnswerSynthesizeInput,
   IAnswerSynthesisService,
@@ -48,6 +48,7 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
       prompt: synthesisPrompt,
       systemPrompt,
       model: this.modelName,
+      timeout: QueryPipelineConfig.LLM_STEP_TIMEOUTS.ANSWER_SYNTHESIS,
     });
 
     this.logger.log(
@@ -81,26 +82,31 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     aggregatedCourseSkills: AggregatedCourseSkills[],
     language: Language,
   ): string {
-    const exposedDetails = aggregatedCourseSkills.map((courseSkills) => {
-      return {
-        subject_name: courseSkills.subjectName,
-        subject_code: courseSkills.subjectCode,
-        relevance_score: courseSkills.relevanceScore,
-        matched_skills_and_learning_outcomes: courseSkills.matchedSkills.map(
-          (ms) => {
-            const learningOutcomes = ms.learningOutcomes.map((lo) => ({
-              learning_outcome_name: lo.cleanedName,
-            }));
-            return {
-              skill: ms.skill,
-              learning_outcomes: learningOutcomes,
-            };
-          },
-        ),
-      };
+    const courseBlocks = aggregatedCourseSkills.map((courseSkills) => {
+      // Build matched evidence section with skill context
+      const matchedEvidence = courseSkills.matchedSkills
+        .map(
+          (ms) => `[Mapped Skill: ${ms.skill}]
+${ms.learningOutcomes.map((lo) => `- ${lo.cleanedName}`).join('\n')}`,
+        )
+        .join('\n\n');
+      // ...
+      // Build full context section
+      const fullContext = courseSkills.courseLearningOutcomes
+        .map((lo) => `- ${lo.cleanedName}`)
+        .join('\n');
+
+      return `COURSE: ${courseSkills.subjectName} (${courseSkills.subjectCode})
+RELEVANCE SCORE: ${courseSkills.relevanceScore}
+
+SECTION 1: MATCHED EVIDENCE (Why it was picked)
+${matchedEvidence}
+
+SECTION 2: FULL CONTEXT (Center of Gravity Check)
+${fullContext}`;
     });
 
-    const encodedContext = encode(exposedDetails);
-    return `Courses with skills:\n${encodedContext}\n\nLanguage: ${language}`;
+    // \n\n---\n\n creates a perfect, clear boundary
+    return `${courseBlocks.join('\n\n---\n\n')}\n\nLanguage: ${language}`;
   }
 }

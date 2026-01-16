@@ -8,11 +8,13 @@ import {
   ILlmRouterService,
 } from '../../shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
+import { SseModule } from '../../shared/adapters/sse/sse.module';
 import { CampusModule } from '../campus/campus.module';
 import { CourseModule } from '../course/course.module';
 import { FacultyModule } from '../faculty/faculty.module';
 import { QueryLoggingModule } from '../query-logging/query-logging.module';
 import { QuestionAnalysesModule } from '../question-analyses/question-analyses.module';
+import { QueryProcessorController } from './adapters/inbound/http/query-processor.controller';
 import { QuestionClassifierCache } from './cache/question-classifier.cache';
 import { QuestionSkillCache } from './cache/question-skill.cache';
 import { I_ANSWER_SYNTHESIS_SERVICE_TOKEN } from './contracts/i-answer-synthesis-service.contract';
@@ -21,7 +23,6 @@ import { I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN } from './contracts/i-course-re
 import { I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN } from './contracts/i-query-profile-builder-service.contract';
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
-import { QueryProcessorController } from './query-processor.controller';
 import { AnswerSynthesisService } from './services/answer-synthesis/answer-synthesis.service';
 import { CourseAggregationService } from './services/course-aggregation/course-aggregation.service';
 import { CourseRelevanceFilterService } from './services/course-relevance-filter/course-relevance-filter.service';
@@ -42,6 +43,7 @@ import { QueryProcessorUseCases } from './use-cases';
     GptLlmModule,
     QueryLoggingModule,
     QuestionAnalysesModule,
+    SseModule,
   ],
   controllers: [QueryProcessorController],
   providers: [

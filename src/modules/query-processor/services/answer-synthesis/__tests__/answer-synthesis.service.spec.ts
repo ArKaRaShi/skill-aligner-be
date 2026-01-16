@@ -12,11 +12,6 @@ import { QueryProfile } from 'src/modules/query-processor/types/query-profile.ty
 
 import { AnswerSynthesisService } from '../answer-synthesis.service';
 
-// Mock @toon-format/toon to avoid ESM import issues
-jest.mock('@toon-format/toon', () => ({
-  encode: jest.fn((data: unknown) => JSON.stringify(data)),
-}));
-
 describe('AnswerSynthesisService', () => {
   let service: AnswerSynthesisService;
   let llmRouter: jest.Mocked<ILlmRouterService>;
@@ -136,11 +131,13 @@ describe('AnswerSynthesisService', () => {
       const result = await service.synthesizeAnswer(input);
 
       // Then
-      expect(llmRouter.generateText).toHaveBeenCalledWith({
-        prompt: expect.stringContaining(question),
-        systemPrompt: expect.any(String),
-        model: testModelName,
-      });
+      expect(llmRouter.generateText).toHaveBeenCalledWith(
+        expect.objectContaining({
+          prompt: expect.stringContaining(question),
+          systemPrompt: expect.any(String),
+          model: testModelName,
+        }),
+      );
 
       expect(result.answerText).toBe(mockAnswer);
       expect(result.question).toBe(question);
@@ -193,17 +190,19 @@ describe('AnswerSynthesisService', () => {
       // When
       await service.synthesizeAnswer(input);
 
-      // Then: Verify context contains course information
+      // Then: Verify context contains course information with structured text format
       const callArgs = llmRouter.generateText.mock.calls[0][0];
-      expect(callArgs.prompt).toContain('Courses with skills:');
+      expect(callArgs.prompt).toContain('COURSE:');
+      expect(callArgs.prompt).toContain('RELEVANCE SCORE:');
+      expect(callArgs.prompt).toContain('SECTION 1: MATCHED EVIDENCE');
+      expect(callArgs.prompt).toContain('SECTION 2: FULL CONTEXT');
       expect(callArgs.prompt).toContain('Language:');
 
-      // Verify snake_case transformation in context
-      expect(callArgs.prompt).toContain('subject_name'); // transformed from subjectName
-      expect(callArgs.prompt).toContain('subject_code'); // transformed from subjectCode
-      expect(callArgs.prompt).toContain('relevance_score'); // relevance score is included
-      expect(callArgs.prompt).toContain('matched_skills_and_learning_outcomes'); // transformed from matchedSkills
-      expect(callArgs.prompt).toContain('learning_outcome_name'); // transformed from cleanedName
+      // Verify course details are included
+      expect(callArgs.prompt).toContain('Web Development');
+      expect(callArgs.prompt).toContain('CS201');
+      expect(callArgs.prompt).toContain('Frontend Programming');
+      expect(callArgs.prompt).toContain('CS202');
     });
 
     it('should handle empty aggregated course skills', async () => {
@@ -540,7 +539,7 @@ describe('AnswerSynthesisService', () => {
   });
 
   describe('context building (buildContext)', () => {
-    it('should transform camelCase to snake_case for LLM consumption', async () => {
+    it('should format context as structured text with sections', async () => {
       // Given
       const question = 'Test';
       const queryProfile = createTestQueryProfile();
@@ -566,22 +565,146 @@ describe('AnswerSynthesisService', () => {
       // When
       await service.synthesizeAnswer(input);
 
-      // Then: Verify snake_case in context
+      // Then: Verify structured text format with sections
       const callArgs = llmRouter.generateText.mock.calls[0][0];
-      expect(callArgs.prompt).toContain('subject_name'); // not subjectName
-      expect(callArgs.prompt).toContain('subject_code'); // not subjectCode
-      expect(callArgs.prompt).toContain('relevance_score'); // relevance score is included
-      expect(callArgs.prompt).toContain('matched_skills_and_learning_outcomes'); // not matchedSkills
-      expect(callArgs.prompt).toContain('learning_outcome_name'); // not cleanedName
+      expect(callArgs.prompt).toContain('COURSE: Test Course (CS101)');
+      expect(callArgs.prompt).toContain('RELEVANCE SCORE: 3');
+      expect(callArgs.prompt).toContain(
+        'SECTION 1: MATCHED EVIDENCE (Why it was picked)',
+      );
+      expect(callArgs.prompt).toContain(
+        'SECTION 2: FULL CONTEXT (Center of Gravity Check)',
+      );
+      expect(callArgs.prompt).toContain('Language: en');
     });
 
-    it('should encode both course data and query profile using toon format', async () => {
+    it('should include both matched and all learning outcomes in structured format', async () => {
       // Given
-      const question = 'Test';
+      const question = 'Tell me about advanced courses';
+      const queryProfile = createTestQueryProfile({ language: 'en' });
+
+      // Create a course with multiple LOs, but only one matched
+      const learningOutcome1 = {
+        loId: 'lo1' as Identifier,
+        cleanedName: 'Matched outcome: Python basics',
+        originalName: 'Matched outcome: Python basics',
+        skipEmbedding: false,
+        hasEmbedding768: true,
+        hasEmbedding1536: false,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        similarityScore: 0.85,
+      };
+
+      const learningOutcome2 = {
+        loId: 'lo2' as Identifier,
+        cleanedName: 'Additional outcome: Data structures',
+        originalName: 'Additional outcome: Data structures',
+        skipEmbedding: false,
+        hasEmbedding768: true,
+        hasEmbedding1536: false,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+
+      const course: AggregatedCourseSkills = {
+        id: 'course-1' as Identifier,
+        campusId: 'campus-1' as Identifier,
+        facultyId: 'faculty-1' as Identifier,
+        subjectCode: 'CS201',
+        subjectName: 'Advanced Programming',
+        isGenEd: false,
+        courseLearningOutcomes: [learningOutcome1, learningOutcome2], // Both LOs in course
+        courseOfferings: [],
+        courseClickLogs: [],
+        metadata: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        matchedSkills: [
+          {
+            skill: 'Python Programming',
+            learningOutcomes: [learningOutcome1], // Only first LO matched
+          },
+        ],
+        relevanceScore: 3,
+      };
+
+      llmRouter.generateText = jest.fn().mockResolvedValue({
+        text: 'Course covers Python and data structures',
+        model: testModelName,
+        inputTokens: 100,
+        outputTokens: 50,
+        provider: 'openrouter',
+        finishReason: 'stop',
+        warnings: [],
+      });
+
+      const input = {
+        question,
+        promptVersion: testPromptVersion,
+        language: queryProfile.language,
+        aggregatedCourseSkills: [course],
+      };
+
+      // When
+      await service.synthesizeAnswer(input);
+
+      // Then: Verify both matched and all LOs are in correct sections
+      const callArgs = llmRouter.generateText.mock.calls[0][0];
+      // Matched LO appears in SECTION 1
+      expect(callArgs.prompt).toContain('SECTION 1: MATCHED EVIDENCE');
+      expect(callArgs.prompt).toContain('- Matched outcome: Python basics');
+      // All LOs appear in SECTION 2
+      expect(callArgs.prompt).toContain('SECTION 2: FULL CONTEXT');
+      expect(callArgs.prompt).toContain('- Matched outcome: Python basics');
+      expect(callArgs.prompt).toContain(
+        '- Additional outcome: Data structures',
+      );
+    });
+
+    it('should separate multiple courses with separator', async () => {
+      // Given
+      const question = 'Show me courses';
+      const queryProfile = createTestQueryProfile({ language: 'en' });
+      const aggregatedCourseSkills = [
+        createTestCourse('CS101', 'Course A'),
+        createTestCourse('CS102', 'Course B'),
+      ];
+
+      llmRouter.generateText = jest.fn().mockResolvedValue({
+        text: 'Found multiple courses',
+        model: testModelName,
+        inputTokens: 100,
+        outputTokens: 50,
+        provider: 'openrouter',
+        finishReason: 'stop',
+        warnings: [],
+      });
+
+      const input = {
+        question,
+        promptVersion: testPromptVersion,
+        language: queryProfile.language,
+        aggregatedCourseSkills,
+      };
+
+      // When
+      await service.synthesizeAnswer(input);
+
+      // Then: Verify separator between courses
+      const callArgs = llmRouter.generateText.mock.calls[0][0];
+      expect(callArgs.prompt).toContain('---');
+      expect(callArgs.prompt).toContain('COURSE: Course A (CS101)');
+      expect(callArgs.prompt).toContain('COURSE: Course B (CS102)');
+    });
+
+    it('should include learning outcome names in full context section', async () => {
+      // Given
+      const question = 'What does this course cover?';
       const queryProfile = createTestQueryProfile({
         language: 'en',
       });
-      const aggregatedCourseSkills = [createTestCourse('CS101', 'Test')];
+      const aggregatedCourseSkills = [createTestCourse('CS101', 'Programming')];
 
       llmRouter.generateText = jest.fn().mockResolvedValue({
         text: 'Answer',
@@ -603,11 +726,10 @@ describe('AnswerSynthesisService', () => {
       // When
       await service.synthesizeAnswer(input);
 
-      // Then: Verify JSON encoding in context
+      // Then: Verify learning outcomes are included in full context
       const callArgs = llmRouter.generateText.mock.calls[0][0];
-      expect(callArgs.prompt).toContain('Courses with skills:');
-      expect(callArgs.prompt).toContain('Language:');
-      // The actual encoded JSON will be in the string
+      expect(callArgs.prompt).toContain('SECTION 2: FULL CONTEXT');
+      expect(callArgs.prompt).toContain('- Understand programming concepts');
     });
   });
 });

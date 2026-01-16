@@ -7,6 +7,7 @@ import {
 import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { QuestionSkillCache } from '../../cache/question-skill.cache';
+import { QueryPipelineConfig } from '../../constants/config.constant';
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
 import {
   SkillExpansionPromptFactory,
@@ -56,6 +57,7 @@ export class SkillExpanderService implements ISkillExpanderService {
       systemPrompt,
       schema: SkillExpansionSchema,
       model: this.modelName,
+      timeout: QueryPipelineConfig.LLM_STEP_TIMEOUTS.SKILL_EXPANSION,
     });
     this.logger.log('[DEBUG] llmRouter.generateObject completed');
 
@@ -93,6 +95,7 @@ export class SkillExpanderService implements ISkillExpanderService {
       systemPrompt,
       schema: SkillExpansionV2Schema,
       model: this.modelName,
+      timeout: QueryPipelineConfig.LLM_STEP_TIMEOUTS.SKILL_EXPANSION,
     });
 
     const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(

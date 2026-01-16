@@ -6,6 +6,7 @@ import {
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
+import { QueryPipelineConfig } from '../../constants/config.constant';
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
 import {
   QueryProfileBuilderPromptFactory,
@@ -39,6 +40,7 @@ export class QueryProfileBuilderService implements IQueryProfileBuilderService {
       systemPrompt,
       schema: QueryProfileBuilderSchema,
       model: this.modelName,
+      timeout: QueryPipelineConfig.LLM_STEP_TIMEOUTS.QUERY_PROFILE_BUILDING,
     });
 
     const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(

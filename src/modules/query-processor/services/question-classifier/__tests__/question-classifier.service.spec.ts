@@ -125,12 +125,14 @@ describe('QuestionClassifierService', () => {
       const result = await service.classify(buildInput(testQuestion));
 
       expect(cache.lookup).toHaveBeenCalledWith(testQuestion);
-      expect(llmRouter.generateObject).toHaveBeenCalledWith({
-        prompt: expect.any(String),
-        systemPrompt: expect.any(String),
-        schema: expect.any(Object),
-        model: testModelName,
-      });
+      expect(llmRouter.generateObject).toHaveBeenCalledWith(
+        expect.objectContaining({
+          prompt: expect.any(String),
+          systemPrompt: expect.any(String),
+          schema: expect.any(Object),
+          model: testModelName,
+        }),
+      );
       expect(cache.store).toHaveBeenCalledWith(testQuestion, result);
       expect(result.category).toBe('relevant');
       expect(result.reason).toBe('AI classification result');

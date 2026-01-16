@@ -11,6 +11,14 @@ import {
   getAnswerSynthesisUserPromptV9,
 } from './answer-synthesis-v9.prompt';
 import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V10,
+  getAnswerSynthesisUserPromptV10,
+} from './answer-synthesis-v10.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V11,
+  getAnswerSynthesisUserPromptV11,
+} from './answer-synthesis-v11.prompt';
+import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT,
   getAnswerSynthesisUserPrompt,
 } from './answer-synthesis.prompt';
@@ -50,6 +58,8 @@ export const AnswerSynthesisPromptVersions = {
   V7: 'v7',
   V8: 'v8',
   V9: 'v9',
+  V10: 'v10',
+  V11: 'v11',
 } as const;
 
 export type AnswerSynthesisPromptVersion =
@@ -94,6 +104,14 @@ const AnswerSynthesisPrompts: Record<
   v9: {
     systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V9,
     getUserPrompt: getAnswerSynthesisUserPromptV9,
+  },
+  v10: {
+    systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V10,
+    getUserPrompt: getAnswerSynthesisUserPromptV10,
+  },
+  v11: {
+    systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V11,
+    getUserPrompt: getAnswerSynthesisUserPromptV11,
   },
 };
 

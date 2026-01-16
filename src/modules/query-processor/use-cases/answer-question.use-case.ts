@@ -27,7 +27,9 @@ import {
 } from 'src/modules/question-analyses/contracts/repositories/i-question-log-repository.contract';
 
 import {
+  QueryPipelineConfig,
   QueryPipelineDisplayKeys,
+  QueryPipelineFallbackMessages,
   QueryPipelinePromptConfig,
   QueryPipelineTimingSteps,
   QueryPipelineTokenCategories,
@@ -273,10 +275,11 @@ export class AnswerQuestionUseCase
       const retrieverResult =
         await this.courseRetrieverService.getCoursesWithLosBySkillsWithFilter({
           skills: skillItems.map((item) => item.skill),
-          loThreshold: 0,
-          topNLos: 10,
+          loThreshold: QueryPipelineConfig.COURSE_RETRIEVAL_LO_THRESHOLD,
+          topNLos: QueryPipelineConfig.COURSE_RETRIEVAL_TOP_N_LOS,
           isGenEd,
-          enableLlmFilter: false,
+          enableLlmFilter:
+            QueryPipelineConfig.COURSE_RETRIEVAL_ENABLE_LO_FILTER,
           campusId,
           facultyId,
           academicYearSemesters,
@@ -378,8 +381,8 @@ export class AnswerQuestionUseCase
         );
 
         const emptyResult = {
-          answer: 'ขออภัย เราไม่พบรายวิชาที่เกี่ยวข้องกับคำถามของคุณ',
-          suggestQuestion: 'อยากเรียนการเงินส่วนบุคคล',
+          answer: QueryPipelineFallbackMessages.EMPTY_RESULTS,
+          suggestQuestion: QueryPipelineFallbackMessages.SUGGEST_EMPTY_RESULTS,
           relatedCourses: [],
         };
 
@@ -417,7 +420,9 @@ export class AnswerQuestionUseCase
           promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
           language: queryProfileResult.language,
           aggregatedCourseSkills: rankedCourses.filter(
-            (course) => course.relevanceScore >= 1,
+            (course) =>
+              course.relevanceScore >=
+              QueryPipelineConfig.ANSWER_SYNTHESIS_MIN_RELEVANCE_SCORE,
           ),
         });
 
@@ -491,8 +496,8 @@ export class AnswerQuestionUseCase
     );
     if (classification === 'irrelevant') {
       const output = {
-        answer: 'ขออภัย คำถามของคุณอยู่นอกขอบเขตที่เราสามารถช่วยได้',
-        suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
+        answer: QueryPipelineFallbackMessages.IRRELEVANT_QUESTION,
+        suggestQuestion: QueryPipelineFallbackMessages.SUGGEST_IRRELEVANT,
         relatedCourses: [],
       };
 
@@ -505,8 +510,8 @@ export class AnswerQuestionUseCase
 
     if (classification === 'dangerous') {
       const output = {
-        answer: 'ขออภัย คำถามของคุณมีเนื้อหาที่ไม่เหมาะสมหรือเป็นอันตราย',
-        suggestQuestion: 'อยากเรียนเกี่ยวกับการพัฒนาโมเดลภาษา AI',
+        answer: QueryPipelineFallbackMessages.DANGEROUS_QUESTION,
+        suggestQuestion: QueryPipelineFallbackMessages.SUGGEST_DANGEROUS,
         relatedCourses: [],
       };
 
