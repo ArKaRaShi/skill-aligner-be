@@ -61,12 +61,58 @@ export interface ClassificationInfo {
 }
 
 /**
+ * Serializable timing record for database storage.
+ * Matches TimingRecord from time-logger.helper.ts
+ */
+export interface TimingRecordSerializable {
+  start: number;
+  end?: number;
+  duration?: number;
+}
+
+/**
+ * Serializable token usage for database storage.
+ * Matches TokenUsage from token-usage.type.ts
+ */
+export interface TokenUsageSerializable {
+  model: string;
+  inputTokens: number;
+  outputTokens: number;
+}
+
+/**
+ * Serializable token cost estimate for database storage.
+ * Matches TokenCostEstimate from token-cost-calculator.helper.ts
+ */
+export interface TokenCostEstimateSerializable extends TokenUsageSerializable {
+  available: boolean;
+  estimatedCost: number;
+}
+
+/**
+ * Serializable token record for database storage.
+ * Matches TokenRecord from token-logger.helper.ts
+ */
+export interface TokenRecordSerializable {
+  usage: TokenUsageSerializable;
+  costEstimate: TokenCostEstimateSerializable;
+}
+
+/**
  * Metrics stored in QueryProcessLog.metrics
+ *
+ * Raw timing and token data are stored directly in a type-safe format.
+ * Aggregations (averages, totals, LLM vs Embedding breakdowns)
+ * are computed at query time using TokenLogger.getSummary().
  */
 export interface QueryLogMetrics {
-  totalDuration?: number; // milliseconds
-  tokens?: TokenBreakdown;
-  costs?: CostBreakdown;
+  /** Raw timing data for each step */
+  timing?: Record<string, TimingRecordSerializable>;
+
+  /** Raw token map with all usage records */
+  tokenMap?: Record<string, TokenRecordSerializable[]>;
+
+  /** Simple counts that don't need calculation */
   counts?: CountStats;
 }
 

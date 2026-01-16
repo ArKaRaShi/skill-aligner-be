@@ -94,15 +94,15 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
         relatedCourses: [{ courseCode: 'CS101', courseName: 'Intro to CS' }],
       };
       const metrics: Partial<QueryLogMetrics> = {
-        totalDuration: 5000,
-        tokens: {
-          llm: {
-            input: 1000,
-            output: 500,
-            total: 1500,
+        timing: {
+          OVERALL: {
+            start: Date.now() - 5000,
+            end: Date.now(),
+            duration: 5000,
           },
-          total: 1500,
         },
+        tokenMap: {},
+        counts: { coursesReturned: 5 },
       };
 
       // Act
@@ -195,31 +195,18 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
         coursesReturned,
       );
 
-      // Assert
+      // Assert - verify raw data is stored directly (not computed)
       expect(mockRepository.updateQueryLog).toHaveBeenCalledWith(
         mockQueryLogId,
         {
           status: 'COMPLETED',
           completedAt: expect.any(Date),
           output,
-          metrics: expect.objectContaining({
-            totalDuration: 5000,
-            tokens: expect.objectContaining({
-              llm: {
-                input: 1000,
-                output: 500,
-                total: 1500,
-              },
-              total: 1500,
-            }),
-            costs: expect.objectContaining({
-              llm: 0.01,
-              total: 0.01,
-            }),
-            counts: {
-              coursesReturned: 10,
-            },
-          }),
+          metrics: {
+            timing,
+            tokenMap,
+            counts: { coursesReturned },
+          },
         },
       );
     });
@@ -250,25 +237,18 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
         coursesReturned,
       );
 
-      // Assert
+      // Assert - verify raw data is stored directly (not computed)
       expect(mockRepository.updateQueryLog).toHaveBeenCalledWith(
         mockQueryLogId,
         {
           status: 'COMPLETED',
           completedAt: expect.any(Date),
           output,
-          metrics: expect.objectContaining({
-            totalDuration: 1000,
-            tokens: expect.objectContaining({
-              total: 0,
-            }),
-            costs: expect.objectContaining({
-              total: 0,
-            }),
-            counts: {
-              coursesReturned: 0,
-            },
-          }),
+          metrics: {
+            timing,
+            tokenMap,
+            counts: { coursesReturned },
+          },
         },
       );
     });
@@ -334,34 +314,18 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
         coursesReturned,
       );
 
-      // Assert
+      // Assert - verify raw data is stored directly (not computed)
       expect(mockRepository.updateQueryLog).toHaveBeenCalledWith(
         mockQueryLogId,
         {
           status: 'COMPLETED',
           completedAt: expect.any(Date),
           output,
-          metrics: expect.objectContaining({
-            tokens: expect.objectContaining({
-              llm: {
-                input: 800,
-                output: 400,
-                total: 1200,
-              },
-              embedding: {
-                total: 200,
-              },
-              total: 1400, // 1200 LLM + 200 embedding
-            }),
-            costs: expect.objectContaining({
-              llm: 0.008,
-              embedding: 0.001,
-              total: 0.009,
-            }),
-            counts: {
-              coursesReturned: 5,
-            },
-          }),
+          metrics: {
+            timing,
+            tokenMap,
+            counts: { coursesReturned },
+          },
         },
       );
     });

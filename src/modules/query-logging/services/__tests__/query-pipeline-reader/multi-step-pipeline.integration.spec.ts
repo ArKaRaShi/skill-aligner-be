@@ -121,7 +121,15 @@ describe('QueryPipelineReaderService Integration - Multi-Step Pipeline', () => {
 
       await loggerService.complete(
         { answer: 'Final answer' },
-        { totalDuration: 1000 },
+        {
+          timing: {
+            'total-pipeline': {
+              start: Date.now() - 1000,
+              end: Date.now(),
+              duration: 1000,
+            },
+          },
+        },
       );
 
       // Act - Read back the full log

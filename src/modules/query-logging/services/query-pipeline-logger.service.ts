@@ -7,10 +7,7 @@ import type { LlmInfo } from '../../../shared/contracts/types/llm-info.type';
 import { HashHelper } from '../../../shared/utils/hash.helper';
 import { TimingMap } from '../../../shared/utils/time-logger.helper';
 import { TokenCostCalculator } from '../../../shared/utils/token-cost-calculator.helper';
-import {
-  TokenLogger,
-  TokenMap,
-} from '../../../shared/utils/token-logger.helper';
+import { TokenMap } from '../../../shared/utils/token-logger.helper';
 import type {
   AggregatedCourseSkills,
   CourseWithLearningOutcomeV2MatchWithRelevance,
@@ -31,6 +28,8 @@ import type {
   QueryLogInput,
   QueryLogMetrics,
   QueryLogOutput,
+  TimingRecordSerializable,
+  TokenRecordSerializable,
 } from '../types/query-log.type';
 import type { StepName } from '../types/query-status.type';
 
@@ -79,7 +78,7 @@ export class QueryPipelineLoggerService {
 
   /**
    * Complete a query log with raw timing, token, and count data.
-   * This convenience method builds the metrics object internally.
+   * Saves the raw data directly; aggregations are computed at query time.
    *
    * @param output - Final output (answer, courses)
    * @param timing - Timing map with duration information
@@ -92,7 +91,15 @@ export class QueryPipelineLoggerService {
     tokenMap: TokenMap,
     coursesReturned: number,
   ): Promise<void> {
-    const metrics = this.buildMetrics(timing, tokenMap, coursesReturned);
+    const metrics: {
+      timing: Record<string, TimingRecordSerializable>;
+      tokenMap: Record<string, TokenRecordSerializable[]>;
+      counts: { coursesReturned: number };
+    } = {
+      timing: timing as Record<string, TimingRecordSerializable>,
+      tokenMap: tokenMap as Record<string, TokenRecordSerializable[]>,
+      counts: { coursesReturned },
+    };
     await this.complete(output, metrics);
   }
 
@@ -667,90 +674,6 @@ export class QueryPipelineLoggerService {
       totalTokens: embeddingUsage.totalTokens,
       bySkill: embeddingUsage.bySkill,
       skillsCount: embeddingUsage.bySkill.length,
-    };
-  }
-
-  /**
-   * Build metrics from timing map, token map, and courses returned.
-   * This method transforms raw timing/token data into the QueryLogMetrics format.
-   *
-   * @param timing - Timing map with duration information
-   * @param tokenMap - Token map with token usage data
-   * @param coursesReturned - Number of courses returned
-   * @returns Formatted metrics for database persistence
-   * @private
-   */
-  private buildMetrics(
-    timing: TimingMap,
-    tokenMap: TokenMap,
-    coursesReturned: number,
-  ): {
-    totalDuration?: number;
-    tokens?: {
-      llm?: { input: number; output: number; total: number };
-      embedding?: { total: number };
-      total: number;
-    };
-    costs?: {
-      llm?: number;
-      embedding?: number;
-      total: number;
-    };
-    counts?: {
-      coursesReturned: number;
-    };
-  } {
-    const tokenLogger = new TokenLogger();
-    const tokenSummary = tokenLogger.getSummary(tokenMap);
-
-    // Step 3 is the embedding step, all others are LLM
-    const embeddingStepKey = 'step3-course-retrieval';
-
-    // Aggregate LLM tokens (all steps except embedding)
-    let llmInputTokens = 0;
-    let llmOutputTokens = 0;
-    let llmCost = 0;
-
-    // Aggregate embedding tokens (step3 only)
-    let embeddingTotalTokens = 0;
-    let embeddingCost = 0;
-
-    for (const [categoryKey, categoryData] of Object.entries(
-      tokenSummary.byCategory,
-    )) {
-      if (categoryKey === embeddingStepKey) {
-        // This is embedding
-        embeddingTotalTokens += categoryData.tokenCount.inputTokens;
-        embeddingCost += categoryData.cost;
-      } else {
-        // This is LLM
-        llmInputTokens += categoryData.tokenCount.inputTokens;
-        llmOutputTokens += categoryData.tokenCount.outputTokens;
-        llmCost += categoryData.cost;
-      }
-    }
-
-    const llmTotalTokens = llmInputTokens + llmOutputTokens;
-    const totalTokens = llmTotalTokens + embeddingTotalTokens;
-    const totalCost = tokenSummary.totalCost ?? 0;
-
-    // Find the overall timing step (usually 'OVERALL')
-    const overallTiming = Object.values(timing).find((t) => t.duration);
-    const totalDuration = overallTiming?.duration;
-
-    return {
-      totalDuration,
-      tokens: {
-        llm: {
-          input: llmInputTokens,
-          output: llmOutputTokens,
-          total: llmTotalTokens,
-        },
-        embedding: { total: embeddingTotalTokens },
-        total: totalTokens,
-      },
-      costs: { llm: llmCost, embedding: embeddingCost, total: totalCost },
-      counts: { coursesReturned },
     };
   }
 

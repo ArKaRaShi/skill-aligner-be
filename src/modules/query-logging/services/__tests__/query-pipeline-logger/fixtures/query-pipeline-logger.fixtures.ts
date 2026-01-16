@@ -131,15 +131,14 @@ export const createMockQueryLogOutput = (
 export const createMockQueryLogMetrics = (
   overrides: Partial<QueryLogMetrics> = {},
 ): QueryLogMetrics => ({
-  totalDuration: 5000,
-  tokens: {
-    llm: {
-      input: 1000,
-      output: 500,
-      total: 1500,
+  timing: {
+    OVERALL: {
+      start: Date.now() - 5000,
+      end: Date.now(),
+      duration: 5000,
     },
-    total: 1500,
   },
+  tokenMap: {},
   counts: {
     coursesReturned: 10,
   },

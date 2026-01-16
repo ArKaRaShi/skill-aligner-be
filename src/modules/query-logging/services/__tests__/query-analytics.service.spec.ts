@@ -28,12 +28,47 @@ describe('QueryAnalyticsService', () => {
     createdAt: new Date('2024-01-01T10:00:00Z'),
     updatedAt: new Date('2024-01-01T10:01:00Z'),
     metrics: {
-      costs: {
-        llm: 0.01,
-        embedding: 0.001,
-        total: 0.011,
+      tokenMap: {
+        'step1-classification': [
+          {
+            usage: {
+              model: 'gpt-4',
+              inputTokens: 100,
+              outputTokens: 50,
+            },
+            costEstimate: {
+              available: true,
+              estimatedCost: 0.0065,
+              model: 'gpt-4',
+              inputTokens: 100,
+              outputTokens: 50,
+            },
+          },
+        ],
+        'step3-course-retrieval': [
+          {
+            usage: {
+              model: 'e5-base',
+              inputTokens: 10,
+              outputTokens: 0,
+            },
+            costEstimate: {
+              available: false,
+              estimatedCost: 0,
+              model: 'e5-base',
+              inputTokens: 10,
+              outputTokens: 0,
+            },
+          },
+        ],
       },
-      totalDuration: 60000,
+      timing: {
+        'total-pipeline': {
+          start: Date.now(),
+          end: Date.now() + 60000,
+          duration: 60000,
+        },
+      },
     },
     ...overrides,
   });
@@ -58,13 +93,121 @@ describe('QueryAnalyticsService', () => {
       // Arrange
       const logs = [
         createMockLog({
-          metrics: { costs: { llm: 0.01, embedding: 0.001, total: 0.011 } },
+          id: 'log-1' as Identifier,
+          metrics: {
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.0065,
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.001,
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
+          },
         }),
         createMockLog({
-          metrics: { costs: { llm: 0.02, embedding: 0.002, total: 0.022 } },
+          id: 'log-2' as Identifier,
+          metrics: {
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.013,
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 20,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.002,
+                    model: 'e5-base',
+                    inputTokens: 20,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
+          },
         }),
         createMockLog({
-          metrics: { costs: { llm: 0.03, embedding: 0.003, total: 0.033 } },
+          id: 'log-3' as Identifier,
+          metrics: {
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 300,
+                    outputTokens: 150,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.0195,
+                    model: 'gpt-4',
+                    inputTokens: 300,
+                    outputTokens: 150,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 30,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.003,
+                    model: 'e5-base',
+                    inputTokens: 30,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
+          },
         }),
       ];
       mockRepository.findManyWithMetrics.mockResolvedValue(logs);
@@ -73,19 +216,59 @@ describe('QueryAnalyticsService', () => {
       const result = await service.getAverageCost();
 
       // Assert
-      expect(result.llm).toBe(0.02);
-      expect(result.embedding).toBe(0.002);
-      expect(result.total).toBeCloseTo(0.022, 6);
+      expect(result.llm).toBeCloseTo(0.013, 3); // (0.0065 + 0.013 + 0.0195) / 3
+      expect(result.embedding).toBeCloseTo(0.002, 3); // (0.001 + 0.002 + 0.003) / 3
+      expect(result.total).toBeCloseTo(0.015, 2); // (0.0075 + 0.015 + 0.0225) / 3
     });
 
     it('should handle logs with only LLM costs', async () => {
       // Arrange
       const logs = [
         createMockLog({
-          metrics: { costs: { llm: 0.01, total: 0.01 } },
+          id: 'log-1' as Identifier,
+          metrics: {
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.01,
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                },
+              ],
+            },
+          },
         }),
         createMockLog({
-          metrics: { costs: { llm: 0.02, total: 0.02 } },
+          id: 'log-2' as Identifier,
+          metrics: {
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.02,
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                },
+              ],
+            },
+          },
         }),
       ];
       mockRepository.findManyWithMetrics.mockResolvedValue(logs);
@@ -94,9 +277,9 @@ describe('QueryAnalyticsService', () => {
       const result = await service.getAverageCost();
 
       // Assert
-      expect(result.llm).toBe(0.015);
+      expect(result.llm).toBeCloseTo(0.015, 3);
       expect(result.embedding).toBe(0);
-      expect(result.total).toBe(0.015);
+      expect(result.total).toBeCloseTo(0.015, 3);
     });
 
     it('should pass date range filters to repository', async () => {
@@ -123,10 +306,82 @@ describe('QueryAnalyticsService', () => {
       // Arrange
       const logs = [
         createMockLog({
-          metrics: { costs: { llm: 0.01, embedding: 0.001, total: 0.011 } },
+          id: 'log-1' as Identifier,
+          metrics: {
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.01,
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.001,
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
+          },
         }),
         createMockLog({
-          metrics: { costs: { llm: 0.02, embedding: 0.002, total: 0.022 } },
+          id: 'log-2' as Identifier,
+          metrics: {
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.02,
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 20,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.002,
+                    model: 'e5-base',
+                    inputTokens: 20,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
+          },
         }),
       ];
       mockRepository.findManyWithMetrics.mockResolvedValue(logs);
@@ -135,27 +390,21 @@ describe('QueryAnalyticsService', () => {
       const result = await service.getCostBreakdownStats();
 
       // Assert
-      expect(result.llm).toEqual({
-        count: 2,
-        sum: 0.03,
-        average: 0.015,
-        min: 0.01,
-        max: 0.02,
-      });
-      expect(result.embedding).toEqual({
-        count: 2,
-        sum: 0.003,
-        average: 0.0015,
-        min: 0.001,
-        max: 0.002,
-      });
-      expect(result.total).toEqual({
-        count: 2,
-        sum: 0.033,
-        average: 0.0165,
-        min: 0.011,
-        max: 0.022,
-      });
+      expect(result.llm.count).toBe(2);
+      expect(result.llm.sum).toBeCloseTo(0.03, 3);
+      expect(result.llm.average).toBeCloseTo(0.015, 3);
+      expect(result.llm.min).toBeCloseTo(0.01, 3);
+      expect(result.llm.max).toBeCloseTo(0.02, 3);
+      expect(result.embedding.count).toBe(2);
+      expect(result.embedding.sum).toBeCloseTo(0.003, 4);
+      expect(result.embedding.average).toBeCloseTo(0.0015, 4);
+      expect(result.embedding.min).toBeCloseTo(0.001, 4);
+      expect(result.embedding.max).toBeCloseTo(0.002, 4);
+      expect(result.total.count).toBe(2);
+      expect(result.total.sum).toBeCloseTo(0.033, 3);
+      expect(result.total.average).toBeCloseTo(0.0165, 4);
+      expect(result.total.min).toBeCloseTo(0.011, 4);
+      expect(result.total.max).toBeCloseTo(0.022, 4);
     });
 
     it('should use COMPLETED status by default', async () => {
@@ -195,16 +444,94 @@ describe('QueryAnalyticsService', () => {
           id: 'log-1' as Identifier,
           question: 'Question 1',
           metrics: {
-            costs: { llm: 0.01, embedding: 0.001, total: 0.011 },
-            totalDuration: 60000,
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.01,
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.001,
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
+            timing: {
+              'total-pipeline': {
+                start: Date.now(),
+                end: Date.now() + 60000,
+                duration: 60000,
+              },
+            },
           },
         }),
         createMockLog({
           id: 'log-2' as Identifier,
           question: 'Question 2',
           metrics: {
-            costs: { llm: 0.02, embedding: 0.002, total: 0.022 },
-            totalDuration: 120000,
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.02,
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 20,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.002,
+                    model: 'e5-base',
+                    inputTokens: 20,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
+            timing: {
+              'total-pipeline': {
+                start: Date.now(),
+                end: Date.now() + 120000,
+                duration: 120000,
+              },
+            },
           },
         }),
       ];
@@ -215,11 +542,10 @@ describe('QueryAnalyticsService', () => {
 
       // Assert
       expect(result).toHaveLength(2);
-      expect(result[0]).toEqual({
+      expect(result[0]).toMatchObject({
         logId: 'log-1',
         question: 'Question 1',
         status: 'COMPLETED',
-        completedAt: logs[0].completedAt!,
         costs: { llm: 0.01, embedding: 0.001, total: 0.011 },
         duration: 60000,
       });
@@ -230,7 +556,42 @@ describe('QueryAnalyticsService', () => {
       const logs = [
         createMockLog({
           id: 'log-1' as Identifier,
-          metrics: { costs: { llm: 0.01, embedding: 0.001, total: 0.011 } },
+          metrics: {
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.01,
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.001,
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
+          },
         }),
         createMockLog({
           id: 'log-2' as Identifier,
@@ -254,7 +615,26 @@ describe('QueryAnalyticsService', () => {
           id: 'log-1' as Identifier,
           completedAt: undefined,
           startedAt: new Date('2024-01-01T10:00:00Z'),
-          metrics: { costs: { total: 0.01 } },
+          metrics: {
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.01,
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                },
+              ],
+            },
+          },
         }),
       ];
       mockRepository.findManyWithMetrics.mockResolvedValue(logs);
@@ -286,17 +666,80 @@ describe('QueryAnalyticsService', () => {
       // Arrange
       const logs = [
         createMockLog({
+          id: 'log-1' as Identifier,
           metrics: {
-            costs: { llm: 0.01, embedding: 0.001, total: 0.011 },
-            tokens: { llm: { input: 100, output: 50, total: 150 }, total: 200 },
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.01,
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.001,
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
           },
         }),
         createMockLog({
+          id: 'log-2' as Identifier,
           metrics: {
-            costs: { llm: 0.02, embedding: 0.002, total: 0.022 },
-            tokens: {
-              llm: { input: 200, output: 100, total: 300 },
-              total: 400,
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.02,
+                    model: 'gpt-4',
+                    inputTokens: 200,
+                    outputTokens: 100,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 20,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.002,
+                    model: 'e5-base',
+                    inputTokens: 20,
+                    outputTokens: 0,
+                  },
+                },
+              ],
             },
           },
         }),
@@ -307,33 +750,33 @@ describe('QueryAnalyticsService', () => {
       const result = await service.getTokenBreakdownStats();
 
       // Assert
-      expect(result.llmInput).toEqual({
+      expect(result.llmInput).toMatchObject({
         count: 2,
         sum: 300,
         average: 150,
         min: 100,
         max: 200,
       });
-      expect(result.llmOutput).toEqual({
+      expect(result.llmOutput).toMatchObject({
         count: 2,
         sum: 150,
         average: 75,
         min: 50,
         max: 100,
       });
-      expect(result.llmTotal).toEqual({
+      expect(result.llmTotal).toMatchObject({
         count: 2,
         sum: 450,
         average: 225,
         min: 150,
         max: 300,
       });
-      expect(result.total).toEqual({
+      expect(result.total).toMatchObject({
         count: 2,
-        sum: 600,
-        average: 300,
-        min: 200,
-        max: 400,
+        sum: 480,
+        average: 240,
+        min: 160,
+        max: 320,
       });
     });
 
@@ -341,9 +784,26 @@ describe('QueryAnalyticsService', () => {
       // Arrange
       const logs = [
         createMockLog({
+          id: 'log-1' as Identifier,
           metrics: {
-            costs: { total: 0.01 },
-            tokens: { llm: { input: 100, output: 50, total: 150 }, total: 150 },
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.01,
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                },
+              ],
+            },
           },
         }),
       ];
@@ -397,9 +857,42 @@ describe('QueryAnalyticsService', () => {
       // Arrange
       const logs = [
         createMockLog({
+          id: 'log-1' as Identifier,
           metrics: {
-            costs: { llm: 0.01, embedding: 0.001, total: 0.011 },
-            tokens: { llm: { input: 100, output: 50, total: 150 }, total: 200 },
+            tokenMap: {
+              'step1-classification': [
+                {
+                  usage: {
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.01,
+                    model: 'gpt-4',
+                    inputTokens: 100,
+                    outputTokens: 50,
+                  },
+                },
+              ],
+              'step3-course-retrieval': [
+                {
+                  usage: {
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                  costEstimate: {
+                    available: true,
+                    estimatedCost: 0.001,
+                    model: 'e5-base',
+                    inputTokens: 10,
+                    outputTokens: 0,
+                  },
+                },
+              ],
+            },
           },
         }),
       ];
