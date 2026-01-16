@@ -114,6 +114,10 @@ describe('LlmRouterService', () => {
           inputTokens: 10,
           outputTokens: 20,
         }),
+        streamText: jest.fn().mockReturnValue({
+          stream: (async function* () {})(),
+          usage: Promise.resolve({ inputTokens: 10, outputTokens: 20 }),
+        }),
         generateObject: jest.fn(),
         getProviderName: jest.fn().mockReturnValue(mockOpenRouterProviderName),
       };
@@ -147,6 +151,10 @@ describe('LlmRouterService', () => {
           model: validModel,
           inputTokens: 10,
           outputTokens: 20,
+        }),
+        streamText: jest.fn().mockReturnValue({
+          stream: (async function* () {})(),
+          usage: Promise.resolve({ inputTokens: 10, outputTokens: 20 }),
         }),
         generateObject: jest.fn(),
         getProviderName: jest.fn().mockReturnValue(mockOpenAIProviderName),
@@ -226,6 +234,10 @@ describe('LlmRouterService', () => {
 
       const mockProvider = {
         generateText: jest.fn(),
+        streamText: jest.fn().mockReturnValue({
+          stream: (async function* () {})(),
+          usage: Promise.resolve({ inputTokens: 15, outputTokens: 25 }),
+        }),
         generateObject: jest.fn().mockResolvedValue({
           model: validModel,
           inputTokens: 15,
@@ -253,6 +265,10 @@ describe('LlmRouterService', () => {
 
       const mockProvider = {
         generateText: jest.fn(),
+        streamText: jest.fn().mockReturnValue({
+          stream: (async function* () {})(),
+          usage: Promise.resolve({ inputTokens: 15, outputTokens: 25 }),
+        }),
         generateObject: jest.fn().mockResolvedValue({
           model: validModel,
           inputTokens: 15,
@@ -331,6 +347,10 @@ describe('LlmRouterService', () => {
           inputTokens: 0,
           outputTokens: 0,
         }),
+        streamText: jest.fn().mockReturnValue({
+          stream: (async function* () {})(),
+          usage: Promise.resolve({ inputTokens: 0, outputTokens: 0 }),
+        }),
         generateObject: jest.fn(),
         getProviderName: jest.fn().mockReturnValue(mockOpenRouterProviderName),
       };
@@ -353,6 +373,10 @@ describe('LlmRouterService', () => {
           model: validModel,
           inputTokens: 0,
           outputTokens: 0,
+        }),
+        streamText: jest.fn().mockReturnValue({
+          stream: (async function* () {})(),
+          usage: Promise.resolve({ inputTokens: 0, outputTokens: 0 }),
         }),
         generateObject: jest.fn(),
         getProviderName: jest.fn().mockReturnValue(mockOpenAIProviderName),
@@ -417,6 +441,10 @@ describe('LlmRouterService', () => {
           model: modelId,
           inputTokens: 0,
           outputTokens: 0,
+        }),
+        streamText: jest.fn().mockReturnValue({
+          stream: (async function* () {})(),
+          usage: Promise.resolve({ inputTokens: 0, outputTokens: 0 }),
         }),
         generateObject: jest.fn(),
         getProviderName: jest.fn().mockReturnValue(mockOpenRouterProviderName),

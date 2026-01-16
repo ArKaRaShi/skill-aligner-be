@@ -68,7 +68,7 @@ import {
 import { CourseRelevanceFilterResultV2 } from '../types/course-relevance-filter.type';
 import { TClassificationCategory } from '../types/question-classification.type';
 import { SSE_EVENT_NAME, type StepSseEvent } from '../types/sse-event.type';
-import { AnswerQuestionUseCaseInput } from './inputs/answer-question.use-case.input';
+import { AnswerQuestionStreamUseCaseInput } from './inputs/answer-question-stream.use-case.input';
 import { AnswerQuestionUseCaseOutput } from './outputs/answer-question.use-case.output';
 
 @Injectable()
@@ -105,11 +105,11 @@ export class AnswerQuestionStreamUseCase {
    * Execute the query pipeline and emit progress events via the provided emitter.
    * This method allows direct control over SSE event emission for the Express response approach.
    *
-   * @param input - The input parameters for the query
+   * @param input - The input parameters for the query (includes stream flag)
    * @param emitter - ISseEmitter implementation to emit SSE events
    */
   async execute(
-    input: AnswerQuestionUseCaseInput,
+    input: AnswerQuestionStreamUseCaseInput,
     emitter: ISseEmitter<StepSseEvent>,
   ): Promise<void> {
     const { question, isGenEd, campusId, facultyId, academicYearSemesters } =
@@ -523,6 +523,10 @@ export class AnswerQuestionStreamUseCase {
         SSE_EVENT_NAME.STEP,
       );
 
+      // Transform courses to DTOs early (needed for both streaming and non-streaming modes)
+      const relatedCourses =
+        await this.transformToCourseOutputDtos(rankedCourses);
+
       // ============================================================
       // STEP 6: Answer Synthesis
       // ============================================================
@@ -542,79 +546,173 @@ export class AnswerQuestionStreamUseCase {
         QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS,
       );
 
-      const synthesisResult =
-        await this.answerSynthesisService.synthesizeAnswer({
+      // Filter courses by relevance score for answer synthesis
+      const relevantCourses = rankedCourses.filter(
+        (course) =>
+          course.relevanceScore >=
+          QueryPipelineConfig.ANSWER_SYNTHESIS_MIN_RELEVANCE_SCORE,
+      );
+
+      if (input.stream === false) {
+        // ============================================================
+        // NON-STREAM MODE: Generate complete answer, emit all at once
+        // ============================================================
+        const synthesisResult =
+          await this.answerSynthesisService.synthesizeAnswer({
+            question,
+            promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
+            language: queryProfileResult.language,
+            aggregatedCourseSkills: relevantCourses,
+          });
+
+        this.tokenLogger.addTokenUsage(
+          tokenMap,
+          QueryPipelineTokenCategories.STEP6_ANSWER_SYNTHESIS,
+          synthesisResult.tokenUsage,
+        );
+
+        this.timeLogger.endTiming(
+          timing,
+          QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS,
+        );
+
+        await this.queryPipelineLoggerService.answerSynthesis({
           question,
           promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
-          language: queryProfileResult.language,
-          aggregatedCourseSkills: rankedCourses.filter(
-            (course) =>
-              course.relevanceScore >=
-              QueryPipelineConfig.ANSWER_SYNTHESIS_MIN_RELEVANCE_SCORE,
-          ),
+          synthesisResult,
+          duration:
+            timing[QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS]?.duration,
         });
 
-      this.tokenLogger.addTokenUsage(
-        tokenMap,
-        QueryPipelineTokenCategories.STEP6_ANSWER_SYNTHESIS,
-        synthesisResult.tokenUsage,
-      );
+        emitter.emit(
+          {
+            step: 6,
+            total: QueryPipelineConfig.PIPELINE_TOTAL_STEPS,
+            name: 'answer_synthesis',
+            displayName: StepNameHelper.getDisplayName('answer_synthesis'),
+            status: 'completed',
+          },
+          SSE_EVENT_NAME.STEP,
+        );
 
-      this.timeLogger.endTiming(
-        timing,
-        QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS,
-      );
+        this.timeLogger.endTiming(timing, QueryPipelineTimingSteps.OVERALL);
+        this.logExecutionMetrics(timing, tokenMap);
 
-      await this.queryPipelineLoggerService.answerSynthesis({
-        question,
-        promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
-        synthesisResult,
-        duration:
-          timing[QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS]?.duration,
-      });
+        // Complete query logging with metrics
+        await this.queryPipelineLoggerService.completeWithRawMetrics(
+          {
+            answer: synthesisResult.answerText,
+            suggestQuestion: undefined,
+            relatedCourses: relatedCourses.map((c) => ({
+              courseCode: c.subjectCode,
+              courseName: c.subjectName,
+            })),
+          },
+          timing,
+          tokenMap,
+          relatedCourses.length,
+        );
 
-      emitter.emit(
-        {
-          step: 6,
-          total: QueryPipelineConfig.PIPELINE_TOTAL_STEPS,
-          name: 'answer_synthesis',
-          displayName: StepNameHelper.getDisplayName('answer_synthesis'),
-          status: 'completed',
-        },
-        SSE_EVENT_NAME.STEP,
-      );
+        // Emit final result with courses (non-stream mode includes courses in DONE)
+        emitter.emit(
+          {
+            answer: synthesisResult.answerText,
+            suggestQuestion: null,
+            relatedCourses,
+          },
+          SSE_EVENT_NAME.DONE,
+        );
+      } else {
+        // ============================================================
+        // STREAM MODE: Emit courses early, stream text chunks
+        // ============================================================
 
-      // Transform to CourseOutputDto for SSE streaming
-      const relatedCourses =
-        await this.transformToCourseOutputDtos(rankedCourses);
+        // Emit courses FIRST (frontend displays them immediately)
+        emitter.emit({ courses: relatedCourses }, SSE_EVENT_NAME.COURSES);
 
-      this.timeLogger.endTiming(timing, QueryPipelineTimingSteps.OVERALL);
-      this.logExecutionMetrics(timing, tokenMap);
+        // Stream the answer text
+        const { stream, onComplete } =
+          this.answerSynthesisService.synthesizeAnswerStream({
+            question,
+            promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
+            language: queryProfileResult.language,
+            aggregatedCourseSkills: relevantCourses,
+          });
 
-      // Complete query logging with metrics
-      await this.queryPipelineLoggerService.completeWithRawMetrics(
-        {
-          answer: synthesisResult.answerText,
-          suggestQuestion: undefined,
-          relatedCourses: relatedCourses.map((c) => ({
-            courseCode: c.subjectCode,
-            courseName: c.subjectName,
-          })),
-        },
-        timing,
-        tokenMap,
-        relatedCourses.length,
-      );
+        let fullAnswer = '';
+        for await (const { text, isFirst, isLast } of stream) {
+          fullAnswer += text;
+          emitter.emit(
+            { chunk: text, isFirst, isLast },
+            SSE_EVENT_NAME.TEXT_CHUNK,
+          );
+        }
 
-      // Emit final result
-      emitter.emit(
-        {
-          answer: synthesisResult.answerText,
-          suggestQuestion: null,
-          relatedCourses,
-        },
-        SSE_EVENT_NAME.DONE,
-      );
+        // Wait for final metadata (tokens, llmInfo)
+        const { tokenUsage, llmInfo } = await onComplete;
+
+        // Track timing and tokens
+        this.tokenLogger.addTokenUsage(
+          tokenMap,
+          QueryPipelineTokenCategories.STEP6_ANSWER_SYNTHESIS,
+          tokenUsage,
+        );
+
+        this.timeLogger.endTiming(
+          timing,
+          QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS,
+        );
+
+        // Log answer synthesis with metadata
+        await this.queryPipelineLoggerService.answerSynthesis({
+          question,
+          promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
+          synthesisResult: {
+            answerText: fullAnswer,
+            llmInfo,
+          },
+          duration:
+            timing[QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS]?.duration,
+        });
+
+        emitter.emit(
+          {
+            step: 6,
+            total: QueryPipelineConfig.PIPELINE_TOTAL_STEPS,
+            name: 'answer_synthesis',
+            displayName: StepNameHelper.getDisplayName('answer_synthesis'),
+            status: 'completed',
+          },
+          SSE_EVENT_NAME.STEP,
+        );
+
+        this.timeLogger.endTiming(timing, QueryPipelineTimingSteps.OVERALL);
+        this.logExecutionMetrics(timing, tokenMap);
+
+        // Complete query logging with metrics
+        await this.queryPipelineLoggerService.completeWithRawMetrics(
+          {
+            answer: fullAnswer,
+            suggestQuestion: undefined,
+            relatedCourses: relatedCourses.map((c) => ({
+              courseCode: c.subjectCode,
+              courseName: c.subjectName,
+            })),
+          },
+          timing,
+          tokenMap,
+          relatedCourses.length,
+        );
+
+        // Emit final DONE without courses (already sent via COURSES event)
+        emitter.emit(
+          {
+            answer: fullAnswer,
+            suggestQuestion: null,
+          },
+          SSE_EVENT_NAME.DONE,
+        );
+      }
     } catch (error) {
       await this.queryPipelineLoggerService.fail({
         message: error instanceof Error ? error.message : 'Unknown error',

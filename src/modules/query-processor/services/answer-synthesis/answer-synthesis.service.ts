@@ -6,14 +6,18 @@ import {
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
-import { QueryPipelineConfig } from '../../constants/config.constant';
+import { QueryPipelineConfig } from '../../configs/pipeline-behavior.config';
 import {
   AnswerSynthesizeInput,
+  AnswerSynthesizeStreamInput,
   IAnswerSynthesisService,
 } from '../../contracts/i-answer-synthesis-service.contract';
 import { AnswerSynthesisPromptFactory } from '../../prompts/answer-synthesis';
 import { Language } from '../../schemas/query-profile-builder.schema';
-import { AnswerSynthesisResult } from '../../types/answer-synthesis.type';
+import {
+  AnswerSynthesisResult,
+  AnswerSynthesisStreamResult,
+} from '../../types/answer-synthesis.type';
 import { AggregatedCourseSkills } from '../../types/course-aggregation.type';
 
 @Injectable()
@@ -76,6 +80,61 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     };
 
     return synthesisResult;
+  }
+
+  synthesizeAnswerStream(
+    input: AnswerSynthesizeStreamInput,
+  ): AnswerSynthesisStreamResult {
+    const { question, promptVersion, language, aggregatedCourseSkills } = input;
+    const context = this.buildContext(aggregatedCourseSkills, language);
+
+    this.logger.log(
+      `[AnswerSynthesis] Streaming answer for question: "${question}" using model: ${this.modelName}`,
+    );
+
+    this.logger.log(
+      `[AnswerSynthesis] Context data sent to prompt: ${context}`,
+    );
+
+    const { getPrompts } = AnswerSynthesisPromptFactory();
+    const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
+    const synthesisPrompt = getUserPrompt(question, context);
+
+    // Get stream from LLM router
+    const { stream, usage } = this.llmRouter.streamText({
+      prompt: synthesisPrompt,
+      systemPrompt,
+      model: this.modelName,
+      timeout: QueryPipelineConfig.LLM_STEP_TIMEOUTS.ANSWER_SYNTHESIS,
+    });
+
+    // Transform usage promise to TokenUsage and LlmInfo
+    const onComplete = usage.then(
+      ({ inputTokens, outputTokens, finishReason }) => {
+        const llmResult = {
+          inputTokens,
+          outputTokens,
+          finishReason,
+        };
+
+        const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
+          llmResult,
+          this.modelName,
+          synthesisPrompt,
+          systemPrompt,
+          promptVersion,
+          undefined, // no schema for generateText
+        );
+
+        return { tokenUsage, llmInfo };
+      },
+    );
+
+    return {
+      stream,
+      question,
+      onComplete,
+    };
   }
 
   private buildContext(

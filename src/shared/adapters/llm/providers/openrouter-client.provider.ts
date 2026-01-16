@@ -7,6 +7,7 @@ import {
 import {
   generateObject as aiGenerateObject,
   generateText as aiGenerateText,
+  streamText as aiStreamText,
 } from 'ai';
 import { z } from 'zod';
 
@@ -21,6 +22,8 @@ import {
   GenerateTextInput,
   GenerateTextOutput,
   ILlmProviderClient,
+  StreamTextInput,
+  StreamTextOutput,
 } from '../contracts/i-llm-provider-client.contract';
 import { BaseLlmProvider } from './base-llm-provider.abstract';
 
@@ -101,6 +104,66 @@ export class OpenRouterClientProvider
         model,
       },
     );
+  }
+
+  streamText({
+    prompt,
+    systemPrompt,
+    model,
+    timeout,
+  }: StreamTextInput): StreamTextOutput {
+    this.validateGenerateTextInput({ prompt, systemPrompt, model });
+
+    // Use provided timeout or fall back to default
+    const requestTimeout = timeout ?? LLM_REQUEST_TIMEOUT;
+
+    // Create the stream result from AI SDK
+    const result = aiStreamText({
+      model: this.openRouter(model),
+      prompt,
+      system: systemPrompt,
+      abortSignal: AbortSignal.timeout(requestTimeout),
+      ...LLM_MAX_RETRIES_CONFIG,
+      ...LLM_HYPER_PARAMETERS,
+    });
+
+    // Create async generator that yields chunks with metadata
+    const stream = (async function* () {
+      let isFirst = true;
+      try {
+        for await (const textDelta of result.textStream) {
+          yield {
+            text: textDelta,
+            isFirst,
+            isLast: false,
+          };
+          isFirst = false;
+        }
+        // Yield final chunk to signal completion
+        yield {
+          text: '',
+          isFirst: false,
+          isLast: true,
+        };
+      } catch (error) {
+        throw new Error(
+          `${OpenRouterClientProvider.name} stream error: ${error instanceof Error ? error.message : String(error)}`,
+        );
+      }
+    })();
+
+    // Usage promise resolves when stream completes
+    // finishReason is available on the result, not in usage
+    const finishReason = result.finishReason;
+    const usage = Promise.all([result.usage, finishReason]).then(
+      ([usage, finishReason]) => ({
+        inputTokens: usage.inputTokens ?? 0,
+        outputTokens: usage.outputTokens ?? 0,
+        finishReason,
+      }),
+    );
+
+    return { stream, usage };
   }
 
   async generateObject<TSchema extends z.ZodTypeAny>({

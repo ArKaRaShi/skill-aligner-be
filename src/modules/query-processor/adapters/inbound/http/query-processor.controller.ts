@@ -16,7 +16,9 @@ import { SuccessResponseDto } from 'src/shared/contracts/api/base.response.dto';
 import { StepSseEvent } from '../../../types/sse-event.type';
 import { AnswerQuestionStreamUseCase } from '../../../use-cases/answer-question-stream.use-case';
 import { AnswerQuestionUseCase } from '../../../use-cases/answer-question.use-case';
+import { AnswerQuestionStreamUseCaseInput } from '../../../use-cases/inputs/answer-question-stream.use-case.input';
 import { AnswerQuestionUseCaseInput } from '../../../use-cases/inputs/answer-question.use-case.input';
+import { AnswerQuestionStreamRequestDto } from './dto/requests/answer-question-stream.request.dto';
 import { AnswerQuestionRequestDto } from './dto/requests/answer-question.request.dto';
 import { AnswerQuestionResponseDto } from './dto/responses/answer-question.response.dto';
 import { CourseResponseMapper } from './mappers/course-response.mapper';
@@ -60,7 +62,7 @@ export class QueryProcessorController {
   @Post('/query-processor/answer-question-stream')
   @HttpCode(HttpStatus.OK)
   async answerQuestionStream(
-    @Body() body: AnswerQuestionRequestDto,
+    @Body() body: AnswerQuestionStreamRequestDto,
     @Res({ passthrough: false }) response: Response,
   ): Promise<void> {
     console.log('[Controller] SSE stream request received:', body.question);
@@ -71,7 +73,7 @@ export class QueryProcessorController {
     try {
       // Execute pipeline with emitter
       await this.answerQuestionStreamUseCase.execute(
-        new AnswerQuestionUseCaseInput(body),
+        new AnswerQuestionStreamUseCaseInput(body),
         emitter,
       );
       console.log('[Controller] Pipeline completed successfully');

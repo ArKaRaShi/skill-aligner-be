@@ -7,7 +7,7 @@ import {
 import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { QuestionClassifierCache } from '../../cache/question-classifier.cache';
-import { QueryPipelineConfig } from '../../constants/config.constant';
+import { QueryPipelineConfig } from '../../configs/pipeline-behavior.config';
 import {
   IQuestionClassifierService,
   QuestionClassifyInput,

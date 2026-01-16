@@ -12,6 +12,8 @@ import {
   GenerateTextInput,
   GenerateTextOutput,
   ILlmProviderClient,
+  StreamTextInput,
+  StreamTextOutput,
 } from '../contracts/i-llm-provider-client.contract';
 
 /**
@@ -34,6 +36,16 @@ export abstract class BaseLlmProvider implements ILlmProviderClient {
     systemPrompt,
     model,
   }: GenerateTextInput): Promise<GenerateTextOutput>;
+
+  /**
+   * Streams text completion using the specified model and prompts.
+   * Must be implemented by concrete provider classes.
+   */
+  abstract streamText({
+    prompt,
+    systemPrompt,
+    model,
+  }: StreamTextInput): StreamTextOutput;
 
   /**
    * Generates a structured object by asking the model to fill a Zod schema.

@@ -8,6 +8,8 @@ import {
   GenerateTextInput,
   GenerateTextOutput,
   ILlmProviderClient,
+  StreamTextInput,
+  StreamTextOutput,
 } from '../contracts/i-llm-provider-client.contract';
 import { ILlmRouterService } from '../contracts/i-llm-router-service.contract';
 import { IModelRegistry } from '../contracts/i-model-registry.contract';
@@ -48,6 +50,29 @@ export class LlmRouterService implements ILlmRouterService {
     );
 
     return selectedProvider.generateText({
+      prompt,
+      systemPrompt,
+      model: resolvedModel,
+      timeout,
+    });
+  }
+
+  /**
+   * Streams text completion using specified model and prompts.
+   */
+  streamText(
+    { prompt, systemPrompt, model, timeout }: StreamTextInput,
+    provider?: string,
+  ): StreamTextOutput {
+    const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
+      model,
+      provider,
+    );
+    this.logger.debug(
+      `Routing streamText for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
+    );
+
+    return selectedProvider.streamText({
       prompt,
       systemPrompt,
       model: resolvedModel,

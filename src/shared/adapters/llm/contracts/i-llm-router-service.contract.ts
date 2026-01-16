@@ -5,6 +5,8 @@ import {
   GenerateObjectOutput,
   GenerateTextInput,
   GenerateTextOutput,
+  StreamTextInput,
+  StreamTextOutput,
 } from './i-llm-provider-client.contract';
 
 /**
@@ -25,6 +27,17 @@ export interface ILlmRouterService {
     params: GenerateTextInput,
     provider?: string,
   ): Promise<GenerateTextOutput>;
+
+  /**
+   * Streams text completion using the specified model and prompts.
+   * Routes to appropriate provider based on model and optional provider parameter.
+   *
+   * @param params - The generation parameters including model, prompt, and system prompt
+   * @param provider - Optional provider name. If not specified, uses configured default
+   * @returns StreamTextOutput with async generator for text chunks and usage promise
+   * @throws Error if provider not found or model not available on provider
+   */
+  streamText(params: StreamTextInput, provider?: string): StreamTextOutput;
 
   /**
    * Generates a structured object by asking the model to fill a Zod schema.

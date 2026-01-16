@@ -17,7 +17,7 @@ import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from '../../contracts/i-question-
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from '../../contracts/i-skill-expander-service.contract';
 import { SSE_EVENT_NAME } from '../../types/sse-event.type';
 import { AnswerQuestionStreamUseCase } from '../answer-question-stream.use-case';
-import { AnswerQuestionUseCaseInput } from '../inputs/answer-question.use-case.input';
+import { AnswerQuestionStreamUseCaseInput } from '../inputs/answer-question-stream.use-case.input';
 
 // Helper to create Identifier from string for tests
 const toId = (id: string): Identifier => id as Identifier;
@@ -41,6 +41,7 @@ const mockCourseAggregationService = {
 
 const mockAnswerSynthesisService = {
   synthesizeAnswer: jest.fn(),
+  synthesizeAnswerStream: jest.fn(),
 };
 
 const mockCourseRetrieverService = {
@@ -87,12 +88,13 @@ describe('AnswerQuestionStreamUseCase', () => {
   let useCase: AnswerQuestionStreamUseCase;
 
   // Test fixtures
-  const defaultInput: AnswerQuestionUseCaseInput = {
+  const defaultInput: AnswerQuestionStreamUseCaseInput = {
     question: 'What is machine learning?',
     isGenEd: false,
     campusId: undefined,
     facultyId: undefined,
     academicYearSemesters: undefined,
+    stream: true, // Default to streaming mode
   };
 
   const mockFaculties = [
@@ -249,6 +251,21 @@ describe('AnswerQuestionStreamUseCase', () => {
     mockAnswerSynthesisService.synthesizeAnswer.mockResolvedValue(
       mockSynthesisResult,
     );
+    // Mock synthesizeAnswerStream for streaming mode tests
+    mockAnswerSynthesisService.synthesizeAnswerStream.mockReturnValue({
+      stream: (function* () {
+        yield {
+          text: mockSynthesisResult.answerText,
+          isFirst: true,
+          isLast: true,
+        };
+      })(),
+      question: mockSynthesisResult.answerText,
+      onComplete: Promise.resolve({
+        tokenUsage: mockSynthesisResult.tokenUsage,
+        llmInfo: mockSynthesisResult.llmInfo,
+      }),
+    });
     mockFacultyRepository.findMany.mockResolvedValue(mockFaculties);
     mockCampusRepository.findMany.mockResolvedValue(mockCampuses);
     mockQueryPipelineLoggerService.start.mockResolvedValue('process-log-1');
@@ -443,24 +460,46 @@ describe('AnswerQuestionStreamUseCase', () => {
         rawSkillCoursesMap: expect.any(Map),
       });
 
-      // Verify answer synthesis
-      expect(mockAnswerSynthesisService.synthesizeAnswer).toHaveBeenCalledWith(
+      // Verify answer synthesis stream was called (streaming mode)
+      expect(
+        mockAnswerSynthesisService.synthesizeAnswerStream,
+      ).toHaveBeenCalledWith(
         expect.objectContaining({
           question: defaultInput.question,
           language: 'en',
         }),
       );
 
-      // Verify final DONE event was emitted with courses
+      // Verify COURSES event was emitted (streaming mode emits courses early)
+      const coursesCalls = mockEmitter.emit.mock.calls.filter(
+        (call) => call[1] === SSE_EVENT_NAME.COURSES,
+      );
+      expect(coursesCalls.length).toBe(1);
+      expect(coursesCalls[0][0]).toMatchObject({
+        courses: expect.any(Array),
+      });
+
+      // Verify TEXT_CHUNK event was emitted
+      const chunkCalls = mockEmitter.emit.mock.calls.filter(
+        (call) => call[1] === SSE_EVENT_NAME.TEXT_CHUNK,
+      );
+      expect(chunkCalls.length).toBe(1);
+      expect(chunkCalls[0][0]).toMatchObject({
+        chunk: mockSynthesisResult.answerText,
+        isFirst: true,
+        isLast: true,
+      });
+
+      // Verify final DONE event was emitted WITHOUT courses (streaming mode)
       const doneCalls = mockEmitter.emit.mock.calls.filter(
         (call) => call[1] === SSE_EVENT_NAME.DONE,
       );
       expect(doneCalls.length).toBe(1);
       expect(doneCalls[0][0]).toMatchObject({
-        answer: expect.any(String),
+        answer: mockSynthesisResult.answerText,
         suggestQuestion: null,
-        relatedCourses: expect.any(Array),
       });
+      expect(doneCalls[0][0].relatedCourses).toBeUndefined();
 
       // Verify query logging was completed
       expect(
@@ -658,8 +697,10 @@ describe('AnswerQuestionStreamUseCase', () => {
 
       await useCase.execute(defaultInput, mockEmitter as any);
 
-      // Verify only courses with score >= 1 were passed to synthesis
-      expect(mockAnswerSynthesisService.synthesizeAnswer).toHaveBeenCalledWith(
+      // Verify only courses with score >= 1 were passed to synthesis (streaming mode)
+      expect(
+        mockAnswerSynthesisService.synthesizeAnswerStream,
+      ).toHaveBeenCalledWith(
         expect.objectContaining({
           aggregatedCourseSkills: expect.arrayContaining([
             expect.objectContaining({ relevanceScore: 1.0 }),
@@ -668,8 +709,8 @@ describe('AnswerQuestionStreamUseCase', () => {
         }),
       );
 
-      const synthesisCall = mockAnswerSynthesisService.synthesizeAnswer.mock
-        .calls[0][0] as {
+      const synthesisCall = mockAnswerSynthesisService.synthesizeAnswerStream
+        .mock.calls[0][0] as {
         aggregatedCourseSkills: { relevanceScore: number }[];
       };
       expect(synthesisCall.aggregatedCourseSkills).toHaveLength(2);

@@ -6,7 +6,7 @@ import {
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
-import { QueryPipelineConfig } from '../../constants/config.constant';
+import { QueryPipelineConfig } from '../../configs/pipeline-behavior.config';
 import { IQueryProfileBuilderService } from '../../contracts/i-query-profile-builder-service.contract';
 import {
   QueryProfileBuilderPromptFactory,

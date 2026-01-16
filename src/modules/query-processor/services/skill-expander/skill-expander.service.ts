@@ -7,7 +7,7 @@ import {
 import { LlmMetadataBuilder } from 'src/shared/utils/llm-metadata.builder';
 
 import { QuestionSkillCache } from '../../cache/question-skill.cache';
-import { QueryPipelineConfig } from '../../constants/config.constant';
+import { QueryPipelineConfig } from '../../configs/pipeline-behavior.config';
 import { ISkillExpanderService } from '../../contracts/i-skill-expander-service.contract';
 import {
   SkillExpansionPromptFactory,
