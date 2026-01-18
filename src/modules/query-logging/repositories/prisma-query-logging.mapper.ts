@@ -1,7 +1,15 @@
+import { Prisma } from '@prisma/client';
+
 import type { Identifier } from '../../../shared/contracts/types/identifier';
+import { PrismaGlobalMapper } from '../../../shared/kernel/database/mappers/prisma-global.mapper';
 import type { StepEmbeddingConfig } from '../types/query-embedding-config.type';
 import type { StepLlmConfig } from '../types/query-llm-config.type';
-import type { QueryProcessStep, StepError } from '../types/query-log-step.type';
+import type {
+  QueryProcessStep,
+  QueryProcessStepOutput,
+  StepError,
+  StepMetrics,
+} from '../types/query-log-step.type';
 import type {
   QueryLogError,
   QueryLogInput,
@@ -9,6 +17,20 @@ import type {
   QueryLogOutput,
   QueryProcessLog,
 } from '../types/query-log.type';
+
+/**
+ * Prisma type aliases for type-safe mapping.
+ *
+ * Using Prisma.ModelGetPayload ensures:
+ * - Auto-generated types from schema (no manual maintenance)
+ * - Full IDE auto-complete and type checking
+ * - Single source of truth (DRY principle)
+ */
+type PrismaQueryProcessLog = Prisma.QueryProcessLogGetPayload<object>;
+type PrismaQueryProcessLogWithSteps = Prisma.QueryProcessLogGetPayload<{
+  include: { processSteps: true };
+}>;
+type PrismaQueryProcessStep = Prisma.QueryProcessStepGetPayload<object>;
 
 /**
  * Mapper for Query Logging domain ↔ Prisma conversion.
@@ -19,31 +41,27 @@ export class PrismaQueryLoggingMapper {
   /**
    * Convert Prisma QueryProcessLog to domain QueryProcessLog
    */
-  static toDomainQueryProcessLog(prismaLog: {
-    id: string;
-    status: string;
-    question: string;
-    input: unknown;
-    output: unknown;
-    metrics: unknown;
-    metadata: unknown;
-    error: unknown;
-    startedAt: Date;
-    completedAt: Date | null;
-    createdAt: Date;
-    updatedAt: Date;
-  }): QueryProcessLog {
+  static toDomainQueryProcessLog(
+    prismaLog: PrismaQueryProcessLog,
+  ): QueryProcessLog {
     return {
       id: prismaLog.id as Identifier,
       status: prismaLog.status as any,
       question: prismaLog.question,
-      input: prismaLog.input as QueryLogInput | undefined,
-      output: prismaLog.output as QueryLogOutput | undefined,
-      metrics: prismaLog.metrics as QueryLogMetrics | undefined,
-      metadata: prismaLog.metadata as Record<string, any> | undefined,
-      error: prismaLog.error as QueryLogError | undefined,
+      input: PrismaGlobalMapper.jsonToDomain<QueryLogInput>(prismaLog.input),
+      output: PrismaGlobalMapper.jsonToDomain<QueryLogOutput>(prismaLog.output),
+      metrics: PrismaGlobalMapper.jsonToDomain<QueryLogMetrics>(
+        prismaLog.metrics,
+      ),
+      metadata: PrismaGlobalMapper.jsonToDomain<Record<string, any>>(
+        prismaLog.metadata,
+      ),
+      error: PrismaGlobalMapper.jsonToDomain<QueryLogError>(prismaLog.error),
+      totalDuration: prismaLog.totalDuration,
+      totalTokens: prismaLog.totalTokens,
+      totalCost: PrismaGlobalMapper.decimalToNumber(prismaLog.totalCost),
       startedAt: prismaLog.startedAt,
-      completedAt: prismaLog.completedAt ?? undefined,
+      completedAt: prismaLog.completedAt,
       createdAt: prismaLog.createdAt,
       updatedAt: prismaLog.updatedAt,
     };
@@ -52,76 +70,40 @@ export class PrismaQueryLoggingMapper {
   /**
    * Convert Prisma QueryProcessStep to domain QueryProcessStep
    */
-  static toDomainQueryProcessStep(prismaStep: {
-    id: string;
-    queryLogId: string;
-    stepName: string;
-    stepOrder: number;
-    input: unknown;
-    output: unknown;
-    llm: unknown;
-    embedding: unknown;
-    metrics: unknown;
-    error: unknown;
-    startedAt: Date;
-    completedAt: Date | null;
-    duration: number | null;
-    createdAt: Date;
-    updatedAt: Date;
-  }): QueryProcessStep {
+  static toDomainQueryProcessStep(
+    prismaStep: PrismaQueryProcessStep,
+  ): QueryProcessStep {
     return {
       id: prismaStep.id as Identifier,
       queryLogId: prismaStep.queryLogId as Identifier,
       stepName: prismaStep.stepName as any,
       stepOrder: prismaStep.stepOrder,
-      input: prismaStep.input as Record<string, any> | undefined,
-      output: prismaStep.output as any, // JSONB data - already serialized (Maps → Objects)
-      llm: prismaStep.llm as StepLlmConfig | undefined,
-      embedding: prismaStep.embedding as StepEmbeddingConfig | undefined,
-      metrics: prismaStep.metrics as Record<string, any> | undefined,
-      error: prismaStep.error as StepError | undefined,
+      input: PrismaGlobalMapper.jsonToDomain<Record<string, any>>(
+        prismaStep.input,
+      ),
+      output: PrismaGlobalMapper.jsonToDomain<QueryProcessStepOutput>(
+        prismaStep.output,
+      ), // JSONB data - already serialized (Maps → Objects)
+      llm: PrismaGlobalMapper.jsonToDomain<StepLlmConfig>(prismaStep.llm),
+      embedding: PrismaGlobalMapper.jsonToDomain<StepEmbeddingConfig>(
+        prismaStep.embedding,
+      ),
+      metrics: PrismaGlobalMapper.jsonToDomain<StepMetrics>(prismaStep.metrics),
+      error: PrismaGlobalMapper.jsonToDomain<StepError>(prismaStep.error),
       startedAt: prismaStep.startedAt,
-      completedAt: prismaStep.completedAt ?? undefined,
-      duration: prismaStep.duration ?? undefined,
+      completedAt: prismaStep.completedAt,
+      duration: prismaStep.duration,
       createdAt: prismaStep.createdAt,
       updatedAt: prismaStep.updatedAt,
     };
   }
 
   /**
-   * Convert domain QueryProcessLogWithSteps to include domain steps
+   * Convert Prisma QueryProcessLogWithSteps to domain QueryProcessLogWithSteps
    */
-  static toDomainQueryProcessLogWithSteps(prismaLog: {
-    id: string;
-    status: string;
-    question: string;
-    input: unknown;
-    output: unknown;
-    metrics: unknown;
-    metadata: unknown;
-    error: unknown;
-    startedAt: Date;
-    completedAt: Date | null;
-    createdAt: Date;
-    updatedAt: Date;
-    processSteps: Array<{
-      id: string;
-      queryLogId: string;
-      stepName: string;
-      stepOrder: number;
-      input: unknown;
-      output: unknown;
-      llm: unknown;
-      embedding: unknown;
-      metrics: unknown;
-      error: unknown;
-      startedAt: Date;
-      completedAt: Date | null;
-      duration: number | null;
-      createdAt: Date;
-      updatedAt: Date;
-    }>;
-  }): any {
+  static toDomainQueryProcessLogWithSteps(
+    prismaLog: PrismaQueryProcessLogWithSteps,
+  ): any {
     return {
       ...this.toDomainQueryProcessLog(prismaLog),
       processSteps: prismaLog.processSteps.map((step) =>

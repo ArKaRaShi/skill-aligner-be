@@ -5,8 +5,6 @@ import { beforeAll, beforeEach, describe, expect, it } from '@jest/globals';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
-import { Language } from 'src/modules/query-processor/schemas/query-profile-builder.schema';
-
 import {
   I_QUERY_LOGGING_REPOSITORY_TOKEN,
   type IQueryLoggingRepository,
@@ -124,56 +122,6 @@ describe('QueryPipelineReaderService Integration - Single Step Operations', () =
       expect(classificationStep!.llm).toBeDefined();
       expect(classificationStep!.llm!.model).toBe('gpt-4');
       expect(classificationStep!.llm!.provider).toBe('openai');
-    });
-  });
-
-  describe('QUERY_PROFILE_BUILDING step - write and read cycle', () => {
-    it('should write query profile data and read it back with proper types', async () => {
-      // Arrange - Start a query log
-      const queryLogId = await loggerService.start(testQuestion);
-
-      // Act - Log query profile step
-      await loggerService.queryProfile({
-        question: testQuestion,
-        promptVersion: 'v3',
-        queryProfileResult: {
-          language: 'en',
-          llmInfo: createMockLlmInfo({ promptVersion: 'v3' }),
-          tokenUsage: {
-            model: 'gpt-4',
-            inputTokens: 120,
-            outputTokens: 80,
-          },
-        },
-        duration: 200,
-      });
-
-      // Complete the log
-      await loggerService.complete({
-        answer: 'Test answer',
-      });
-
-      // Act - Read back the query log
-      const log = await readerService.getQueryLogById(queryLogId);
-
-      // Assert - Verify query profile step exists
-      const profileStep = log?.processSteps.find(
-        (s) => s.stepName === STEP_NAME.QUERY_PROFILE_BUILDING,
-      );
-      expect(profileStep).toBeDefined();
-
-      // Assert - Verify raw output is properly typed with new structure
-      const rawOutput = profileStep!.output!.raw as {
-        language: Language;
-      };
-
-      // Assert - Verify core data (not wrapped in queryProfile property)
-      expect(rawOutput.language).toBe('en');
-
-      // Assert - Verify llmInfo is NOT in raw output (stored separately)
-      expect('llmInfo' in rawOutput).toBe(false);
-      expect(profileStep!.llm).toBeDefined();
-      expect(profileStep!.llm!.promptVersion).toBe('v3');
     });
   });
 

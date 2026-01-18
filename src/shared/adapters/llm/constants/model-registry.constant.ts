@@ -56,6 +56,15 @@ const OPENROUTER_LLM_MODELS_REGISTRATIONS: LLMModelRegistration[] = [
       outputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
     },
   },
+  {
+    baseModel: 'grok-4.1-fast',
+    modelId: 'x-ai/grok-4.1-fast',
+    provider: 'openrouter',
+    cost: {
+      inputCostPerMillionTokens: 0.2, // $0.2 per 1,000,000 tokens
+      outputCostPerMillionTokens: 0.5, // $0.5 per 1,000,000 tokens
+    },
+  },
 ];
 
 const OPENAI_LLM_MODELS_REGISTRATIONS: LLMModelRegistration[] = [

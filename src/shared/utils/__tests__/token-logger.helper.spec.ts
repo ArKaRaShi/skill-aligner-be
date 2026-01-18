@@ -918,8 +918,7 @@ describe('TokenLogger', () => {
       expect(result.totalTokens).not.toBeNull();
       expect(result.totalTokens?.inputTokens).toBe(0);
       expect(result.totalTokens?.outputTokens).toBe(0);
-      expect(result.totalCost).not.toBeNull();
-      expect(result.totalCost).toBe(0);
+      expect(result.totalCost).toBeNull(); // Updated: returns null when no cost records
       expect(Object.keys(result.byCategory)).toHaveLength(0);
     });
 

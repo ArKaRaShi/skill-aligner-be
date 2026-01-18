@@ -18,14 +18,6 @@ export const ClassificationRawOutputSchema = z.object({
 });
 
 // ============================================================================
-// QUERY PROFILE STEP
-// ============================================================================
-
-export const QueryProfileRawOutputSchema = z.object({
-  language: z.enum(['en', 'th']),
-});
-
-// ============================================================================
 // SKILL EXPANSION STEP
 // ============================================================================
 
@@ -102,8 +94,6 @@ export const createRawOutputSchema = (stepName: string) => {
   switch (stepName) {
     case 'QUESTION_CLASSIFICATION':
       return ClassificationRawOutputSchema;
-    case 'QUERY_PROFILE_BUILDING':
-      return QueryProfileRawOutputSchema;
     case 'SKILL_EXPANSION':
       return SkillExpansionRawOutputSchema;
     case 'COURSE_RETRIEVAL':

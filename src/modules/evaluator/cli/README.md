@@ -63,11 +63,6 @@ bunx ts-node --require tsconfig-paths/register \
 bunx ts-node --require tsconfig-paths/register \
   src/modules/evaluator/entries/test-set-builder.cli.ts \
   --step classification --ids log-id-1,log-id-2 --output my-test-set.json
-
-# Build query profile test set
-bunx ts-node --require tsconfig-paths/register \
-  src/modules/evaluator/entries/test-set-builder.cli.ts \
-  --step query-profile --ids log-id-1
 ```
 
 #### Available Steps
@@ -76,7 +71,6 @@ bunx ts-node --require tsconfig-paths/register \
 |----------|-----------|-------------|
 | `skill-expansion` | SKILL_EXPANSION | Extract skills from questions |
 | `classification` | QUESTION_CLASSIFICATION | Classify question relevance |
-| `query-profile` | QUERY_PROFILE_BUILDING | Build user query profile |
 | `course-retrieval` | COURSE_RETRIEVAL | Retrieve relevant courses |
 | `course-filter` | COURSE_RELEVANCE_FILTER | Filter courses by relevance |
 | `course-aggregation` | COURSE_AGGREGATION | Aggregate ranked courses |

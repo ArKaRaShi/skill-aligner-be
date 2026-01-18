@@ -13,7 +13,6 @@ import {
   IAnswerSynthesisService,
 } from '../../contracts/i-answer-synthesis-service.contract';
 import { AnswerSynthesisPromptFactory } from '../../prompts/answer-synthesis';
-import { Language } from '../../schemas/query-profile-builder.schema';
 import {
   AnswerSynthesisResult,
   AnswerSynthesisStreamResult,
@@ -33,8 +32,8 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
   async synthesizeAnswer(
     input: AnswerSynthesizeInput,
   ): Promise<AnswerSynthesisResult> {
-    const { question, promptVersion, language, aggregatedCourseSkills } = input;
-    const context = this.buildContext(aggregatedCourseSkills, language);
+    const { question, promptVersion, aggregatedCourseSkills } = input;
+    const context = this.buildContext(aggregatedCourseSkills);
 
     this.logger.log(
       `[AnswerSynthesis] Synthesizing answer for question: "${question}" using model: ${this.modelName}`,
@@ -85,8 +84,8 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
   synthesizeAnswerStream(
     input: AnswerSynthesizeStreamInput,
   ): AnswerSynthesisStreamResult {
-    const { question, promptVersion, language, aggregatedCourseSkills } = input;
-    const context = this.buildContext(aggregatedCourseSkills, language);
+    const { question, promptVersion, aggregatedCourseSkills } = input;
+    const context = this.buildContext(aggregatedCourseSkills);
 
     this.logger.log(
       `[AnswerSynthesis] Streaming answer for question: "${question}" using model: ${this.modelName}`,
@@ -139,7 +138,6 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
 
   private buildContext(
     aggregatedCourseSkills: AggregatedCourseSkills[],
-    language: Language,
   ): string {
     const courseBlocks = aggregatedCourseSkills.map((courseSkills) => {
       // Build matched evidence section with skill context
@@ -166,6 +164,6 @@ ${fullContext}`;
     });
 
     // \n\n---\n\n creates a perfect, clear boundary
-    return `${courseBlocks.join('\n\n---\n\n')}\n\nLanguage: ${language}`;
+    return `${courseBlocks.join('\n\n---\n\n')}`;
   }
 }

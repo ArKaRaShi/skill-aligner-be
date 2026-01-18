@@ -12,7 +12,6 @@ import { I_QUESTION_LOG_REPOSITORY_TOKEN } from 'src/modules/question-analyses/c
 import { I_ANSWER_SYNTHESIS_SERVICE_TOKEN } from '../../contracts/i-answer-synthesis-service.contract';
 import { I_COURSE_AGGREGATION_SERVICE_TOKEN } from '../../contracts/i-course-aggregation-service.contract';
 import { I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN } from '../../contracts/i-course-relevance-filter-service.contract';
-import { I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN } from '../../contracts/i-query-profile-builder-service.contract';
 import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from '../../contracts/i-question-classifier-service.contract';
 import { I_SKILL_EXPANDER_SERVICE_TOKEN } from '../../contracts/i-skill-expander-service.contract';
 import { SSE_EVENT_NAME } from '../../types/sse-event.type';
@@ -25,10 +24,6 @@ const toId = (id: string): Identifier => id as Identifier;
 // Mock all dependencies
 const mockQuestionClassifierService = {
   classify: jest.fn(),
-};
-
-const mockQueryProfileBuilderService = {
-  buildQueryProfile: jest.fn(),
 };
 
 const mockSkillExpanderService = {
@@ -67,7 +62,6 @@ const mockQuestionLogRepository = {
 const mockQueryPipelineLoggerService = {
   start: jest.fn(),
   classification: jest.fn(),
-  queryProfile: jest.fn(),
   skillExpansion: jest.fn(),
   courseRetrieval: jest.fn(),
   courseFilter: jest.fn(),
@@ -119,12 +113,6 @@ describe('AnswerQuestionStreamUseCase', () => {
       inputTokens: 10,
       outputTokens: 5,
     },
-  };
-
-  const mockQueryProfileResult = {
-    language: 'en',
-    detectedLanguage: 'en',
-    confidence: 0.95,
   };
 
   const mockSkillExpansion = {
@@ -234,9 +222,6 @@ describe('AnswerQuestionStreamUseCase', () => {
     mockQuestionClassifierService.classify.mockResolvedValue(
       mockClassificationResult,
     );
-    mockQueryProfileBuilderService.buildQueryProfile.mockResolvedValue(
-      mockQueryProfileResult,
-    );
     mockSkillExpanderService.expandSkills.mockResolvedValue(mockSkillExpansion);
     mockCourseRetrieverService.getCoursesWithLosBySkillsWithFilter.mockResolvedValue(
       mockRetrieverResult,
@@ -280,7 +265,6 @@ describe('AnswerQuestionStreamUseCase', () => {
           provide: AnswerQuestionStreamUseCase,
           inject: [
             I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
-            I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
             I_SKILL_EXPANDER_SERVICE_TOKEN,
             I_COURSE_AGGREGATION_SERVICE_TOKEN,
             I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
@@ -293,7 +277,6 @@ describe('AnswerQuestionStreamUseCase', () => {
           ],
           useFactory: (
             questionClassifierService: any,
-            queryProfileBuilderService: any,
             skillExpanderService: any,
             courseAggregationService: any,
             answerSynthesisService: any,
@@ -306,7 +289,6 @@ describe('AnswerQuestionStreamUseCase', () => {
           ) => {
             return new AnswerQuestionStreamUseCase(
               questionClassifierService,
-              queryProfileBuilderService,
               skillExpanderService,
               courseAggregationService,
               answerSynthesisService,
@@ -322,10 +304,6 @@ describe('AnswerQuestionStreamUseCase', () => {
         {
           provide: I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
           useValue: mockQuestionClassifierService,
-        },
-        {
-          provide: I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
-          useValue: mockQueryProfileBuilderService,
         },
         {
           provide: I_SKILL_EXPANDER_SERVICE_TOKEN,
@@ -425,11 +403,6 @@ describe('AnswerQuestionStreamUseCase', () => {
         promptVersion: expect.any(String),
       });
 
-      // Verify query profile was built
-      expect(
-        mockQueryProfileBuilderService.buildQueryProfile,
-      ).toHaveBeenCalledWith(defaultInput.question, expect.any(String));
-
       // Verify skill expansion
       expect(mockSkillExpanderService.expandSkills).toHaveBeenCalledWith(
         defaultInput.question,
@@ -466,7 +439,6 @@ describe('AnswerQuestionStreamUseCase', () => {
       ).toHaveBeenCalledWith(
         expect.objectContaining({
           question: defaultInput.question,
-          language: 'en',
         }),
       );
 

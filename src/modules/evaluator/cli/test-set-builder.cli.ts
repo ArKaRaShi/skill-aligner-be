@@ -36,9 +36,6 @@ import { TestSetBuilderService } from '../shared/services/test-set-builder.servi
  *
  *   # Build classification test set with multiple IDs
  *   bunx ts-node .../test-set-builder.cli.ts --step classification --ids log-id-1,log-id-2 --output my-test-set.json
- *
- *   # Build query profile test set
- *   bunx ts-node .../test-set-builder.cli.ts --step query-profile --ids log-id-1
  */
 
 /**
@@ -54,11 +51,6 @@ const AVAILABLE_STEPS = [
     key: 'classification',
     name: 'QUESTION_CLASSIFICATION',
     method: 'buildClassificationTestSet',
-  },
-  {
-    key: 'query-profile',
-    name: 'QUERY_PROFILE_BUILDING',
-    method: 'buildQueryProfileTestSet',
   },
   {
     key: 'course-retrieval',
@@ -187,9 +179,6 @@ Examples:
 
   # Build classification test set with multiple IDs
   bunx ts-node .../test-set-builder.cli.ts --step classification --ids log-id-1,log-id-2 --output my-test-set.json
-
-  # Build query profile test set
-  bunx ts-node .../test-set-builder.cli.ts --step query-profile --ids log-id-1
 `);
 }
 
@@ -317,13 +306,6 @@ async function buildTestSet(args: CliArgs): Promise<void> {
         break;
       case 'classification':
         savedPath = await testSetBuilder.buildAndSaveClassificationTestSet(
-          ids,
-          filename,
-          directory,
-        );
-        break;
-      case 'query-profile':
-        savedPath = await testSetBuilder.buildAndSaveQueryProfileTestSet(
           ids,
           filename,
           directory,

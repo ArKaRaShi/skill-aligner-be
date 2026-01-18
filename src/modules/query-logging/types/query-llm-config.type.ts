@@ -1,5 +1,7 @@
 /**
- * LLM configuration stored in QueryProcessStep.llm
+ * LLM configuration stored in QueryProcessStep.llm (JSONB field).
+ *
+ * Note: All properties use `?` following JavaScript convention.
  */
 export interface StepLlmConfig {
   // Core fields (for easy querying)

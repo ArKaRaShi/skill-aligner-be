@@ -1,9 +1,12 @@
-import { Logger } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 
-import { TokenLogger, TokenMap } from 'src/shared/utils/token-logger.helper';
+import { DECIMAL_PRECISION } from 'src/shared/utils/constants/decimal-precision.constants';
+import { DecimalHelper } from 'src/shared/utils/decimal.helper';
 
 import type { IQueryLoggingRepository } from '../contracts/i-query-logging-repository.contract';
 import { CostStatisticsHelper } from '../helpers/cost-statistics.helper';
+import { PerRunCostSummarizerHelper } from '../helpers/per-run-cost-summarizer.helper';
+import { TokenMapBreakdownHelper } from '../helpers/token-map-breakdown.helper';
 import type {
   CombinedAnalyticsReport,
   CostBreakdownStatistics,
@@ -13,14 +16,13 @@ import type {
   TokenBreakdownStatistics,
 } from '../types/query-analytics.type';
 import type { QueryProcessLog } from '../types/query-log.type';
-import type { QueryStatus } from '../types/query-status.type';
+import { QUERY_STATUS, type QueryStatus } from '../types/query-status.type';
 
 /**
  * Query Analytics Service
  *
- * Provides cost and token analytics by aggregating and computing statistics
- * from query logs. Uses the repository to fetch logs and the
- * CostStatisticsHelper to compute statistics.
+ * Orchestrates query log analytics by fetching logs and computing statistics.
+ * Delegates parsing and transformation to helper classes.
  *
  * @example
  * ```ts
@@ -29,6 +31,7 @@ import type { QueryStatus } from '../types/query-status.type';
  * console.log(`Average LLM input tokens: ${analytics.tokens.llmInput.average}`);
  * ```
  */
+@Injectable()
 export class QueryAnalyticsService {
   private readonly logger = new Logger(QueryAnalyticsService.name);
 
@@ -37,31 +40,34 @@ export class QueryAnalyticsService {
   /**
    * Get average cost per completed query.
    *
-   * @param options - Optional filters for date range and status
+   * @param options - Optional filters for date range
    * @returns Average cost breakdown (llm, embedding, total)
    */
   async getAverageCost(
     options?: Omit<QueryAnalyticsOptions, 'status'>,
   ): Promise<{ llm: number; embedding: number; total: number }> {
-    this.logger.debug('Computing average cost');
+    this.logger.debug('Computing average cost', { options });
 
-    const logs = await this.repository.findManyWithMetrics({
-      ...options,
-      status: ['COMPLETED'],
-      hasMetrics: true,
-    });
+    const logs = await this.fetchLogsWithMetrics(options, ['COMPLETED']);
 
     if (logs.length === 0) {
+      this.logger.warn('No completed logs found for average cost computation');
       return { llm: 0, embedding: 0, total: 0 };
     }
 
     const stats = this.computeCostBreakdownStats(logs);
 
-    return {
+    const result = {
       llm: stats.llm.average,
       embedding: stats.embedding.average,
       total: stats.total.average,
     };
+
+    this.logger.log(
+      `Average cost computed from ${logs.length} queries: LLM=$${DecimalHelper.formatCost(result.llm)}, Embedding=$${DecimalHelper.formatCost(result.embedding)}, Total=$${DecimalHelper.formatCost(result.total)}`,
+    );
+
+    return result;
   }
 
   /**
@@ -73,14 +79,21 @@ export class QueryAnalyticsService {
   async getCostBreakdownStats(
     options?: QueryAnalyticsOptions,
   ): Promise<CostBreakdownStatistics> {
-    const defaultStatus: QueryStatus[] = options?.status ?? ['COMPLETED'];
-    const logs = await this.repository.findManyWithMetrics({
-      ...options,
-      status: defaultStatus,
-      hasMetrics: true,
-    });
+    this.logger.debug('Fetching cost breakdown statistics', { options });
 
-    return this.computeCostBreakdownStats(logs);
+    const logs = await this.fetchLogsWithMetrics(options);
+
+    if (logs.length === 0) {
+      this.logger.warn('No logs found for cost breakdown statistics');
+    }
+
+    const result = this.computeCostBreakdownStats(logs);
+
+    this.logger.log(
+      `Cost breakdown stats computed: ${result.total.count} queries, Total=$${DecimalHelper.formatCost(result.total.sum)}`,
+    );
+
+    return result;
   }
 
   /**
@@ -92,14 +105,21 @@ export class QueryAnalyticsService {
   async getTokenBreakdownStats(
     options?: QueryAnalyticsOptions,
   ): Promise<TokenBreakdownStatistics> {
-    const defaultStatus: QueryStatus[] = options?.status ?? ['COMPLETED'];
-    const logs = await this.repository.findManyWithMetrics({
-      ...options,
-      status: defaultStatus,
-      hasMetrics: true,
-    });
+    this.logger.debug('Fetching token breakdown statistics', { options });
 
-    return this.computeTokenBreakdownStats(logs);
+    const logs = await this.fetchLogsWithMetrics(options);
+
+    if (logs.length === 0) {
+      this.logger.warn('No logs found for token breakdown statistics');
+    }
+
+    const result = this.computeTokenBreakdownStats(logs);
+
+    this.logger.log(
+      `Token breakdown stats computed: ${result.total.count} queries, Total=${result.total.sum.toFixed(DECIMAL_PRECISION.TOKEN)} tokens`,
+    );
+
+    return result;
   }
 
   /**
@@ -111,22 +131,28 @@ export class QueryAnalyticsService {
   async getCombinedAnalytics(
     options?: QueryAnalyticsOptions,
   ): Promise<CombinedAnalyticsReport> {
-    const defaultStatus: QueryStatus[] = options?.status ?? ['COMPLETED'];
-    const logs = await this.repository.findManyWithMetrics({
-      ...options,
-      status: defaultStatus,
-      hasMetrics: true,
-    });
+    this.logger.debug('Fetching combined analytics', { options });
 
-    return {
+    const logs = await this.fetchLogsWithMetrics(options);
+
+    if (logs.length === 0) {
+      this.logger.warn('No logs found for combined analytics');
+    }
+
+    const result = {
       costs: this.computeCostBreakdownStats(logs),
       tokens: this.computeTokenBreakdownStats(logs),
     };
+
+    this.logger.log(
+      `Combined analytics computed: ${result.costs.total.count} queries, Total Cost=$${DecimalHelper.formatCost(result.costs.total.sum)}, Total Tokens=${result.tokens.total.sum.toFixed(DECIMAL_PRECISION.TOKEN)}`,
+    );
+
+    return result;
   }
 
   /**
    * Get per-run cost summary for individual logs.
-   * Computes costs/tokens from raw tokenMap data.
    *
    * @param options - Optional filters
    * @param limit - Maximum number of logs to return (default: 100)
@@ -136,124 +162,66 @@ export class QueryAnalyticsService {
     options?: QueryAnalyticsOptions,
     limit = 100,
   ): Promise<PerRunCostSummary[]> {
-    const logs = await this.repository.findManyWithMetrics({
+    this.logger.debug('Fetching per-run costs', { options, limit });
+
+    const logs = await this.fetchLogsWithMetrics(options, null, limit);
+    const summaries = PerRunCostSummarizerHelper.toSummaryArray(logs);
+
+    this.logger.log(
+      `Per-run costs computed: ${summaries.length} runs (limit: ${limit})`,
+    );
+
+    return summaries;
+  }
+
+  /**
+   * Fetch logs from repository with default options.
+   *
+   * @private
+   */
+  private async fetchLogsWithMetrics(
+    options?: QueryAnalyticsOptions,
+    defaultStatus: QueryStatus[] | null = [QUERY_STATUS.COMPLETED],
+    limit?: number,
+  ): Promise<QueryProcessLog[]> {
+    return this.repository.findManyWithMetrics({
       ...options,
+      status: options?.status ?? defaultStatus ?? undefined,
       hasMetrics: true,
-      take: limit,
+      ...(limit ? { take: limit } : {}),
     });
-
-    const tokenLogger = new TokenLogger();
-    const embeddingStepKey = 'step3-course-retrieval';
-
-    return logs
-      .filter((log) => Boolean(log.metrics?.tokenMap))
-      .map((log) => {
-        const tokenMap = log.metrics!.tokenMap as TokenMap;
-        const summary = tokenLogger.getSummary(tokenMap);
-
-        // Separate LLM vs embedding
-        let llmCost = 0;
-        let embeddingCost = 0;
-        let llmInput = 0;
-        let llmOutput = 0;
-        let embeddingTotal = 0;
-
-        for (const [categoryKey, categoryData] of Object.entries(
-          summary.byCategory,
-        )) {
-          if (categoryKey === embeddingStepKey) {
-            embeddingCost += categoryData.cost;
-            embeddingTotal += categoryData.tokenCount.inputTokens;
-          } else {
-            llmCost += categoryData.cost;
-            llmInput += categoryData.tokenCount.inputTokens;
-            llmOutput += categoryData.tokenCount.outputTokens;
-          }
-        }
-
-        const timing = log.metrics!.timing;
-        const duration = timing
-          ? Object.values(timing).find((t) => t.duration)?.duration
-          : undefined;
-
-        return {
-          logId: log.id,
-          question: log.question,
-          status: log.status,
-          completedAt: log.completedAt ?? log.startedAt,
-          costs: {
-            llm: llmCost || undefined,
-            embedding: embeddingCost || undefined,
-            total: summary.totalCost ?? 0,
-          },
-          tokens: {
-            llm: {
-              input: llmInput,
-              output: llmOutput,
-              total: llmInput + llmOutput,
-            },
-            embedding: { total: embeddingTotal },
-            total:
-              (summary.totalTokens?.inputTokens ?? 0) +
-              (summary.totalTokens?.outputTokens ?? 0),
-          },
-          duration,
-        };
-      });
   }
 
   /**
    * Compute cost breakdown statistics from an array of logs.
-   * Extracts costs from raw tokenMap data using getSummary().
    *
    * @private
    */
   private computeCostBreakdownStats(
     logs: QueryProcessLog[],
   ): CostBreakdownStatistics {
-    const tokenLogger = new TokenLogger();
-    const embeddingStepKey = 'step3-course-retrieval';
-
     const llmCosts: number[] = [];
     const embeddingCosts: number[] = [];
     const totalCosts: number[] = [];
 
     for (const log of logs) {
-      const tokenMap = log.metrics?.tokenMap as TokenMap | undefined;
-      if (!tokenMap) continue;
+      if (log.totalCost == null) continue;
 
-      const summary = tokenLogger.getSummary(tokenMap);
+      totalCosts.push(log.totalCost);
 
-      if (summary.totalCost != null) {
-        totalCosts.push(summary.totalCost);
+      const breakdown = TokenMapBreakdownHelper.extractBreakdown(
+        log.metrics?.tokenMap,
+      );
 
-        // Separate LLM vs embedding costs
-        let llmCost = 0;
-        let embeddingCost = 0;
-
-        for (const [categoryKey, categoryData] of Object.entries(
-          summary.byCategory,
-        )) {
-          if (categoryKey === embeddingStepKey) {
-            embeddingCost += categoryData.cost;
-          } else {
-            llmCost += categoryData.cost;
-          }
-        }
-
-        if (llmCost > 0) llmCosts.push(llmCost);
-        if (embeddingCost > 0) embeddingCosts.push(embeddingCost);
-      }
+      if (breakdown.llmCost > 0) llmCosts.push(breakdown.llmCost);
+      if (breakdown.embeddingCost > 0)
+        embeddingCosts.push(breakdown.embeddingCost);
     }
 
-    const llmStats = this.computeStatsFromArray(llmCosts);
-    const embeddingStats = this.computeStatsFromArray(embeddingCosts);
-    const totalStats = this.computeStatsFromArray(totalCosts);
-
     return {
-      llm: llmStats,
-      embedding: embeddingStats,
-      total: totalStats,
+      llm: this.computeStatsFromArray(llmCosts),
+      embedding: this.computeStatsFromArray(embeddingCosts),
+      total: this.computeStatsFromArray(totalCosts),
     };
   }
 
@@ -277,16 +245,12 @@ export class QueryAnalyticsService {
 
   /**
    * Compute token breakdown statistics from an array of logs.
-   * Extracts tokens from raw tokenMap data using getSummary().
    *
    * @private
    */
   private computeTokenBreakdownStats(
     logs: QueryProcessLog[],
   ): TokenBreakdownStatistics {
-    const tokenLogger = new TokenLogger();
-    const embeddingStepKey = 'step3-course-retrieval';
-
     const llmInputTokens: number[] = [];
     const llmOutputTokens: number[] = [];
     const llmTotalTokens: number[] = [];
@@ -294,42 +258,22 @@ export class QueryAnalyticsService {
     const totalTokens: number[] = [];
 
     for (const log of logs) {
-      const tokenMap = log.metrics?.tokenMap as TokenMap | undefined;
-      if (!tokenMap) continue;
+      if (log.totalTokens == null) continue;
 
-      const summary = tokenLogger.getSummary(tokenMap);
+      totalTokens.push(log.totalTokens);
 
-      if (summary.totalTokens != null) {
-        totalTokens.push(
-          summary.totalTokens.inputTokens + summary.totalTokens.outputTokens,
-        );
+      const breakdown = TokenMapBreakdownHelper.extractBreakdown(
+        log.metrics?.tokenMap,
+      );
+
+      const llmTotal = breakdown.llmInput + breakdown.llmOutput;
+      if (llmTotal > 0) {
+        llmInputTokens.push(breakdown.llmInput);
+        llmOutputTokens.push(breakdown.llmOutput);
+        llmTotalTokens.push(llmTotal);
       }
-
-      // Separate LLM vs embedding tokens
-      let llmInput = 0;
-      let llmOutput = 0;
-      let embeddingTotal = 0;
-
-      for (const [categoryKey, categoryData] of Object.entries(
-        summary.byCategory,
-      )) {
-        if (categoryKey === embeddingStepKey) {
-          // Embedding only has input tokens
-          embeddingTotal += categoryData.tokenCount.inputTokens;
-        } else {
-          // LLM has both input and output
-          llmInput += categoryData.tokenCount.inputTokens;
-          llmOutput += categoryData.tokenCount.outputTokens;
-        }
-      }
-
-      if (llmInput > 0 || llmOutput > 0) {
-        llmInputTokens.push(llmInput);
-        llmOutputTokens.push(llmOutput);
-        llmTotalTokens.push(llmInput + llmOutput);
-      }
-      if (embeddingTotal > 0) {
-        embeddingTokens.push(embeddingTotal);
+      if (breakdown.embeddingTokens > 0) {
+        embeddingTokens.push(breakdown.embeddingTokens);
       }
     }
 

@@ -114,6 +114,10 @@ export class PrismaQueryLoggingRepository implements IQueryLoggingRepository {
       output?: QueryLogOutput;
       metrics?: Partial<QueryLogMetrics>;
       error?: QueryLogError;
+      // Computed scalar fields for efficient filtering
+      totalDuration?: number;
+      totalTokens?: number;
+      totalCost?: number;
     },
   ): Promise<QueryProcessLog> {
     const prismaLog = await this.prisma.queryProcessLog.update({
@@ -124,6 +128,11 @@ export class PrismaQueryLoggingRepository implements IQueryLoggingRepository {
         output: data.output as any,
         metrics: data.metrics as any,
         error: data.error as any,
+        // Populate computed scalar fields
+        totalDuration: data.totalDuration,
+        totalTokens: data.totalTokens,
+        totalCost:
+          data.totalCost !== undefined ? String(data.totalCost) : undefined,
       },
     });
 
@@ -204,6 +213,7 @@ export class PrismaQueryLoggingRepository implements IQueryLoggingRepository {
     endDate?: Date;
     status?: QueryStatus[];
     hasMetrics?: boolean;
+    search?: string;
     take?: number;
     skip?: number;
   }): Promise<QueryProcessLog[]> {
@@ -214,19 +224,26 @@ export class PrismaQueryLoggingRepository implements IQueryLoggingRepository {
     }
 
     if (options?.startDate || options?.endDate) {
-      where.completedAt = {};
+      where.createdAt = {};
       if (options.startDate) {
-        where.completedAt = {
-          ...(where.completedAt as object),
+        where.createdAt = {
+          ...(where.createdAt as object),
           gte: options.startDate,
         };
       }
       if (options.endDate) {
-        where.completedAt = {
-          ...(where.completedAt as object),
+        where.createdAt = {
+          ...(where.createdAt as object),
           lte: options.endDate,
         };
       }
+    }
+
+    if (options?.search) {
+      where.question = {
+        contains: options.search,
+        mode: 'insensitive',
+      };
     }
 
     if (options?.hasMetrics) {
@@ -237,12 +254,57 @@ export class PrismaQueryLoggingRepository implements IQueryLoggingRepository {
       where: Object.keys(where).length > 0 ? where : undefined,
       take: options?.take,
       skip: options?.skip,
-      orderBy: { completedAt: 'desc' },
+      orderBy: { createdAt: 'desc' },
     });
 
     return prismaLogs.map((prismaLog) =>
       PrismaQueryLoggingMapper.toDomainQueryProcessLog(prismaLog),
     );
+  }
+
+  async countManyWithMetrics(options?: {
+    startDate?: Date;
+    endDate?: Date;
+    status?: QueryStatus[];
+    hasMetrics?: boolean;
+    search?: string;
+  }): Promise<number> {
+    const where: Record<string, unknown> = {};
+
+    if (options?.status && options.status.length > 0) {
+      where.status = { in: options.status };
+    }
+
+    if (options?.startDate || options?.endDate) {
+      where.createdAt = {};
+      if (options.startDate) {
+        where.createdAt = {
+          ...(where.createdAt as object),
+          gte: options.startDate,
+        };
+      }
+      if (options.endDate) {
+        where.createdAt = {
+          ...(where.createdAt as object),
+          lte: options.endDate,
+        };
+      }
+    }
+
+    if (options?.search) {
+      where.question = {
+        contains: options.search,
+        mode: 'insensitive',
+      };
+    }
+
+    if (options?.hasMetrics) {
+      where.metrics = { not: null };
+    }
+
+    return this.prisma.queryProcessLog.count({
+      where: Object.keys(where).length > 0 ? where : undefined,
+    });
   }
 }
 

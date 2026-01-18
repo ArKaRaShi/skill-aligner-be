@@ -7,39 +7,32 @@
  * @example
  * // Import all configs (convenient)
  * import {
+ *   PIPELINE_STEPS,
  *   QueryPipelinePromptConfig,
- *   QueryPipelineTimingSteps,
  *   QueryPipelineConfig,
  * } from './configs';
  *
  * @example
  * // Import specific config (better tree-shaking)
- * import { QueryPipelineConfig } from './configs/pipeline-behavior.config';
+ * import { PIPELINE_STEPS } from './configs/pipeline-steps.config';
  */
+
+// Pipeline steps (single source of truth for timing, tokens, display)
+export {
+  PIPELINE_STEPS,
+  PipelineStep,
+  type PipelineStepValue,
+  type TimingKey,
+  type TokenKey,
+  type DisplayKey,
+  type DatabaseStepName,
+} from './pipeline-steps.config';
 
 // Prompt versions
 export {
   QueryPipelinePromptConfig,
   type QueryPipelinePromptConfig as TQueryPipelinePromptConfig,
 } from './prompt-versions.config';
-
-// Timing steps
-export {
-  QueryPipelineTimingSteps,
-  type QueryPipelineTimingSteps as TQueryPipelineTimingSteps,
-} from './timing-steps.config';
-
-// Token categories
-export {
-  QueryPipelineTokenCategories,
-  type QueryPipelineTokenCategories as TQueryPipelineTokenCategories,
-} from './token-categories.config';
-
-// Display keys
-export {
-  QueryPipelineDisplayKeys,
-  type QueryPipelineDisplayKeys as TQueryPipelineDisplayKeys,
-} from './display-keys.config';
 
 // Behavioral configuration (timeouts, thresholds, limits)
 export {

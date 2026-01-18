@@ -71,6 +71,7 @@ const createMockTestSet = (): CourseRetrievalTestSetSerialized[] => {
           mockCourse('course-003', 'CHIN201', 'การสื่อสารภาษาจีน'),
         ],
       },
+      duration: null,
     },
     {
       queryLogId: 'test-case-002',
@@ -84,6 +85,7 @@ const createMockTestSet = (): CourseRetrievalTestSetSerialized[] => {
           mockCourse('course-005', 'BUDG101', 'การวางแผนและควบคุมงบประมาณ'),
         ],
       },
+      duration: null,
     },
     {
       queryLogId: 'test-case-003',
@@ -97,6 +99,7 @@ const createMockTestSet = (): CourseRetrievalTestSetSerialized[] => {
           mockCourse('course-007', 'WEB101', 'การพัฒนาเว็บเบื้องต้น'),
         ],
       },
+      duration: null,
     },
   ] as CourseRetrievalTestSetSerialized[];
 };
@@ -267,6 +270,7 @@ describe('CLI Evaluation Metrics Aggregation (Integration)', () => {
           skillCoursesMap: {
             'skill-1': [],
           },
+          duration: null,
         },
         {
           queryLogId: 'uneven-002',
@@ -277,6 +281,7 @@ describe('CLI Evaluation Metrics Aggregation (Integration)', () => {
             'skill-3': [],
             'skill-4': [],
           },
+          duration: null,
         },
         {
           queryLogId: 'uneven-003',
@@ -286,6 +291,7 @@ describe('CLI Evaluation Metrics Aggregation (Integration)', () => {
             'skill-5': [],
             'skill-6': [],
           },
+          duration: null,
         },
       ];
 
@@ -406,6 +412,7 @@ describe('CLI Evaluation Metrics Aggregation (Integration)', () => {
             'skill-4': [],
             'skill-5': [],
           },
+          duration: null,
         },
       ];
 
@@ -435,6 +442,7 @@ describe('CLI Evaluation Metrics Aggregation (Integration)', () => {
             'skill-b': [],
             'skill-c': [],
           },
+          duration: null,
         },
         {
           queryLogId: 'group-002',
@@ -444,6 +452,7 @@ describe('CLI Evaluation Metrics Aggregation (Integration)', () => {
             'skill-d': [],
             'skill-e': [],
           },
+          duration: null,
         },
         {
           queryLogId: 'group-003',
@@ -452,6 +461,7 @@ describe('CLI Evaluation Metrics Aggregation (Integration)', () => {
           skillCoursesMap: {
             'skill-f': [],
           },
+          duration: null,
         },
       ];
 
@@ -534,6 +544,7 @@ describe('CLI Evaluation Metrics Aggregation (Integration)', () => {
           skillCoursesMap: {
             'skill-1': [],
           },
+          duration: null,
         },
       ];
 

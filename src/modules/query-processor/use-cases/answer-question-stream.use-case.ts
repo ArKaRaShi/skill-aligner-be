@@ -27,13 +27,11 @@ import {
 
 import { CourseOutputDto } from '../adapters/inbound/http/dto/responses/answer-question.response.dto';
 import { CourseResponseMapper } from '../adapters/inbound/http/mappers/course-response.mapper';
+import { PIPELINE_STEPS } from '../configs/pipeline-steps.config';
 import {
   QueryPipelineConfig,
-  QueryPipelineDisplayKeys,
   QueryPipelineFallbackMessages,
   QueryPipelinePromptConfig,
-  QueryPipelineTimingSteps,
-  QueryPipelineTokenCategories,
 } from '../constants';
 import {
   I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
@@ -47,10 +45,6 @@ import {
   I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN,
   ICourseRelevanceFilterService,
 } from '../contracts/i-course-relevance-filter-service.contract';
-import {
-  I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
-  IQueryProfileBuilderService,
-} from '../contracts/i-query-profile-builder-service.contract';
 import {
   I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
   IQuestionClassifierService,
@@ -80,8 +74,6 @@ export class AnswerQuestionStreamUseCase {
   constructor(
     @Inject(I_QUESTION_CLASSIFIER_SERVICE_TOKEN)
     private readonly questionClassifierService: IQuestionClassifierService,
-    @Inject(I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN)
-    private readonly queryProfileBuilderService: IQueryProfileBuilderService,
     @Inject(I_SKILL_EXPANDER_SERVICE_TOKEN)
     private readonly skillExpanderService: ISkillExpanderService,
     @Inject(I_COURSE_AGGREGATION_SERVICE_TOKEN)
@@ -132,10 +124,10 @@ export class AnswerQuestionStreamUseCase {
       const timing = this.timeLogger.initializeTiming();
       const tokenMap = this.tokenLogger.initializeTokenMap();
 
-      this.timeLogger.startTiming(timing, QueryPipelineTimingSteps.OVERALL);
+      this.timeLogger.startTiming(timing, PIPELINE_STEPS.OVERALL.TIMING_KEY);
 
       // ============================================================
-      // STEP 1: Basic Preparation (Classification + Query Profile)
+      // STEP 1: Question Classification
       // ============================================================
       emitter.emit(
         {
@@ -150,45 +142,33 @@ export class AnswerQuestionStreamUseCase {
 
       this.timeLogger.startTiming(
         timing,
-        QueryPipelineTimingSteps.STEP1_BASIC_PREPARATION,
+        PIPELINE_STEPS.CLASSIFICATION.TIMING_KEY,
       );
 
-      const [classificationResult, queryProfileResult] = await Promise.all([
-        this.questionClassifierService.classify({
+      const classificationResult =
+        await this.questionClassifierService.classify({
           question,
           promptVersion: QueryPipelinePromptConfig.CLASSIFICATION,
-        }),
-        this.queryProfileBuilderService.buildQueryProfile(
-          question,
-          QueryPipelinePromptConfig.QUERY_PROFILE_BUILDER,
-        ),
-      ]);
+        });
 
       this.tokenLogger.addTokenUsage(
         tokenMap,
-        QueryPipelineTokenCategories.STEP1_BASIC_PREPARATION,
+        PIPELINE_STEPS.CLASSIFICATION.TOKEN_KEY,
         classificationResult.tokenUsage,
       );
 
       this.timeLogger.endTiming(
         timing,
-        QueryPipelineTimingSteps.STEP1_BASIC_PREPARATION,
+        PIPELINE_STEPS.CLASSIFICATION.TIMING_KEY,
       );
 
-      // Log classification and query profile steps
+      // Log classification step
       const step1Duration =
-        timing[QueryPipelineTimingSteps.STEP1_BASIC_PREPARATION]?.duration;
+        timing[PIPELINE_STEPS.CLASSIFICATION.TIMING_KEY]?.duration;
       await this.queryPipelineLoggerService.classification({
         question,
         promptVersion: QueryPipelinePromptConfig.CLASSIFICATION,
         classificationResult,
-        duration: step1Duration,
-      });
-
-      await this.queryPipelineLoggerService.queryProfile({
-        question,
-        promptVersion: QueryPipelinePromptConfig.QUERY_PROFILE_BUILDER,
-        queryProfileResult,
         duration: step1Duration,
       });
 
@@ -266,7 +246,7 @@ export class AnswerQuestionStreamUseCase {
 
       this.timeLogger.startTiming(
         timing,
-        QueryPipelineTimingSteps.STEP2_SKILL_INFERENCE,
+        PIPELINE_STEPS.SKILL_EXPANSION.TIMING_KEY,
       );
 
       const skillExpansion = await this.skillExpanderService.expandSkills(
@@ -277,21 +257,20 @@ export class AnswerQuestionStreamUseCase {
 
       this.tokenLogger.addTokenUsage(
         tokenMap,
-        QueryPipelineTokenCategories.STEP2_SKILL_INFERENCE,
+        PIPELINE_STEPS.SKILL_EXPANSION.TOKEN_KEY,
         skillExpansion.tokenUsage,
       );
 
       this.timeLogger.endTiming(
         timing,
-        QueryPipelineTimingSteps.STEP2_SKILL_INFERENCE,
+        PIPELINE_STEPS.SKILL_EXPANSION.TIMING_KEY,
       );
 
       await this.queryPipelineLoggerService.skillExpansion({
         question,
         promptVersion: QueryPipelinePromptConfig.SKILL_EXPANSION,
         skillExpansionResult: skillExpansion,
-        duration:
-          timing[QueryPipelineTimingSteps.STEP2_SKILL_INFERENCE]?.duration,
+        duration: timing[PIPELINE_STEPS.SKILL_EXPANSION.TIMING_KEY]?.duration,
       });
 
       emitter.emit(
@@ -321,7 +300,7 @@ export class AnswerQuestionStreamUseCase {
 
       this.timeLogger.startTiming(
         timing,
-        QueryPipelineTimingSteps.STEP3_COURSE_RETRIEVAL,
+        PIPELINE_STEPS.COURSE_RETRIEVAL.TIMING_KEY,
       );
 
       const retrieverResult =
@@ -343,7 +322,7 @@ export class AnswerQuestionStreamUseCase {
       if (embeddingUsage && embeddingUsage.bySkill.length > 0) {
         this.tokenLogger.addTokenUsage(
           tokenMap,
-          QueryPipelineTokenCategories.STEP3_COURSE_RETRIEVAL,
+          PIPELINE_STEPS.COURSE_RETRIEVAL.TOKEN_KEY,
           {
             model: embeddingUsage.bySkill[0].model,
             inputTokens: embeddingUsage.totalTokens,
@@ -354,15 +333,14 @@ export class AnswerQuestionStreamUseCase {
 
       this.timeLogger.endTiming(
         timing,
-        QueryPipelineTimingSteps.STEP3_COURSE_RETRIEVAL,
+        PIPELINE_STEPS.COURSE_RETRIEVAL.TIMING_KEY,
       );
 
       await this.queryPipelineLoggerService.courseRetrieval({
         skills: skillItems.map((item) => item.skill),
         skillCoursesMap,
         embeddingUsage,
-        duration:
-          timing[QueryPipelineTimingSteps.STEP3_COURSE_RETRIEVAL]?.duration,
+        duration: timing[PIPELINE_STEPS.COURSE_RETRIEVAL.TIMING_KEY]?.duration,
       });
 
       emitter.emit(
@@ -392,7 +370,7 @@ export class AnswerQuestionStreamUseCase {
 
       this.timeLogger.startTiming(
         timing,
-        QueryPipelineTimingSteps.STEP4_COURSE_RELEVANCE_FILTER,
+        PIPELINE_STEPS.RELEVANCE_FILTER.TIMING_KEY,
       );
 
       const useFilter = true;
@@ -413,7 +391,7 @@ export class AnswerQuestionStreamUseCase {
         const { aggregatedMap } = CourseFilterHelper.aggregateFilteredCourses(
           relevanceFilterResults,
           tokenMap,
-          QueryPipelineTokenCategories.STEP4_COURSE_RELEVANCE_FILTER,
+          PIPELINE_STEPS.RELEVANCE_FILTER.TOKEN_KEY,
           this.tokenLogger,
         );
         filteredSkillCoursesMap = aggregatedMap;
@@ -421,7 +399,7 @@ export class AnswerQuestionStreamUseCase {
 
       this.timeLogger.endTiming(
         timing,
-        QueryPipelineTimingSteps.STEP4_COURSE_RELEVANCE_FILTER,
+        PIPELINE_STEPS.RELEVANCE_FILTER.TIMING_KEY,
       );
 
       if (useFilter && relevanceFilterResults) {
@@ -429,8 +407,7 @@ export class AnswerQuestionStreamUseCase {
           question,
           relevanceFilterResults,
           duration:
-            timing[QueryPipelineTimingSteps.STEP4_COURSE_RELEVANCE_FILTER]
-              ?.duration,
+            timing[PIPELINE_STEPS.RELEVANCE_FILTER.TIMING_KEY]?.duration,
         });
       }
 
@@ -461,7 +438,7 @@ export class AnswerQuestionStreamUseCase {
 
       this.timeLogger.startTiming(
         timing,
-        QueryPipelineTimingSteps.STEP5_COURSE_AGGREGATION,
+        PIPELINE_STEPS.COURSE_AGGREGATION.TIMING_KEY,
       );
 
       const aggregationResult = this.courseAggregationService.aggregate({
@@ -475,7 +452,7 @@ export class AnswerQuestionStreamUseCase {
       if (rankedCourses.length === 0) {
         this.timeLogger.endTiming(
           timing,
-          QueryPipelineTimingSteps.STEP5_COURSE_AGGREGATION,
+          PIPELINE_STEPS.COURSE_AGGREGATION.TIMING_KEY,
         );
 
         await this.queryPipelineLoggerService.completeWithRawMetrics(
@@ -502,14 +479,14 @@ export class AnswerQuestionStreamUseCase {
 
       this.timeLogger.endTiming(
         timing,
-        QueryPipelineTimingSteps.STEP5_COURSE_AGGREGATION,
+        PIPELINE_STEPS.COURSE_AGGREGATION.TIMING_KEY,
       );
 
       await this.queryPipelineLoggerService.courseAggregation({
         filteredSkillCoursesMap,
         rankedCourses,
         duration:
-          timing[QueryPipelineTimingSteps.STEP5_COURSE_AGGREGATION]?.duration,
+          timing[PIPELINE_STEPS.COURSE_AGGREGATION.TIMING_KEY]?.duration,
       });
 
       emitter.emit(
@@ -543,7 +520,7 @@ export class AnswerQuestionStreamUseCase {
 
       this.timeLogger.startTiming(
         timing,
-        QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS,
+        PIPELINE_STEPS.ANSWER_SYNTHESIS.TIMING_KEY,
       );
 
       // Filter courses by relevance score for answer synthesis
@@ -561,19 +538,18 @@ export class AnswerQuestionStreamUseCase {
           await this.answerSynthesisService.synthesizeAnswer({
             question,
             promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
-            language: queryProfileResult.language,
             aggregatedCourseSkills: relevantCourses,
           });
 
         this.tokenLogger.addTokenUsage(
           tokenMap,
-          QueryPipelineTokenCategories.STEP6_ANSWER_SYNTHESIS,
+          PIPELINE_STEPS.ANSWER_SYNTHESIS.TOKEN_KEY,
           synthesisResult.tokenUsage,
         );
 
         this.timeLogger.endTiming(
           timing,
-          QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS,
+          PIPELINE_STEPS.ANSWER_SYNTHESIS.TIMING_KEY,
         );
 
         await this.queryPipelineLoggerService.answerSynthesis({
@@ -581,7 +557,7 @@ export class AnswerQuestionStreamUseCase {
           promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
           synthesisResult,
           duration:
-            timing[QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS]?.duration,
+            timing[PIPELINE_STEPS.ANSWER_SYNTHESIS.TIMING_KEY]?.duration,
         });
 
         emitter.emit(
@@ -595,7 +571,7 @@ export class AnswerQuestionStreamUseCase {
           SSE_EVENT_NAME.STEP,
         );
 
-        this.timeLogger.endTiming(timing, QueryPipelineTimingSteps.OVERALL);
+        this.timeLogger.endTiming(timing, PIPELINE_STEPS.OVERALL.TIMING_KEY);
         this.logExecutionMetrics(timing, tokenMap);
 
         // Complete query logging with metrics
@@ -635,7 +611,6 @@ export class AnswerQuestionStreamUseCase {
           this.answerSynthesisService.synthesizeAnswerStream({
             question,
             promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
-            language: queryProfileResult.language,
             aggregatedCourseSkills: relevantCourses,
           });
 
@@ -654,13 +629,13 @@ export class AnswerQuestionStreamUseCase {
         // Track timing and tokens
         this.tokenLogger.addTokenUsage(
           tokenMap,
-          QueryPipelineTokenCategories.STEP6_ANSWER_SYNTHESIS,
+          PIPELINE_STEPS.ANSWER_SYNTHESIS.TOKEN_KEY,
           tokenUsage,
         );
 
         this.timeLogger.endTiming(
           timing,
-          QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS,
+          PIPELINE_STEPS.ANSWER_SYNTHESIS.TIMING_KEY,
         );
 
         // Log answer synthesis with metadata
@@ -672,7 +647,7 @@ export class AnswerQuestionStreamUseCase {
             llmInfo,
           },
           duration:
-            timing[QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS]?.duration,
+            timing[PIPELINE_STEPS.ANSWER_SYNTHESIS.TIMING_KEY]?.duration,
         });
 
         emitter.emit(
@@ -686,7 +661,7 @@ export class AnswerQuestionStreamUseCase {
           SSE_EVENT_NAME.STEP,
         );
 
-        this.timeLogger.endTiming(timing, QueryPipelineTimingSteps.OVERALL);
+        this.timeLogger.endTiming(timing, PIPELINE_STEPS.OVERALL.TIMING_KEY);
         this.logExecutionMetrics(timing, tokenMap);
 
         // Complete query logging with metrics
@@ -809,33 +784,32 @@ export class AnswerQuestionStreamUseCase {
 
   private logExecutionMetrics(timing: TimingMap, tokenMap: TokenMap): void {
     const timingResults = {
-      [QueryPipelineDisplayKeys.TOTAL]: this.timeLogger.formatDuration(
-        timing[QueryPipelineTimingSteps.OVERALL]?.duration,
+      [PIPELINE_STEPS.OVERALL.DISPLAY_KEY]: this.timeLogger.formatDuration(
+        timing[PIPELINE_STEPS.OVERALL.TIMING_KEY]?.duration,
       ),
-      [QueryPipelineDisplayKeys.STEP1_BASIC_PREPARATION]:
+      [PIPELINE_STEPS.CLASSIFICATION.DISPLAY_KEY]:
         this.timeLogger.formatDuration(
-          timing[QueryPipelineTimingSteps.STEP1_BASIC_PREPARATION]?.duration,
+          timing[PIPELINE_STEPS.CLASSIFICATION.TIMING_KEY]?.duration,
         ),
-      [QueryPipelineDisplayKeys.STEP2_SKILL_INFERENCE]:
+      [PIPELINE_STEPS.SKILL_EXPANSION.DISPLAY_KEY]:
         this.timeLogger.formatDuration(
-          timing[QueryPipelineTimingSteps.STEP2_SKILL_INFERENCE]?.duration,
+          timing[PIPELINE_STEPS.SKILL_EXPANSION.TIMING_KEY]?.duration,
         ),
-      [QueryPipelineDisplayKeys.STEP3_COURSE_RETRIEVAL]:
+      [PIPELINE_STEPS.COURSE_RETRIEVAL.DISPLAY_KEY]:
         this.timeLogger.formatDuration(
-          timing[QueryPipelineTimingSteps.STEP3_COURSE_RETRIEVAL]?.duration,
+          timing[PIPELINE_STEPS.COURSE_RETRIEVAL.TIMING_KEY]?.duration,
         ),
-      [QueryPipelineDisplayKeys.STEP4_COURSE_RELEVANCE_FILTER]:
+      [PIPELINE_STEPS.RELEVANCE_FILTER.DISPLAY_KEY]:
         this.timeLogger.formatDuration(
-          timing[QueryPipelineTimingSteps.STEP4_COURSE_RELEVANCE_FILTER]
-            ?.duration,
+          timing[PIPELINE_STEPS.RELEVANCE_FILTER.TIMING_KEY]?.duration,
         ),
-      [QueryPipelineDisplayKeys.STEP5_COURSE_AGGREGATION]:
+      [PIPELINE_STEPS.COURSE_AGGREGATION.DISPLAY_KEY]:
         this.timeLogger.formatDuration(
-          timing[QueryPipelineTimingSteps.STEP5_COURSE_AGGREGATION]?.duration,
+          timing[PIPELINE_STEPS.COURSE_AGGREGATION.TIMING_KEY]?.duration,
         ),
-      [QueryPipelineDisplayKeys.STEP6_ANSWER_SYNTHESIS]:
+      [PIPELINE_STEPS.ANSWER_SYNTHESIS.DISPLAY_KEY]:
         this.timeLogger.formatDuration(
-          timing[QueryPipelineTimingSteps.STEP6_ANSWER_SYNTHESIS]?.duration,
+          timing[PIPELINE_STEPS.ANSWER_SYNTHESIS.TIMING_KEY]?.duration,
         ),
     };
 

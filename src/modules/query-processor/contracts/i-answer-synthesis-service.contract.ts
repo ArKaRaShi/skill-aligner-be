@@ -1,5 +1,4 @@
 import { AnswerSynthesisPromptVersion } from '../prompts/answer-synthesis';
-import { Language } from '../schemas/query-profile-builder.schema';
 import {
   AnswerSynthesisResult,
   AnswerSynthesisStreamResult,
@@ -13,20 +12,19 @@ export const I_ANSWER_SYNTHESIS_SERVICE_TOKEN = Symbol(
 export type AnswerSynthesizeInput = {
   question: string;
   promptVersion: AnswerSynthesisPromptVersion;
-  language: Language;
   aggregatedCourseSkills: AggregatedCourseSkills[];
 };
 
 export type AnswerSynthesizeStreamInput = {
   question: string;
   promptVersion: AnswerSynthesisPromptVersion;
-  language: Language;
   aggregatedCourseSkills: AggregatedCourseSkills[];
 };
 
 export interface IAnswerSynthesisService {
   /**
-   * Synthesizes a natural language answer based on course classification results and language.
+   * Synthesizes a natural language answer based on course classification results.
+   * Language is detected automatically from the question.
    * @param input - Input parameters for answer synthesis
    * @returns Synthesized answer with metadata
    */
@@ -35,7 +33,8 @@ export interface IAnswerSynthesisService {
   ): Promise<AnswerSynthesisResult>;
 
   /**
-   * Streams a natural language answer based on course classification results and language.
+   * Streams a natural language answer based on course classification results.
+   * Language is detected automatically from the question.
    * Returns an async generator that yields text chunks as they're generated.
    *
    * @param input - Input parameters for answer synthesis

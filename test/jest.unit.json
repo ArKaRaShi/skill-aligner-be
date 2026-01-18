@@ -4,7 +4,8 @@
   "roots": ["<rootDir>/src", "<rootDir>/prisma"],
   "moduleNameMapper": {
     "^src/(.*)$": "<rootDir>/src/$1",
-    "^prisma/(.*)$": "<rootDir>/prisma/$1"
+    "^prisma/(.*)$": "<rootDir>/prisma/$1",
+    "^test/(.*)$": "<rootDir>/test/$1"
   },
   "testMatch": ["<rootDir>/**/*.spec.ts"],
   "testPathIgnorePatterns": ["/node_modules/", "\\.integration\\.spec\\.ts$"],

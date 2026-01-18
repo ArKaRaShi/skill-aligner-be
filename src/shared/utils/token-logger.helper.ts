@@ -1,5 +1,7 @@
 import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 
+import { DECIMAL_PRECISION } from './constants/decimal-precision.constants';
+import { DecimalHelper } from './decimal.helper';
 import {
   TokenCostCalculator,
   TokenCostEstimate,
@@ -60,10 +62,9 @@ export class TokenLogger {
       return null;
     }
 
-    return records.reduce(
-      (sum, record) => sum + record.costEstimate.estimatedCost,
-      0,
-    );
+    // Use DecimalHelper for exact decimal arithmetic
+    const costs = records.map((r) => r.costEstimate.estimatedCost);
+    return DecimalHelper.sum(...costs);
   }
 
   getTotalTokens(
@@ -97,28 +98,30 @@ export class TokenLogger {
       return null;
     }
 
-    let totalCost = 0;
+    // Use DecimalHelper for exact decimal arithmetic
+    const categoryCosts: number[] = [];
     for (const key of keys) {
       const categoryCost = this.getTotalCostForCategory(tokenMap, key);
       if (categoryCost !== null) {
-        totalCost += categoryCost;
+        categoryCosts.push(categoryCost);
       }
     }
 
-    return totalCost;
+    if (categoryCosts.length === 0) return null;
+    return DecimalHelper.sum(...categoryCosts);
   }
 
   formatCost(cost: number): string {
     if (cost === 0) return '$0.00';
-    return `$${cost.toFixed(4)}`;
+    return `$${DecimalHelper.formatCost(cost, true)}`;
   }
 
   formatTokenCount(count: number): string {
     if (count >= 1_000_000) {
-      return `${(count / 1_000_000).toFixed(2)}M`;
+      return `${(count / 1_000_000).toFixed(DECIMAL_PRECISION.PERCENTAGE)}M`;
     }
     if (count >= 1_000) {
-      return `${(count / 1_000).toFixed(2)}K`;
+      return `${(count / 1_000).toFixed(DECIMAL_PRECISION.PERCENTAGE)}K`;
     }
     return count.toString();
   }

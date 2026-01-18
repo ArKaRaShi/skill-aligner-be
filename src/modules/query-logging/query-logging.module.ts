@@ -1,5 +1,8 @@
 import { Module } from '@nestjs/common';
 
+// HTTP Layer
+import { QueryLoggingController } from './adapters/inbound/http/controllers/query-logging.controller';
+import { QueryLoggingUseCases } from './application/use-cases';
 import {
   I_QUERY_LOGGING_REPOSITORY_TOKEN,
   type IQueryLoggingRepository,
@@ -15,9 +18,15 @@ import { QueryPipelineReaderService } from './services/query-pipeline-reader.ser
  * QueryPipelineReaderService for reading and parsing logged data,
  * and QueryAnalyticsService for computing cost and token analytics.
  *
+ * HTTP Layer:
+ * - QueryLoggingController: REST API endpoints for viewing query logs
+ * - ListQueryLogsUseCase: List query logs with pagination and filters
+ * - GetQueryLogByIdUseCase: Get detailed query log with steps
+ *
  * Note: This module is NOT @Global(). Must be explicitly imported by modules that need it.
  */
 @Module({
+  controllers: [QueryLoggingController],
   providers: [
     PrismaQueryLoggingRepositoryProvider,
     {
@@ -41,6 +50,7 @@ import { QueryPipelineReaderService } from './services/query-pipeline-reader.ser
         return new QueryAnalyticsService(repository);
       },
     },
+    ...QueryLoggingUseCases,
   ],
   exports: [
     QueryPipelineLoggerService,

@@ -84,6 +84,10 @@ export interface IQueryLoggingRepository {
       output?: QueryLogOutput;
       metrics?: Partial<QueryLogMetrics>;
       error?: QueryLogError;
+      // Computed scalar fields for efficient filtering
+      totalDuration?: number;
+      totalTokens?: number;
+      totalCost?: number;
     },
   ): Promise<QueryProcessLog>;
 
@@ -128,7 +132,21 @@ export interface IQueryLoggingRepository {
     endDate?: Date;
     status?: QueryStatus[];
     hasMetrics?: boolean;
+    search?: string;
     take?: number;
     skip?: number;
   }): Promise<QueryProcessLog[]>;
+
+  /**
+   * Count query logs with metrics filtering options
+   * @param options - Filter options for counting logs with metrics
+   * @returns Count of matching query logs
+   */
+  countManyWithMetrics(options?: {
+    startDate?: Date;
+    endDate?: Date;
+    status?: QueryStatus[];
+    hasMetrics?: boolean;
+    search?: string;
+  }): Promise<number>;
 }

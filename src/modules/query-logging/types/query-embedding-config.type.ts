@@ -18,7 +18,9 @@ export interface SkillEmbeddingUsage {
 }
 
 /**
- * Embedding configuration stored in QueryProcessStep.embedding
+ * Embedding configuration stored in QueryProcessStep.embedding (JSONB field).
+ *
+ * Note: Properties use `?` following JavaScript convention.
  */
 export interface StepEmbeddingConfig {
   model: string; // e.g., "e5-base", "text-embedding-3-small"

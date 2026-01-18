@@ -8,7 +8,6 @@ import {
   createMockEnrichedLogWithAnswerSynthesis,
   createMockEnrichedLogWithCourseFilterGrouped,
   createMockEnrichedLogWithCourseRetrieval,
-  createMockEnrichedLogWithQueryProfile,
   createMockEnrichedLogWithSkillExpansion,
   createMockId,
 } from './test-set-builder.fixture';
@@ -26,7 +25,6 @@ describe('TestSetBuilderService', () => {
     mockTransformer = {
       toSkillExpansionEnrichedLogs: jest.fn(),
       toClassificationEnrichedLogs: jest.fn(),
-      toQueryProfileEnrichedLogs: jest.fn(),
       toCourseRetrievalEnrichedLogs: jest.fn(),
       toCourseFilterEnrichedLogs: jest.fn(),
       toCourseAggregationEnrichedLogs: jest.fn(),
@@ -124,26 +122,6 @@ describe('TestSetBuilderService', () => {
       expect(result[0].llmModel).toBe('gpt-4');
       expect(result[0].promptVersion).toBe('V11');
       expect(result[0].duration).toBe(800);
-    });
-  });
-
-  describe('buildQueryProfileTestSet', () => {
-    it('should build test set from QUERY_PROFILE_BUILDING enriched logs', async () => {
-      const mockProfileLog = createMockEnrichedLogWithQueryProfile();
-      mockTransformer.toQueryProfileEnrichedLogs.mockResolvedValue([
-        mockProfileLog,
-      ]);
-
-      const result = await service.buildQueryProfileTestSet(['log-123']);
-
-      expect(result).toHaveLength(1);
-      expect(result[0].queryLogId).toBe(createId('log-123'));
-      // QueryProfileRawOutput now only contains language (not full profile)
-      expect(result[0].queryProfile).toEqual({
-        language: 'en',
-      });
-      expect(result[0].llmModel).toBe('gpt-4');
-      expect(result[0].duration).toBe(1200);
     });
   });
 
@@ -262,7 +240,7 @@ describe('TestSetBuilderService', () => {
           metrics: undefined,
         };
       } else {
-        mockLogWithMissingMetrics.courseFilterSteps[0].output = undefined;
+        mockLogWithMissingMetrics.courseFilterSteps[0].output = null;
       }
 
       mockTransformer.toCourseFilterEnrichedLogs.mockResolvedValue([
@@ -365,10 +343,6 @@ describe('TestSetBuilderService', () => {
       mockTransformer.toClassificationEnrichedLogs.mockResolvedValue([
         mockEnrichedLog,
       ]);
-      const mockProfileLog = createMockEnrichedLogWithQueryProfile();
-      mockTransformer.toQueryProfileEnrichedLogs.mockResolvedValue([
-        mockProfileLog,
-      ]);
       const mockRetrievalLog = createMockEnrichedLogWithCourseRetrieval();
       mockTransformer.toCourseRetrievalEnrichedLogs.mockResolvedValue([
         mockRetrievalLog,
@@ -390,7 +364,6 @@ describe('TestSetBuilderService', () => {
 
       const skillResult = await service.buildSkillExpansionTestSet(['log-123']);
       const classResult = await service.buildClassificationTestSet(['log-123']);
-      const profileResult = await service.buildQueryProfileTestSet(['log-123']);
       const retrievalResult = await service.buildCourseRetrievalTestSet([
         'log-123',
       ]);
@@ -405,7 +378,6 @@ describe('TestSetBuilderService', () => {
       // All should return the same queryLogId and question
       expect(skillResult[0].queryLogId).toBe(createId('log-123'));
       expect(classResult[0].queryLogId).toBe(createId('log-123'));
-      expect(profileResult[0].queryLogId).toBe(createId('log-123'));
       expect(retrievalResult[0].queryLogId).toBe(createId('log-123'));
       expect(filterResult[0].queryLogId).toBe(createId('log-123'));
       expect(aggregationResult[0].queryLogId).toBe(createId('log-123'));

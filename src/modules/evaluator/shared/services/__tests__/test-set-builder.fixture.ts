@@ -20,7 +20,6 @@ import type {
   CourseRetrievalRawOutput,
   QueryProcessLogWithSteps,
   QueryProcessStep,
-  QueryProfileRawOutput,
   ServiceMetrics,
   SkillExpansionRawOutput,
 } from 'src/modules/query-logging/types/query-log-step.type';
@@ -109,21 +108,7 @@ export const createMockAnswerSynthesisRawOutput = (
 });
 
 // ============================================================================
-// LAYER 3: QUERY PROFILE
-// ============================================================================
-
-/**
- * Type-safe factory for QueryProfileRawOutput
- */
-export const createMockQueryProfileRawOutput = (
-  overrides: Partial<QueryProfileRawOutput> = {},
-): QueryProfileRawOutput => ({
-  language: 'en',
-  ...overrides,
-});
-
-// ============================================================================
-// LAYER 4: COURSE COMPONENT TYPES
+// LAYER 3: COURSE COMPONENT TYPES
 // ============================================================================
 
 /**
@@ -548,9 +533,9 @@ export const createMockQueryProcessStepBase = (
     },
   },
   llm: createMockStepLlmConfig(),
-  embedding: undefined,
-  metrics: undefined,
-  error: undefined,
+  embedding: null,
+  metrics: null,
+  error: null,
   startedAt: MOCK_TIMESTAMPS.START,
   completedAt: MOCK_TIMESTAMPS.START,
   duration: 1000,
@@ -580,29 +565,6 @@ export const createMockClassificationStep = (
     duration: 800,
     startedAt: MOCK_TIMESTAMPS.START,
     completedAt: MOCK_TIMESTAMPS.STEP_1_END,
-    ...overrides,
-  });
-
-/**
- * Type-safe factory for QueryProfile step
- */
-export const createMockQueryProfileStep = (
-  overrides: Partial<QueryProcessStep> = {},
-): QueryProcessStep =>
-  createMockQueryProcessStepBase({
-    id: createMockId('step-query-profile'),
-    stepName: STEP_NAME.QUERY_PROFILE_BUILDING,
-    stepOrder: 2,
-    input: { question: 'What skills do I need for data analysis?' },
-    output: {
-      raw: createMockQueryProfileRawOutput(),
-    },
-    llm: createMockStepLlmConfig({
-      tokenUsage: { input: 80, output: 40, total: 120 },
-    }),
-    duration: 1200,
-    startedAt: MOCK_TIMESTAMPS.STEP_2_START,
-    completedAt: MOCK_TIMESTAMPS.STEP_2_END,
     ...overrides,
   });
 
@@ -736,10 +698,13 @@ export const createMockQueryProcessLogBase = (
   status: 'COMPLETED',
   question: 'What skills do I need for data analysis?',
   input: { question: 'What skills do I need for data analysis?' },
-  output: undefined,
-  metrics: undefined,
-  metadata: undefined,
-  error: undefined,
+  output: null,
+  metrics: null,
+  metadata: null,
+  error: null,
+  totalDuration: null,
+  totalTokens: null,
+  totalCost: null,
   startedAt: MOCK_TIMESTAMPS.START,
   completedAt: MOCK_TIMESTAMPS.STEP_7_END,
   createdAt: MOCK_TIMESTAMPS.START,
@@ -754,7 +719,6 @@ export const createMockQueryProcessLogBase = (
  *
  * This matches the enriched log types from TestSetTransformer:
  * - QueryLogWithClassification
- * - QueryLogWithQueryProfile
  * - QueryLogWithSkillExpansion
  * - QueryLogWithCourseRetrieval
  * - QueryLogWithCourseFilter
@@ -763,7 +727,6 @@ export const createMockQueryProcessLogBase = (
  */
 export const createMockEnrichedLog = (): QueryProcessLogWithSteps & {
   classificationStep: QueryProcessStep;
-  queryProfileStep: QueryProcessStep;
   skillExpansionStep: QueryProcessStep;
   courseRetrievalStep: QueryProcessStep;
   courseFilterStep: QueryProcessStep;
@@ -771,7 +734,6 @@ export const createMockEnrichedLog = (): QueryProcessLogWithSteps & {
   answerSynthesisStep: QueryProcessStep;
 } => {
   const classificationStep = createMockClassificationStep();
-  const queryProfileStep = createMockQueryProfileStep();
   const skillExpansionStep = createMockSkillExpansionStep();
   const courseRetrievalStep = createMockCourseRetrievalStep();
   const courseFilterStep = createMockCourseFilterStep();
@@ -781,7 +743,6 @@ export const createMockEnrichedLog = (): QueryProcessLogWithSteps & {
   const baseLog = createMockQueryProcessLogBase({
     processSteps: [
       classificationStep,
-      queryProfileStep,
       skillExpansionStep,
       courseRetrievalStep,
       courseFilterStep,
@@ -794,7 +755,6 @@ export const createMockEnrichedLog = (): QueryProcessLogWithSteps & {
   return {
     ...baseLog,
     classificationStep,
-    queryProfileStep,
     skillExpansionStep,
     courseRetrievalStep,
     courseFilterStep,
@@ -838,25 +798,6 @@ export const createMockEnrichedLogWithClassification = (
   return {
     ...baseLog,
     classificationStep,
-  };
-};
-
-/**
- * Factory for creating enriched log with only QueryProfile step
- */
-export const createMockEnrichedLogWithQueryProfile = (
-  stepOverrides: Partial<QueryProcessStep> = {},
-): QueryProcessLogWithSteps & {
-  queryProfileStep: QueryProcessStep;
-} => {
-  const queryProfileStep = createMockQueryProfileStep(stepOverrides);
-  const baseLog = createMockQueryProcessLogBase({
-    processSteps: [queryProfileStep],
-  });
-
-  return {
-    ...baseLog,
-    queryProfileStep,
   };
 };
 

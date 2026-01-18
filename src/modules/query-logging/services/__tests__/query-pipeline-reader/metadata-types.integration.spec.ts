@@ -483,16 +483,6 @@ describe('QueryPipelineReaderService Integration - Metadata Types', () => {
         },
       });
 
-      await loggerService.queryProfile({
-        question: testQuestion,
-        promptVersion: 'v3',
-        queryProfileResult: {
-          language: 'en',
-          llmInfo: createMockLlmInfo({ promptVersion: 'v3' }),
-          tokenUsage: { model: 'gpt-4', inputTokens: 100, outputTokens: 50 },
-        },
-      });
-
       await loggerService.skillExpansion({
         question: testQuestion,
         promptVersion: 'v2',
@@ -543,26 +533,25 @@ describe('QueryPipelineReaderService Integration - Metadata Types', () => {
       // Assert - Read back
       const log = await readerService.getQueryLogById(queryLogId);
 
-      // Assert - Verify all 7 steps exist (1 courseFilter step merged)
-      expect(log?.processSteps).toHaveLength(7);
+      // Assert - Verify all 6 steps exist (1 courseFilter step merged, no queryProfile)
+      expect(log?.processSteps).toHaveLength(6);
 
-      // Assert - Verify step orders are sequential 1-7 (each step appears once)
+      // Assert - Verify step orders are sequential (each step appears once)
       const stepOrders = log!.processSteps
         .map((s) => s.stepOrder)
         .sort((a, b) => a - b);
-      expect(stepOrders).toEqual([1, 2, 3, 4, 5, 6, 7]);
+      expect(stepOrders).toEqual([1, 2, 3, 4, 5, 6]);
 
       // Assert - Verify step names match expected step orders
       const stepsByOrder = Object.fromEntries(
         log!.processSteps.map((s) => [s.stepOrder, s.stepName]),
       );
       expect(stepsByOrder[1]).toBe(STEP_NAME.QUESTION_CLASSIFICATION);
-      expect(stepsByOrder[2]).toBe(STEP_NAME.QUERY_PROFILE_BUILDING);
-      expect(stepsByOrder[3]).toBe(STEP_NAME.SKILL_EXPANSION);
-      expect(stepsByOrder[4]).toBe(STEP_NAME.COURSE_RETRIEVAL);
-      expect(stepsByOrder[5]).toBe(STEP_NAME.COURSE_RELEVANCE_FILTER);
-      expect(stepsByOrder[6]).toBe(STEP_NAME.COURSE_AGGREGATION);
-      expect(stepsByOrder[7]).toBe(STEP_NAME.ANSWER_SYNTHESIS);
+      expect(stepsByOrder[2]).toBe(STEP_NAME.SKILL_EXPANSION);
+      expect(stepsByOrder[3]).toBe(STEP_NAME.COURSE_RETRIEVAL);
+      expect(stepsByOrder[4]).toBe(STEP_NAME.COURSE_RELEVANCE_FILTER);
+      expect(stepsByOrder[5]).toBe(STEP_NAME.COURSE_AGGREGATION);
+      expect(stepsByOrder[6]).toBe(STEP_NAME.ANSWER_SYNTHESIS);
     });
   });
 });

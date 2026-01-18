@@ -65,6 +65,7 @@ const createMockTestSet = (): CourseRetrievalTestSetSerialized[] => {
           mockCourse('course-002', 'CHIN201', 'การสื่อสารภาษาจีน'),
         ],
       },
+      duration: null,
     },
     {
       queryLogId: 'resume-test-002',
@@ -78,6 +79,7 @@ const createMockTestSet = (): CourseRetrievalTestSetSerialized[] => {
           mockCourse('course-004', 'BUDG101', 'การวางแผนงบประมาณ'),
         ],
       },
+      duration: null,
     },
     {
       queryLogId: 'resume-test-003',
@@ -88,6 +90,7 @@ const createMockTestSet = (): CourseRetrievalTestSetSerialized[] => {
           mockCourse('course-005', 'CS101', 'การเขียนโปรแกรม 1'),
         ],
       },
+      duration: null,
     },
   ] as CourseRetrievalTestSetSerialized[];
 };

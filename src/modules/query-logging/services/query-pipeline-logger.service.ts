@@ -1,18 +1,30 @@
 import type { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
+// QueryProfile is used for typing in JSDoc comments
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { QueryProfile } from 'src/modules/query-processor/types/query-profile.type';
 
 import type { EmbeddingUsage } from '../../../shared/contracts/types/embedding-usage.type';
 import type { Identifier } from '../../../shared/contracts/types/identifier';
 import type { LlmInfo } from '../../../shared/contracts/types/llm-info.type';
 import { HashHelper } from '../../../shared/utils/hash.helper';
-import { TimingMap } from '../../../shared/utils/time-logger.helper';
+import {
+  TimeLogger,
+  TimingMap,
+} from '../../../shared/utils/time-logger.helper';
 import { TokenCostCalculator } from '../../../shared/utils/token-cost-calculator.helper';
-import { TokenMap } from '../../../shared/utils/token-logger.helper';
+import {
+  TokenLogger,
+  TokenMap,
+} from '../../../shared/utils/token-logger.helper';
 import type {
   AggregatedCourseSkills,
   CourseWithLearningOutcomeV2MatchWithRelevance,
 } from '../../query-processor/types/course-aggregation.type';
 import type { CourseRelevanceFilterResultV2 } from '../../query-processor/types/course-relevance-filter.type';
+import {
+  LOGGING_STEPS,
+  type StepName,
+} from '../configs/step-definitions.config';
 import type { IQueryLoggingRepository } from '../contracts/i-query-logging-repository.contract';
 import { QueryPipelineMetrics } from '../helpers/query-pipeline-metrics.helper';
 import { SerializationHelper } from '../helpers/serialization.helper';
@@ -31,7 +43,6 @@ import type {
   TimingRecordSerializable,
   TokenRecordSerializable,
 } from '../types/query-log.type';
-import type { StepName } from '../types/query-status.type';
 
 /**
  * Query Pipeline Logger Service
@@ -43,6 +54,8 @@ import type { StepName } from '../types/query-status.type';
  */
 export class QueryPipelineLoggerService {
   private queryLogId?: Identifier;
+  private readonly timeLogger = new TimeLogger();
+  private readonly tokenLogger = new TokenLogger();
 
   constructor(private readonly repository: IQueryLoggingRepository) {}
 
@@ -100,7 +113,21 @@ export class QueryPipelineLoggerService {
       tokenMap: tokenMap as Record<string, TokenRecordSerializable[]>,
       counts: { coursesReturned },
     };
-    await this.complete(output, metrics);
+
+    // Compute scalar fields for efficient filtering
+    const totalDuration = this.computeTotalDuration(timing);
+    const totalTokens = this.computeTotalTokens(tokenMap);
+    const totalCost = this.computeTotalCost(tokenMap);
+
+    await this.repository.updateQueryLog(this.ensureQueryLogExists(), {
+      status: 'COMPLETED',
+      completedAt: new Date(),
+      output,
+      metrics,
+      totalDuration,
+      totalTokens,
+      totalCost,
+    });
   }
 
   /**
@@ -162,8 +189,8 @@ export class QueryPipelineLoggerService {
     };
 
     await this.logStep(
-      'QUESTION_CLASSIFICATION',
-      1,
+      LOGGING_STEPS.CLASSIFICATION.STEP_NAME,
+      LOGGING_STEPS.CLASSIFICATION.ORDER,
       input,
       output,
       data.classificationResult.llmInfo,
@@ -173,40 +200,7 @@ export class QueryPipelineLoggerService {
   }
 
   /**
-   * QUERY_PROFILE_BUILDING step (order: 2).
-   * Stores raw query profile output only (no metrics needed).
-   */
-  async queryProfile(data: {
-    question: string;
-    promptVersion: string;
-    queryProfileResult: QueryProfile;
-    duration?: number;
-  }): Promise<void> {
-    const input = {
-      question: data.question,
-      promptVersion: data.promptVersion,
-    };
-
-    // Store only raw output (language only - what QueryProfileBuilderSchema returns)
-    const output = {
-      raw: {
-        language: data.queryProfileResult.language,
-      },
-    };
-
-    await this.logStep(
-      'QUERY_PROFILE_BUILDING',
-      2,
-      input,
-      output,
-      data.queryProfileResult.llmInfo,
-      undefined,
-      data.duration,
-    );
-  }
-
-  /**
-   * SKILL_EXPANSION step (order: 3).
+   * SKILL_EXPANSION step (order: 2).
    * Stores raw skill expansion output only (no metrics needed).
    */
   async skillExpansion(data: {
@@ -231,8 +225,8 @@ export class QueryPipelineLoggerService {
     };
 
     await this.logStep(
-      'SKILL_EXPANSION',
-      3,
+      LOGGING_STEPS.SKILL_EXPANSION.STEP_NAME,
+      LOGGING_STEPS.SKILL_EXPANSION.ORDER,
       input,
       output,
       data.skillExpansionResult.llmInfo,
@@ -242,7 +236,7 @@ export class QueryPipelineLoggerService {
   }
 
   /**
-   * COURSE_RETRIEVAL step (order: 4).
+   * COURSE_RETRIEVAL step (order: 3).
    * Stores raw skill courses map only (no metrics needed).
    */
   async courseRetrieval(data: {
@@ -267,8 +261,8 @@ export class QueryPipelineLoggerService {
     };
 
     await this.logStep(
-      'COURSE_RETRIEVAL',
-      4,
+      LOGGING_STEPS.COURSE_RETRIEVAL.STEP_NAME,
+      LOGGING_STEPS.COURSE_RETRIEVAL.ORDER,
       input,
       output,
       undefined,
@@ -278,7 +272,7 @@ export class QueryPipelineLoggerService {
   }
 
   /**
-   * COURSE_RELEVANCE_FILTER step (order: 5).
+   * COURSE_RELEVANCE_FILTER step (order: 4).
    * Stores BOTH raw filter result AND calculated metrics.
    *
    * NOTE: Creates a SINGLE log entry with all skills merged.
@@ -372,8 +366,8 @@ export class QueryPipelineLoggerService {
     // If no skills found at all, log minimal entry
     if (allSkillsMetrics.length === 0) {
       await this.logStep(
-        'COURSE_RELEVANCE_FILTER',
-        5,
+        LOGGING_STEPS.RELEVANCE_FILTER.STEP_NAME,
+        LOGGING_STEPS.RELEVANCE_FILTER.ORDER,
         { question: data.question, skills: [], skillCount: 0 },
         {
           raw: serializedResult || {},
@@ -408,8 +402,8 @@ export class QueryPipelineLoggerService {
 
     // Create SINGLE log entry with all skills merged (OUTSIDE the loop!)
     await this.logStep(
-      'COURSE_RELEVANCE_FILTER',
-      5,
+      LOGGING_STEPS.RELEVANCE_FILTER.STEP_NAME,
+      LOGGING_STEPS.RELEVANCE_FILTER.ORDER,
       {
         skills: allSkillsMetrics.map((m) => m.skill),
         skillCount: allSkillsMetrics.length,
@@ -466,8 +460,8 @@ export class QueryPipelineLoggerService {
 
     // Log the step with raw + metrics
     await this.logStep(
-      'COURSE_AGGREGATION',
-      6,
+      LOGGING_STEPS.COURSE_AGGREGATION.STEP_NAME,
+      LOGGING_STEPS.COURSE_AGGREGATION.ORDER,
       input,
       output,
       undefined,
@@ -477,7 +471,7 @@ export class QueryPipelineLoggerService {
   }
 
   /**
-   * ANSWER_SYNTHESIS step (order: 7).
+   * ANSWER_SYNTHESIS step (order: 6).
    * Stores raw synthesis output only (no metrics needed).
    */
   async answerSynthesis(data: {
@@ -502,8 +496,8 @@ export class QueryPipelineLoggerService {
     };
 
     await this.logStep(
-      'ANSWER_SYNTHESIS',
-      7,
+      LOGGING_STEPS.ANSWER_SYNTHESIS.STEP_NAME,
+      LOGGING_STEPS.ANSWER_SYNTHESIS.ORDER,
       input,
       output,
       data.synthesisResult.llmInfo,
@@ -675,6 +669,45 @@ export class QueryPipelineLoggerService {
       bySkill: embeddingUsage.bySkill,
       skillsCount: embeddingUsage.bySkill.length,
     };
+  }
+
+  /**
+   * Compute total duration from timing map.
+   * Returns the sum of all step durations.
+   * @private
+   */
+  private computeTotalDuration(timing: TimingMap): number | undefined {
+    const durations = Object.values(timing)
+      .map((record) => record.duration)
+      .filter((d): d is number => d !== undefined);
+
+    if (durations.length === 0) {
+      return undefined;
+    }
+
+    return durations.reduce((sum, d) => sum + d, 0);
+  }
+
+  /**
+   * Compute total tokens from token map.
+   * Returns the sum of all input and output tokens.
+   * @private
+   */
+  private computeTotalTokens(tokenMap: TokenMap): number | undefined {
+    const totalTokens = this.tokenLogger.getTotalTokens(tokenMap);
+    if (!totalTokens) {
+      return undefined;
+    }
+    return totalTokens.inputTokens + totalTokens.outputTokens;
+  }
+
+  /**
+   * Compute total cost from token map.
+   * Returns the sum of all costs across all categories.
+   * @private
+   */
+  private computeTotalCost(tokenMap: TokenMap): number | undefined {
+    return this.tokenLogger.getTotalCost(tokenMap) ?? undefined;
   }
 
   /**

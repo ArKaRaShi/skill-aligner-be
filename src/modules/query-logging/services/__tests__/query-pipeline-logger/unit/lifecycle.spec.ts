@@ -1,4 +1,5 @@
 import type { Identifier } from 'src/shared/contracts/types/identifier';
+import { DecimalHelper } from 'src/shared/utils/decimal.helper';
 import { TimingMap } from 'src/shared/utils/time-logger.helper';
 import { TokenMap } from 'src/shared/utils/token-logger.helper';
 
@@ -207,6 +208,9 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
             tokenMap,
             counts: { coursesReturned },
           },
+          totalDuration: 5000,
+          totalTokens: 1500,
+          totalCost: 0.01,
         },
       );
     });
@@ -249,6 +253,9 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
             tokenMap,
             counts: { coursesReturned },
           },
+          totalDuration: 1000,
+          totalTokens: undefined,
+          totalCost: undefined,
         },
       );
     });
@@ -267,7 +274,7 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
         },
       };
 
-      const llmKey = 'step1-basic-preparation' as Identifier;
+      const llmKey = 'step1-question-classification' as Identifier;
       const embeddingKey = 'step3-course-retrieval' as Identifier;
       const tokenMap: TokenMap = {
         [llmKey]: [
@@ -315,6 +322,8 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
       );
 
       // Assert - verify raw data is stored directly (not computed)
+      // Use DecimalHelper for exact cost comparison (0.008 + 0.001 = 0.009)
+      const expectedTotalCost = DecimalHelper.sum(0.008, 0.001);
       expect(mockRepository.updateQueryLog).toHaveBeenCalledWith(
         mockQueryLogId,
         {
@@ -326,6 +335,9 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
             tokenMap,
             counts: { coursesReturned },
           },
+          totalDuration: 3000,
+          totalTokens: 1400,
+          totalCost: expectedTotalCost,
         },
       );
     });

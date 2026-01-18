@@ -4,27 +4,39 @@ import type { QueryStatus } from './query-status.type';
 
 /**
  * Domain type for query process log.
+ *
+ * Note: Root-level fields use `| null` to align with Prisma/PostgreSQL conventions.
+ * Prisma returns `null` for nullable columns, never `undefined`.
+ * Optional parameters at the API/service layer use `?` (undefined = not provided).
  */
 export interface QueryProcessLog {
   id: Identifier;
   status: QueryStatus;
   question: string;
 
-  // Flexible JSONB fields
-  input?: QueryLogInput;
-  output?: QueryLogOutput;
-  metrics?: QueryLogMetrics;
-  metadata?: Record<string, any>;
-  error?: QueryLogError;
+  // JSONB fields - column itself can be null (Prisma returns null)
+  input: QueryLogInput | null;
+  output: QueryLogOutput | null;
+  metrics: QueryLogMetrics | null;
+  metadata: Record<string, any> | null;
+  error: QueryLogError | null;
+
+  // Direct Prisma scalar columns - nullable fields use | null
+  totalDuration: number | null;
+  totalTokens: number | null;
+  totalCost: number | null;
 
   startedAt: Date;
-  completedAt?: Date;
+  completedAt: Date | null;
   createdAt: Date;
   updatedAt: Date;
 }
 
 /**
- * Input data stored in QueryProcessLog.input
+ * Input data stored in QueryProcessLog.input (JSONB field).
+ *
+ * Note: Nested properties use `?` following JavaScript convention.
+ * Properties can be missing (undefined).
  */
 export interface QueryLogInput {
   question: string;
@@ -35,7 +47,9 @@ export interface QueryLogInput {
 }
 
 /**
- * Output data stored in QueryProcessLog.output
+ * Output data stored in QueryProcessLog.output (JSONB field).
+ *
+ * Note: Nested properties use `?` following JavaScript convention.
  */
 export interface QueryLogOutput {
   answer?: string;
@@ -61,8 +75,10 @@ export interface ClassificationInfo {
 }
 
 /**
- * Serializable timing record for database storage.
+ * Serializable timing record for database storage (inside JSONB).
  * Matches TimingRecord from time-logger.helper.ts
+ *
+ * Note: Properties use `?` following JavaScript convention.
  */
 export interface TimingRecordSerializable {
   start: number;
@@ -71,7 +87,7 @@ export interface TimingRecordSerializable {
 }
 
 /**
- * Serializable token usage for database storage.
+ * Serializable token usage for database storage (inside JSONB).
  * Matches TokenUsage from token-usage.type.ts
  */
 export interface TokenUsageSerializable {
@@ -81,7 +97,7 @@ export interface TokenUsageSerializable {
 }
 
 /**
- * Serializable token cost estimate for database storage.
+ * Serializable token cost estimate for database storage (inside JSONB).
  * Matches TokenCostEstimate from token-cost-calculator.helper.ts
  */
 export interface TokenCostEstimateSerializable extends TokenUsageSerializable {
@@ -90,7 +106,7 @@ export interface TokenCostEstimateSerializable extends TokenUsageSerializable {
 }
 
 /**
- * Serializable token record for database storage.
+ * Serializable token record for database storage (inside JSONB).
  * Matches TokenRecord from token-logger.helper.ts
  */
 export interface TokenRecordSerializable {
@@ -99,11 +115,13 @@ export interface TokenRecordSerializable {
 }
 
 /**
- * Metrics stored in QueryProcessLog.metrics
+ * Metrics stored in QueryProcessLog.metrics (JSONB field).
  *
  * Raw timing and token data are stored directly in a type-safe format.
  * Aggregations (averages, totals, LLM vs Embedding breakdowns)
  * are computed at query time using TokenLogger.getSummary().
+ *
+ * Note: Nested properties use `?` following JavaScript convention.
  */
 export interface QueryLogMetrics {
   /** Raw timing data for each step */
@@ -141,7 +159,9 @@ export interface CostBreakdown {
 }
 
 /**
- * Count statistics.
+ * Count statistics (inside JSONB).
+ *
+ * Note: Properties use `?` following JavaScript convention.
  */
 export interface CountStats {
   skillsExtracted?: number;
@@ -149,7 +169,9 @@ export interface CountStats {
 }
 
 /**
- * Error information.
+ * Error information (inside JSONB).
+ *
+ * Note: Properties use `?` following JavaScript convention.
  */
 export interface QueryLogError {
   code?: string;

@@ -3,6 +3,8 @@ import { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
 import type { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/course.type';
 
 import type { Identifier } from '../../../shared/contracts/types/identifier';
+// Language type is referenced in JSDoc comments
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { Language } from '../../query-processor/schemas/query-profile-builder.schema';
 import type {
   AggregatedCourseSkills,
@@ -25,16 +27,6 @@ import type { StepName } from './query-status.type';
 export type ClassificationRawOutput = {
   category: string;
   reason: string;
-};
-
-/**
- * Raw output from QUERY_PROFILE_BUILDING step.
- * Logger stores only the language detected by QueryProfileBuilder.
- *
- * NOTE: llmInfo and tokenUsage are stored in the step's llm field, not in raw output.
- */
-export type QueryProfileRawOutput = {
-  language: Language;
 };
 
 /**
@@ -113,7 +105,6 @@ export type AnswerSynthesisRawOutput = {
  */
 export type ServiceRawOutput =
   | ClassificationRawOutput
-  | QueryProfileRawOutput
   | SkillExpansionRawOutput
   | CourseRetrievalRawOutput
   | CourseFilterRawOutput
@@ -163,7 +154,7 @@ export interface QueryProcessStepOutput {
    * - COURSE_RELEVANCE_FILTER (3-category breakdown)
    * - COURSE_AGGREGATION (skill breakdowns, ties)
    *
-   * Simple steps (classification, profile, expansion, retrieval, synthesis)
+   * Simple steps (classification, expansion, retrieval, synthesis)
    * don't need metrics - raw output is sufficient.
    */
   metrics?: ServiceMetrics;
@@ -175,6 +166,9 @@ export interface QueryProcessStepOutput {
 
 /**
  * Domain type for query process step.
+ *
+ * Note: Root-level fields use `| null` to align with Prisma/PostgreSQL conventions.
+ * Prisma returns `null` for nullable columns, never `undefined`.
  */
 export interface QueryProcessStep {
   id: Identifier;
@@ -182,30 +176,35 @@ export interface QueryProcessStep {
   stepName: StepName;
   stepOrder: number;
 
-  // Flexible JSONB fields
-  input?: Record<string, any>;
-  output?: QueryProcessStepOutput; // Raw service output + optional calculated metrics
-  llm?: StepLlmConfig; // For LLM steps
-  embedding?: StepEmbeddingConfig; // For COURSE_RETRIEVAL step
-  metrics?: StepMetrics;
-  error?: StepError;
+  // JSONB fields - column itself can be null (Prisma returns null)
+  input: Record<string, any> | null;
+  output: QueryProcessStepOutput | null; // Raw service output + optional calculated metrics
+  llm: StepLlmConfig | null; // For LLM steps
+  embedding: StepEmbeddingConfig | null; // For COURSE_RETRIEVAL step
+  metrics: StepMetrics | null;
+  error: StepError | null;
 
+  // Direct Prisma scalar columns - nullable fields use | null
   startedAt: Date;
-  completedAt?: Date;
-  duration?: number;
+  completedAt: Date | null;
+  duration: number | null;
   createdAt: Date;
   updatedAt: Date;
 }
 
 /**
- * Metrics stored in QueryProcessStep.metrics
+ * Metrics stored in QueryProcessStep.metrics (JSONB field).
+ *
+ * Note: Properties use `?` following JavaScript convention.
  */
 export interface StepMetrics {
   duration?: number;
 }
 
 /**
- * Error info stored in QueryProcessStep.error
+ * Error info stored in QueryProcessStep.error (JSONB field).
+ *
+ * Note: Properties use `?` following JavaScript convention.
  */
 export interface StepError {
   code?: string;

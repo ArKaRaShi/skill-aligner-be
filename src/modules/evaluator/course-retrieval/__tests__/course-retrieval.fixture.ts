@@ -357,6 +357,7 @@ export const createMockCourseRetrievalTestSetSerialized = (
       'python programming': [course1, course2],
       'data analysis': [course1],
     },
+    duration: null,
     ...overrides,
   };
 };

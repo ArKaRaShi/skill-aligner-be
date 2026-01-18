@@ -15,6 +15,14 @@ import {
 import { QueryProfileBuilderSchema } from '../../schemas/query-profile-builder.schema';
 import { QueryProfile } from '../../types/query-profile.type';
 
+/**
+ * Service for building query profiles from user queries.
+ *
+ * @deprecated This service is no longer used in the main query processing pipeline.
+ * Query profiling has been removed as a separate step from the AnswerQuestionUseCase pipeline.
+ * Language detection and query profiling are now handled inline within the pipeline.
+ * This service is kept for backward compatibility but will be removed in a future version.
+ */
 @Injectable()
 export class QueryProfileBuilderService implements IQueryProfileBuilderService {
   private readonly logger = new Logger(QueryProfileBuilderService.name);

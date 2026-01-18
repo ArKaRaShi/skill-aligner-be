@@ -87,20 +87,6 @@ describe('QueryPipelineReaderService Integration - Multi-Step Pipeline', () => {
         },
       });
 
-      await loggerService.queryProfile({
-        question: testQuestion,
-        promptVersion: 'v3',
-        queryProfileResult: {
-          language: 'en',
-          llmInfo: createMockLlmInfo({ promptVersion: 'v3' }),
-          tokenUsage: {
-            model: 'gpt-4',
-            inputTokens: 100,
-            outputTokens: 50,
-          },
-        },
-      });
-
       await loggerService.skillExpansion({
         question: testQuestion,
         promptVersion: 'v2',
@@ -135,24 +121,21 @@ describe('QueryPipelineReaderService Integration - Multi-Step Pipeline', () => {
       // Act - Read back the full log
       const log = await readerService.getQueryLogById(queryLogId);
 
-      // Assert - Verify all steps exist with correct order
-      expect(log?.processSteps).toHaveLength(4);
+      // Assert - Verify all steps exist with correct order (3 steps now, no queryProfile)
+      expect(log?.processSteps).toHaveLength(3);
 
       // Sort steps by stepOrder to ensure correct ordering
       const sortedSteps = [...log!.processSteps].sort(
         (a, b) => a.stepOrder - b.stepOrder,
       );
 
-      const [classification, profile, skillExpansion, synthesis] = sortedSteps;
+      const [classification, skillExpansion, synthesis] = sortedSteps;
 
       // Assert - Verify each step has proper type and data
       expect(classification.stepName).toBe(STEP_NAME.QUESTION_CLASSIFICATION);
       expect(
         (classification.output!.raw as { category: string }).category,
       ).toBe('relevant');
-
-      expect(profile.stepName).toBe(STEP_NAME.QUERY_PROFILE_BUILDING);
-      expect((profile.output!.raw as { language: string }).language).toBe('en');
 
       expect(skillExpansion.stepName).toBe(STEP_NAME.SKILL_EXPANSION);
       expect(
@@ -212,20 +195,6 @@ describe('QueryPipelineReaderService Integration - Multi-Step Pipeline', () => {
         },
       });
 
-      await loggerService.queryProfile({
-        question: testQuestion,
-        promptVersion: 'v3',
-        queryProfileResult: {
-          language: 'en',
-          llmInfo: createMockLlmInfo({ promptVersion: 'v3' }),
-          tokenUsage: {
-            model: 'gpt-4',
-            inputTokens: 120,
-            outputTokens: 60,
-          },
-        },
-      });
-
       await loggerService.skillExpansion({
         question: testQuestion,
         promptVersion: 'v2',
@@ -266,11 +235,11 @@ describe('QueryPipelineReaderService Integration - Multi-Step Pipeline', () => {
 
       // Assert - Read back and verify all metadata
       const log = await readerService.getQueryLogById(queryLogId);
-      expect(log?.processSteps).toHaveLength(7); // 1 courseFilter step (merged)
+      expect(log?.processSteps).toHaveLength(6); // 1 courseFilter step (merged), no queryProfile
 
       // Verify LLM steps have llm field with token usage
       const llmSteps = log!.processSteps.filter((s) => s.llm);
-      expect(llmSteps).toHaveLength(4); // classification, queryProfile, skillExpansion, answerSynthesis (courseFilter has no step-level llm)
+      expect(llmSteps).toHaveLength(3); // classification, skillExpansion, answerSynthesis (courseFilter has no step-level llm)
 
       // Sum up all token usage across LLM steps
       // Note: courseFilter tokens are in allSkillsMetrics[i].tokenUsage, not step.llm
@@ -278,10 +247,9 @@ describe('QueryPipelineReaderService Integration - Multi-Step Pipeline', () => {
         (sum, step) => sum + (step.llm?.tokenUsage?.total || 0),
         0,
       );
-      // classification (100+50) + queryProfile (100+50) + skillExpansion (80+40) + answerSynthesis (300+200)
-      // Note: queryProfile uses llmInfo tokens (100+50), not separate tokenUsage object (120+60)
+      // classification (100+50) + skillExpansion (80+40) + answerSynthesis (300+200)
       // Note: courseFilter tokens (150) are NOT counted here since step-level llm is null
-      expect(totalTokens).toBe(920);
+      expect(totalTokens).toBe(770);
 
       // Verify embedding step has embedding field
       const retrievalStep = log!.processSteps.find(

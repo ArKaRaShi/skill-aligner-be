@@ -10,7 +10,6 @@ import type {
   CourseFilterMergedMetrics,
   CourseFilterRawOutput,
   CourseRetrievalRawOutput,
-  QueryProfileRawOutput,
   SkillExpansionRawOutput,
 } from 'src/modules/query-logging/types/query-log-step.type';
 
@@ -21,7 +20,6 @@ import type {
   CourseAggregationTestSetSerialized,
   CourseFilterTestSetSerialized,
   CourseRetrievalTestSetSerialized,
-  QueryProfileTestSet,
   SkillExpansionTestSet,
 } from './test-set.types';
 
@@ -109,35 +107,6 @@ export class TestSetBuilderService {
         llmModel: step.llm?.model,
         llmProvider: step.llm?.provider,
         promptVersion: step.llm?.promptVersion,
-        duration: step.duration,
-        tokenUsage: step.llm?.tokenUsage,
-      };
-    });
-  }
-
-  /**
-   * Build test set from QUERY_PROFILE_BUILDING step
-   */
-  async buildQueryProfileTestSet(
-    queryLogIds: string[],
-  ): Promise<QueryProfileTestSet[]> {
-    this.logger.log(
-      `Building QUERY_PROFILE_BUILDING test set from ${queryLogIds.length} query logs`,
-    );
-
-    const enrichedLogs =
-      await this.transformer.toQueryProfileEnrichedLogs(queryLogIds);
-
-    return enrichedLogs.map((log) => {
-      const step = log.queryProfileStep;
-      const raw = step.output?.raw as QueryProfileRawOutput;
-
-      return {
-        queryLogId: log.id,
-        question: log.question,
-        queryProfile: raw,
-        llmModel: step.llm?.model,
-        llmProvider: step.llm?.provider,
         duration: step.duration,
         tokenUsage: step.llm?.tokenUsage,
       };
@@ -423,18 +392,6 @@ export class TestSetBuilderService {
     directory?: string,
   ): Promise<string> {
     const testSet = await this.buildClassificationTestSet(queryLogIds);
-    return this.saveTestSet(testSet, filename, directory);
-  }
-
-  /**
-   * Build and save QUERY_PROFILE_BUILDING test set
-   */
-  async buildAndSaveQueryProfileTestSet(
-    queryLogIds: string[],
-    filename: string,
-    directory?: string,
-  ): Promise<string> {
-    const testSet = await this.buildQueryProfileTestSet(queryLogIds);
     return this.saveTestSet(testSet, filename, directory);
   }
 

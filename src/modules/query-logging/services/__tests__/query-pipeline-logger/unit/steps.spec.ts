@@ -109,7 +109,7 @@ describe('QueryPipelineLoggerService - Steps', () => {
       });
       const mockStep: QueryProcessStep = createMockStep({
         stepName: 'SKILL_EXPANSION',
-        stepOrder: 3,
+        stepOrder: 2,
       });
       mockRepository.createStep.mockResolvedValue(mockStep);
 
@@ -130,7 +130,7 @@ describe('QueryPipelineLoggerService - Steps', () => {
       expect(mockRepository.createStep).toHaveBeenCalledWith({
         queryLogId: mockQueryLogId,
         stepName: 'SKILL_EXPANSION',
-        stepOrder: 3,
+        stepOrder: 2,
         input: {
           question: 'What skills are needed for AI?',
           promptVersion: '1.0',
@@ -169,7 +169,7 @@ describe('QueryPipelineLoggerService - Steps', () => {
       const embeddingUsage = createMockEmbeddingUsage('AI');
       const mockStep: QueryProcessStep = createMockStep({
         stepName: 'COURSE_RETRIEVAL',
-        stepOrder: 4,
+        stepOrder: 3,
       });
       mockRepository.createStep.mockResolvedValue(mockStep);
 
@@ -184,7 +184,7 @@ describe('QueryPipelineLoggerService - Steps', () => {
       expect(mockRepository.createStep).toHaveBeenCalledWith({
         queryLogId: mockQueryLogId,
         stepName: 'COURSE_RETRIEVAL',
-        stepOrder: 4,
+        stepOrder: 3,
         input: { skills: ['AI'], threshold: 0, topN: 10 },
       });
       expect(mockRepository.updateStep).toHaveBeenCalledWith(mockStepId, {
@@ -227,7 +227,7 @@ describe('QueryPipelineLoggerService - Steps', () => {
       });
       const mockStep: QueryProcessStep = createMockStep({
         stepName: 'ANSWER_SYNTHESIS',
-        stepOrder: 7,
+        stepOrder: 6,
       });
       mockRepository.createStep.mockResolvedValue(mockStep);
 
@@ -245,7 +245,7 @@ describe('QueryPipelineLoggerService - Steps', () => {
       expect(mockRepository.createStep).toHaveBeenCalledWith({
         queryLogId: mockQueryLogId,
         stepName: 'ANSWER_SYNTHESIS',
-        stepOrder: 7,
+        stepOrder: 6,
         input: { question: 'What courses teach AI?', promptVersion: '1.0' },
       });
       expect(mockRepository.updateStep).toHaveBeenCalledWith(mockStepId, {

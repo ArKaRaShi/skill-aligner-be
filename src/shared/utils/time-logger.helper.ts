@@ -1,3 +1,5 @@
+import { DecimalHelper } from './decimal.helper';
+
 export interface TimingRecord {
   start: number;
   end?: number;
@@ -25,6 +27,6 @@ export class TimeLogger {
   formatDuration(duration?: number): string {
     if (!duration) return '0ms';
     if (duration < 1000) return `${duration}ms`;
-    return `${(duration / 1000).toFixed(2)}s`;
+    return `${DecimalHelper.formatTime(duration / 1000)}s`;
   }
 }

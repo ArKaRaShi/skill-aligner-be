@@ -1,3 +1,5 @@
+import { DECIMAL_PRECISION } from 'src/shared/utils/constants/decimal-precision.constants';
+
 import { CostStatisticsHelper } from '../cost-statistics.helper';
 
 describe('CostStatisticsHelper', () => {
@@ -72,8 +74,8 @@ describe('CostStatisticsHelper', () => {
 
       // Assert
       expect(result.count).toBe(3);
-      expect(result.sum).toBeCloseTo(0.0006, 6);
-      expect(result.average).toBeCloseTo(0.0002, 6);
+      expect(result.sum).toBeCloseTo(0.0006, DECIMAL_PRECISION.COST);
+      expect(result.average).toBeCloseTo(0.0002, DECIMAL_PRECISION.COST);
     });
 
     it('should throw error for empty array', () => {

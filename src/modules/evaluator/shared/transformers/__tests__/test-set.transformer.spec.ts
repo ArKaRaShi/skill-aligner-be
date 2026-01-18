@@ -19,10 +19,13 @@ describe('TestSetTransformer', () => {
     question: 'What skills do I need for data analysis?',
     status: 'COMPLETED',
     input: { question: 'What skills do I need for data analysis?' },
-    output: {},
-    metrics: {},
-    metadata: {},
-    error: undefined,
+    output: null,
+    metrics: null,
+    metadata: null,
+    error: null,
+    totalDuration: null,
+    totalTokens: null,
+    totalCost: null,
     startedAt: new Date('2024-01-01T10:00:00Z'),
     completedAt: new Date('2024-01-01T10:01:00Z'),
     createdAt: new Date('2024-01-01T10:00:00Z'),
@@ -48,7 +51,9 @@ describe('TestSetTransformer', () => {
           promptVersion: 'V10',
           tokenUsage: { input: 100, output: 50, total: 150 },
         },
-        embedding: undefined,
+        embedding: null,
+        metrics: null,
+        error: null,
         duration: 1500,
         startedAt: new Date('2024-01-01T10:00:10Z'),
         completedAt: new Date('2024-01-01T10:00:11.5Z'),
@@ -73,7 +78,9 @@ describe('TestSetTransformer', () => {
           promptVersion: 'V11',
           tokenUsage: { input: 50, output: 20, total: 70 },
         },
-        embedding: undefined,
+        embedding: null,
+        metrics: null,
+        error: null,
         duration: 800,
         startedAt: new Date('2024-01-01T10:00:00Z'),
         completedAt: new Date('2024-01-01T10:00:00.8Z'),
@@ -217,18 +224,6 @@ describe('TestSetTransformer', () => {
         transformer.toClassificationEnrichedLogs(['log-123']),
       ).rejects.toThrow(
         'Query log log-123 missing QUESTION_CLASSIFICATION step',
-      );
-    });
-  });
-
-  describe('toQueryProfileEnrichedLogs', () => {
-    it('should throw error if QUERY_PROFILE_BUILDING step is missing', async () => {
-      mockReader.getQueryLogsByIds.mockResolvedValue([mockQueryLog]);
-
-      await expect(
-        transformer.toQueryProfileEnrichedLogs(['log-123']),
-      ).rejects.toThrow(
-        'Query log log-123 missing QUERY_PROFILE_BUILDING step',
       );
     });
   });

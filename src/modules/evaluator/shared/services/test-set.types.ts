@@ -3,7 +3,6 @@ import {
   AnswerSynthesisRawOutput,
   ClassificationRawOutput,
   CourseRetrievalRawOutput,
-  QueryProfileRawOutput,
   SkillExpansionRawOutput,
 } from 'src/modules/query-logging/types/query-log-step.type';
 import {
@@ -20,6 +19,8 @@ import type { CourseRelevanceFilterResultV2 } from 'src/modules/query-processor/
 /**
  * Serialized test set for COURSE_RETRIEVAL step (JSON storage)
  * skillCoursesMap is a Record (plain object), not a Map
+ *
+ * Note: duration uses | null to align with query-logging domain types
  */
 export type CourseRetrievalTestSetSerialized = {
   queryLogId: string;
@@ -27,12 +28,14 @@ export type CourseRetrievalTestSetSerialized = {
   skills: string[];
   skillCoursesMap: Record<string, CourseWithLearningOutcomeV2Match[]>;
   embeddingUsage?: CourseRetrievalRawOutput['embeddingUsage'];
-  duration?: number;
+  duration: number | null;
 };
 
 /**
  * Serialized test set for COURSE_RELEVANCE_FILTER step (JSON storage)
  * Comprehensive structure with raw output, LLM metadata, and metrics
+ *
+ * Note: duration uses | null to align with query-logging domain types
  */
 export type CourseFilterTestSetSerialized = {
   // Common fields (one per query log)
@@ -41,7 +44,7 @@ export type CourseFilterTestSetSerialized = {
   llmModel?: string;
   llmProvider?: string;
   promptVersion?: string;
-  duration?: number;
+  duration: number | null;
 
   // Raw LLM output (serialized Maps → Records for JSON)
   rawOutput?: {
@@ -111,6 +114,8 @@ export type CourseFilterTestSetSerialized = {
 /**
  * Serialized test set for COURSE_AGGREGATION step (JSON storage)
  * One entry per question (contains all skills' filtered courses and final ranked courses)
+ *
+ * Note: duration uses | null to align with query-logging domain types
  */
 export type CourseAggregationTestSetSerialized = {
   queryLogId: string;
@@ -120,11 +125,13 @@ export type CourseAggregationTestSetSerialized = {
     CourseWithLearningOutcomeV2MatchWithRelevance[]
   >;
   rankedCourses: AggregatedCourseSkills[];
-  duration?: number;
+  duration: number | null;
 };
 
 /**
  * Test set for SKILL_EXPANSION step (no Maps, same for both)
+ *
+ * Note: duration uses | null to align with query-logging domain types
  */
 export type SkillExpansionTestSet = {
   queryLogId: string;
@@ -133,7 +140,7 @@ export type SkillExpansionTestSet = {
   llmModel?: string;
   llmProvider?: string;
   promptVersion?: string;
-  duration?: number;
+  duration: number | null;
   tokenUsage?: {
     input: number;
     output: number;
@@ -143,6 +150,8 @@ export type SkillExpansionTestSet = {
 
 /**
  * Test set for QUESTION_CLASSIFICATION step (no Maps, same for both)
+ *
+ * Note: duration uses | null to align with query-logging domain types
  */
 export type ClassificationTestSet = {
   queryLogId: string;
@@ -152,24 +161,7 @@ export type ClassificationTestSet = {
   llmModel?: string;
   llmProvider?: string;
   promptVersion?: string;
-  duration?: number;
-  tokenUsage?: {
-    input: number;
-    output: number;
-    total: number;
-  };
-};
-
-/**
- * Test set for QUERY_PROFILE_BUILDING step (no Maps, same for both)
- */
-export type QueryProfileTestSet = {
-  queryLogId: string;
-  question: string;
-  queryProfile: QueryProfileRawOutput;
-  llmModel?: string;
-  llmProvider?: string;
-  duration?: number;
+  duration: number | null;
   tokenUsage?: {
     input: number;
     output: number;
@@ -179,6 +171,8 @@ export type QueryProfileTestSet = {
 
 /**
  * Test set for ANSWER_SYNTHESIS step (no Maps, same for both)
+ *
+ * Note: duration uses | null to align with query-logging domain types
  */
 export type AnswerSynthesisTestSet = {
   queryLogId: string;
@@ -187,7 +181,7 @@ export type AnswerSynthesisTestSet = {
   llmModel?: string;
   llmProvider?: string;
   promptVersion?: string;
-  duration?: number;
+  duration: number | null;
   tokenUsage?: {
     input: number;
     output: number;

@@ -15,7 +15,6 @@ import {
   ClassificationRawOutputSchema as ImportedClassificationRawOutputSchema,
   CourseAggregationRawOutputSchema as ImportedCourseAggregationRawOutputSchema,
   CourseRetrievalRawOutputSchema as ImportedCourseRetrievalRawOutputSchema,
-  QueryProfileRawOutputSchema as ImportedQueryProfileRawOutputSchema,
   SkillExpansionRawOutputSchema as ImportedSkillExpansionRawOutputSchema,
 } from '../schemas/query-log-raw-output.schema';
 import type {
@@ -23,7 +22,6 @@ import type {
   ClassificationRawOutput,
   CourseAggregationRawOutput,
   CourseRetrievalRawOutput,
-  QueryProfileRawOutput,
   ServiceRawOutput,
   SkillExpansionRawOutput,
 } from '../types/query-log-step.type';
@@ -51,9 +49,6 @@ export class QueryStepParserHelper {
     switch (stepName) {
       case STEP_NAME.QUESTION_CLASSIFICATION:
         return this.parseClassificationRaw(rawOutput);
-
-      case STEP_NAME.QUERY_PROFILE_BUILDING:
-        return this.parseQueryProfileRaw(rawOutput);
 
       case STEP_NAME.SKILL_EXPANSION:
         return this.parseSkillExpansionRaw(rawOutput);
@@ -83,13 +78,6 @@ export class QueryStepParserHelper {
    */
   parseClassificationRaw(raw: unknown): ClassificationRawOutput {
     return ImportedClassificationRawOutputSchema.parse(raw);
-  }
-
-  /**
-   * Parse QUERY_PROFILE_BUILDING raw output.
-   */
-  parseQueryProfileRaw(raw: unknown): QueryProfileRawOutput {
-    return ImportedQueryProfileRawOutputSchema.parse(raw);
   }
 
   /**

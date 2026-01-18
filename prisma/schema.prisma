@@ -148,6 +148,12 @@ model QueryProcessLog {
   metadata Json? // Additional data (sessionId, userId, etc.)
   error    Json? // Error info (code, message, stack)
 
+  // Computed scalar fields for efficient filtering and sorting
+  // Populated at write time from metrics JSONB data
+  totalDuration   Int?     @map("total_duration")   // Total duration in milliseconds
+  totalTokens     Int?     @map("total_tokens")     // Total tokens used (LLM + embedding)
+  totalCost       Decimal? @db.Decimal(10, 6) @map("total_cost") // Total cost in USD
+
   // Timestamps
   startedAt   DateTime  @default(now()) @map("started_at")
   completedAt DateTime? @map("completed_at")
@@ -159,6 +165,9 @@ model QueryProcessLog {
 
   @@index([status])
   @@index([startedAt])
+  @@index([totalCost])
+  @@index([totalDuration])
+  @@index([totalTokens])
   @@map("query_process_logs")
 }
 

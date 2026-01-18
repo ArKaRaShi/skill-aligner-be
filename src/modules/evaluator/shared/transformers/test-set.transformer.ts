@@ -18,14 +18,6 @@ export type QueryLogWithClassification = QueryProcessLog & {
 };
 
 /**
- * Query log enriched with QUERY_PROFILE_BUILDING step
- * Returns the full QueryProcessStep with all metadata
- */
-export type QueryLogWithQueryProfile = QueryProcessLog & {
-  queryProfileStep: QueryProcessLogWithSteps['processSteps'][number];
-};
-
-/**
  * Query log enriched with SKILL_EXPANSION step
  * Returns the full QueryProcessStep with all metadata
  */
@@ -143,20 +135,6 @@ export class TestSetTransformer {
 
     const logs = await this.reader.getQueryLogsByIds(queryLogIds);
     return logs.map((log) => this.enrichWithClassification(log));
-  }
-
-  /**
-   * Enrich logs with QUERY_PROFILE_BUILDING step data
-   */
-  async toQueryProfileEnrichedLogs(
-    queryLogIds: string[],
-  ): Promise<QueryLogWithQueryProfile[]> {
-    this.logger.log(
-      `Enriching ${queryLogIds.length} logs with QUERY_PROFILE_BUILDING data`,
-    );
-
-    const logs = await this.reader.getQueryLogsByIds(queryLogIds);
-    return logs.map((log) => this.enrichWithQueryProfile(log));
   }
 
   /**
@@ -288,29 +266,6 @@ export class TestSetTransformer {
     return {
       ...log,
       classificationStep: step,
-    };
-  }
-
-  /**
-   * Enrich a single log with QUERY_PROFILE_BUILDING step
-   * Returns the full step with all metadata
-   */
-  private enrichWithQueryProfile(
-    log: QueryProcessLogWithSteps,
-  ): QueryLogWithQueryProfile {
-    const step = log.processSteps?.find(
-      (s) => s.stepName === STEP_NAME.QUERY_PROFILE_BUILDING,
-    );
-
-    if (!step) {
-      throw new Error(
-        `Query log ${log.id} missing QUERY_PROFILE_BUILDING step`,
-      );
-    }
-
-    return {
-      ...log,
-      queryProfileStep: step,
     };
   }
 

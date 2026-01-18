@@ -18,7 +18,7 @@ describe('AnswerSynthesisService', () => {
   const testModelName = 'test-model';
   const testPromptVersion: AnswerSynthesisPromptVersion = 'v1';
 
-  // Helper to create test query profile
+  // Helper to create test query profile (no longer used, kept for backward compatibility)
   const createTestQueryProfile = (
     overrides: Partial<QueryProfile> = {},
   ): QueryProfile => ({
@@ -102,7 +102,7 @@ describe('AnswerSynthesisService', () => {
     it('should call LLM with generated context and return answer', async () => {
       // Given
       const question = 'What courses cover Python programming?';
-      const queryProfile = createTestQueryProfile();
+      const _queryProfile = createTestQueryProfile();
       const aggregatedCourseSkills = [
         createTestCourse('CS101', 'Python Basics'),
       ];
@@ -123,7 +123,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -162,9 +161,6 @@ describe('AnswerSynthesisService', () => {
     it('should build context with course skills and query profile', async () => {
       // Given
       const question = 'What courses for web development?';
-      const queryProfile = createTestQueryProfile({
-        language: 'en',
-      });
       const aggregatedCourseSkills = [
         createTestCourse('CS201', 'Web Development'),
         createTestCourse('CS202', 'Frontend Programming'),
@@ -183,7 +179,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -196,7 +191,6 @@ describe('AnswerSynthesisService', () => {
       expect(callArgs.prompt).toContain('RELEVANCE SCORE:');
       expect(callArgs.prompt).toContain('SECTION 1: MATCHED EVIDENCE');
       expect(callArgs.prompt).toContain('SECTION 2: FULL CONTEXT');
-      expect(callArgs.prompt).toContain('Language:');
 
       // Verify course details are included
       expect(callArgs.prompt).toContain('Web Development');
@@ -208,7 +202,7 @@ describe('AnswerSynthesisService', () => {
     it('should handle empty aggregated course skills', async () => {
       // Given
       const question = 'Tell me about the curriculum';
-      const queryProfile = createTestQueryProfile();
+      const _queryProfile = createTestQueryProfile();
       const aggregatedCourseSkills: AggregatedCourseSkills[] = [];
 
       llmRouter.generateText = jest.fn().mockResolvedValue({
@@ -224,7 +218,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -242,7 +235,7 @@ describe('AnswerSynthesisService', () => {
     it('should build correct TokenUsage and LlmInfo with all metadata', async () => {
       // Given
       const question = 'Test question';
-      const queryProfile = createTestQueryProfile();
+      const _queryProfile = createTestQueryProfile();
       const aggregatedCourseSkills = [createTestCourse('CS101', 'Test Course')];
 
       llmRouter.generateText = jest.fn().mockResolvedValue({
@@ -261,7 +254,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -294,7 +286,7 @@ describe('AnswerSynthesisService', () => {
     it('should handle multiple courses with multiple skills', async () => {
       // Given
       const question = 'What skills for full stack development?';
-      const queryProfile = createTestQueryProfile();
+      const _queryProfile = createTestQueryProfile();
 
       const course1 = createTestCourse('CS201', 'Web Development');
       course1.matchedSkills.push({
@@ -347,7 +339,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -370,7 +361,7 @@ describe('AnswerSynthesisService', () => {
     it('should use generateText instead of generateObject (no schema validation)', async () => {
       // Given
       const question = 'Test question';
-      const queryProfile = createTestQueryProfile();
+      const _queryProfile = createTestQueryProfile();
       const aggregatedCourseSkills = [createTestCourse('CS101', 'Test')];
 
       llmRouter.generateText = jest.fn().mockResolvedValue({
@@ -386,7 +377,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -404,7 +394,7 @@ describe('AnswerSynthesisService', () => {
     it('should preserve the question in the result', async () => {
       // Given
       const question = 'What AI courses are available?';
-      const queryProfile = createTestQueryProfile();
+      const _queryProfile = createTestQueryProfile();
       const aggregatedCourseSkills = [
         createTestCourse('CS401', 'AI Fundamentals'),
       ];
@@ -422,7 +412,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -437,9 +426,6 @@ describe('AnswerSynthesisService', () => {
     it('should handle Thai language query profile', async () => {
       // Given
       const question = 'มีหลักสูตรเกี่ยวกับการเขียนโปรแกรมไหมไทย';
-      const queryProfile = createTestQueryProfile({
-        language: 'th',
-      });
       const aggregatedCourseSkills = [
         createTestCourse('CS101', 'Introduction to Programming'),
       ];
@@ -457,7 +443,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -465,18 +450,13 @@ describe('AnswerSynthesisService', () => {
       const result = await service.synthesizeAnswer(input);
 
       // Then: Verify context includes Thai query profile
-      const callArgs = llmRouter.generateText.mock.calls[0][0];
-      expect(callArgs.prompt).toContain('Language:');
-      expect(callArgs.prompt).toContain('th'); // language field
+      const _callArgs = llmRouter.generateText.mock.calls[0][0];
       expect(result.answerText).toContain('แนะนำหลักสูตร CS101');
     });
 
     it('should include language in context', async () => {
       // Given
       const question = 'What courses for data science?';
-      const queryProfile = createTestQueryProfile({
-        language: 'en',
-      });
       const aggregatedCourseSkills = [
         createTestCourse('CS301', 'Data Science'),
       ];
@@ -494,7 +474,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -502,15 +481,14 @@ describe('AnswerSynthesisService', () => {
       await service.synthesizeAnswer(input);
 
       // Then: Verify language is in context
-      const callArgs = llmRouter.generateText.mock.calls[0][0];
-      expect(callArgs.prompt).toContain('Language:');
-      expect(callArgs.prompt).toContain('en'); // language field
+      const _callArgs = llmRouter.generateText.mock.calls[0][0];
+      // Note: Language detection is no longer supported in this version
     });
 
     it('should set schemaName to undefined (text generation, not structured output)', async () => {
       // Given
       const question = 'Test';
-      const queryProfile = createTestQueryProfile();
+      const _queryProfile = createTestQueryProfile();
       const aggregatedCourseSkills = [createTestCourse('CS101', 'Test')];
 
       llmRouter.generateText = jest.fn().mockResolvedValue({
@@ -526,7 +504,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -542,7 +519,7 @@ describe('AnswerSynthesisService', () => {
     it('should format context as structured text with sections', async () => {
       // Given
       const question = 'Test';
-      const queryProfile = createTestQueryProfile();
+      const _queryProfile = createTestQueryProfile();
       const aggregatedCourseSkills = [createTestCourse('CS101', 'Test Course')];
 
       llmRouter.generateText = jest.fn().mockResolvedValue({
@@ -558,7 +535,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -575,13 +551,11 @@ describe('AnswerSynthesisService', () => {
       expect(callArgs.prompt).toContain(
         'SECTION 2: FULL CONTEXT (Center of Gravity Check)',
       );
-      expect(callArgs.prompt).toContain('Language: en');
     });
 
     it('should include both matched and all learning outcomes in structured format', async () => {
       // Given
       const question = 'Tell me about advanced courses';
-      const queryProfile = createTestQueryProfile({ language: 'en' });
 
       // Create a course with multiple LOs, but only one matched
       const learningOutcome1 = {
@@ -642,7 +616,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills: [course],
       };
 
@@ -665,7 +638,7 @@ describe('AnswerSynthesisService', () => {
     it('should separate multiple courses with separator', async () => {
       // Given
       const question = 'Show me courses';
-      const queryProfile = createTestQueryProfile({ language: 'en' });
+      const _queryProfile = createTestQueryProfile({ language: 'en' });
       const aggregatedCourseSkills = [
         createTestCourse('CS101', 'Course A'),
         createTestCourse('CS102', 'Course B'),
@@ -684,7 +657,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 
@@ -701,9 +673,6 @@ describe('AnswerSynthesisService', () => {
     it('should include learning outcome names in full context section', async () => {
       // Given
       const question = 'What does this course cover?';
-      const queryProfile = createTestQueryProfile({
-        language: 'en',
-      });
       const aggregatedCourseSkills = [createTestCourse('CS101', 'Programming')];
 
       llmRouter.generateText = jest.fn().mockResolvedValue({
@@ -719,7 +688,6 @@ describe('AnswerSynthesisService', () => {
       const input = {
         question,
         promptVersion: testPromptVersion,
-        language: queryProfile.language,
         aggregatedCourseSkills,
       };
 

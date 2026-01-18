@@ -96,6 +96,11 @@ import { QueryProcessorUseCases } from './use-cases';
         );
       },
     },
+    // BEGIN DEPRECATED PROVIDER
+    // The QueryProfileBuilderService provider is deprecated and kept only for backward compatibility.
+    // Query profiling functionality has been removed from the main query processing pipeline.
+    // This provider should not be used in new code and may be removed in future versions.
+    // If you need language detection or query profiling, consider implementing a separate service.
     {
       provide: I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
       inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
@@ -109,6 +114,7 @@ import { QueryProcessorUseCases } from './use-cases';
         );
       },
     },
+    // END DEPRECATED PROVIDER
     {
       provide: I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN,
       inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],

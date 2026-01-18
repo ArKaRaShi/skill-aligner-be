@@ -218,20 +218,6 @@ describe('QueryLogging (Integration)', () => {
         },
       });
 
-      await logger.queryProfile({
-        question,
-        promptVersion: 'V3',
-        queryProfileResult: {
-          language: 'en',
-          llmInfo: createMockLlmInfo({ promptVersion: 'V3' }),
-          tokenUsage: {
-            model: 'gpt-4',
-            inputTokens: 100,
-            outputTokens: 50,
-          },
-        },
-      });
-
       await logger.skillExpansion({
         question,
         promptVersion: 'V10',
@@ -247,8 +233,18 @@ describe('QueryLogging (Integration)', () => {
         embeddingUsage: createMockEmbeddingUsage('วิเคราะห์ข้อมูล'),
       });
 
-      // For courseFilter, we need to provide the full filter result structure
-      // Just create a minimal structure for the test
+      // Create course filter step (minimal structure)
+      await logger.courseFilter({
+        question,
+        relevanceFilterResults: [],
+      });
+
+      // Create course aggregation step (minimal structure)
+      await logger.courseAggregation({
+        filteredSkillCoursesMap: new Map(),
+        rankedCourses: [],
+      });
+
       await logger.answerSynthesis({
         question,
         promptVersion: 'V7',
@@ -267,29 +263,32 @@ describe('QueryLogging (Integration)', () => {
         { counts: { coursesReturned: 0 } },
       );
 
-      // Verify all 5 steps were created (we're not calling courseFilter in this test now)
+      // Verify all 6 steps were created
       const steps = await prisma.queryProcessStep.findMany({
         where: { queryLogId: queryLogId as string },
         orderBy: { stepOrder: 'asc' },
       });
 
-      expect(steps).toHaveLength(5);
+      expect(steps).toHaveLength(6);
 
       // Verify step order
       expect(steps[0].stepName).toBe('QUESTION_CLASSIFICATION');
       expect(steps[0].stepOrder).toBe(1);
 
-      expect(steps[1].stepName).toBe('QUERY_PROFILE_BUILDING');
+      expect(steps[1].stepName).toBe('SKILL_EXPANSION');
       expect(steps[1].stepOrder).toBe(2);
 
-      expect(steps[2].stepName).toBe('SKILL_EXPANSION');
+      expect(steps[2].stepName).toBe('COURSE_RETRIEVAL');
       expect(steps[2].stepOrder).toBe(3);
 
-      expect(steps[3].stepName).toBe('COURSE_RETRIEVAL');
+      expect(steps[3].stepName).toBe('COURSE_RELEVANCE_FILTER');
       expect(steps[3].stepOrder).toBe(4);
 
-      expect(steps[4].stepName).toBe('ANSWER_SYNTHESIS');
-      expect(steps[4].stepOrder).toBe(7);
+      expect(steps[4].stepName).toBe('COURSE_AGGREGATION');
+      expect(steps[4].stepOrder).toBe(5);
+
+      expect(steps[5].stepName).toBe('ANSWER_SYNTHESIS');
+      expect(steps[5].stepOrder).toBe(6);
     });
 
     it('should capture LLM metadata correctly', async () => {

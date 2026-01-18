@@ -1,6 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 
 import * as path from 'node:path';
+import { DECIMAL_PRECISION } from 'src/shared/utils/constants/decimal-precision.constants';
+import { DecimalHelper } from 'src/shared/utils/decimal.helper';
 import { FileHelper } from 'src/shared/utils/file';
 
 import { IRunEvaluator } from '../../shared/contracts/i-run-evaluator.contract';
@@ -93,16 +95,16 @@ export class CourseRetrieverEvaluationRunnerService
       // Log evaluation metrics
       this.logger.log('=== Evaluation Results ===');
       this.logger.log(
-        `Avg Skill Relevance: ${evaluationResult.metrics.averageSkillRelevance.toFixed(2)}/3`,
+        `Avg Skill Relevance: ${evaluationResult.metrics.averageSkillRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
       );
       this.logger.log(
-        `Avg Context Alignment: ${evaluationResult.metrics.averageContextAlignment.toFixed(2)}/3`,
+        `Avg Context Alignment: ${evaluationResult.metrics.averageContextAlignment.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
       );
       this.logger.log(
-        `Alignment Gap: ${evaluationResult.metrics.alignmentGap.toFixed(2)}`,
+        `Alignment Gap: ${evaluationResult.metrics.alignmentGap.toFixed(DECIMAL_PRECISION.PERCENTAGE)}`,
       );
       this.logger.log(
-        `Context Mismatch Rate: ${evaluationResult.metrics.contextMismatchRate.toFixed(1)}%`,
+        `Context Mismatch Rate: ${evaluationResult.metrics.contextMismatchRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
       );
 
       if (evaluationResult.metrics.contextMismatchCourses.length > 0) {
@@ -139,10 +141,10 @@ export class CourseRetrieverEvaluationRunnerService
 
       // Log result summary
       this.logger.log(
-        `  → Skill Relevance: ${result.metrics.averageSkillRelevance.toFixed(2)}/3`,
+        `  → Skill Relevance: ${result.metrics.averageSkillRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
       );
       this.logger.log(
-        `  → Context Alignment: ${result.metrics.averageContextAlignment.toFixed(2)}/3`,
+        `  → Context Alignment: ${result.metrics.averageContextAlignment.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
       );
       this.logger.log(
         `  → Mismatches: ${result.metrics.contextMismatchCourses.length}`,
@@ -193,7 +195,9 @@ export class CourseRetrieverEvaluationRunnerService
     const duration = Date.now() - startTime;
     this.logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
     this.logger.log(`Completed ${testSet.name} iteration ${iterationNumber}`);
-    this.logger.log(`Total duration: ${(duration / 1000).toFixed(2)}s`);
+    this.logger.log(
+      `Total duration: ${DecimalHelper.formatTime(duration / 1000)}s`,
+    );
     this.logger.log(
       `Macro avg skill relevance: ${metrics.macroAvg.averageSkillRelevance}/3`,
     );
@@ -243,16 +247,16 @@ export class CourseRetrieverEvaluationRunnerService
     // Log evaluation metrics
     this.logger.log('=== Evaluation Results ===');
     this.logger.log(
-      `Avg Skill Relevance: ${evaluationResult.metrics.averageSkillRelevance.toFixed(2)}/3`,
+      `Avg Skill Relevance: ${evaluationResult.metrics.averageSkillRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
     );
     this.logger.log(
-      `Avg Context Alignment: ${evaluationResult.metrics.averageContextAlignment.toFixed(2)}/3`,
+      `Avg Context Alignment: ${evaluationResult.metrics.averageContextAlignment.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
     );
     this.logger.log(
-      `Alignment Gap: ${evaluationResult.metrics.alignmentGap.toFixed(2)}`,
+      `Alignment Gap: ${evaluationResult.metrics.alignmentGap.toFixed(DECIMAL_PRECISION.PERCENTAGE)}`,
     );
     this.logger.log(
-      `Context Mismatch Rate: ${evaluationResult.metrics.contextMismatchRate.toFixed(1)}%`,
+      `Context Mismatch Rate: ${evaluationResult.metrics.contextMismatchRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
     );
 
     if (evaluationResult.metrics.contextMismatchCourses.length > 0) {
