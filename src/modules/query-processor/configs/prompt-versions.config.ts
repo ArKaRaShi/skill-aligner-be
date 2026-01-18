@@ -42,7 +42,7 @@ export const QueryPipelinePromptConfig = {
    * Step 4: Course relevance filter
    * Filters courses by relevance to the question (runs after course retrieval)
    */
-  COURSE_RELEVANCE_FILTER: CourseRelevanceFilterPromptVersions.V7,
+  COURSE_RELEVANCE_FILTER: CourseRelevanceFilterPromptVersions.V8,
 
   /**
    * Step 5: Course aggregation

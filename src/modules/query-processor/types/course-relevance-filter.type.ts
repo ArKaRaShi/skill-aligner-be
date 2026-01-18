@@ -29,8 +29,8 @@ export type CourseRelevanceFilterResult = {
 };
 
 export type CourseRelevanceFilterItemV2 = RelevanceResult & {
-  courseCode: string;
-  courseName: string;
+  code: string;
+  name: string;
 };
 
 export type CourseRelevanceFilterResultV2 = {

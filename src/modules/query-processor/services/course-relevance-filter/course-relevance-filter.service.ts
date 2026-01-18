@@ -1,6 +1,5 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
-import { encode } from '@toon-format/toon';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
@@ -19,6 +18,8 @@ import {
   CourseRelevanceFilterPromptVersion,
 } from '../../prompts/course-relevance-filter';
 import {
+  CourseFilter,
+  CourseFilterV2,
   CourseRelevanceFilterResultSchema,
   CourseRelevanceFilterResultSchemaV2,
 } from '../../schemas/course-relevance-filter.schema';
@@ -120,18 +121,16 @@ export class CourseRelevanceFilterService
     courses: CourseWithLearningOutcomeV2Match[],
   ): string {
     const coursesData: {
-      courseName: string;
-      learningOutcomes: string[];
+      name: string;
+      outcomes: string[];
     }[] = [];
     for (const course of courses) {
       coursesData.push({
-        courseName: course.subjectName,
-        learningOutcomes: course.allLearningOutcomes.map(
-          (lo) => lo.cleanedName,
-        ),
+        name: course.subjectName,
+        outcomes: course.allLearningOutcomes.map((lo) => lo.cleanedName),
       });
     }
-    return encode(coursesData);
+    return JSON.stringify(coursesData, null, 2);
   }
 
   async batchFilterCoursesBySkillV2(
@@ -219,20 +218,18 @@ export class CourseRelevanceFilterService
     courses: CourseWithLearningOutcomeV2Match[],
   ): string {
     const coursesData: {
-      course_code: string;
-      course_name: string;
-      learning_outcomes: string[];
+      code: string;
+      name: string;
+      outcomes: string[];
     }[] = [];
     for (const course of courses) {
       coursesData.push({
-        course_code: course.subjectCode,
-        course_name: course.subjectName,
-        learning_outcomes: course.allLearningOutcomes.map(
-          (lo) => lo.cleanedName,
-        ),
+        code: course.subjectCode,
+        name: course.subjectName,
+        outcomes: course.allLearningOutcomes.map((lo) => lo.cleanedName),
       });
     }
-    return encode(coursesData);
+    return JSON.stringify(coursesData, null, 2);
   }
 
   // =========================================================================
@@ -298,11 +295,13 @@ export class CourseRelevanceFilterService
    * Maps LLM response to V1 course items
    * Handles data transformation concern
    */
-  private mapToCourseItems(courses: unknown[]): CourseRelevanceFilterItem[] {
-    return courses.map((course: unknown) => ({
-      courseName: (course as { course_name: string }).course_name,
-      decision: (course as { decision: 'yes' | 'no' }).decision,
-      reason: (course as { reason: string }).reason,
+  private mapToCourseItems(
+    courses: CourseFilter[],
+  ): CourseRelevanceFilterItem[] {
+    return courses.map((course: CourseFilter) => ({
+      courseName: course.course_name,
+      decision: course.decision,
+      reason: course.reason,
     }));
   }
 
@@ -311,13 +310,13 @@ export class CourseRelevanceFilterService
    * Handles data transformation concern
    */
   private mapToCourseItemsV2(
-    courses: unknown[],
+    courses: CourseFilterV2[],
   ): CourseRelevanceFilterItemV2[] {
-    return courses.map((course: unknown) => ({
-      courseCode: (course as { course_code: string }).course_code,
-      courseName: (course as { course_name: string }).course_name,
-      score: (course as { score: number }).score,
-      reason: (course as { reason: string }).reason,
+    return courses.map((course: CourseFilterV2) => ({
+      code: course.code,
+      name: course.name,
+      score: course.score,
+      reason: course.reason,
     }));
   }
 
@@ -380,7 +379,7 @@ export class CourseRelevanceFilterService
     // Create a Map for O(1) lookup by course code and name
     const courseItemMap = new Map<string, CourseRelevanceFilterItemV2>();
     for (const item of courseItems) {
-      courseItemMap.set(`${item.courseCode}|${item.courseName}`, item);
+      courseItemMap.set(`${item.code}|${item.name}`, item);
     }
 
     // Track missing courses separately from dropped courses

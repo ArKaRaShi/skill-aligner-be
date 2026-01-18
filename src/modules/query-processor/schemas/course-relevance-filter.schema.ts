@@ -26,11 +26,11 @@ export const CourseRelevanceFilterResultSchema = z.object({
 
 // V2 Schema with scoring
 export const CourseFilterSchemaV2 = z.object({
-  course_code: z
+  code: z
     .string()
     .min(1, 'Course code cannot be empty')
     .describe('Code of the course'),
-  course_name: z
+  name: z
     .string()
     .min(1, 'Course name cannot be empty')
     .describe('Name of the course'),
@@ -54,3 +54,14 @@ export const CourseRelevanceFilterResultSchemaV2 = z.object({
     .array(CourseFilterSchemaV2.describe('Course filter decisions with scores'))
     .describe('Array of course relevance decisions with scores'),
 });
+
+// Type exports inferred from Zod schemas
+export type CourseFilter = z.infer<typeof CourseFilterSchema>;
+export type CourseRelevanceFilterResult = z.infer<
+  typeof CourseRelevanceFilterResultSchema
+>;
+
+export type CourseFilterV2 = z.infer<typeof CourseFilterSchemaV2>;
+export type CourseRelevanceFilterResultV2 = z.infer<
+  typeof CourseRelevanceFilterResultSchemaV2
+>;

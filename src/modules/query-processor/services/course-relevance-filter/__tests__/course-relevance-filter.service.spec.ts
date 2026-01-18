@@ -11,11 +11,6 @@ import { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/cours
 import { CourseRelevanceFilterPromptVersion } from '../../../prompts/course-relevance-filter';
 import { CourseRelevanceFilterService } from '../course-relevance-filter.service';
 
-// Mock @toon-format/toon to avoid ESM import issues
-jest.mock('@toon-format/toon', () => ({
-  encode: jest.fn((data: unknown) => JSON.stringify(data)),
-}));
-
 describe('CourseRelevanceFilterService', () => {
   let service: CourseRelevanceFilterService;
   let llmRouter: jest.Mocked<ILlmRouterService>;
@@ -132,14 +127,14 @@ describe('CourseRelevanceFilterService', () => {
         object: {
           courses: [
             {
-              course_code: 'CS101',
-              course_name: 'Intro to Programming',
+              code: 'CS101',
+              name: 'Intro to Programming',
               score: 0,
               reason: 'No relevance to python',
             },
             {
-              course_code: 'CS102',
-              course_name: 'Basic Math',
+              code: 'CS102',
+              name: 'Basic Math',
               score: 0,
               reason: 'No relevance to python',
             },
@@ -184,20 +179,20 @@ describe('CourseRelevanceFilterService', () => {
         object: {
           courses: [
             {
-              course_code: 'CS101',
-              course_name: 'Intro to Python',
+              code: 'CS101',
+              name: 'Intro to Python',
               score: 1,
               reason: 'Low relevance',
             },
             {
-              course_code: 'CS102',
-              course_name: 'Python Data Science',
+              code: 'CS102',
+              name: 'Python Data Science',
               score: 2,
               reason: 'Medium relevance',
             },
             {
-              course_code: 'CS103',
-              course_name: 'Advanced Python',
+              code: 'CS103',
+              name: 'Advanced Python',
               score: 3,
               reason: 'High relevance',
             },
@@ -244,32 +239,32 @@ describe('CourseRelevanceFilterService', () => {
         object: {
           courses: [
             {
-              course_code: 'CS101',
-              course_name: 'Intro',
+              code: 'CS101',
+              name: 'Intro',
               score: 0,
               reason: 'No',
             },
             {
-              course_code: 'CS102',
-              course_name: 'Basics',
+              code: 'CS102',
+              name: 'Basics',
               score: 1,
               reason: 'Low',
             },
             {
-              course_code: 'CS103',
-              course_name: 'Intermediate',
+              code: 'CS103',
+              name: 'Intermediate',
               score: 2,
               reason: 'Med',
             },
             {
-              course_code: 'CS104',
-              course_name: 'Advanced',
+              code: 'CS104',
+              name: 'Advanced',
               score: 0,
               reason: 'No',
             },
             {
-              course_code: 'CS105',
-              course_name: 'Expert',
+              code: 'CS105',
+              name: 'Expert',
               score: 3,
               reason: 'High',
             },
@@ -326,20 +321,20 @@ describe('CourseRelevanceFilterService', () => {
         object: {
           courses: [
             {
-              course_code: 'CS101',
-              course_name: 'Intro',
+              code: 'CS101',
+              name: 'Intro',
               score: 2,
               reason: 'Good match',
             },
             {
-              course_code: 'CS103',
-              course_name: 'Intermediate',
+              code: 'CS103',
+              name: 'Intermediate',
               score: 1,
               reason: 'OK match',
             },
             {
-              course_code: 'CS105',
-              course_name: 'Expert',
+              code: 'CS105',
+              name: 'Expert',
               score: 3,
               reason: 'Great match',
             },
@@ -387,8 +382,8 @@ describe('CourseRelevanceFilterService', () => {
         object: {
           courses: [
             {
-              course_code: 'CS101',
-              course_name: 'Python Basics',
+              code: 'CS101',
+              name: 'Python Basics',
               score: 2,
               reason: 'Good match',
             },

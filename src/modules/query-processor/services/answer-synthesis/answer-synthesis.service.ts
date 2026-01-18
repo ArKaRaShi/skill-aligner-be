@@ -22,12 +22,26 @@ import { AggregatedCourseSkills } from '../../types/course-aggregation.type';
 @Injectable()
 export class AnswerSynthesisService implements IAnswerSynthesisService {
   private readonly logger = new Logger(AnswerSynthesisService.name);
+  private readonly CONTEXT_LOG_MAX_WORDS = 300;
 
   constructor(
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
     private readonly llmRouter: ILlmRouterService,
     private readonly modelName: string,
   ) {}
+
+  /**
+   * Truncates context for logging to approximately CONTEXT_LOG_MAX_WORDS
+   * Adds ellipsis (...) if content is truncated
+   */
+  private truncateForLog(content: string): string {
+    const words = content.split(/\s+/);
+    if (words.length <= this.CONTEXT_LOG_MAX_WORDS) {
+      return content;
+    }
+    const truncated = words.slice(0, this.CONTEXT_LOG_MAX_WORDS).join(' ');
+    return `${truncated}... [truncated, ${words.length - this.CONTEXT_LOG_MAX_WORDS} more words]`;
+  }
 
   async synthesizeAnswer(
     input: AnswerSynthesizeInput,
@@ -40,7 +54,7 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     );
 
     this.logger.log(
-      `[AnswerSynthesis] Context data sent to prompt: ${context}`,
+      `[AnswerSynthesis] Context data sent to prompt: ${this.truncateForLog(context)}`,
     );
 
     const { getPrompts } = AnswerSynthesisPromptFactory();
@@ -92,7 +106,7 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
     );
 
     this.logger.log(
-      `[AnswerSynthesis] Context data sent to prompt: ${context}`,
+      `[AnswerSynthesis] Context data sent to prompt: ${this.truncateForLog(context)}`,
     );
 
     const { getPrompts } = AnswerSynthesisPromptFactory();
