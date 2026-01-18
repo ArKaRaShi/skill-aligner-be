@@ -25,8 +25,9 @@ export class TokenCostCalculator {
     model,
   }: TokenUsage): TokenCostEstimate {
     // Find cost data by searching through all model mappings
+    // Try to match by modelId first, then fall back to baseModel
     const modelEstimations = this.AVAILABLE_ESTIMATIONS.find(
-      (mapping) => mapping.modelId === model,
+      (mapping) => mapping.modelId === model || mapping.baseModel === model,
     );
 
     if (!modelEstimations) {

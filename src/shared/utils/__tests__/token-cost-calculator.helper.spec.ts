@@ -326,6 +326,30 @@ describe('TokenCostCalculator', () => {
 
         expect(result.estimatedCost).toBe(2.8);
       });
+
+      it('should verify grok-4.1-fast pricing: $0.2 input / $0.5 output per million (using baseModel name)', () => {
+        const usage: TokenUsage = {
+          model: 'grok-4.1-fast',
+          inputTokens: 1_000_000,
+          outputTokens: 1_000_000,
+        };
+
+        const result = TokenCostCalculator.estimateCost(usage);
+
+        expect(result.estimatedCost).toBe(0.7); // 0.2 + 0.5
+      });
+
+      it('should verify grok-4.1-fast pricing using full modelId as well', () => {
+        const usage: TokenUsage = {
+          model: 'x-ai/grok-4.1-fast',
+          inputTokens: 1_000_000,
+          outputTokens: 1_000_000,
+        };
+
+        const result = TokenCostCalculator.estimateCost(usage);
+
+        expect(result.estimatedCost).toBe(0.7); // 0.2 + 0.5
+      });
     });
   });
 

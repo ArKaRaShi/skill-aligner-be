@@ -70,4 +70,8 @@ export const QUESTION_SET = [
   'อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม', // ลองเทีนบเอา query ไปเสิร์ชตรงๆ topN 50 โดยไม่ skill expand ดู จะไม่เจอเกี่ยวกับ AI เลย
 
   'อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง',
+
+  // TODO: This one can illustrate with baseline that use direct search only.
+  // the answer is on c48d593a-f4d9-4321-a7ff-c3d4f8943e1c
+  'อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี',
 ];
