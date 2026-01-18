@@ -154,7 +154,7 @@ ${ms.learningOutcomes.map((lo) => `- ${lo.cleanedName}`).join('\n')}`,
         .join('\n');
 
       return `COURSE: ${courseSkills.subjectName} (${courseSkills.subjectCode})
-RELEVANCE SCORE: ${courseSkills.relevanceScore}
+RELEVANCE SCORE: ${courseSkills.maxRelevanceScore}
 
 SECTION 1: MATCHED EVIDENCE (Why it was picked)
 ${matchedEvidence}

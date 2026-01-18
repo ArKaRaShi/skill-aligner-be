@@ -46,6 +46,10 @@ export class MatchedSkillLearningOutcomesDto {
   @Expose()
   skill: string;
 
+  @ApiProperty({ description: 'Relevance score for this skill-course match' })
+  @Expose()
+  relevanceScore: number;
+
   @ApiProperty({
     description: 'List of matched learning outcomes for this skill',
     type: [LearningOutcomeDto],

@@ -239,8 +239,8 @@ describe('QueryStepParserHelper.parseCourseAggregationRaw', () => {
         javascript: [{ courseCode: 'CS203', score: 1, reason: 'Fair' }],
       },
       rankedCourses: [
-        { courseCode: 'CS201', relevanceScore: 3 },
-        { courseCode: 'CS203', relevanceScore: 1 },
+        { courseCode: 'CS201', maxRelevanceScore: 3 },
+        { courseCode: 'CS203', maxRelevanceScore: 1 },
       ],
     };
 

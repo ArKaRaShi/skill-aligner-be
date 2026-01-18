@@ -526,7 +526,7 @@ export class AnswerQuestionStreamUseCase {
       // Filter courses by relevance score for answer synthesis
       const relevantCourses = rankedCourses.filter(
         (course) =>
-          course.relevanceScore >=
+          course.maxRelevanceScore >=
           QueryPipelineConfig.ANSWER_SYNTHESIS_MIN_RELEVANCE_SCORE,
       );
 
@@ -772,7 +772,7 @@ export class AnswerQuestionStreamUseCase {
       courseOfferings: course.courseOfferings,
       matchedSkills: course.matchedSkills,
       totalClicks: course.courseClickLogs.length,
-      score: course.relevanceScore,
+      score: course.maxRelevanceScore,
       metadata: course.metadata,
       createdAt: course.createdAt,
       updatedAt: course.updatedAt,

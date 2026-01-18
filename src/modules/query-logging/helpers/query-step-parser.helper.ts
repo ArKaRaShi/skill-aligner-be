@@ -147,6 +147,24 @@ export class QueryStepParserHelper {
   }
 
   /**
+   * Normalizes AggregatedCourseSkills from JSONB with backward compatibility.
+   * Handles both old `relevanceScore` and new `maxRelevanceScore` fields.
+   *
+   * @param course - Raw course data from JSONB storage
+   * @returns Normalized AggregatedCourseSkills with maxRelevanceScore
+   */
+  private normalizeAggregatedCourseSkills(
+    course: Partial<AggregatedCourseSkills> & { relevanceScore?: number },
+  ): AggregatedCourseSkills {
+    const normalized: AggregatedCourseSkills = {
+      ...course,
+      // Prefer maxRelevanceScore, fallback to relevanceScore for old data
+      maxRelevanceScore: course.maxRelevanceScore ?? course.relevanceScore ?? 0,
+    } as AggregatedCourseSkills;
+    return normalized;
+  }
+
+  /**
    * Parse COURSE_AGGREGATION raw output.
    * Reconstructs Map from Object.
    */
@@ -161,8 +179,12 @@ export class QueryStepParserHelper {
       >,
     );
 
-    // rankedCourses is AggregatedCourseSkills[] - needs proper casting
-    const rankedCourses = parsed.rankedCourses as AggregatedCourseSkills[];
+    // Normalize rankedCourses for backward compatibility with old relevanceScore field
+    const rankedCourses = (
+      parsed.rankedCourses as Array<
+        Partial<AggregatedCourseSkills> & { relevanceScore?: number }
+      >
+    ).map((course) => this.normalizeAggregatedCourseSkills(course));
 
     return {
       filteredSkillCoursesMap,

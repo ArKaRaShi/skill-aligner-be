@@ -64,7 +64,7 @@ export const createMockAggregatedCourse = (
   createdAt: new Date('2024-01-01'),
   updatedAt: new Date('2024-01-01'),
   matchedSkills: [],
-  relevanceScore: 3,
+  maxRelevanceScore: 3,
   ...overrides,
 });
 
@@ -279,7 +279,7 @@ export const validCourseAggregationRawOutput = {
     python: [createMockCourseWithRelevance({ score: 3 })],
     javascript: [createMockCourseWithRelevance({ score: 2 })],
   },
-  rankedCourses: [createMockAggregatedCourse({ relevanceScore: 3 })],
+  rankedCourses: [createMockAggregatedCourse({ maxRelevanceScore: 3 })],
 };
 
 export const invalidCourseAggregationRawOutput = {
@@ -306,9 +306,9 @@ export const courseAggregationWithMultipleSkillsRawOutput = {
     ],
   },
   rankedCourses: [
-    createMockAggregatedCourse({ subjectCode: 'CS201', relevanceScore: 3 }),
-    createMockAggregatedCourse({ subjectCode: 'CS203', relevanceScore: 3 }),
-    createMockAggregatedCourse({ subjectCode: 'CS202', relevanceScore: 2 }),
+    createMockAggregatedCourse({ subjectCode: 'CS201', maxRelevanceScore: 3 }),
+    createMockAggregatedCourse({ subjectCode: 'CS203', maxRelevanceScore: 3 }),
+    createMockAggregatedCourse({ subjectCode: 'CS202', maxRelevanceScore: 2 }),
   ],
 };
 

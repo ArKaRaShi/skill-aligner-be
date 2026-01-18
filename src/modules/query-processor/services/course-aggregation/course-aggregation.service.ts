@@ -101,12 +101,13 @@ export class CourseAggregationService implements ICourseAggregationService {
     const aggregatedCourse = courseMap.get(subjectCode)!;
     aggregatedCourse.matchedSkills.push({
       skill,
+      relevanceScore: score,
       learningOutcomes: course.matchedLearningOutcomes,
     });
 
     // Keep highest relevance score across all skills
-    if (score > aggregatedCourse.relevanceScore) {
-      aggregatedCourse.relevanceScore = score;
+    if (score > aggregatedCourse.maxRelevanceScore) {
+      aggregatedCourse.maxRelevanceScore = score;
     }
   }
 
@@ -129,7 +130,7 @@ export class CourseAggregationService implements ICourseAggregationService {
       createdAt: course.createdAt,
       updatedAt: course.updatedAt,
       matchedSkills: [],
-      relevanceScore,
+      maxRelevanceScore: relevanceScore,
     };
   }
 
@@ -137,6 +138,6 @@ export class CourseAggregationService implements ICourseAggregationService {
   private rankByRelevanceScore(
     courses: AggregatedCourseSkills[],
   ): AggregatedCourseSkills[] {
-    return courses.sort((a, b) => b.relevanceScore - a.relevanceScore);
+    return courses.sort((a, b) => b.maxRelevanceScore - a.maxRelevanceScore);
   }
 }

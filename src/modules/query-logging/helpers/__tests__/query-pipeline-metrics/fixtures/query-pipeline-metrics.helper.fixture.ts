@@ -147,7 +147,7 @@ export const createMockAggregatedCourseSkills = (
     createdAt: createMockTimestamp(),
     updatedAt: createMockTimestamp(),
     matchedSkills: [],
-    relevanceScore: overrides.relevanceScore ?? 0.9,
+    maxRelevanceScore: overrides.maxRelevanceScore ?? 0.9,
     ...overrides,
   };
 };
@@ -361,19 +361,19 @@ export const createMockAggregatedCourses = () => {
       id: createMockId('course-1'),
       subjectCode: 'CS101',
       subjectName: 'Introduction to Computer Science',
-      relevanceScore: 3,
+      maxRelevanceScore: 3,
     }),
     createMockAggregatedCourseSkills({
       id: createMockId('course-2'),
       subjectCode: 'CS102',
       subjectName: 'Data Structures',
-      relevanceScore: 2,
+      maxRelevanceScore: 2,
     }),
     createMockAggregatedCourseSkills({
       id: createMockId('course-3'),
       subjectCode: 'CS103',
       subjectName: 'Algorithms',
-      relevanceScore: 1,
+      maxRelevanceScore: 1,
     }),
   ];
 };
@@ -386,17 +386,17 @@ export const createMockAgegratedCoursesWithSameScores = () => {
     createMockAggregatedCourseSkills({
       id: createMockId('course-1'),
       subjectCode: 'CS101',
-      relevanceScore: 3,
+      maxRelevanceScore: 3,
     }),
     createMockAggregatedCourseSkills({
       id: createMockId('course-2'),
       subjectCode: 'CS102',
-      relevanceScore: 3,
+      maxRelevanceScore: 3,
     }),
     createMockAggregatedCourseSkills({
       id: createMockId('course-3'),
       subjectCode: 'CS103',
-      relevanceScore: 3,
+      maxRelevanceScore: 3,
     }),
   ];
 };

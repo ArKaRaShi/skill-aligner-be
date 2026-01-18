@@ -63,10 +63,11 @@ describe('AnswerSynthesisService', () => {
       matchedSkills: [
         {
           skill: 'Python Programming',
+          relevanceScore: 0.85,
           learningOutcomes: [learningOutcome],
         },
       ],
-      relevanceScore: 3,
+      maxRelevanceScore: 3,
     };
   };
 
@@ -291,6 +292,7 @@ describe('AnswerSynthesisService', () => {
       const course1 = createTestCourse('CS201', 'Web Development');
       course1.matchedSkills.push({
         skill: 'JavaScript',
+        relevanceScore: 0.9,
         learningOutcomes: [
           {
             loId: 'lo2' as Identifier,
@@ -309,6 +311,7 @@ describe('AnswerSynthesisService', () => {
       const course2 = createTestCourse('CS301', 'Backend Development');
       course2.matchedSkills.push({
         skill: 'Node.js',
+        relevanceScore: 0.88,
         learningOutcomes: [
           {
             loId: 'lo3' as Identifier,
@@ -597,10 +600,11 @@ describe('AnswerSynthesisService', () => {
         matchedSkills: [
           {
             skill: 'Python Programming',
+            relevanceScore: 0.85,
             learningOutcomes: [learningOutcome1], // Only first LO matched
           },
         ],
-        relevanceScore: 3,
+        maxRelevanceScore: 3,
       };
 
       llmRouter.generateText = jest.fn().mockResolvedValue({

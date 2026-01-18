@@ -84,6 +84,7 @@ export class CourseResponseMapper {
   ): MatchedSkillLearningOutcomesDto {
     const matchedSkillDto: MatchedSkillLearningOutcomesDto = {
       skill: matchedSkill.skill,
+      relevanceScore: matchedSkill.relevanceScore,
       learningOutcomes: matchedSkill.learningOutcomes.map((lo) =>
         this.toLearningOutcomeDto(lo),
       ),

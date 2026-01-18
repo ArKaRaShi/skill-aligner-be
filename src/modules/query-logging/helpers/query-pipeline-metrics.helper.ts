@@ -221,7 +221,7 @@ export class QueryPipelineMetrics {
         courseCode: aggCourse.subjectCode,
         courseName: aggCourse.subjectName,
         skillBreakdown,
-        finalScore: aggCourse.relevanceScore,
+        finalScore: aggCourse.maxRelevanceScore,
         winningSkills: skillBreakdown
           .filter((s) => s.score === maxScore)
           .map((s) => s.skill),

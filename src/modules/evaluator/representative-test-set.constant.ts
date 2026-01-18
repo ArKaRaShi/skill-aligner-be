@@ -63,7 +63,7 @@ export const QUESTION_SET = [
   'อยากเขียนโค้ดให้เป็นระบบมากขึ้น มี structure ชัดเจนขึ้น มีวิชาแนะนำไหม',
 
   // Pattern C Multi-Concept or Transition between concepts
-  'อยากเรียนภาษาจีน หรือไม่ก็ภาษาเวียตนาม มีวิชาแนะนำไหม',
+  'อยากเรียนภาษาจีน หรือไม่ก็ภาษาเวียดนาม มีวิชาแนะนำไหม',
   'อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม',
 
   // TODO: This question maybe direct serch can't do.

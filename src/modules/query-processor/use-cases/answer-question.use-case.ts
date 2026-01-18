@@ -394,7 +394,7 @@ export class AnswerQuestionUseCase
           promptVersion: QueryPipelinePromptConfig.ANSWER_SYNTHESIS,
           aggregatedCourseSkills: rankedCourses.filter(
             (course) =>
-              course.relevanceScore >=
+              course.maxRelevanceScore >=
               QueryPipelineConfig.ANSWER_SYNTHESIS_MIN_RELEVANCE_SCORE,
           ),
         });
@@ -527,7 +527,7 @@ export class AnswerQuestionUseCase
       courseOfferings: course.courseOfferings,
       matchedSkills: course.matchedSkills,
       totalClicks: course.courseClickLogs.length,
-      score: course.relevanceScore,
+      score: course.maxRelevanceScore,
       metadata: course.metadata,
       createdAt: course.createdAt,
       updatedAt: course.updatedAt,

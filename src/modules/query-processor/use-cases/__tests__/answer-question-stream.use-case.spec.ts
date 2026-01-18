@@ -192,7 +192,7 @@ describe('AnswerQuestionStreamUseCase', () => {
       courseOfferings: [],
       matchedSkills: [],
       courseClickLogs: [],
-      relevanceScore: 1,
+      maxRelevanceScore: 1,
       metadata: {},
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -648,17 +648,17 @@ describe('AnswerQuestionStreamUseCase', () => {
         {
           ...mockAggregatedCourses[0],
           id: toId('course-a'),
-          relevanceScore: 0.5,
+          maxRelevanceScore: 0.5,
         },
         {
           ...mockAggregatedCourses[0],
           id: toId('course-b'),
-          relevanceScore: 1.0,
+          maxRelevanceScore: 1.0,
         },
         {
           ...mockAggregatedCourses[0],
           id: toId('course-c'),
-          relevanceScore: 1.5,
+          maxRelevanceScore: 1.5,
         },
       ];
 
@@ -675,20 +675,20 @@ describe('AnswerQuestionStreamUseCase', () => {
       ).toHaveBeenCalledWith(
         expect.objectContaining({
           aggregatedCourseSkills: expect.arrayContaining([
-            expect.objectContaining({ relevanceScore: 1.0 }),
-            expect.objectContaining({ relevanceScore: 1.5 }),
+            expect.objectContaining({ maxRelevanceScore: 1.0 }),
+            expect.objectContaining({ maxRelevanceScore: 1.5 }),
           ]),
         }),
       );
 
       const synthesisCall = mockAnswerSynthesisService.synthesizeAnswerStream
         .mock.calls[0][0] as {
-        aggregatedCourseSkills: { relevanceScore: number }[];
+        aggregatedCourseSkills: { maxRelevanceScore: number }[];
       };
       expect(synthesisCall.aggregatedCourseSkills).toHaveLength(2);
       expect(
         synthesisCall.aggregatedCourseSkills.every(
-          (c) => c.relevanceScore >= 1,
+          (c) => c.maxRelevanceScore >= 1,
         ),
       ).toBe(true);
     });

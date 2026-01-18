@@ -93,7 +93,7 @@ describe('QueryPipelineMetrics', () => {
       const aggregatedCourseSkills = [
         createMockAggregatedCourseSkills({
           subjectCode: 'CS101',
-          relevanceScore: 3,
+          maxRelevanceScore: 3,
         }),
       ];
 
@@ -114,7 +114,7 @@ describe('QueryPipelineMetrics', () => {
       const aggregatedCourseSkills = [
         createMockAggregatedCourseSkills({
           subjectCode: 'CS101',
-          relevanceScore: 3,
+          maxRelevanceScore: 3,
         }),
       ];
 
@@ -150,7 +150,7 @@ describe('QueryPipelineMetrics', () => {
       const aggregatedCourseSkills = [
         createMockAggregatedCourseSkills({
           subjectCode: 'CS101',
-          relevanceScore: 3,
+          maxRelevanceScore: 3,
         }),
       ];
 
@@ -230,7 +230,7 @@ describe('QueryPipelineMetrics', () => {
       const aggregatedCourseSkills = [
         createMockAggregatedCourseSkills({
           subjectCode: 'CS999',
-          relevanceScore: 1,
+          maxRelevanceScore: 1,
         }),
       ];
 
@@ -258,7 +258,7 @@ describe('QueryPipelineMetrics', () => {
       const aggregatedCourseSkills = [
         createMockAggregatedCourseSkills({
           subjectCode: 'CS101',
-          relevanceScore: 3,
+          maxRelevanceScore: 3,
         }),
       ];
 
@@ -319,7 +319,7 @@ describe('QueryPipelineMetrics', () => {
         createMockAggregatedCourseSkills({
           subjectCode: 'CS101',
           subjectName: 'Intro to CS',
-          relevanceScore: 3,
+          maxRelevanceScore: 3,
         }),
       ];
 
@@ -372,7 +372,7 @@ describe('QueryPipelineMetrics', () => {
       const aggregatedCourseSkills = [
         createMockAggregatedCourseSkills({
           subjectCode: 'CS101',
-          relevanceScore: 3,
+          maxRelevanceScore: 3,
         }),
       ];
 

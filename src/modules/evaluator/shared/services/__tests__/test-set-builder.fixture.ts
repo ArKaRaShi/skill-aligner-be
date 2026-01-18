@@ -250,6 +250,7 @@ export const createMockMatchedSkillLearningOutcomes = (
   overrides: Partial<MatchedSkillLearningOutcomes> = {},
 ): MatchedSkillLearningOutcomes => ({
   skill: 'data analysis',
+  relevanceScore: overrides.relevanceScore ?? 0.85,
   learningOutcomes: [
     createMockMatchedLearningOutcome({ loId: createMockId('lo-1') }),
     createMockMatchedLearningOutcome({ loId: createMockId('lo-2') }),
@@ -259,7 +260,7 @@ export const createMockMatchedSkillLearningOutcomes = (
 
 /**
  * Type-safe factory for AggregatedCourseSkills
- * This extends Course with matchedSkills and relevanceScore
+ * This extends Course with matchedSkills and maxRelevanceScore
  * NOTE: This is a complex type requiring Course base + additional fields
  */
 export const createMockAggregatedCourseSkills = (
@@ -288,7 +289,7 @@ export const createMockAggregatedCourseSkills = (
       createMockMatchedSkillLearningOutcomes({ skill: 'data analysis' }),
       createMockMatchedSkillLearningOutcomes({ skill: 'statistics' }),
     ],
-    relevanceScore: overrides.relevanceScore ?? 0.9,
+    maxRelevanceScore: overrides.maxRelevanceScore ?? 0.9,
     ...overrides,
   };
 };

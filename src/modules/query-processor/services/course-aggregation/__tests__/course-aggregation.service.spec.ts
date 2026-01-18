@@ -87,7 +87,7 @@ describe('CourseAggregationService', () => {
       // Assert
       expect(result.rankedCourses).toHaveLength(1);
       expect(result.rankedCourses[0].subjectCode).toBe('CS101');
-      expect(result.rankedCourses[0].relevanceScore).toBe(3); // Max of 3 and 2
+      expect(result.rankedCourses[0].maxRelevanceScore).toBe(3); // Max of 3 and 2
       expect(result.rankedCourses[0].matchedSkills).toHaveLength(2);
       expect(result.rankedCourses[0].matchedSkills[0].skill).toBe('python');
       expect(result.rankedCourses[0].matchedSkills[1].skill).toBe(
@@ -122,11 +122,11 @@ describe('CourseAggregationService', () => {
       // Assert - Should be ranked: CS201 (3), CS301 (2), CS101 (1)
       expect(result.rankedCourses).toHaveLength(3);
       expect(result.rankedCourses[0].subjectCode).toBe('CS201');
-      expect(result.rankedCourses[0].relevanceScore).toBe(3);
+      expect(result.rankedCourses[0].maxRelevanceScore).toBe(3);
       expect(result.rankedCourses[1].subjectCode).toBe('CS301');
-      expect(result.rankedCourses[1].relevanceScore).toBe(2);
+      expect(result.rankedCourses[1].maxRelevanceScore).toBe(2);
       expect(result.rankedCourses[2].subjectCode).toBe('CS101');
-      expect(result.rankedCourses[2].relevanceScore).toBe(1);
+      expect(result.rankedCourses[2].maxRelevanceScore).toBe(1);
     });
   });
 
@@ -151,7 +151,7 @@ describe('CourseAggregationService', () => {
       // Assert
       expect(result.rankedCourses).toHaveLength(1);
       expect(result.rankedCourses[0].subjectCode).toBe('CS101');
-      expect(result.rankedCourses[0].relevanceScore).toBe(3); // Default score
+      expect(result.rankedCourses[0].maxRelevanceScore).toBe(3); // Default score
     });
   });
 
