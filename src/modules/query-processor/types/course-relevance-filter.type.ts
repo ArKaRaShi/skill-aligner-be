@@ -16,7 +16,7 @@ export type CourseMatchWithRelevanceMap = Map<
 >;
 
 export type CourseRelevanceFilterItem = {
-  courseName: string;
+  subjectName: string;
   decision: 'yes' | 'no';
   reason: string;
 };
@@ -29,8 +29,8 @@ export type CourseRelevanceFilterResult = {
 };
 
 export type CourseRelevanceFilterItemV2 = RelevanceResult & {
-  code: string;
-  name: string;
+  subjectCode: string;
+  subjectName: string;
 };
 
 export type CourseRelevanceFilterResultV2 = {

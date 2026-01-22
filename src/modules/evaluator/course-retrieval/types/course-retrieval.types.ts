@@ -6,8 +6,8 @@ import { TokenCostEstimateSummary } from 'src/shared/utils/token-cost-calculator
  * Course information for evaluation
  */
 export type CourseInfo = {
-  courseCode: string;
-  courseName: string;
+  subjectCode: string;
+  subjectName: string;
   cleanedLearningOutcomes: string[];
 };
 
@@ -38,8 +38,8 @@ type RelevanceScore = 0 | 1 | 2 | 3;
  * Single course evaluation item
  */
 export type EvaluationItem = {
-  courseCode: string;
-  courseName: string;
+  subjectCode: string;
+  subjectName: string;
   skillRelevance: RelevanceScore;
   skillReason: string;
   contextAlignment: RelevanceScore;
@@ -115,8 +115,8 @@ export type EvaluateRetrieverOutput = {
   skill: string;
   retrievedCount: number;
   evaluations: {
-    courseCode: string;
-    courseName: string;
+    subjectCode: string;
+    subjectName: string;
     skillRelevance: number;
     contextAlignment: number;
     skillReason: string;
@@ -128,8 +128,8 @@ export type EvaluateRetrieverOutput = {
     alignmentGap: number;
     contextMismatchRate: number;
     contextMismatchCourses: {
-      courseCode: string;
-      courseName: string;
+      subjectCode: string;
+      subjectName: string;
       skillRelevance: number;
       contextAlignment: number;
     }[];

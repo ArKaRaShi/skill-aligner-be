@@ -34,8 +34,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Assert
       expect(result).toHaveLength(1);
       expect(result[0]).toEqual({
-        courseCode: 'CS101',
-        courseName: 'Introduction to Python',
+        subjectCode: 'CS101',
+        subjectName: 'Introduction to Python',
         skillRelevance: 2,
         skillReason: 'Strong match for programming fundamentals',
         contextAlignment: 3,
@@ -71,16 +71,16 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Assert
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
-        courseCode: 'CS101',
-        courseName: 'Python Basics',
+        subjectCode: 'CS101',
+        subjectName: 'Python Basics',
         skillRelevance: 2,
         skillReason: 'Good skill match',
         contextAlignment: 3,
         contextReason: 'Good context fit',
       });
       expect(result[1]).toEqual({
-        courseCode: 'CS201',
-        courseName: 'Advanced Java',
+        subjectCode: 'CS201',
+        subjectName: 'Advanced Java',
         skillRelevance: 1,
         skillReason: 'Partial skill match',
         contextAlignment: 0,
@@ -154,8 +154,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
     const createEvaluationItem = (
       overrides: Partial<EvaluationItem> = {},
     ): EvaluationItem => ({
-      courseCode: 'CS101',
-      courseName: 'Introduction to Python',
+      subjectCode: 'CS101',
+      subjectName: 'Introduction to Python',
       skillRelevance: 2,
       skillReason: 'Test reason',
       contextAlignment: 2,
@@ -257,27 +257,27 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Arrange
       const evaluations: EvaluationItem[] = [
         createEvaluationItem({
-          courseCode: 'CS101',
+          subjectCode: 'CS101',
           skillRelevance: 2, // >= 2
           contextAlignment: 0, // <= 1 -> MISMATCH
         }),
         createEvaluationItem({
-          courseCode: 'CS201',
+          subjectCode: 'CS201',
           skillRelevance: 3, // >= 2
           contextAlignment: 1, // <= 1 -> MISMATCH
         }),
         createEvaluationItem({
-          courseCode: 'CS301',
+          subjectCode: 'CS301',
           skillRelevance: 1, // < 2 -> NOT mismatch (even though context <= 1)
           contextAlignment: 1,
         }),
         createEvaluationItem({
-          courseCode: 'CS401',
+          subjectCode: 'CS401',
           skillRelevance: 2,
           contextAlignment: 2, // > 1 -> NOT mismatch
         }),
         createEvaluationItem({
-          courseCode: 'CS501',
+          subjectCode: 'CS501',
           skillRelevance: 0, // < 2 -> NOT mismatch (even though context <= 1)
           contextAlignment: 0,
         }),
@@ -289,7 +289,7 @@ describe('CourseRetrieverEvaluatorHelper', () => {
 
       // Assert
       expect(result.contextMismatchCourses).toHaveLength(2);
-      expect(result.contextMismatchCourses.map((c) => c.courseCode)).toEqual(
+      expect(result.contextMismatchCourses.map((c) => c.subjectCode)).toEqual(
         expect.arrayContaining(['CS101', 'CS201']),
       );
       expect(result.contextMismatchRate).toBe((2 / 5) * 100); // 40%
@@ -609,8 +609,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
     const createCourseInfo = (
       overrides: Partial<CourseInfo> = {},
     ): CourseInfo => ({
-      courseCode: 'CS101',
-      courseName: 'Introduction to Python',
+      subjectCode: 'CS101',
+      subjectName: 'Introduction to Python',
       cleanedLearningOutcomes: ['Learn Python basics', 'Understand variables'],
       ...overrides,
     });
@@ -636,13 +636,13 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Arrange
       const courses: CourseInfo[] = [
         createCourseInfo({
-          courseCode: 'CS101',
-          courseName: 'Python Basics',
+          subjectCode: 'CS101',
+          subjectName: 'Python Basics',
           cleanedLearningOutcomes: ['Learn syntax'],
         }),
         createCourseInfo({
-          courseCode: 'CS201',
-          courseName: 'Java Advanced',
+          subjectCode: 'CS201',
+          subjectName: 'Java Advanced',
           cleanedLearningOutcomes: ['OOP concepts'],
         }),
       ];
@@ -717,7 +717,7 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Arrange
       const courses: CourseInfo[] = [
         createCourseInfo({
-          courseName: 'C++: Advanced Templates & Metaprogramming',
+          subjectName: 'C++: Advanced Templates & Metaprogramming',
           cleanedLearningOutcomes: [
             'Understand template syntax <T>',
             'Learn variadic templates...',
@@ -762,8 +762,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Arrange
       const courses: CourseInfo[] = [
         createCourseInfo({
-          courseCode: 'CS101',
-          courseName: 'Test Course',
+          subjectCode: 'CS101',
+          subjectName: 'Test Course',
           cleanedLearningOutcomes: ['Outcome 1'],
         }),
       ];

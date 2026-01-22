@@ -859,8 +859,8 @@ export const createMockEnrichedLogWithCourseFilterGrouped = (
     inputCount: 10 + i,
     acceptedCourses: [
       {
-        courseCode: `CS${100 + i}`,
-        courseName: `Course ${i + 1}`,
+        subjectCode: `CS${100 + i}`,
+        subjectName: `Course ${i + 1}`,
         score: 3,
         reason: 'Highly relevant',
         matchedLos: [
@@ -873,8 +873,8 @@ export const createMockEnrichedLogWithCourseFilterGrouped = (
     ],
     rejectedCourses: [
       {
-        courseCode: `CS${200 + i}`,
-        courseName: `Rejected Course ${i + 1}`,
+        subjectCode: `CS${200 + i}`,
+        subjectName: `Rejected Course ${i + 1}`,
         score: 0,
         reason: 'Not relevant',
         matchedLos: [],
@@ -882,8 +882,8 @@ export const createMockEnrichedLogWithCourseFilterGrouped = (
     ],
     missingCourses: [
       {
-        courseCode: `CS${300 + i}`,
-        courseName: `Missing Course ${i + 1}`,
+        subjectCode: `CS${300 + i}`,
+        subjectName: `Missing Course ${i + 1}`,
         score: 0,
         reason: 'Missing from LLM response',
         matchedLos: [],

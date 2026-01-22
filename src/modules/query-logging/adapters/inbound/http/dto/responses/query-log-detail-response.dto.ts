@@ -91,15 +91,15 @@ export class QueryLogOutputResponseDto {
     description: 'Related courses found',
     type: [Object],
     example: [
-      { courseCode: '010123', courseName: 'Introduction to Programming' },
-      { courseCode: '010456', courseName: 'Advanced Python' },
+      { subjectCode: '010123', subjectName: 'Introduction to Programming' },
+      { subjectCode: '010456', subjectName: 'Advanced Python' },
     ],
     nullable: true,
   })
   @Expose()
   relatedCourses: Array<{
-    courseCode: string;
-    courseName: string;
+    subjectCode: string;
+    subjectName: string;
   }> | null;
 
   @ApiProperty({

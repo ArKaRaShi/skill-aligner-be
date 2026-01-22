@@ -314,31 +314,31 @@ describe('AggregationService', () => {
           evaluations: [
             // Mismatch: skill=3, context=1
             createMockEvaluationItem({
-              courseCode: 'ML101',
+              subjectCode: 'ML101',
               skillRelevance: 3,
               contextAlignment: 1,
             }),
             // Mismatch: skill=2, context=0
             createMockEvaluationItem({
-              courseCode: 'ML102',
+              subjectCode: 'ML102',
               skillRelevance: 2,
               contextAlignment: 0,
             }),
             // Mismatch: skill=3, context=1
             createMockEvaluationItem({
-              courseCode: 'ML103',
+              subjectCode: 'ML103',
               skillRelevance: 3,
               contextAlignment: 1,
             }),
             // Not mismatch: skill=1, context=0 (skill < 2)
             createMockEvaluationItem({
-              courseCode: 'ML104',
+              subjectCode: 'ML104',
               skillRelevance: 1,
               contextAlignment: 0,
             }),
             // Not mismatch: skill=2, context=2 (context > 1)
             createMockEvaluationItem({
-              courseCode: 'ML105',
+              subjectCode: 'ML105',
               skillRelevance: 2,
               contextAlignment: 2,
             }),
@@ -471,7 +471,7 @@ describe('AggregationService', () => {
           skillMetrics: [
             createMockSkillMetrics({
               contextMismatchCourses: [
-                createMockEvaluationItem({ courseCode: 'CS101' }),
+                createMockEvaluationItem({ subjectCode: 'CS101' }),
               ],
             }),
           ],
@@ -480,8 +480,8 @@ describe('AggregationService', () => {
           skillMetrics: [
             createMockSkillMetrics({
               contextMismatchCourses: [
-                createMockEvaluationItem({ courseCode: 'CS201' }),
-                createMockEvaluationItem({ courseCode: 'CS301' }),
+                createMockEvaluationItem({ subjectCode: 'CS201' }),
+                createMockEvaluationItem({ subjectCode: 'CS301' }),
               ],
             }),
           ],

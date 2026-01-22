@@ -2,8 +2,8 @@ export type RelevanceInput = {
   id: string;
   userQuestion: string;
   recommendedCourse: {
-    courseCode: string;
-    courseName: string;
+    subjectCode: string;
+    subjectName: string;
     learningOutcomes: string[];
   };
 };

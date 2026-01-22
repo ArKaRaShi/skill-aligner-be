@@ -1,5 +1,6 @@
 import { Logger } from '@nestjs/common';
 
+import { APICallError } from 'ai';
 import { z } from 'zod';
 
 import {
@@ -127,27 +128,100 @@ export abstract class BaseLlmProvider implements ILlmProviderClient {
   }
 
   /**
-   * Checks if an error is a timeout/abort error that should trigger retry.
+   * Checks if an error is a native DOM AbortError.
+   * Thrown when AbortSignal is triggered (e.g., via AbortSignal.timeout()).
+   */
+  protected isAbortError(error: unknown): boolean {
+    if (error instanceof Error) {
+      return error.name.toLowerCase() === 'aborterror';
+    }
+    return false;
+  }
+
+  /**
+   * Checks if an error is a timeout-related error that should trigger retry.
+   * This catches timeout messages that are not AbortError.
    */
   protected isTimeoutError(error: unknown): boolean {
     if (error instanceof Error) {
       const errorMessage = error.message.toLowerCase();
-      const errorName = error.name.toLowerCase();
+
+      // Skip abort errors (handled by isAbortError)
+      if (this.isAbortError(error)) {
+        return false;
+      }
 
       return (
-        errorName === 'aborterror' ||
-        errorMessage.includes('timeout') ||
-        errorMessage.includes('aborted') ||
-        errorMessage.includes('abort')
+        errorMessage.includes('timeout') || errorMessage.includes('timed out')
       );
     }
     return false;
   }
 
   /**
-   * Wraps an async operation with retry logic for timeout/abort errors only.
+   * Checks if an error is a network/socket error that should trigger retry.
+   * Covers connection termination, socket errors, and similar network issues.
+   *
+   * Uses AI SDK's APICallError.isInstance() for proper type checking.
+   */
+  protected isNetworkError(error: unknown): boolean {
+    // Check for AI SDK APICallError with network-related cause
+    if (APICallError.isInstance(error)) {
+      // Check the cause for network-level errors (terminated, socket closed, etc.)
+      if (error.cause instanceof Error) {
+        const causeMessage = error.cause.message.toLowerCase();
+        const causeCode = (error.cause as { code?: string }).code;
+
+        return (
+          causeMessage.includes('terminated') ||
+          causeMessage.includes('socket') ||
+          causeMessage.includes('other side closed') ||
+          causeCode === 'UND_ERR_SOCKET'
+        );
+      }
+      return false;
+    }
+
+    // Fallback: Check for direct network errors (not wrapped by AI SDK)
+    if (error instanceof Error) {
+      const errorMessage = error.message.toLowerCase();
+      const errorName = error.name.toLowerCase();
+
+      return (
+        errorMessage.includes('terminated') ||
+        errorMessage.includes('socket') ||
+        errorMessage.includes('connection') ||
+        errorMessage.includes('und_err_socket') ||
+        errorMessage.includes('other side closed') ||
+        (errorName === 'typeerror' && errorMessage.includes('terminated'))
+      );
+    }
+
+    return false;
+  }
+
+  /**
+   * Unified check for all retriable errors.
+   * Delegates to specific error type checkers.
+   */
+  protected isRetriableError(error: unknown): boolean {
+    return (
+      this.isAbortError(error) ||
+      this.isTimeoutError(error) ||
+      this.isNetworkError(error)
+    );
+  }
+
+  /**
+   * Wraps an async operation with retry logic for retriable errors.
    * This is needed because the AI SDK's built-in maxRetries doesn't consistently
-   * handle AbortError from AbortSignal.timeout().
+   * handle certain errors like AbortError from AbortSignal.timeout() or network
+   * socket errors that occur after HTTP 200 headers are received.
+   *
+   * Retries on:
+   * - Abort errors (via isAbortError) - Native DOM AbortError
+   * - Timeout errors (via isTimeoutError) - Timeout messages
+   * - Network/socket errors (via isNetworkError) - Connection issues
    *
    * @param operation - The async operation to execute
    * @param context - Context for logging (method name, model, etc.)
@@ -172,16 +246,23 @@ export abstract class BaseLlmProvider implements ILlmProviderClient {
         );
         return await operation();
       } catch (error) {
-        // Only retry on timeout/abort errors
-        if (this.isTimeoutError(error) && attempt < maxRetries) {
+        // Only retry on retriable errors (abort, timeout, network, socket)
+        if (this.isRetriableError(error) && attempt < maxRetries) {
+          // Determine specific error type for logging
+          const errorType = this.isAbortError(error)
+            ? 'Abort'
+            : this.isTimeoutError(error)
+              ? 'Timeout'
+              : 'Network/socket';
+
           this.logger.warn(
-            `[${context.operationName}] Timeout/abort error detected (attempt ${attempt + 1}/${maxRetries + 1}). Retrying after ${delayMs}ms...`,
+            `[${context.operationName}] ${errorType} error detected (attempt ${attempt + 1}/${maxRetries + 1}). Retrying after ${delayMs}ms...`,
           );
 
           // Wait before retrying
           await new Promise((resolve) => setTimeout(resolve, delayMs));
         } else {
-          // Don't retry on non-timeout errors or if we've exhausted retries
+          // Don't retry on non-retriable errors or if we've exhausted retries
           throw error;
         }
       }

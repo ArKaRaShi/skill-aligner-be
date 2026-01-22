@@ -26,20 +26,20 @@ describe('CourseRetrieverEvaluator', () => {
 
   // Test data factories
   const createTestCourse = (
-    courseCode: string,
-    courseName: string,
+    subjectCode: string,
+    subjectName: string,
     learningOutcomes: string[] = ['Learn programming concepts'],
   ) => ({
-    courseCode,
-    courseName,
+    subjectCode,
+    subjectName,
     cleanedLearningOutcomes: learningOutcomes,
   });
 
   const createTestEvaluationItem = (
     overrides: Partial<EvaluationItem> = {},
   ): EvaluationItem => ({
-    courseCode: 'CS101',
-    courseName: 'Introduction to Python',
+    subjectCode: 'CS101',
+    subjectName: 'Introduction to Python',
     skillRelevance: 3,
     skillReason: 'Direct skill match - course primarily teaches Python',
     contextAlignment: 2,
@@ -280,8 +280,8 @@ describe('CourseRetrieverEvaluator', () => {
       const item: EvaluationItem = createTestEvaluationItem();
 
       // Assert
-      expect(item.courseCode).toBeDefined();
-      expect(item.courseName).toBeDefined();
+      expect(item.subjectCode).toBeDefined();
+      expect(item.subjectName).toBeDefined();
       expect(item.skillRelevance).toBeGreaterThanOrEqual(0);
       expect(item.skillRelevance).toBeLessThanOrEqual(3);
       expect(item.contextAlignment).toBeGreaterThanOrEqual(0);
@@ -309,8 +309,8 @@ describe('CourseRetrieverEvaluator', () => {
       const course = createTestCourse('CS101', 'Test Course');
 
       // Assert
-      expect(course.courseCode).toBe('CS101');
-      expect(course.courseName).toBe('Test Course');
+      expect(course.subjectCode).toBe('CS101');
+      expect(course.subjectName).toBe('Test Course');
       expect(course.cleanedLearningOutcomes).toEqual([
         'Learn programming concepts',
       ]);

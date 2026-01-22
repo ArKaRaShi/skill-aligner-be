@@ -92,7 +92,7 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
       // Arrange
       const output: QueryLogOutput = {
         answer: 'This is the answer',
-        relatedCourses: [{ courseCode: 'CS101', courseName: 'Intro to CS' }],
+        relatedCourses: [{ subjectCode: 'CS101', subjectName: 'Intro to CS' }],
       };
       const metrics: Partial<QueryLogMetrics> = {
         timing: {
@@ -155,7 +155,7 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
       // Arrange
       const output: QueryLogOutput = {
         answer: 'This is the answer',
-        relatedCourses: [{ courseCode: 'CS101', courseName: 'Intro to CS' }],
+        relatedCourses: [{ subjectCode: 'CS101', subjectName: 'Intro to CS' }],
       };
 
       const timing: TimingMap = {

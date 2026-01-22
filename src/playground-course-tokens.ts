@@ -35,8 +35,8 @@ interface CourseWithLOs {
 }
 
 interface FlatLO {
-  courseCode: string;
-  courseName: string;
+  subjectCode: string;
+  subjectName: string;
   cleanedCloName: string;
 }
 
@@ -64,8 +64,8 @@ function flattenToCSV(courseWithLOs: CourseWithLOs[]): FlatLO[] {
   for (const course of courseWithLOs) {
     for (const lo of course.learningOutcomes) {
       flat.push({
-        courseCode: course.subjectCode,
-        courseName: course.subjectName,
+        subjectCode: course.subjectCode,
+        subjectName: course.subjectName,
         cleanedCloName: lo.cleanedCloName,
       });
     }
@@ -74,9 +74,9 @@ function flattenToCSV(courseWithLOs: CourseWithLOs[]): FlatLO[] {
 }
 
 function generateCSV(flatLos: FlatLO[]): string {
-  const header = 'courseCode,courseName,cleanedCloName\n';
+  const header = 'subjectCode,subjectName,cleanedCloName\n';
   const rows = flatLos
-    .map((lo) => `${lo.courseCode},${lo.courseName},${lo.cleanedCloName}`)
+    .map((lo) => `${lo.subjectCode},${lo.subjectName},${lo.cleanedCloName}`)
     .join('\n');
   return header + rows;
 }
@@ -288,9 +288,9 @@ function printSampleComparison(courseWithLOs: CourseWithLOs[]): void {
   const csvRows = flatLos.slice(0, 5);
   if (csvRows.length > 0) {
     const csvSample =
-      'courseCode,courseName,cleanedCloName\n' +
+      'subjectCode,subjectName,cleanedCloName\n' +
       csvRows
-        .map((lo) => `${lo.courseCode},${lo.courseName},${lo.cleanedCloName}`)
+        .map((lo) => `${lo.subjectCode},${lo.subjectName},${lo.cleanedCloName}`)
         .join('\n');
     console.log(csvSample);
   }

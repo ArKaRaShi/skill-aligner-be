@@ -235,8 +235,8 @@ export interface LearningOutcomeMatch {
  * Single course in filter step output.
  */
 export interface CourseFilterCourse {
-  courseCode: string;
-  courseName: string;
+  subjectCode: string;
+  subjectName: string;
   score: number;
   reason: string;
   matchedLos: LearningOutcomeMatch[];
@@ -323,8 +323,8 @@ export interface SkillContributionBreakdown {
  */
 export interface AggregatedCourseBreakdown {
   courseId: string;
-  courseCode: string;
-  courseName: string;
+  subjectCode: string;
+  subjectName: string;
   skillBreakdown: SkillContributionBreakdown[];
   finalScore: number;
   winningSkills: string[];

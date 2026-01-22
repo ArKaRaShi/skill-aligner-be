@@ -39,8 +39,8 @@ describe('CourseRetrievalTestSetLoaderService', () => {
         subjectName: string;
         allLearningOutcomes: Array<{ cleanedName: string }>;
       }) => ({
-        courseCode: course.subjectCode,
-        courseName: course.subjectName,
+        subjectCode: course.subjectCode,
+        subjectName: course.subjectName,
         cleanedLearningOutcomes: course.allLearningOutcomes.map(
           (lo) => lo.cleanedName,
         ),

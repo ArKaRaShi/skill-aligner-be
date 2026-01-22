@@ -210,8 +210,8 @@ export type ContextMismatchEntry = {
   retrievedCount: number;
   /** Courses with high skill but low context alignment */
   mismatches: {
-    courseCode: string;
-    courseName: string;
+    subjectCode: string;
+    subjectName: string;
     skillRelevance: number;
     contextAlignment: number;
   }[];

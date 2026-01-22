@@ -222,8 +222,8 @@ describe('EvaluationResultsRepository', () => {
           question: 'Test 1',
           mismatches: [
             {
-              courseCode: 'CS101',
-              courseName: 'Course 1',
+              subjectCode: 'CS101',
+              subjectName: 'Course 1',
               skillRelevance: 3,
               contextAlignment: 0,
             },
@@ -233,8 +233,8 @@ describe('EvaluationResultsRepository', () => {
           question: 'Test 2',
           mismatches: [
             {
-              courseCode: 'CS201',
-              courseName: 'Course 2',
+              subjectCode: 'CS201',
+              subjectName: 'Course 2',
               skillRelevance: 2,
               contextAlignment: 1,
             },

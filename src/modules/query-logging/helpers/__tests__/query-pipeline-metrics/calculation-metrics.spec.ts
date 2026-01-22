@@ -330,8 +330,8 @@ describe('QueryPipelineMetrics', () => {
       );
 
       // Assert
-      expect(result.courses[0].courseCode).toBe('CS101');
-      expect(result.courses[0].courseName).toBe('Intro to CS');
+      expect(result.courses[0].subjectCode).toBe('CS101');
+      expect(result.courses[0].subjectName).toBe('Intro to CS');
       expect(result.courses[0].finalScore).toBe(3);
     });
 

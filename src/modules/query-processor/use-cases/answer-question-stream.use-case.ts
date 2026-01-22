@@ -582,8 +582,8 @@ export class AnswerQuestionStreamUseCase {
             answer: synthesisResult.answerText,
             suggestQuestion: undefined,
             relatedCourses: relatedCourses.map((c) => ({
-              courseCode: c.subjectCode,
-              courseName: c.subjectName,
+              subjectCode: c.subjectCode,
+              subjectName: c.subjectName,
             })),
           },
           timing,
@@ -673,8 +673,8 @@ export class AnswerQuestionStreamUseCase {
             answer: fullAnswer,
             suggestQuestion: undefined,
             relatedCourses: relatedCourses.map((c) => ({
-              courseCode: c.subjectCode,
-              courseName: c.subjectName,
+              subjectCode: c.subjectCode,
+              subjectName: c.subjectName,
             })),
           },
           timing,

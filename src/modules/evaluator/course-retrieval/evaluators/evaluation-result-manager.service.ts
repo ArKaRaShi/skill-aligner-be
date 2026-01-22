@@ -192,8 +192,8 @@ export class EvaluationResultManagerService {
             courseCount: record.retrievedCount,
             skillName: record.skill,
             evaluations: record.evaluations.map((e) => ({
-              courseCode: e.courseCode,
-              courseName: e.courseName,
+              subjectCode: e.subjectCode,
+              subjectName: e.subjectName,
               skillRelevance: e.skillRelevance,
               skillReason: e.skillReason,
               contextAlignment: e.contextAlignment,
@@ -498,8 +498,8 @@ export class EvaluationResultManagerService {
           skill: record.skill,
           retrievedCount: record.retrievedCount,
           mismatches: record.metrics.contextMismatchCourses.map((m) => ({
-            courseCode: m.courseCode,
-            courseName: m.courseName,
+            subjectCode: m.subjectCode,
+            subjectName: m.subjectName,
             skillRelevance: m.skillRelevance,
             contextAlignment: m.contextAlignment,
           })),

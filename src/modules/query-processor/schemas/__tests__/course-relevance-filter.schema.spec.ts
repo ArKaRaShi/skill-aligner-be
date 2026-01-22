@@ -50,8 +50,8 @@ describe('CourseFilterSchema (V1)', () => {
 
 describe('CourseFilterSchemaV2 (V2 with Scoring)', () => {
   const validInput = {
-    course_code: 'CS101',
-    course_name: 'Introduction to Python',
+    code: 'CS101',
+    name: 'Introduction to Python',
     score: 2,
     reason: 'Course covers python fundamentals',
   };
@@ -94,15 +94,15 @@ describe('CourseFilterSchemaV2 (V2 with Scoring)', () => {
   });
 
   describe('other field validation', () => {
-    it('should reject empty course_code', () => {
+    it('should reject empty code', () => {
       expect(() => {
-        CourseFilterSchemaV2.parse({ ...validInput, course_code: '' });
+        CourseFilterSchemaV2.parse({ ...validInput, code: '' });
       }).toThrow();
     });
 
-    it('should reject empty course_name', () => {
+    it('should reject empty name', () => {
       expect(() => {
-        CourseFilterSchemaV2.parse({ ...validInput, course_name: '' });
+        CourseFilterSchemaV2.parse({ ...validInput, name: '' });
       }).toThrow();
     });
 
@@ -160,14 +160,14 @@ describe('CourseRelevanceFilterResultSchemaV2 (V2 with Scoring)', () => {
   const validResult = {
     courses: [
       {
-        course_code: 'CS101',
-        course_name: 'Python Basics',
+        code: 'CS101',
+        name: 'Python Basics',
         score: 2,
         reason: 'Good match',
       },
       {
-        course_code: 'CS102',
-        course_name: 'Advanced Python',
+        code: 'CS102',
+        name: 'Advanced Python',
         score: 3,
         reason: 'Excellent match',
       },
@@ -182,15 +182,15 @@ describe('CourseRelevanceFilterResultSchemaV2 (V2 with Scoring)', () => {
   it('should accept courses with all valid scores (0, 1, 2, 3)', () => {
     const result = {
       courses: [
-        { course_code: 'CS101', course_name: 'Intro', score: 0, reason: 'No' },
+        { code: 'CS101', name: 'Intro', score: 0, reason: 'No' },
         {
-          course_code: 'CS102',
-          course_name: 'Basics',
+          code: 'CS102',
+          name: 'Basics',
           score: 1,
           reason: 'Low',
         },
-        { course_code: 'CS103', course_name: 'Inter', score: 2, reason: 'Med' },
-        { course_code: 'CS104', course_name: 'Adv', score: 3, reason: 'High' },
+        { code: 'CS103', name: 'Inter', score: 2, reason: 'Med' },
+        { code: 'CS104', name: 'Adv', score: 3, reason: 'High' },
       ],
     };
     const parsed = CourseRelevanceFilterResultSchemaV2.parse(result);
@@ -206,8 +206,8 @@ describe('CourseRelevanceFilterResultSchemaV2 (V2 with Scoring)', () => {
     const invalidResult = {
       courses: [
         {
-          course_code: 'CS101',
-          course_name: 'Python Basics',
+          code: 'CS101',
+          name: 'Python Basics',
           score: 5, // Invalid score
           reason: 'Good match',
         },

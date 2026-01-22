@@ -299,7 +299,7 @@ export class CourseRelevanceFilterService
     courses: CourseFilter[],
   ): CourseRelevanceFilterItem[] {
     return courses.map((course: CourseFilter) => ({
-      courseName: course.course_name,
+      subjectName: course.course_name,
       decision: course.decision,
       reason: course.reason,
     }));
@@ -313,8 +313,8 @@ export class CourseRelevanceFilterService
     courses: CourseFilterV2[],
   ): CourseRelevanceFilterItemV2[] {
     return courses.map((course: CourseFilterV2) => ({
-      code: course.code,
-      name: course.name,
+      subjectCode: course.code,
+      subjectName: course.name,
       score: course.score,
       reason: course.reason,
     }));
@@ -334,7 +334,7 @@ export class CourseRelevanceFilterService
   } {
     const relevantCourses = courses.filter((course) => {
       const filterDecision = courseItems.find(
-        (item) => item.courseName === course.subjectName,
+        (item) => item.subjectName === course.subjectName,
       );
 
       if (!filterDecision) {
@@ -348,7 +348,7 @@ export class CourseRelevanceFilterService
 
     const nonRelevantCourses = courses.filter((course) => {
       const filterDecision = courseItems.find(
-        (item) => item.courseName === course.subjectName,
+        (item) => item.subjectName === course.subjectName,
       );
 
       if (!filterDecision) {
@@ -379,7 +379,7 @@ export class CourseRelevanceFilterService
     // Create a Map for O(1) lookup by course code and name
     const courseItemMap = new Map<string, CourseRelevanceFilterItemV2>();
     for (const item of courseItems) {
-      courseItemMap.set(`${item.code}|${item.name}`, item);
+      courseItemMap.set(`${item.subjectCode}|${item.subjectName}`, item);
     }
 
     // Track missing courses separately from dropped courses
@@ -446,8 +446,8 @@ export class CourseRelevanceFilterService
       this.logger.log(
         `[CourseRelevanceFilterV2] Missing ${missingCourses.length} courses not in LLM response for skill "${skill}": ${JSON.stringify(
           missingCourses.map((c) => ({
-            courseCode: c.subjectCode,
-            courseName: c.subjectName,
+            subjectCode: c.subjectCode,
+            subjectName: c.subjectName,
             score: c.score,
             reason: c.reason,
           })),
@@ -461,8 +461,8 @@ export class CourseRelevanceFilterService
       this.logger.log(
         `[CourseRelevanceFilterV2] Dropped ${droppedCourses.length} courses with score 0 for skill "${skill}": ${JSON.stringify(
           droppedCourses.map((c) => ({
-            courseCode: c.subjectCode,
-            courseName: c.subjectName,
+            subjectCode: c.subjectCode,
+            subjectName: c.subjectName,
             score: c.score,
             reason: c.reason,
           })),

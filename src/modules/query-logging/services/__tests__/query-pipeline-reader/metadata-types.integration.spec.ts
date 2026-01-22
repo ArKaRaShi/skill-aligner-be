@@ -326,8 +326,8 @@ describe('QueryPipelineReaderService Integration - Metadata Types', () => {
       const rankedCourses: any[] = [
         {
           courseId: 'course-1',
-          courseCode: 'CS101',
-          courseName: 'Intro to Python',
+          subjectCode: 'CS101',
+          subjectName: 'Intro to Python',
           finalScore: 3,
           skillBreakdown: [],
           winningSkills: ['python'],

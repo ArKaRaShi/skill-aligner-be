@@ -176,8 +176,8 @@ describe('QueryLogging (Integration)', () => {
           suggestQuestion: undefined,
           relatedCourses: [
             {
-              courseCode: 'TEST101',
-              courseName: 'วิชาทดสอบ',
+              subjectCode: 'TEST101',
+              subjectName: 'วิชาทดสอบ',
             },
           ],
         },

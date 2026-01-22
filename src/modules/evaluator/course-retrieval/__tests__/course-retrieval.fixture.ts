@@ -78,8 +78,8 @@ export const createMockLearningOutcome = (
 export const createMockCourseInfo = (
   overrides: Partial<CourseInfo> = {},
 ): CourseInfo => ({
-  courseCode: 'CS101',
-  courseName: 'Introduction to Python',
+  subjectCode: 'CS101',
+  subjectName: 'Introduction to Python',
   cleanedLearningOutcomes: ['Learn Python basics', 'Understand variables'],
   ...overrides,
 });
@@ -118,8 +118,8 @@ export const createMockCourseWithLOMatch = (
 export const createMockEvaluationItem = (
   overrides: Partial<EvaluationItem> = {},
 ): EvaluationItem => ({
-  courseCode: 'CS101',
-  courseName: 'Introduction to Python',
+  subjectCode: 'CS101',
+  subjectName: 'Introduction to Python',
   skillRelevance: 2,
   skillReason: 'Good match for programming fundamentals',
   contextAlignment: 2,
@@ -264,8 +264,8 @@ export const createMockContextMismatchEntry = (
   retrievedCount: 5,
   mismatches: [
     {
-      courseCode: 'CS101',
-      courseName: 'Introduction to Python',
+      subjectCode: 'CS101',
+      subjectName: 'Introduction to Python',
       skillRelevance: 3,
       contextAlignment: 0,
     },
@@ -379,17 +379,17 @@ export const MOCK_SCENARIOS = {
       courseCount: 3,
       evaluations: [
         createMockEvaluationItem({
-          courseCode: 'CS101',
+          subjectCode: 'CS101',
           skillRelevance: 2,
           contextAlignment: 2,
         }),
         createMockEvaluationItem({
-          courseCode: 'CS102',
+          subjectCode: 'CS102',
           skillRelevance: 2,
           contextAlignment: 2,
         }),
         createMockEvaluationItem({
-          courseCode: 'CS103',
+          subjectCode: 'CS103',
           skillRelevance: 2,
           contextAlignment: 2,
         }),
@@ -411,22 +411,22 @@ export const MOCK_SCENARIOS = {
       courseCount: 4,
       evaluations: [
         createMockEvaluationItem({
-          courseCode: 'CS201',
+          subjectCode: 'CS201',
           skillRelevance: 3,
           contextAlignment: 0,
         }),
         createMockEvaluationItem({
-          courseCode: 'CS202',
+          subjectCode: 'CS202',
           skillRelevance: 2,
           contextAlignment: 1,
         }),
         createMockEvaluationItem({
-          courseCode: 'CS203',
+          subjectCode: 'CS203',
           skillRelevance: 1,
           contextAlignment: 2,
         }),
         createMockEvaluationItem({
-          courseCode: 'CS204',
+          subjectCode: 'CS204',
           skillRelevance: 0,
           contextAlignment: 3,
         }),
@@ -489,31 +489,31 @@ export const MOCK_SCENARIOS = {
       evaluations: [
         // Mismatch: skill=3, context=1
         createMockEvaluationItem({
-          courseCode: 'ML101',
+          subjectCode: 'ML101',
           skillRelevance: 3,
           contextAlignment: 1,
         }),
         // Mismatch: skill=2, context=0
         createMockEvaluationItem({
-          courseCode: 'ML102',
+          subjectCode: 'ML102',
           skillRelevance: 2,
           contextAlignment: 0,
         }),
         // Mismatch: skill=3, context=1
         createMockEvaluationItem({
-          courseCode: 'ML103',
+          subjectCode: 'ML103',
           skillRelevance: 3,
           contextAlignment: 1,
         }),
         // Not mismatch: skill=1, context=0 (skill < 2)
         createMockEvaluationItem({
-          courseCode: 'ML104',
+          subjectCode: 'ML104',
           skillRelevance: 1,
           contextAlignment: 0,
         }),
         // Not mismatch: skill=2, context=2 (context > 1)
         createMockEvaluationItem({
-          courseCode: 'ML105',
+          subjectCode: 'ML105',
           skillRelevance: 2,
           contextAlignment: 2,
         }),

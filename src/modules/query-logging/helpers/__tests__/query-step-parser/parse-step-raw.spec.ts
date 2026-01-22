@@ -233,14 +233,14 @@ describe('QueryStepParserHelper.parseCourseAggregationRaw', () => {
     const complexAggregation = {
       filteredSkillCoursesMap: {
         python: [
-          { courseCode: 'CS201', score: 3, reason: 'Excellent' },
-          { courseCode: 'CS202', score: 2, reason: 'Good' },
+          { subjectCode: 'CS201', score: 3, reason: 'Excellent' },
+          { subjectCode: 'CS202', score: 2, reason: 'Good' },
         ],
-        javascript: [{ courseCode: 'CS203', score: 1, reason: 'Fair' }],
+        javascript: [{ subjectCode: 'CS203', score: 1, reason: 'Fair' }],
       },
       rankedCourses: [
-        { courseCode: 'CS201', maxRelevanceScore: 3 },
-        { courseCode: 'CS203', maxRelevanceScore: 1 },
+        { subjectCode: 'CS201', maxRelevanceScore: 3 },
+        { subjectCode: 'CS203', maxRelevanceScore: 1 },
       ],
     };
 

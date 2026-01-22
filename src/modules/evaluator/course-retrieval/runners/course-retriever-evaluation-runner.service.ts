@@ -113,7 +113,7 @@ export class CourseRetrieverEvaluationRunnerService
         );
         evaluationResult.metrics.contextMismatchCourses.forEach((mismatch) => {
           this.logger.warn(
-            `  - ${mismatch.courseCode}: Skill=${mismatch.skillRelevance}, Context=${mismatch.contextAlignment}`,
+            `  - ${mismatch.subjectCode}: Skill=${mismatch.skillRelevance}, Context=${mismatch.contextAlignment}`,
           );
         });
       }
@@ -265,7 +265,7 @@ export class CourseRetrieverEvaluationRunnerService
       );
       evaluationResult.metrics.contextMismatchCourses.forEach((mismatch) => {
         this.logger.warn(
-          `  - ${mismatch.courseCode}: Skill=${mismatch.skillRelevance}, Context=${mismatch.contextAlignment}`,
+          `  - ${mismatch.subjectCode}: Skill=${mismatch.skillRelevance}, Context=${mismatch.contextAlignment}`,
         );
       });
     }
@@ -413,8 +413,8 @@ export class CourseRetrieverEvaluationRunnerService
       skill: 'Python programming',
       retrievedCourses: [
         {
-          courseCode: 'CS101',
-          courseName: 'Introduction to Programming',
+          subjectCode: 'CS101',
+          subjectName: 'Introduction to Programming',
           cleanedLearningOutcomes: [
             'Understand basic programming concepts',
             'Learn Python syntax and semantics',
@@ -422,8 +422,8 @@ export class CourseRetrieverEvaluationRunnerService
           ],
         },
         {
-          courseCode: 'CS201',
-          courseName: 'Advanced Python',
+          subjectCode: 'CS201',
+          subjectName: 'Advanced Python',
           cleanedLearningOutcomes: [
             'Master object-oriented programming in Python',
             'Work with files and databases',
@@ -431,8 +431,8 @@ export class CourseRetrieverEvaluationRunnerService
           ],
         },
         {
-          courseCode: 'CS301',
-          courseName: 'Data Structures',
+          subjectCode: 'CS301',
+          subjectName: 'Data Structures',
           cleanedLearningOutcomes: [
             'Understand arrays, linked lists, and trees',
             'Implement sorting and searching algorithms',
@@ -440,8 +440,8 @@ export class CourseRetrieverEvaluationRunnerService
           ],
         },
         {
-          courseCode: 'MATH101',
-          courseName: 'Calculus I',
+          subjectCode: 'MATH101',
+          subjectName: 'Calculus I',
           cleanedLearningOutcomes: [
             'Understand limits and derivatives',
             'Learn integration techniques',
@@ -449,8 +449,8 @@ export class CourseRetrieverEvaluationRunnerService
           ],
         },
         {
-          courseCode: 'CS401',
-          courseName: 'Machine Learning',
+          subjectCode: 'CS401',
+          subjectName: 'Machine Learning',
           cleanedLearningOutcomes: [
             'Introduction to supervised and unsupervised learning',
             'Implement neural networks using Python',

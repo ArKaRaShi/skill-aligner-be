@@ -62,8 +62,8 @@ export interface QueryLogOutput {
  * Related course information.
  */
 export interface RelatedCourseInfo {
-  courseCode: string;
-  courseName: string;
+  subjectCode: string;
+  subjectName: string;
 }
 
 /**

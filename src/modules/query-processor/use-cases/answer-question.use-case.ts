@@ -443,8 +443,8 @@ export class AnswerQuestionUseCase
           answer: result.answer,
           suggestQuestion: result.suggestQuestion ?? undefined,
           relatedCourses: relatedCourses.map((c) => ({
-            courseCode: c.subjectCode,
-            courseName: c.subjectName,
+            subjectCode: c.subjectCode,
+            subjectName: c.subjectName,
           })),
         },
         timing,

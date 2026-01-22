@@ -22,8 +22,8 @@ export class MetricsCalculator {
     evaluations: LlmCourseEvaluationItem[],
   ): EvaluationItem[] {
     return evaluations.map((evalItem) => ({
-      courseCode: evalItem.course_code,
-      courseName: evalItem.course_name,
+      subjectCode: evalItem.course_code,
+      subjectName: evalItem.course_name,
       skillRelevance: evalItem.skill_relevance_score,
       skillReason: evalItem.skill_reason,
       contextAlignment: evalItem.context_alignment_score,

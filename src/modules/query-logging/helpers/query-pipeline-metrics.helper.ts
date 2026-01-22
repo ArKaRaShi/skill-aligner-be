@@ -90,8 +90,8 @@ export class QueryPipelineMetrics {
 
     // Build accepted courses with full detail
     const acceptedOutputCourses = acceptedCourses.map((course) => ({
-      courseCode: course.subjectCode,
-      courseName: course.subjectName,
+      subjectCode: course.subjectCode,
+      subjectName: course.subjectName,
       score: course.score,
       reason: course.reason ?? 'No reason provided',
       matchedLos: course.matchedLearningOutcomes.map((lo) => ({
@@ -102,8 +102,8 @@ export class QueryPipelineMetrics {
 
     // Build rejected courses with full detail
     const rejectedOutputCourses = rejectedCourses.map((course) => ({
-      courseCode: course.subjectCode,
-      courseName: course.subjectName,
+      subjectCode: course.subjectCode,
+      subjectName: course.subjectName,
       score: course.score,
       reason: course.reason ?? 'No reason provided',
       matchedLos: course.matchedLearningOutcomes.map((lo) => ({
@@ -114,8 +114,8 @@ export class QueryPipelineMetrics {
 
     // Build missing courses with full detail
     const missingOutputCourses = missingCourses.map((course) => ({
-      courseCode: course.subjectCode,
-      courseName: course.subjectName,
+      subjectCode: course.subjectCode,
+      subjectName: course.subjectName,
       score: course.score,
       reason: course.reason ?? 'Not found in LLM response',
       matchedLos: course.matchedLearningOutcomes.map((lo) => ({
@@ -218,8 +218,8 @@ export class QueryPipelineMetrics {
 
       return {
         courseId: aggCourse.id,
-        courseCode: aggCourse.subjectCode,
-        courseName: aggCourse.subjectName,
+        subjectCode: aggCourse.subjectCode,
+        subjectName: aggCourse.subjectName,
         skillBreakdown,
         finalScore: aggCourse.maxRelevanceScore,
         winningSkills: skillBreakdown

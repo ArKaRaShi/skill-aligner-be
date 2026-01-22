@@ -28,8 +28,8 @@ describe('MetricsCalculator', () => {
       // Assert
       expect(result).toHaveLength(1);
       expect(result[0]).toEqual({
-        courseCode: 'CS101',
-        courseName: 'Introduction to Python',
+        subjectCode: 'CS101',
+        subjectName: 'Introduction to Python',
         skillRelevance: 2,
         skillReason: 'Good match for programming fundamentals',
         contextAlignment: 2,
@@ -160,22 +160,22 @@ describe('MetricsCalculator', () => {
       // Arrange
       const evaluations = [
         createMockEvaluationItem({
-          courseCode: 'CS101',
+          subjectCode: 'CS101',
           skillRelevance: 2, // >= 2
           contextAlignment: 0, // <= 1 -> MISMATCH
         }),
         createMockEvaluationItem({
-          courseCode: 'CS201',
+          subjectCode: 'CS201',
           skillRelevance: 3, // >= 2
           contextAlignment: 1, // <= 1 -> MISMATCH
         }),
         createMockEvaluationItem({
-          courseCode: 'CS301',
+          subjectCode: 'CS301',
           skillRelevance: 1, // < 2 -> NOT mismatch
           contextAlignment: 1,
         }),
         createMockEvaluationItem({
-          courseCode: 'CS401',
+          subjectCode: 'CS401',
           skillRelevance: 2,
           contextAlignment: 2, // > 1 -> NOT mismatch
         }),
@@ -186,7 +186,7 @@ describe('MetricsCalculator', () => {
 
       // Assert
       expect(result.contextMismatchCourses).toHaveLength(2);
-      expect(result.contextMismatchCourses.map((c) => c.courseCode)).toEqual(
+      expect(result.contextMismatchCourses.map((c) => c.subjectCode)).toEqual(
         expect.arrayContaining(['CS101', 'CS201']),
       );
       expect(result.contextMismatchRate).toBe((2 / 4) * 100); // 50%
@@ -254,17 +254,17 @@ describe('MetricsCalculator', () => {
       // Arrange
       const evaluations = [
         createMockEvaluationItem({
-          courseCode: 'CS101',
+          subjectCode: 'CS101',
           skillRelevance: 1, // < 2 -> NOT mismatch (even though context <= 1)
           contextAlignment: 1,
         }),
         createMockEvaluationItem({
-          courseCode: 'CS201',
+          subjectCode: 'CS201',
           skillRelevance: 0, // < 2 -> NOT mismatch
           contextAlignment: 0,
         }),
         createMockEvaluationItem({
-          courseCode: 'CS301',
+          subjectCode: 'CS301',
           skillRelevance: 2, // >= 2 AND context <= 1 -> MISMATCH
           contextAlignment: 0,
         }),
@@ -275,7 +275,7 @@ describe('MetricsCalculator', () => {
 
       // Assert
       expect(result.contextMismatchCourses).toHaveLength(1);
-      expect(result.contextMismatchCourses[0].courseCode).toBe('CS301');
+      expect(result.contextMismatchCourses[0].subjectCode).toBe('CS301');
       expect(result.contextMismatchRate).toBe((1 / 3) * 100);
     });
   });

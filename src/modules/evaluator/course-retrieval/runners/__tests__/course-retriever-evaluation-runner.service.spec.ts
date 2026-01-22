@@ -39,13 +39,13 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
     skill: 'Python programming',
     retrievedCourses: [
       {
-        courseCode: 'CS101',
-        courseName: 'Introduction to Python',
+        subjectCode: 'CS101',
+        subjectName: 'Introduction to Python',
         cleanedLearningOutcomes: ['Learn Python basics', 'Understand syntax'],
       },
       {
-        courseCode: 'CS102',
-        courseName: 'Advanced Python',
+        subjectCode: 'CS102',
+        subjectName: 'Advanced Python',
         cleanedLearningOutcomes: ['Advanced Python concepts', 'OOP in Python'],
       },
     ],
@@ -59,16 +59,16 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
     skill: 'Python programming',
     evaluations: [
       {
-        courseCode: 'CS101',
-        courseName: 'Introduction to Python',
+        subjectCode: 'CS101',
+        subjectName: 'Introduction to Python',
         skillRelevance: 3,
         skillReason: 'Direct skill match',
         contextAlignment: 2,
         contextReason: 'Good alignment',
       },
       {
-        courseCode: 'CS102',
-        courseName: 'Advanced Python',
+        subjectCode: 'CS102',
+        subjectName: 'Advanced Python',
         skillRelevance: 2,
         skillReason: 'Related skill',
         contextAlignment: 1,
@@ -90,8 +90,8 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
       contextMismatchRate: 50.0,
       contextMismatchCourses: [
         {
-          courseCode: 'CS102',
-          courseName: 'Advanced Python',
+          subjectCode: 'CS102',
+          subjectName: 'Advanced Python',
           skillRelevance: 2,
           skillReason: 'Related skill',
           contextAlignment: 1,
@@ -135,16 +135,16 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
     retrievedCount: 2,
     evaluations: [
       {
-        courseCode: 'CS101',
-        courseName: 'Introduction to Python',
+        subjectCode: 'CS101',
+        subjectName: 'Introduction to Python',
         skillRelevance: 3,
         contextAlignment: 2,
         skillReason: 'Direct skill match',
         contextReason: 'Good alignment',
       },
       {
-        courseCode: 'CS102',
-        courseName: 'Advanced Python',
+        subjectCode: 'CS102',
+        subjectName: 'Advanced Python',
         skillRelevance: 2,
         contextAlignment: 1,
         skillReason: 'Related skill',
@@ -158,8 +158,8 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
       contextMismatchRate: 50.0,
       contextMismatchCourses: [
         {
-          courseCode: 'CS102',
-          courseName: 'Advanced Python',
+          subjectCode: 'CS102',
+          subjectName: 'Advanced Python',
           skillRelevance: 2,
           contextAlignment: 1,
         },
@@ -394,8 +394,8 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
           contextMismatchRate: 50.0,
           contextMismatchCourses: [
             {
-              courseCode: 'CS102',
-              courseName: 'Advanced Python',
+              subjectCode: 'CS102',
+              subjectName: 'Advanced Python',
               skillRelevance: 2,
               contextAlignment: 1,
             },
@@ -571,8 +571,8 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
       const input = createTestInput({
         retrievedCourses: [
           {
-            courseCode: 'CS101',
-            courseName: 'Intro to Python',
+            subjectCode: 'CS101',
+            subjectName: 'Intro to Python',
             cleanedLearningOutcomes: ['Learn Python'],
           },
         ],
@@ -580,8 +580,8 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
       const evaluatorOutput = createEvaluatorOutput({
         evaluations: [
           {
-            courseCode: 'CS101',
-            courseName: 'Intro to Python',
+            subjectCode: 'CS101',
+            subjectName: 'Intro to Python',
             skillRelevance: 3,
             contextAlignment: 3,
             skillReason: 'Perfect match',
@@ -609,14 +609,14 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
           contextMismatchRate: 100.0,
           contextMismatchCourses: [
             {
-              courseCode: 'CS101',
-              courseName: 'Course 1',
+              subjectCode: 'CS101',
+              subjectName: 'Course 1',
               skillRelevance: 3,
               contextAlignment: 0,
             },
             {
-              courseCode: 'CS102',
-              courseName: 'Course 2',
+              subjectCode: 'CS102',
+              subjectName: 'Course 2',
               skillRelevance: 3,
               contextAlignment: 1,
             },
@@ -664,18 +664,18 @@ describe('CourseRetrieverEvaluationRunnerService', () => {
       const input = createTestInput({
         retrievedCourses: [
           {
-            courseCode: 'CS101',
-            courseName: 'Test',
+            subjectCode: 'CS101',
+            subjectName: 'Test',
             cleanedLearningOutcomes: [],
           },
           {
-            courseCode: 'CS102',
-            courseName: 'Test2',
+            subjectCode: 'CS102',
+            subjectName: 'Test2',
             cleanedLearningOutcomes: [],
           },
           {
-            courseCode: 'CS103',
-            courseName: 'Test3',
+            subjectCode: 'CS103',
+            subjectName: 'Test3',
             cleanedLearningOutcomes: [],
           },
         ],

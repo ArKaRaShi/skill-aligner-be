@@ -14,8 +14,8 @@ export class CourseMapperHelper {
    * Map CourseWithLearningOutcomeV2Match to CourseInfo
    *
    * Extracts and transforms:
-   * - subjectCode → courseCode
-   * - subjectName → courseName
+   * - subjectCode → subjectCode
+   * - subjectName → subjectName
    * - allLearningOutcomes[].cleanedName → cleanedLearningOutcomes
    *
    * @param course - Course with learning outcome v2 match data
@@ -23,8 +23,8 @@ export class CourseMapperHelper {
    */
   static toCourseInfo(course: CourseWithLearningOutcomeV2Match): CourseInfo {
     return {
-      courseCode: course.subjectCode,
-      courseName: course.subjectName,
+      subjectCode: course.subjectCode,
+      subjectName: course.subjectName,
       cleanedLearningOutcomes: course.allLearningOutcomes.map(
         (lo) => lo.cleanedName,
       ),

@@ -3,8 +3,8 @@ import { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 import { TokenCostEstimateSummary } from 'src/shared/utils/token-cost-calculator.helper';
 
 export type CourseInfo = {
-  courseCode: string;
-  courseName: string;
+  subjectCode: string;
+  subjectName: string;
   cleanedLearningOutcomes: string[];
 };
 
@@ -23,8 +23,8 @@ export type CourseRetrieverEvaluatorInput = {
 type RelevanceScore = 0 | 1 | 2 | 3;
 
 export type EvaluationItem = {
-  courseCode: string;
-  courseName: string;
+  subjectCode: string;
+  subjectName: string;
   skillRelevance: RelevanceScore;
   skillReason: string;
   contextAlignment: RelevanceScore;

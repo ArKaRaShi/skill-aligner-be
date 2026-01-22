@@ -28,8 +28,8 @@ describe('CourseMapperHelper', () => {
 
       // Assert
       expect(result).toEqual({
-        courseCode: 'CS101',
-        courseName: 'Introduction to Python',
+        subjectCode: 'CS101',
+        subjectName: 'Introduction to Python',
         cleanedLearningOutcomes: [
           'Learn Python basics',
           'Understand variables',
@@ -54,8 +54,8 @@ describe('CourseMapperHelper', () => {
 
       // Assert
       expect(result).toEqual({
-        courseCode: 'CS201',
-        courseName: 'Advanced Python',
+        subjectCode: 'CS201',
+        subjectName: 'Advanced Python',
         cleanedLearningOutcomes: ['Learn Python programming'],
       });
     });
@@ -98,8 +98,8 @@ describe('CourseMapperHelper', () => {
 
       // Assert
       expect(result).toEqual({
-        courseCode: 'CS999',
-        courseName: 'Empty Course',
+        subjectCode: 'CS999',
+        subjectName: 'Empty Course',
         cleanedLearningOutcomes: [],
       });
     });
@@ -116,7 +116,7 @@ describe('CourseMapperHelper', () => {
       const result = CourseMapperHelper.toCourseInfo(course);
 
       // Assert
-      expect(result.courseCode).toBe('CS101-A');
+      expect(result.subjectCode).toBe('CS101-A');
     });
 
     it('should preserve course name exactly', () => {
@@ -131,7 +131,7 @@ describe('CourseMapperHelper', () => {
       const result = CourseMapperHelper.toCourseInfo(course);
 
       // Assert
-      expect(result.courseName).toBe(
+      expect(result.subjectName).toBe(
         'Introduction to C++ Programming: Advanced Topics',
       );
     });

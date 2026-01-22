@@ -25,8 +25,8 @@ export class CourseRetrieverEvaluatorHelper {
     evaluations: LlmCourseEvaluationItem[],
   ): EvaluationItem[] {
     return evaluations.map((evalItem) => ({
-      courseCode: evalItem.course_code,
-      courseName: evalItem.course_name,
+      subjectCode: evalItem.course_code,
+      subjectName: evalItem.course_name,
       skillRelevance: evalItem.skill_relevance_score,
       skillReason: evalItem.skill_reason,
       contextAlignment: evalItem.context_alignment_score,
@@ -137,8 +137,8 @@ export class CourseRetrieverEvaluatorHelper {
    */
   static buildRetrievedCoursesContext(courses: CourseInfo[]): string {
     const llmCourses: LlmCouresInfo[] = courses.map((course) => ({
-      course_code: course.courseCode,
-      course_name: course.courseName,
+      course_code: course.subjectCode,
+      course_name: course.subjectName,
       learning_outcomes: course.cleanedLearningOutcomes,
     }));
     return encode(llmCourses);

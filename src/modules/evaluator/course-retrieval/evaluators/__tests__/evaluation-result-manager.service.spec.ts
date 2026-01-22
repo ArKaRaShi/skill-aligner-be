@@ -37,8 +37,8 @@ describe('EvaluationResultManagerService', () => {
           alignmentGap: skillRelevance - contextAlignment,
           contextMismatchRate: (contextMismatchCount / 5) * 100,
           contextMismatchCourses: Array(contextMismatchCount).fill({
-            courseCode: 'CS101',
-            courseName: 'Test Course',
+            subjectCode: 'CS101',
+            subjectName: 'Test Course',
             skillRelevance: 3,
             contextAlignment: 0,
           }),
@@ -279,8 +279,8 @@ describe('EvaluationResultManagerService', () => {
         alignmentGap: 1.0,
         contextMismatchRate: 40,
         contextMismatchCourses: Array(mismatchCount).fill({
-          courseCode: 'CS101',
-          courseName: 'Test Course',
+          subjectCode: 'CS101',
+          subjectName: 'Test Course',
           skillRelevance: 3,
           contextAlignment: 0,
         }),
@@ -392,8 +392,8 @@ describe('EvaluationResultManagerService', () => {
       });
 
       expect(result[0].mismatches[0]).toMatchObject({
-        courseCode: 'CS101',
-        courseName: 'Test Course',
+        subjectCode: 'CS101',
+        subjectName: 'Test Course',
         skillRelevance: 3,
         contextAlignment: 0,
       });
