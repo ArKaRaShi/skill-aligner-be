@@ -8,6 +8,15 @@ import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
 import { AppConfigService } from '../../shared/kernel/config/app-config.service';
 import { QueryLoggingModule } from '../query-logging/query-logging.module';
 import { QueryProcessorModule } from '../query-processor/query-processor.module';
+// Course Relevance Filter imports
+import { CourseFilterJudgeEvaluator } from './course-relevance-filter/evaluators/course-filter-judge.evaluator';
+import { CourseFilterTestSetLoaderService } from './course-relevance-filter/loaders/course-filter-test-set-loader.service';
+import { CourseFilterTestSetTransformer } from './course-relevance-filter/loaders/course-filter-test-set-transformer.service';
+import { CourseComparisonService } from './course-relevance-filter/services/course-comparison.service';
+import { CourseFilterEvaluationRunnerService } from './course-relevance-filter/services/course-filter-evaluation-runner.service';
+import { CourseFilterResultManagerService } from './course-relevance-filter/services/course-filter-result-manager.service';
+import { DisagreementAnalyzerService } from './course-relevance-filter/services/disagreement-analyzer.service';
+import { CourseFilterMetricsCalculator } from './course-relevance-filter/services/metrics-calculator.service';
 import { CourseRetrieverEvaluator } from './course-retrieval/evaluators/course-retriever.evaluator';
 import { EvaluationProgressTrackerService } from './course-retrieval/evaluators/evaluation-progress-tracker.service';
 import { EvaluationResultManagerService } from './course-retrieval/evaluators/evaluation-result-manager.service';
@@ -51,12 +60,22 @@ import { TestSetTransformer } from './shared/transformers/test-set.transformer';
       provide: I_COURSE_RETRIEVER_EVALUATION_RUNNER_TOKEN,
       useClass: CourseRetrieverEvaluationRunnerService,
     },
+    // Course Relevance Filter providers
+    CourseFilterTestSetTransformer,
+    CourseFilterTestSetLoaderService,
+    CourseFilterJudgeEvaluator,
+    CourseComparisonService,
+    DisagreementAnalyzerService,
+    CourseFilterMetricsCalculator,
+    CourseFilterResultManagerService,
+    CourseFilterEvaluationRunnerService,
   ],
   exports: [
     I_COURSE_RETRIEVER_EVALUATION_RUNNER_TOKEN,
     TestSetTransformer,
     TestSetBuilderService,
     CourseRetrievalTestSetLoaderService,
+    CourseFilterEvaluationRunnerService,
   ],
 })
 export class EvaluatorModule {}
