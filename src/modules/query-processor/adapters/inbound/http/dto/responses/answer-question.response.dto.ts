@@ -132,4 +132,11 @@ export class AnswerQuestionResponseDto {
   })
   @Expose()
   relatedCourses: CourseOutputDto[];
+
+  @ApiProperty({
+    description: 'The question log ID for tracking course clicks',
+    nullable: true,
+  })
+  @Expose()
+  questionLogId: string | null;
 }

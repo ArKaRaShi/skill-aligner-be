@@ -158,7 +158,7 @@ export const createMockQueryLogMetrics = (
   overrides: Partial<QueryLogMetrics> = {},
 ): QueryLogMetrics => ({
   timing: {
-    OVERALL: {
+    overall: {
       start: Date.now() - 5000,
       end: Date.now(),
       duration: 5000,

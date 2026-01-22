@@ -8,22 +8,27 @@ import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import { EmbeddingModule } from '../../shared/adapters/embedding/embedding.module';
 import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
+import { QuestionAnalysesModule } from '../question-analyses/question-analyses.module';
+import { CourseController } from './adapters/inbound/http/course.controller';
+import { I_COURSE_CLICK_LOG_REPOSITORY_TOKEN } from './contracts/i-course-click-log-repository.contract';
 import {
   I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
-  ICourseLearningOutcomeRepository,
+  type ICourseLearningOutcomeRepository,
 } from './contracts/i-course-learning-outcome-repository.contract';
 import {
   I_COURSE_REPOSITORY_TOKEN,
-  ICourseRepository,
+  type ICourseRepository,
 } from './contracts/i-course-repository.contract';
 import { I_COURSE_RETRIEVER_SERVICE_TOKEN } from './contracts/i-course-retriever-service.contract';
+import { PrismaCourseClickLogRepository } from './repositories/prisma-course-click-log.repository';
 import { PrismaCourseLearningOutcomeRepository } from './repositories/prisma-course-learning-outcome.repository';
 import { PrismaCourseRepository } from './repositories/prisma-course.repository';
 import { CourseRetrieverService } from './services/course-retriever.service';
 import { CourseUseCases } from './use-cases';
 
 @Module({
-  imports: [GptLlmModule, EmbeddingModule],
+  imports: [GptLlmModule, EmbeddingModule, QuestionAnalysesModule],
+  controllers: [CourseController],
   providers: [
     ...CourseUseCases,
     {
@@ -33,6 +38,10 @@ import { CourseUseCases } from './use-cases';
     {
       provide: I_COURSE_LEARNING_OUTCOME_REPOSITORY_TOKEN,
       useClass: PrismaCourseLearningOutcomeRepository,
+    },
+    {
+      provide: I_COURSE_CLICK_LOG_REPOSITORY_TOKEN,
+      useClass: PrismaCourseClickLogRepository,
     },
     {
       provide: I_COURSE_RETRIEVER_SERVICE_TOKEN,
@@ -47,7 +56,7 @@ import { CourseUseCases } from './use-cases';
         courseLoRepo: ICourseLearningOutcomeRepository,
         llmRouterService: ILlmRouterService,
         appConfigService: AppConfigService,
-      ) =>
+      ): CourseRetrieverService =>
         new CourseRetrieverService(
           courseRepo,
           courseLoRepo,

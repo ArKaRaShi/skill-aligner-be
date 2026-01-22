@@ -1,4 +1,4 @@
-import { PaginationMetadataDto } from '../pagination-response.dto';
+import { PaginationMetadataDto } from '../pagination-metadata-response.dto';
 import { PaginationHelper } from '../pagination.helper';
 
 describe('PaginationHelper', () => {

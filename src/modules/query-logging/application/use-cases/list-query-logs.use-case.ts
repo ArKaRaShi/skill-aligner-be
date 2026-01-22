@@ -57,9 +57,7 @@ export class ListQueryLogsUseCase {
       status?: QueryStatus[];
       hasMetrics?: boolean;
       search?: string;
-    } = {
-      hasMetrics: true,
-    };
+    } = {};
 
     // Add date range filter
     if (startDate) {

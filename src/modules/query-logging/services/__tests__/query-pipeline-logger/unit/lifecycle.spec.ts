@@ -159,7 +159,7 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
       };
 
       const timing: TimingMap = {
-        OVERALL: {
+        overall: {
           start: Date.now() - 5000,
           end: Date.now(),
           duration: 5000,
@@ -223,7 +223,7 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
       };
 
       const timing: TimingMap = {
-        OVERALL: {
+        overall: {
           start: Date.now() - 1000,
           end: Date.now(),
           duration: 1000,
@@ -267,7 +267,7 @@ describe('QueryPipelineLoggerService - Lifecycle', () => {
       };
 
       const timing: TimingMap = {
-        OVERALL: {
+        overall: {
           start: Date.now() - 3000,
           end: Date.now(),
           duration: 3000,

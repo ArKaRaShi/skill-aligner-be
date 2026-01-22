@@ -700,12 +700,14 @@ describe('AnswerQuestionStreamUseCase', () => {
       const result = await useCase['getFallbackAnswerForClassification'](
         'irrelevant',
         'Not relevant',
+        null,
       );
 
       expect(result).toEqual({
         answer: expect.stringContaining('อยู่นอกขอบเขต'),
         suggestQuestion: expect.any(String),
         relatedCourses: [],
+        questionLogId: null,
       });
       expect(mockQueryPipelineLoggerService.earlyExit).toHaveBeenCalled();
     });
@@ -714,12 +716,14 @@ describe('AnswerQuestionStreamUseCase', () => {
       const result = await useCase['getFallbackAnswerForClassification'](
         'dangerous',
         'Harmful',
+        null,
       );
 
       expect(result).toEqual({
         answer: expect.stringContaining('ไม่เหมาะสมหรือเป็นอันตราย'),
         suggestQuestion: expect.any(String),
         relatedCourses: [],
+        questionLogId: null,
       });
       expect(mockQueryPipelineLoggerService.earlyExit).toHaveBeenCalled();
     });
@@ -728,6 +732,7 @@ describe('AnswerQuestionStreamUseCase', () => {
       const result = await useCase['getFallbackAnswerForClassification'](
         'relevant',
         'Good question',
+        null,
       );
 
       expect(result).toBeNull();

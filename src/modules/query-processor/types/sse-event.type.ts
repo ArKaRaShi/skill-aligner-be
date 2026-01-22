@@ -40,6 +40,7 @@ export type StepSseEvent =
       answer: string | null;
       suggestQuestion: string | null;
       relatedCourses: CourseOutputDto[];
+      questionLogId?: string | null;
     }
   | {
       /** Final completion event with answer text */
@@ -47,6 +48,7 @@ export type StepSseEvent =
       suggestQuestion: string | null;
       /** Courses included only in non-streaming mode. In streaming mode, use COURSES event. */
       relatedCourses?: CourseOutputDto[];
+      questionLogId?: string | null;
     }
   | {
       /** Error event */

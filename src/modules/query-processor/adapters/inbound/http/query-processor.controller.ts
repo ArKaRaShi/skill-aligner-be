@@ -39,7 +39,7 @@ export class QueryProcessorController {
     @Body() body: AnswerQuestionRequestDto,
   ): Promise<SuccessResponseDto<AnswerQuestionResponseDto>> {
     const { question, isGenEd } = body;
-    const { answer, suggestQuestion, relatedCourses } =
+    const { answer, suggestQuestion, relatedCourses, questionLogId } =
       await this.answerQuestionUseCase.execute(
         new AnswerQuestionUseCaseInput({
           question,
@@ -51,6 +51,7 @@ export class QueryProcessorController {
       answer,
       suggestQuestion,
       relatedCourses: CourseResponseMapper.toCourseOutputDto(relatedCourses),
+      questionLogId,
     };
 
     return new SuccessResponseDto<AnswerQuestionResponseDto>({

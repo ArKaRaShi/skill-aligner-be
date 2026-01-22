@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { Expose } from 'class-transformer';
-import { PaginationMetadataDto } from 'src/shared/contracts/api/pagination/pagination-response.dto';
+import { PaginatedResponse } from 'src/shared/contracts/api/pagination';
 
 import {
   QUERY_STATUS,
@@ -13,6 +13,7 @@ import { QueryLogListItemResponseDto } from './query-log-list-item.response.dto'
 /**
  * Filter summary response DTO.
  * Shows which filters were applied to the query.
+ * All fields are explicitly nullable (not optional undefined).
  */
 export class FilterSummaryResponseDto {
   @ApiProperty({
@@ -51,7 +52,7 @@ export class FilterSummaryResponseDto {
 
 /**
  * Query logs list response DTO.
- * Contains paginated list of query logs with metadata.
+ * Extends standard paginated response with filter summary.
  *
  * @example
  * ```json
@@ -76,21 +77,7 @@ export class FilterSummaryResponseDto {
  * }
  * ```
  */
-export class QueryLogsListResponseDto {
-  @ApiProperty({
-    description: 'Array of query log items',
-    type: [QueryLogListItemResponseDto],
-  })
-  @Expose()
-  data: QueryLogListItemResponseDto[];
-
-  @ApiProperty({
-    description: 'Pagination metadata',
-    type: PaginationMetadataDto,
-  })
-  @Expose()
-  pagination: PaginationMetadataDto;
-
+export class QueryLogsListResponseDto extends PaginatedResponse<QueryLogListItemResponseDto> {
   @ApiProperty({
     description: 'Applied filters summary',
     type: FilterSummaryResponseDto,

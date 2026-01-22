@@ -200,6 +200,7 @@ export class AnswerQuestionUseCase
       const fallbackResponse = await this.getFallbackAnswerForClassification(
         classificationResult.category,
         classificationResult.reason,
+        questionLogId,
       );
 
       if (fallbackResponse) {
@@ -358,6 +359,7 @@ export class AnswerQuestionUseCase
           answer: QueryPipelineFallbackMessages.EMPTY_RESULTS,
           suggestQuestion: QueryPipelineFallbackMessages.SUGGEST_EMPTY_RESULTS,
           relatedCourses: [],
+          questionLogId,
         };
 
         await this.queryPipelineLoggerService.complete(
@@ -429,6 +431,7 @@ export class AnswerQuestionUseCase
         answer: synthesisResult.answerText,
         suggestQuestion: null,
         relatedCourses,
+        questionLogId,
       };
 
       this.timeLogger.endTiming(timing, PIPELINE_STEPS.OVERALL.TIMING_KEY);
@@ -462,6 +465,7 @@ export class AnswerQuestionUseCase
   private async getFallbackAnswerForClassification(
     classification: TClassificationCategory,
     reason: string,
+    questionLogId: Identifier | null,
   ): Promise<AnswerQuestionUseCaseOutput | null> {
     this.logger.debug(
       `Checking for fallback answer for classification: ${classification}, reason: ${reason}`,
@@ -471,6 +475,7 @@ export class AnswerQuestionUseCase
         answer: QueryPipelineFallbackMessages.IRRELEVANT_QUESTION,
         suggestQuestion: QueryPipelineFallbackMessages.SUGGEST_IRRELEVANT,
         relatedCourses: [],
+        questionLogId,
       };
 
       await this.queryPipelineLoggerService.earlyExit({
@@ -485,6 +490,7 @@ export class AnswerQuestionUseCase
         answer: QueryPipelineFallbackMessages.DANGEROUS_QUESTION,
         suggestQuestion: QueryPipelineFallbackMessages.SUGGEST_DANGEROUS,
         relatedCourses: [],
+        questionLogId,
       };
 
       await this.queryPipelineLoggerService.earlyExit({

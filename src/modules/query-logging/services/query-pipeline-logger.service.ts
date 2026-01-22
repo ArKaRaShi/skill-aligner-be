@@ -673,19 +673,14 @@ export class QueryPipelineLoggerService {
 
   /**
    * Compute total duration from timing map.
-   * Returns the sum of all step durations.
+   * Returns the overall duration which represents the wall-clock time.
    * @private
    */
   private computeTotalDuration(timing: TimingMap): number | undefined {
-    const durations = Object.values(timing)
-      .map((record) => record.duration)
-      .filter((d): d is number => d !== undefined);
-
-    if (durations.length === 0) {
-      return undefined;
-    }
-
-    return durations.reduce((sum, d) => sum + d, 0);
+    // Use 'overall' timing key which represents the actual wall-clock time
+    // from pipeline start to end. Individual step durations are sub-ranges
+    // within this overall time, so we should NOT sum them (that would double-count).
+    return timing['overall']?.duration;
   }
 
   /**

@@ -213,6 +213,7 @@ export class AnswerQuestionStreamUseCase {
       const fallbackResponse = await this.getFallbackAnswerForClassification(
         classificationResult.category,
         classificationResult.reason,
+        questionLogId,
       );
 
       if (fallbackResponse) {
@@ -471,6 +472,7 @@ export class AnswerQuestionStreamUseCase {
             suggestQuestion:
               QueryPipelineFallbackMessages.SUGGEST_EMPTY_RESULTS,
             relatedCourses: [] as CourseOutputDto[],
+            questionLogId,
           },
           SSE_EVENT_NAME.DONE,
         );
@@ -595,6 +597,7 @@ export class AnswerQuestionStreamUseCase {
             answer: synthesisResult.answerText,
             suggestQuestion: null,
             relatedCourses,
+            questionLogId,
           },
           SSE_EVENT_NAME.DONE,
         );
@@ -684,6 +687,7 @@ export class AnswerQuestionStreamUseCase {
           {
             answer: fullAnswer,
             suggestQuestion: null,
+            questionLogId,
           },
           SSE_EVENT_NAME.DONE,
         );
@@ -709,6 +713,7 @@ export class AnswerQuestionStreamUseCase {
   private async getFallbackAnswerForClassification(
     classification: TClassificationCategory,
     reason: string,
+    questionLogId: Identifier | null,
   ): Promise<AnswerQuestionUseCaseOutput | null> {
     this.logger.debug(
       `Checking for fallback answer for classification: ${classification}, reason: ${reason}`,
@@ -723,6 +728,7 @@ export class AnswerQuestionStreamUseCase {
         answer: QueryPipelineFallbackMessages.IRRELEVANT_QUESTION,
         suggestQuestion: QueryPipelineFallbackMessages.SUGGEST_IRRELEVANT,
         relatedCourses: [],
+        questionLogId,
       };
     }
 
@@ -735,6 +741,7 @@ export class AnswerQuestionStreamUseCase {
         answer: QueryPipelineFallbackMessages.DANGEROUS_QUESTION,
         suggestQuestion: QueryPipelineFallbackMessages.SUGGEST_DANGEROUS,
         relatedCourses: [],
+        questionLogId,
       };
     }
 
