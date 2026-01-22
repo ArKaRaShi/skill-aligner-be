@@ -30,6 +30,15 @@ const OPENROUTER_LLM_MODELS_REGISTRATIONS: LLMModelRegistration[] = [
     },
   },
   {
+    baseModel: 'gpt-5-nano',
+    modelId: 'openai/gpt-5-nano',
+    provider: 'openrouter',
+    cost: {
+      inputCostPerMillionTokens: 0.05, // $0.05 per 1,000,000 tokens
+      outputCostPerMillionTokens: 0.4, // $0.40 per 1,000,000 tokens
+    },
+  },
+  {
     baseModel: 'gpt-oss-120b',
     modelId: 'openai/gpt-oss-120b',
     provider: 'openrouter',
@@ -43,8 +52,8 @@ const OPENROUTER_LLM_MODELS_REGISTRATIONS: LLMModelRegistration[] = [
     modelId: 'google/gemini-2.5-flash',
     provider: 'openrouter',
     cost: {
-      inputCostPerMillionTokens: 0.3, // $0.3 per 1,000,000 tokens
-      outputCostPerMillionTokens: 2.5, // $2.5 per 1,000,000 tokens
+      inputCostPerMillionTokens: 0.3, // $0.30 per 1,000,000 tokens
+      outputCostPerMillionTokens: 2.5, // $2.50 per 1,000,000 tokens
     },
   },
   {
@@ -54,6 +63,15 @@ const OPENROUTER_LLM_MODELS_REGISTRATIONS: LLMModelRegistration[] = [
     cost: {
       inputCostPerMillionTokens: 0.1, // $0.1 per 1,000,000 tokens
       outputCostPerMillionTokens: 0.4, // $0.4 per 1,000,000 tokens
+    },
+  },
+  {
+    baseModel: 'gemini-3-flash-preview',
+    modelId: 'google/gemini-3-flash-preview',
+    provider: 'openrouter',
+    cost: {
+      inputCostPerMillionTokens: 0.5, // $0.5 per 1,000,000 tokens
+      outputCostPerMillionTokens: 3.0, // $3.0 per 1,000,000 tokens
     },
   },
   {

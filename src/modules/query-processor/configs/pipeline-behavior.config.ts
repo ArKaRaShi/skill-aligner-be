@@ -30,6 +30,7 @@ export const QueryPipelineConfig = {
     QUESTION_CLASSIFICATION: 10_000,
 
     /** Step 1: Query profile building - 10s (language detection) */
+    // Deprecated: QUERY PROFILE BUILDING step removed from pipeline
     QUERY_PROFILE_BUILDING: 10_000,
 
     /** Step 2: Skill expansion - 15s (skill extraction) */

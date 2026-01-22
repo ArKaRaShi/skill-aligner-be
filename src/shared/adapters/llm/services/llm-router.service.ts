@@ -41,20 +41,27 @@ export class LlmRouterService implements ILlmRouterService {
     { prompt, systemPrompt, model, timeout }: GenerateTextInput,
     provider?: string,
   ): Promise<GenerateTextOutput> {
-    const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
-      model,
-      provider,
-    );
-    this.logger.debug(
-      `Routing generateText for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
-    );
+    try {
+      const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
+        model,
+        provider,
+      );
+      this.logger.debug(
+        `Routing generateText for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
+      );
 
-    return selectedProvider.generateText({
-      prompt,
-      systemPrompt,
-      model: resolvedModel,
-      timeout,
-    });
+      return selectedProvider.generateText({
+        prompt,
+        systemPrompt,
+        model: resolvedModel,
+        timeout,
+      });
+    } catch (error) {
+      this.logger.error(
+        `generateText failed for model '${model}': ${error instanceof Error ? error.message : String(error)}`,
+      );
+      throw error;
+    }
   }
 
   /**
@@ -64,20 +71,27 @@ export class LlmRouterService implements ILlmRouterService {
     { prompt, systemPrompt, model, timeout }: StreamTextInput,
     provider?: string,
   ): StreamTextOutput {
-    const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
-      model,
-      provider,
-    );
-    this.logger.debug(
-      `Routing streamText for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
-    );
+    try {
+      const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
+        model,
+        provider,
+      );
+      this.logger.debug(
+        `Routing streamText for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
+      );
 
-    return selectedProvider.streamText({
-      prompt,
-      systemPrompt,
-      model: resolvedModel,
-      timeout,
-    });
+      return selectedProvider.streamText({
+        prompt,
+        systemPrompt,
+        model: resolvedModel,
+        timeout,
+      });
+    } catch (error) {
+      this.logger.error(
+        `streamText failed for model '${model}': ${error instanceof Error ? error.message : String(error)}`,
+      );
+      throw error;
+    }
   }
 
   /**
@@ -93,21 +107,28 @@ export class LlmRouterService implements ILlmRouterService {
     }: GenerateObjectInput<TSchema>,
     provider?: string,
   ): Promise<GenerateObjectOutput<TSchema>> {
-    const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
-      model,
-      provider,
-    );
-    this.logger.debug(
-      `Routing generateObject for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
-    );
+    try {
+      const { selectedProvider, resolvedModel } = this.resolveProviderAndModel(
+        model,
+        provider,
+      );
+      this.logger.debug(
+        `Routing generateObject for model '${model}' to provider '${selectedProvider.getProviderName()}' using model ID '${resolvedModel}'`,
+      );
 
-    return selectedProvider.generateObject({
-      prompt,
-      systemPrompt,
-      schema,
-      model: resolvedModel,
-      timeout,
-    });
+      return selectedProvider.generateObject({
+        prompt,
+        systemPrompt,
+        schema,
+        model: resolvedModel,
+        timeout,
+      });
+    } catch (error) {
+      this.logger.error(
+        `generateObject failed for model '${model}': ${error instanceof Error ? error.message : String(error)}`,
+      );
+      throw error;
+    }
   }
 
   /**

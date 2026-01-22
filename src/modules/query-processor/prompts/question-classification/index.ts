@@ -43,6 +43,22 @@ import {
   getClassificationUserPromptV11,
 } from './classify-question-v11.prompt';
 import {
+  CLASSIFY_QUESTION_SYSTEM_PROMPT_V13,
+  getClassificationUserPromptV13,
+} from './classify-question-v13.prompt';
+import {
+  CLASSIFY_QUESTION_SYSTEM_PROMPT_V14,
+  getClassificationUserPromptV14,
+} from './classify-question-v14.prompt';
+import {
+  CLASSIFY_QUESTION_SYSTEM_PROMPT_V15,
+  getClassificationUserPromptV15,
+} from './classify-question-v15.prompt';
+import {
+  CLASSIFY_QUESTION_SYSTEM_PROMPT_V16,
+  getClassificationUserPromptV16,
+} from './classify-question-v16.prompt';
+import {
   CLASSIFY_QUESTION_SYSTEM_PROMPT,
   getClassificationUserPrompt,
 } from './classify-question.prompt';
@@ -65,6 +81,10 @@ export const QuestionClassificationPromptVersions = {
   V10: 'v10',
   V11: 'v11',
   V12: 'v12',
+  V13: 'v13',
+  V14: 'v14',
+  V15: 'v15',
+  V16: 'v16',
 } as const;
 
 export type QuestionClassificationPromptVersion =
@@ -121,6 +141,22 @@ const QuestionClassificationPrompts: Record<
   v12: {
     systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT_V12,
     getUserPrompt: getClassificationUserPromptV12,
+  },
+  v13: {
+    systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT_V13,
+    getUserPrompt: getClassificationUserPromptV13,
+  },
+  v14: {
+    systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT_V14,
+    getUserPrompt: getClassificationUserPromptV14,
+  },
+  v15: {
+    systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT_V15,
+    getUserPrompt: getClassificationUserPromptV15,
+  },
+  v16: {
+    systemPrompt: CLASSIFY_QUESTION_SYSTEM_PROMPT_V16,
+    getUserPrompt: getClassificationUserPromptV16,
   },
 };
 

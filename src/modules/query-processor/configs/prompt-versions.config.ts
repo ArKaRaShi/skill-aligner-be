@@ -24,7 +24,14 @@ export const QueryPipelinePromptConfig = {
    * Step 1: Question classification
    * Determines if the question is relevant, irrelevant, or dangerous
    */
-  CLASSIFICATION: QuestionClassificationPromptVersions.V11,
+  // v16: Fixed administrative constraint with explicit examples and "NO EXCEPTION"
+  // v16: Added concrete fictional examples (dragon rider, etc.)
+  // v16: Based on V11 structure with targeted content fixes
+  // v15: Added EVALUATION ORDER section to prioritize dangerous over irrelevant
+  // v15: Reduced examples from 13 to 9 (removed redundant dangerous/relevant examples)
+  // v14: Added concept mapping approach, relaxed pattern requirements
+  // v11: Base structure with simple pattern-based classification
+  CLASSIFICATION: QuestionClassificationPromptVersions.V16,
 
   /**
    * Step 1: Query profile builder

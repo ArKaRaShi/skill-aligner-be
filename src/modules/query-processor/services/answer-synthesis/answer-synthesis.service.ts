@@ -53,8 +53,12 @@ export class AnswerSynthesisService implements IAnswerSynthesisService {
       `[AnswerSynthesis] Synthesizing answer for question: "${question}" using model: ${this.modelName}`,
     );
 
+    // this.logger.log(
+    //   `[AnswerSynthesis] Context data sent to prompt: ${this.truncateForLog(context)}`,
+    // );
+
     this.logger.log(
-      `[AnswerSynthesis] Context data sent to prompt: ${this.truncateForLog(context)}`,
+      `[AnswerSynthesis] Context data sent to prompt: ${context}`,
     );
 
     const { getPrompts } = AnswerSynthesisPromptFactory();
