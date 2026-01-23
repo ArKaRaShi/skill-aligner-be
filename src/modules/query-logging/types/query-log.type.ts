@@ -1,3 +1,11 @@
+import type { CampusViewResponseDto } from '../../../modules/campus/dto/responses/campus-view.response.dto';
+import type { FacultyViewResponseDto } from '../../../modules/faculty/dto/responses/faculty-view.response.dto';
+// DTO types for RelatedCourseInfo (matches CourseOutputDto for consistency)
+import type {
+  CourseOfferingDto,
+  LearningOutcomeDto,
+  MatchedSkillLearningOutcomesDto,
+} from '../../../modules/query-processor/adapters/inbound/http/dto/responses/answer-question.response.dto';
 import type { AcademicYearSemesterFilter } from '../../../shared/contracts/types/academic-year-semester-filter.type';
 import type { Identifier } from '../../../shared/contracts/types/identifier';
 import type { QueryStatus } from './query-status.type';
@@ -59,11 +67,32 @@ export interface QueryLogOutput {
 }
 
 /**
- * Related course information.
+ * Related course information with full details for analytics and debugging.
+ * Matches CourseOutputDto structure for consistency with API responses.
  */
 export interface RelatedCourseInfo {
+  /** The ID of the course */
+  id: string;
+  /** The campus information */
+  campus: CampusViewResponseDto;
+  /** The faculty information */
+  faculty: FacultyViewResponseDto;
+  /** Course subject code (e.g., "CS101") */
   subjectCode: string;
+  /** Course subject name (e.g., "Introduction to Computer Science") */
   subjectName: string;
+  /** Whether this is a General Education course */
+  isGenEd: boolean;
+  /** List of course learning outcomes */
+  courseLearningOutcomes: LearningOutcomeDto[];
+  /** List of matched skills with their relevance scores and LOs */
+  matchedSkills: MatchedSkillLearningOutcomesDto[];
+  /** List of course offerings */
+  courseOfferings: CourseOfferingDto[];
+  /** Relevance score of the course (0-3 scale) */
+  score: number;
+  /** Total number of clicks for this course */
+  totalClicks: number;
 }
 
 /**

@@ -176,8 +176,25 @@ describe('QueryLogging (Integration)', () => {
           suggestQuestion: undefined,
           relatedCourses: [
             {
+              id: 'course-1',
+              campus: {
+                id: 'campus-1',
+                code: 'B',
+                name: 'Test Campus',
+              },
+              faculty: {
+                id: 'faculty-1',
+                code: 'ENG',
+                name: 'Test Faculty',
+              },
               subjectCode: 'TEST101',
               subjectName: 'วิชาทดสอบ',
+              isGenEd: false,
+              courseLearningOutcomes: [],
+              matchedSkills: [],
+              courseOfferings: [],
+              score: 3,
+              totalClicks: 0,
             },
           ],
         },

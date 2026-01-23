@@ -26,6 +26,7 @@ import {
   type IQuestionLogRepository,
 } from 'src/modules/question-analyses/contracts/repositories/i-question-log-repository.contract';
 
+import { CourseResponseMapper } from '../adapters/inbound/http/mappers/course-response.mapper';
 import { PIPELINE_STEPS } from '../configs/pipeline-steps.config';
 import {
   QueryPipelineConfig,
@@ -438,14 +439,14 @@ export class AnswerQuestionUseCase
       this.logExecutionMetrics(timing, tokenMap);
 
       // Complete query logging with metrics
+      // Map CourseView to CourseOutputDto for logging
+      const relatedCoursesDto =
+        CourseResponseMapper.toCourseOutputDto(relatedCourses);
       await this.queryPipelineLoggerService.completeWithRawMetrics(
         {
           answer: result.answer,
           suggestQuestion: result.suggestQuestion ?? undefined,
-          relatedCourses: relatedCourses.map((c) => ({
-            subjectCode: c.subjectCode,
-            subjectName: c.subjectName,
-          })),
+          relatedCourses: relatedCoursesDto,
         },
         timing,
         tokenMap,

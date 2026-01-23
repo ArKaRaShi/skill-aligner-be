@@ -24,6 +24,8 @@ export const QueryPipelinePromptConfig = {
    * Step 1: Question classification
    * Determines if the question is relevant, irrelevant, or dangerous
    */
+  // v17: Enhanced Relax Rule to handle goal-only statements (e.g., "อยากทำธุรกิจร้านเหล้า")
+  // v17: Added examples for goal statements without explicit course questions
   // v16: Fixed administrative constraint with explicit examples and "NO EXCEPTION"
   // v16: Added concrete fictional examples (dragon rider, etc.)
   // v16: Based on V11 structure with targeted content fixes
@@ -31,7 +33,7 @@ export const QueryPipelinePromptConfig = {
   // v15: Reduced examples from 13 to 9 (removed redundant dangerous/relevant examples)
   // v14: Added concept mapping approach, relaxed pattern requirements
   // v11: Base structure with simple pattern-based classification
-  CLASSIFICATION: QuestionClassificationPromptVersions.V16,
+  CLASSIFICATION: QuestionClassificationPromptVersions.V17,
 
   /**
    * Step 1: Query profile builder
@@ -79,7 +81,7 @@ export const QueryPipelinePromptConfig = {
    */
   // v14: Duplicate of v13 (no functional changes - reserved for future use)
   // v13: Base version with comprehensive formatting rules (markdown skills/courses) and tone constraints
-  ANSWER_SYNTHESIS: AnswerSynthesisPromptVersions.V13,
+  ANSWER_SYNTHESIS: AnswerSynthesisPromptVersions.V14,
 } as const;
 
 /**

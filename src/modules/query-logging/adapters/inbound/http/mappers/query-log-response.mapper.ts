@@ -9,6 +9,7 @@ import {
 import type { QueryProcessStep } from 'src/modules/query-logging/types/query-log-step.type';
 import type { QueryProcessLog } from 'src/modules/query-logging/types/query-log.type';
 import type { QueryStatus } from 'src/modules/query-logging/types/query-status.type';
+import { CourseOutputDto } from 'src/modules/query-processor/adapters/inbound/http/dto/responses/answer-question.response.dto';
 import { PIPELINE_STEPS } from 'src/modules/query-processor/configs/pipeline-steps.config';
 
 import { QueryLogDetailResponseDto } from '../dto/responses/query-log-detail-response.dto';
@@ -184,7 +185,11 @@ export class QueryLogResponseMapper {
         ? {
             answer: log.output.answer ?? null,
             suggestQuestion: log.output.suggestQuestion ?? null,
-            relatedCourses: log.output.relatedCourses ?? null,
+            relatedCourses: log.output.relatedCourses
+              ? plainToInstance(CourseOutputDto, log.output.relatedCourses, {
+                  excludeExtraneousValues: true,
+                })
+              : null,
             classification: log.output.classification ?? null,
           }
         : null,

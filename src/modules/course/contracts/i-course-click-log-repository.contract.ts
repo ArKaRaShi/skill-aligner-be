@@ -46,4 +46,15 @@ export interface ICourseClickLogRepository {
     questionId: Identifier;
     courseId: Identifier;
   }): Promise<CourseClickLog>;
+
+  /**
+   * Atomically create or get existing course click log using upsert
+   * This is race-condition safe and truly idempotent
+   * @param data - The course click log data
+   * @returns The created or existing course click log
+   */
+  upsert(data: {
+    questionId: Identifier;
+    courseId: Identifier;
+  }): Promise<CourseClickLog>;
 }

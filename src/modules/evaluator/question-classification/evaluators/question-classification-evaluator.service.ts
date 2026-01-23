@@ -23,10 +23,11 @@ import {
 } from '../../shared/types/test-result.type';
 import { QuestionClassificationMetricsHelper } from '../helpers/question-classification-metrics.helper';
 import {
-  QUESTION_SET_V6,
+  QUESTION_SET_V6 as _QUESTION_SET_V6,
   QuestionSetItem,
 } from '../test-sets/question-set-v6.constant';
 import { QUESTION_SET_V8 as _QUESTION_SET_V8 } from '../test-sets/question-set-v8.constant';
+import { QUESTION_SET_V9 as _QUESTION_SET_V9 } from '../test-sets/question-set-v9.constant';
 
 @Injectable()
 export class QuestionClassificationEvaluatorService {
@@ -41,7 +42,7 @@ export class QuestionClassificationEvaluatorService {
     'data/evaluation/question-classification';
   private readonly recordsDirName = 'records';
   private readonly metricsDirName = 'metrics';
-  private readonly testSet: QuestionSetItem[] = QUESTION_SET_V6.map((item) => {
+  private readonly testSet: QuestionSetItem[] = _QUESTION_SET_V6.map((item) => {
     // if (item.expectedCategory === 'unclear') {
     //   return {
     //     ...item,

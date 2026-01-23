@@ -149,7 +149,29 @@ export const createMockQueryLogOutput = (
   overrides: Partial<QueryLogOutput> = {},
 ): QueryLogOutput => ({
   answer: 'Test answer',
-  relatedCourses: [{ subjectCode: 'CS101', subjectName: 'Intro to CS' }],
+  relatedCourses: [
+    {
+      id: 'course-1',
+      campus: {
+        id: 'campus-1',
+        code: 'B',
+        name: 'Main Campus',
+      },
+      faculty: {
+        id: 'faculty-1',
+        code: 'ENG',
+        name: 'Engineering',
+      },
+      subjectCode: 'CS101',
+      subjectName: 'Intro to CS',
+      isGenEd: false,
+      courseLearningOutcomes: [],
+      matchedSkills: [],
+      courseOfferings: [],
+      score: 3,
+      totalClicks: 5,
+    },
+  ],
   ...overrides,
 });
 

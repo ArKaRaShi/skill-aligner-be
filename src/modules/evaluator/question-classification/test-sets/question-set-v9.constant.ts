@@ -43,14 +43,14 @@ export const QUESTION_SET_V9: QuestionSetItem[] = [
     pattern: 'A',
   },
   {
-    question: 'อยากเรียนพื้นฐานการเขียนเว็บ มีคอร์สไหนแนะนำบ้าง',
+    question: 'อยากเรียนพื้นฐานการเขียนเว็บ',
     expectedCategory: 'relevant',
     reasoning:
       'Direct/Explicit Concept Request (Pattern A) - web development basics is a learnable skill',
     pattern: 'A',
   },
   {
-    question: 'อยากเรียนภาษาจีน มีวิชาอะไรบ้าง',
+    question: 'อยากเรียนภาษาจีน',
     expectedCategory: 'relevant',
     reasoning:
       'Direct/Explicit Concept Request (Pattern A) - Chinese language is a learnable skill',
@@ -64,7 +64,7 @@ export const QUESTION_SET_V9: QuestionSetItem[] = [
     pattern: 'A',
   },
   {
-    question: 'อยากเรียนการตลาดดิจิทัล มีวิชาอะไรบ้าง',
+    question: 'อยากเรียนการตลาดดิจิทัล',
     expectedCategory: 'relevant',
     reasoning:
       'Direct/Explicit Concept Request (Pattern A) - digital marketing is a learnable skill',
@@ -78,7 +78,7 @@ export const QUESTION_SET_V9: QuestionSetItem[] = [
     pattern: 'A',
   },
   {
-    question: 'อยากเรียนการยิงธนู มีวิชาไหนแนะนำบ้าง',
+    question: 'อยากเรียนการยิงธนู',
     expectedCategory: 'relevant',
     reasoning:
       'Direct/Explicit Concept Request (Pattern A) - archery is a learnable skill',
@@ -143,7 +143,7 @@ export const QUESTION_SET_V9: QuestionSetItem[] = [
     pattern: 'B',
   },
   {
-    question: 'อยากเขียนโปรแกรมให้เก่งขึ้น ควรเรียนอะไรเพิ่ม',
+    question: 'อยากเขียนโปรแกรมให้เก่งขึ้น',
     expectedCategory: 'relevant',
     reasoning:
       'Outcome/Goal-Oriented (Pattern B) - skill improvement goal with learning intent',
@@ -167,7 +167,7 @@ export const QUESTION_SET_V9: QuestionSetItem[] = [
     pattern: 'C',
   },
   {
-    question: 'อยากเรียนการบริหารเงินตัวเองกับการลงทุน มีวิชาไหนแนะนำบ้าง',
+    question: 'อยากเรียนการบริหารเงินตัวเองกับการลงทุน',
     expectedCategory: 'relevant',
     reasoning:
       'Multi-Concept/Transition (Pattern C) - mentions two related financial concepts',
@@ -189,7 +189,7 @@ export const QUESTION_SET_V9: QuestionSetItem[] = [
     pattern: 'C',
   },
   {
-    question: 'อยากเรียนทั้งภาษาอังกฤษและภาษาจีนเพื่อธุรกิจ มีวิชาไหม',
+    question: 'อยากเรียนทั้งภาษาอังกฤษและภาษาจีนเพื่อธุรกิจ',
     expectedCategory: 'relevant',
     reasoning:
       'Multi-Concept/Transition (Pattern C) - mentions two languages for business',
@@ -359,9 +359,9 @@ export const QUESTION_SET_V9: QuestionSetItem[] = [
   },
   {
     question: 'อยากเรียนอะไรซักอย่างที่มีประโยชน์ แต่ไม่รู้จะเริ่มยังไง',
-    expectedCategory: 'irrelevant',
+    expectedCategory: 'relevant',
     reasoning:
-      'Ambiguous - lacks specific concept or skill context relevant to a student',
+      'Edge case - expresses general learning intent without specific concept, but still worth trying to map to skills',
     pattern: 'edge',
   },
   {

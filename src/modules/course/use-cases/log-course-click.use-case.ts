@@ -25,8 +25,8 @@ import type {
  * Use case for logging course click events
  *
  * Validation logic:
- * - First attempt: Validates questionId and courseId exist before creating
- * - Second attempt: Uses findOrCreate (idempotent - returns existing if already clicked)
+ * - Validates questionId and courseId exist before logging
+ * - Uses upsert for race-condition safe idempotency
  */
 @Injectable()
 export class LogCourseClickUseCase {
@@ -50,21 +50,6 @@ export class LogCourseClickUseCase {
       `Logging course click: questionId=${questionId}, courseId=${courseId}`,
     );
 
-    // Check if click log already exists (idempotent check)
-    const existing =
-      await this.courseClickLogRepository.findByQuestionAndCourse(
-        questionId,
-        courseId,
-      );
-
-    if (existing) {
-      this.logger.log(
-        `Click log already exists: clickLogId=${existing.id}, returning existing`,
-      );
-      return existing;
-    }
-
-    // First attempt - validate both questionId and courseId exist
     // Validate questionId exists
     const questionLog = await this.questionLogRepository.findById(questionId);
     if (!questionLog) {
@@ -81,8 +66,8 @@ export class LogCourseClickUseCase {
     // Validate courseId exists
     await this.courseRepository.findByIdOrThrow(courseId);
 
-    // Create new click log
-    const clickLog = await this.courseClickLogRepository.create({
+    // Create or get existing click log (race-condition safe)
+    const clickLog = await this.courseClickLogRepository.upsert({
       questionId,
       courseId,
     });

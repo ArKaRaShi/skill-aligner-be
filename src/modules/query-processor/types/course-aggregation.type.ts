@@ -27,10 +27,7 @@ export type CourseWithLearningOutcomeV2MatchWithRelevance =
  */
 export type AggregatedCourseSkills = Course & {
   matchedSkills: MatchedSkillLearningOutcomes[];
-  /**
-   * Maximum relevance score across all matched skills.
-   * @deprecated Previously named `relevanceScore` - migrated in 2025-01
-   */
+  /** Maximum relevance score across all matched skills. */
   maxRelevanceScore: number;
 };
 

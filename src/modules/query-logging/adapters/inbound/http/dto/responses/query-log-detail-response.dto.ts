@@ -6,6 +6,7 @@ import {
   QUERY_STATUS,
   type QueryStatus,
 } from 'src/modules/query-logging/types/query-status.type';
+import { CourseOutputDto } from 'src/modules/query-processor/adapters/inbound/http/dto/responses/answer-question.response.dto';
 
 import { QueryLogStepDetailResponseDto } from './query-log-step-detail.response.dto';
 
@@ -13,10 +14,6 @@ import { QueryLogStepDetailResponseDto } from './query-log-step-detail.response.
 // NESTED DTOs
 // ============================================================================
 
-/**
- * Query log input data response DTO.
- * Contains user filters and parameters for the query.
- */
 export class QueryLogInputResponseDto {
   @ApiProperty({
     description: 'User question text',
@@ -88,19 +85,12 @@ export class QueryLogOutputResponseDto {
   suggestQuestion: string | null;
 
   @ApiProperty({
-    description: 'Related courses found',
-    type: [Object],
-    example: [
-      { subjectCode: '010123', subjectName: 'Introduction to Programming' },
-      { subjectCode: '010456', subjectName: 'Advanced Python' },
-    ],
+    description: 'Related courses found with full details',
+    type: [CourseOutputDto],
     nullable: true,
   })
   @Expose()
-  relatedCourses: Array<{
-    subjectCode: string;
-    subjectName: string;
-  }> | null;
+  relatedCourses: CourseOutputDto[] | null;
 
   @ApiProperty({
     description: 'Classification result (for early exit queries)',

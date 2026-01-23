@@ -16,7 +16,6 @@ import {
 } from '../contracts/i-course-repository.contract';
 import { Course, CourseMatch } from '../types/course.type';
 import { PrismaCourseLearningOutcomeV2Mapper } from './mappers/prisma-course-learning-outcome-v2.mapper';
-import { FindCourseByIdRawRow } from './types/find-course-by-id-raw.type';
 
 type FindCoursesBySkillsParams = {
   skills: string[];
@@ -430,74 +429,41 @@ export class PrismaCourseRepository implements ICourseRepository {
   }
 
   async findByIdOrThrow(courseId: Identifier): Promise<Course> {
-    const rows = await this.prisma.$queryRaw<FindCourseByIdRawRow[]>`
-      SELECT
-        c.id AS course_id,
-        c.campus_id,
-        c.faculty_id,
-        c.academic_year,
-        c.semester,
-        c.subject_code,
-        c.subject_name_th,
-        c.subject_name_en,
-        c.metadata AS course_metadata,
-        c.created_at AS course_created_at,
-        c.updated_at AS course_updated_at,
-        cc.id AS course_clo_id,
-        cc.clo_no,
-        cc.created_at AS course_clo_created_at,
-        cc.updated_at AS course_clo_updated_at,
-        clo.id AS clo_id,
-        clo.original_clo_name,
-        clo.original_clo_name_en,
-        clo.cleaned_clo_name_th,
-        clo.cleaned_clo_name_en,
-        clov.embedding_768::float4[] AS embedding_768,
-        clo.skip_embedding,
-        clo.has_embedding_768 AS has_embedding_768,
-        clo.has_embedding_1536 AS has_embedding_1536,
-        clo.metadata AS clo_metadata,
-        clo.created_at AS clo_created_at,
-        clo.updated_at AS clo_updated_at
-      FROM courses c
-      LEFT JOIN course_clos cc ON c.id = cc.course_id
-      LEFT JOIN course_learning_outcomes clo ON cc.clo_id = clo.id
-      LEFT JOIN course_learning_outcome_vectors clov ON clo.id = clov.clo_id
-      WHERE c.id = ${courseId}::uuid
-      ORDER BY cc.clo_no;
-    `;
+    const course = await this.prisma.course.findUnique({
+      where: { id: courseId as string },
+      include: {
+        courseLearningOutcomes: {
+          orderBy: { cloNo: SortOrder.ASC },
+        },
+      },
+    });
 
-    if (!rows.length) {
+    if (!course) {
       throw new Error(`Course with id ${courseId} not found`);
     }
 
-    const firstRow = rows[0];
-    const courseLearningOutcomes = rows
-      .filter((row) => row.clo_id)
-      .map((row) => ({
-        loId: row.clo_id as Identifier,
-        originalName: row.original_clo_name,
-        cleanedName: row.cleaned_clo_name_th,
-        skipEmbedding: row.skip_embedding,
-        hasEmbedding768: row.has_embedding_768,
-        hasEmbedding1536: row.has_embedding_1536,
-        createdAt: row.clo_created_at,
-        updatedAt: row.clo_updated_at,
-      }));
-
     return {
-      id: firstRow.course_id as Identifier,
-      campusId: firstRow.campus_id as Identifier,
-      facultyId: firstRow.faculty_id as Identifier,
-      subjectCode: firstRow.subject_code,
-      subjectName: firstRow.subject_name_th,
-      isGenEd: false, // Default value as it's not in the query result
-      courseLearningOutcomes,
+      id: course.id as Identifier,
+      campusId: course.campusId as Identifier,
+      facultyId: course.facultyId as Identifier,
+      subjectCode: course.subjectCode,
+      subjectName: course.subjectName,
+      isGenEd: course.isGenEd,
+      courseLearningOutcomes: course.courseLearningOutcomes.map((clo) => ({
+        loId: clo.id as Identifier,
+        originalName: clo.originalCloName,
+        cleanedName: clo.cleanedCloName,
+        skipEmbedding: clo.skipEmbedding,
+        hasEmbedding768: clo.hasEmbedding768,
+        hasEmbedding1536: clo.hasEmbedding1536,
+        createdAt: clo.createdAt,
+        updatedAt: clo.updatedAt,
+      })),
       courseOfferings: [],
       courseClickLogs: [],
-      metadata: firstRow.course_metadata,
-      createdAt: firstRow.course_created_at,
-      updatedAt: firstRow.course_updated_at,
+      metadata: course.metadata as Record<string, any> | null,
+      createdAt: course.createdAt,
+      updatedAt: course.updatedAt,
     };
   }
 }
