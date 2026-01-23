@@ -1,0 +1,136 @@
+{
+  "totalDisagreements": 55,
+  "totalSamples": 2,
+  "disagreementRate": 0.514018691588785,
+  "byType": {
+    "EXPLORATORY_DELTA": {
+      "count": 51,
+      "percentage": 1,
+      "description": "System keeps courses that judge would drop (system is too exploratory)",
+      "bySystemScore": {
+        "score1": 41,
+        "score2": 9,
+        "score3": 1
+      },
+      "commonPatterns": [
+        {
+          "pattern": "SIBLING_MISCLASSIFICATION",
+          "count": 6,
+          "description": "System keeps adjacent/sibling topics that judge considers distinct",
+          "example": {
+            "question": "อยากเป็นนายก",
+            "subjectCode": "03764322-64",
+            "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+            "systemScore": 3,
+            "judgeReason": "Focuses on negotiation in logistics management, which is not directly relevant to political leadership or governance."
+          }
+        }
+      ],
+      "examples": [
+        {
+          "queryLogId": "03764322-64",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "03764322-64",
+          "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+          "systemScore": 3,
+          "systemReason": "เน้นโดยตรงในทักษะการเจรจาต่อรองเพื่อการจัดการโลจิสติกส์ ซึ่งเป็นเป้าหมายหลัก",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Focuses on negotiation in logistics management, which is not directly relevant to political leadership or governance."
+        },
+        {
+          "queryLogId": "01058153-68",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "01058153-68",
+          "subjectName": "แรงบันดาลใจและทักษะสำคัญสำหรับผู้ประกอบการอุตสาหกรรมเกษตร",
+          "systemScore": 2,
+          "systemReason": "Includes leadership skills and responsibilities, foundational for leadership but not specifically about leadership development.",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Targets entrepreneurship in agricultural industry, which is a niche unrelated to political leadership aspirations."
+        },
+        {
+          "queryLogId": "04351141-68",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "04351141-68",
+          "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+          "systemScore": 2,
+          "systemReason": "เน้นทักษะการสื่อสารพื้นฐาน ซึ่งเป็นส่วนสำคัญของการเจรจาต่อรอง",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Basic English communication skills are not directly relevant to becoming a prime minister."
+        },
+        {
+          "queryLogId": "04404222-67",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "04404222-67",
+          "subjectName": "หลักอนามัยสิ่งแวดล้อม",
+          "systemScore": 2,
+          "systemReason": "เน้นการสื่อสารและการทำงานเป็นทีม ซึ่งเป็นพื้นฐานสำคัญของการเจรจาต่อรอง",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Environmental health topics are unrelated to the core political leadership question."
+        },
+        {
+          "queryLogId": "02738463-61",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "02738463-61",
+          "subjectName": "นิติวิทยาศาสตร์ทางชีววิทยา",
+          "systemScore": 2,
+          "systemReason": "เน้นการสื่อสารและการประยุกต์ความรู้ในด้านนิติวิทยาศาสตร์ ซึ่งเกี่ยวข้องกับทักษะการเจรจา",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Forensic biology is unrelated to political leadership or becoming a prime minister."
+        }
+      ]
+    },
+    "CONSERVATIVE_DROP": {
+      "count": 4,
+      "percentage": 1,
+      "description": "System drops courses that judge would keep (system is too strict)",
+      "commonPatterns": [],
+      "examples": [
+        {
+          "queryLogId": "01451356-65",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "01451356-65",
+          "subjectName": "ภูมิสารสนเทศศาสตร์เพื่อการจัดการภัยพิบัติ",
+          "systemScore": 0,
+          "systemReason": "Unrelated to leadership skills.",
+          "judgeVerdict": "PASS",
+          "judgeReason": "Disaster management with geoinformatics includes leadership, decision-making, and management skills relevant to a prime minister."
+        },
+        {
+          "queryLogId": "02193222-67",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "02193222-67",
+          "subjectName": "ทักษะและเทคนิคการสอนบาสเกตบอล",
+          "systemScore": 0,
+          "systemReason": "Not found in LLM response",
+          "judgeVerdict": "PASS",
+          "judgeReason": "Course develops leadership, teamwork, communication, and responsibility skills useful for a prime minister."
+        },
+        {
+          "queryLogId": "02193221-67",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "02193221-67",
+          "subjectName": "ทักษะและเทคนิคการสอนกรีฑาลาน",
+          "systemScore": 0,
+          "systemReason": "Not found in LLM response",
+          "judgeVerdict": "PASS",
+          "judgeReason": "Course fosters leadership, teamwork, communication, and responsibility skills applicable to political leadership."
+        },
+        {
+          "queryLogId": "02193226-67",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "02193226-67",
+          "subjectName": "ทักษะและเทคนิคการสอนมวยไทย",
+          "systemScore": 0,
+          "systemReason": "Not found in LLM response",
+          "judgeVerdict": "PASS",
+          "judgeReason": "Course develops leadership, communication, and public service values relevant to becoming a political leader like a prime minister."
+        }
+      ]
+    }
+  },
+  "insights": {
+    "systemCharacter": "Too exploratory (keeps marginal courses)",
+    "judgeCharacter": "Binary utility assessment",
+    "recommendation": "Consider tightening the filtering criteria to reduce exploratory delta cases"
+  }
+}

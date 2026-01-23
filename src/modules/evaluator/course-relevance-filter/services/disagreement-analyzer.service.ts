@@ -152,7 +152,7 @@ export class DisagreementAnalyzerService {
     // Extract examples (up to 5)
     const examples = cases.slice(0, 5).map((c) => ({
       queryLogId: c.subjectCode, // Using subjectCode as proxy
-      question: '', // Will be filled by caller if needed
+      question: c.question, // Include question for context
       subjectCode: c.subjectCode,
       subjectName: c.subjectName,
       systemScore: c.system.score,
@@ -187,7 +187,7 @@ export class DisagreementAnalyzerService {
     // Extract examples (up to 5)
     const examples = cases.slice(0, 5).map((c) => ({
       queryLogId: c.subjectCode,
-      question: '',
+      question: c.question, // Include question for context
       subjectCode: c.subjectCode,
       subjectName: c.subjectName,
       systemScore: c.system.score,
@@ -338,7 +338,7 @@ export class DisagreementAnalyzerService {
       pattern,
       examples: cases.slice(0, 3).map((c) => ({
         queryLogId: c.subjectCode,
-        question: '',
+        question: c.question, // Include question for context
         subjectCode: c.subjectCode,
         subjectName: c.subjectName,
         systemScore: c.system.score,
@@ -451,7 +451,7 @@ export class DisagreementAnalyzerService {
   ): DisagreementPattern['example'] {
     const first = cases[0];
     return {
-      question: '', // Would need to be filled from parent
+      question: first.question, // Include question for context
       subjectCode: first.subjectCode,
       subjectName: first.subjectName,
       systemScore: first.system.score,

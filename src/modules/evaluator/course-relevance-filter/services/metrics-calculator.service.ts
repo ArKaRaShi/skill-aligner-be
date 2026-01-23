@@ -6,8 +6,11 @@ import type {
   ConfusionMatrix,
   CourseComparisonRecord,
   EvaluationMetrics,
+  PerSampleMetrics,
   SampleEvaluationRecord,
   ScoreDistribution,
+  ScoreVerdictBreakdown,
+  ThresholdSweep,
 } from '../types/course-relevance-filter.types';
 
 // ============================================================================
@@ -52,6 +55,12 @@ export class CourseFilterMetricsCalculator {
     const confusionMatrix = this.calculateConfusionMatrix(allCourses);
     const scoreDistribution = this.calculateScoreDistribution(allCourses);
 
+    // Calculate new diagnostic metrics
+    const scoreVerdictBreakdown =
+      this.calculateScoreVerdictBreakdown(allCourses);
+    const perSampleMetrics = this.calculatePerSampleMetrics(records);
+    const thresholdSweep = this.calculateThresholdSweep(allCourses);
+
     return {
       sampleCount: records.length,
       totalCoursesEvaluated: allCourses.length,
@@ -62,6 +71,10 @@ export class CourseFilterMetricsCalculator {
       conservativeDropRate: this.calculateConservativeDropRate(confusionMatrix),
       systemScoreDistribution: scoreDistribution,
       confusionMatrix,
+      // New diagnostic metrics
+      scoreVerdictBreakdown,
+      perSampleMetrics,
+      thresholdSweep,
     };
   }
 
@@ -275,6 +288,243 @@ export class CourseFilterMetricsCalculator {
   }
 
   /**
+   * Calculate score × verdict breakdown.
+   *
+   * Cross-tabulation showing how well system scores predict judge verdicts.
+   * For each score level (0-3), count how many courses passed/failed by judge.
+   *
+   * This reveals score calibration: higher scores should have higher pass rates.
+   */
+  private calculateScoreVerdictBreakdown(
+    courses: CourseComparisonRecord[],
+  ): ScoreVerdictBreakdown {
+    // Initialize counters for each score
+    const breakdown = {
+      score0: { judgePass: 0, judgeFail: 0, total: 0, passRate: 0 },
+      score1: { judgePass: 0, judgeFail: 0, total: 0, passRate: 0 },
+      score2: { judgePass: 0, judgeFail: 0, total: 0, passRate: 0 },
+      score3: { judgePass: 0, judgeFail: 0, total: 0, passRate: 0 },
+    };
+
+    // Count by score and verdict
+    for (const course of courses) {
+      const score = course.system.score;
+      const verdict = course.judge.verdict;
+
+      const entry = breakdown[`score${score}`];
+      entry.total++;
+      if (verdict === 'PASS') {
+        entry.judgePass++;
+      } else {
+        entry.judgeFail++;
+      }
+    }
+
+    // Calculate pass rates
+    for (const score of ['score0', 'score1', 'score2', 'score3'] as const) {
+      const entry = breakdown[score];
+      entry.passRate =
+        entry.total > 0
+          ? DecimalHelper.divide(entry.judgePass, entry.total)
+          : 0;
+    }
+
+    return breakdown;
+  }
+
+  /**
+   * Calculate per-sample metrics.
+   *
+   * For each question/sample, compute individual metrics.
+   * Allows drilling down to identify which specific questions perform poorly.
+   */
+  private calculatePerSampleMetrics(
+    records: SampleEvaluationRecord[],
+  ): PerSampleMetrics {
+    return records.map((record, index) => {
+      const courses = record.courses;
+      const totalCourses = courses.length;
+
+      // Count agreements and disagreements
+      let agreementCount = 0;
+      let disagreementCount = 0;
+      let bothDrop = 0;
+      let exploratoryDelta = 0;
+      let conservativeDrop = 0;
+      let systemDrop = 0;
+      let systemKeep = 0;
+
+      for (const course of courses) {
+        const systemAction = course.system.action;
+        const judgeVerdict = course.judge.verdict;
+
+        if (judgeVerdict === 'FAIL') {
+          if (systemAction === 'DROP') {
+            bothDrop++;
+            systemDrop++;
+            agreementCount++;
+          } else {
+            exploratoryDelta++;
+            systemKeep++;
+            disagreementCount++;
+          }
+        } else {
+          // judgeVerdict === 'PASS'
+          if (systemAction === 'DROP') {
+            conservativeDrop++;
+            systemDrop++;
+            disagreementCount++;
+          } else {
+            systemKeep++;
+            agreementCount++;
+          }
+        }
+      }
+
+      // Calculate metrics for this sample
+      const agreementRate =
+        totalCourses > 0
+          ? DecimalHelper.divide(agreementCount, totalCourses)
+          : 0;
+      const noiseRemovalEfficiency =
+        systemDrop > 0 ? DecimalHelper.divide(bothDrop, systemDrop) : 0;
+      const exploratoryRecall =
+        systemKeep > 0 ? DecimalHelper.divide(exploratoryDelta, systemKeep) : 0;
+      const conservativeDropRate =
+        systemDrop > 0 ? DecimalHelper.divide(conservativeDrop, systemDrop) : 0;
+
+      return {
+        sampleId: index + 1,
+        queryLogId: record.queryLogId,
+        question: record.question,
+        coursesEvaluated: totalCourses,
+        agreementCount,
+        disagreementCount,
+        agreementRate,
+        noiseRemovalEfficiency,
+        exploratoryRecall,
+        conservativeDropRate,
+      };
+    });
+  }
+
+  /**
+   * Calculate threshold sweep.
+   *
+   * Simulates different keep/drop thresholds to find optimal balance.
+   * Answers: "What if we only keep courses with score ≥ X?"
+   */
+  private calculateThresholdSweep(
+    courses: CourseComparisonRecord[],
+  ): ThresholdSweep {
+    const sweep: ThresholdSweep = [];
+
+    // Test thresholds: 0 (keep all), 1, 2, 3
+    const thresholds: Array<{ threshold: string; minScore: number }> = [
+      { threshold: 'keepAll', minScore: 0 },
+      { threshold: '≥1', minScore: 1 },
+      { threshold: '≥2', minScore: 2 },
+      { threshold: '≥3', minScore: 3 },
+    ];
+
+    for (const { threshold, minScore } of thresholds) {
+      let truePositives = 0; // System KEEP ∧ Judge PASS
+      let falsePositives = 0; // System KEEP ∧ Judge FAIL
+      let trueNegatives = 0; // System DROP ∧ Judge FAIL
+      let falseNegatives = 0; // System DROP ∧ Judge PASS
+      let coursesKept = 0;
+      let coursesDropped = 0;
+
+      for (const course of courses) {
+        const systemScore = course.system.score;
+        const judgeVerdict = course.judge.verdict;
+
+        // Simulate system action based on threshold
+        const simulatedSystemAction = systemScore >= minScore ? 'KEEP' : 'DROP';
+
+        if (simulatedSystemAction === 'KEEP') {
+          coursesKept++;
+          if (judgeVerdict === 'PASS') {
+            truePositives++;
+          } else {
+            falsePositives++;
+          }
+        } else {
+          // DROP
+          coursesDropped++;
+          if (judgeVerdict === 'FAIL') {
+            trueNegatives++;
+          } else {
+            falseNegatives++;
+          }
+        }
+      }
+
+      // Calculate precision and recall
+      const precision =
+        coursesKept > 0 ? DecimalHelper.divide(truePositives, coursesKept) : 0;
+      const recall =
+        truePositives + falseNegatives > 0
+          ? DecimalHelper.divide(truePositives, truePositives + falseNegatives)
+          : 0;
+
+      // Generate description based on tradeoff
+      const description = this.generateThresholdDescription(
+        threshold,
+        precision,
+        recall,
+      );
+
+      sweep.push({
+        threshold,
+        minScore,
+        coursesKept,
+        coursesDropped,
+        truePositives,
+        falsePositives,
+        trueNegatives,
+        falseNegatives,
+        precision,
+        recall,
+        description,
+      });
+    }
+
+    return sweep;
+  }
+
+  /**
+   * Generate human-readable description for a threshold level.
+   *
+   * Explains the tradeoff in the context of an exploratory search system.
+   */
+  private generateThresholdDescription(
+    threshold: string,
+    precision: number,
+    recall: number,
+  ): string {
+    const precisionPct = Math.round(precision * 100);
+    const recallPct = Math.round(recall * 100);
+
+    switch (threshold) {
+      case 'keepAll':
+        return `Maximum exploration (keep all courses). High breadth, low signal-to-noise (${precisionPct}% of kept courses align with judge). Useful for comprehensive discovery but requires strong synthesis to contextualize results.`;
+
+      case '≥1':
+        return `Current production setting. Balanced exploration with ${precisionPct}% precision, ${recallPct}% recall. Keeps scores 1-3 (weak to strong matches), providing broad context for synthesis. Suitable for exploratory search where breadth is valued over precision.`;
+
+      case '≥2':
+        return `Conservative filtering (medium+ relevance only). ${precisionPct}% precision, ${recallPct}% recall. Higher quality results but misses ${100 - recallPct}% of judge-approved courses. Better for focused recommendations when users want direct relevance over exploratory breadth.`;
+
+      case '≥3':
+        return `Strict filtering (strong matches only). ${precisionPct}% precision, ${recallPct}% recall. Highest quality but misses most (${100 - recallPct}%) of relevant courses. Use only when users want highly targeted results and minimal exploration.`;
+
+      default:
+        return `Threshold ${threshold}: ${precisionPct}% precision, ${recallPct}% recall.`;
+    }
+  }
+
+  /**
    * Create empty metrics (for edge case of no courses).
    */
   private createEmptyMetrics(): EvaluationMetrics {
@@ -298,6 +548,15 @@ export class CourseFilterMetricsCalculator {
       score2: 0,
       score3: 0,
     };
+
+    const emptyScoreVerdictBreakdown: ScoreVerdictBreakdown = {
+      score0: { judgePass: 0, judgeFail: 0, total: 0, passRate: 0 },
+      score1: { judgePass: 0, judgeFail: 0, total: 0, passRate: 0 },
+      score2: { judgePass: 0, judgeFail: 0, total: 0, passRate: 0 },
+      score3: { judgePass: 0, judgeFail: 0, total: 0, passRate: 0 },
+    };
+
+    const emptyThresholdSweep: ThresholdSweep = [];
 
     return {
       sampleCount: 0,
@@ -328,6 +587,10 @@ export class CourseFilterMetricsCalculator {
       },
       systemScoreDistribution: emptyDistribution,
       confusionMatrix: emptyMatrix,
+      // New diagnostic metrics (empty versions)
+      scoreVerdictBreakdown: emptyScoreVerdictBreakdown,
+      perSampleMetrics: [],
+      thresholdSweep: emptyThresholdSweep,
     };
   }
 }

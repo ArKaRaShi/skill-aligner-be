@@ -4,6 +4,9 @@ import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
+import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { ArrayHelper } from 'src/shared/utils/array.helper';
+import type { Batch } from 'src/shared/utils/array.helper';
 
 import {
   BINARY_JUDGE_SYSTEM_PROMPT,
@@ -20,6 +23,12 @@ import type {
 // COURSE FILTER JUDGE EVALUATOR SERVICE
 // ============================================================================
 
+/** Default batch size for course evaluation (courses per LLM call) */
+const DEFAULT_BATCH_SIZE = 10;
+
+/** Default concurrency limit for parallel batch execution */
+const DEFAULT_CONCURRENCY = 2;
+
 /**
  * Binary 1-axis utility judge evaluator for course relevance.
  *
@@ -28,10 +37,17 @@ import type {
  *
  * This is the "judge" in LLM-as-a-Judge evaluation methodology.
  * It operates without access to system scores, extracted skills, or system reasoning.
+ *
+ * BATCHING: Courses are evaluated in fixed-size batches to:
+ * - Avoid context window limits
+ * - Improve judgment quality (smaller batches = more focused)
+ * - Enable progress tracking at batch level for crash recovery
  */
 @Injectable()
 export class CourseFilterJudgeEvaluator {
   private readonly logger = new Logger(CourseFilterJudgeEvaluator.name);
+  private readonly batchSize = DEFAULT_BATCH_SIZE;
+  private readonly concurrency = DEFAULT_CONCURRENCY;
 
   constructor(
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
@@ -41,14 +57,105 @@ export class CourseFilterJudgeEvaluator {
   /**
    * Evaluate courses for a user question using binary LLM judge.
    *
+   * Courses are evaluated in fixed-size batches (default: 10 per call).
+   * Batches run in parallel with a concurrency limit (default: 2).
+   * Results are accumulated and returned together for atomic progress updates.
+   *
    * @param input - Question + courses to evaluate
-   * @returns Judge verdicts (PASS/FAIL) with reasoning
+   * @returns Judge verdicts (PASS/FAIL) with reasoning and token usage
    */
   async evaluate(input: JudgeEvaluationInput): Promise<JudgeEvaluationResult> {
     const { question, courses } = input;
 
     this.logger.log(
       `Evaluating ${courses.length} courses for question: "${question}"`,
+    );
+
+    // Use ArrayHelper.chunk to split courses into batches
+    const batches = ArrayHelper.chunk(courses, this.batchSize);
+
+    this.logger.debug(
+      `Processing ${batches.length} batch(es) with concurrency ${this.concurrency}`,
+    );
+
+    // Process batches in parallel with concurrency limit
+    const { verdicts, tokenUsage } = await this.processBatchesWithConcurrency(
+      question,
+      batches,
+    );
+
+    this.logger.debug(
+      `Judge evaluation complete: ${verdicts.length} verdicts, ${tokenUsage.length} token usage entries from ${batches.length} batch(es)`,
+    );
+
+    return {
+      courses: verdicts.map((v) => ({
+        code: v.code,
+        verdict: v.verdict,
+        reason: v.reason,
+      })),
+      tokenUsage,
+    };
+  }
+
+  /**
+   * Process multiple batches in parallel with a concurrency limit.
+   *
+   * @param question - User's question
+   * @param batches - Array of batches with metadata
+   * @returns Verdicts and accumulated token usage
+   */
+  private async processBatchesWithConcurrency(
+    question: string,
+    batches: Batch<JudgeEvaluationInput['courses'][0]>[],
+  ): Promise<{ verdicts: LlmJudgeCourseVerdict[]; tokenUsage: TokenUsage[] }> {
+    const verdictResults: LlmJudgeCourseVerdict[][] = [];
+    const tokenResults: TokenUsage[] = [];
+    const totalBatches = batches.length;
+
+    // Process batches with concurrency limit
+    for (let i = 0; i < batches.length; i += this.concurrency) {
+      const concurrentBatches = batches.slice(i, i + this.concurrency);
+
+      this.logger.debug(
+        `Starting batches ${concurrentBatches[0].batchNumber}-${concurrentBatches[concurrentBatches.length - 1].batchNumber}/${totalBatches}`,
+      );
+
+      // Run concurrent batches in parallel
+      const batchResults = await Promise.all(
+        concurrentBatches.map(({ batchNumber, totalBatches, items: courses }) =>
+          this.evaluateBatch(question, courses, batchNumber, totalBatches),
+        ),
+      );
+
+      verdictResults.push(...batchResults.map((r) => r.verdicts));
+      tokenResults.push(...batchResults.map((r) => r.tokenUsage));
+    }
+
+    // Flatten results
+    return {
+      verdicts: verdictResults.flat(),
+      tokenUsage: tokenResults,
+    };
+  }
+
+  /**
+   * Evaluate a single batch of courses.
+   *
+   * @param question - User's question
+   * @param courses - Batch of courses to evaluate
+   * @param batchNumber - Current batch number (1-indexed)
+   * @param totalBatches - Total number of batches
+   * @returns Judge verdicts and token usage for this batch
+   */
+  private async evaluateBatch(
+    question: string,
+    courses: JudgeEvaluationInput['courses'],
+    batchNumber: number,
+    totalBatches: number,
+  ): Promise<{ verdicts: LlmJudgeCourseVerdict[]; tokenUsage: TokenUsage }> {
+    this.logger.debug(
+      `Processing batch ${batchNumber}/${totalBatches} (${courses.length} courses)`,
     );
 
     // Build prompts
@@ -76,17 +183,18 @@ export class CourseFilterJudgeEvaluator {
         schema.shape.courses.element.parse(item),
       );
 
+    // Extract token usage
+    const tokenUsage: TokenUsage = {
+      model: llmResult.model,
+      inputTokens: llmResult.inputTokens,
+      outputTokens: llmResult.outputTokens,
+    };
+
     this.logger.debug(
-      `Judge evaluation complete: ${validatedVerdicts.length} verdicts returned`,
+      `Batch ${batchNumber}/${totalBatches} complete: ${validatedVerdicts.length} verdicts, ${llmResult.inputTokens + llmResult.outputTokens} tokens`,
     );
 
-    return {
-      courses: validatedVerdicts.map((v) => ({
-        code: v.code,
-        verdict: v.verdict,
-        reason: v.reason,
-      })),
-    };
+    return { verdicts: validatedVerdicts, tokenUsage };
   }
 
   /**

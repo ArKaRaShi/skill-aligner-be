@@ -9,6 +9,7 @@ import { initSemanticsHttpClient } from 'src/shared/adapters/embedding/utils/sem
 import { EmbeddingMetadataJson } from 'src/shared/contracts/types/stored-embedding-metadata.type';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
+import { ArrayHelper } from 'src/shared/utils/array.helper';
 import { v4 as uuidv4 } from 'uuid';
 
 // Define combined metadata structure that supports both embedding dimensions
@@ -159,10 +160,11 @@ export class EmbedPipelineV2 {
         : this.getOpenRouterEmbeddingClient();
 
     const batchSize = 20;
-    for (let i = 0; i < cloVectorMappings.length; i += batchSize) {
-      const batch = cloVectorMappings.slice(i, i + batchSize);
+    const batches = ArrayHelper.chunk(cloVectorMappings, batchSize);
+
+    for (const { batchNumber, totalBatches, items: batch } of batches) {
       this.logger.log(
-        `Processing embedding batch ${Math.floor(i / batchSize) + 1}/${Math.ceil(cloVectorMappings.length / batchSize)} (${batch.length} items)`,
+        `Processing embedding batch ${batchNumber}/${totalBatches} (${batch.length} items)`,
       );
 
       // Process embeddings in parallel

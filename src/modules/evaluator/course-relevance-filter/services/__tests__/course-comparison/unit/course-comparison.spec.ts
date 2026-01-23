@@ -1,3 +1,5 @@
+import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+
 import type {
   AggregatedCourseForEval,
   JudgeEvaluationResult,
@@ -89,6 +91,7 @@ describe('CourseComparisonService', () => {
       verdicts: Array<{ code: string; verdict: JudgeVerdict; reason: string }>,
     ): JudgeEvaluationResult => ({
       courses: verdicts,
+      tokenUsage: [] as TokenUsage[],
     });
 
     it('should compare single course with agreement (BOTH_KEEP)', () => {
@@ -106,6 +109,7 @@ describe('CourseComparisonService', () => {
       expect(result.question).toBe('What courses teach Python?');
       expect(result.courses).toHaveLength(1);
       expect(result.courses[0]).toEqual({
+        question: 'What courses teach Python?',
         subjectCode: 'CS101',
         subjectName: 'Introduction to Python',
         outcomes: ['Learn Python'],

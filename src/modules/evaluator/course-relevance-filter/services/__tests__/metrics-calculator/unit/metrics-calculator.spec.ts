@@ -1,3 +1,5 @@
+import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+
 import type {
   AgreementType,
   MatchedSkill,
@@ -15,6 +17,7 @@ describe('CourseFilterMetricsCalculator', () => {
   // Test data helpers
   const createCourseRecord = (
     overrides: Partial<{
+      question: string;
       subjectCode: string;
       subjectName: string;
       outcomes: string[];
@@ -32,6 +35,7 @@ describe('CourseFilterMetricsCalculator', () => {
       agreementType: AgreementType;
     }> = {},
   ) => ({
+    question: 'Test question', // Add default question
     subjectCode: 'CS101',
     subjectName: 'Test Course',
     outcomes: ['Learn stuff'],
@@ -53,12 +57,17 @@ describe('CourseFilterMetricsCalculator', () => {
   const createSampleRecord = (
     courses: ReturnType<typeof createCourseRecord>[] = [],
     overrides: Partial<{ queryLogId: string; question: string }> = {},
-  ): SampleEvaluationRecord => ({
-    queryLogId: 'query-1',
-    question: 'Test question',
-    courses,
-    ...overrides,
-  });
+  ): SampleEvaluationRecord => {
+    const question = overrides.question ?? 'Test question';
+    return {
+      queryLogId: 'query-1',
+      question,
+      // Update each course with the question
+      courses: courses.map((c) => ({ ...c, question })),
+      tokenUsage: [] as TokenUsage[],
+      ...overrides,
+    };
+  };
 
   describe('calculateFromRecords', () => {
     it('should calculate metrics from sample records', () => {
@@ -366,6 +375,290 @@ describe('CourseFilterMetricsCalculator', () => {
       expect(metrics.noiseRemovalEfficiency.value).toBe(0);
       expect(metrics.noiseRemovalEfficiency.numerator).toBe(0);
       expect(metrics.noiseRemovalEfficiency.denominator).toBe(0);
+    });
+
+    // ==================== NEW: Score × Verdict Breakdown ====================
+    describe('scoreVerdictBreakdown', () => {
+      it('should calculate score × verdict breakdown correctly', () => {
+        // Arrange - Mix of scores and verdicts
+        const records = [
+          createSampleRecord([
+            createCourseRecord({
+              system: { score: 0, action: 'DROP', reason: 'Not relevant' },
+              judge: { verdict: 'FAIL', reason: 'Irrelevant' },
+            }),
+            createCourseRecord({
+              system: { score: 1, action: 'KEEP', reason: 'Low match' },
+              judge: { verdict: 'FAIL', reason: 'Not useful' },
+            }),
+            createCourseRecord({
+              system: { score: 1, action: 'KEEP', reason: 'Low match' },
+              judge: { verdict: 'PASS', reason: 'Useful' },
+            }),
+            createCourseRecord({
+              system: { score: 2, action: 'KEEP', reason: 'Medium match' },
+              judge: { verdict: 'FAIL', reason: 'Not useful' },
+            }),
+            createCourseRecord({
+              system: { score: 3, action: 'KEEP', reason: 'High match' },
+              judge: { verdict: 'PASS', reason: 'Useful' },
+            }),
+          ]),
+        ];
+
+        // Act
+        const metrics = calculator.calculateFromRecords(records);
+
+        // Assert
+        expect(metrics.scoreVerdictBreakdown).toBeDefined();
+        expect(metrics.scoreVerdictBreakdown!.score0).toEqual({
+          judgePass: 0,
+          judgeFail: 1,
+          total: 1,
+          passRate: 0,
+        });
+        expect(metrics.scoreVerdictBreakdown!.score1).toEqual({
+          judgePass: 1,
+          judgeFail: 1,
+          total: 2,
+          passRate: 0.5,
+        });
+        expect(metrics.scoreVerdictBreakdown!.score2).toEqual({
+          judgePass: 0,
+          judgeFail: 1,
+          total: 1,
+          passRate: 0,
+        });
+        expect(metrics.scoreVerdictBreakdown!.score3).toEqual({
+          judgePass: 1,
+          judgeFail: 0,
+          total: 1,
+          passRate: 1,
+        });
+      });
+
+      it('should show higher scores have higher pass rates (calibration)', () => {
+        // Arrange - Perfect calibration: score 3 always passes, score 0 never passes
+        const records = [
+          createSampleRecord([
+            createCourseRecord({
+              system: { score: 0, action: 'DROP', reason: 'No match' },
+              judge: { verdict: 'FAIL', reason: 'Irrelevant' },
+            }),
+            createCourseRecord({
+              system: { score: 3, action: 'KEEP', reason: 'Perfect match' },
+              judge: { verdict: 'PASS', reason: 'Perfect fit' },
+            }),
+          ]),
+        ];
+
+        // Act
+        const metrics = calculator.calculateFromRecords(records);
+
+        // Assert - Score 0 has 0% pass rate, score 3 has 100% pass rate
+        expect(metrics.scoreVerdictBreakdown!.score0.passRate).toBe(0);
+        expect(metrics.scoreVerdictBreakdown!.score3.passRate).toBe(1);
+      });
+    });
+
+    // ==================== NEW: Per-Sample Metrics ====================
+    describe('perSampleMetrics', () => {
+      it('should calculate per-sample metrics for multiple questions', () => {
+        // Arrange - Two samples with different performance
+        const records = [
+          // Sample 1: Poor performance (50% agreement)
+          createSampleRecord(
+            [
+              createCourseRecord({
+                system: { score: 1, action: 'KEEP', reason: 'Match' },
+                judge: { verdict: 'PASS', reason: 'Good' },
+                agreementType: 'BOTH_KEEP',
+              }),
+              createCourseRecord({
+                system: { score: 2, action: 'KEEP', reason: 'Match' },
+                judge: { verdict: 'FAIL', reason: 'Bad' },
+                agreementType: 'EXPLORATORY_DELTA',
+              }),
+            ],
+            { queryLogId: 'query-1', question: 'Question 1' },
+          ),
+          // Sample 2: Better performance (100% agreement)
+          createSampleRecord(
+            [
+              createCourseRecord({
+                system: { score: 3, action: 'KEEP', reason: 'Match' },
+                judge: { verdict: 'PASS', reason: 'Good' },
+                agreementType: 'BOTH_KEEP',
+              }),
+              createCourseRecord({
+                system: { score: 0, action: 'DROP', reason: 'No match' },
+                judge: { verdict: 'FAIL', reason: 'Bad' },
+                agreementType: 'BOTH_DROP',
+              }),
+            ],
+            { queryLogId: 'query-2', question: 'Question 2' },
+          ),
+        ];
+
+        // Act
+        const metrics = calculator.calculateFromRecords(records);
+
+        // Assert
+        expect(metrics.perSampleMetrics).toBeDefined();
+        expect(metrics.perSampleMetrics).toHaveLength(2);
+
+        // Sample 1: Poor performance
+        expect(metrics.perSampleMetrics![0]).toMatchObject({
+          sampleId: 1,
+          queryLogId: 'query-1',
+          question: 'Question 1',
+          coursesEvaluated: 2,
+          agreementCount: 1,
+          disagreementCount: 1,
+          agreementRate: 0.5,
+        });
+
+        // Sample 2: Better performance
+        expect(metrics.perSampleMetrics![1]).toMatchObject({
+          sampleId: 2,
+          queryLogId: 'query-2',
+          question: 'Question 2',
+          coursesEvaluated: 2,
+          agreementCount: 2,
+          disagreementCount: 0,
+          agreementRate: 1,
+        });
+      });
+
+      it('should include noise removal and exploratory recall per sample', () => {
+        // Arrange
+        const records = [
+          createSampleRecord(
+            [
+              createCourseRecord({
+                system: { score: 0, action: 'DROP', reason: 'No match' },
+                judge: { verdict: 'FAIL', reason: 'Bad' },
+                agreementType: 'BOTH_DROP',
+              }),
+              createCourseRecord({
+                system: { score: 1, action: 'KEEP', reason: 'Match' },
+                judge: { verdict: 'FAIL', reason: 'Bad' },
+                agreementType: 'EXPLORATORY_DELTA',
+              }),
+            ],
+            { queryLogId: 'query-1' },
+          ),
+        ];
+
+        // Act
+        const metrics = calculator.calculateFromRecords(records);
+
+        // Assert
+        expect(metrics.perSampleMetrics![0].noiseRemovalEfficiency).toBe(1); // 1/1
+        expect(metrics.perSampleMetrics![0].exploratoryRecall).toBe(1); // 1/1
+      });
+    });
+
+    // ==================== NEW: Threshold Sweep ====================
+    describe('thresholdSweep', () => {
+      it('should calculate threshold sweep for all thresholds', () => {
+        // Arrange - Known distribution
+        const records = [
+          createSampleRecord([
+            // Score 0, Judge FAIL (true negative if DROP)
+            createCourseRecord({
+              system: { score: 0, action: 'DROP', reason: 'No match' },
+              judge: { verdict: 'FAIL', reason: 'Bad' },
+            }),
+            // Score 1, Judge FAIL (false positive if KEEP with ≥1)
+            createCourseRecord({
+              system: { score: 1, action: 'KEEP', reason: 'Weak' },
+              judge: { verdict: 'FAIL', reason: 'Bad' },
+            }),
+            // Score 2, Judge PASS (true positive if KEEP with ≥2)
+            createCourseRecord({
+              system: { score: 2, action: 'KEEP', reason: 'Good' },
+              judge: { verdict: 'PASS', reason: 'Good' },
+            }),
+            // Score 3, Judge PASS (true positive if KEEP with ≥3)
+            createCourseRecord({
+              system: { score: 3, action: 'KEEP', reason: 'Perfect' },
+              judge: { verdict: 'PASS', reason: 'Good' },
+            }),
+          ]),
+        ];
+
+        // Act
+        const metrics = calculator.calculateFromRecords(records);
+
+        // Assert
+        expect(metrics.thresholdSweep).toBeDefined();
+        expect(metrics.thresholdSweep).toHaveLength(4);
+
+        // Threshold keepAll (≥0): keeps all 4 courses
+        const keepAll = metrics.thresholdSweep![0];
+        expect(keepAll.threshold).toBe('keepAll');
+        expect(keepAll.minScore).toBe(0);
+        expect(keepAll.coursesKept).toBe(4);
+        expect(keepAll.precision).toBeCloseTo(0.5, 2); // 2/4
+        expect(keepAll.recall).toBe(1); // All PASS courses kept
+
+        // Threshold ≥1: keeps 3 courses (scores 1,2,3)
+        const ge1 = metrics.thresholdSweep![1];
+        expect(ge1.threshold).toBe('≥1');
+        expect(ge1.coursesKept).toBe(3);
+        expect(ge1.precision).toBeCloseTo(0.67, 2); // 2/3
+        expect(ge1.recall).toBe(1); // All PASS courses kept
+
+        // Threshold ≥2: keeps 2 courses (scores 2,3)
+        const ge2 = metrics.thresholdSweep![2];
+        expect(ge2.threshold).toBe('≥2');
+        expect(ge2.coursesKept).toBe(2);
+        expect(ge2.precision).toBe(1); // 2/2 (all kept are PASS)
+        expect(ge2.recall).toBe(1); // All PASS courses kept
+
+        // Threshold ≥3: keeps 1 course (score 3)
+        const ge3 = metrics.thresholdSweep![3];
+        expect(ge3.threshold).toBe('≥3');
+        expect(ge3.coursesKept).toBe(1);
+        expect(ge3.precision).toBe(1); // 1/1
+        expect(ge3.recall).toBe(0.5); // Only 1 of 2 PASS kept
+      });
+
+      it('should show precision-recall tradeoff across thresholds', () => {
+        // Arrange - Same as above
+        const records = [
+          createSampleRecord([
+            createCourseRecord({
+              system: { score: 0, action: 'DROP', reason: 'No match' },
+              judge: { verdict: 'FAIL', reason: 'Bad' },
+            }),
+            createCourseRecord({
+              system: { score: 1, action: 'KEEP', reason: 'Weak' },
+              judge: { verdict: 'FAIL', reason: 'Bad' },
+            }),
+            createCourseRecord({
+              system: { score: 2, action: 'KEEP', reason: 'Good' },
+              judge: { verdict: 'PASS', reason: 'Good' },
+            }),
+            createCourseRecord({
+              system: { score: 3, action: 'KEEP', reason: 'Perfect' },
+              judge: { verdict: 'PASS', reason: 'Good' },
+            }),
+          ]),
+        ];
+
+        // Act
+        const metrics = calculator.calculateFromRecords(records);
+
+        // Assert - Higher threshold → higher precision, lower recall
+        expect(metrics.thresholdSweep![0].precision).toBeLessThan(
+          metrics.thresholdSweep![2].precision,
+        );
+        expect(metrics.thresholdSweep![0].recall).toBeGreaterThanOrEqual(
+          metrics.thresholdSweep![3].recall,
+        );
+      });
     });
   });
 });

@@ -1,0 +1,54 @@
+{
+  "description": "Analysis of EXPLORATORY_DELTA cases (System KEEP but Judge FAIL)",
+  "totalCases": 51,
+  "categories": {
+    "FOUNDATIONAL_OVERKEEP": {
+      "count": 0,
+      "description": "Courses that are too basic or introductory for the user level",
+      "pattern": "System keeps foundational/prerequisite courses",
+      "examples": []
+    },
+    "SIBLING_MISCLASSIFICATION": {
+      "count": 6,
+      "description": "Courses that are related but not directly relevant to the question",
+      "pattern": "System keeps sibling/adjacent topics",
+      "examples": [
+        {
+          "queryLogId": "03764322-64",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "03764322-64",
+          "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+          "systemScore": 3,
+          "judgeReason": "Focuses on negotiation in logistics management, which is not directly relevant to political leadership or governance."
+        },
+        {
+          "queryLogId": "04351141-68",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "04351141-68",
+          "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+          "systemScore": 2,
+          "judgeReason": "Basic English communication skills are not directly relevant to becoming a prime minister."
+        },
+        {
+          "queryLogId": "01058391-68",
+          "question": "อยากเป็นนายก",
+          "subjectCode": "01058391-68",
+          "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+          "systemScore": 1,
+          "judgeReason": "Innovation product development course is not directly relevant to political leadership or governance."
+        }
+      ]
+    },
+    "CONTEXTUAL_OVERALIGNMENT": {
+      "count": 0,
+      "description": "Courses that match context but are not directly useful",
+      "pattern": "System keeps courses due to contextual keywords",
+      "examples": []
+    }
+  },
+  "insights": {
+    "strength": "System is comprehensive in course discovery",
+    "weakness": "Keeps sibling/adjacent topics that are not directly relevant",
+    "recommendation": "Tighten semantic matching to require more direct relevance"
+  }
+}

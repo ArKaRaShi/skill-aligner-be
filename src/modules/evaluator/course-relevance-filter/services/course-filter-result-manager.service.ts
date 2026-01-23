@@ -1,11 +1,16 @@
 import { Injectable, Logger } from '@nestjs/common';
 
 import * as path from 'node:path';
+import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 import { FileHelper } from 'src/shared/utils/file';
+import { TokenCostCalculator } from 'src/shared/utils/token-cost-calculator.helper';
 
 import type {
   DisagreementsFile,
+  EvaluationConfig,
+  EvaluationCostFile,
   ExploratoryDeltaFile,
+  FinalCostFile,
   FinalMetricsFile,
   MetricsFile,
   SampleEvaluationRecord,
@@ -21,7 +26,7 @@ import { CourseFilterMetricsCalculator } from './metrics-calculator.service';
  * Service for managing evaluation result files
  *
  * Handles all file I/O operations for course relevance filter evaluations,
- * including saving records, metrics, disagreements analysis, exploratory
+ * including saving records, metrics, costs, disagreements analysis, exploratory
  * delta analysis, and calculating aggregate metrics across iterations.
  *
  * Output structure:
@@ -31,12 +36,16 @@ import { CourseFilterMetricsCalculator } from './metrics-calculator.service';
  *     │   └── metrics-iteration-{N}.json
  *     ├── records/
  *     │   └── records-iteration-{N}.json
+ *     ├── cost/
+ *     │   └── cost-iteration-{N}.json
  *     ├── disagreements/
  *     │   └── disagreements-iteration-{N}.json
  *     ├── exploratory-delta/
  *     │   └── exploratory-delta-iteration-{N}.json
- *     └── final-metrics/
- *         └── final-metrics-{totalIterations}.json
+ *     ├── final-metrics/
+ *     │   └── final-metrics-{totalIterations}.json
+ *     └── final-cost/
+ *         └── final-cost-{totalIterations}.json
  */
 @Injectable()
 export class CourseFilterResultManagerService {
@@ -331,7 +340,7 @@ export class CourseFilterResultManagerService {
   /**
    * Ensure the directory structure exists for a test set
    *
-   * Creates: metrics/, records/, disagreements/, exploratory-delta/, final-metrics/
+   * Creates: metrics/, records/, cost/, disagreements/, exploratory-delta/, final-metrics/, final-cost/
    *
    * @param testSetName - Test set identifier
    */
@@ -340,9 +349,11 @@ export class CourseFilterResultManagerService {
     const subdirs = [
       'metrics',
       'records',
+      'cost',
       'disagreements',
       'exploratory-delta',
       'final-metrics',
+      'final-cost',
     ];
 
     for (const subdir of subdirs) {
@@ -353,5 +364,174 @@ export class CourseFilterResultManagerService {
     this.logger.log(
       `Ensured directory structure for ${testSetName} at ${baseDir}`,
     );
+  }
+
+  /**
+   * Save iteration cost data to file
+   *
+   * @param testSetName - Test set identifier
+   * @param iterationNumber - Current iteration number
+   * @param config - Evaluation configuration (for model info)
+   * @param records - Evaluation records with token usage
+   */
+  async saveIterationCost(params: {
+    testSetName: string;
+    iterationNumber: number;
+    config: EvaluationConfig;
+    records: SampleEvaluationRecord[];
+  }): Promise<void> {
+    const { testSetName, iterationNumber, config, records } = params;
+
+    // Aggregate tokens from all samples
+    const allTokenUsage: TokenUsage[] = [];
+    let totalCourses = 0;
+
+    for (const record of records) {
+      allTokenUsage.push(...record.tokenUsage);
+      totalCourses += record.courses.length;
+    }
+
+    // Calculate total cost
+    const costSummary = TokenCostCalculator.estimateTotalCost(allTokenUsage);
+    const totalInputTokens = allTokenUsage.reduce(
+      (sum, t) => sum + t.inputTokens,
+      0,
+    );
+    const totalOutputTokens = allTokenUsage.reduce(
+      (sum, t) => sum + t.outputTokens,
+      0,
+    );
+
+    const costFile = {
+      iteration: iterationNumber,
+      timestamp: new Date().toISOString(),
+      testSetName,
+      judgeModel: config.judgeModel,
+      judgeProvider: config.judgeProvider,
+      samples: records.length,
+      courses: totalCourses,
+      totalTokens: {
+        input: totalInputTokens,
+        output: totalOutputTokens,
+        total: totalInputTokens + totalOutputTokens,
+      },
+      totalCost: costSummary.totalEstimatedCost,
+      tokenUsage: allTokenUsage,
+    };
+
+    const filePath = path.join(
+      this.baseDir,
+      testSetName,
+      'cost',
+      `cost-iteration-${iterationNumber}.json`,
+    );
+
+    await FileHelper.saveJson(filePath, costFile);
+    this.logger.log(
+      `Saved iteration cost: ${costFile.samples} samples, ${costFile.courses} courses, $${costFile.totalCost.toFixed(6)} (${costFile.totalTokens.total} tokens)`,
+    );
+  }
+
+  /**
+   * Calculate and save final aggregated cost across all iterations
+   *
+   * Loads existing iteration cost files and calculates aggregate statistics.
+   *
+   * @param testSetName - Test set identifier
+   * @param totalIterations - Total number of iterations
+   * @param config - Evaluation configuration (for model info)
+   * @returns Final cost file
+   */
+  async calculateFinalCost(params: {
+    testSetName: string;
+    totalIterations: number;
+    config: EvaluationConfig;
+  }): Promise<FinalCostFile> {
+    const { testSetName, totalIterations, config } = params;
+
+    // Load all iteration cost files
+    const iterationCosts: {
+      file: EvaluationCostFile;
+    }[] = [];
+
+    for (let i = 1; i <= totalIterations; i++) {
+      try {
+        const filePath = path.join(
+          this.baseDir,
+          testSetName,
+          'cost',
+          `cost-iteration-${i}.json`,
+        );
+        const costFile =
+          await FileHelper.loadJson<EvaluationCostFile>(filePath);
+        iterationCosts.push({ file: costFile });
+      } catch (error) {
+        this.logger.warn(
+          `Failed to load cost file for iteration ${i}: ${error}`,
+        );
+      }
+    }
+
+    if (iterationCosts.length === 0) {
+      throw new Error('No iteration cost files found to aggregate');
+    }
+
+    // Calculate aggregates
+    const totalSamples = iterationCosts.reduce(
+      (sum, { file }) => sum + file.samples,
+      0,
+    );
+    const totalCourses = iterationCosts.reduce(
+      (sum, { file }) => sum + file.courses,
+      0,
+    );
+    const totalInputTokens = iterationCosts.reduce(
+      (sum, { file }) => sum + file.totalTokens.input,
+      0,
+    );
+    const totalOutputTokens = iterationCosts.reduce(
+      (sum, { file }) => sum + file.totalTokens.output,
+      0,
+    );
+    const totalCost = iterationCosts.reduce(
+      (sum, { file }) => sum + file.totalCost,
+      0,
+    );
+
+    const finalCostFile: FinalCostFile = {
+      iterations: iterationCosts.length,
+      timestamp: new Date().toISOString(),
+      testSetName,
+      judgeModel: config.judgeModel,
+      judgeProvider: config.judgeProvider,
+      aggregateStats: {
+        totalSamples,
+        totalCourses,
+        totalTokens: {
+          input: totalInputTokens,
+          output: totalOutputTokens,
+          total: totalInputTokens + totalOutputTokens,
+        },
+        totalCost,
+        averageCostPerSample: totalSamples > 0 ? totalCost / totalSamples : 0,
+        averageCostPerCourse: totalCourses > 0 ? totalCost / totalCourses : 0,
+      },
+      perIterationCosts: iterationCosts.map(({ file }) => file),
+    };
+
+    // Save final cost file
+    const filePath = path.join(
+      this.baseDir,
+      testSetName,
+      'final-cost',
+      `final-cost-${totalIterations}.json`,
+    );
+
+    await FileHelper.saveJson(filePath, finalCostFile);
+    this.logger.log(
+      `Saved final cost: ${finalCostFile.aggregateStats.totalSamples} samples, ${finalCostFile.aggregateStats.totalCourses} courses, $${finalCostFile.aggregateStats.totalCost.toFixed(6)} (${finalCostFile.aggregateStats.totalTokens.total} tokens)`,
+    );
+
+    return finalCostFile;
   }
 }

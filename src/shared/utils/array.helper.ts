@@ -1,4 +1,55 @@
+/**
+ * Batch with metadata including batch number
+ */
+export interface Batch<T> {
+  /** 1-indexed batch number */
+  batchNumber: number;
+  /** Total number of batches */
+  totalBatches: number;
+  /** Items in this batch */
+  items: T[];
+}
+
 export class ArrayHelper {
+  /**
+   * Splits an array into batches of a specified size.
+   *
+   * @param arr - The array to chunk
+   * @param size - The size of each batch (must be > 0)
+   * @returns Array of batches with metadata (batchNumber, totalBatches, items)
+   *
+   * @example
+   * ```typescript
+   * const items = [1, 2, 3, 4, 5];
+   * const batches = ArrayHelper.chunk(items, 2);
+   * // [
+   * //   { batchNumber: 1, totalBatches: 3, items: [1, 2] },
+   * //   { batchNumber: 2, totalBatches: 3, items: [3, 4] },
+   * //   { batchNumber: 3, totalBatches: 3, items: [5] },
+   * // ]
+   * ```
+   */
+  static chunk<T>(arr: T[], size: number): Batch<T>[] {
+    if (size <= 0) {
+      throw new Error(`Chunk size must be greater than 0, got: ${size}`);
+    }
+
+    if (arr.length === 0) {
+      return [];
+    }
+
+    const totalBatches = Math.ceil(arr.length / size);
+    const batches: Batch<T>[] = [];
+
+    for (let i = 0; i < arr.length; i += size) {
+      const batchNumber = Math.floor(i / size) + 1;
+      const items = arr.slice(i, i + size);
+      batches.push({ batchNumber, totalBatches, items });
+    }
+
+    return batches;
+  }
+
   /**
    * Sorts an array of objects by a numeric key in descending order.
    *

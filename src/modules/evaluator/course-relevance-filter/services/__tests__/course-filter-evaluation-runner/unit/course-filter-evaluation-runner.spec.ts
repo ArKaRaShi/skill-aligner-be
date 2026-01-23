@@ -1,5 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
+import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+
 import { CourseFilterJudgeEvaluator } from 'src/modules/evaluator/course-relevance-filter/evaluators/course-filter-judge.evaluator';
 import { CourseFilterTestSetTransformer } from 'src/modules/evaluator/course-relevance-filter/loaders/course-filter-test-set-transformer.service';
 import type {
@@ -66,8 +68,10 @@ describe('CourseFilterEvaluationRunnerService', () => {
       saveIterationMetrics: jest.fn(),
       saveDisagreements: jest.fn(),
       saveExploratoryDelta: jest.fn(),
+      saveIterationCost: jest.fn(),
       saveFinalMetrics: jest.fn(),
       calculateFinalMetrics: jest.fn(),
+      calculateFinalCost: jest.fn(),
       calculateIterationMetrics: jest.fn(),
       calculateDisagreements: jest.fn(),
       calculateExploratoryDelta: jest.fn(),
@@ -196,6 +200,22 @@ describe('CourseFilterEvaluationRunnerService', () => {
       mockResultManager.calculateFinalMetrics.mockResolvedValue(
         createMockFinalMetricsFile(),
       );
+      mockResultManager.calculateFinalCost.mockResolvedValue({
+        iterations: 2,
+        timestamp: expect.any(String),
+        testSetName: 'test-set-v1',
+        judgeModel: 'gpt-4',
+        judgeProvider: 'openai',
+        aggregateStats: {
+          totalSamples: 0,
+          totalCourses: 0,
+          totalTokens: { input: 0, output: 0, total: 0 },
+          totalCost: 0,
+          averageCostPerSample: 0,
+          averageCostPerCourse: 0,
+        },
+        perIterationCosts: [],
+      });
 
       // Mock the runIteration method to avoid file I/O
       jest
@@ -215,6 +235,11 @@ describe('CourseFilterEvaluationRunnerService', () => {
         totalIterations: 2,
       });
       expect(mockResultManager.saveFinalMetrics).toHaveBeenCalled();
+      expect(mockResultManager.calculateFinalCost).toHaveBeenCalledWith({
+        testSetName: 'test-set-v1',
+        totalIterations: 2,
+        config,
+      });
       expect(result).toEqual({
         records: [],
         metrics: [],
@@ -316,6 +341,22 @@ describe('CourseFilterEvaluationRunnerService', () => {
       mockResultManager.calculateFinalMetrics.mockResolvedValue(
         createMockFinalMetricsFile(),
       );
+      mockResultManager.calculateFinalCost.mockResolvedValue({
+        iterations: 3,
+        timestamp: expect.any(String),
+        testSetName: 'test-set-v2',
+        judgeModel: 'gpt-4',
+        judgeProvider: 'openai',
+        aggregateStats: {
+          totalSamples: 0,
+          totalCourses: 0,
+          totalTokens: { input: 0, output: 0, total: 0 },
+          totalCost: 0,
+          averageCostPerSample: 0,
+          averageCostPerCourse: 0,
+        },
+        perIterationCosts: [],
+      });
 
       const runIterationSpy = jest
         .spyOn(service, 'runIteration' as never)
@@ -388,12 +429,14 @@ describe('CourseFilterEvaluationRunnerService', () => {
           { code: 'CS101', verdict: 'PASS', reason: 'Good match' },
           { code: 'CS102', verdict: 'PASS', reason: 'Relevant' },
         ],
+        tokenUsage: [] as TokenUsage[],
       };
 
       const comparisonRecord = {
         queryLogId: 'query-1',
         question: 'What are the best Python courses?',
         courses: [],
+        tokenUsage: [] as TokenUsage[],
       };
 
       // Mock loadProgress to return empty progress (no cached courses)
@@ -515,6 +558,7 @@ describe('CourseFilterEvaluationRunnerService', () => {
       expect(mockResultManager.saveIterationMetrics).toHaveBeenCalled();
       expect(mockResultManager.saveDisagreements).toHaveBeenCalled();
       expect(mockResultManager.saveExploratoryDelta).toHaveBeenCalled();
+      expect(mockResultManager.saveIterationCost).toHaveBeenCalled();
 
       // Cleanup
       loadProgressSpy.mockRestore();
@@ -588,12 +632,14 @@ describe('CourseFilterEvaluationRunnerService', () => {
 
       mockJudgeEvaluator.evaluate.mockResolvedValue({
         courses: [{ code: 'CS101', verdict: 'PASS', reason: 'Good match' }],
+        tokenUsage: [] as TokenUsage[],
       });
 
       mockComparisonService.compareSample.mockReturnValue({
         queryLogId: '',
         question: '',
         courses: [],
+        tokenUsage: [] as TokenUsage[],
       });
       mockResultManager.calculateIterationMetrics.mockReturnValue(
         createMockMetricsFile(),

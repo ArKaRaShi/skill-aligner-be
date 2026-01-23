@@ -74,7 +74,11 @@ export class CourseComparisonService {
           );
         }
 
-        return this.createComparisonRecord(systemCourse, judgeVerdict);
+        return this.createComparisonRecord(
+          systemCourse,
+          judgeVerdict,
+          question, // Pass question for context
+        );
       },
     );
 
@@ -86,6 +90,7 @@ export class CourseComparisonService {
       queryLogId,
       question,
       courses: comparisonRecords,
+      tokenUsage: judgeResult.tokenUsage,
     };
   }
 
@@ -137,11 +142,13 @@ export class CourseComparisonService {
    *
    * @param systemCourse - Aggregated course from test set
    * @param judgeVerdict - Judge's verdict for this course
+   * @param question - User's original question (for context in disagreement analysis)
    * @returns Comparison record with agreement analysis
    */
   private createComparisonRecord(
     systemCourse: AggregatedCourseForEval,
     judgeVerdict: JudgeCourseVerdict,
+    question: string,
   ): CourseComparisonRecord {
     // Map system score to action (in case it's not already set)
     const systemAction =
@@ -162,6 +169,7 @@ export class CourseComparisonService {
     const outcomes = systemCourse.allLearningOutcomes.map((lo) => lo.name);
 
     return {
+      question, // Include question for context
       subjectCode: systemCourse.subjectCode,
       subjectName: systemCourse.subjectName,
       outcomes,

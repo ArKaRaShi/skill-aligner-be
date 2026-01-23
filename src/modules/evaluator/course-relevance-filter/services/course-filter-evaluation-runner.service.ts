@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 
 import * as path from 'node:path';
+import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 import { FileHelper } from 'src/shared/utils/file';
 
 import type { CourseFilterTestSetSerialized } from '../../shared/services/test-set.types';
@@ -12,7 +13,6 @@ import type {
   CourseProgressEntry,
   EvaluationConfig,
   JudgeCourseInput,
-  JudgeEvaluationResult,
   QuestionEvalSample,
   SampleEvaluationRecord,
 } from '../types/course-relevance-filter.types';
@@ -72,9 +72,11 @@ export class CourseFilterEvaluationRunnerService {
   }> {
     const { testSet, config } = params;
 
+    // Test set level logging
     this.logger.log(
-      `Starting evaluation for ${testSet.length} samples with config: ${JSON.stringify(config)}`,
+      `'${config.outputDirectory}': Starting evaluation for ${testSet.length} samples`,
     );
+    this.logger.debug(`Config: ${JSON.stringify(config)}`);
 
     // Ensure directory structure
     await this.resultManager.ensureDirectoryStructure(config.outputDirectory);
@@ -83,14 +85,19 @@ export class CourseFilterEvaluationRunnerService {
     const samples = this.transformer.transformTestSet(testSet);
 
     this.logger.log(
-      `Transformed ${samples.length} samples to evaluation format`,
+      `'${config.outputDirectory}': Transformed ${samples.length} samples to evaluation format`,
     );
 
     // For multi-iteration evaluation, run each iteration
     const iterations = config.iterations ?? 1;
-    this.logger.log(`Running ${iterations} iteration(s)`);
+    this.logger.log(
+      `'${config.outputDirectory}': Running ${iterations} iteration(s)`,
+    );
 
     for (let iter = 1; iter <= iterations; iter++) {
+      this.logger.log(
+        `'${config.outputDirectory}': Starting iteration ${iter}/${iterations}`,
+      );
       await this.runIteration({
         iterationNumber: iter,
         samples,
@@ -110,7 +117,16 @@ export class CourseFilterEvaluationRunnerService {
       metrics: finalMetrics,
     });
 
-    this.logger.log('Evaluation complete');
+    // Calculate and save final cost
+    await this.resultManager.calculateFinalCost({
+      testSetName: config.outputDirectory,
+      totalIterations: iterations,
+      config,
+    });
+
+    this.logger.log(
+      `'${config.outputDirectory}': Evaluation complete (${iterations} iteration(s))`,
+    );
 
     return {
       records: [],
@@ -133,7 +149,7 @@ export class CourseFilterEvaluationRunnerService {
     const { iterationNumber, samples, config } = params;
 
     this.logger.log(
-      `Starting iteration ${iterationNumber} with ${samples.length} samples`,
+      `'${config.outputDirectory}': Iteration ${iterationNumber} - ${samples.length} samples`,
     );
 
     // Load existing progress (if any)
@@ -150,7 +166,15 @@ export class CourseFilterEvaluationRunnerService {
     // Process each sample
     const allRecords: SampleEvaluationRecord[] = [];
 
-    for (const sample of samples) {
+    for (let i = 0; i < samples.length; i++) {
+      const sample = samples[i];
+      const sampleNumber = i + 1;
+
+      // Log sample progress (with test set name)
+      this.logger.log(
+        `'${config.outputDirectory}': [${sampleNumber}/${samples.length}] Evaluating: "${sample.question.substring(0, 60)}${sample.question.length > 60 ? '...' : ''}"`,
+      );
+
       const sampleRecords = await this.evaluateSample({
         sample,
         _config: config,
@@ -158,6 +182,12 @@ export class CourseFilterEvaluationRunnerService {
         progress,
       });
       allRecords.push(sampleRecords);
+
+      // Log sample completion
+      const totalCourses = sampleRecords.courses.length;
+      this.logger.log(
+        `'${config.outputDirectory}': [${sampleNumber}/${samples.length}] Complete: ${totalCourses} courses evaluated`,
+      );
     }
 
     // Save iteration records
@@ -201,8 +231,16 @@ export class CourseFilterEvaluationRunnerService {
       exploratoryDelta,
     });
 
+    // Save iteration cost
+    await this.resultManager.saveIterationCost({
+      testSetName: config.outputDirectory,
+      iterationNumber,
+      config,
+      records: allRecords,
+    });
+
     this.logger.log(
-      `Iteration ${iterationNumber} complete: ${allRecords.length} samples, ${metrics.totalCoursesEvaluated} courses`,
+      `'${config.outputDirectory}': Iteration ${iterationNumber} complete: ${allRecords.length} samples, ${metrics.totalCoursesEvaluated} courses`,
     );
 
     return allRecords;
@@ -270,11 +308,13 @@ export class CourseFilterEvaluationRunnerService {
       verdict: 'PASS' | 'FAIL';
       reason: string;
     }> = [];
+    let pendingTokenUsage: TokenUsage[] = [];
 
     if (pendingCourses.length > 0) {
       const judgeInput = this.buildJudgeInput(question, pendingCourses);
       const judgeResult = await this.judgeEvaluator.evaluate(judgeInput);
       newVerdicts = judgeResult.courses;
+      pendingTokenUsage = judgeResult.tokenUsage;
 
       // Save new verdicts to progress
       for (let i = 0; i < newVerdicts.length; i++) {
@@ -308,9 +348,11 @@ export class CourseFilterEvaluationRunnerService {
     // Combine completed and new verdicts
     const allVerdicts = [...completedVerdicts, ...newVerdicts];
 
-    // Build judge result for comparison
-    const judgeResult: JudgeEvaluationResult = {
+    // Build judge result for comparison (include tokenUsage from LLM calls)
+    // Note: When all courses are completed (no LLM call), tokenUsage is empty array
+    const judgeResult = {
       courses: allVerdicts,
+      tokenUsage: pendingTokenUsage,
     };
 
     // Compare system vs judge

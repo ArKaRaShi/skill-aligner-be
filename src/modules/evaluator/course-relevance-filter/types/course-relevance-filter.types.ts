@@ -1,3 +1,5 @@
+import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+
 // ============================================================================
 // TEST SET TYPES (input format - IMPORTED FROM test-set.types.ts)
 // ============================================================================
@@ -147,6 +149,7 @@ export type JudgeCourseVerdict = {
  */
 export type JudgeEvaluationResult = {
   courses: JudgeCourseVerdict[];
+  tokenUsage: TokenUsage[];
 };
 
 // ============================================================================
@@ -157,6 +160,9 @@ export type JudgeEvaluationResult = {
  * Single course comparison record
  */
 export type CourseComparisonRecord = {
+  // Question context (for debugging disagreements)
+  question: string;
+
   // Input data
   subjectCode: string;
   subjectName: string;
@@ -193,6 +199,7 @@ export type SampleEvaluationRecord = {
   queryLogId: string;
   question: string; // User's original interest (used by judge)
   courses: CourseComparisonRecord[];
+  tokenUsage: TokenUsage[]; // LLM token usage for this sample
 };
 
 /**
@@ -244,6 +251,100 @@ export type ConfusionMatrix = {
   };
 };
 
+// ============================================================================
+// DIAGNOSTIC METRICS TYPES (Phase 1)
+// ============================================================================
+
+/**
+ * Score × Verdict Breakdown
+ *
+ * Cross-tabulation showing how well system scores predict judge verdicts.
+ * Reveals score calibration: higher scores should have higher pass rates.
+ *
+ * Example interpretation:
+ * - score0 with passRate 0.04 → Excellent: almost never passes when scored 0
+ * - score1 with passRate 0.16 → Problematic: 16% of score-1 courses pass (low precision)
+ * - score3 with passRate 0.71 → Good: 71% of score-3 courses pass (but not 100%)
+ */
+export type ScoreVerdictBreakdown = {
+  score0: {
+    judgePass: number;
+    judgeFail: number;
+    total: number;
+    passRate: number;
+  };
+  score1: {
+    judgePass: number;
+    judgeFail: number;
+    total: number;
+    passRate: number;
+  };
+  score2: {
+    judgePass: number;
+    judgeFail: number;
+    total: number;
+    passRate: number;
+  };
+  score3: {
+    judgePass: number;
+    judgeFail: number;
+    total: number;
+    passRate: number;
+  };
+};
+
+/**
+ * Per-sample metrics for individual question analysis
+ *
+ * Allows drilling down to identify which specific questions perform poorly.
+ * Useful for debugging patterns in question types that cause issues.
+ */
+export type PerSampleMetrics = Array<{
+  sampleId: number;
+  queryLogId: string;
+  question: string;
+  coursesEvaluated: number;
+  agreementCount: number;
+  disagreementCount: number;
+  agreementRate: number;
+  noiseRemovalEfficiency: number;
+  exploratoryRecall: number;
+  conservativeDropRate: number;
+}>;
+
+/**
+ * Threshold sweep result for a single threshold
+ *
+ * Simulates: "What if we only keep courses with score ≥ X?"
+ * Used to find optimal keep/drop threshold based on precision-recall tradeoff.
+ */
+export type ThresholdSweepEntry = {
+  threshold: string; // "keepAll", "≥1", "≥2", "≥3"
+  minScore: number; // 0, 1, 2, 3
+  coursesKept: number;
+  coursesDropped: number;
+  // Calculated metrics at this threshold
+  truePositives: number; // System KEEP ∧ Judge PASS
+  falsePositives: number; // System KEEP ∧ Judge FAIL
+  trueNegatives: number; // System DROP ∧ Judge FAIL
+  falseNegatives: number; // System DROP ∧ Judge PASS
+  precision: number; // TP / (TP + FP) - Of kept courses, how many are actually good?
+  recall: number; // TP / (TP + FN) - Of all good courses, how many did we keep?
+  description: string; // Human-readable explanation of the tradeoff
+};
+
+/**
+ * Threshold sweep analysis
+ *
+ * Simulates different keep/drop thresholds to find optimal balance.
+ * Helps answer: "Should I use ≥1 or ≥2 as my keep threshold?"
+ */
+export type ThresholdSweep = ThresholdSweepEntry[];
+
+// ============================================================================
+// MAIN METRICS TYPES
+// ============================================================================
+
 /**
  * Main metrics for evaluation
  */
@@ -281,6 +382,14 @@ export type EvaluationMetrics = {
   // Distribution metrics
   systemScoreDistribution: ScoreDistribution;
   confusionMatrix: ConfusionMatrix;
+
+  // === NEW: Diagnostic metrics (Phase 1) ===
+  // Score calibration: how well do scores predict judge verdicts?
+  scoreVerdictBreakdown?: ScoreVerdictBreakdown;
+  // Per-question drilldown: which samples perform poorly?
+  perSampleMetrics?: PerSampleMetrics;
+  // Threshold optimization: what's the best keep/drop cutoff?
+  thresholdSweep?: ThresholdSweep;
 };
 
 /**
@@ -558,4 +667,56 @@ export type ConfigFile = {
   evaluationDate: string;
   testSetFile: string;
   testSetVersion: string;
+};
+
+// ============================================================================
+// COST TRACKING TYPES
+// ============================================================================
+
+/**
+ * Cost file for a single iteration
+ *
+ * Contains aggregated token usage and cost information for all samples in an iteration.
+ */
+export type EvaluationCostFile = {
+  iteration: number;
+  timestamp: string;
+  testSetName: string;
+  judgeModel: string;
+  judgeProvider: string;
+  samples: number;
+  courses: number;
+  totalTokens: {
+    input: number;
+    output: number;
+    total: number;
+  };
+  totalCost: number;
+  tokenUsage: TokenUsage[];
+};
+
+/**
+ * Final aggregated cost file across all iterations
+ *
+ * Provides statistical summary of costs across multiple iterations.
+ */
+export type FinalCostFile = {
+  iterations: number;
+  timestamp: string;
+  testSetName: string;
+  judgeModel: string;
+  judgeProvider: string;
+  aggregateStats: {
+    totalSamples: number;
+    totalCourses: number;
+    totalTokens: {
+      input: number;
+      output: number;
+      total: number;
+    };
+    totalCost: number;
+    averageCostPerSample: number;
+    averageCostPerCourse: number;
+  };
+  perIterationCosts: EvaluationCostFile[];
 };

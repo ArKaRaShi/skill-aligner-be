@@ -1,3 +1,5 @@
+import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+
 import type {
   AgreementType,
   CourseComparisonRecord,
@@ -34,6 +36,7 @@ export const createMockMatchedSkill = (
  */
 export const createMockCourseRecord = (
   overrides: Partial<{
+    question: string;
     subjectCode: string;
     subjectName: string;
     outcomes: string[];
@@ -51,6 +54,7 @@ export const createMockCourseRecord = (
     agreementType: AgreementType;
   }> = {},
 ): CourseComparisonRecord => ({
+  question: 'Test question', // Add default question
   subjectCode: 'CS101',
   subjectName: 'Introduction to Python',
   outcomes: ['Learn Python basics', 'Build applications'],
@@ -82,6 +86,7 @@ export const createMockSampleRecord = (
   queryLogId: 'query-log-001',
   question: 'How do I learn Python programming?',
   courses: courses.length > 0 ? courses : [createMockCourseRecord()],
+  tokenUsage: [] as TokenUsage[],
   ...overrides,
 });
 
@@ -286,6 +291,97 @@ export const createMockMetricsFile = (): MetricsFile => ({
       judgePass: 4,
     },
   },
+  // New diagnostic metrics
+  scoreVerdictBreakdown: {
+    score0: { judgePass: 0, judgeFail: 1, total: 1, passRate: 0 },
+    score1: { judgePass: 0, judgeFail: 1, total: 1, passRate: 0 },
+    score2: { judgePass: 1, judgeFail: 0, total: 1, passRate: 1 },
+    score3: { judgePass: 3, judgeFail: 0, total: 3, passRate: 1 },
+  },
+  perSampleMetrics: [
+    {
+      sampleId: 1,
+      queryLogId: 'query-1',
+      question: 'Test question 1',
+      coursesEvaluated: 3,
+      agreementCount: 2,
+      disagreementCount: 1,
+      agreementRate: 0.67,
+      noiseRemovalEfficiency: 1,
+      exploratoryRecall: 0.33,
+      conservativeDropRate: 0,
+    },
+    {
+      sampleId: 2,
+      queryLogId: 'query-2',
+      question: 'Test question 2',
+      coursesEvaluated: 2,
+      agreementCount: 2,
+      disagreementCount: 0,
+      agreementRate: 1,
+      noiseRemovalEfficiency: 1,
+      exploratoryRecall: 0,
+      conservativeDropRate: 0,
+    },
+  ],
+  thresholdSweep: [
+    {
+      threshold: 'keepAll',
+      minScore: 0,
+      coursesKept: 5,
+      coursesDropped: 0,
+      truePositives: 4,
+      falsePositives: 1,
+      trueNegatives: 0,
+      falseNegatives: 0,
+      precision: 0.8,
+      recall: 1,
+      description:
+        'Maximum exploration (keep all courses). High breadth, 80% signal-to-noise. Useful for comprehensive discovery but requires strong synthesis to contextualize results.',
+    },
+    {
+      threshold: '≥1',
+      minScore: 1,
+      coursesKept: 4,
+      coursesDropped: 1,
+      truePositives: 4,
+      falsePositives: 0,
+      trueNegatives: 1,
+      falseNegatives: 0,
+      precision: 1,
+      recall: 1,
+      description:
+        'Current production setting. Balanced exploration with 100% precision, 100% recall. Keeps scores 1-3 (weak to strong matches), providing broad context for synthesis.',
+    },
+    {
+      threshold: '≥2',
+      minScore: 2,
+      coursesKept: 3,
+      coursesDropped: 2,
+      truePositives: 3,
+      falsePositives: 0,
+      trueNegatives: 2,
+      falseNegatives: 1,
+      precision: 1,
+      recall: 0.75,
+      description:
+        'Conservative filtering (medium+ relevance only). 100% precision, 75% recall. Higher quality results but misses 25% of judge-approved courses.',
+    },
+    {
+      threshold: '≥3',
+      minScore: 3,
+      coursesKept: 2,
+      coursesDropped: 3,
+      truePositives: 2,
+      falsePositives: 0,
+      trueNegatives: 3,
+      falseNegatives: 2,
+      precision: 1,
+      recall: 0.5,
+      description:
+        'Strict filtering (strong matches only). 100% precision, 50% recall. Highest quality but misses 50% of relevant courses.',
+    },
+  ],
 });
 
 /**
