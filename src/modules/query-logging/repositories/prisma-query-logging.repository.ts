@@ -306,6 +306,12 @@ export class PrismaQueryLoggingRepository implements IQueryLoggingRepository {
       where: Object.keys(where).length > 0 ? where : undefined,
     });
   }
+
+  async deleteQueryLogById(queryLogId: Identifier): Promise<void> {
+    await this.prisma.queryProcessLog.delete({
+      where: { id: queryLogId as string },
+    });
+  }
 }
 
 // Provide the token for dependency injection

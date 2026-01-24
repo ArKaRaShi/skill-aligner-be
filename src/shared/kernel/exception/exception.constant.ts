@@ -28,6 +28,7 @@ export const ErrorCode = {
   // Client Errors
   INVALID_INPUT: 5001,
   INVALID_MODEL_FORMAT: 5002,
+  RESOURCE_NOT_FOUND: 5003,
 
   // General Errors
   INTERNAL_SERVER_ERROR: 9001,
@@ -64,6 +65,7 @@ export const ErrorCodeToHttpStatus: Record<AppErrorCode, number> = {
   // Client Errors
   [ErrorCode.INVALID_INPUT]: HttpStatus.BAD_REQUEST,
   [ErrorCode.INVALID_MODEL_FORMAT]: HttpStatus.BAD_REQUEST,
+  [ErrorCode.RESOURCE_NOT_FOUND]: HttpStatus.NOT_FOUND,
 
   // General Errors
   [ErrorCode.INTERNAL_SERVER_ERROR]: HttpStatus.INTERNAL_SERVER_ERROR,

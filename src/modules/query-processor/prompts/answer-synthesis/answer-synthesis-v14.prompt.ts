@@ -108,7 +108,7 @@ STRICT FORMATTING RULES:
   - WRONG: "วิชาการเงินเบื้องต้น (01234567-68)" 
   - WRONG: วิชาการเงินเบื้องต้น (01234567-68)
   - WRONG: "วิชาการเงินเบื้องต้น" (01234567-68)
-3. Use the word "รายวิชา" instead of "หลักสูตร" in Thai
+3. Use the word "รายวิชา" instead of "หลักสูตร" in Thai, Use word "ผลลัพธ์การเรียนรู้" instead of "learning outcome(s)"
 4. Write in paragraph form only (no bullet metadata blocks)
 
 RESPONSE LANGUAGE RULES:

@@ -1,7 +1,8 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { Logger } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
 
 import { Identifier } from 'src/shared/contracts/types/identifier';
+import { AppException } from 'src/shared/kernel/exception/app-exception';
+import { ErrorCode } from 'src/shared/kernel/exception/exception.constant';
 
 import {
   I_QUERY_LOGGING_REPOSITORY_TOKEN,
@@ -41,7 +42,11 @@ export class GetQueryLogByIdUseCase {
 
     if (!result) {
       this.logger.warn(`Query log not found: ${input.id}`);
-      throw new NotFoundException(`Query log with ID ${input.id} not found`);
+      throw new AppException({
+        message: `Query log with ID ${input.id} not found`,
+        errorCode: ErrorCode.RESOURCE_NOT_FOUND,
+        context: { id: input.id },
+      });
     }
 
     // The repository returns either QueryProcessLog or QueryProcessLogWithSteps

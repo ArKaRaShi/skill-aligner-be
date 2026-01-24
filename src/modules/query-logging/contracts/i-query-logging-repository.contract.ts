@@ -149,4 +149,11 @@ export interface IQueryLoggingRepository {
     hasMetrics?: boolean;
     search?: string;
   }): Promise<number>;
+
+  /**
+   * Delete a query log by ID
+   * @param queryLogId - The query log ID to delete
+   * @returns void
+   */
+  deleteQueryLogById(queryLogId: Identifier): Promise<void>;
 }

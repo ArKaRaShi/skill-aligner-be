@@ -1,5 +1,6 @@
 import {
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
@@ -10,6 +11,7 @@ import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 
 import { SuccessResponseDto } from 'src/shared/contracts/api/base.response.dto';
 
+import { DeleteQueryLogByIdUseCase } from '../../../../application/use-cases/delete-query-log-by-id.use-case';
 import { GetQueryLogByIdUseCase } from '../../../../application/use-cases/get-query-log-by-id.use-case';
 import { ListQueryLogsUseCase } from '../../../../application/use-cases/list-query-logs.use-case';
 import { ListQueryLogsQueryRequestDto } from '../dto/requests/list-query-logs.query.request.dto';
@@ -23,6 +25,7 @@ export class QueryLoggingController {
   constructor(
     private readonly listQueryLogsUseCase: ListQueryLogsUseCase,
     private readonly getQueryLogByIdUseCase: GetQueryLogByIdUseCase,
+    private readonly deleteQueryLogByIdUseCase: DeleteQueryLogByIdUseCase,
   ) {}
 
   @Get()
@@ -92,6 +95,28 @@ export class QueryLoggingController {
     return new SuccessResponseDto<QueryLogDetailResponseDto>({
       message: 'Query log retrieved successfully',
       data: responseDto,
+    });
+  }
+
+  @Delete(':id')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({
+    summary: 'Delete query log by ID',
+    description: 'Permanently delete a query log and its associated steps',
+  })
+  @ApiParam({
+    name: 'id',
+    description: 'Query log ID',
+    example: 'cm0abc123def456',
+  })
+  async deleteQueryLogById(
+    @Param('id') id: string,
+  ): Promise<SuccessResponseDto<null>> {
+    await this.deleteQueryLogByIdUseCase.execute({ id });
+
+    return new SuccessResponseDto<null>({
+      message: 'Query log deleted successfully',
+      data: null,
     });
   }
 }
