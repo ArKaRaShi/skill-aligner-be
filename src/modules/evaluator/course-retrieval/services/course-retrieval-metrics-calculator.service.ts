@@ -1,3 +1,5 @@
+import { NdcgCalculator } from '../helpers/ndcg-calculator.helper';
+import { PrecisionCalculator } from '../helpers/precision-calculator.helper';
 import type { LlmCourseEvaluationItem } from '../schemas/schema';
 import type {
   EvaluationItem,
@@ -11,6 +13,10 @@ import type {
  * Simplified metrics calculator following the modern evaluator pattern.
  * Uses single-score relevance model (commit e9cfa11) instead of the
  * legacy two-dimensional skill+context model.
+ *
+ * **Proxy Metrics**: NDCG and Precision use LLM judge scores as relevance.
+ * Without ground truth, IDCG is calculated from the ideal ranking of the
+ * judge's own scores, not from perfect ground truth.
  *
  * Follows the pattern from course-relevance-filter/metrics-calculator.service.ts
  */
@@ -105,6 +111,8 @@ export class CourseRetrievalMetricsCalculator {
         highlyRelevantRate: 0,
         irrelevantCount: 0,
         irrelevantRate: 0,
+        ndcg: { at5: 0, at10: 0, atAll: 0 },
+        precision: { at5: 0, at10: 0, atAll: 0 },
       };
     }
 
@@ -133,6 +141,28 @@ export class CourseRetrievalMetricsCalculator {
     ).length;
     const irrelevantRate = (irrelevantCount / total) * 100;
 
+    // Extract relevance scores for NDCG and Precision calculations
+    const relevanceScores = evaluations.map((e) => e.relevanceScore);
+
+    // Calculate NDCG metrics (proxy: uses judge scores, no ground truth)
+    const ndcgAt5 = NdcgCalculator.calculateNDCG(relevanceScores, 5);
+    const ndcgAt10 = NdcgCalculator.calculateNDCG(relevanceScores, 10);
+    const ndcgAtAll = NdcgCalculator.calculateNDCG(relevanceScores, total);
+
+    // Calculate Precision@K metrics (proxy: score ≥ 2 = relevant)
+    const precisionAt5 = PrecisionCalculator.calculatePrecisionAtK(
+      relevanceScores,
+      5,
+    );
+    const precisionAt10 = PrecisionCalculator.calculatePrecisionAtK(
+      relevanceScores,
+      10,
+    );
+    const precisionAtAll = PrecisionCalculator.calculatePrecisionAtK(
+      relevanceScores,
+      total,
+    );
+
     return {
       totalCourses: total,
       averageRelevance,
@@ -141,6 +171,16 @@ export class CourseRetrievalMetricsCalculator {
       highlyRelevantRate,
       irrelevantCount,
       irrelevantRate,
+      ndcg: {
+        at5: ndcgAt5,
+        at10: ndcgAt10,
+        atAll: ndcgAtAll,
+      },
+      precision: {
+        at5: precisionAt5,
+        at10: precisionAt10,
+        atAll: precisionAtAll,
+      },
     };
   }
 }

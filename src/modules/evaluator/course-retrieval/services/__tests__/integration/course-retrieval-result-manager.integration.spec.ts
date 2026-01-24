@@ -4,7 +4,10 @@ import * as os from 'node:os';
 import * as path from 'node:path';
 import { FileHelper } from 'src/shared/utils/file';
 
-import type { EvaluateRetrieverOutput } from '../../../types/course-retrieval.types';
+import type {
+  CourseRetrievalIterationMetrics,
+  EvaluateRetrieverOutput,
+} from '../../../types/course-retrieval.types';
 import { CourseRetrievalResultManagerService } from '../../course-retrieval-result-manager.service';
 
 // Helper to create temp directory
@@ -304,6 +307,8 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             highlyRelevantRate: 100,
             irrelevantCount: 0,
             irrelevantRate: 0,
+            ndcg: { at5: 1, at10: 1, atAll: 1 },
+            precision: { at5: 1, at10: 1, atAll: 1 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -355,6 +360,8 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             highlyRelevantRate: 0,
             irrelevantCount: 0,
             irrelevantRate: 0,
+            ndcg: { at5: 1, at10: 1, atAll: 1 },
+            precision: { at5: 1, at10: 1, atAll: 1 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -378,6 +385,8 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             highlyRelevantRate: 0,
             irrelevantCount: 0,
             irrelevantRate: 0,
+            ndcg: { at5: 1, at10: 1, atAll: 1 },
+            precision: { at5: 1, at10: 1, atAll: 1 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -463,6 +472,8 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             highlyRelevantRate: 0,
             irrelevantCount: 0,
             irrelevantRate: 0,
+            ndcg: { at5: 1, at10: 1, atAll: 1 },
+            precision: { at5: 1, at10: 1, atAll: 1 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -667,6 +678,546 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       // Assert
       expect(baseDir).toBe(tempDir);
+    });
+  });
+
+  describe('saveIterationMetrics', () => {
+    it('should save iteration metrics file with correct structure', async () => {
+      // Arrange
+      const testSetName = 'test-save-metrics';
+      const iterationNumber = 1;
+
+      await service.ensureDirectoryStructure(testSetName);
+
+      const records: EvaluateRetrieverOutput[] = [
+        {
+          testCaseId: 'test-001',
+          question: 'How to learn Python?',
+          skill: 'Python programming',
+          retrievedCount: 3,
+          evaluations: [
+            {
+              subjectCode: 'CS101',
+              subjectName: 'Intro to Python',
+              relevanceScore: 3,
+              reason: 'Perfect match',
+            },
+            {
+              subjectCode: 'CS102',
+              subjectName: 'Advanced Python',
+              relevanceScore: 2,
+              reason: 'Related',
+            },
+            {
+              subjectCode: 'MATH101',
+              subjectName: 'Calculus',
+              relevanceScore: 0,
+              reason: 'Not relevant',
+            },
+          ],
+          metrics: {
+            totalCourses: 3,
+            averageRelevance: 1.667,
+            scoreDistribution: [],
+            highlyRelevantCount: 1,
+            highlyRelevantRate: 33.33,
+            irrelevantCount: 1,
+            irrelevantRate: 33.33,
+            ndcg: { at5: 0.8, at10: 0.8, atAll: 0.75 },
+            precision: { at5: 0.67, at10: 0.67, atAll: 0.67 },
+          },
+          llmModel: 'gpt-4',
+          llmProvider: 'openai',
+          inputTokens: 200,
+          outputTokens: 100,
+        },
+      ];
+
+      // Act
+      const savedPath = await service.saveIterationMetrics({
+        testSetName,
+        iterationNumber,
+        records,
+      });
+
+      // Assert - file should exist
+      const metricsPath = path.join(
+        tempDir,
+        testSetName,
+        'metrics',
+        `metrics-iteration-${iterationNumber}.json`,
+      );
+
+      expect(savedPath).toBe(metricsPath);
+      expect(FileHelper.exists(metricsPath)).toBe(true);
+
+      // Verify content structure
+      const metrics =
+        await FileHelper.loadJson<CourseRetrievalIterationMetrics>(metricsPath);
+      expect(metrics.iteration).toBe(1);
+      expect(metrics.timestamp).toBeDefined();
+      expect(metrics.sampleCount).toBe(1);
+      expect(metrics.totalCoursesEvaluated).toBe(3);
+      expect(metrics.averageRelevance).toBeCloseTo(1.667, 2);
+      expect(metrics.ndcgAt5).toBeDefined();
+      expect(metrics.ndcgAt10).toBeDefined();
+      expect(metrics.ndcgAtAll).toBeDefined();
+      expect(metrics.precisionAt5).toBeDefined();
+      expect(metrics.precisionAt10).toBeDefined();
+      expect(metrics.precisionAtAll).toBeDefined();
+    });
+
+    it('should handle multiple samples in single iteration', async () => {
+      // Arrange
+      const testSetName = 'test-multiple-samples';
+      const iterationNumber = 2;
+
+      await service.ensureDirectoryStructure(testSetName);
+
+      const records: EvaluateRetrieverOutput[] = Array.from(
+        { length: 5 },
+        (_, i) => ({
+          testCaseId: `test-${i}`,
+          question: `Question ${i}?`,
+          skill: `Skill ${i}`,
+          retrievedCount: 2,
+          evaluations: [
+            {
+              subjectCode: `CS${100 + i}`,
+              subjectName: `Course ${i}`,
+              relevanceScore: 3,
+              reason: 'Good',
+            },
+            {
+              subjectCode: `CS${200 + i}`,
+              subjectName: `Course ${i + 100}`,
+              relevanceScore: 2,
+              reason: 'Okay',
+            },
+          ],
+          metrics: {
+            totalCourses: 2,
+            averageRelevance: 2.5,
+            scoreDistribution: [],
+            highlyRelevantCount: 1,
+            highlyRelevantRate: 50,
+            irrelevantCount: 0,
+            irrelevantRate: 0,
+            ndcg: { at5: 1, at10: 1, atAll: 1 },
+            precision: { at5: 1, at10: 1, atAll: 1 },
+          },
+          llmModel: 'gpt-4',
+          llmProvider: 'openai',
+          inputTokens: 100,
+          outputTokens: 50,
+        }),
+      );
+
+      // Act
+      await service.saveIterationMetrics({
+        testSetName,
+        iterationNumber,
+        records,
+      });
+
+      // Assert
+      const metricsPath = path.join(
+        tempDir,
+        testSetName,
+        'metrics',
+        `metrics-iteration-${iterationNumber}.json`,
+      );
+
+      const metrics =
+        await FileHelper.loadJson<CourseRetrievalIterationMetrics>(metricsPath);
+      expect(metrics.sampleCount).toBe(5);
+      expect(metrics.totalCoursesEvaluated).toBe(10); // 5 samples × 2 courses each
+    });
+  });
+
+  describe('calculateFinalMetrics', () => {
+    it('should aggregate metrics across multiple iterations', async () => {
+      // Arrange - Setup 3 iterations with different metrics
+      const testSetName = 'test-final-metrics';
+      const totalIterations = 3;
+
+      await service.ensureDirectoryStructure(testSetName);
+
+      // Create and save records for each iteration
+      for (let i = 1; i <= totalIterations; i++) {
+        const records: EvaluateRetrieverOutput[] = [
+          {
+            testCaseId: `test-${i}`,
+            question: `Question ${i}?`,
+            skill: `Skill ${i}`,
+            retrievedCount: 3,
+            evaluations: [
+              {
+                subjectCode: 'CS101',
+                subjectName: 'Course 1',
+                relevanceScore: i, // Varying scores across iterations
+                reason: 'Good',
+              },
+              {
+                subjectCode: 'CS102',
+                subjectName: 'Course 2',
+                relevanceScore: 2,
+                reason: 'Okay',
+              },
+              {
+                subjectCode: 'CS103',
+                subjectName: 'Course 3',
+                relevanceScore: 1,
+                reason: 'Fair',
+              },
+            ],
+            metrics: {
+              totalCourses: 3,
+              averageRelevance: (i + 2 + 1) / 3,
+              scoreDistribution: [],
+              highlyRelevantCount: i >= 3 ? 1 : 0,
+              highlyRelevantRate: i >= 3 ? 33.33 : 0,
+              irrelevantCount: 0,
+              irrelevantRate: 0,
+              ndcg: {
+                at5: 0.7 + i * 0.05,
+                at10: 0.7 + i * 0.05,
+                atAll: 0.65 + i * 0.05,
+              },
+              precision: {
+                at5: 0.6 + i * 0.1,
+                at10: 0.6 + i * 0.1,
+                atAll: 0.6 + i * 0.1,
+              },
+            },
+            llmModel: 'gpt-4',
+            llmProvider: 'openai',
+            inputTokens: 100 * i,
+            outputTokens: 50 * i,
+          },
+        ];
+
+        // Save records
+        await service.saveIterationRecords({
+          testSetName,
+          iterationNumber: i,
+          records,
+        });
+
+        // Save iteration metrics
+        await service.saveIterationMetrics({
+          testSetName,
+          iterationNumber: i,
+          records,
+        });
+      }
+
+      // Act
+      const finalMetrics = await service.calculateFinalMetrics({
+        testSetName,
+        totalIterations,
+      });
+
+      // Assert - verify structure
+      expect(finalMetrics.iterations).toBe(3);
+      expect(finalMetrics.timestamp).toBeDefined();
+      expect(finalMetrics.aggregateMetrics).toBeDefined();
+      expect(finalMetrics.perIterationMetrics).toHaveLength(3);
+
+      // Verify aggregate metrics have statistical structure
+      expect(finalMetrics.aggregateMetrics.ndcgAt10).toHaveProperty('mean');
+      expect(finalMetrics.aggregateMetrics.ndcgAt10).toHaveProperty('min');
+      expect(finalMetrics.aggregateMetrics.ndcgAt10).toHaveProperty('max');
+      expect(finalMetrics.aggregateMetrics.ndcgAt10).toHaveProperty('stdDev');
+
+      expect(finalMetrics.aggregateMetrics.precisionAt10).toHaveProperty(
+        'mean',
+      );
+      expect(finalMetrics.aggregateMetrics.precisionAt10).toHaveProperty(
+        'stdDev',
+      );
+
+      // Verify per-iteration metrics are included
+      expect(finalMetrics.perIterationMetrics[0].iteration).toBe(1);
+      expect(finalMetrics.perIterationMetrics[1].iteration).toBe(2);
+      expect(finalMetrics.perIterationMetrics[2].iteration).toBe(3);
+
+      // Verify final metrics file was saved
+      const finalMetricsPath = path.join(
+        tempDir,
+        testSetName,
+        'final-metrics',
+        `final-metrics-${totalIterations}.json`,
+      );
+
+      expect(FileHelper.exists(finalMetricsPath)).toBe(true);
+
+      const savedMetrics = await FileHelper.loadJson(finalMetricsPath);
+      expect(savedMetrics).toEqual(finalMetrics);
+    });
+
+    it('should handle single iteration (mean = min = max, stdDev = 0)', async () => {
+      // Arrange
+      const testSetName = 'test-single-iteration';
+      const totalIterations = 1;
+
+      await service.ensureDirectoryStructure(testSetName);
+
+      const records: EvaluateRetrieverOutput[] = [
+        {
+          testCaseId: 'test-001',
+          question: 'Question?',
+          skill: 'Skill',
+          retrievedCount: 2,
+          evaluations: [
+            {
+              subjectCode: 'CS101',
+              subjectName: 'Course 1',
+              relevanceScore: 2,
+              reason: 'Good',
+            },
+            {
+              subjectCode: 'CS102',
+              subjectName: 'Course 2',
+              relevanceScore: 2,
+              reason: 'Good',
+            },
+          ],
+          metrics: {
+            totalCourses: 2,
+            averageRelevance: 2,
+            scoreDistribution: [],
+            highlyRelevantCount: 0,
+            highlyRelevantRate: 0,
+            irrelevantCount: 0,
+            irrelevantRate: 0,
+            ndcg: { at5: 0.75, at10: 0.75, atAll: 0.7 },
+            precision: { at5: 1, at10: 1, atAll: 1 },
+          },
+          llmModel: 'gpt-4',
+          llmProvider: 'openai',
+          inputTokens: 100,
+          outputTokens: 50,
+        },
+      ];
+
+      await service.saveIterationRecords({
+        testSetName,
+        iterationNumber: 1,
+        records,
+      });
+
+      await service.saveIterationMetrics({
+        testSetName,
+        iterationNumber: 1,
+        records,
+      });
+
+      // Act
+      const finalMetrics = await service.calculateFinalMetrics({
+        testSetName,
+        totalIterations,
+      });
+
+      // Assert - for single iteration, mean = min = max, stdDev = 0
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.mean).toBe(
+        finalMetrics.aggregateMetrics.ndcgAt10.min,
+      );
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.mean).toBe(
+        finalMetrics.aggregateMetrics.ndcgAt10.max,
+      );
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.stdDev).toBe(0);
+
+      expect(finalMetrics.aggregateMetrics.precisionAt10.mean).toBe(
+        finalMetrics.aggregateMetrics.precisionAt10.min,
+      );
+      expect(finalMetrics.aggregateMetrics.precisionAt10.stdDev).toBe(0);
+    });
+
+    it('should handle missing iterations gracefully', async () => {
+      // Arrange
+      const testSetName = 'test-missing-iterations';
+      const totalIterations = 3;
+
+      await service.ensureDirectoryStructure(testSetName);
+
+      // Only create 2 out of 3 iterations
+      for (let i = 1; i <= 2; i++) {
+        const records: EvaluateRetrieverOutput[] = [
+          {
+            testCaseId: `test-${i}`,
+            question: `Question ${i}?`,
+            skill: `Skill ${i}`,
+            retrievedCount: 1,
+            evaluations: [
+              {
+                subjectCode: 'CS101',
+                subjectName: 'Course 1',
+                relevanceScore: 2,
+                reason: 'Good',
+              },
+            ],
+            metrics: {
+              totalCourses: 1,
+              averageRelevance: 2,
+              scoreDistribution: [],
+              highlyRelevantCount: 0,
+              highlyRelevantRate: 0,
+              irrelevantCount: 0,
+              irrelevantRate: 0,
+              ndcg: { at5: 0.75, at10: 0.75, atAll: 0.75 },
+              precision: { at5: 1, at10: 1, atAll: 1 },
+            },
+            llmModel: 'gpt-4',
+            llmProvider: 'openai',
+            inputTokens: 100,
+            outputTokens: 50,
+          },
+        ];
+
+        await service.saveIterationRecords({
+          testSetName,
+          iterationNumber: i,
+          records,
+        });
+
+        await service.saveIterationMetrics({
+          testSetName,
+          iterationNumber: i,
+          records,
+        });
+      }
+
+      // Act - should not throw, should aggregate available iterations
+      const finalMetrics = await service.calculateFinalMetrics({
+        testSetName,
+        totalIterations,
+      });
+
+      // Assert - should have 2 iterations (missing iteration 3)
+      expect(finalMetrics.perIterationMetrics).toHaveLength(2);
+      // Both iterations have same data, so mean = max = min
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.mean).toBe(
+        finalMetrics.aggregateMetrics.ndcgAt10.max,
+      );
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.stdDev).toBe(0);
+    });
+
+    it('should throw error when no data found', async () => {
+      // Arrange
+      const testSetName = 'test-no-data';
+
+      await service.ensureDirectoryStructure(testSetName);
+
+      // Act & Assert
+      await expect(
+        service.calculateFinalMetrics({
+          testSetName,
+          totalIterations: 1,
+        }),
+      ).rejects.toThrow(
+        `No data found for ${testSetName}. Cannot calculate final metrics.`,
+      );
+    });
+
+    it('should correctly calculate statistical aggregates', async () => {
+      // Arrange - Create data with different scores across iterations
+      const testSetName = 'test-statistical-aggregates';
+      const totalIterations = 3;
+
+      await service.ensureDirectoryStructure(testSetName);
+
+      // Create 3 iterations with varying numbers of highly relevant courses
+      // This will create different NDCG/Precision values across iterations
+      for (let i = 0; i < totalIterations; i++) {
+        const records: EvaluateRetrieverOutput[] = [
+          {
+            testCaseId: `test-${i}`,
+            question: `Question ${i}?`,
+            skill: `Skill ${i}`,
+            retrievedCount: 3,
+            evaluations: [
+              {
+                subjectCode: 'CS101',
+                subjectName: 'Course 1',
+                relevanceScore: 3,
+                reason: 'Excellent',
+              },
+              {
+                subjectCode: 'CS102',
+                subjectName: 'Course 2',
+                relevanceScore: i === 2 ? 3 : 2, // Vary this score
+                reason: 'Good',
+              },
+              {
+                subjectCode: 'CS103',
+                subjectName: 'Course 3',
+                relevanceScore: 1,
+                reason: 'Fair',
+              },
+            ],
+            metrics: {
+              totalCourses: 3,
+              averageRelevance: (3 + (i === 2 ? 3 : 2) + 1) / 3,
+              scoreDistribution: [],
+              highlyRelevantCount: i === 2 ? 2 : 1,
+              highlyRelevantRate: 0,
+              irrelevantCount: 0,
+              irrelevantRate: 0,
+              ndcg: { at5: 0.8, at10: 0.8, atAll: 0.75 },
+              precision: { at5: 0.67, at10: 0.67, atAll: 0.67 },
+            },
+            llmModel: 'gpt-4',
+            llmProvider: 'openai',
+            inputTokens: 100,
+            outputTokens: 50,
+          },
+        ];
+
+        await service.saveIterationRecords({
+          testSetName,
+          iterationNumber: i + 1,
+          records,
+        });
+
+        await service.saveIterationMetrics({
+          testSetName,
+          iterationNumber: i + 1,
+          records,
+        });
+      }
+
+      // Act
+      const finalMetrics = await service.calculateFinalMetrics({
+        testSetName,
+        totalIterations,
+      });
+
+      // Assert - verify statistical structure is correct
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.mean).toBeGreaterThan(0);
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.min).toBeGreaterThanOrEqual(
+        0,
+      );
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.max).toBeLessThanOrEqual(1);
+      expect(
+        finalMetrics.aggregateMetrics.ndcgAt10.stdDev,
+      ).toBeGreaterThanOrEqual(0);
+
+      // Verify min <= mean <= max
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.min).toBeLessThanOrEqual(
+        finalMetrics.aggregateMetrics.ndcgAt10.mean,
+      );
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.mean).toBeLessThanOrEqual(
+        finalMetrics.aggregateMetrics.ndcgAt10.max,
+      );
+
+      // Same checks for precision
+      expect(finalMetrics.aggregateMetrics.precisionAt10.mean).toBeGreaterThan(
+        0,
+      );
+      expect(
+        finalMetrics.aggregateMetrics.precisionAt10.stdDev,
+      ).toBeGreaterThanOrEqual(0);
     });
   });
 });

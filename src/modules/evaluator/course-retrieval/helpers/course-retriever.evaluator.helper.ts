@@ -5,6 +5,8 @@ import {
   RetrievalPerformanceMetrics,
   RetrievalScoreDistribution,
 } from '../types/course-retrieval.types';
+import { NdcgCalculator } from './ndcg-calculator.helper';
+import { PrecisionCalculator } from './precision-calculator.helper';
 
 export class CourseRetrieverEvaluatorHelper {
   /**
@@ -57,6 +59,8 @@ export class CourseRetrieverEvaluatorHelper {
         highlyRelevantRate: 0,
         irrelevantCount: 0,
         irrelevantRate: 0,
+        ndcg: { at5: 0, at10: 0, atAll: 0 },
+        precision: { at5: 0, at10: 0, atAll: 0 },
       };
     }
 
@@ -85,6 +89,28 @@ export class CourseRetrieverEvaluatorHelper {
     ).length;
     const irrelevantRate = (irrelevantCount / total) * 100;
 
+    // Extract relevance scores for NDCG and Precision calculations
+    const relevanceScores = evaluations.map((e) => e.relevanceScore);
+
+    // Calculate NDCG metrics
+    const ndcgAt5 = NdcgCalculator.calculateNDCG(relevanceScores, 5);
+    const ndcgAt10 = NdcgCalculator.calculateNDCG(relevanceScores, 10);
+    const ndcgAtAll = NdcgCalculator.calculateNDCG(relevanceScores, total);
+
+    // Calculate Precision@K metrics
+    const precisionAt5 = PrecisionCalculator.calculatePrecisionAtK(
+      relevanceScores,
+      5,
+    );
+    const precisionAt10 = PrecisionCalculator.calculatePrecisionAtK(
+      relevanceScores,
+      10,
+    );
+    const precisionAtAll = PrecisionCalculator.calculatePrecisionAtK(
+      relevanceScores,
+      total,
+    );
+
     return {
       totalCourses: total,
       averageRelevance,
@@ -93,6 +119,16 @@ export class CourseRetrieverEvaluatorHelper {
       highlyRelevantRate,
       irrelevantCount,
       irrelevantRate,
+      ndcg: {
+        at5: ndcgAt5,
+        at10: ndcgAt10,
+        atAll: ndcgAtAll,
+      },
+      precision: {
+        at5: precisionAt5,
+        at10: precisionAt10,
+        atAll: precisionAtAll,
+      },
     };
   }
 

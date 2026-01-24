@@ -45,9 +45,12 @@ import { QueryPipelineReaderService } from './services/query-pipeline-reader.ser
     },
     {
       provide: QueryAnalyticsService,
-      inject: [I_QUERY_LOGGING_REPOSITORY_TOKEN],
-      useFactory: (repository: IQueryLoggingRepository) => {
-        return new QueryAnalyticsService(repository);
+      inject: [I_QUERY_LOGGING_REPOSITORY_TOKEN, QueryPipelineReaderService],
+      useFactory: (
+        repository: IQueryLoggingRepository,
+        pipelineReader: QueryPipelineReaderService,
+      ) => {
+        return new QueryAnalyticsService(repository, pipelineReader);
       },
     },
     ...QueryLoggingUseCases,

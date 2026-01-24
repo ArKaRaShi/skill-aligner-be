@@ -43,19 +43,27 @@ export class QueryPipelineReaderService {
    * Get a query log by ID with all steps, parsed back to original types.
    *
    * @param id - Query log ID
+   * @param silent - If true, suppress debug logging (useful for batch operations)
    * @returns Query log with properly typed step outputs, or null if not found
    */
-  async getQueryLogById(id: string): Promise<QueryProcessLogWithSteps | null> {
-    this.logger.debug(`Fetching query log: ${id}`);
+  async getQueryLogById(
+    id: string,
+    silent = false,
+  ): Promise<QueryProcessLogWithSteps | null> {
+    if (!silent) {
+      this.logger.debug(`Fetching query log: ${id}`);
+    }
 
     const log = await this.repository.findQueryLogById(id as Identifier, true);
 
     if (!log) {
-      this.logger.warn(`Query log not found: ${id}`);
+      if (!silent) {
+        this.logger.warn(`Query log not found: ${id}`);
+      }
       return null;
     }
 
-    return this.parseQueryLog(log as QueryProcessLogWithSteps);
+    return this.parseQueryLog(log as QueryProcessLogWithSteps, silent);
   }
 
   /**
@@ -65,12 +73,12 @@ export class QueryPipelineReaderService {
    * @returns Array of query logs with properly typed step outputs
    */
   async getQueryLogsByIds(ids: string[]): Promise<QueryProcessLogWithSteps[]> {
-    this.logger.debug(`Fetching ${ids.length} query logs`);
+    this.logger.debug(`Fetching ${ids.length} query logs (batch mode)`);
 
     const logs: QueryProcessLogWithSteps[] = [];
 
     for (const id of ids) {
-      const log = await this.getQueryLogById(id);
+      const log = await this.getQueryLogById(id, true); // Silent mode for batch
       if (log) {
         logs.push(log);
       }
@@ -98,13 +106,17 @@ export class QueryPipelineReaderService {
    * - Maps (Record → Map)
    *
    * @param log - Query log from database
+   * @param silent - If true, suppress debug logging
    * @returns Parsed query log with proper types
    */
   private parseQueryLog(
     log: QueryProcessLogWithSteps,
+    silent: boolean,
   ): QueryProcessLogWithSteps {
     // Parse each step's output
-    const parsedSteps = log.processSteps.map((step) => this.parseStep(step));
+    const parsedSteps = log.processSteps.map((step) =>
+      this.parseStep(step, silent),
+    );
 
     return {
       ...log,
@@ -114,12 +126,18 @@ export class QueryPipelineReaderService {
 
   /**
    * Parse a single step, reconstructing its output types.
+   *
+   * @param step - Step to parse
+   * @param silent - If true, suppress debug logging
    */
-  private parseStep(step: QueryProcessLogWithSteps['processSteps'][number]) {
+  private parseStep(
+    step: QueryProcessLogWithSteps['processSteps'][number],
+    silent: boolean,
+  ) {
     const parsedStep = { ...step };
 
     // Debug log for steps with Maps before parsing
-    if (this.stepHasMaps(parsedStep.stepName)) {
+    if (!silent && this.stepHasMaps(parsedStep.stepName)) {
       this.logger.debug(`Parsing step: ${parsedStep.stepName}`);
       this.logger.debug(
         `Raw output: ${JSON.stringify(parsedStep.output?.raw)}`,
@@ -140,37 +158,39 @@ export class QueryPipelineReaderService {
     }
 
     // Debug log for steps with Maps after parsing (with proper Map serialization)
-    if (parsedStep.stepName === STEP_NAME.COURSE_RETRIEVAL) {
-      const serialized = parsedStep.output?.raw
-        ? SerializationHelper.serializeCourseRetrievalResult(
-            parsedStep.output.raw as CourseRetrievalRawOutput,
-          )
-        : null;
-      this.logger.debug(
-        `Parsed output: ${JSON.stringify(serialized, null, 2)}`,
-      );
-    }
+    if (!silent) {
+      if (parsedStep.stepName === STEP_NAME.COURSE_RETRIEVAL) {
+        const serialized = parsedStep.output?.raw
+          ? SerializationHelper.serializeCourseRetrievalResult(
+              parsedStep.output.raw as CourseRetrievalRawOutput,
+            )
+          : null;
+        this.logger.debug(
+          `Parsed output: ${JSON.stringify(serialized, null, 2)}`,
+        );
+      }
 
-    if (parsedStep.stepName === STEP_NAME.COURSE_RELEVANCE_FILTER) {
-      const serialized = parsedStep.output?.raw
-        ? SerializationHelper.serializeCourseFilterResult(
-            parsedStep.output.raw as CourseRelevanceFilterResultV2,
-          )
-        : null;
-      this.logger.debug(
-        `Parsed output: ${JSON.stringify(serialized, null, 2)}`,
-      );
-    }
+      if (parsedStep.stepName === STEP_NAME.COURSE_RELEVANCE_FILTER) {
+        const serialized = parsedStep.output?.raw
+          ? SerializationHelper.serializeCourseFilterResult(
+              parsedStep.output.raw as CourseRelevanceFilterResultV2,
+            )
+          : null;
+        this.logger.debug(
+          `Parsed output: ${JSON.stringify(serialized, null, 2)}`,
+        );
+      }
 
-    if (parsedStep.stepName === STEP_NAME.COURSE_AGGREGATION) {
-      const serialized = parsedStep.output?.raw
-        ? SerializationHelper.serializeCourseAggregationResult(
-            parsedStep.output.raw as CourseAggregationRawOutput,
-          )
-        : null;
-      this.logger.debug(
-        `Parsed output: ${JSON.stringify(serialized, null, 2)}`,
-      );
+      if (parsedStep.stepName === STEP_NAME.COURSE_AGGREGATION) {
+        const serialized = parsedStep.output?.raw
+          ? SerializationHelper.serializeCourseAggregationResult(
+              parsedStep.output.raw as CourseAggregationRawOutput,
+            )
+          : null;
+        this.logger.debug(
+          `Parsed output: ${JSON.stringify(serialized, null, 2)}`,
+        );
+      }
     }
 
     return parsedStep;

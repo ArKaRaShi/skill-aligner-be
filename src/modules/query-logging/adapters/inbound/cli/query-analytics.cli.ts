@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 
+import Table from 'cli-table3';
 import { DECIMAL_PRECISION } from 'src/shared/utils/constants/decimal-precision.constants';
 import { DecimalHelper } from 'src/shared/utils/decimal.helper';
 
@@ -7,9 +8,11 @@ import { AppModule } from '../../../../../app.module';
 import { QueryAnalyticsService } from '../../../services/query-analytics.service';
 
 // CLI display constants
-const SKILL_NAME_MAX_LENGTH = 14;
-const TABLE_COLUMN_WIDTH = 14;
-const REJECTION_RATE_WIDTH = 8;
+const SKILL_COL_WIDTH = 20;
+const FREQ_COL_WIDTH = 8;
+const NUMERIC_COL_WIDTH = 10;
+const SCORE_COL_WIDTH = 11;
+const PERCENT_COL_WIDTH = 11;
 
 /**
  * Query Analytics CLI
@@ -51,7 +54,7 @@ interface CliArgs {
   stats: boolean;
   runs: boolean;
   runsLimit: number;
-  distribution: boolean;
+  analytics: boolean;
   help: boolean;
 }
 
@@ -65,7 +68,7 @@ function parseArgs(): CliArgs {
     stats: false,
     runs: false,
     runsLimit: 10,
-    distribution: false,
+    analytics: false,
     help: false,
   };
 
@@ -94,8 +97,8 @@ function parseArgs(): CliArgs {
       return result;
     }
 
-    if (args[i] === '--distribution' || args[i] === '-d') {
-      result.distribution = true;
+    if (args[i] === '--analytics') {
+      result.analytics = true;
       return result;
     }
   }
@@ -110,7 +113,7 @@ function showHelp(): void {
   console.log(`
 Query Analytics CLI
 
-Query cost, token, and distribution analytics from the database.
+Query cost, token, and analytics from the database.
 
 Usage:
   bunx ts-node --require tsconfig-paths/register src/modules/query-logging/adapters/inbound/cli/query-analytics.cli.ts [OPTIONS]
@@ -119,7 +122,7 @@ Options:
   --avg, -a             Show average cost only
   --stats, -s           Show full statistics breakdown
   --runs <n>            Show per-run costs (default: 10)
-  --distribution, -d    Show distribution analytics
+  --analytics           Show 5-key analytics report
   --help, -h            Show this help message
 
 Examples:
@@ -135,8 +138,8 @@ Examples:
   # Show last 20 runs
   bunx ts-node .../query-analytics.cli.ts --runs 20
 
-  # Show distribution analytics
-  bunx ts-node .../query-analytics.cli.ts --distribution
+  # Show analytics report (5 key metrics)
+  bunx ts-node .../query-analytics.cli.ts --analytics
 `);
 }
 
@@ -371,147 +374,205 @@ async function showPerRunCosts(limit: number): Promise<void> {
 }
 
 /**
- * Show distribution analytics
+ * Show analytics report with 5 key metrics
  */
-async function showDistribution(): Promise<void> {
+async function showAnalytics(): Promise<void> {
   const appContext = await NestFactory.createApplicationContext(AppModule);
 
   try {
     const analytics = appContext.get(QueryAnalyticsService);
-    const report = await analytics.getDistributionAnalytics();
+    const report = await analytics.getAnalyticsReport();
 
     console.log('═════════════════════════════════════════');
-    console.log('Query Distribution Analytics');
+    console.log('Query Analytics Report (5 Key Metrics)');
     console.log('═════════════════════════════════════════');
 
-    // 1. Question-Level Summary
-    console.log('\n┌─────────────────────────────────────┐');
-    console.log('│         Query Summary Stats         │');
-    console.log('├─────────────────────────────────────┤');
-    console.log(
-      `│ Total Queries Processed    : ${String(report.questionLevel.totalQueries).padStart(6)}  │`,
-    );
-    console.log(
-      `│ Avg Courses Returned       : ${String(report.questionLevel.avgCoursesReturned.toFixed(1)).padStart(6)}  │`,
-    );
-    console.log(
-      `│ Min Courses Returned       : ${String(report.questionLevel.minCoursesReturned).padStart(6)}  │`,
-    );
-    console.log(
-      `│ Max Courses Returned       : ${String(report.questionLevel.maxCoursesReturned).padStart(6)}  │`,
-    );
-    console.log(
-      `│ Std Deviation             : ${String(report.questionLevel.stdDevCoursesReturned.toFixed(1)).padStart(6)}  │`,
-    );
-    console.log(`│                              │`);
-    console.log(
-      `│ Avg Skills Extracted       : ${String(report.questionLevel.avgSkillsExtracted.toFixed(1)).padStart(6)}  │`,
-    );
-    console.log(
-      `│ Avg Cost Per Query         : $${String(DecimalHelper.formatCost(report.questionLevel.avgCostPerQuery)).padStart(5)} │`,
-    );
-    console.log(
-      `│ Avg Duration Per Query     : ${String(DecimalHelper.formatTime(report.questionLevel.avgDurationPerQuery / 1000)).padStart(6)}  │`,
-    );
-    console.log('└─────────────────────────────────────┘');
+    // Metric 1: Per-Skill Summary
+    if (report.perSkillSummary.length > 0) {
+      const skillTable = new Table({
+        head: [
+          'Skill',
+          'Freq',
+          'Retrieved',
+          'Accepted',
+          'Avg Score',
+          'Accept Rate',
+        ],
+        colAligns: ['left', 'right', 'right', 'right', 'right', 'right'],
+        chars: {
+          top: '═',
+          'top-mid': '╤',
+          'top-left': '╔',
+          'top-right': '╗',
+          bottom: '═',
+          'bottom-mid': '╧',
+          'bottom-left': '╚',
+          'bottom-right': '╝',
+          left: '║',
+          'left-mid': '╟',
+          mid: '─',
+          'mid-mid': '┼',
+          right: '║',
+          'right-mid': '╢',
+          middle: '│',
+        },
+        style: { 'padding-left': 1, 'padding-right': 1 },
+        wordWrap: true,
+        colWidths: [
+          SKILL_COL_WIDTH,
+          FREQ_COL_WIDTH,
+          NUMERIC_COL_WIDTH,
+          NUMERIC_COL_WIDTH,
+          SCORE_COL_WIDTH,
+          PERCENT_COL_WIDTH,
+        ],
+      });
 
-    // 2. Skill-Level Breakdown (top 15)
-    if (report.skillLevel.length > 0) {
-      const topSkills = report.skillLevel
-        .sort((a, b) => b.avgCoursesRetrieved - a.avgCoursesRetrieved)
-        .slice(0, 15);
-
-      console.log(
-        '\n┌──────────────────┬───────────┬───────────┬───────────┬────────────┐',
-      );
-      console.log(
-        '│ Skill            │ Frequency │ Avg Courses│ Acceptance│ Rejection  │',
-      );
-      console.log(
-        '├──────────────────┼───────────┼───────────┼───────────┼────────────┤',
-      );
-
-      for (const skill of topSkills) {
-        const skillName =
-          skill.skill.length > SKILL_NAME_MAX_LENGTH
-            ? skill.skill.substring(0, SKILL_NAME_MAX_LENGTH)
-            : skill.skill;
-        console.log(
-          `│ ${skillName.padEnd(TABLE_COLUMN_WIDTH)} │ ${String(skill.frequency).padStart(7)} │ ` +
-            `${String(skill.avgCoursesRetrieved.toFixed(1)).padStart(7)} │ ` +
-            `${String((skill.acceptanceRate * 100).toFixed(0)).padStart(7)}% │ ` +
-            `${String((skill.rejectionRate * 100).toFixed(0)).padStart(REJECTION_RATE_WIDTH)}% │`,
-        );
-      }
-      console.log(
-        '└──────────────────┴───────────┴───────────┴───────────┴────────────┘',
-      );
-    }
-
-    // 3. Aggregation Metrics
-    console.log('\n┌─────────────────────────────────────┐');
-    console.log('│      Course Aggregation Summary     │');
-    console.log('├─────────────────────────────────────┤');
-    console.log(
-      `│ Avg Raw Courses (pre-dedup)   : ${String(report.aggregation.avgRawCourses.toFixed(1)).padStart(6)}  │`,
-    );
-    console.log(
-      `│ Avg Unique Courses             : ${String(report.aggregation.avgUniqueCourses.toFixed(1)).padStart(6)}  │`,
-    );
-    console.log(
-      `│ Avg Duplicates Removed         : ${String(report.aggregation.avgDuplicatesRemoved.toFixed(1)).padStart(6)}  │`,
-    );
-    console.log(
-      `│ Avg Duplicate Rate             : ${(report.aggregation.avgDuplicateRate * 100).toFixed(1)}%        │`,
-    );
-    console.log(`│                              │`);
-    console.log(
-      `│ Avg CLOs per Unique Course    : ${String(report.aggregation.avgClosPerCourse.toFixed(2)).padStart(6)}  │`,
-    );
-    console.log('└─────────────────────────────────────┘');
-
-    // 4. Correlation Analysis
-    console.log('\n┌───────────────────────────────────────────────────┐');
-    console.log('│              Correlation Analysis                 │');
-    console.log('├───────────────────────────────────────────────────┤');
-    console.log(
-      `│ Skills Extracted vs Courses Returned: r = ${String(report.correlation.skillsVsCoursesCorrelation.toFixed(2)).padStart(5)}         │`,
-    );
-    console.log(
-      `│   → ${report.correlation.skillsVsCoursesCorrelation > 0.5 ? 'More skills = more courses (moderate corr)' : report.correlation.skillsVsCoursesCorrelation > 0 ? 'Some correlation' : 'Weak correlation'}                    │`,
-    );
-    console.log(`│                                                  │`);
-    console.log(
-      `│ Cost Per Course: $${DecimalHelper.formatCost(report.correlation.costPerCourse).padEnd(6)}                         │`,
-    );
-    console.log(
-      `│   → Each additional course costs ~${(report.correlation.costPerCourse * 100).toFixed(2)} cents              │`,
-    );
-    console.log(`│                                                  │`);
-    console.log(
-      `│ Courses Per Skill: ${report.correlation.coursesPerSkill.toFixed(1)}                           │`,
-    );
-    console.log(
-      `│   → Each skill retrieves ~${report.correlation.coursesPerSkill.toFixed(0)} courses on average     │`,
-    );
-    console.log('└───────────────────────────────────────────────────┘');
-
-    // 5. Distribution Buckets
-    if (report.distributionBuckets.length > 0) {
-      console.log('\n┌─────────────────────────────────────┐');
-      console.log('│      Distribution by Course Count    │');
-      console.log('├─────────────────────────────────────┤');
-
-      for (const bucket of report.distributionBuckets) {
-        const percentage = bucket.percentage.toFixed(1);
-        const bar = '█'.repeat(Math.round(bucket.percentage / 5));
-        console.log(
-          `│ ${String(bucket.range).padEnd(12)} │ ${String(bucket.count).padStart(4)} │ ${percentage.padStart(5)}% ${bar.padEnd(10)} │`,
-        );
+      for (const skill of report.perSkillSummary) {
+        skillTable.push([
+          skill.skill,
+          String(skill.frequency),
+          skill.avgRetrieved.toFixed(1),
+          skill.avgAccepted.toFixed(1),
+          skill.avgScore.toFixed(2),
+          `${(skill.acceptRate * 100).toFixed(1)}%`,
+        ]);
       }
 
-      console.log('└─────────────────────────────────────┘');
+      console.log('\n1. Per-Skill Summary:');
+      console.log(skillTable.toString());
     }
+
+    // Metric 2: Funnel Overview
+    console.log('\n2. Funnel Overview:');
+    console.log(
+      `  Stage 3 (Retrieved):  ${report.funnelMetrics.retrieved} courses`,
+    );
+    console.log(
+      `  Stage 4 (Accepted):   ${report.funnelMetrics.accepted} courses (${(report.funnelMetrics.acceptRate * 100).toFixed(1)}%)`,
+    );
+    console.log(
+      `  Stage 5 (Unique):     ${report.funnelMetrics.unique} courses`,
+    );
+
+    // Metric 3: Top Overlapping Skills
+    if (report.skillOverlaps.length > 0) {
+      const overlapTable = new Table({
+        head: ['Skill A', 'Skill B', 'Shared Courses'],
+        colAligns: ['left', 'left', 'right'],
+        chars: {
+          top: '═',
+          'top-mid': '╤',
+          'top-left': '╔',
+          'top-right': '╗',
+          bottom: '═',
+          'bottom-mid': '╧',
+          'bottom-left': '╚',
+          'bottom-right': '╝',
+          left: '║',
+          'left-mid': '╟',
+          mid: '─',
+          'mid-mid': '┼',
+          right: '║',
+          'right-mid': '╢',
+          middle: '│',
+        },
+        style: { 'padding-left': 1, 'padding-right': 1 },
+        wordWrap: true,
+        colWidths: [SKILL_COL_WIDTH, SKILL_COL_WIDTH, NUMERIC_COL_WIDTH + 5],
+      });
+
+      for (const overlap of report.skillOverlaps) {
+        overlapTable.push([
+          overlap.skillA,
+          overlap.skillB,
+          String(overlap.sharedCourseCount),
+        ]);
+      }
+
+      console.log('\n3. Top Overlapping Skills:');
+      console.log(overlapTable.toString());
+    }
+
+    // Metric 4: Multi-CLO Acceptance
+    if (report.multiCloAcceptance.length > 0) {
+      const cloTable = new Table({
+        head: ['CLO Count', 'Occurrences', 'Accepted', 'Accept Rate'],
+        colAligns: ['left', 'right', 'right', 'right'],
+        chars: {
+          top: '═',
+          'top-mid': '╤',
+          'top-left': '╔',
+          'top-right': '╗',
+          bottom: '═',
+          'bottom-mid': '╧',
+          'bottom-left': '╚',
+          'bottom-right': '╝',
+          left: '║',
+          'left-mid': '╟',
+          mid: '─',
+          'mid-mid': '┼',
+          right: '║',
+          'right-mid': '╢',
+          middle: '│',
+        },
+        style: { 'padding-left': 1, 'padding-right': 1 },
+        colWidths: [
+          12,
+          NUMERIC_COL_WIDTH,
+          NUMERIC_COL_WIDTH,
+          PERCENT_COL_WIDTH,
+        ],
+      });
+
+      for (const clo of report.multiCloAcceptance) {
+        cloTable.push([
+          clo.cloCountLabel,
+          String(clo.occurrences),
+          String(clo.accepted),
+          `${(clo.acceptRate * 100).toFixed(1)}%`,
+        ]);
+      }
+
+      console.log('\n4. Multi-CLO Acceptance:');
+      console.log(cloTable.toString());
+    }
+
+    // Metric 5: Score Distribution
+    const scoreTable = new Table({
+      head: ['Score', 'Count', 'Percentage'],
+      colAligns: ['left', 'right', 'right'],
+      chars: {
+        top: '═',
+        'top-mid': '╤',
+        'top-left': '╔',
+        'top-right': '╗',
+        bottom: '═',
+        'bottom-mid': '╧',
+        'bottom-left': '╚',
+        'bottom-right': '╝',
+        left: '║',
+        'left-mid': '╟',
+        mid: '─',
+        'mid-mid': '┼',
+        right: '║',
+        'right-mid': '╢',
+        middle: '│',
+      },
+      style: { 'padding-left': 1, 'padding-right': 1 },
+      colWidths: [10, NUMERIC_COL_WIDTH, PERCENT_COL_WIDTH],
+    });
+
+    for (const score of report.scoreDistribution) {
+      scoreTable.push([
+        `Score ${score.score}`,
+        String(score.count),
+        `${score.percentage.toFixed(1)}%`,
+      ]);
+    }
+
+    console.log('\n5. Score Distribution:');
+    console.log(scoreTable.toString());
   } finally {
     await appContext.close();
   }
@@ -543,8 +604,8 @@ async function bootstrap(): Promise<void> {
     process.exit(0);
   }
 
-  if (args.distribution) {
-    await showDistribution();
+  if (args.analytics) {
+    await showAnalytics();
     process.exit(0);
   }
 

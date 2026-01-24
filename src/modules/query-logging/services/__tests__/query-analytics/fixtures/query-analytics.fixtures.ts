@@ -4,6 +4,7 @@
 import { mockIds, mockIdWithSuffix } from 'test/fixtures';
 
 import { IQueryLoggingRepository } from 'src/modules/query-logging/contracts/i-query-logging-repository.contract';
+import { QueryPipelineReaderService } from 'src/modules/query-logging/services/query-pipeline-reader.service';
 import { QueryProcessLog } from 'src/modules/query-logging/types/query-log.type';
 import { QueryStatus } from 'src/modules/query-logging/types/query-status.type';
 
@@ -19,12 +20,29 @@ export function createMockRepository() {
 }
 
 /**
- * Create the analytics service with a mock repository.
+ * Create a mock QueryPipelineReaderService for testing.
+ */
+export function createMockPipelineReader() {
+  return {
+    getQueryLogById: jest.fn(),
+  } as unknown as jest.Mocked<QueryPipelineReaderService>;
+}
+
+/**
+ * Create the analytics service with a mock repository and pipeline reader.
  */
 export function createAnalyticsService(
   repository: jest.Mocked<IQueryLoggingRepository>,
+  pipelineReader?: jest.Mocked<QueryPipelineReaderService>,
 ) {
-  return new QueryAnalyticsService(repository);
+  // If no pipelineReader provided, create a mock that returns null
+  const mockReader =
+    pipelineReader ||
+    ({
+      getQueryLogById: jest.fn().mockResolvedValue(null),
+    } as unknown as jest.Mocked<QueryPipelineReaderService>);
+
+  return new QueryAnalyticsService(repository, mockReader);
 }
 
 /**

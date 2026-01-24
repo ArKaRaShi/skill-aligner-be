@@ -143,11 +143,59 @@ export type RetrievalScoreDistribution = {
   count: number;
 };
 
+// ============================================================================
+// PROXY METRIC TYPES (NDCG and Precision)
+// ============================================================================
+
+/**
+ * NDCG (Normalized Discounted Cumulative Gain) metrics
+ *
+ * **Proxy Metric Notice**: These metrics use LLM judge scores as relevance.
+ * Without ground truth labels, IDCG is calculated from the ideal ranking
+ * of the judge's own scores (sorted descending), not from perfect ground truth.
+ *
+ * NDCG measures ranking quality: how close is the actual ranking to the
+ * ideal ranking according to the judge?
+ *
+ * Values range from 0-1, where 1 = perfect ranking (scores in descending order).
+ */
+export interface NdcgMetrics {
+  /** NDCG@5: ranking quality of top 5 results */
+  at5: number;
+  /** NDCG@10: ranking quality of top 10 results */
+  at10: number;
+  /** NDCG@all: ranking quality of all results */
+  atAll: number;
+}
+
+/**
+ * Precision@K metrics
+ *
+ * **Proxy Metric Notice**: These metrics use LLM judge scores as relevance.
+ * "Relevant" is defined as score ≥ 2 (fairly or highly relevant).
+ * Without ground truth, we cannot calculate true Recall or F1.
+ *
+ * Precision@K measures: "Of the top K results, how many are relevant?"
+ *
+ * Values range from 0-1, where 1 = all top K courses are relevant.
+ */
+export interface PrecisionMetrics {
+  /** Precision@5: % of top 5 with score ≥ 2 */
+  at5: number;
+  /** Precision@10: % of top 10 with score ≥ 2 */
+  at10: number;
+  /** Precision@all: % of all results with score ≥ 2 */
+  atAll: number;
+}
+
 /**
  * Retrieval performance metrics (simplified, flat structure)
  *
  * Follows the modern evaluator pattern with simple aggregated metrics
  * instead of the legacy three-level aggregation system.
+ *
+ * **Proxy Metrics**: NDCG and Precision use LLM judge scores as relevance.
+ * See NdcgMetrics and PrecisionMetrics for detailed notices.
  */
 export type RetrievalPerformanceMetrics = {
   /** Total number of courses evaluated */
@@ -164,6 +212,10 @@ export type RetrievalPerformanceMetrics = {
   irrelevantCount: number;
   /** Percentage of irrelevant courses */
   irrelevantRate: number;
+  /** NDCG metrics (ranking quality, proxy metric) */
+  ndcg: NdcgMetrics;
+  /** Precision@K metrics (proxy metric) */
+  precision: PrecisionMetrics;
 };
 
 /**
@@ -383,3 +435,118 @@ export type CourseRetrievalProgressFile = {
     completionPercentage: number;
   };
 };
+
+// ============================================================================
+// FINAL METRICS TYPES (for Multi-Iteration Aggregation)
+// ============================================================================
+
+/**
+ * Statistical aggregation (mean, min, max, stdDev)
+ *
+ * Provides confidence intervals: "0.78 ± 0.05" for presentations.
+ */
+export interface StatisticalMetric {
+  /** Mean value across all iterations */
+  mean: number;
+  /** Minimum value across all iterations */
+  min: number;
+  /** Maximum value across all iterations */
+  max: number;
+  /** Standard deviation across all iterations */
+  stdDev: number;
+}
+
+/**
+ * NDCG metrics with statistics
+ */
+export interface NdcgAggregateMetrics {
+  at5: StatisticalMetric;
+  at10: StatisticalMetric;
+  atAll: StatisticalMetric;
+}
+
+/**
+ * Precision metrics with statistics
+ */
+export interface PrecisionAggregateMetrics {
+  at5: StatisticalMetric;
+  at10: StatisticalMetric;
+  atAll: StatisticalMetric;
+}
+
+/**
+ * Course Retrieval Final Metrics (aggregated across iterations)
+ *
+ * Contains aggregated statistics (mean, min, max, stdDev) across
+ * multiple iterations, plus per-iteration breakdown for trend analysis.
+ *
+ * **Output Location**: `final-metrics/final-metrics-{N}.json`
+ * **Required by**: evaluation-module-standard.md
+ */
+export interface CourseRetrievalFinalMetricsFile {
+  /** Total number of iterations aggregated */
+  iterations: number;
+  /** ISO timestamp when final metrics were calculated */
+  timestamp: string;
+  /** Aggregated statistics across all iterations */
+  aggregateMetrics: {
+    // NDCG metrics (ranking quality)
+    ndcgAt5: StatisticalMetric;
+    ndcgAt10: StatisticalMetric;
+    ndcgAtAll: StatisticalMetric;
+
+    // Precision metrics (% relevant in top K)
+    precisionAt5: StatisticalMetric;
+    precisionAt10: StatisticalMetric;
+    precisionAtAll: StatisticalMetric;
+
+    // Existing basic metrics
+    totalCoursesEvaluated: StatisticalMetric;
+    averageRelevance: StatisticalMetric;
+    highlyRelevantRate: StatisticalMetric;
+    irrelevantRate: StatisticalMetric;
+  };
+  /** Per-iteration breakdown for trend analysis */
+  perIterationMetrics: CourseRetrievalIterationMetrics[];
+}
+
+/**
+ * Per-iteration metrics (saved in metrics-iteration-{N}.json)
+ *
+ * Calculated for each iteration separately to enable:
+ * - Trend analysis (improvement/degradation over time)
+ * - Debugging specific iterations
+ * - Intermediate reporting
+ */
+export interface CourseRetrievalIterationMetrics {
+  /** Iteration number (1-indexed) */
+  iteration: number;
+  /** ISO timestamp when iteration completed */
+  timestamp: string;
+  /** Number of test cases evaluated in this iteration */
+  sampleCount: number;
+  /** Total number of courses evaluated across all test cases */
+  totalCoursesEvaluated: number;
+  /** Average relevance score (0-3) for this iteration */
+  averageRelevance: number;
+  /** Percentage of highly relevant courses (score 3) */
+  highlyRelevantRate: number;
+  /** Percentage of irrelevant courses (score 0) */
+  irrelevantRate: number;
+
+  // NDCG metrics for this iteration
+  /** NDCG@5 ranking quality */
+  ndcgAt5: number;
+  /** NDCG@10 ranking quality */
+  ndcgAt10: number;
+  /** NDCG@all ranking quality */
+  ndcgAtAll: number;
+
+  // Precision metrics for this iteration
+  /** Precision@5 (% of top 5 that are relevant) */
+  precisionAt5: number;
+  /** Precision@10 (% of top 10 that are relevant) */
+  precisionAt10: number;
+  /** Precision@all (% of all that are relevant) */
+  precisionAtAll: number;
+}

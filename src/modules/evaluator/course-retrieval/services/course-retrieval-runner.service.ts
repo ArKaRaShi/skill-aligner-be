@@ -142,6 +142,8 @@ export class CourseRetrievalRunnerService {
             highlyRelevantRate: 0,
             irrelevantCount: 0,
             irrelevantRate: 0,
+            ndcg: { at5: 0, at10: 0, atAll: 0 },
+            precision: { at5: 0, at10: 0, atAll: 0 },
           },
           llmModel: 'cached',
           llmProvider: 'cached',
@@ -233,6 +235,13 @@ export class CourseRetrievalRunnerService {
 
     // Save records
     await this.resultManager.saveIterationRecords({
+      testSetName: testSet.name,
+      iterationNumber,
+      records,
+    });
+
+    // Save iteration metrics (for cross-iteration aggregation)
+    await this.resultManager.saveIterationMetrics({
       testSetName: testSet.name,
       iterationNumber,
       records,

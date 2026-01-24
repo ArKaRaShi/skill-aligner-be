@@ -140,6 +140,8 @@ export const createMockRetrievalPerformanceMetrics = (
   highlyRelevantRate: 0,
   irrelevantCount: 0,
   irrelevantRate: 0,
+  ndcg: { at5: 0.8, at10: 0.75, atAll: 0.7 },
+  precision: { at5: 0.6, at10: 0.5, atAll: 0.4 },
   ...overrides,
 });
 

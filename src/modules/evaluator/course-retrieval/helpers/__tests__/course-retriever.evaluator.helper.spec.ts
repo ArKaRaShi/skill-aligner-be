@@ -210,6 +210,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         highlyRelevantRate: 0,
         irrelevantCount: 0,
         irrelevantRate: 0,
+        ndcg: { at5: 0, at10: 0, atAll: 0 },
+        precision: { at5: 0, at10: 0, atAll: 0 },
       });
     });
 

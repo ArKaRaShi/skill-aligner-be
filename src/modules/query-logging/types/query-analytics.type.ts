@@ -63,72 +63,69 @@ export interface PerRunCostSummary {
 }
 
 // ============================================================================
-// DISTRIBUTION ANALYTICS TYPES
+// ANALYTICS REPORT TYPES (5 Key Metrics)
 // ============================================================================
 
 /**
- * Question-level summary statistics.
+ * Per-skill performance summary.
+ * Data source: Stage 4 (COURSE_RELEVANCE_FILTER) - allSkillsMetrics
  */
-export interface QuestionLevelSummary {
-  totalQueries: number;
-  avgCoursesReturned: number;
-  minCoursesReturned: number;
-  maxCoursesReturned: number;
-  stdDevCoursesReturned: number;
-  avgSkillsExtracted: number;
-  avgCostPerQuery: number;
-  avgDurationPerQuery: number;
-}
-
-/**
- * Skill-level breakdown metrics.
- */
-export interface SkillLevelBreakdown {
+export interface PerSkillSummary {
   skill: string;
   frequency: number;
-  avgCoursesRetrieved: number;
-  avgAcceptedCount: number;
-  avgRejectedCount: number;
-  acceptanceRate: number;
-  rejectionRate: number;
+  avgRetrieved: number;
+  avgAccepted: number;
+  avgScore: number;
+  acceptRate: number;
 }
 
 /**
- * Aggregation metrics (fan-out, deduplication).
+ * Funnel metrics showing course reduction through stages.
  */
-export interface AggregationMetrics {
-  avgRawCourses: number;
-  avgUniqueCourses: number;
-  avgDuplicatesRemoved: number;
-  avgDuplicateRate: number;
-  avgClosPerCourse: number;
+export interface FunnelMetrics {
+  retrieved: number;
+  accepted: number;
+  unique: number;
+  acceptRate: number;
 }
 
 /**
- * Correlation analysis metrics.
+ * Skill-pair overlap (courses claimed by both skills).
  */
-export interface CorrelationMetrics {
-  skillsVsCoursesCorrelation: number;
-  costPerCourse: number;
-  coursesPerSkill: number;
+export interface SkillOverlap {
+  skillA: string;
+  skillB: string;
+  sharedCourseCount: number;
 }
 
 /**
- * Distribution bucket for histogram.
+ * Multi-CLO acceptance patterns.
+ * Groups courses by how many CLOs matched, then checks acceptance.
  */
-export interface DistributionBucket {
-  range: string;
+export interface MultiCloAcceptance {
+  cloCount: number;
+  cloCountLabel: string;
+  occurrences: number;
+  accepted: number;
+  acceptRate: number;
+}
+
+/**
+ * LLM score distribution across all courses.
+ */
+export interface ScoreDistribution {
+  score: number;
   count: number;
   percentage: number;
 }
 
 /**
- * Complete distribution analytics report.
+ * Complete analytics report with all 5 metrics.
  */
-export interface DistributionAnalyticsReport {
-  questionLevel: QuestionLevelSummary;
-  skillLevel: SkillLevelBreakdown[];
-  aggregation: AggregationMetrics;
-  correlation: CorrelationMetrics;
-  distributionBuckets: DistributionBucket[];
+export interface AnalyticsReport {
+  perSkillSummary: PerSkillSummary[];
+  funnelMetrics: FunnelMetrics;
+  skillOverlaps: SkillOverlap[];
+  multiCloAcceptance: MultiCloAcceptance[];
+  scoreDistribution: ScoreDistribution[];
 }
