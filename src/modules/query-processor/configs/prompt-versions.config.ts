@@ -60,7 +60,7 @@ export const QueryPipelinePromptConfig = {
   // v11: Added explicit output format rules (NO Markdown code blocks, NO introductory text)
   // v9: Base version with Thai-only output and academic skill constraints (1-6 skills)
   // v9: Requires at least one skill to preserve user's explicitly mentioned concept
-  SKILL_EXPANSION: SkillExpansionPromptVersions.V11,
+  SKILL_EXPANSION: SkillExpansionPromptVersions.V9,
 
   /**
    * Step 4: Course relevance filter
