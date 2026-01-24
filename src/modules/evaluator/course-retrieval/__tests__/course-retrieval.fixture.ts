@@ -5,18 +5,9 @@ import type { CourseWithLearningOutcomeV2Match } from 'src/modules/course/types/
 import type { CourseRetrievalTestSetSerialized } from 'src/modules/evaluator/shared/services/test-set.types';
 
 import type {
-  AggregateMetrics,
-  AveragedMetrics,
-  ContextMismatchEntry,
-  EnhancedIterationMetrics,
-  FinalMetrics,
-  SkillMetrics,
-  TestCaseMetrics,
-} from '../test-sets/test-set.type';
-import type {
   CourseInfo,
   EvaluationItem,
-  RetrievalPerformanceReport,
+  RetrievalPerformanceMetrics,
   RetrievalScoreDistribution,
 } from '../types/course-retrieval.types';
 
@@ -33,17 +24,10 @@ export const MOCK_ITERATION_NUMBER = 1;
 // ============================================================================
 
 export type {
-  AggregateMetrics,
-  AveragedMetrics,
-  ContextMismatchEntry,
-  EnhancedIterationMetrics,
-  EvaluationItem,
-  FinalMetrics,
-  RetrievalPerformanceReport,
-  RetrievalScoreDistribution,
-  SkillMetrics,
-  TestCaseMetrics,
   CourseInfo,
+  EvaluationItem,
+  RetrievalPerformanceMetrics,
+  RetrievalScoreDistribution,
 };
 
 // ============================================================================
@@ -113,17 +97,15 @@ export const createMockCourseWithLOMatch = (
 };
 
 /**
- * Creates a mock EvaluationItem
+ * Creates a mock EvaluationItem (single-score model)
  */
 export const createMockEvaluationItem = (
   overrides: Partial<EvaluationItem> = {},
 ): EvaluationItem => ({
   subjectCode: 'CS101',
   subjectName: 'Introduction to Python',
-  skillRelevance: 2,
-  skillReason: 'Good match for programming fundamentals',
-  contextAlignment: 2,
-  contextReason: 'Good alignment with user intent',
+  relevanceScore: 2,
+  reason: 'Good match for the skill',
   ...overrides,
 });
 
@@ -140,197 +122,24 @@ export const createMockRetrievalScoreDistribution = (
 });
 
 /**
- * Creates a mock RetrievalPerformanceReport
+ * Creates a mock RetrievalPerformanceMetrics
  */
-export const createMockRetrievalPerformanceReport = (
-  overrides: Partial<RetrievalPerformanceReport> = {},
-): RetrievalPerformanceReport => ({
-  averageSkillRelevance: 2.0,
-  averageContextAlignment: 2.0,
-  alignmentGap: 0,
-  contextMismatchRate: 0,
-  skillRelevanceDistribution: [
+export const createMockRetrievalPerformanceMetrics = (
+  overrides: Partial<RetrievalPerformanceMetrics> = {},
+): RetrievalPerformanceMetrics => ({
+  totalCourses: 5,
+  averageRelevance: 2.0,
+  scoreDistribution: [
     createMockRetrievalScoreDistribution({
       relevanceScore: 2,
       count: 5,
       percentage: 100,
     }),
   ],
-  contextAlignmentDistribution: [
-    createMockRetrievalScoreDistribution({
-      relevanceScore: 2,
-      count: 5,
-      percentage: 100,
-    }),
-  ],
-  contextMismatchCourses: [],
-  ...overrides,
-});
-
-/**
- * Creates a mock SkillMetrics
- */
-export const createMockSkillMetrics = (
-  overrides: Partial<SkillMetrics> = {},
-): SkillMetrics => {
-  const evaluations = overrides.evaluations ?? [createMockEvaluationItem()];
-
-  return {
-    ...createMockRetrievalPerformanceReport(),
-    courseCount: evaluations.length,
-    skillName: 'python programming',
-    evaluations,
-    ...overrides,
-  };
-};
-
-/**
- * Creates a mock AveragedMetrics
- */
-export const createMockAveragedMetrics = (
-  overrides: Partial<AveragedMetrics> = {},
-): AveragedMetrics => ({
-  averageSkillRelevance: 2.0,
-  averageContextAlignment: 2.0,
-  alignmentGap: 0,
-  contextMismatchRate: 0,
-  ...overrides,
-});
-
-/**
- * Creates a mock TestCaseMetrics
- */
-export const createMockTestCaseMetrics = (
-  overrides: Partial<TestCaseMetrics> = {},
-): TestCaseMetrics => {
-  const skillMetrics = overrides.skillMetrics ?? [createMockSkillMetrics()];
-  const totalCourses = skillMetrics.reduce((sum, s) => sum + s.courseCount, 0);
-
-  return {
-    testCaseId: 'test-case-1',
-    question: 'How do I learn Python?',
-    totalSkills: skillMetrics.length,
-    totalCourses,
-    timestamp: MOCK_TIMESTAMP,
-    macroAvg: createMockAveragedMetrics(),
-    microAvg: createMockAveragedMetrics(),
-    pooled: {
-      skillRelevanceDistribution: [],
-      contextAlignmentDistribution: [],
-    },
-    skillMetrics,
-    ...overrides,
-  };
-};
-
-/**
- * Creates a mock EnhancedIterationMetrics
- */
-export const createMockEnhancedIterationMetrics = (
-  overrides: Partial<EnhancedIterationMetrics> = {},
-): EnhancedIterationMetrics => {
-  const testCaseMetrics = overrides.testCaseMetrics ?? [
-    createMockTestCaseMetrics(),
-  ];
-
-  return {
-    iterationNumber: MOCK_ITERATION_NUMBER,
-    totalCases: testCaseMetrics.length,
-    totalInputTokens: 1000,
-    totalOutputTokens: 500,
-    timestamp: MOCK_TIMESTAMP,
-    macroAvg: createMockAveragedMetrics(),
-    microAvg: createMockAveragedMetrics(),
-    pooled: {
-      skillRelevanceDistribution: [],
-      contextAlignmentDistribution: [],
-    },
-    totalContextMismatches: 0,
-    testCaseMetrics,
-    ...overrides,
-  };
-};
-
-/**
- * Creates a mock ContextMismatchEntry
- */
-export const createMockContextMismatchEntry = (
-  overrides: Partial<ContextMismatchEntry> = {},
-): ContextMismatchEntry => ({
-  timestamp: MOCK_TIMESTAMP,
-  testCaseId: 'test-case-1',
-  question: 'How do I learn Python?',
-  skill: 'python programming',
-  retrievedCount: 5,
-  mismatches: [
-    {
-      subjectCode: 'CS101',
-      subjectName: 'Introduction to Python',
-      skillRelevance: 3,
-      contextAlignment: 0,
-    },
-  ],
-  iterationNumber: MOCK_ITERATION_NUMBER,
-  ...overrides,
-});
-
-/**
- * Creates a mock AggregateMetrics
- */
-export const createMockAggregateMetrics = (
-  overrides: Partial<AggregateMetrics> = {},
-): AggregateMetrics => ({
-  testSetName: MOCK_TEST_SET_NAME,
-  totalIterations: 3,
-  testSetSize: 10,
-  macro: {
-    meanSkillRelevance: 2.5,
-    minSkillRelevance: 2.0,
-    maxSkillRelevance: 3.0,
-    meanContextAlignment: 2.0,
-    minContextAlignment: 1.5,
-    maxContextAlignment: 2.5,
-    meanAlignmentGap: 0.5,
-    meanMismatchRate: 20,
-  },
-  micro: {
-    meanSkillRelevance: 2.5,
-    minSkillRelevance: 2.0,
-    maxSkillRelevance: 3.0,
-    meanContextAlignment: 2.0,
-    minContextAlignment: 1.5,
-    maxContextAlignment: 2.5,
-    meanAlignmentGap: 0.5,
-    meanMismatchRate: 20,
-  },
-  iterationMetrics: [],
-  timestamp: MOCK_TIMESTAMP,
-  ...overrides,
-});
-
-/**
- * Creates a mock FinalMetrics
- */
-export const createMockFinalMetrics = (
-  overrides: Partial<FinalMetrics> = {},
-): FinalMetrics => ({
-  testSetName: MOCK_TEST_SET_NAME,
-  totalIterations: 3,
-  testSetSize: 10,
-  macroOverall: {
-    meanSkillRelevance: 2.5,
-    meanContextAlignment: 2.0,
-    meanAlignmentGap: 0.5,
-    meanMismatchRate: 20,
-  },
-  microOverall: {
-    meanSkillRelevance: 2.5,
-    meanContextAlignment: 2.0,
-    meanAlignmentGap: 0.5,
-    meanMismatchRate: 20,
-  },
-  iterationMetrics: [],
-  timestamp: MOCK_TIMESTAMP,
+  highlyRelevantCount: 0,
+  highlyRelevantRate: 0,
+  irrelevantCount: 0,
+  irrelevantRate: 0,
   ...overrides,
 });
 
@@ -374,203 +183,109 @@ export const MOCK_SCENARIOS = {
    * Single skill with uniform scores (all 2s)
    */
   singleSkillUniformScores: {
-    skillMetrics: createMockSkillMetrics({
-      skillName: 'python programming',
-      courseCount: 3,
-      evaluations: [
-        createMockEvaluationItem({
-          subjectCode: 'CS101',
-          skillRelevance: 2,
-          contextAlignment: 2,
-        }),
-        createMockEvaluationItem({
-          subjectCode: 'CS102',
-          skillRelevance: 2,
-          contextAlignment: 2,
-        }),
-        createMockEvaluationItem({
-          subjectCode: 'CS103',
-          skillRelevance: 2,
-          contextAlignment: 2,
-        }),
-      ],
-    }),
+    evaluations: [
+      createMockEvaluationItem({
+        subjectCode: 'CS101',
+        relevanceScore: 2,
+      }),
+      createMockEvaluationItem({
+        subjectCode: 'CS102',
+        relevanceScore: 2,
+      }),
+      createMockEvaluationItem({
+        subjectCode: 'CS103',
+        relevanceScore: 2,
+      }),
+    ],
     expectedMetrics: {
-      averageSkillRelevance: 2,
-      averageContextAlignment: 2,
-      alignmentGap: 0,
-    },
+      totalCourses: 3,
+      averageRelevance: 2,
+      scoreDistribution: [
+        { relevanceScore: 2, count: 3, percentage: 100 },
+      ] as RetrievalScoreDistribution[],
+      highlyRelevantCount: 0,
+      highlyRelevantRate: 0,
+      irrelevantCount: 0,
+      irrelevantRate: 0,
+    } as RetrievalPerformanceMetrics,
   },
 
   /**
    * Single skill with mixed scores (0, 1, 2, 3)
    */
   singleSkillMixedScores: {
-    skillMetrics: createMockSkillMetrics({
-      skillName: 'data analysis',
-      courseCount: 4,
-      evaluations: [
-        createMockEvaluationItem({
-          subjectCode: 'CS201',
-          skillRelevance: 3,
-          contextAlignment: 0,
-        }),
-        createMockEvaluationItem({
-          subjectCode: 'CS202',
-          skillRelevance: 2,
-          contextAlignment: 1,
-        }),
-        createMockEvaluationItem({
-          subjectCode: 'CS203',
-          skillRelevance: 1,
-          contextAlignment: 2,
-        }),
-        createMockEvaluationItem({
-          subjectCode: 'CS204',
-          skillRelevance: 0,
-          contextAlignment: 3,
-        }),
-      ],
-    }),
-    expectedMetrics: {
-      averageSkillRelevance: 1.5,
-      averageContextAlignment: 1.5,
-      alignmentGap: 0,
-    },
-  },
-
-  /**
-   * Multiple skills with varying course counts (1, 2, 3 courses)
-   */
-  multipleSkillsVaryingCounts: {
-    skillMetrics: [
-      createMockSkillMetrics({
-        skillName: 'python',
-        courseCount: 1,
-        evaluations: [
-          createMockEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
-        ],
+    evaluations: [
+      createMockEvaluationItem({
+        subjectCode: 'CS201',
+        relevanceScore: 3,
       }),
-      createMockSkillMetrics({
-        skillName: 'java',
-        courseCount: 2,
-        evaluations: [
-          createMockEvaluationItem({ skillRelevance: 3, contextAlignment: 3 }),
-          createMockEvaluationItem({ skillRelevance: 3, contextAlignment: 3 }),
-        ],
+      createMockEvaluationItem({
+        subjectCode: 'CS202',
+        relevanceScore: 2,
       }),
-      createMockSkillMetrics({
-        skillName: 'data analysis',
-        courseCount: 3,
-        evaluations: [
-          createMockEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
-          createMockEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
-          createMockEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
-        ],
+      createMockEvaluationItem({
+        subjectCode: 'CS203',
+        relevanceScore: 1,
+      }),
+      createMockEvaluationItem({
+        subjectCode: 'CS204',
+        relevanceScore: 0,
       }),
     ],
-    expectedMacroAvg: {
-      averageSkillRelevance: (2 + 3 + 2) / 3,
-      averageContextAlignment: (2 + 3 + 2) / 3,
-    },
-    expectedMicroAvg: {
-      averageSkillRelevance: (2 * 1 + 3 * 2 + 2 * 3) / 6,
-      averageContextAlignment: (2 * 1 + 3 * 2 + 2 * 3) / 6,
-    },
-  },
-
-  /**
-   * Skills with context mismatches (skill >= 2, context <= 1)
-   */
-  contextMismatchScenario: {
-    skillMetrics: createMockSkillMetrics({
-      skillName: 'machine learning',
-      courseCount: 5,
-      evaluations: [
-        // Mismatch: skill=3, context=1
-        createMockEvaluationItem({
-          subjectCode: 'ML101',
-          skillRelevance: 3,
-          contextAlignment: 1,
-        }),
-        // Mismatch: skill=2, context=0
-        createMockEvaluationItem({
-          subjectCode: 'ML102',
-          skillRelevance: 2,
-          contextAlignment: 0,
-        }),
-        // Mismatch: skill=3, context=1
-        createMockEvaluationItem({
-          subjectCode: 'ML103',
-          skillRelevance: 3,
-          contextAlignment: 1,
-        }),
-        // Not mismatch: skill=1, context=0 (skill < 2)
-        createMockEvaluationItem({
-          subjectCode: 'ML104',
-          skillRelevance: 1,
-          contextAlignment: 0,
-        }),
-        // Not mismatch: skill=2, context=2 (context > 1)
-        createMockEvaluationItem({
-          subjectCode: 'ML105',
-          skillRelevance: 2,
-          contextAlignment: 2,
-        }),
-      ],
-    }),
     expectedMetrics: {
-      contextMismatchCount: 3,
-      contextMismatchRate: (3 / 5) * 100,
-      averageSkillRelevance: (3 + 2 + 3 + 1 + 2) / 5,
-      averageContextAlignment: (1 + 0 + 1 + 0 + 2) / 5,
-    },
+      totalCourses: 4,
+      averageRelevance: 1.5,
+      scoreDistribution: [
+        { relevanceScore: 0, count: 1, percentage: 25 },
+        { relevanceScore: 1, count: 1, percentage: 25 },
+        { relevanceScore: 2, count: 1, percentage: 25 },
+        { relevanceScore: 3, count: 1, percentage: 25 },
+      ] as RetrievalScoreDistribution[],
+      highlyRelevantCount: 1,
+      highlyRelevantRate: 25,
+      irrelevantCount: 1,
+      irrelevantRate: 25,
+    } as RetrievalPerformanceMetrics,
   },
 
   /**
    * Perfect retriever (all scores = 3)
    */
   perfectRetriever: {
-    skillMetrics: createMockSkillMetrics({
-      skillName: 'web development',
-      courseCount: 5,
-      evaluations: Array.from({ length: 5 }, () =>
-        createMockEvaluationItem({ skillRelevance: 3, contextAlignment: 3 }),
-      ),
-    }),
+    evaluations: Array.from({ length: 5 }, () =>
+      createMockEvaluationItem({ relevanceScore: 3 }),
+    ),
     expectedMetrics: {
-      averageSkillRelevance: 3,
-      averageContextAlignment: 3,
-      alignmentGap: 0,
-      contextMismatchRate: 0,
-    },
+      totalCourses: 5,
+      averageRelevance: 3,
+      highlyRelevantCount: 5,
+      highlyRelevantRate: 100,
+      irrelevantCount: 0,
+      irrelevantRate: 0,
+    } as RetrievalPerformanceMetrics,
   },
 
   /**
    * Poor retriever (all scores = 0)
    */
   poorRetriever: {
-    skillMetrics: createMockSkillMetrics({
-      skillName: 'cloud computing',
-      courseCount: 3,
-      evaluations: Array.from({ length: 3 }, () =>
-        createMockEvaluationItem({ skillRelevance: 0, contextAlignment: 0 }),
-      ),
-    }),
+    evaluations: Array.from({ length: 3 }, () =>
+      createMockEvaluationItem({ relevanceScore: 0 }),
+    ),
     expectedMetrics: {
-      averageSkillRelevance: 0,
-      averageContextAlignment: 0,
-      alignmentGap: 0,
-      contextMismatchRate: 0,
-    },
+      totalCourses: 3,
+      averageRelevance: 0,
+      highlyRelevantCount: 0,
+      highlyRelevantRate: 0,
+      irrelevantCount: 3,
+      irrelevantRate: 100,
+    } as RetrievalPerformanceMetrics,
   },
 
   /**
    * Edge case: empty arrays
    */
   emptyArrays: {
-    skillMetrics: [] as SkillMetrics[],
-    testCaseMetrics: [] as TestCaseMetrics[],
     evaluations: [] as EvaluationItem[],
     scores: [] as number[],
   },
@@ -579,28 +294,22 @@ export const MOCK_SCENARIOS = {
    * Edge case: single item
    */
   singleItem: {
-    skillMetrics: createMockSkillMetrics({
-      skillName: 'database design',
-      courseCount: 1,
-      evaluations: [
-        createMockEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
-      ],
-    }),
-    testCaseMetrics: createMockTestCaseMetrics({
-      totalSkills: 1,
+    evaluations: [
+      createMockEvaluationItem({
+        subjectCode: 'CS101',
+        relevanceScore: 2,
+      }),
+    ],
+    expectedMetrics: {
       totalCourses: 1,
-      skillMetrics: [
-        createMockSkillMetrics({
-          skillName: 'database design',
-          courseCount: 1,
-          evaluations: [
-            createMockEvaluationItem({
-              skillRelevance: 2,
-              contextAlignment: 2,
-            }),
-          ],
-        }),
-      ],
-    }),
+      averageRelevance: 2,
+      scoreDistribution: [
+        { relevanceScore: 2, count: 1, percentage: 100 },
+      ] as RetrievalScoreDistribution[],
+      highlyRelevantCount: 0,
+      highlyRelevantRate: 0,
+      irrelevantCount: 0,
+      irrelevantRate: 0,
+    } as RetrievalPerformanceMetrics,
   },
 } as const;

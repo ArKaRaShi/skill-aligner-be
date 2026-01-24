@@ -18,8 +18,8 @@ import { Identifier } from 'src/shared/contracts/types/identifier';
 import { FileHelper } from 'src/shared/utils/file';
 
 import { EvaluationProgressTrackerService } from '../../course-retrieval/evaluators/evaluation-progress-tracker.service';
-import { EvaluationResultManagerService } from '../../course-retrieval/evaluators/evaluation-result-manager.service';
 import { CourseRetrievalTestSetLoaderService } from '../../course-retrieval/loaders/course-retrieval-test-set-loader.service';
+import { CourseRetrievalResultManagerService } from '../../course-retrieval/services/course-retrieval-result-manager.service';
 import { CourseRetrievalTestSetSerialized } from '../../shared/services/test-set.types';
 
 // ============================================================================
@@ -136,7 +136,7 @@ const createTestSetFile = async (
 describe('CLI Resume Functionality (Integration)', () => {
   let module: TestingModule;
   let progressTracker: EvaluationProgressTrackerService;
-  let _resultManager: EvaluationResultManagerService;
+  let _resultManager: CourseRetrievalResultManagerService;
   let loader: CourseRetrievalTestSetLoaderService;
 
   // Unique test set name per test suite run to avoid pollution
@@ -147,7 +147,7 @@ describe('CLI Resume Functionality (Integration)', () => {
     module = await Test.createTestingModule({
       providers: [
         EvaluationProgressTrackerService,
-        EvaluationResultManagerService,
+        CourseRetrievalResultManagerService,
         CourseRetrievalTestSetLoaderService,
       ],
     }).compile();
@@ -155,8 +155,8 @@ describe('CLI Resume Functionality (Integration)', () => {
     progressTracker = module.get<EvaluationProgressTrackerService>(
       EvaluationProgressTrackerService,
     );
-    _resultManager = module.get<EvaluationResultManagerService>(
-      EvaluationResultManagerService,
+    _resultManager = module.get<CourseRetrievalResultManagerService>(
+      CourseRetrievalResultManagerService,
     );
     loader = module.get<CourseRetrievalTestSetLoaderService>(
       CourseRetrievalTestSetLoaderService,

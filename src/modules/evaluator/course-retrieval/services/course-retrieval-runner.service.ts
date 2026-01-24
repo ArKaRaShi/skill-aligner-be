@@ -7,49 +7,51 @@ import { FileHelper } from 'src/shared/utils/file';
 
 import { IRunEvaluator } from '../../shared/contracts/i-run-evaluator.contract';
 import { CourseRetrieverEvaluator } from '../evaluators/course-retriever.evaluator';
-import { EvaluationResultManagerService } from '../evaluators/evaluation-result-manager.service';
-import { RunTestSetInput } from '../test-sets/test-set.type';
 import {
   EvaluateRetrieverInput,
   EvaluateRetrieverOutput,
+  EvaluationItem,
+  RunTestSetInput,
 } from '../types/course-retrieval.types';
+import { CourseRetrievalMetricsCalculator } from './course-retrieval-metrics-calculator.service';
+import { CourseRetrievalResultManagerService } from './course-retrieval-result-manager.service';
 
-export const I_COURSE_RETRIEVER_EVALUATION_RUNNER_TOKEN =
-  'ICourseRetrieverEvaluationRunnerService';
+export const I_COURSE_RETRIEVAL_RUNNER_TOKEN = 'ICourseRetrievalRunnerService';
 
 /**
  * Additional context for course retriever evaluations
  */
-export type CourseRetrieverEvaluationContext = {
+export type CourseRetrievalEvaluationContext = {
   iterationNumber?: number;
   prefixDir?: string;
 };
 
 /**
- * Service for running course retriever evaluations.
+ * Service for running course retrieval evaluations.
  *
- * Implements the generic IRunEvaluator contract specifically for course retriever evaluations.
+ * Implements the generic IRunEvaluator contract specifically for course retrieval evaluations.
  * Handles pipeline execution, result persistence, and file organization.
  *
- * @implements IRunEvaluator<EvaluateRetrieverInput, EvaluateRetrieverOutput, CourseRetrieverEvaluationContext>
+ * @implements IRunEvaluator<EvaluateRetrieverInput, EvaluateRetrieverOutput, CourseRetrievalEvaluationContext>
+ *
+ * @deprecated This will be updated to not implement IRunEvaluator in Phase 10.
+ * The modern evaluator pattern uses direct class injection instead of contract-based tokens.
  */
 @Injectable()
-export class CourseRetrieverEvaluationRunnerService
+export class CourseRetrievalRunnerService
   implements
     IRunEvaluator<
       EvaluateRetrieverInput,
       EvaluateRetrieverOutput,
-      CourseRetrieverEvaluationContext
+      CourseRetrievalEvaluationContext
     >
 {
-  private readonly logger = new Logger(
-    CourseRetrieverEvaluationRunnerService.name,
-  );
+  private readonly logger = new Logger(CourseRetrievalRunnerService.name);
   private readonly baseDir = 'data/evaluation/course-retriever';
 
   constructor(
     private readonly evaluator: CourseRetrieverEvaluator,
-    private readonly resultManager: EvaluationResultManagerService,
+    private readonly resultManager: CourseRetrievalResultManagerService,
   ) {}
 
   /**
@@ -95,28 +97,14 @@ export class CourseRetrieverEvaluationRunnerService
       // Log evaluation metrics
       this.logger.log('=== Evaluation Results ===');
       this.logger.log(
-        `Avg Skill Relevance: ${evaluationResult.metrics.averageSkillRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
+        `Avg Relevance: ${evaluationResult.metrics.averageRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
       );
       this.logger.log(
-        `Avg Context Alignment: ${evaluationResult.metrics.averageContextAlignment.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
+        `Highly Relevant: ${evaluationResult.metrics.highlyRelevantRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
       );
       this.logger.log(
-        `Alignment Gap: ${evaluationResult.metrics.alignmentGap.toFixed(DECIMAL_PRECISION.PERCENTAGE)}`,
+        `Irrelevant: ${evaluationResult.metrics.irrelevantRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
       );
-      this.logger.log(
-        `Context Mismatch Rate: ${evaluationResult.metrics.contextMismatchRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
-      );
-
-      if (evaluationResult.metrics.contextMismatchCourses.length > 0) {
-        this.logger.warn(
-          `Found ${evaluationResult.metrics.contextMismatchCourses.length} context mismatches:`,
-        );
-        evaluationResult.metrics.contextMismatchCourses.forEach((mismatch) => {
-          this.logger.warn(
-            `  - ${mismatch.subjectCode}: Skill=${mismatch.skillRelevance}, Context=${mismatch.contextAlignment}`,
-          );
-        });
-      }
 
       const result: EvaluateRetrieverOutput = {
         testCaseId: testCase.id,
@@ -124,15 +112,7 @@ export class CourseRetrieverEvaluationRunnerService
         skill: evaluationResult.skill,
         retrievedCount: testCase.retrievedCourses.length,
         evaluations: evaluationResult.evaluations,
-        metrics: {
-          averageSkillRelevance: evaluationResult.metrics.averageSkillRelevance,
-          averageContextAlignment:
-            evaluationResult.metrics.averageContextAlignment,
-          alignmentGap: evaluationResult.metrics.alignmentGap,
-          contextMismatchRate: evaluationResult.metrics.contextMismatchRate,
-          contextMismatchCourses:
-            evaluationResult.metrics.contextMismatchCourses,
-        },
+        metrics: evaluationResult.metrics,
         llmModel: evaluationResult.llmInfo.model,
         llmProvider: evaluationResult.llmInfo.provider ?? 'unknown',
         inputTokens: evaluationResult.llmTokenUsage.inputTokens,
@@ -141,13 +121,10 @@ export class CourseRetrieverEvaluationRunnerService
 
       // Log result summary
       this.logger.log(
-        `  → Skill Relevance: ${result.metrics.averageSkillRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
+        `  → Relevance: ${result.metrics.averageRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
       );
       this.logger.log(
-        `  → Context Alignment: ${result.metrics.averageContextAlignment.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
-      );
-      this.logger.log(
-        `  → Mismatches: ${result.metrics.contextMismatchCourses.length}`,
+        `  → Highly Relevant: ${result.metrics.highlyRelevantCount}/${result.metrics.totalCourses}`,
       );
 
       records.push(result);
@@ -160,37 +137,12 @@ export class CourseRetrieverEvaluationRunnerService
       records,
     });
 
-    // Calculate and save enhanced metrics with three-level aggregation
-    const metrics = this.resultManager.calculateIterationMetrics({
-      iterationNumber,
-      records,
-    });
-
-    // Save iteration metrics (includes test case breakdown)
-    await this.resultManager.saveIterationMetrics({
-      testSetName: testSet.name,
-      iterationNumber,
-      metrics,
-    });
-
-    // Save test case metrics separately for detailed analysis
-    await this.resultManager.saveTestCaseMetrics({
-      testSetName: testSet.name,
-      iterationNumber,
-      testCaseMetrics: metrics.testCaseMetrics,
-    });
-
-    // Extract and save context mismatches
-    const mismatches = this.resultManager.extractContextMismatches({
-      records,
-      iterationNumber,
-    });
-    if (mismatches.length > 0) {
-      await this.resultManager.saveContextMismatches({
-        testSetName: testSet.name,
-        mismatches,
-      });
-    }
+    // Calculate aggregated metrics across all test cases
+    const allEvaluations = records.flatMap(
+      (record) => record.evaluations,
+    ) as EvaluationItem[];
+    const metrics =
+      CourseRetrievalMetricsCalculator.calculateMetrics(allEvaluations);
 
     const duration = Date.now() - startTime;
     this.logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
@@ -199,29 +151,23 @@ export class CourseRetrieverEvaluationRunnerService
       `Total duration: ${DecimalHelper.formatTime(duration / 1000)}s`,
     );
     this.logger.log(
-      `Macro avg skill relevance: ${metrics.macroAvg.averageSkillRelevance}/3`,
+      `Avg relevance: ${metrics.averageRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
     );
     this.logger.log(
-      `Micro avg skill relevance: ${metrics.microAvg.averageSkillRelevance}/3`,
-    );
-    this.logger.log(
-      `Macro avg context alignment: ${metrics.macroAvg.averageContextAlignment}/3`,
-    );
-    this.logger.log(
-      `Micro avg context alignment: ${metrics.microAvg.averageContextAlignment}/3`,
+      `Highly relevant: ${metrics.highlyRelevantRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
     );
     this.logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
   }
 
   /**
-   * Run complete course retriever evaluation workflow
+   * Run complete course retrieval evaluation workflow
    *
    * @param context - Evaluation context (iteration number, prefix directory)
    * @param input - Pipeline input parameters
    * @returns Pipeline execution output with evaluation results
    */
   async runEvaluator(
-    context: CourseRetrieverEvaluationContext,
+    context: CourseRetrievalEvaluationContext,
     input: EvaluateRetrieverInput,
   ): Promise<EvaluateRetrieverOutput> {
     const startTime = Date.now();
@@ -247,28 +193,14 @@ export class CourseRetrieverEvaluationRunnerService
     // Log evaluation metrics
     this.logger.log('=== Evaluation Results ===');
     this.logger.log(
-      `Avg Skill Relevance: ${evaluationResult.metrics.averageSkillRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
+      `Avg Relevance: ${evaluationResult.metrics.averageRelevance.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
     );
     this.logger.log(
-      `Avg Context Alignment: ${evaluationResult.metrics.averageContextAlignment.toFixed(DECIMAL_PRECISION.PERCENTAGE)}/3`,
+      `Highly Relevant: ${evaluationResult.metrics.highlyRelevantRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
     );
     this.logger.log(
-      `Alignment Gap: ${evaluationResult.metrics.alignmentGap.toFixed(DECIMAL_PRECISION.PERCENTAGE)}`,
+      `Irrelevant: ${evaluationResult.metrics.irrelevantRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
     );
-    this.logger.log(
-      `Context Mismatch Rate: ${evaluationResult.metrics.contextMismatchRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
-    );
-
-    if (evaluationResult.metrics.contextMismatchCourses.length > 0) {
-      this.logger.warn(
-        `Found ${evaluationResult.metrics.contextMismatchCourses.length} context mismatches:`,
-      );
-      evaluationResult.metrics.contextMismatchCourses.forEach((mismatch) => {
-        this.logger.warn(
-          `  - ${mismatch.subjectCode}: Skill=${mismatch.skillRelevance}, Context=${mismatch.contextAlignment}`,
-        );
-      });
-    }
 
     const result: EvaluateRetrieverOutput = {
       testCaseId: input.testCaseId,
@@ -276,14 +208,7 @@ export class CourseRetrieverEvaluationRunnerService
       skill: evaluationResult.skill,
       retrievedCount: input.retrievedCourses.length,
       evaluations: evaluationResult.evaluations,
-      metrics: {
-        averageSkillRelevance: evaluationResult.metrics.averageSkillRelevance,
-        averageContextAlignment:
-          evaluationResult.metrics.averageContextAlignment,
-        alignmentGap: evaluationResult.metrics.alignmentGap,
-        contextMismatchRate: evaluationResult.metrics.contextMismatchRate,
-        contextMismatchCourses: evaluationResult.metrics.contextMismatchCourses,
-      },
+      metrics: evaluationResult.metrics,
       llmModel: evaluationResult.llmInfo.model,
       llmProvider: evaluationResult.llmInfo.provider ?? 'unknown',
       inputTokens: evaluationResult.llmTokenUsage.inputTokens,
@@ -302,10 +227,9 @@ export class CourseRetrieverEvaluationRunnerService
   /**
    * Save evaluation results to JSON files
    *
-   * Creates three types of files:
+   * Creates two types of files:
    * 1. Timestamped evaluation file (e.g., evaluation-1234567890.json)
    * 2. Latest evaluation file (latest.json)
-   * 3. Context mismatches file (appended if mismatches exist)
    *
    * @param result - The evaluation result to save
    * @param duration - Duration of evaluation in milliseconds
@@ -314,7 +238,7 @@ export class CourseRetrieverEvaluationRunnerService
   async saveResults(
     result: EvaluateRetrieverOutput,
     duration: number,
-    context: CourseRetrieverEvaluationContext,
+    context: CourseRetrievalEvaluationContext,
   ): Promise<void> {
     const timestamp = Date.now();
 
@@ -352,28 +276,11 @@ export class CourseRetrieverEvaluationRunnerService
     const latestFilePath = path.join(outputPath, 'latest.json');
     await FileHelper.saveLatestJson(latestFilePath, output);
 
-    // Save context mismatches separately if any exist
-    if (result.metrics.contextMismatchCourses.length > 0) {
-      const mismatchesFile = path.join(this.baseDir, 'context-mismatches.json');
-      const mismatchEntry = {
-        timestamp: new Date(timestamp).toISOString(),
-        question: result.question,
-        skill: result.skill,
-        retrievedCount: result.retrievedCount,
-        mismatches: result.metrics.contextMismatchCourses,
-        iterationNumber: context?.iterationNumber,
-      };
-      await FileHelper.appendToJsonArray(mismatchesFile, mismatchEntry);
-      this.logger.log(
-        `Saved ${result.metrics.contextMismatchCourses.length} context mismatches`,
-      );
-    }
-
     this.logger.log(`Results saved to: ${outputPath}`);
   }
 
   /**
-   * Get the base directory path for course retriever evaluations
+   * Get the base directory path for course retrieval evaluations
    *
    * @returns Base directory path
    */
@@ -391,7 +298,7 @@ export class CourseRetrieverEvaluationRunnerService
    * @returns Pipeline execution output with evaluation results
    */
   async runWithDefaultTestData(
-    context: CourseRetrieverEvaluationContext = {},
+    context: CourseRetrievalEvaluationContext = {},
   ): Promise<EvaluateRetrieverOutput> {
     return this.runEvaluator(
       context,

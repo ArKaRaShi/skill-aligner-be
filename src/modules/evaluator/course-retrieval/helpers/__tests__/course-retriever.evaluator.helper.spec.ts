@@ -1,5 +1,5 @@
 import { LlmCourseEvaluationItem } from '../../schemas/schema';
-import { CourseInfo, EvaluationItem } from '../../types/type';
+import { CourseInfo, EvaluationItem } from '../../types/course-retrieval.types';
 import { CourseRetrieverEvaluatorHelper } from '../course-retriever.evaluator.helper';
 
 // Mock the toon-format library since Jest doesn't handle ESM modules well in unit tests
@@ -12,12 +12,18 @@ describe('CourseRetrieverEvaluatorHelper', () => {
     const createLlmEvaluationItem = (
       overrides: Partial<LlmCourseEvaluationItem> = {},
     ): LlmCourseEvaluationItem => ({
-      course_name: 'Introduction to Python',
-      course_code: 'CS101',
-      skill_relevance_score: 2,
-      context_alignment_score: 3,
-      skill_reason: 'Strong match for programming fundamentals',
-      context_reason: 'Excellent alignment with user goals',
+      code: 'CS101',
+      score: 2,
+      reason: 'Strong match for programming fundamentals',
+      ...overrides,
+    });
+
+    const createCourseInfo = (
+      overrides: Partial<CourseInfo> = {},
+    ): CourseInfo => ({
+      subjectCode: 'CS101',
+      subjectName: 'Introduction to Python',
+      cleanedLearningOutcomes: ['Learn Python basics'],
       ...overrides,
     });
 
@@ -26,20 +32,21 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       const llmEvaluations: LlmCourseEvaluationItem[] = [
         createLlmEvaluationItem(),
       ];
+      const courses: CourseInfo[] = [createCourseInfo()];
 
       // Act
-      const result =
-        CourseRetrieverEvaluatorHelper.mapEvaluations(llmEvaluations);
+      const result = CourseRetrieverEvaluatorHelper.mapEvaluations(
+        llmEvaluations,
+        courses,
+      );
 
       // Assert
       expect(result).toHaveLength(1);
       expect(result[0]).toEqual({
         subjectCode: 'CS101',
         subjectName: 'Introduction to Python',
-        skillRelevance: 2,
-        skillReason: 'Strong match for programming fundamentals',
-        contextAlignment: 3,
-        contextReason: 'Excellent alignment with user goals',
+        relevanceScore: 2,
+        reason: 'Strong match for programming fundamentals',
       });
     });
 
@@ -47,44 +54,46 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Arrange
       const llmEvaluations: LlmCourseEvaluationItem[] = [
         createLlmEvaluationItem({
-          course_name: 'Python Basics',
-          course_code: 'CS101',
-          skill_relevance_score: 2,
-          context_alignment_score: 3,
-          skill_reason: 'Good skill match',
-          context_reason: 'Good context fit',
+          code: 'CS101',
+          score: 2,
+          reason: 'Good skill match',
         }),
         createLlmEvaluationItem({
-          course_name: 'Advanced Java',
-          course_code: 'CS201',
-          skill_relevance_score: 1,
-          context_alignment_score: 0,
-          skill_reason: 'Partial skill match',
-          context_reason: 'Poor context fit',
+          code: 'CS201',
+          score: 1,
+          reason: 'Partial skill match',
+        }),
+      ];
+      const courses: CourseInfo[] = [
+        createCourseInfo({
+          subjectCode: 'CS101',
+          subjectName: 'Python Basics',
+        }),
+        createCourseInfo({
+          subjectCode: 'CS201',
+          subjectName: 'Advanced Java',
         }),
       ];
 
       // Act
-      const result =
-        CourseRetrieverEvaluatorHelper.mapEvaluations(llmEvaluations);
+      const result = CourseRetrieverEvaluatorHelper.mapEvaluations(
+        llmEvaluations,
+        courses,
+      );
 
       // Assert
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
         subjectCode: 'CS101',
         subjectName: 'Python Basics',
-        skillRelevance: 2,
-        skillReason: 'Good skill match',
-        contextAlignment: 3,
-        contextReason: 'Good context fit',
+        relevanceScore: 2,
+        reason: 'Good skill match',
       });
       expect(result[1]).toEqual({
         subjectCode: 'CS201',
         subjectName: 'Advanced Java',
-        skillRelevance: 1,
-        skillReason: 'Partial skill match',
-        contextAlignment: 0,
-        contextReason: 'Poor context fit',
+        relevanceScore: 1,
+        reason: 'Partial skill match',
       });
     });
 
@@ -93,60 +102,83 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       const llmEvaluations: LlmCourseEvaluationItem[] = [0, 1, 2, 3].map(
         (score) =>
           createLlmEvaluationItem({
-            course_code: `CS${score}01`,
-            skill_relevance_score: score as 0 | 1 | 2 | 3,
-            context_alignment_score: (3 - score) as 0 | 1 | 2 | 3,
+            code: `CS${score}01`,
+            score: score as 0 | 1 | 2 | 3,
           }),
+      );
+      const courses: CourseInfo[] = [0, 1, 2, 3].map((score) =>
+        createCourseInfo({
+          subjectCode: `CS${score}01`,
+          subjectName: `Course ${score}`,
+        }),
       );
 
       // Act
-      const result =
-        CourseRetrieverEvaluatorHelper.mapEvaluations(llmEvaluations);
+      const result = CourseRetrieverEvaluatorHelper.mapEvaluations(
+        llmEvaluations,
+        courses,
+      );
 
       // Assert
       expect(result).toHaveLength(4);
-      expect(result[0].skillRelevance).toBe(0);
-      expect(result[0].contextAlignment).toBe(3);
-      expect(result[1].skillRelevance).toBe(1);
-      expect(result[1].contextAlignment).toBe(2);
-      expect(result[2].skillRelevance).toBe(2);
-      expect(result[2].contextAlignment).toBe(1);
-      expect(result[3].skillRelevance).toBe(3);
-      expect(result[3].contextAlignment).toBe(0);
+      expect(result[0].relevanceScore).toBe(0);
+      expect(result[1].relevanceScore).toBe(1);
+      expect(result[2].relevanceScore).toBe(2);
+      expect(result[3].relevanceScore).toBe(3);
     });
 
     it('should handle empty array', () => {
       // Arrange
       const llmEvaluations: LlmCourseEvaluationItem[] = [];
+      const courses: CourseInfo[] = [];
 
       // Act
-      const result =
-        CourseRetrieverEvaluatorHelper.mapEvaluations(llmEvaluations);
+      const result = CourseRetrieverEvaluatorHelper.mapEvaluations(
+        llmEvaluations,
+        courses,
+      );
 
       // Assert
       expect(result).toEqual([]);
     });
 
-    it('should preserve all string properties including long multi-line reasons', () => {
+    it('should preserve long multi-line reasons', () => {
       // Arrange
       const longReason =
         'This is a long reason that spans multiple lines.\n' +
         'It contains detailed explanations about the course relevance.\n' +
         'The reason helps understand the scoring decision.';
       const llmEvaluations: LlmCourseEvaluationItem[] = [
-        createLlmEvaluationItem({
-          skill_reason: longReason,
-          context_reason: longReason,
-        }),
+        createLlmEvaluationItem({ reason: longReason }),
       ];
+      const courses: CourseInfo[] = [createCourseInfo()];
 
       // Act
-      const result =
-        CourseRetrieverEvaluatorHelper.mapEvaluations(llmEvaluations);
+      const result = CourseRetrieverEvaluatorHelper.mapEvaluations(
+        llmEvaluations,
+        courses,
+      );
 
       // Assert
-      expect(result[0].skillReason).toBe(longReason);
-      expect(result[0].contextReason).toBe(longReason);
+      expect(result[0].reason).toBe(longReason);
+    });
+
+    it('should fallback to code when course name not found in map', () => {
+      // Arrange
+      const llmEvaluations: LlmCourseEvaluationItem[] = [
+        createLlmEvaluationItem({ code: 'CS999' }),
+      ];
+      const courses: CourseInfo[] = [createCourseInfo()]; // CS101, not CS999
+
+      // Act
+      const result = CourseRetrieverEvaluatorHelper.mapEvaluations(
+        llmEvaluations,
+        courses,
+      );
+
+      // Assert
+      expect(result[0].subjectCode).toBe('CS999');
+      expect(result[0].subjectName).toBe('CS999'); // Fallback to code
     });
   });
 
@@ -156,10 +188,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
     ): EvaluationItem => ({
       subjectCode: 'CS101',
       subjectName: 'Introduction to Python',
-      skillRelevance: 2,
-      skillReason: 'Test reason',
-      contextAlignment: 2,
-      contextReason: 'Test reason',
+      relevanceScore: 2,
+      reason: 'Test reason',
       ...overrides,
     });
 
@@ -173,22 +203,27 @@ describe('CourseRetrieverEvaluatorHelper', () => {
 
       // Assert
       expect(result).toEqual({
-        averageSkillRelevance: 0,
-        averageContextAlignment: 0,
-        alignmentGap: 0,
-        contextMismatchRate: 0,
-        skillRelevanceDistribution: [],
-        contextAlignmentDistribution: [],
-        contextMismatchCourses: [],
+        totalCourses: 0,
+        averageRelevance: 0,
+        scoreDistribution: [
+          { relevanceScore: 0, count: 0, percentage: 0 },
+          { relevanceScore: 1, count: 0, percentage: 0 },
+          { relevanceScore: 2, count: 0, percentage: 0 },
+          { relevanceScore: 3, count: 0, percentage: 0 },
+        ],
+        highlyRelevantCount: 0,
+        highlyRelevantRate: 0,
+        irrelevantCount: 0,
+        irrelevantRate: 0,
       });
     });
 
     it('should calculate averages correctly for uniform scores', () => {
       // Arrange
       const evaluations: EvaluationItem[] = [
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
+        createEvaluationItem({ relevanceScore: 2 }),
+        createEvaluationItem({ relevanceScore: 2 }),
+        createEvaluationItem({ relevanceScore: 2 }),
       ];
 
       // Act
@@ -196,91 +231,44 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.averageSkillRelevance).toBe(2);
-      expect(result.averageContextAlignment).toBe(2);
-      expect(result.alignmentGap).toBe(0);
+      expect(result.averageRelevance).toBe(2);
+      expect(result.totalCourses).toBe(3);
+      expect(result.scoreDistribution).toEqual([
+        { relevanceScore: 0, count: 0, percentage: 0 },
+        { relevanceScore: 1, count: 0, percentage: 0 },
+        { relevanceScore: 2, count: 3, percentage: 100 },
+        { relevanceScore: 3, count: 0, percentage: 0 },
+      ]);
     });
 
     it('should calculate averages correctly for mixed scores', () => {
       // Arrange
       const evaluations: EvaluationItem[] = [
-        createEvaluationItem({ skillRelevance: 3, contextAlignment: 1 }),
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
-        createEvaluationItem({ skillRelevance: 1, contextAlignment: 3 }),
+        createEvaluationItem({ relevanceScore: 3 }),
+        createEvaluationItem({ relevanceScore: 2 }),
+        createEvaluationItem({ relevanceScore: 1 }),
       ];
 
       // Act
       const result =
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
-      // Assert: (3+2+1)/3 = 2, (1+2+3)/3 = 2
-      expect(result.averageSkillRelevance).toBeCloseTo(2.0);
-      expect(result.averageContextAlignment).toBeCloseTo(2.0);
-      expect(result.alignmentGap).toBeCloseTo(0.0);
+      // Assert: (3+2+1)/3 = 2
+      expect(result.averageRelevance).toBeCloseTo(2.0);
+      expect(result.totalCourses).toBe(3);
+      expect(result.highlyRelevantCount).toBe(1);
+      expect(result.highlyRelevantRate).toBeCloseTo(33.33, 1);
+      expect(result.irrelevantCount).toBe(0);
+      expect(result.irrelevantRate).toBe(0);
     });
 
-    it('should calculate alignment gap correctly when skill > context', () => {
+    it('should count highly relevant courses (score 3)', () => {
       // Arrange
       const evaluations: EvaluationItem[] = [
-        createEvaluationItem({ skillRelevance: 3, contextAlignment: 1 }),
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 0 }),
-      ];
-
-      // Act
-      const result =
-        CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
-
-      // Assert: avg skill = 2.5, avg context = 0.5, gap = 2.0
-      expect(result.averageSkillRelevance).toBe(2.5);
-      expect(result.averageContextAlignment).toBe(0.5);
-      expect(result.alignmentGap).toBe(2.0);
-    });
-
-    it('should calculate alignment gap correctly when context > skill', () => {
-      // Arrange
-      const evaluations: EvaluationItem[] = [
-        createEvaluationItem({ skillRelevance: 1, contextAlignment: 3 }),
-        createEvaluationItem({ skillRelevance: 0, contextAlignment: 2 }),
-      ];
-
-      // Act
-      const result =
-        CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
-
-      // Assert: avg skill = 0.5, avg context = 2.5, gap = -2.0
-      expect(result.averageSkillRelevance).toBe(0.5);
-      expect(result.averageContextAlignment).toBe(2.5);
-      expect(result.alignmentGap).toBe(-2.0);
-    });
-
-    it('should detect context mismatches (skill >= 2 AND context <= 1)', () => {
-      // Arrange
-      const evaluations: EvaluationItem[] = [
-        createEvaluationItem({
-          subjectCode: 'CS101',
-          skillRelevance: 2, // >= 2
-          contextAlignment: 0, // <= 1 -> MISMATCH
-        }),
-        createEvaluationItem({
-          subjectCode: 'CS201',
-          skillRelevance: 3, // >= 2
-          contextAlignment: 1, // <= 1 -> MISMATCH
-        }),
-        createEvaluationItem({
-          subjectCode: 'CS301',
-          skillRelevance: 1, // < 2 -> NOT mismatch (even though context <= 1)
-          contextAlignment: 1,
-        }),
-        createEvaluationItem({
-          subjectCode: 'CS401',
-          skillRelevance: 2,
-          contextAlignment: 2, // > 1 -> NOT mismatch
-        }),
-        createEvaluationItem({
-          subjectCode: 'CS501',
-          skillRelevance: 0, // < 2 -> NOT mismatch (even though context <= 1)
-          contextAlignment: 0,
-        }),
+        createEvaluationItem({ relevanceScore: 3 }),
+        createEvaluationItem({ relevanceScore: 3 }),
+        createEvaluationItem({ relevanceScore: 2 }),
+        createEvaluationItem({ relevanceScore: 1 }),
       ];
 
       // Act
@@ -288,19 +276,17 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.contextMismatchCourses).toHaveLength(2);
-      expect(result.contextMismatchCourses.map((c) => c.subjectCode)).toEqual(
-        expect.arrayContaining(['CS101', 'CS201']),
-      );
-      expect(result.contextMismatchRate).toBe((2 / 5) * 100); // 40%
+      expect(result.highlyRelevantCount).toBe(2);
+      expect(result.highlyRelevantRate).toBe(50); // 2/4 = 50%
     });
 
-    it('should calculate context mismatch rate as 0 when no mismatches', () => {
+    it('should count irrelevant courses (score 0)', () => {
       // Arrange
       const evaluations: EvaluationItem[] = [
-        createEvaluationItem({ skillRelevance: 3, contextAlignment: 3 }),
-        createEvaluationItem({ skillRelevance: 0, contextAlignment: 0 }),
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
+        createEvaluationItem({ relevanceScore: 0 }),
+        createEvaluationItem({ relevanceScore: 0 }),
+        createEvaluationItem({ relevanceScore: 1 }),
+        createEvaluationItem({ relevanceScore: 2 }),
       ];
 
       // Act
@@ -308,75 +294,37 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.contextMismatchCourses).toHaveLength(0);
-      expect(result.contextMismatchRate).toBe(0);
+      expect(result.irrelevantCount).toBe(2);
+      expect(result.irrelevantRate).toBe(50); // 2/4 = 50%
     });
 
-    it('should calculate score distributions correctly', () => {
+    it('should calculate score distribution correctly', () => {
       // Arrange
       const evaluations: EvaluationItem[] = [
-        createEvaluationItem({ skillRelevance: 3, contextAlignment: 0 }),
-        createEvaluationItem({ skillRelevance: 3, contextAlignment: 1 }),
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
-        createEvaluationItem({ skillRelevance: 1, contextAlignment: 3 }),
-        createEvaluationItem({ skillRelevance: 0, contextAlignment: 3 }),
+        createEvaluationItem({ relevanceScore: 0 }),
+        createEvaluationItem({ relevanceScore: 1 }),
+        createEvaluationItem({ relevanceScore: 2 }),
+        createEvaluationItem({ relevanceScore: 3 }),
+        createEvaluationItem({ relevanceScore: 3 }),
       ];
 
       // Act
       const result =
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
-      // Assert: Skill distribution has 4 unique values (3,2,1,0)
-      expect(result.skillRelevanceDistribution).toHaveLength(4);
-      expect(result.skillRelevanceDistribution).toContainEqual({
-        relevanceScore: 3,
-        count: 2,
-        percentage: (2 / 5) * 100,
-      });
-      expect(result.skillRelevanceDistribution).toContainEqual({
-        relevanceScore: 2,
-        count: 1,
-        percentage: (1 / 5) * 100,
-      });
-      expect(result.skillRelevanceDistribution).toContainEqual({
-        relevanceScore: 1,
-        count: 1,
-        percentage: (1 / 5) * 100,
-      });
-      expect(result.skillRelevanceDistribution).toContainEqual({
-        relevanceScore: 0,
-        count: 1,
-        percentage: (1 / 5) * 100,
-      });
-
-      // Assert: Context distribution also has 4 unique values (0,1,2,3)
-      expect(result.contextAlignmentDistribution).toHaveLength(4);
-      expect(result.contextAlignmentDistribution).toContainEqual({
-        relevanceScore: 3,
-        count: 2,
-        percentage: (2 / 5) * 100,
-      });
-      expect(result.contextAlignmentDistribution).toContainEqual({
-        relevanceScore: 0,
-        count: 1,
-        percentage: (1 / 5) * 100,
-      });
-      expect(result.contextAlignmentDistribution).toContainEqual({
-        relevanceScore: 1,
-        count: 1,
-        percentage: (1 / 5) * 100,
-      });
-      expect(result.contextAlignmentDistribution).toContainEqual({
-        relevanceScore: 2,
-        count: 1,
-        percentage: (1 / 5) * 100,
-      });
+      // Assert
+      expect(result.scoreDistribution).toEqual([
+        { relevanceScore: 0, count: 1, percentage: 20 },
+        { relevanceScore: 1, count: 1, percentage: 20 },
+        { relevanceScore: 2, count: 1, percentage: 20 },
+        { relevanceScore: 3, count: 2, percentage: 40 },
+      ]);
     });
 
     it('should handle single evaluation item', () => {
       // Arrange
       const evaluations: EvaluationItem[] = [
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 2 }),
+        createEvaluationItem({ relevanceScore: 2 }),
       ];
 
       // Act
@@ -384,23 +332,24 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.averageSkillRelevance).toBe(2);
-      expect(result.averageContextAlignment).toBe(2);
-      expect(result.alignmentGap).toBe(0);
-      // No mismatch: skill=2 >=2 but context=2 > 1
-      expect(result.contextMismatchRate).toBe(0);
-      expect(result.skillRelevanceDistribution).toEqual([
+      expect(result.totalCourses).toBe(1);
+      expect(result.averageRelevance).toBe(2);
+      expect(result.highlyRelevantCount).toBe(0);
+      expect(result.highlyRelevantRate).toBe(0);
+      expect(result.irrelevantCount).toBe(0);
+      expect(result.irrelevantRate).toBe(0);
+      expect(result.scoreDistribution).toEqual([
+        { relevanceScore: 0, count: 0, percentage: 0 },
+        { relevanceScore: 1, count: 0, percentage: 0 },
         { relevanceScore: 2, count: 1, percentage: 100 },
-      ]);
-      expect(result.contextAlignmentDistribution).toEqual([
-        { relevanceScore: 2, count: 1, percentage: 100 },
+        { relevanceScore: 3, count: 0, percentage: 0 },
       ]);
     });
 
     it('should calculate realistic scenario with perfect retriever', () => {
-      // Arrange: All high skill and high context scores
+      // Arrange: All high scores
       const evaluations: EvaluationItem[] = Array.from({ length: 10 }, () =>
-        createEvaluationItem({ skillRelevance: 3, contextAlignment: 3 }),
+        createEvaluationItem({ relevanceScore: 3 }),
       );
 
       // Act
@@ -408,26 +357,28 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.averageSkillRelevance).toBe(3);
-      expect(result.averageContextAlignment).toBe(3);
-      expect(result.alignmentGap).toBe(0);
-      expect(result.contextMismatchRate).toBe(0);
-      expect(result.skillRelevanceDistribution).toEqual([
-        { relevanceScore: 3, count: 10, percentage: 100 },
-      ]);
-      expect(result.contextAlignmentDistribution).toEqual([
+      expect(result.totalCourses).toBe(10);
+      expect(result.averageRelevance).toBe(3);
+      expect(result.highlyRelevantCount).toBe(10);
+      expect(result.highlyRelevantRate).toBe(100);
+      expect(result.irrelevantCount).toBe(0);
+      expect(result.irrelevantRate).toBe(0);
+      expect(result.scoreDistribution).toEqual([
+        { relevanceScore: 0, count: 0, percentage: 0 },
+        { relevanceScore: 1, count: 0, percentage: 0 },
+        { relevanceScore: 2, count: 0, percentage: 0 },
         { relevanceScore: 3, count: 10, percentage: 100 },
       ]);
     });
 
-    it('should calculate realistic scenario with poor context awareness', () => {
-      // Arrange: High skill scores but low context scores (context mismatch)
+    it('should calculate realistic scenario with poor retriever', () => {
+      // Arrange: Mostly low scores
       const evaluations: EvaluationItem[] = [
-        createEvaluationItem({ skillRelevance: 3, contextAlignment: 1 }),
-        createEvaluationItem({ skillRelevance: 3, contextAlignment: 0 }),
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 1 }),
-        createEvaluationItem({ skillRelevance: 3, contextAlignment: 1 }),
-        createEvaluationItem({ skillRelevance: 2, contextAlignment: 0 }),
+        createEvaluationItem({ relevanceScore: 0 }),
+        createEvaluationItem({ relevanceScore: 0 }),
+        createEvaluationItem({ relevanceScore: 1 }),
+        createEvaluationItem({ relevanceScore: 1 }),
+        createEvaluationItem({ relevanceScore: 2 }),
       ];
 
       // Act
@@ -435,16 +386,17 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.averageSkillRelevance).toBeCloseTo(2.6);
-      expect(result.averageContextAlignment).toBeCloseTo(0.6);
-      expect(result.alignmentGap).toBeCloseTo(2.0);
-      expect(result.contextMismatchCourses).toHaveLength(5); // All 5 are mismatches
-      expect(result.contextMismatchRate).toBe(100);
+      expect(result.totalCourses).toBe(5);
+      expect(result.averageRelevance).toBeCloseTo(0.8); // (0+0+1+1+2)/5
+      expect(result.highlyRelevantCount).toBe(0);
+      expect(result.highlyRelevantRate).toBe(0);
+      expect(result.irrelevantCount).toBe(2);
+      expect(result.irrelevantRate).toBe(40); // 2/5 = 40%
     });
   });
 
   describe('calculateDistribution', () => {
-    it('should calculate distribution for unique scores', () => {
+    it('should calculate distribution for all scores (0-3)', () => {
       // Arrange
       const scores = [0, 1, 2, 3];
       const total = 4;
@@ -491,7 +443,7 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       );
 
       // Assert
-      expect(result).toHaveLength(3);
+      expect(result).toHaveLength(4); // Always returns 0-3
       expect(result).toContainEqual({
         relevanceScore: 3,
         count: 3,
@@ -507,6 +459,11 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         count: 1,
         percentage: (1 / 6) * 100,
       });
+      expect(result).toContainEqual({
+        relevanceScore: 2,
+        count: 0,
+        percentage: 0,
+      });
     });
 
     it('should handle all identical scores', () => {
@@ -521,12 +478,27 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       );
 
       // Assert
-      expect(result).toHaveLength(1);
+      expect(result).toHaveLength(4); // Always returns 0-3
       expect(result).toEqual([
+        {
+          relevanceScore: 0,
+          count: 0,
+          percentage: 0,
+        },
+        {
+          relevanceScore: 1,
+          count: 0,
+          percentage: 0,
+        },
         {
           relevanceScore: 2,
           count: 5,
           percentage: 100,
+        },
+        {
+          relevanceScore: 3,
+          count: 0,
+          percentage: 0,
         },
       ]);
     });
@@ -543,7 +515,13 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       );
 
       // Assert
-      expect(result).toEqual([]);
+      expect(result).toHaveLength(4); // Always returns 0-3 initialized
+      expect(result).toEqual([
+        { relevanceScore: 0, count: 0, percentage: 0 },
+        { relevanceScore: 1, count: 0, percentage: 0 },
+        { relevanceScore: 2, count: 0, percentage: 0 },
+        { relevanceScore: 3, count: 0, percentage: 0 },
+      ]);
     });
 
     it('should handle single score', () => {
@@ -558,7 +536,11 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       );
 
       // Assert
+      expect(result).toHaveLength(4);
       expect(result).toEqual([
+        { relevanceScore: 0, count: 0, percentage: 0 },
+        { relevanceScore: 1, count: 0, percentage: 0 },
+        { relevanceScore: 2, count: 0, percentage: 0 },
         {
           relevanceScore: 3,
           count: 1,
@@ -579,16 +561,22 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       );
 
       // Assert
-      expect(result).toHaveLength(3);
-      result.forEach((item) => {
-        expect(item.count).toBe(1);
-        expect(item.percentage).toBeCloseTo(33.33, 2);
-      });
+      expect(result).toHaveLength(4);
+      expect(result.find((r) => r.relevanceScore === 3)?.percentage).toBe(
+        (1 / 3) * 100,
+      );
+      expect(result.find((r) => r.relevanceScore === 2)?.percentage).toBe(
+        (1 / 3) * 100,
+      );
+      expect(result.find((r) => r.relevanceScore === 1)?.percentage).toBe(
+        (1 / 3) * 100,
+      );
+      expect(result.find((r) => r.relevanceScore === 0)?.count).toBe(0);
     });
 
-    it('should preserve order based on score appearance', () => {
-      // Arrange: Scores in descending order
-      const scores = [3, 2, 1, 0];
+    it('should always return scores in order 0, 1, 2, 3', () => {
+      // Arrange: Scores in random order
+      const scores = [3, 0, 2, 1];
       const total = 4;
 
       // Act
@@ -597,11 +585,11 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         total,
       );
 
-      // Assert: Result should maintain insertion order from Map
-      expect(result[0].relevanceScore).toBe(3);
-      expect(result[1].relevanceScore).toBe(2);
-      expect(result[2].relevanceScore).toBe(1);
-      expect(result[3].relevanceScore).toBe(0);
+      // Assert: Result should always be in order 0, 1, 2, 3
+      expect(result[0].relevanceScore).toBe(0);
+      expect(result[1].relevanceScore).toBe(1);
+      expect(result[2].relevanceScore).toBe(2);
+      expect(result[3].relevanceScore).toBe(3);
     });
   });
 

@@ -5,10 +5,10 @@ import { ConcurrencyLimiter } from 'src/shared/utils/concurrency-limiter.helper'
 
 import { AppModule } from '../../../app.module';
 import { EvaluationProgressTrackerService } from '../course-retrieval/evaluators/evaluation-progress-tracker.service';
-import { EvaluationResultManagerService } from '../course-retrieval/evaluators/evaluation-result-manager.service';
 import { CourseRetrievalTestSetLoaderService } from '../course-retrieval/loaders/course-retrieval-test-set-loader.service';
-import { I_COURSE_RETRIEVER_EVALUATION_RUNNER_TOKEN } from '../course-retrieval/runners/course-retriever-evaluation-runner.service';
-import { CourseRetrieverEvaluationRunnerService } from '../course-retrieval/runners/course-retriever-evaluation-runner.service';
+import { CourseRetrievalResultManagerService } from '../course-retrieval/services/course-retrieval-result-manager.service';
+import { I_COURSE_RETRIEVAL_RUNNER_TOKEN } from '../course-retrieval/services/course-retrieval-runner.service';
+import { CourseRetrievalRunnerService } from '../course-retrieval/services/course-retrieval-runner.service';
 import type { EvaluateRetrieverOutput } from '../course-retrieval/types/course-retrieval.types';
 import type { EvaluateRetrieverInput } from '../course-retrieval/types/course-retrieval.types';
 
@@ -197,6 +197,46 @@ Examples:
 }
 
 // ============================================================================
+// METRICS HELPER FUNCTIONS
+// ============================================================================
+
+/**
+ * Calculate average relevance score from evaluation results
+ * @param records - Array of evaluation results
+ * @returns Average relevance score (0-3)
+ */
+function calculateAverageRelevance(records: EvaluateRetrieverOutput[]): number {
+  if (records.length === 0) return 0;
+
+  const totalRelevance = records.reduce((sum, record) => {
+    return sum + record.metrics.averageRelevance;
+  }, 0);
+
+  return totalRelevance / records.length;
+}
+
+/**
+ * Calculate the rate of highly relevant courses (score = 3)
+ * @param records - Array of evaluation results
+ * @returns Percentage of highly relevant courses (0-1)
+ */
+function calculateHighlyRelevantRate(
+  records: EvaluateRetrieverOutput[],
+): number {
+  if (records.length === 0) return 0;
+
+  let totalCourses = 0;
+  let highlyRelevantCount = 0;
+
+  for (const record of records) {
+    totalCourses += record.metrics.totalCourses;
+    highlyRelevantCount += record.metrics.highlyRelevantCount;
+  }
+
+  return totalCourses > 0 ? highlyRelevantCount / totalCourses : 0;
+}
+
+// ============================================================================
 // MAIN FUNCTION
 // ============================================================================
 
@@ -233,10 +273,10 @@ async function bootstrap() {
   try {
     // Get services
     const loader = appContext.get(CourseRetrievalTestSetLoaderService);
-    const runner = appContext.get<CourseRetrieverEvaluationRunnerService>(
-      I_COURSE_RETRIEVER_EVALUATION_RUNNER_TOKEN,
+    const runner = appContext.get<CourseRetrievalRunnerService>(
+      I_COURSE_RETRIEVAL_RUNNER_TOKEN,
     );
-    const resultManager = appContext.get(EvaluationResultManagerService);
+    const resultManager = appContext.get(CourseRetrievalResultManagerService);
     const progressTracker = appContext.get(EvaluationProgressTrackerService);
 
     const testSetName = args.testSetName ?? args.filename.replace('.json', '');
@@ -301,20 +341,21 @@ async function bootstrap() {
           progress: progressFile,
         });
 
-        // Aggregate and show metrics for existing results
+        // Show basic metrics for existing results
         if (existingResults.length > 0) {
-          const metrics = resultManager.calculateIterationMetrics({
-            iterationNumber: args.iteration,
-            records: existingResults as EvaluateRetrieverOutput[],
-          });
+          const avgRelevance = calculateAverageRelevance(
+            existingResults as EvaluateRetrieverOutput[],
+          );
+          const highlyRelevantRate = calculateHighlyRelevantRate(
+            existingResults as EvaluateRetrieverOutput[],
+          );
 
           logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
           logger.log('Existing Evaluation Results:');
+          logger.log(`  Total evaluations: ${existingResults.length}`);
+          logger.log(`  Average relevance: ${avgRelevance.toFixed(2)}/3`);
           logger.log(
-            `  Macro avg skill relevance: ${metrics.macroAvg.averageSkillRelevance}/3`,
-          );
-          logger.log(
-            `  Micro avg skill relevance: ${metrics.microAvg.averageSkillRelevance}/3`,
+            `  Highly relevant rate: ${(highlyRelevantRate * 100).toFixed(1)}%`,
           );
           logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
         }
@@ -407,50 +448,37 @@ async function bootstrap() {
         ]
       : results;
 
-    // Aggregate and save metrics if we have results
+    // Save results and show basic metrics if we have results
     if (allResults.length > 0) {
       logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      logger.log('Aggregating metrics...');
+      logger.log('Saving results...');
 
-      // Calculate iteration metrics for ALL results at once
-      // The calculateIterationMetrics method handles grouping by testCaseId internally
-      const metrics = resultManager.calculateIterationMetrics({
+      // Save all iteration records at once
+      await resultManager.saveIterationRecords({
+        testSetName,
         iterationNumber: args.iteration,
         records: allResults as EvaluateRetrieverOutput[],
       });
 
-      // Save test case metrics
-      await resultManager.saveTestCaseMetrics({
-        testSetName,
-        iterationNumber: args.iteration,
-        testCaseMetrics: metrics.testCaseMetrics,
-      });
-
-      // Save iteration metrics (call ONCE for all test cases, not per-testCase)
-      await resultManager.saveIterationMetrics({
-        testSetName,
-        iterationNumber: args.iteration,
-        metrics,
-      });
-
-      logger.log(
-        `Aggregated ${allResults.length} skills across ${metrics.totalCases} test cases`,
+      // Calculate and display basic metrics
+      const avgRelevance = calculateAverageRelevance(
+        allResults as EvaluateRetrieverOutput[],
       );
-      logger.log(
-        `  Macro avg skill relevance: ${metrics.macroAvg.averageSkillRelevance}/3`,
+      const highlyRelevantRate = calculateHighlyRelevantRate(
+        allResults as EvaluateRetrieverOutput[],
       );
+      const uniqueTestCases = new Set(
+        (allResults as EvaluateRetrieverOutput[]).map((r) => r.question),
+      ).size;
+
+      logger.log(`Saved ${allResults.length} evaluation records`);
+      logger.log(`  Unique test cases: ${uniqueTestCases}`);
+      logger.log(`  Average relevance: ${avgRelevance.toFixed(2)}/3`);
       logger.log(
-        `  Micro avg skill relevance: ${metrics.microAvg.averageSkillRelevance}/3`,
+        `  Highly relevant rate: ${(highlyRelevantRate * 100).toFixed(1)}%`,
       );
 
-      // Log per-testCase summary
-      for (const testCaseMetric of metrics.testCaseMetrics) {
-        logger.log(
-          `  TestCase "${testCaseMetric.question}": ${testCaseMetric.totalSkills} skills`,
-        );
-      }
-
-      logger.log('Aggregation complete!');
+      logger.log('Results saved successfully!');
       logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     }
 

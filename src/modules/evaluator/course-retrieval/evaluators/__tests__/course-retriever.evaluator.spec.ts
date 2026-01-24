@@ -12,7 +12,7 @@ import {
 import {
   CourseRetrieverEvaluatorInput,
   EvaluationItem,
-} from '../../types/type';
+} from '../../types/course-retrieval.types';
 import { CourseRetrieverEvaluator } from '../course-retriever.evaluator';
 
 // Mock @toon-format/toon to avoid ESM import issues
@@ -40,22 +40,17 @@ describe('CourseRetrieverEvaluator', () => {
   ): EvaluationItem => ({
     subjectCode: 'CS101',
     subjectName: 'Introduction to Python',
-    skillRelevance: 3,
-    skillReason: 'Direct skill match - course primarily teaches Python',
-    contextAlignment: 2,
-    contextReason: 'Good alignment with user goal of learning programming',
+    relevanceScore: 3,
+    reason: 'Direct skill match - course primarily teaches Python',
     ...overrides,
   });
 
   const createLlmEvaluationItem = (
     overrides: Partial<LlmCourseEvaluationItem> = {},
   ): LlmCourseEvaluationItem => ({
-    course_code: 'CS101',
-    course_name: 'Introduction to Python',
-    skill_relevance_score: 3,
-    skill_reason: 'Direct skill match',
-    context_alignment_score: 2,
-    context_reason: 'Good alignment',
+    code: 'CS101',
+    score: 3,
+    reason: 'Direct skill match',
     ...overrides,
   });
 
@@ -195,7 +190,7 @@ describe('CourseRetrieverEvaluator', () => {
         const validInput = {
           evaluations: [
             createLlmEvaluationItem(),
-            createLlmEvaluationItem({ course_code: 'CS102' }),
+            createLlmEvaluationItem({ code: 'CS102' }),
           ],
         };
 
@@ -223,8 +218,8 @@ describe('CourseRetrieverEvaluator', () => {
         const invalidInput = {
           evaluations: [
             createLlmEvaluationItem(),
-            createLlmEvaluationItem({ course_code: 'CS102' }),
-            createLlmEvaluationItem({ course_code: 'CS103' }),
+            createLlmEvaluationItem({ code: 'CS102' }),
+            createLlmEvaluationItem({ code: 'CS103' }),
           ], // 3 items, max is 2
         };
 
@@ -282,23 +277,18 @@ describe('CourseRetrieverEvaluator', () => {
       // Assert
       expect(item.subjectCode).toBeDefined();
       expect(item.subjectName).toBeDefined();
-      expect(item.skillRelevance).toBeGreaterThanOrEqual(0);
-      expect(item.skillRelevance).toBeLessThanOrEqual(3);
-      expect(item.contextAlignment).toBeGreaterThanOrEqual(0);
-      expect(item.contextAlignment).toBeLessThanOrEqual(3);
-      expect(item.skillReason).toBeDefined();
-      expect(item.contextReason).toBeDefined();
+      expect(item.relevanceScore).toBeGreaterThanOrEqual(0);
+      expect(item.relevanceScore).toBeLessThanOrEqual(3);
+      expect(item.reason).toBeDefined();
     });
 
     it('should accept all valid relevance scores (0, 1, 2, 3)', () => {
       // Arrange & Act & Assert
       [0, 1, 2, 3].forEach((score) => {
         const item: EvaluationItem = createTestEvaluationItem({
-          skillRelevance: score as 0 | 1 | 2 | 3,
-          contextAlignment: score as 0 | 1 | 2 | 3,
+          relevanceScore: score as 0 | 1 | 2 | 3,
         });
-        expect(item.skillRelevance).toBe(score);
-        expect(item.contextAlignment).toBe(score);
+        expect(item.relevanceScore).toBe(score);
       });
     });
   });
@@ -335,26 +325,21 @@ describe('CourseRetrieverEvaluator', () => {
       const item = createLlmEvaluationItem();
 
       // Assert
-      expect(item.course_code).toBe('CS101');
-      expect(item.course_name).toBe('Introduction to Python');
-      expect(item.skill_relevance_score).toBe(3);
-      expect(item.context_alignment_score).toBe(2);
-      expect(item.skill_reason).toBe('Direct skill match');
-      expect(item.context_reason).toBe('Good alignment');
+      expect(item.code).toBe('CS101');
+      expect(item.score).toBe(3);
+      expect(item.reason).toBe('Direct skill match');
     });
 
     it('should create valid LLM evaluation item with overrides', () => {
       // Act
       const item = createLlmEvaluationItem({
-        course_code: 'CS102',
-        skill_relevance_score: 1,
-        context_alignment_score: 0,
+        code: 'CS102',
+        score: 1,
       });
 
       // Assert
-      expect(item.course_code).toBe('CS102');
-      expect(item.skill_relevance_score).toBe(1);
-      expect(item.context_alignment_score).toBe(0);
+      expect(item.code).toBe('CS102');
+      expect(item.score).toBe(1);
     });
 
     it('should create valid test input with defaults', () => {

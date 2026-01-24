@@ -8,23 +8,21 @@ const RelevanceScoreSchema = z
     message: 'Score must be exactly 0, 1, 2, or 3',
   });
 
+/**
+ * Schema for single course evaluation item
+ *
+ * Matches the updated prompt format (commit e9cfa11) which uses
+ * a single relevance score instead of the two-dimensional model.
+ */
 export const CourseEvaluationItemSchema = z.object({
-  course_name: z.string().min(1).describe('Name of the course'),
-  course_code: z.string().min(1).describe('Code of the course'),
-  skill_relevance_score: RelevanceScoreSchema.describe(
-    'Relevance score for the skill',
+  code: z.string().min(1).describe('Course code (e.g., "CS101")'),
+  score: RelevanceScoreSchema.describe(
+    'Relevance score (0-3): 0=Irrelevant, 1=Marginally, 2=Fairly, 3=Highly',
   ),
-  context_alignment_score: RelevanceScoreSchema.describe(
-    'Alignment score for the context',
-  ),
-  skill_reason: z
+  reason: z
     .string()
     .min(1)
-    .describe('Reasoning for the assigned skill relevance score'),
-  context_reason: z
-    .string()
-    .min(1)
-    .describe('Reasoning for the assigned context alignment score'),
+    .describe('Brief justification for the assigned score'),
 });
 
 /**
@@ -53,12 +51,9 @@ export type RelevanceScore = 0 | 1 | 2 | 3;
 // Manually define the type to ensure RelevanceScore is used correctly
 // z.infer doesn't properly extract type predicates from .refine()
 export type LlmCourseEvaluationItem = {
-  course_name: string;
-  course_code: string;
-  skill_relevance_score: RelevanceScore;
-  context_alignment_score: RelevanceScore;
-  skill_reason: string;
-  context_reason: string;
+  code: string;
+  score: RelevanceScore;
+  reason: string;
 };
 
 export type LlmCourseRetrievalEvaluator = {

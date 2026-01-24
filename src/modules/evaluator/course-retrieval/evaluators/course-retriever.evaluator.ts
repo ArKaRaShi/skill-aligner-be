@@ -8,7 +8,6 @@ import { TokenCostCalculator } from 'src/shared/utils/token-cost-calculator.help
 
 import { IEvaluator } from '../../shared/contracts/i-evaluator.contract';
 import { CourseRetrieverEvaluatorHelper } from '../helpers/course-retriever.evaluator.helper';
-import { MetricsCalculator } from '../metrics/metrics-calculator';
 import {
   COURSE_RETRIEVER_JUDGE_SYSTEM_PROMPT,
   getCourseRetrieverJudgeUserPrompt,
@@ -18,11 +17,24 @@ import {
   getCourseRetrievalEvaluatorSchema,
   LlmCourseEvaluationItem,
 } from '../schemas/schema';
+import { CourseRetrievalMetricsCalculator } from '../services/course-retrieval-metrics-calculator.service';
 import {
   CourseRetrieverEvaluatorInput,
   CourseRetrieverEvaluatorOutput,
 } from '../types/course-retrieval.types';
 
+/**
+ * Course Retrieval Evaluator
+ *
+ * Evaluates the quality of course retrieval results using LLM-as-a-Judge.
+ * Updated to use single-score relevance model (commit e9cfa11).
+ *
+ * Metrics calculated:
+ * - Average relevance score (0-3)
+ * - Score distribution (breakdown of scores 0-3)
+ * - Highly relevant rate (percentage of score 3)
+ * - Irrelevant rate (percentage of score 0)
+ */
 @Injectable()
 export class CourseRetrieverEvaluator
   implements
@@ -89,8 +101,13 @@ export class CourseRetrieverEvaluator
           CourseEvaluationItemSchema.parse(item) as LlmCourseEvaluationItem,
       );
 
-    const evaluations = MetricsCalculator.mapEvaluations(validatedEvaluations);
-    const metrics = MetricsCalculator.calculateMetrics(evaluations);
+    // Map LLM evaluations to internal format and calculate metrics
+    const evaluations = CourseRetrievalMetricsCalculator.mapEvaluations(
+      validatedEvaluations,
+      retrievedCourses,
+    );
+    const metrics =
+      CourseRetrievalMetricsCalculator.calculateMetrics(evaluations);
     const llmCostEstimateSummary = TokenCostCalculator.estimateTotalCost([
       {
         model: llmResult.model,

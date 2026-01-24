@@ -1,24 +1,32 @@
-import { encode } from '@toon-format/toon';
-
-import { LlmCourseEvaluationItem } from '../schemas/schema';
-import {
-  CourseInfo,
+import type { LlmCourseEvaluationItem } from '../schemas/schema';
+import type {
   EvaluationItem,
-  LlmCouresInfo,
   RetrievalPerformanceMetrics,
   RetrievalScoreDistribution,
 } from '../types/course-retrieval.types';
 
-export class CourseRetrieverEvaluatorHelper {
+/**
+ * Metrics Calculator for Course Retrieval Evaluation
+ *
+ * Simplified metrics calculator following the modern evaluator pattern.
+ * Uses single-score relevance model (commit e9cfa11) instead of the
+ * legacy two-dimensional skill+context model.
+ *
+ * Follows the pattern from course-relevance-filter/metrics-calculator.service.ts
+ */
+export class CourseRetrievalMetricsCalculator {
   /**
-   * Maps LLM evaluation items to evaluation items
+   * Maps LLM evaluation items to internal evaluation items
    *
-   * @param evaluations - LLM course evaluation items
+   * Transforms the LLM output format to the internal evaluation format
+   * with proper field mapping (snake_case to camelCase).
+   *
+   * @param llmEvaluations - LLM course evaluation items
    * @param courses - Original course info for subjectCode/subjectName mapping
    * @returns Mapped evaluation items
    */
   static mapEvaluations(
-    evaluations: LlmCourseEvaluationItem[],
+    llmEvaluations: LlmCourseEvaluationItem[],
     courses: Array<{ subjectCode: string; subjectName: string }>,
   ): EvaluationItem[] {
     // Create a lookup map for course names by code
@@ -26,7 +34,7 @@ export class CourseRetrieverEvaluatorHelper {
       courses.map((c) => [c.subjectCode, c.subjectName]),
     );
 
-    return evaluations.map((evalItem) => ({
+    return llmEvaluations.map((evalItem) => ({
       subjectCode: evalItem.code,
       subjectName: courseMap.get(evalItem.code) || evalItem.code, // Fallback to code if name not found
       relevanceScore: evalItem.score,
@@ -35,10 +43,47 @@ export class CourseRetrieverEvaluatorHelper {
   }
 
   /**
-   * Calculates retrieval performance metrics from evaluations
+   * Calculate score distribution from scores
+   *
+   * @param scores - Array of relevance scores
+   * @param total - Total number of items
+   * @returns Score distribution array
+   */
+  private static calculateDistribution(
+    scores: number[],
+    total: number,
+  ): RetrievalScoreDistribution[] {
+    // Initialize distribution for all possible scores (0-3)
+    const distribution = new Map<number, number>();
+    for (let i = 0; i <= 3; i++) {
+      distribution.set(i, 0);
+    }
+
+    // Count occurrences of each score
+    for (const score of scores) {
+      distribution.set(score, (distribution.get(score) || 0) + 1);
+    }
+
+    // Convert to array format with percentages
+    return Array.from(distribution.entries()).map(([score, count]) => ({
+      relevanceScore: score as 0 | 1 | 2 | 3,
+      count,
+      percentage: total > 0 ? (count / total) * 100 : 0,
+    }));
+  }
+
+  /**
+   * Calculate metrics from evaluation items
+   *
+   * Computes simple flat metrics:
+   * - Total courses evaluated
+   * - Average relevance score
+   * - Score distribution (0-3 breakdown)
+   * - Highly relevant count/rate (score 3)
+   * - Irrelevant count/rate (score 0)
    *
    * @param evaluations - List of evaluation items
-   * @returns Retrieval performance metrics with single-score model
+   * @returns Retrieval performance metrics
    */
   static calculateMetrics(
     evaluations: EvaluationItem[],
@@ -97,50 +142,5 @@ export class CourseRetrieverEvaluatorHelper {
       irrelevantCount,
       irrelevantRate,
     };
-  }
-
-  /**
-   * Calculates score distribution from a list of scores
-   *
-   * @param scores - Array of relevance scores
-   * @param total - Total number of items
-   * @returns Score distribution with counts and percentages
-   */
-  static calculateDistribution(
-    scores: number[],
-    total: number,
-  ): RetrievalScoreDistribution[] {
-    // Initialize distribution for all possible scores (0-3)
-    const distribution = new Map<number, number>();
-    for (let i = 0; i <= 3; i++) {
-      distribution.set(i, 0);
-    }
-
-    // Count occurrences of each score
-    for (const score of scores) {
-      distribution.set(score, (distribution.get(score) || 0) + 1);
-    }
-
-    // Convert to array format with percentages
-    return Array.from(distribution.entries()).map(([score, count]) => ({
-      relevanceScore: score as 0 | 1 | 2 | 3,
-      count,
-      percentage: total > 0 ? (count / total) * 100 : 0,
-    }));
-  }
-
-  /**
-   * Builds the context string for retrieved courses
-   *
-   * @param courses - list of course info
-   * @returns encoded string representation of courses
-   */
-  static buildRetrievedCoursesContext(courses: CourseInfo[]): string {
-    const llmCourses: LlmCouresInfo[] = courses.map((course) => ({
-      course_code: course.subjectCode,
-      course_name: course.subjectName,
-      learning_outcomes: course.cleanedLearningOutcomes,
-    }));
-    return encode(llmCourses);
   }
 }
