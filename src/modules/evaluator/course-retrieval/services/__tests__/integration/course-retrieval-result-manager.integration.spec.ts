@@ -4,6 +4,7 @@ import * as os from 'node:os';
 import * as path from 'node:path';
 import { FileHelper } from 'src/shared/utils/file';
 
+import { EvaluationHashUtil } from '../../../../shared/utils/evaluation-hash.util';
 import type {
   CourseRetrievalIterationMetrics,
   EvaluateRetrieverOutput,
@@ -457,39 +458,41 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       await service.ensureDirectoryStructure(testSetName);
 
-      const records: EvaluateRetrieverOutput[] = [
-        {
-          testCaseId: 'test-001',
-          question: 'Question?',
-          skill: 'Skill',
-          retrievedCount: 1,
-          evaluations: [],
-          metrics: {
-            totalCourses: 1,
-            averageRelevance: 2,
-            scoreDistribution: [],
-            highlyRelevantCount: 0,
-            highlyRelevantRate: 0,
-            irrelevantCount: 0,
-            irrelevantRate: 0,
-            ndcg: { at5: 1, at10: 1, atAll: 1 },
-            precision: { at5: 1, at10: 1, atAll: 1 },
-          },
-          llmModel: 'gpt-4',
-          llmProvider: 'openai',
-          inputTokens: 100,
-          outputTokens: 50,
+      const record: EvaluateRetrieverOutput = {
+        testCaseId: 'test-001',
+        question: 'Question?',
+        skill: 'Skill',
+        retrievedCount: 1,
+        evaluations: [],
+        metrics: {
+          totalCourses: 1,
+          averageRelevance: 2,
+          scoreDistribution: [],
+          highlyRelevantCount: 0,
+          highlyRelevantRate: 0,
+          irrelevantCount: 0,
+          irrelevantRate: 0,
+          ndcg: { at5: 1, at10: 1, atAll: 1 },
+          precision: { at5: 1, at10: 1, atAll: 1 },
         },
-      ];
+        llmModel: 'gpt-4',
+        llmProvider: 'openai',
+        inputTokens: 100,
+        outputTokens: 50,
+      };
 
-      const recordsPath = path.join(
-        tempDir,
+      // Save using ADR-0002 hash-based pattern
+      const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
+        question: record.question,
+        skill: record.skill,
+        testCaseId: record.testCaseId,
+      });
+      await service.saveRecord({
         testSetName,
-        'records',
-        `records-iteration-${iterationNumber}.json`,
-      );
-
-      await FileHelper.saveJson(recordsPath, records);
+        iterationNumber,
+        hash,
+        record,
+      });
 
       // Act
       const loaded = await service.loadIterationRecords({
@@ -498,7 +501,8 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       });
 
       // Assert
-      expect(loaded).toEqual(records);
+      expect(loaded).toHaveLength(1);
+      expect(loaded[0]).toEqual(record);
     });
   });
 
@@ -758,13 +762,17 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       expect(metrics.timestamp).toBeDefined();
       expect(metrics.sampleCount).toBe(1);
       expect(metrics.totalCoursesEvaluated).toBe(3);
-      expect(metrics.averageRelevance).toBeCloseTo(1.667, 2);
-      expect(metrics.ndcgAt5).toBeDefined();
-      expect(metrics.ndcgAt10).toBeDefined();
-      expect(metrics.ndcgAtAll).toBeDefined();
-      expect(metrics.precisionAt5).toBeDefined();
-      expect(metrics.precisionAt10).toBeDefined();
-      expect(metrics.precisionAtAll).toBeDefined();
+      // Enriched metrics - check the .value property
+      expect(metrics.averageRelevance.value).toBeCloseTo(1.667, 2);
+      expect(metrics.ndcg.at5.value).toBeDefined();
+      expect(metrics.ndcg.at10.value).toBeDefined();
+      expect(metrics.ndcg.atAll.value).toBeDefined();
+      expect(metrics.precision.at5.value).toBeDefined();
+      expect(metrics.precision.at10.value).toBeDefined();
+      expect(metrics.precision.atAll.value).toBeDefined();
+      // Check descriptions exist
+      expect(metrics.averageRelevance.description).toBeDefined();
+      expect(metrics.ndcg.at5.description).toBeDefined();
     });
 
     it('should handle multiple samples in single iteration', async () => {
@@ -843,7 +851,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       await service.ensureDirectoryStructure(testSetName);
 
-      // Create and save records for each iteration
+      // Create and save records for each iteration using ADR-0002 hash-based pattern
       for (let i = 1; i <= totalIterations; i++) {
         const records: EvaluateRetrieverOutput[] = [
           {
@@ -897,12 +905,20 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           },
         ];
 
-        // Save records
-        await service.saveIterationRecords({
-          testSetName,
-          iterationNumber: i,
-          records,
-        });
+        // Save each record using ADR-0002 hash-based pattern
+        for (const record of records) {
+          const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
+            question: record.question,
+            skill: record.skill,
+            testCaseId: record.testCaseId,
+          });
+          await service.saveRecord({
+            testSetName,
+            iterationNumber: i,
+            hash,
+            record,
+          });
+        }
 
         // Save iteration metrics
         await service.saveIterationMetrics({
@@ -1001,11 +1017,20 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         },
       ];
 
-      await service.saveIterationRecords({
-        testSetName,
-        iterationNumber: 1,
-        records,
-      });
+      // Save record using ADR-0002 hash-based pattern
+      for (const record of records) {
+        const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
+          question: record.question,
+          skill: record.skill,
+          testCaseId: record.testCaseId,
+        });
+        await service.saveRecord({
+          testSetName,
+          iterationNumber: 1,
+          hash,
+          record,
+        });
+      }
 
       await service.saveIterationMetrics({
         testSetName,
@@ -1041,7 +1066,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       await service.ensureDirectoryStructure(testSetName);
 
-      // Only create 2 out of 3 iterations
+      // Only create 2 out of 3 iterations using ADR-0002 hash-based pattern
       for (let i = 1; i <= 2; i++) {
         const records: EvaluateRetrieverOutput[] = [
           {
@@ -1075,11 +1100,20 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           },
         ];
 
-        await service.saveIterationRecords({
-          testSetName,
-          iterationNumber: i,
-          records,
-        });
+        // Save each record using ADR-0002 hash-based pattern
+        for (const record of records) {
+          const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
+            question: record.question,
+            skill: record.skill,
+            testCaseId: record.testCaseId,
+          });
+          await service.saveRecord({
+            testSetName,
+            iterationNumber: i,
+            hash,
+            record,
+          });
+        }
 
         await service.saveIterationMetrics({
           testSetName,
@@ -1174,11 +1208,20 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           },
         ];
 
-        await service.saveIterationRecords({
-          testSetName,
-          iterationNumber: i + 1,
-          records,
-        });
+        // Save each record using ADR-0002 hash-based pattern
+        for (const record of records) {
+          const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
+            question: record.question,
+            skill: record.skill,
+            testCaseId: record.testCaseId,
+          });
+          await service.saveRecord({
+            testSetName,
+            iterationNumber: i + 1,
+            hash,
+            record,
+          });
+        }
 
         await service.saveIterationMetrics({
           testSetName,
@@ -1203,12 +1246,14 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         finalMetrics.aggregateMetrics.ndcgAt10.stdDev,
       ).toBeGreaterThanOrEqual(0);
 
-      // Verify min <= mean <= max
+      // Verify min <= mean <= max (using toBeCloseTo for floating-point precision)
       expect(finalMetrics.aggregateMetrics.ndcgAt10.min).toBeLessThanOrEqual(
         finalMetrics.aggregateMetrics.ndcgAt10.mean,
       );
-      expect(finalMetrics.aggregateMetrics.ndcgAt10.mean).toBeLessThanOrEqual(
+      // Use toBeCloseTo for floating-point comparison (handles 0.8000000000000002 vs 0.8)
+      expect(finalMetrics.aggregateMetrics.ndcgAt10.mean).toBeCloseTo(
         finalMetrics.aggregateMetrics.ndcgAt10.max,
+        10, // 10 decimal places of precision
       );
 
       // Same checks for precision

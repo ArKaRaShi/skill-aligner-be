@@ -510,43 +510,164 @@ export interface CourseRetrievalFinalMetricsFile {
   perIterationMetrics: CourseRetrievalIterationMetrics[];
 }
 
+// ============================================================================
+// ENRICHED METRIC TYPES (With Context and Descriptions)
+// ============================================================================
+
 /**
- * Per-iteration metrics (saved in metrics-iteration-{N}.json)
+ * NDCG metric with full context
+ * Follows course-relevance-filter pattern for clarity and self-documentation
+ */
+export interface NdcgMetricWithContext {
+  /** NDCG value (0-1, higher = better ranking) */
+  value: number;
+  /** Human-readable explanation of what this metric means */
+  description: string;
+}
+
+/**
+ * Precision metric with full context
+ */
+export interface PrecisionMetricWithContext {
+  /** Precision value (0-1, higher = more precise) */
+  value: number;
+  /** Number of relevant items (score ≥ 2) in top-K */
+  relevantCount: number;
+  /** Total items in top-K */
+  totalCount: number;
+  /** Human-readable explanation */
+  description: string;
+}
+
+/**
+ * Rate metric with context (for percentage-based metrics)
+ */
+export interface RateMetricWithContext {
+  /** Rate as percentage (0-100) */
+  value: number;
+  /** Numerator count */
+  count: number;
+  /** Total count (denominator) */
+  totalCount: number;
+  /** Human-readable explanation */
+  description: string;
+}
+
+/**
+ * Average relevance metric with context
+ */
+export interface AverageRelevanceWithContext {
+  /** Mean relevance score (0-3 scale, higher = better) */
+  value: number;
+  /** Total relevance sum across all courses */
+  totalRelevanceSum: number;
+  /** Total number of courses */
+  totalCourses: number;
+  /** Human-readable explanation */
+  description: string;
+}
+
+/**
+ * Per-iteration metrics with rich descriptions
  *
- * Calculated for each iteration separately to enable:
- * - Trend analysis (improvement/degradation over time)
- * - Debugging specific iterations
- * - Intermediate reporting
+ * IMPORTANT: Uses TREC-standard aggregation:
+ * - Metrics calculated per-sample (question + skill pair)
+ * - Then averaged (mean) across all samples
+ * - This is the standard approach in IR evaluation (TREC, MS MARCO)
+ *
+ * Each metric includes context and descriptions for:
+ * - Self-documentation (no need to lookup what each field means)
+ * - Debugging (see numerator/denominator when investigating)
+ * - Communication (easy to share with stakeholders)
  */
 export interface CourseRetrievalIterationMetrics {
   /** Iteration number (1-indexed) */
   iteration: number;
   /** ISO timestamp when iteration completed */
   timestamp: string;
-  /** Number of test cases evaluated in this iteration */
+  /** Number of (question, skill) pairs evaluated */
   sampleCount: number;
-  /** Total number of courses evaluated across all test cases */
+  /** Total number of courses evaluated across all samples */
   totalCoursesEvaluated: number;
-  /** Average relevance score (0-3) for this iteration */
-  averageRelevance: number;
-  /** Percentage of highly relevant courses (score 3) */
-  highlyRelevantRate: number;
-  /** Percentage of irrelevant courses (score 0) */
-  irrelevantRate: number;
 
-  // NDCG metrics for this iteration
-  /** NDCG@5 ranking quality */
-  ndcgAt5: number;
-  /** NDCG@10 ranking quality */
-  ndcgAt10: number;
-  /** NDCG@all ranking quality */
-  ndcgAtAll: number;
+  // === RELEVANCE METRICS ===
+  /**
+   * Average LLM judge relevance score (0-3 scale)
+   * Measures: On average, how relevant are the retrieved courses?
+   */
+  averageRelevance: AverageRelevanceWithContext;
+  // example: { value: 1.33, totalRelevanceSum: 205, totalCourses: 154,
+  //            description: "Mean relevance: 1.33/3 across 154 courses" }
 
-  // Precision metrics for this iteration
-  /** Precision@5 (% of top 5 that are relevant) */
-  precisionAt5: number;
-  /** Precision@10 (% of top 10 that are relevant) */
-  precisionAt10: number;
-  /** Precision@all (% of all that are relevant) */
-  precisionAtAll: number;
+  /**
+   * Highly relevant courses (score 3)
+   * Measures: What percentage of retrieved courses are highly relevant?
+   */
+  highlyRelevantRate: RateMetricWithContext;
+  // example: { value: 14.29, count: 22, totalCount: 154,
+  //            description: "22 of 154 courses (14.3%) are highly relevant" }
+
+  /**
+   * Irrelevant courses (score 0)
+   * Measures: What percentage of retrieved courses are irrelevant?
+   */
+  irrelevantRate: RateMetricWithContext;
+  // example: { value: 23.38, count: 36, totalCount: 154,
+  //            description: "36 of 154 courses (23.4%) are irrelevant" }
+
+  // === RANKING QUALITY METRICS (NDCG) ===
+  /**
+   * NDCG@K: Measures ranking quality using LLM scores as relevance
+   * Higher values indicate better ranking (relevant courses appear first)
+   */
+  ndcg: {
+    /**
+     * NDCG@5: Mean ranking quality of top 5 results
+     * Measures: How well-ranked are the top 5 courses?
+     */
+    at5: NdcgMetricWithContext;
+    // example: { value: 0.692,
+    //            description: "Mean NDCG@5: 0.69 - Top-5 results are reasonably ranked" }
+
+    /**
+     * NDCG@10: Mean ranking quality of top 10 results
+     * Measures: How well-ranked are the top 10 courses?
+     */
+    at10: NdcgMetricWithContext;
+    // example: { value: 0.824,
+    //            description: "Mean NDCG@10: 0.82 - Top-10 results show good ranking" }
+
+    /**
+     * NDCG@All: Mean ranking quality across all results
+     * Measures: What is the overall ranking quality?
+     */
+    atAll: NdcgMetricWithContext;
+    // example: { value: 0.830,
+    //            description: "Mean NDCG@All: 0.83 - Good overall ranking" }
+  };
+
+  // === PRECISION METRICS ===
+  /**
+   * Precision@K: % of top-K courses that are relevant (score ≥ 2)
+   * Measures: Of the top K courses, what percentage are relevant?
+   */
+  precision: {
+    /**
+     * Precision@5: Mean precision at top 5
+     * Measures: On average, what % of top-5 courses are relevant?
+     */
+    at5: PrecisionMetricWithContext;
+    // example: { value: 0.471, relevantCount: 40, totalCount: 85,
+    //            description: "8 of 17 samples (47.1%) have relevant top-5 courses" }
+
+    /** Precision@10: Mean precision at top 10 */
+    at10: PrecisionMetricWithContext;
+    // example: { value: 0.425, relevantCount: 72, totalCount: 170,
+    //            description: "7 of 17 samples (42.5%) have relevant top-10 courses" }
+
+    /** Precision@All: Mean precision across all retrieved courses */
+    atAll: PrecisionMetricWithContext;
+    // example: { value: 0.418, relevantCount: 65, totalCount: 154,
+    //            description: "Mean precision: 41.8% across all retrieved courses" }
+  };
 }

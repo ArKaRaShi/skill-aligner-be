@@ -3,6 +3,7 @@ import { Injectable, Logger, Optional } from '@nestjs/common';
 import * as path from 'node:path';
 import { FileHelper } from 'src/shared/utils/file';
 
+import { EvaluationHashUtil } from '../../shared/utils/evaluation-hash.util';
 import { AnswerSynthesisJudgeEvaluator } from '../evaluators/answer-synthesis-judge.evaluator';
 import type {
   AnswerSynthesisComparisonRecord,
@@ -204,7 +205,7 @@ export class AnswerSynthesisRunnerService {
     const records: AnswerSynthesisComparisonRecord[] = [];
 
     for (const testCase of pendingTestCases) {
-      const hash = AnswerSynthesisHashUtil.generate({
+      const hash = EvaluationHashUtil.generateAnswerSynthesisRecordHash({
         queryLogId: testCase.queryLogId,
       });
 
@@ -221,6 +222,14 @@ export class AnswerSynthesisRunnerService {
           judgeResult,
         );
         records.push(record);
+
+        // Save record to hash-based file for crash recovery and parallel evaluation support
+        await this.resultManager.saveRecord({
+          testSetName,
+          iterationNumber,
+          hash,
+          record,
+        });
 
         // Update progress
         const progressEntry: AnswerSynthesisProgressEntry = {
@@ -247,10 +256,6 @@ export class AnswerSynthesisRunnerService {
         // Save progress after EVERY sample for maximum crash recovery
         // I/O overhead (~1-5ms) is negligible compared to LLM evaluation (~1-5s)
         await this.saveProgress(testSetName, iterationNumber, progressFile);
-
-        // NOTE: Records are NOT saved incrementally because that would overwrite
-        // the file with only current records. Records are saved at the END after
-        // combining with existing records from previous runs.
 
         const QUESTION_PREVIEW_LENGTH = 30;
         this.logger.debug(

@@ -3,6 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import * as path from 'node:path';
 import { FileHelper } from 'src/shared/utils/file';
 
+import { EvaluationHashUtil } from '../../shared/utils/evaluation-hash.util';
 import { SkillExpansionJudgeEvaluator } from '../evaluators/skill-expansion-judge.evaluator';
 import { SkillExpansionComparisonService } from '../services/skill-expansion-comparison.service';
 import { SkillExpansionMetricsCalculator } from '../services/skill-expansion-metrics-calculator.service';
@@ -165,44 +166,75 @@ export class SkillExpansionEvaluationRunnerService {
       totalSkills,
     });
 
+    // Load existing records (for resume capability)
+    const existingRecords = await this.resultManager.loadIterationRecords({
+      testSetName: config.outputDirectory,
+      iterationNumber,
+    });
+
     // Create a map of completed skills for quick lookup
     const completedSkillHashes = new Map<string, SkillExpansionProgressEntry>(
       progress.entries.map((entry) => [entry.hash, entry]),
     );
 
+    // Create a set of completed queryLogIds for quick lookup
+    const completedQueryLogIds = new Set(
+      existingRecords.map((r) => r.queryLogId),
+    );
+
+    this.logger.log(
+      `Found ${existingRecords.length} existing records, ${completedQueryLogIds.size} samples already completed`,
+    );
+
     // Process each sample
-    const allRecords: SampleEvaluationRecord[] = [];
+    const allRecords: SampleEvaluationRecord[] = [...existingRecords];
 
     for (let i = 0; i < samples.length; i++) {
       const sample = samples[i];
       const sampleNumber = i + 1;
+
+      // Skip if this sample was already evaluated
+      if (completedQueryLogIds.has(sample.queryLogId)) {
+        this.logger.log(
+          `'${config.outputDirectory}': [${sampleNumber}/${samples.length}] Skipping ${sample.queryLogId} (already evaluated)`,
+        );
+        continue;
+      }
 
       // Log sample progress
       this.logger.log(
         `'${config.outputDirectory}': [${sampleNumber}/${samples.length}] Evaluating: "${sample.question.substring(0, 60)}${sample.question.length > 60 ? '...' : ''}"`,
       );
 
-      const sampleRecords = await this.evaluateSample({
+      const sampleRecord = await this.evaluateSample({
         sample,
         config,
         completedSkillHashes,
         progress,
       });
-      allRecords.push(sampleRecords);
+
+      // Generate question-level hash for record saving
+      const recordHash = EvaluationHashUtil.generateSkillExpansionRecordHash({
+        queryLogId: sample.queryLogId,
+        question: sample.question,
+      });
+
+      // Save record to hash-based file for crash recovery and parallel evaluation support
+      await this.resultManager.saveRecord({
+        testSetName: config.outputDirectory,
+        iterationNumber,
+        hash: recordHash,
+        record: sampleRecord,
+      });
+
+      allRecords.push(sampleRecord);
 
       // Log sample completion
-      const totalSkills = sampleRecords.comparison.skills.length;
+      const totalSkills = sampleRecord.comparison.skills.length;
       this.logger.log(
         `'${config.outputDirectory}': [${sampleNumber}/${samples.length}] Complete: ${totalSkills} skills evaluated`,
       );
     }
-
-    // Save iteration records
-    await this.resultManager.saveIterationRecords({
-      testSetName: config.outputDirectory,
-      iterationNumber,
-      records: allRecords,
-    });
 
     // Calculate and save iteration metrics
     const metrics = this.resultManager.calculateIterationMetrics({

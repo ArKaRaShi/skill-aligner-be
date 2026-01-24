@@ -51,6 +51,10 @@ import { CourseFilterMetricsCalculator } from './metrics-calculator.service';
 export class CourseFilterResultManagerService {
   private readonly logger = new Logger(CourseFilterResultManagerService.name);
   private readonly baseDir = 'data/evaluation/course-relevance-filter';
+  /** Number of characters to display from question prefix in logs */
+  private static readonly QUESTION_PREFIX_LENGTH = 30;
+  /** Number of characters to display from hash prefix in logs */
+  private static readonly HASH_PREFIX_LENGTH = 16;
 
   constructor(
     private readonly metricsCalculator: CourseFilterMetricsCalculator,
@@ -81,6 +85,80 @@ export class CourseFilterResultManagerService {
     this.logger.log(
       `Saved ${records.length} samples (${records.reduce((sum, r) => sum + r.courses.length, 0)} courses) to ${filePath}`,
     );
+  }
+
+  /**
+   * Save a single record to a hash-based file
+   *
+   * This is used for incremental saving after each sample evaluation.
+   * Uses hash-based filenames to enable parallel sample evaluation.
+   *
+   * Follows ADR-0002: Hash-Based Incremental Record Saving
+   *
+   * @param testSetName - Test set identifier
+   * @param iterationNumber - Iteration number
+   * @param hash - SHA256 hash of sample-unique parameters (queryLogId + question)
+   * @param record - Single evaluation record to save
+   */
+  async saveRecord(params: {
+    testSetName: string;
+    iterationNumber: number;
+    hash: string;
+    record: SampleEvaluationRecord;
+  }): Promise<void> {
+    const { testSetName, iterationNumber, hash, record } = params;
+    const filePath = path.join(
+      this.baseDir,
+      testSetName,
+      'records',
+      `iteration-${iterationNumber}`,
+      `${hash}.json`,
+    );
+
+    await FileHelper.saveJson(filePath, record);
+
+    this.logger.debug(
+      `Saved record for sample: ${record.question.substring(0, CourseFilterResultManagerService.QUESTION_PREFIX_LENGTH)}... → ${hash.substring(0, CourseFilterResultManagerService.HASH_PREFIX_LENGTH)}...`,
+    );
+  }
+
+  /**
+   * Load iteration records from hash-based files
+   *
+   * Loads all hash-based record files from the iteration directory.
+   * Follows ADR-0002: Hash-Based Incremental Record Saving.
+   *
+   * Use cases:
+   * - Resume capability: Check which samples are already completed
+   * - Re-analysis: Load records for re-processing or re-calculation
+   * - Data recovery: Restore records if aggregated file is missing
+   *
+   * @param testSetName - Test set identifier
+   * @param iterationNumber - Iteration number to load
+   * @returns Array of evaluation records (empty array if directory not found)
+   */
+  async loadIterationRecords(params: {
+    testSetName: string;
+    iterationNumber: number;
+  }): Promise<SampleEvaluationRecord[]> {
+    const { testSetName, iterationNumber } = params;
+    const dirPath = path.join(
+      this.baseDir,
+      testSetName,
+      'records',
+      `iteration-${iterationNumber}`,
+    );
+
+    try {
+      const records =
+        await FileHelper.loadJsonDirectory<SampleEvaluationRecord>(dirPath);
+      this.logger.log(`Loaded ${records.length} records from ${dirPath}`);
+      return records;
+    } catch {
+      // Return empty array if directory not found
+      this.logger.debug(`No existing records found at ${dirPath}`);
+      return [];
+    }
   }
 
   /**

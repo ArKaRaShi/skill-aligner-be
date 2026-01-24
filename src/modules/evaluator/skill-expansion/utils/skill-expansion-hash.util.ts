@@ -1,10 +1,15 @@
-import { HashHelper } from '../../../../shared/utils/hash.helper';
+import { HashHelper } from 'src/shared/utils/hash.helper';
+
+import { EvaluationHashUtil } from '../../shared/utils/evaluation-hash.util';
 
 /**
  * Utility class for generating hashes in skill expansion evaluation
  *
  * Hashes are used for progress tracking and deduplication.
  * The hash is generated from immutable identifiers only.
+ *
+ * @deprecated Use EvaluationHashUtil directly.
+ * This class is kept for backward compatibility.
  */
 export class SkillExpansionHashUtil {
   /**
@@ -18,6 +23,7 @@ export class SkillExpansionHashUtil {
    * These values should never change for a given evaluation entry,
    * ensuring the hash remains stable across evaluation runs.
    *
+   * @deprecated Use EvaluationHashUtil.generateSkillExpansionProgressHash() instead.
    * @param params - Parameters for hash generation
    * @returns SHA256 hash as a hexadecimal string
    */
@@ -26,12 +32,7 @@ export class SkillExpansionHashUtil {
     question: string;
     skill: string;
   }): string {
-    const { queryLogId, question, skill } = params;
-
-    // Create a pipe-delimited string for hashing
-    const data = `${queryLogId}|${question}|${skill}`;
-
-    return HashHelper.generateHashSHA256(data);
+    return EvaluationHashUtil.generateSkillExpansionProgressHash(params);
   }
 
   /**
@@ -39,6 +40,7 @@ export class SkillExpansionHashUtil {
    *
    * This is useful for tracking overall question-level progress.
    *
+   * @deprecated Use EvaluationHashUtil.generateSkillExpansionRecordHash() instead.
    * @param params - Parameters for hash generation
    * @returns SHA256 hash as a hexadecimal string
    */
@@ -46,10 +48,7 @@ export class SkillExpansionHashUtil {
     queryLogId: string;
     question: string;
   }): string {
-    const { queryLogId, question } = params;
-    const data = `${queryLogId}|${question}`;
-
-    return HashHelper.generateHashSHA256(data);
+    return EvaluationHashUtil.generateSkillExpansionRecordHash(params);
   }
 
   /**
@@ -61,6 +60,7 @@ export class SkillExpansionHashUtil {
    * @returns SHA256 hash as a hexadecimal string
    */
   static generateTestSetHash(testSetName: string): string {
+    // This is a special case not in EvaluationHashUtil, so we keep it
     return HashHelper.generateHashSHA256(testSetName);
   }
 }

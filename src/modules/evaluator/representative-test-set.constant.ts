@@ -207,7 +207,7 @@ export const QUESTION_SET = [
   'อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ',
 ];
 
-// fbf0dcb4-caa9-4c3e-9d1e-0334f802b2f9, b37a0b42-8dba-45bc-84c5-80f474268353, aa29f414-8a50-4692-90a5-01eb675d348c
+// fbf0dcb4-caa9-4c3e-9d1e-0334f802b2f9,b37a0b42-8dba-45bc-84c5-80f474268353,aa29f414-8a50-4692-90a5-01eb675d348c
 
 console.log(`Behavioral Question Set Size: ${QUESTION_SET_BEHAVIORAL.length}`);
 console.log(`Representative Question Set Size: ${QUESTION_SET.length}`);

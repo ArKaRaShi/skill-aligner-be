@@ -53,7 +53,9 @@ describe('SkillExpansionEvaluationRunnerService', () => {
 
     mockResultManager = {
       ensureDirectoryStructure: jest.fn(),
+      saveRecord: jest.fn().mockResolvedValue(undefined),
       saveIterationRecords: jest.fn(),
+      loadIterationRecords: jest.fn().mockResolvedValue([]),
       saveIterationMetrics: jest.fn(),
       saveIterationCost: jest.fn(),
       calculateIterationMetrics: jest.fn(),
@@ -294,8 +296,8 @@ describe('SkillExpansionEvaluationRunnerService', () => {
         judgeResult,
       );
 
-      // Verify results were saved
-      expect(mockResultManager.saveIterationRecords).toHaveBeenCalled();
+      // Verify results were saved (incremental save per sample)
+      expect(mockResultManager.saveRecord).toHaveBeenCalled();
       expect(mockResultManager.saveIterationMetrics).toHaveBeenCalled();
       expect(mockResultManager.saveIterationCost).toHaveBeenCalled();
     });

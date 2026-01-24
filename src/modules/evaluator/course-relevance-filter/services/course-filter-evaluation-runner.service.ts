@@ -5,6 +5,7 @@ import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 import { FileHelper } from 'src/shared/utils/file';
 
 import type { CourseFilterTestSetSerialized } from '../../shared/services/test-set.types';
+import { EvaluationHashUtil } from '../../shared/utils/evaluation-hash.util';
 import { CourseFilterJudgeEvaluator } from '../evaluators/course-filter-judge.evaluator';
 import { CourseFilterTestSetTransformer } from '../loaders/course-filter-test-set-transformer.service';
 import type {
@@ -183,6 +184,20 @@ export class CourseFilterEvaluationRunnerService {
       });
       allRecords.push(sampleRecords);
 
+      // Generate sample-level hash for record saving
+      const recordHash = EvaluationHashUtil.generateCourseFilterRecordHash({
+        queryLogId: sample.queryLogId,
+        question: sample.question,
+      });
+
+      // Save record to hash-based file for crash recovery and parallel evaluation support
+      await this.resultManager.saveRecord({
+        testSetName: config.outputDirectory,
+        iterationNumber,
+        hash: recordHash,
+        record: sampleRecords,
+      });
+
       // Log sample completion
       const totalCourses = sampleRecords.courses.length;
       this.logger.log(
@@ -190,7 +205,7 @@ export class CourseFilterEvaluationRunnerService {
       );
     }
 
-    // Save iteration records
+    // Save iteration records (final save - redundant but ensures consistency)
     await this.resultManager.saveIterationRecords({
       testSetName: config.outputDirectory,
       iterationNumber,

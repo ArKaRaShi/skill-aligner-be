@@ -64,6 +64,7 @@ describe('CourseFilterEvaluationRunnerService', () => {
 
     mockResultManager = {
       ensureDirectoryStructure: jest.fn(),
+      saveRecord: jest.fn(),
       saveIterationRecords: jest.fn(),
       saveIterationMetrics: jest.fn(),
       saveDisagreements: jest.fn(),

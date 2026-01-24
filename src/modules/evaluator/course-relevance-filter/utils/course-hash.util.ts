@@ -1,4 +1,4 @@
-import { HashHelper } from 'src/shared/utils/hash.helper';
+import { EvaluationHashUtil } from '../../shared/utils/evaluation-hash.util';
 
 export type CourseHashParams = {
   queryLogId: string;
@@ -13,6 +13,9 @@ export type CourseHashParams = {
  * a course within a specific question context. The same course+question
  * combination will always produce the same hash, enabling caching and
  * deduplication of LLM evaluations.
+ *
+ * @deprecated Use EvaluationHashUtil.generateCourseFilterProgressHash() directly.
+ * This class is kept for backward compatibility.
  */
 export class CourseHashUtil {
   /**
@@ -25,13 +28,11 @@ export class CourseHashUtil {
    * - Same question with different queryLogIds gets different hashes (for tracking)
    * - Case-sensitive matching (Python ≠ python)
    *
+   * @deprecated Use EvaluationHashUtil.generateCourseFilterProgressHash() instead.
    * @param params - Hash parameters
    * @returns SHA256 hash hex string
    */
   static generate(params: CourseHashParams): string {
-    const { queryLogId, question, subjectCode } = params;
-    // Use pipe delimiter to avoid collisions (e.g., "a|bc" vs "ab|c")
-    const data = `${queryLogId}|${question}|${subjectCode}`;
-    return HashHelper.generateHashSHA256(data);
+    return EvaluationHashUtil.generateCourseFilterProgressHash(params);
   }
 }

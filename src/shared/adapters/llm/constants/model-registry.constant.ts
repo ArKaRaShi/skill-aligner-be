@@ -39,6 +39,15 @@ const OPENROUTER_LLM_MODELS_REGISTRATIONS: LLMModelRegistration[] = [
     },
   },
   {
+    baseModel: 'gpt-5-mini',
+    modelId: 'openai/gpt-5-mini',
+    provider: 'openrouter',
+    cost: {
+      inputCostPerMillionTokens: 0.25, // $0.25 per 1,000,000 tokens
+      outputCostPerMillionTokens: 2.0, // $2.0 per 1,000,000 tokens
+    },
+  },
+  {
     baseModel: 'gpt-oss-120b',
     modelId: 'openai/gpt-oss-120b',
     provider: 'openrouter',

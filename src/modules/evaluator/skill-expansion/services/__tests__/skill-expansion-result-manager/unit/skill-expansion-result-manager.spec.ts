@@ -121,6 +121,132 @@ describe('SkillExpansionResultManagerService', () => {
     });
   });
 
+  describe('loadIterationRecords', () => {
+    it('should return empty array when file does not exist', async () => {
+      // Arrange
+      const loadJsonDirectorySpy = jest
+        .spyOn(FileHelper, 'loadJsonDirectory')
+        .mockRejectedValue(new Error('File not found'));
+
+      // Act
+      const result = await service.loadIterationRecords({
+        testSetName: 'test-set-1',
+        iterationNumber: 1,
+      });
+
+      // Assert
+      expect(result).toEqual([]);
+      loadJsonDirectorySpy.mockRestore();
+    });
+
+    it('should load existing records from file', async () => {
+      // Arrange
+      const mockRecords = [
+        createMockSampleRecord({ queryLogId: 'log-1' }),
+        createMockSampleRecord({ queryLogId: 'log-2' }),
+      ];
+      const loadJsonDirectorySpy = jest
+        .spyOn(FileHelper, 'loadJsonDirectory')
+        .mockResolvedValue(mockRecords);
+
+      // Act
+      const result = await service.loadIterationRecords({
+        testSetName: 'test-set-1',
+        iterationNumber: 1,
+      });
+
+      // Assert
+      expect(result).toHaveLength(2);
+      expect(result[0].queryLogId).toBe('log-1');
+      expect(result[1].queryLogId).toBe('log-2');
+      loadJsonDirectorySpy.mockRestore();
+    });
+  });
+
+  describe('saveRecord', () => {
+    it('should create new file with single record when file does not exist', async () => {
+      // Arrange
+      const mockRecord = createMockSampleRecord({ queryLogId: 'log-1' });
+      const loadJsonSpy = jest
+        .spyOn(FileHelper, 'loadJson')
+        .mockRejectedValue(new Error('File not found'));
+      const saveJsonSpy = jest
+        .spyOn(FileHelper, 'saveJson')
+        .mockResolvedValue(undefined);
+
+      // Act
+      await service.saveRecord({
+        testSetName: 'test-set-1',
+        iterationNumber: 1,
+        hash: 'test-hash',
+        record: mockRecord,
+      });
+
+      // Assert
+      expect(saveJsonSpy).toHaveBeenCalledWith(
+        expect.stringContaining('test-hash.json'),
+        mockRecord,
+      );
+      loadJsonSpy.mockRestore();
+      saveJsonSpy.mockRestore();
+    });
+
+    it('should append record to existing file', async () => {
+      // Arrange
+      const existingRecord = createMockSampleRecord({ queryLogId: 'log-1' });
+      const newRecord = createMockSampleRecord({ queryLogId: 'log-2' });
+      const loadJsonSpy = jest
+        .spyOn(FileHelper, 'loadJson')
+        .mockResolvedValue([existingRecord]);
+      const saveJsonSpy = jest
+        .spyOn(FileHelper, 'saveJson')
+        .mockResolvedValue(undefined);
+
+      // Act
+      await service.saveRecord({
+        testSetName: 'test-set-1',
+        iterationNumber: 1,
+        hash: 'test-hash-new',
+        record: newRecord,
+      });
+
+      // Assert
+      expect(saveJsonSpy).toHaveBeenCalledWith(
+        expect.stringContaining('test-hash-new.json'),
+        newRecord,
+      );
+      loadJsonSpy.mockRestore();
+      saveJsonSpy.mockRestore();
+    });
+
+    it('should build correct file path', async () => {
+      // Arrange
+      const mockRecord = createMockSampleRecord();
+      const loadJsonSpy = jest
+        .spyOn(FileHelper, 'loadJson')
+        .mockRejectedValue(new Error('File not found'));
+      const saveJsonSpy = jest
+        .spyOn(FileHelper, 'saveJson')
+        .mockResolvedValue(undefined);
+
+      // Act
+      await service.saveRecord({
+        testSetName: 'my-test-set',
+        iterationNumber: 3,
+        hash: 'test-hash-path',
+        record: mockRecord,
+      });
+
+      // Assert
+      expect(saveJsonSpy).toHaveBeenCalledWith(
+        `${tempDir}/my-test-set/records/iteration-3/test-hash-path.json`,
+        mockRecord,
+      );
+      loadJsonSpy.mockRestore();
+      saveJsonSpy.mockRestore();
+    });
+  });
+
   describe('saveIterationCost', () => {
     it('should aggregate tokens from all records', async () => {
       // Arrange

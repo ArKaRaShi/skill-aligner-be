@@ -70,6 +70,11 @@ export class AnswerSynthesisJudgeEvaluator {
     );
     const systemPrompt = ANSWER_SYNTHESIS_JUDGE_SYSTEM_PROMPT;
 
+    // Log context size before LLM call
+    this.logger.debug(
+      `Context size: ${context.length} courses for queryLogId: ${testCase.queryLogId}`,
+    );
+
     // Call LLM with schema validation
     const llmResult = await this.llmRouterService.generateObject({
       prompt: userPrompt,

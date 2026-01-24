@@ -182,4 +182,151 @@ describe('FileHelper', () => {
       expect(saved).toEqual(jsonData);
     });
   });
+
+  describe('loadJsonDirectory', () => {
+    type TestRecord = {
+      id: string;
+      name: string;
+      value: number;
+    };
+
+    it('should successfully load all JSON files from a directory', async () => {
+      // Arrange
+      const record1: TestRecord = { id: '1', name: 'First', value: 100 };
+      const record2: TestRecord = { id: '2', name: 'Second', value: 200 };
+      const record3: TestRecord = { id: '3', name: 'Third', value: 300 };
+      const recordsDir = path.join(testDir, 'records');
+      fs.mkdirSync(recordsDir, { recursive: true });
+
+      fs.writeFileSync(
+        path.join(recordsDir, 'record1.json'),
+        JSON.stringify(record1, null, 2),
+      );
+      fs.writeFileSync(
+        path.join(recordsDir, 'record2.json'),
+        JSON.stringify(record2, null, 2),
+      );
+      fs.writeFileSync(
+        path.join(recordsDir, 'record3.json'),
+        JSON.stringify(record3, null, 2),
+      );
+
+      // Act
+      const result = await FileHelper.loadJsonDirectory<TestRecord>(recordsDir);
+
+      // Assert
+      expect(result).toHaveLength(3);
+      expect(result).toContainEqual(record1);
+      expect(result).toContainEqual(record2);
+      expect(result).toContainEqual(record3);
+    });
+
+    it('should return empty array when directory contains no JSON files', async () => {
+      // Arrange
+      const emptyDir = path.join(testDir, 'empty-dir');
+      fs.mkdirSync(emptyDir, { recursive: true });
+
+      // Act
+      const result = await FileHelper.loadJsonDirectory<TestRecord>(emptyDir);
+
+      // Assert
+      expect(result).toEqual([]);
+    });
+
+    it('should throw error when directory does not exist', async () => {
+      // Arrange
+      const nonexistentDir = path.join(testDir, 'nonexistent-dir');
+      // Ensure directory doesn't exist
+      fs.rmSync(nonexistentDir, { recursive: true, force: true });
+
+      // Act & Assert
+      await expect(
+        FileHelper.loadJsonDirectory<TestRecord>(nonexistentDir),
+      ).rejects.toThrow('Directory not found');
+    });
+
+    it('should ignore non-JSON files in the directory', async () => {
+      // Arrange
+      const record: TestRecord = { id: '1', name: 'Only', value: 100 };
+      const mixedDir = path.join(testDir, 'mixed');
+      fs.mkdirSync(mixedDir, { recursive: true });
+
+      fs.writeFileSync(
+        path.join(mixedDir, 'data.json'),
+        JSON.stringify(record, null, 2),
+      );
+      fs.writeFileSync(path.join(mixedDir, 'readme.txt'), 'Some text');
+      fs.writeFileSync(path.join(mixedDir, 'data.csv'), 'id,name\n1,Test');
+      fs.writeFileSync(path.join(mixedDir, '.gitkeep'), '');
+
+      // Act
+      const result = await FileHelper.loadJsonDirectory<TestRecord>(mixedDir);
+
+      // Assert
+      expect(result).toHaveLength(1);
+      expect(result[0]).toEqual(record);
+    });
+
+    it('should throw error when a JSON file is malformed', async () => {
+      // Arrange
+      const validRecord: TestRecord = { id: '1', name: 'Valid', value: 100 };
+      const corruptedDir = path.join(testDir, 'corrupted');
+      fs.mkdirSync(corruptedDir, { recursive: true });
+
+      fs.writeFileSync(
+        path.join(corruptedDir, 'valid.json'),
+        JSON.stringify(validRecord, null, 2),
+      );
+      fs.writeFileSync(
+        path.join(corruptedDir, 'invalid.json'),
+        '{ invalid json content',
+      );
+
+      // Act & Assert
+      await expect(
+        FileHelper.loadJsonDirectory<TestRecord>(corruptedDir),
+      ).rejects.toThrow('Failed to parse JSON file invalid.json');
+    });
+
+    it('should handle hash-based filenames (ADR-0002 pattern)', async () => {
+      // Arrange
+      type HashRecord = {
+        hash: string;
+        queryLogId: string;
+        question: string;
+      };
+      const recordsDir = path.join(testDir, 'records', 'iteration-1');
+      fs.mkdirSync(recordsDir, { recursive: true });
+
+      const hash1 = 'a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6';
+      const hash2 = 'z9y8x7w6v5u4t3s2r1q0p9o8n7m6l5k4';
+      const record1: HashRecord = {
+        hash: hash1,
+        queryLogId: 'ql-1',
+        question: 'What is AI?',
+      };
+      const record2: HashRecord = {
+        hash: hash2,
+        queryLogId: 'ql-2',
+        question: 'Explain machine learning.',
+      };
+
+      fs.writeFileSync(
+        path.join(recordsDir, `${hash1}.json`),
+        JSON.stringify(record1, null, 2),
+      );
+      fs.writeFileSync(
+        path.join(recordsDir, `${hash2}.json`),
+        JSON.stringify(record2, null, 2),
+      );
+
+      // Act
+      const result = await FileHelper.loadJsonDirectory<HashRecord>(recordsDir);
+
+      // Assert
+      expect(result).toHaveLength(2);
+      expect(result).toContainEqual(record1);
+      expect(result).toContainEqual(record2);
+    });
+  });
 });

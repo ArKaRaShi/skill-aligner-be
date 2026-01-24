@@ -16,7 +16,8 @@ import { CourseRetrievalTestSetSerialized } from '../shared/services/test-set.ty
 interface CliArgs {
   filename: string;
   testSetName?: string;
-  iteration: number;
+  iteration?: number;
+  iterations?: number;
   aggregate?: boolean;
   totalIterations?: number;
   judgeModel?: string;
@@ -43,7 +44,6 @@ function parseArgs(): CliArgs | null {
 
   const result: CliArgs = {
     filename: '',
-    iteration: 1,
     help: false,
   };
 
@@ -71,6 +71,19 @@ function parseArgs(): CliArgs | null {
         process.exit(1);
       }
       result.iteration = parsedIteration;
+      i += 2;
+      continue;
+    }
+
+    if (arg === '--iterations' && args[i + 1]) {
+      const parsedIterations = Number.parseInt(args[i + 1], 10);
+      if (Number.isNaN(parsedIterations) || parsedIterations < 1) {
+        console.error(
+          `Error: --iterations must be a positive integer. Got "${args[i + 1]}"`,
+        );
+        process.exit(1);
+      }
+      result.iterations = parsedIterations;
       i += 2;
       continue;
     }
@@ -143,8 +156,9 @@ Arguments:
 
 Options:
   --test-set-name <n>   Custom test set name for result grouping (default: filename without .json)
-  --iteration <number>   Iteration number for results (default: 1)
-  --aggregate, -a       Calculate final metrics across all iterations after evaluation
+  --iteration <number>   Run a single iteration (default: 1)
+  --iterations <n>       Run N iterations with auto-aggregation (alternative to --iteration)
+  --aggregate, -a       Calculate final metrics across all iterations (only with --iteration mode)
   --total-iterations <n> Total number of iterations for aggregation (required with --aggregate)
   --judge-model <model>  Judge model to use (default: from config)
   --judge-provider <p>   Judge provider to use (default: from config)
@@ -155,28 +169,39 @@ Description:
   Each (question, skill) pair is evaluated by a judge LLM to assess the
   relevance of retrieved courses.
 
-  Progress tracking is built-in - evaluations can be resumed after interruption.
-  Progress is stored in:
+Two Modes:
+  --iteration N (default): Run single iteration N. Use --aggregate with --total-iterations
+                          to calculate final metrics across multiple iterations.
+  --iterations N:         Run N iterations in one go with automatic final metrics aggregation.
+
+Progress tracking is built-in - evaluations can be resumed after interruption.
+Progress is stored in:
   data/evaluation/course-retriever/<test-set-name>/progress/progress-iteration-<n>.json
 
-  Results are saved to:
+Results are saved to:
   data/evaluation/course-retriever/<test-set-name>/records/records-iteration-<n>.json
 
-  Per-iteration metrics:
+Per-iteration metrics:
   data/evaluation/course-retriever/<test-set-name>/metrics/metrics-iteration-<n>.json
 
-  Final aggregated metrics (with --aggregate):
+Per-iteration cost:
+  data/evaluation/course-retriever/<test-set-name>/cost/cost-iteration-<n>.json
+
+Final aggregated metrics (auto with --iterations or with --aggregate):
   data/evaluation/course-retriever/<test-set-name>/final-metrics/final-metrics-<N>.json
+
+Final aggregated cost (auto with --iterations or with --aggregate):
+  data/evaluation/course-retriever/<test-set-name>/final-cost/final-cost-<N>.json
 
 Notes:
   - Each skill in a question is evaluated independently
   - Progress is tracked per (question, skill) combination using SHA256 hashes
   - Crash recovery is automatic - just re-run the same command
   - Each iteration produces separate metrics and records
-  - Use --aggregate to calculate cross-iteration statistics (mean, min, max, stdDev)
+  - --iterations mode automatically calculates final metrics and cost after all iterations
 
 Examples:
-  # Load and evaluate test-set-v1.json
+  # Load and evaluate test-set-v1.json (single iteration)
   bunx ts-node .../evaluate-course-retrieval.cli.ts test-set-v1.json
 
   # Evaluate with custom test set name
@@ -185,7 +210,10 @@ Examples:
   # Run iteration 2
   bunx ts-node .../evaluate-course-retrieval.cli.ts test-set-v1.json --iteration 2
 
-  # Run evaluation and calculate final metrics across 3 iterations
+  # Run 3 iterations with auto-aggregation (recommended)
+  bunx ts-node .../evaluate-course-retrieval.cli.ts test-set-v1.json --iterations 3
+
+  # Run evaluation and manually calculate final metrics across 3 iterations (legacy mode)
   bunx ts-node .../evaluate-course-retrieval.cli.ts test-set-v1.json --iteration 3 --aggregate --total-iterations 3
 `);
 }
@@ -212,7 +240,23 @@ async function bootstrap() {
   logger.log('Course Retrieval Evaluator (JSON Test Set)');
   logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   logger.log(`Filename: ${args.filename}`);
-  logger.log(`Iteration: ${args.iteration}`);
+
+  // Validate mutually exclusive flags
+  if (args.iteration !== undefined && args.iterations !== undefined) {
+    logger.error(
+      'Error: --iteration and --iterations are mutually exclusive. Use --iteration N for a single iteration or --iterations N to run N iterations with auto-aggregation.',
+    );
+    process.exit(1);
+  }
+
+  if (args.iteration !== undefined) {
+    logger.log(`Iteration: ${args.iteration} (single iteration mode)`);
+  } else if (args.iterations !== undefined) {
+    logger.log(
+      `Iterations: ${args.iterations} (multi-iteration mode with auto-aggregation)`,
+    );
+  }
+
   if (args.testSetName) {
     logger.log(`Test Set Name: ${args.testSetName}`);
   }
@@ -224,7 +268,15 @@ async function bootstrap() {
   const appContext = await NestFactory.createApplicationContext(AppModule);
 
   try {
-    // Validate aggregate flag
+    // Validate aggregate flag (only valid with --iteration mode)
+    if (args.aggregate && args.iterations !== undefined) {
+      logger.error(
+        'Error: --aggregate is only valid with --iteration mode. In --iterations mode, final metrics are calculated automatically.',
+      );
+      await appContext.close();
+      process.exit(1);
+    }
+
     if (args.aggregate && !args.totalIterations) {
       logger.error(
         'Error: --total-iterations is required when using --aggregate',
@@ -272,34 +324,38 @@ async function bootstrap() {
 
     logger.log(`Transformed to ${testSet.cases.length} test cases`);
 
-    // Run evaluation
-    logger.log('Starting evaluation...');
+    // Run evaluation based on mode
+    if (args.iterations !== undefined) {
+      // Multi-iteration mode: run all iterations, then auto-aggregate
+      logger.log('Starting evaluation...');
+      logger.log(
+        `Running ${args.iterations} iteration(s) with auto-aggregation...`,
+      );
 
-    await runner.runTestSet({
-      testSet,
-      iterationNumber: args.iteration,
-      judgeModel: args.judgeModel,
-      judgeProvider: args.judgeProvider,
-    });
+      for (let iter = 1; iter <= args.iterations; iter++) {
+        logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+        logger.log(`Starting iteration ${iter}/${args.iterations}`);
+        logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
 
-    const baseDir = runner.getBaseDir();
-    logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    logger.log('Evaluation complete!');
-    logger.log(
-      `Results saved to: ${baseDir}/${testSetName}/records/records-iteration-${args.iteration}.json`,
-    );
-    logger.log(
-      `Metrics saved to: ${baseDir}/${testSetName}/metrics/metrics-iteration-${args.iteration}.json`,
-    );
-    logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        await runner.runTestSet({
+          testSet,
+          iterationNumber: iter,
+          judgeModel: args.judgeModel,
+          judgeProvider: args.judgeProvider,
+        });
+      }
 
-    // Calculate final metrics if --aggregate flag is provided
-    if (args.aggregate && args.totalIterations) {
-      logger.log('Calculating final metrics across iterations...');
+      const baseDir = runner.getBaseDir();
+      logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+      logger.log('All iterations complete!');
+      logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+
+      // Auto-calculate and save final metrics
+      logger.log('Auto-calculating final metrics across iterations...');
 
       const finalMetrics = await resultManager.calculateFinalMetrics({
         testSetName,
-        totalIterations: args.totalIterations,
+        totalIterations: args.iterations,
       });
 
       logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
@@ -324,9 +380,135 @@ async function bootstrap() {
       );
       logger.log('');
       logger.log(
-        `Final metrics saved to: ${baseDir}/${testSetName}/final-metrics/final-metrics-${args.totalIterations}.json`,
+        `Final metrics saved to: ${baseDir}/${testSetName}/final-metrics/final-metrics-${args.iterations}.json`,
       );
       logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+
+      // Auto-calculate and save final cost
+      logger.log('Auto-calculating final cost across iterations...');
+
+      const finalCost = await resultManager.calculateFinalCost({
+        testSetName,
+        totalIterations: args.iterations,
+        judgeModel: args.judgeModel ?? 'gpt-4o',
+        judgeProvider: args.judgeProvider ?? 'openai',
+      });
+
+      logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      logger.log('💰 Final Cost (Aggregated)');
+      logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      logger.log(`Total Samples: ${finalCost.aggregateStats.totalSamples}`);
+      logger.log(
+        `Total Evaluations: ${finalCost.aggregateStats.totalEvaluations}`,
+      );
+      logger.log(
+        `Total Tokens: ${finalCost.aggregateStats.totalTokens.total} (input: ${finalCost.aggregateStats.totalTokens.input}, output: ${finalCost.aggregateStats.totalTokens.output})`,
+      );
+      logger.log(
+        `Total Cost: $${finalCost.aggregateStats.totalCost.toFixed(6)}`,
+      );
+      logger.log(
+        `Avg Cost/Sample: $${finalCost.aggregateStats.averageCostPerSample.toFixed(6)}`,
+      );
+      logger.log(
+        `Avg Cost/Evaluation: $${finalCost.aggregateStats.averageCostPerEvaluation.toFixed(6)}`,
+      );
+      logger.log(
+        `Final cost saved to: ${baseDir}/${testSetName}/final-cost/final-cost-${args.iterations}.json`,
+      );
+      logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    } else {
+      // Single iteration mode
+      const currentIteration = args.iteration ?? 1;
+      logger.log('Starting evaluation...');
+
+      await runner.runTestSet({
+        testSet,
+        iterationNumber: currentIteration,
+        judgeModel: args.judgeModel,
+        judgeProvider: args.judgeProvider,
+      });
+
+      const baseDir = runner.getBaseDir();
+      logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      logger.log('Evaluation complete!');
+      logger.log(
+        `Results saved to: ${baseDir}/${testSetName}/records/records-iteration-${currentIteration}.json`,
+      );
+      logger.log(
+        `Metrics saved to: ${baseDir}/${testSetName}/metrics/metrics-iteration-${currentIteration}.json`,
+      );
+      logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+
+      // Calculate final metrics if --aggregate flag is provided
+      if (args.aggregate && args.totalIterations) {
+        logger.log('Calculating final metrics across iterations...');
+
+        const finalMetrics = await resultManager.calculateFinalMetrics({
+          testSetName,
+          totalIterations: args.totalIterations,
+        });
+
+        logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        logger.log('📊 Final Metrics (Aggregated)');
+        logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        logger.log(`Iterations: ${finalMetrics.iterations}`);
+        logger.log('');
+        logger.log('NDCG (Ranking Quality):');
+        logger.log(
+          `  @5:  ${finalMetrics.aggregateMetrics.ndcgAt5.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.ndcgAt5.stdDev.toFixed(4)}`,
+        );
+        logger.log(
+          `  @10: ${finalMetrics.aggregateMetrics.ndcgAt10.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.ndcgAt10.stdDev.toFixed(4)}`,
+        );
+        logger.log('');
+        logger.log('Precision (% Relevant in Top K):');
+        logger.log(
+          `  @5:  ${finalMetrics.aggregateMetrics.precisionAt5.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt5.stdDev.toFixed(4)}`,
+        );
+        logger.log(
+          `  @10: ${finalMetrics.aggregateMetrics.precisionAt10.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt10.stdDev.toFixed(4)}`,
+        );
+        logger.log('');
+        logger.log(
+          `Final metrics saved to: ${baseDir}/${testSetName}/final-metrics/final-metrics-${args.totalIterations}.json`,
+        );
+        logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+
+        // Calculate and save final cost
+        logger.log('Calculating final cost across iterations...');
+
+        const finalCost = await resultManager.calculateFinalCost({
+          testSetName,
+          totalIterations: args.totalIterations,
+          judgeModel: args.judgeModel ?? 'gpt-4o',
+          judgeProvider: args.judgeProvider ?? 'openai',
+        });
+
+        logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        logger.log('💰 Final Cost (Aggregated)');
+        logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        logger.log(`Total Samples: ${finalCost.aggregateStats.totalSamples}`);
+        logger.log(
+          `Total Evaluations: ${finalCost.aggregateStats.totalEvaluations}`,
+        );
+        logger.log(
+          `Total Tokens: ${finalCost.aggregateStats.totalTokens.total} (input: ${finalCost.aggregateStats.totalTokens.input}, output: ${finalCost.aggregateStats.totalTokens.output})`,
+        );
+        logger.log(
+          `Total Cost: $${finalCost.aggregateStats.totalCost.toFixed(6)}`,
+        );
+        logger.log(
+          `Avg Cost/Sample: $${finalCost.aggregateStats.averageCostPerSample.toFixed(6)}`,
+        );
+        logger.log(
+          `Avg Cost/Evaluation: $${finalCost.aggregateStats.averageCostPerEvaluation.toFixed(6)}`,
+        );
+        logger.log(
+          `Final cost saved to: ${baseDir}/${testSetName}/final-cost/final-cost-${args.totalIterations}.json`,
+        );
+        logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      }
     }
 
     await appContext.close();

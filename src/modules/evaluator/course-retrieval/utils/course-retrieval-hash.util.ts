@@ -1,5 +1,6 @@
 import { HashHelper } from 'src/shared/utils/hash.helper';
 
+import { EvaluationHashUtil } from '../../shared/utils/evaluation-hash.util';
 import type { CourseRetrievalHashParams } from '../types/course-retrieval.types';
 
 /**
@@ -16,11 +17,16 @@ import type { CourseRetrievalHashParams } from '../types/course-retrieval.types'
  * - Same question with different skills gets different hashes
  * - testCaseId is included for grouping within a test case
  * - Case-sensitive matching (Python ≠ python)
+ *
+ * @deprecated Use EvaluationHashUtil directly for standard hashes.
+ * This class is kept for backward compatibility and additional methods.
  */
 export class CourseRetrievalHashUtil {
   /**
    * Generate a unique hash for a question+skill combination.
    *
+   * @deprecated Use EvaluationHashUtil.generateCourseRetrievalProgressHash() or
+   *             EvaluationHashUtil.generateCourseRetrievalRecordHash() instead.
    * @param params - Hash parameters
    * @returns SHA256 hash hex string (64 characters)
    *
@@ -35,21 +41,16 @@ export class CourseRetrievalHashUtil {
    * ```
    */
   static generate(params: CourseRetrievalHashParams): string {
-    const { question, skill, testCaseId } = params;
-
-    // Use pipe delimiter to avoid collisions (e.g., "a|bc" vs "ab|c")
-    // testCaseId is optional, so we handle it conditionally
-    const data = testCaseId
-      ? `${question}|${skill}|${testCaseId}`
-      : `${question}|${skill}`;
-
-    return HashHelper.generateHashSHA256(data);
+    // For course retrieval, progress hash = record hash (same granularity)
+    return EvaluationHashUtil.generateCourseRetrievalProgressHash(params);
   }
 
   /**
    * Generate a hash for a course in a specific question+skill context.
    *
    * This variant includes courseId for course-level tracking.
+   * This is NOT part of the shared EvaluationHashUtil as it's specific
+   * to course-retrieval internal use.
    *
    * @param params - Hash parameters with courseId
    * @returns SHA256 hash hex string (64 characters)

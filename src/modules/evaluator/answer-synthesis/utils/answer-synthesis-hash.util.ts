@@ -1,4 +1,4 @@
-import { HashHelper } from 'src/shared/utils/hash.helper';
+import { EvaluationHashUtil } from '../../shared/utils/evaluation-hash.util';
 
 export type AnswerSynthesisHashParams = {
   queryLogId: string;
@@ -12,6 +12,9 @@ export type AnswerSynthesisHashParams = {
  *
  * Unlike course filter (which hashes per course), answer synthesis hashes
  * per question since each question has one answer to evaluate.
+ *
+ * @deprecated Use EvaluationHashUtil directly.
+ * This class is kept for backward compatibility.
  */
 export class AnswerSynthesisHashUtil {
   /**
@@ -24,11 +27,13 @@ export class AnswerSynthesisHashUtil {
    * - The same queryLogId will always have the same answer
    * - Simpler than course filter (no per-item deduplication needed)
    *
+   * @deprecated Use EvaluationHashUtil.generateAnswerSynthesisProgressHash() or
+   *             EvaluationHashUtil.generateAnswerSynthesisRecordHash() instead.
    * @param params - Hash parameters
    * @returns SHA256 hash hex string
    */
   static generate(params: AnswerSynthesisHashParams): string {
-    const { queryLogId } = params;
-    return HashHelper.generateHashSHA256(queryLogId);
+    // For answer synthesis, progress hash = record hash (same granularity)
+    return EvaluationHashUtil.generateAnswerSynthesisProgressHash(params);
   }
 }

@@ -124,7 +124,7 @@ function showHelp(): void {
 Skill Expansion Evaluator CLI
 
 Usage:
-  bun run cli evaluator:skill-expansion <filename> [OPTIONS]
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/evaluate-skill-expansion.cli.ts <filename> [OPTIONS]
 
 Arguments:
   filename              Path to JSON test set file (relative to data/evaluation/test-sets/)
@@ -159,16 +159,16 @@ Notes:
 
 Examples:
   # Load and evaluate test-set-skill-expansion.json
-  bun run cli evaluator:skill-expansion test-set-skill-expansion.json
+  bunx ts-node .../evaluate-skill-expansion.cli.ts test-set-skill-expansion.json
 
   # Evaluate with custom test set name
-  bun run cli evaluator:skill-expansion test-set-v1.json --test-set-name "my-experiment"
+  bunx ts-node .../evaluate-skill-expansion.cli.ts test-set-v1.json --test-set-name "my-experiment"
 
   # Run 3 iterations with custom judge model
-  bun run cli evaluator:skill-expansion test-set-v1.json --iterations 3 --judge-model "gpt-4o"
+  bunx ts-node .../evaluate-skill-expansion.cli.ts test-set-v1.json --iterations 3 --judge-model "gpt-4o"
 
   # Specify custom output directory
-  bun run cli evaluator:skill-expansion test-set-v1.json --output-dir "custom-output-dir"
+  bunx ts-node .../evaluate-skill-expansion.cli.ts test-set-v1.json --output-dir "custom-output-dir"
 `);
 }
 
@@ -215,23 +215,39 @@ async function bootstrap() {
 
     logger.log(`Loading test set "${testSetName}"...`);
 
-    // Load test set from JSON
+    // Load test set from JSON (as plain array, like other evaluators)
     const DEFAULT_TEST_SET_DIR = 'data/evaluation/test-sets';
     const filepath = args.filename.endsWith('.json')
       ? `${DEFAULT_TEST_SET_DIR}/${args.filename}`
       : `${DEFAULT_TEST_SET_DIR}/${args.filename}.json`;
 
-    const testSet = await FileHelper.loadJson<SkillExpansionTestSet>(filepath);
+    const rawEntries = await FileHelper.loadJson<
+      Array<{
+        queryLogId: string;
+        question: string;
+        skills: Array<{ skill: string; reason: string }>;
+      }>
+    >(filepath);
 
-    if (!testSet.cases || testSet.cases.length === 0) {
+    if (rawEntries.length === 0) {
       logger.warn('No entries found in test set file.');
       await appContext.close();
       process.exit(0);
     }
 
-    logger.log(
-      `Loaded test set "${testSet.name}" with ${testSet.cases.length} entries`,
-    );
+    logger.log(`Loaded ${rawEntries.length} entries from test set`);
+
+    // Transform to SkillExpansionTestSet format
+    const testSet: SkillExpansionTestSet = {
+      name: testSetName,
+      cases: rawEntries.map((entry) => ({
+        queryLogId: entry.queryLogId,
+        question: entry.question,
+        rawOutput: {
+          skillItems: entry.skills,
+        },
+      })),
+    };
 
     // Calculate total skills
     const totalSkills = testSet.cases.reduce(

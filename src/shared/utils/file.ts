@@ -180,6 +180,58 @@ export class FileHelper {
   }
 
   /**
+   * Loads all JSON files from a directory into an array of type T
+   *
+   * This is used for hash-based incremental record saving, where each sample
+   * gets its own file. This method loads all records for aggregation.
+   *
+   * @param dirPath - Directory path containing JSON files (e.g., 'records/iteration-1')
+   * @returns Promise of array of parsed JSON objects as type T
+   * @throws Error if directory doesn't exist or any file parsing fails
+   *
+   * @example
+   * const records = await FileHelper.loadJsonDirectory<EvaluationRecord>('data/evaluation/course-retriever/test-set-v1/records/iteration-1');
+   */
+  static async loadJsonDirectory<T>(dirPath: string): Promise<T[]> {
+    if (!fs.existsSync(dirPath)) {
+      throw new Error(`Directory not found: ${dirPath}`);
+    }
+
+    try {
+      const files = await fs.promises.readdir(dirPath);
+      const jsonFiles = files.filter((file) => file.endsWith('.json'));
+
+      if (jsonFiles.length === 0) {
+        return [];
+      }
+
+      const records: T[] = [];
+      for (const file of jsonFiles) {
+        const filePath = path.join(dirPath, file);
+        try {
+          const content = await fs.promises.readFile(filePath, 'utf8');
+          const parsed = JSON.parse(content) as T;
+          records.push(parsed);
+        } catch (error) {
+          throw new Error(
+            `Failed to parse JSON file ${file}: ${
+              error instanceof Error ? error.message : 'Unknown error'
+            }`,
+          );
+        }
+      }
+
+      return records;
+    } catch (error) {
+      throw new Error(
+        `Failed to load JSON directory ${dirPath}: ${
+          error instanceof Error ? error.message : 'Unknown error'
+        }`,
+      );
+    }
+  }
+
+  /**
    * Check if a file or directory exists
    * @param filePath - Full path from project root
    * @returns true if exists, false otherwise

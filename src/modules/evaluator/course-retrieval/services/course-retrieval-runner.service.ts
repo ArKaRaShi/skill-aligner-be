@@ -5,16 +5,14 @@ import { DECIMAL_PRECISION } from 'src/shared/utils/constants/decimal-precision.
 import { DecimalHelper } from 'src/shared/utils/decimal.helper';
 import { FileHelper } from 'src/shared/utils/file';
 
+import { EvaluationHashUtil } from '../../shared/utils/evaluation-hash.util';
 import { CourseRetrieverEvaluator } from '../evaluators/course-retriever.evaluator';
 import {
-  CourseRetrievalHashParams,
   CourseRetrievalProgressEntry,
   EvaluateRetrieverInput,
   EvaluateRetrieverOutput,
-  EvaluationItem,
   RunTestSetInput,
 } from '../types/course-retrieval.types';
-import { CourseRetrievalHashUtil } from '../utils/course-retrieval-hash.util';
 import { CourseRetrievalMetricsCalculator } from './course-retrieval-metrics-calculator.service';
 import { CourseRetrievalResultManagerService } from './course-retrieval-result-manager.service';
 
@@ -114,7 +112,7 @@ export class CourseRetrievalRunnerService {
       const progressPrefix = `[${i + 1}/${testSet.cases.length}]`;
 
       // Generate hash for this sample
-      const hash = this.generateSampleHash({
+      const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
         question: testCase.question,
         skill: testCase.skill,
         testCaseId: testCase.id,
@@ -228,12 +226,21 @@ export class CourseRetrievalRunnerService {
 
       // Save progress after each sample for crash recovery
       await this.resultManager.saveProgress(progress);
+
+      // Save record to hash-based file for crash recovery and parallel evaluation support
+      await this.resultManager.saveRecord({
+        testSetName: testSet.name,
+        iterationNumber,
+        hash,
+        record: result,
+      });
+
       this.logger.log(
         `Progress saved: ${progress.entries.length}/${testSet.cases.length} (${progress.statistics.completionPercentage.toFixed(1)}%)`,
       );
     }
 
-    // Save records
+    // Save records (final save - redundant but ensures consistency)
     await this.resultManager.saveIterationRecords({
       testSetName: testSet.name,
       iterationNumber,
@@ -247,12 +254,20 @@ export class CourseRetrievalRunnerService {
       records,
     });
 
-    // Calculate aggregated metrics across all test cases
-    const allEvaluations = records.flatMap(
-      (record) => record.evaluations,
-    ) as EvaluationItem[];
+    // Save iteration cost
+    await this.resultManager.saveIterationCost({
+      testSetName: testSet.name,
+      iterationNumber,
+      judgeModel: input.judgeModel ?? 'gpt-4o',
+      judgeProvider: input.judgeProvider ?? 'openai',
+      records,
+    });
+
+    // Calculate aggregated metrics using TREC-standard mean averaging
+    // This follows the standard IR evaluation approach: calculate metrics per-sample,
+    // then average across all samples. This is semantically correct for retrieval evaluation.
     const metrics =
-      CourseRetrievalMetricsCalculator.calculateMetrics(allEvaluations);
+      CourseRetrievalMetricsCalculator.calculateMeanMetrics(records);
 
     const duration = Date.now() - startTime;
     this.logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
@@ -267,19 +282,6 @@ export class CourseRetrievalRunnerService {
       `Highly relevant: ${metrics.highlyRelevantRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
     );
     this.logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-  }
-
-  /**
-   * Generate a hash for a sample (question + skill combination)
-   *
-   * Uses the CourseRetrievalHashUtil to generate a unique hash based on
-   * the question, skill, and optional testCaseId.
-   *
-   * @param params - Hash parameters
-   * @returns SHA256 hash string (64 characters)
-   */
-  private generateSampleHash(params: CourseRetrievalHashParams): string {
-    return CourseRetrievalHashUtil.generate(params);
   }
 
   /**

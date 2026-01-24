@@ -47,6 +47,8 @@ export class AnswerSynthesisResultManagerService {
     AnswerSynthesisResultManagerService.name,
   );
   private readonly baseDir: string;
+  /** Number of characters to display from hash prefix in logs */
+  private static readonly HASH_PREFIX_LENGTH = 16;
 
   constructor(
     private readonly metricsCalculator: AnswerSynthesisMetricsCalculator,
@@ -102,6 +104,73 @@ export class AnswerSynthesisResultManagerService {
 
     await FileHelper.saveJson(filePath, records);
     this.logger.log(`Saved ${records.length} records to ${filePath}`);
+  }
+
+  /**
+   * Save a single record to a hash-based file
+   *
+   * This is used for incremental saving - each completed sample is
+   * immediately saved to its own file, preventing data loss
+   * if the process crashes mid-iteration.
+   *
+   * Follows ADR-0002: Hash-Based Incremental Record Saving
+   *
+   * @param testSetName - Test set identifier
+   * @param iterationNumber - Current iteration number
+   * @param hash - SHA256 hash of sample-unique parameters (queryLogId)
+   * @param record - Single comparison record to save
+   */
+  async saveRecord(params: {
+    testSetName: string;
+    iterationNumber: number;
+    hash: string;
+    record: AnswerSynthesisComparisonRecord;
+  }): Promise<void> {
+    const { testSetName, iterationNumber, hash, record } = params;
+    const filePath = path.join(
+      this.baseDir,
+      testSetName,
+      'records',
+      `iteration-${iterationNumber}`,
+      `${hash}.json`,
+    );
+
+    await FileHelper.saveJson(filePath, record);
+    this.logger.debug(
+      `Saved 1 sample → ${hash.substring(0, AnswerSynthesisResultManagerService.HASH_PREFIX_LENGTH)}...`,
+    );
+  }
+
+  /**
+   * Load iteration records from hash-based files
+   *
+   * Loads all hash-based record files from the iteration directory.
+   * Follows ADR-0002: Hash-Based Incremental Record Saving.
+   *
+   * @param testSetName - Test set identifier
+   * @param iterationNumber - Iteration number to load
+   * @returns Array of comparison records (empty array if directory not found)
+   */
+  async loadIterationRecords(params: {
+    testSetName: string;
+    iterationNumber: number;
+  }): Promise<AnswerSynthesisComparisonRecord[]> {
+    const { testSetName, iterationNumber } = params;
+    const dirPath = path.join(
+      this.baseDir,
+      testSetName,
+      'records',
+      `iteration-${iterationNumber}`,
+    );
+
+    try {
+      return await FileHelper.loadJsonDirectory<AnswerSynthesisComparisonRecord>(
+        dirPath,
+      );
+    } catch {
+      // Return empty array if not found
+      return [];
+    }
   }
 
   /**
