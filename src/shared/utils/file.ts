@@ -180,6 +180,31 @@ export class FileHelper {
   }
 
   /**
+   * Check if a file or directory exists
+   * @param filePath - Full path from project root
+   * @returns true if exists, false otherwise
+   */
+  static exists(filePath: string): boolean {
+    return fs.existsSync(filePath);
+  }
+
+  /**
+   * Delete a directory recursively
+   * @param dirPath - Full path from project root
+   */
+  static async deleteDirectory(dirPath: string): Promise<void> {
+    try {
+      await fs.promises.rm(dirPath, { recursive: true, force: true });
+    } catch (error) {
+      throw new Error(
+        `Failed to delete directory ${dirPath}: ${
+          error instanceof Error ? error.message : 'Unknown error'
+        }`,
+      );
+    }
+  }
+
+  /**
    * Resolves versioned JSON file paths
    * @private
    */

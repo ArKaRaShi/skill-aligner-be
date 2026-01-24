@@ -51,9 +51,16 @@ export const QueryPipelinePromptConfig = {
    * Step 2: Skill expansion
    * Extracts skills from the user's question
    */
+  // v11: Simplified from v9 with explicit DEFINITION section for "Teachable Skill" (Learnable, Teachable, Contextual)
+  // v11: Role changed from "skill inference component" to "Expert in Educational Competency Mapping"
+  // v11: Added explicit LANGUAGE constraint section (Thai-only with specific examples)
+  // v11: Added FILTERING constraint to reject non-teachable attributes (e.g., "Good Luck", "Being Rich")
+  // v11: Removed "at least ONE skill must preserve concept" rule from v9
+  // v11: Removed "Additional Guidelines" section (broad/applied/specific, prior knowledge handling)
+  // v11: Added explicit output format rules (NO Markdown code blocks, NO introductory text)
   // v9: Base version with Thai-only output and academic skill constraints (1-6 skills)
   // v9: Requires at least one skill to preserve user's explicitly mentioned concept
-  SKILL_EXPANSION: SkillExpansionPromptVersions.V9,
+  SKILL_EXPANSION: SkillExpansionPromptVersions.V11,
 
   /**
    * Step 4: Course relevance filter
