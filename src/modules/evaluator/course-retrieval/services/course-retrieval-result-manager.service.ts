@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 
 import * as path from 'node:path';
 import { FileHelper } from 'src/shared/utils/file';
@@ -29,7 +29,7 @@ export class CourseRetrievalResultManagerService {
   );
   private readonly baseDir: string;
 
-  constructor(baseDir?: string) {
+  constructor(@Optional() baseDir?: string) {
     this.baseDir = baseDir ?? 'data/evaluation/course-retriever';
   }
 

@@ -113,20 +113,18 @@ describe('AnswerSynthesisRunnerService Integration', () => {
       })
       .overrideProvider(AnswerSynthesisRunnerService)
       .useFactory({
-        factory: (resultMgr, comparison, metrics, lowFaith) => {
+        factory: (resultMgr, comparison, lowFaith) => {
           return new AnswerSynthesisRunnerService(
             mockJudgeEvaluator as any,
             comparison,
-            metrics,
             lowFaith,
             resultMgr,
-            tempDir, // Pass tempDir to runner service too
+            tempDir,
           );
         },
         inject: [
           AnswerSynthesisResultManagerService,
           AnswerSynthesisComparisonService,
-          AnswerSynthesisMetricsCalculator,
           AnswerSynthesisLowFaithfulnessAnalyzerService,
         ],
       })

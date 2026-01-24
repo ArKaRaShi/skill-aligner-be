@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 
 import * as path from 'node:path';
 import { DECIMAL_PRECISION } from 'src/shared/utils/constants/decimal-precision.constants';
@@ -52,7 +52,7 @@ export class CourseRetrievalRunnerService {
   constructor(
     private readonly evaluator: CourseRetrieverEvaluator,
     private readonly resultManager: CourseRetrievalResultManagerService,
-    baseDir?: string,
+    @Optional() baseDir?: string,
   ) {
     this.baseDir = baseDir ?? 'data/evaluation/course-retriever';
   }

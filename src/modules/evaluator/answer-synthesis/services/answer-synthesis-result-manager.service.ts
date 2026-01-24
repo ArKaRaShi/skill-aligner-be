@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 
 import * as path from 'node:path';
 import { FileHelper } from 'src/shared/utils/file';
@@ -50,7 +50,7 @@ export class AnswerSynthesisResultManagerService {
 
   constructor(
     private readonly metricsCalculator: AnswerSynthesisMetricsCalculator,
-    baseDir?: string,
+    @Optional() baseDir?: string,
   ) {
     this.baseDir = baseDir ?? 'data/evaluation/answer-synthesis';
   }

@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 
 import * as path from 'node:path';
 import { FileHelper } from 'src/shared/utils/file';
@@ -14,7 +14,6 @@ import type {
 import { AnswerSynthesisHashUtil } from '../utils/answer-synthesis-hash.util';
 import { AnswerSynthesisComparisonService } from './answer-synthesis-comparison.service';
 import { AnswerSynthesisLowFaithfulnessAnalyzerService } from './answer-synthesis-low-faithfulness-analyzer.service';
-import { AnswerSynthesisMetricsCalculator } from './answer-synthesis-metrics-calculator.service';
 import { AnswerSynthesisResultManagerService } from './answer-synthesis-result-manager.service';
 
 // ============================================================================
@@ -42,10 +41,9 @@ export class AnswerSynthesisRunnerService {
   constructor(
     private readonly judgeEvaluator: AnswerSynthesisJudgeEvaluator,
     private readonly comparisonService: AnswerSynthesisComparisonService,
-    private readonly metricsCalculator: AnswerSynthesisMetricsCalculator,
     private readonly lowFaithfulnessAnalyzer: AnswerSynthesisLowFaithfulnessAnalyzerService,
     private readonly resultManager: AnswerSynthesisResultManagerService,
-    baseDir?: string,
+    @Optional() baseDir?: string,
   ) {
     this.baseDir = baseDir ?? 'data/evaluation/answer-synthesis';
   }

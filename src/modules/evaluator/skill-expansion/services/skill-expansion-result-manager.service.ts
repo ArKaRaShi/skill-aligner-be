@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 
 import * as path from 'node:path';
 import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
@@ -46,7 +46,7 @@ export class SkillExpansionResultManagerService {
 
   constructor(
     private readonly metricsCalculator: SkillExpansionMetricsCalculator,
-    baseDir?: string,
+    @Optional() baseDir?: string,
   ) {
     this.baseDir = baseDir ?? 'data/evaluation/skill-expansion';
   }
