@@ -4,10 +4,9 @@ import { NestFactory } from '@nestjs/core';
 import { FileHelper } from 'src/shared/utils/file';
 
 import { AppModule } from '../../../app.module';
-import { CourseFilterEvaluationRunnerService } from '../course-relevance-filter/services/course-filter-evaluation-runner.service';
-import type { EvaluationConfig } from '../course-relevance-filter/types/course-relevance-filter.types';
-import { EvaluatorJudgeConfig } from '../shared/configs';
-import type { CourseFilterTestSetSerialized } from '../shared/services/test-set.types';
+import { CourseRetrievalTestSetTransformer } from '../course-retrieval/loaders/course-retrieval-test-set-transformer.service';
+import { CourseRetrievalRunnerService } from '../course-retrieval/services/course-retrieval-runner.service';
+import { CourseRetrievalTestSetSerialized } from '../shared/services/test-set.types';
 
 // ============================================================================
 // TYPES
@@ -16,11 +15,9 @@ import type { CourseFilterTestSetSerialized } from '../shared/services/test-set.
 interface CliArgs {
   filename: string;
   testSetName?: string;
-  outputDir?: string;
   iteration: number;
   judgeModel?: string;
   judgeProvider?: string;
-  systemPromptVersion?: string;
   help: boolean;
 }
 
@@ -62,12 +59,6 @@ function parseArgs(): CliArgs | null {
       continue;
     }
 
-    if (arg === '--output-dir' && args[i + 1]) {
-      result.outputDir = args[i + 1];
-      i += 2;
-      continue;
-    }
-
     if (arg === '--iteration' && args[i + 1]) {
       const parsedIteration = Number.parseInt(args[i + 1], 10);
       if (Number.isNaN(parsedIteration) || parsedIteration < 1) {
@@ -89,12 +80,6 @@ function parseArgs(): CliArgs | null {
 
     if (arg === '--judge-provider' && args[i + 1]) {
       result.judgeProvider = args[i + 1];
-      i += 2;
-      continue;
-    }
-
-    if (arg === '--system-prompt-version' && args[i + 1]) {
-      result.systemPromptVersion = args[i + 1];
       i += 2;
       continue;
     }
@@ -126,52 +111,48 @@ function parseArgs(): CliArgs | null {
  */
 function showHelp(): void {
   console.log(`
-Course Filter Evaluator (JSON Test Set) CLI
+Course Retrieval Evaluator (JSON Test Set) CLI
 
 Usage:
-  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/evaluate-course-filter.cli.ts <filename> [OPTIONS]
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/evaluate-course-retrieval.cli.ts <filename> [OPTIONS]
 
 Arguments:
   filename              Path to JSON test set file (relative to data/evaluation/test-sets/)
 
 Options:
   --test-set-name <n>   Custom test set name for result grouping (default: filename without .json)
-  --output-dir <dir>     Custom output directory (default: data/evaluation/course-relevance-filter/<test-set-name>)
   --iteration <number>   Iteration number for results (default: 1)
   --judge-model <model>  Judge model to use (default: from config)
   --judge-provider <p>   Judge provider to use (default: from config)
-  --system-prompt-version <v> System prompt version (default: from config)
   --help, -h            Show this help message
 
 Description:
-  Evaluates course relevance filter performance using LLM-as-a-Judge methodology.
-  Each course in the test set is evaluated by a judge LLM to determine if it
-  should be kept or dropped. Results are compared against the system's scores.
+  Evaluates course retrieval performance using LLM-as-a-Judge methodology.
+  Each (question, skill) pair is evaluated by a judge LLM to assess the
+  relevance of retrieved courses.
 
-  The evaluation tracks progress at the course level, allowing resumption
-  after interruption. Progress is stored in:
-  data/evaluation/course-relevance-filter/<test-set-name>/progress-iteration-<n>.json
+  Progress tracking is built-in - evaluations can be resumed after interruption.
+  Progress is stored in:
+  data/evaluation/course-retriever/<test-set-name>/progress/progress-iteration-<n>.json
 
   Results are saved to:
-  data/evaluation/course-relevance-filter/<test-set-name>/iteration-<n>/
+  data/evaluation/course-retriever/<test-set-name>/records/records-iteration-<n>.json
 
 Notes:
-  - Evaluations are processed per question with all courses in parallel
-  - Progress tracking allows crash recovery - just re-run the same command
-  - Each iteration produces separate metrics and comparison records
+  - Each skill in a question is evaluated independently
+  - Progress is tracked per (question, skill) combination using SHA256 hashes
+  - Crash recovery is automatic - just re-run the same command
+  - Each iteration produces separate metrics and records
 
 Examples:
   # Load and evaluate test-set-v1.json
-  bunx ts-node .../evaluate-course-filter.cli.ts test-set-v1.json
+  bunx ts-node .../evaluate-course-retrieval.cli.ts test-set-v1.json
 
   # Evaluate with custom test set name
-  bunx ts-node .../evaluate-course-filter.cli.ts test-set-v1.json --test-set-name "my-experiment"
+  bunx ts-node .../evaluate-course-retrieval.cli.ts test-set-v1.json --test-set-name "my-experiment"
 
-  # Run iteration 2 with custom judge model
-  bunx ts-node .../evaluate-course-filter.cli.ts test-set-v1.json --iteration 2 --judge-model "gpt-4o"
-
-  # Specify custom output directory
-  bunx ts-node .../evaluate-course-filter.cli.ts test-set-v1.json --output-dir "custom-output-dir"
+  # Run iteration 2
+  bunx ts-node .../evaluate-course-retrieval.cli.ts test-set-v1.json --iteration 2
 `);
 }
 
@@ -191,10 +172,10 @@ async function bootstrap() {
     process.exit(0);
   }
 
-  const logger = new Logger('EvaluateCourseFilterCLI');
+  const logger = new Logger('EvaluateCourseRetrievalCLI');
 
   logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  logger.log('Course Filter Evaluator (JSON Test Set)');
+  logger.log('Course Retrieval Evaluator (JSON Test Set)');
   logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   logger.log(`Filename: ${args.filename}`);
   logger.log(`Iteration: ${args.iteration}`);
@@ -210,81 +191,58 @@ async function bootstrap() {
 
   try {
     // Get services
-    const runner = appContext.get(CourseFilterEvaluationRunnerService);
+    const transformer = appContext.get(CourseRetrievalTestSetTransformer);
+    const runner = appContext.get(CourseRetrievalRunnerService);
 
-    // Determine test set name and output directory
+    // Determine test set name
     const testSetName = args.testSetName ?? args.filename.replace('.json', '');
-    const outputDir = args.outputDir ?? testSetName;
 
     logger.log(`Loading test set "${testSetName}"...`);
 
-    // Load raw test set from JSON (runner will transform it)
+    // Load raw test set from JSON
     const DEFAULT_TEST_SET_DIR = 'data/evaluation/test-sets';
     const filepath = args.filename.endsWith('.json')
       ? `${DEFAULT_TEST_SET_DIR}/${args.filename}`
       : `${DEFAULT_TEST_SET_DIR}/${args.filename}.json`;
 
-    const testSet =
-      await FileHelper.loadJson<CourseFilterTestSetSerialized[]>(filepath);
+    const serialized =
+      await FileHelper.loadJson<CourseRetrievalTestSetSerialized[]>(filepath);
 
-    if (testSet.length === 0) {
+    if (serialized.length === 0) {
       logger.warn('No entries found in test set file.');
       await appContext.close();
       process.exit(0);
     }
 
-    logger.log(`Loaded ${testSet.length} test set entries`);
-
-    // Calculate approximate total courses (for display)
-    const totalCourses = testSet.reduce((sum, entry) => {
-      const acceptedCount =
-        (entry.rawOutput?.llmAcceptedCoursesBySkill &&
-          Object.values(entry.rawOutput.llmAcceptedCoursesBySkill).reduce(
-            (skillSum, courses) => skillSum + courses.length,
-            0,
-          )) ||
-        0;
-      const rejectedCount =
-        (entry.rawOutput?.llmRejectedCoursesBySkill &&
-          Object.values(entry.rawOutput.llmRejectedCoursesBySkill).reduce(
-            (skillSum, courses) => skillSum + courses.length,
-            0,
-          )) ||
-        0;
-      return sum + acceptedCount + rejectedCount;
-    }, 0);
-    logger.log(`Approximate courses to evaluate: ${totalCourses}`);
-
-    // Build evaluation config
-    const config: EvaluationConfig = {
-      systemPromptVersion: args.systemPromptVersion ?? '1.0',
-      judgeModel:
-        args.judgeModel ??
-        EvaluatorJudgeConfig.COURSE_RELEVANCE_FILTER.JUDGE_MODEL,
-      judgeProvider:
-        args.judgeProvider ??
-        EvaluatorJudgeConfig.COURSE_RELEVANCE_FILTER.JUDGE_PROVIDER,
-      iterations: args.iteration,
-      outputDirectory: outputDir,
-    };
-
-    logger.log('Starting evaluation...');
-    logger.log(`  Judge: ${config.judgeProvider}/${config.judgeModel}`);
-    logger.log(`  System Prompt: ${config.systemPromptVersion}`);
-    logger.log(
-      `  Output Dir: data/evaluation/course-relevance-filter/${outputDir}`,
+    // Calculate total test cases (question + skill combinations)
+    const totalSkills = serialized.reduce(
+      (sum, entry) => sum + entry.skills.length,
+      0,
     );
 
+    logger.log(`Loaded ${serialized.length} query log entries`);
+    logger.log(`Total (question, skill) pairs to evaluate: ${totalSkills}`);
+
+    // Transform to test set format using transformer service
+    const testSet = transformer.transformTestSet(serialized, testSetName);
+
+    logger.log(`Transformed to ${testSet.cases.length} test cases`);
+
     // Run evaluation
-    await runner.runEvaluation({
+    logger.log('Starting evaluation...');
+
+    await runner.runTestSet({
       testSet,
-      config,
+      iterationNumber: args.iteration,
+      judgeModel: args.judgeModel,
+      judgeProvider: args.judgeProvider,
     });
 
+    const baseDir = runner.getBaseDir();
     logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     logger.log('Evaluation complete!');
     logger.log(
-      `Results saved to: data/evaluation/course-relevance-filter/${outputDir}/`,
+      `Results saved to: ${baseDir}/${testSetName}/records/records-iteration-${args.iteration}.json`,
     );
     logger.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 

@@ -4,6 +4,7 @@ import { NestFactory } from '@nestjs/core';
 import { FileHelper } from 'src/shared/utils/file';
 
 import { AppModule } from '../../../app.module';
+import { EvaluatorJudgeConfig } from '../shared/configs';
 import { SkillExpansionEvaluationRunnerService } from '../skill-expansion/services/skill-expansion-runner.service';
 import type {
   SkillExpansionEvaluationConfig,
@@ -132,8 +133,8 @@ Options:
   --test-set-name <n>   Custom test set name for result grouping (default: filename without .json)
   --output-dir <dir>     Custom output directory (default: data/evaluation/skill-expansion/<test-set-name>)
   --iterations <n>       Number of iterations to run (default: 1)
-  --judge-model <model>  Judge model to use (default: gpt-4o-mini)
-  --judge-provider <p>   Judge provider to use (default: openai)
+  --judge-model <model>  Judge model to use (default: from config)
+  --judge-provider <p>   Judge provider to use (default: from config)
   --help, -h            Show this help message
 
 Description:
@@ -241,8 +242,11 @@ async function bootstrap() {
 
     // Build evaluation config
     const config: SkillExpansionEvaluationConfig = {
-      judgeModel: args.judgeModel ?? 'gpt-4o-mini',
-      judgeProvider: args.judgeProvider ?? 'openai',
+      judgeModel:
+        args.judgeModel ?? EvaluatorJudgeConfig.SKILL_EXPANSION.JUDGE_MODEL,
+      judgeProvider:
+        args.judgeProvider ??
+        EvaluatorJudgeConfig.SKILL_EXPANSION.JUDGE_PROVIDER,
       iterations: args.iterations ?? 1,
       outputDirectory: outputDir,
     };

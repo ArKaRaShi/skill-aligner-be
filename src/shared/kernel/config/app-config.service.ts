@@ -155,13 +155,6 @@ export class AppConfigService {
     );
   }
 
-  get courseRetrieverEvaluatorLlmModel(): string {
-    return (
-      this.configService.get<string>('COURSE_RETRIEVER_EVALUATOR_LLM_MODEL') ??
-      AppConfigDefault.COURSE_RETRIEVER_EVALUATOR_LLM_MODEL
-    );
-  }
-
   get useMockQueryProfileBuilderService(): boolean {
     return (
       this.configService.get<boolean>(

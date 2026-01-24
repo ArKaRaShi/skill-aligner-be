@@ -5,18 +5,18 @@ import { DECIMAL_PRECISION } from 'src/shared/utils/constants/decimal-precision.
 import { DecimalHelper } from 'src/shared/utils/decimal.helper';
 import { FileHelper } from 'src/shared/utils/file';
 
-import { IRunEvaluator } from '../../shared/contracts/i-run-evaluator.contract';
 import { CourseRetrieverEvaluator } from '../evaluators/course-retriever.evaluator';
 import {
+  CourseRetrievalHashParams,
+  CourseRetrievalProgressEntry,
   EvaluateRetrieverInput,
   EvaluateRetrieverOutput,
   EvaluationItem,
   RunTestSetInput,
 } from '../types/course-retrieval.types';
+import { CourseRetrievalHashUtil } from '../utils/course-retrieval-hash.util';
 import { CourseRetrievalMetricsCalculator } from './course-retrieval-metrics-calculator.service';
 import { CourseRetrievalResultManagerService } from './course-retrieval-result-manager.service';
-
-export const I_COURSE_RETRIEVAL_RUNNER_TOKEN = 'ICourseRetrievalRunnerService';
 
 /**
  * Additional context for course retriever evaluations
@@ -24,35 +24,38 @@ export const I_COURSE_RETRIEVAL_RUNNER_TOKEN = 'ICourseRetrievalRunnerService';
 export type CourseRetrievalEvaluationContext = {
   iterationNumber?: number;
   prefixDir?: string;
+  judgeModel?: string;
+  judgeProvider?: string;
 };
 
 /**
  * Service for running course retrieval evaluations.
  *
- * Implements the generic IRunEvaluator contract specifically for course retrieval evaluations.
  * Handles pipeline execution, result persistence, and file organization.
+ * Uses direct class injection (modern pattern) instead of contract-based tokens.
  *
- * @implements IRunEvaluator<EvaluateRetrieverInput, EvaluateRetrieverOutput, CourseRetrievalEvaluationContext>
+ * Progress tracking is done at SAMPLE level (question + skill combination).
+ * Each sample is tracked independently with a unique hash based on question, skill,
+ * and optional testCaseId. This enables crash recovery and resumable evaluations.
  *
- * @deprecated This will be updated to not implement IRunEvaluator in Phase 10.
- * The modern evaluator pattern uses direct class injection instead of contract-based tokens.
+ * @example
+ * ```typescript
+ * const runner = appContext.get(CourseRetrievalRunnerService);
+ * await runner.runTestSet({ testSet, iterationNumber: 1 });
+ * ```
  */
 @Injectable()
-export class CourseRetrievalRunnerService
-  implements
-    IRunEvaluator<
-      EvaluateRetrieverInput,
-      EvaluateRetrieverOutput,
-      CourseRetrievalEvaluationContext
-    >
-{
+export class CourseRetrievalRunnerService {
   private readonly logger = new Logger(CourseRetrievalRunnerService.name);
-  private readonly baseDir = 'data/evaluation/course-retriever';
+  private readonly baseDir: string;
 
   constructor(
     private readonly evaluator: CourseRetrieverEvaluator,
     private readonly resultManager: CourseRetrievalResultManagerService,
-  ) {}
+    baseDir?: string,
+  ) {
+    this.baseDir = baseDir ?? 'data/evaluation/course-retriever';
+  }
 
   /**
    * Run a complete test set with multiple test cases
@@ -60,6 +63,10 @@ export class CourseRetrievalRunnerService
    * This is the main entry point for running batch evaluations.
    * Iterates through all test cases, collects results, calculates metrics,
    * and saves everything using the result manager.
+   *
+   * Progress tracking: Loads existing progress at the start, checks for
+   * completed samples (by hash), skips evaluations if already completed,
+   * and saves progress after each sample for crash recovery.
    *
    * @param input - Test set and iteration configuration
    */
@@ -76,23 +83,95 @@ export class CourseRetrievalRunnerService
     // Ensure directory structure exists
     await this.resultManager.ensureDirectoryStructure(testSet.name);
 
+    // Load existing progress (if any)
+    const progress = await this.resultManager.loadProgress({
+      testSetName: testSet.name,
+      iterationNumber,
+    });
+
+    // Initialize progress statistics
+    progress.statistics.totalItems = testSet.cases.length;
+    progress.statistics.pendingItems =
+      progress.statistics.totalItems - progress.entries.length;
+    progress.statistics.completionPercentage =
+      progress.statistics.totalItems > 0
+        ? (progress.entries.length / progress.statistics.totalItems) * 100
+        : 0;
+
+    // Create a map of completed samples for quick lookup
+    const completedSampleHashes = new Map<string, CourseRetrievalProgressEntry>(
+      progress.entries.map((entry) => [entry.hash, entry]),
+    );
+
+    this.logger.log(
+      `Progress: ${progress.entries.length}/${testSet.cases.length} samples completed (${progress.statistics.completionPercentage.toFixed(1)}%)`,
+    );
+
     // Run each test case
     const records: EvaluateRetrieverOutput[] = [];
     for (let i = 0; i < testSet.cases.length; i++) {
       const testCase = testSet.cases[i];
-      const progress = `[${i + 1}/${testSet.cases.length}]`;
+      const progressPrefix = `[${i + 1}/${testSet.cases.length}]`;
 
-      this.logger.log(`${progress} Running: ${testCase.id}`);
+      // Generate hash for this sample
+      const hash = this.generateSampleHash({
+        question: testCase.question,
+        skill: testCase.skill,
+        testCaseId: testCase.id,
+      });
+
+      // Check if this sample was already evaluated
+      if (completedSampleHashes.has(hash)) {
+        const cachedEntry = completedSampleHashes.get(hash)!;
+        this.logger.log(
+          `${progressPrefix} Skipping ${testCase.id} (already completed)`,
+        );
+
+        // Create cached result from progress entry
+        const cachedResult: EvaluateRetrieverOutput = {
+          testCaseId: cachedEntry.testCaseId,
+          question: cachedEntry.question,
+          skill: cachedEntry.skill,
+          retrievedCount: cachedEntry.result.retrievedCount,
+          evaluations: [], // Empty since we're not storing full evaluations in progress
+          metrics: {
+            totalCourses: cachedEntry.result.retrievedCount,
+            averageRelevance: cachedEntry.result.averageRelevance,
+            scoreDistribution: [],
+            highlyRelevantCount: 0,
+            highlyRelevantRate: 0,
+            irrelevantCount: 0,
+            irrelevantRate: 0,
+          },
+          llmModel: 'cached',
+          llmProvider: 'cached',
+          inputTokens: 0,
+          outputTokens: 0,
+        };
+
+        records.push(cachedResult);
+        continue;
+      }
+
+      this.logger.log(`${progressPrefix} Running: ${testCase.id}`);
       this.logger.log(`  Question: "${testCase.question}"`);
       this.logger.log(`  Skill: "${testCase.skill}"`);
       this.logger.log(`  Courses: ${testCase.retrievedCourses.length}`);
+      const HASH_DISPLAY_LENGTH = 16;
+      this.logger.log(`  Hash: ${hash.substring(0, HASH_DISPLAY_LENGTH)}...`);
 
       // Run evaluation for this test case
-      const evaluationResult = await this.evaluator.evaluate({
-        question: testCase.question,
-        skill: testCase.skill,
-        retrievedCourses: testCase.retrievedCourses,
-      });
+      const evaluationResult = await this.evaluator.evaluate(
+        {
+          question: testCase.question,
+          skill: testCase.skill,
+          retrievedCourses: testCase.retrievedCourses,
+        },
+        {
+          model: input.judgeModel,
+          provider: input.judgeProvider,
+        },
+      );
 
       // Log evaluation metrics
       this.logger.log('=== Evaluation Results ===');
@@ -128,6 +207,28 @@ export class CourseRetrievalRunnerService
       );
 
       records.push(result);
+
+      // Add entry to progress
+      const progressEntry: CourseRetrievalProgressEntry = {
+        hash,
+        question: testCase.question,
+        skill: testCase.skill,
+        testCaseId: testCase.id,
+        completedAt: new Date().toISOString(),
+        result: {
+          retrievedCount: testCase.retrievedCourses.length,
+          averageRelevance: evaluationResult.metrics.averageRelevance,
+        },
+      };
+
+      progress.entries.push(progressEntry);
+      completedSampleHashes.set(hash, progressEntry);
+
+      // Save progress after each sample for crash recovery
+      await this.resultManager.saveProgress(progress);
+      this.logger.log(
+        `Progress saved: ${progress.entries.length}/${testSet.cases.length} (${progress.statistics.completionPercentage.toFixed(1)}%)`,
+      );
     }
 
     // Save records
@@ -160,6 +261,19 @@ export class CourseRetrievalRunnerService
   }
 
   /**
+   * Generate a hash for a sample (question + skill combination)
+   *
+   * Uses the CourseRetrievalHashUtil to generate a unique hash based on
+   * the question, skill, and optional testCaseId.
+   *
+   * @param params - Hash parameters
+   * @returns SHA256 hash string (64 characters)
+   */
+  private generateSampleHash(params: CourseRetrievalHashParams): string {
+    return CourseRetrievalHashUtil.generate(params);
+  }
+
+  /**
    * Run complete course retrieval evaluation workflow
    *
    * @param context - Evaluation context (iteration number, prefix directory)
@@ -184,11 +298,17 @@ export class CourseRetrievalRunnerService
     }
 
     // Execute evaluator
-    const evaluationResult = await this.evaluator.evaluate({
-      question: input.question,
-      skill: input.skill,
-      retrievedCourses: input.retrievedCourses,
-    });
+    const evaluationResult = await this.evaluator.evaluate(
+      {
+        question: input.question,
+        skill: input.skill,
+        retrievedCourses: input.retrievedCourses,
+      },
+      {
+        model: context.judgeModel,
+        provider: context.judgeProvider,
+      },
+    );
 
     // Log evaluation metrics
     this.logger.log('=== Evaluation Results ===');

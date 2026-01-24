@@ -1,10 +1,7 @@
-import { encode } from '@toon-format/toon';
-
 import { LlmCourseEvaluationItem } from '../schemas/schema';
 import {
   CourseInfo,
   EvaluationItem,
-  LlmCouresInfo,
   RetrievalPerformanceMetrics,
   RetrievalScoreDistribution,
 } from '../types/course-retrieval.types';
@@ -132,15 +129,18 @@ export class CourseRetrieverEvaluatorHelper {
   /**
    * Builds the context string for retrieved courses
    *
+   * Converts courses array to formatted JSON string for LLM consumption.
+   * Uses snake_case keys to match the schema expected by the LLM.
+   *
    * @param courses - list of course info
-   * @returns encoded string representation of courses
+   * @returns formatted JSON string representation of courses
    */
   static buildRetrievedCoursesContext(courses: CourseInfo[]): string {
-    const llmCourses: LlmCouresInfo[] = courses.map((course) => ({
+    const coursesData = courses.map((course) => ({
       course_code: course.subjectCode,
       course_name: course.subjectName,
       learning_outcomes: course.cleanedLearningOutcomes,
     }));
-    return encode(llmCourses);
+    return JSON.stringify(coursesData, null, 2);
   }
 }

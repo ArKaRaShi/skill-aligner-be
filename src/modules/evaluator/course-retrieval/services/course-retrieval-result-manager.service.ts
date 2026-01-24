@@ -27,7 +27,11 @@ export class CourseRetrievalResultManagerService {
   private readonly logger = new Logger(
     CourseRetrievalResultManagerService.name,
   );
-  private readonly baseDir = 'data/evaluation/course-retriever';
+  private readonly baseDir: string;
+
+  constructor(baseDir?: string) {
+    this.baseDir = baseDir ?? 'data/evaluation/course-retriever';
+  }
 
   /**
    * Ensure the directory structure exists for a test set
@@ -143,7 +147,7 @@ export class CourseRetrievalResultManagerService {
    *
    * @param testSetName - Test set identifier
    * @param iterationNumber - Iteration number to load
-   * @returns Array of evaluation records
+   * @returns Array of evaluation records (empty array if not found)
    */
   async loadIterationRecords(params: {
     testSetName: string;
@@ -157,6 +161,20 @@ export class CourseRetrievalResultManagerService {
       `records-iteration-${iterationNumber}.json`,
     );
 
-    return FileHelper.loadJson<EvaluateRetrieverOutput[]>(filePath);
+    try {
+      return await FileHelper.loadJson<EvaluateRetrieverOutput[]>(filePath);
+    } catch {
+      // Return empty array if not found
+      return [];
+    }
+  }
+
+  /**
+   * Get the base directory path for course retrieval evaluations
+   *
+   * @returns Base directory path
+   */
+  getBaseDir(): string {
+    return this.baseDir;
   }
 }

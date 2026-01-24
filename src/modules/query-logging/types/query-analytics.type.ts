@@ -61,3 +61,74 @@ export interface PerRunCostSummary {
   tokens?: TokenBreakdown;
   duration?: number;
 }
+
+// ============================================================================
+// DISTRIBUTION ANALYTICS TYPES
+// ============================================================================
+
+/**
+ * Question-level summary statistics.
+ */
+export interface QuestionLevelSummary {
+  totalQueries: number;
+  avgCoursesReturned: number;
+  minCoursesReturned: number;
+  maxCoursesReturned: number;
+  stdDevCoursesReturned: number;
+  avgSkillsExtracted: number;
+  avgCostPerQuery: number;
+  avgDurationPerQuery: number;
+}
+
+/**
+ * Skill-level breakdown metrics.
+ */
+export interface SkillLevelBreakdown {
+  skill: string;
+  frequency: number;
+  avgCoursesRetrieved: number;
+  avgAcceptedCount: number;
+  avgRejectedCount: number;
+  acceptanceRate: number;
+  rejectionRate: number;
+}
+
+/**
+ * Aggregation metrics (fan-out, deduplication).
+ */
+export interface AggregationMetrics {
+  avgRawCourses: number;
+  avgUniqueCourses: number;
+  avgDuplicatesRemoved: number;
+  avgDuplicateRate: number;
+  avgClosPerCourse: number;
+}
+
+/**
+ * Correlation analysis metrics.
+ */
+export interface CorrelationMetrics {
+  skillsVsCoursesCorrelation: number;
+  costPerCourse: number;
+  coursesPerSkill: number;
+}
+
+/**
+ * Distribution bucket for histogram.
+ */
+export interface DistributionBucket {
+  range: string;
+  count: number;
+  percentage: number;
+}
+
+/**
+ * Complete distribution analytics report.
+ */
+export interface DistributionAnalyticsReport {
+  questionLevel: QuestionLevelSummary;
+  skillLevel: SkillLevelBreakdown[];
+  aggregation: AggregationMetrics;
+  correlation: CorrelationMetrics;
+  distributionBuckets: DistributionBucket[];
+}

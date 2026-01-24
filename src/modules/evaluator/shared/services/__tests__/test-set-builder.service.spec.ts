@@ -323,6 +323,75 @@ describe('TestSetBuilderService', () => {
     });
   });
 
+  describe('buildAnswerSynthesisEvalTestSet', () => {
+    it('should build merged test set from answer synthesis and aggregation enriched logs', async () => {
+      const mockSynthesisLog = createMockEnrichedLogWithAnswerSynthesis();
+      const mockAggregationLog = createMockEnrichedLogWithAggregation();
+
+      mockTransformer.toAnswerSynthesisEnrichedLogs.mockResolvedValue([
+        mockSynthesisLog,
+      ]);
+      mockTransformer.toCourseAggregationEnrichedLogs.mockResolvedValue([
+        mockAggregationLog,
+      ]);
+
+      const result = await service.buildAnswerSynthesisEvalTestSet(['log-123']);
+
+      // Should create test cases using AnswerSynthesisTestSetTransformer
+      expect(result).toHaveLength(1);
+      expect(result[0].queryLogId).toBe(createId('log-123'));
+      expect(result[0].question).toBe(
+        'What skills do I need for data analysis?',
+      );
+      expect(result[0].answer).toBe(
+        'For data analysis, you should start with statistics and Python programming...',
+      );
+      // Context should contain ranked courses from aggregation step
+      expect(result[0].context).toBeDefined();
+      expect(Array.isArray(result[0].context)).toBe(true);
+      expect(result[0].llmModel).toBe('gpt-4');
+      expect(result[0].llmProvider).toBe('openai');
+      expect(result[0].promptVersion).toBe('V3');
+      expect(result[0].duration).toBe(4000);
+    });
+
+    it('should handle missing aggregation raw output gracefully', async () => {
+      const mockSynthesisLog = createMockEnrichedLogWithAnswerSynthesis();
+      const mockAggregationLog = createMockEnrichedLogWithAggregation({
+        output: undefined,
+      });
+
+      mockTransformer.toAnswerSynthesisEnrichedLogs.mockResolvedValue([
+        mockSynthesisLog,
+      ]);
+      mockTransformer.toCourseAggregationEnrichedLogs.mockResolvedValue([
+        mockAggregationLog,
+      ]);
+
+      const result = await service.buildAnswerSynthesisEvalTestSet(['log-123']);
+
+      // Should still create a test case, but with empty context
+      expect(result).toHaveLength(1);
+      expect(result[0].queryLogId).toBe(createId('log-123'));
+      expect(result[0].context).toEqual([]);
+    });
+
+    it('should return empty array when no matching aggregation logs found', async () => {
+      const mockSynthesisLog = createMockEnrichedLogWithAnswerSynthesis();
+
+      mockTransformer.toAnswerSynthesisEnrichedLogs.mockResolvedValue([
+        mockSynthesisLog,
+      ]);
+      // Return empty aggregation logs - transformer will skip entries without context
+      mockTransformer.toCourseAggregationEnrichedLogs.mockResolvedValue([]);
+
+      const result = await service.buildAnswerSynthesisEvalTestSet(['log-123']);
+
+      // No test cases created due to missing context
+      expect(result).toHaveLength(0);
+    });
+  });
+
   describe('Edge Cases', () => {
     it('should handle empty query log IDs array', async () => {
       mockTransformer.toSkillExpansionEnrichedLogs.mockResolvedValue([]);

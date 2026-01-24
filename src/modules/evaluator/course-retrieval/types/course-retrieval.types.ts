@@ -84,6 +84,10 @@ export type RunTestSetInput = {
   testSet: CourseRetrieverTestSet;
   /** Current iteration number (for multi-run experiments) */
   iterationNumber: number;
+  /** Judge model to use (optional, defaults to EvaluatorJudgeConfig) */
+  judgeModel?: string;
+  /** Judge provider to use (optional, defaults to EvaluatorJudgeConfig) */
+  judgeProvider?: string;
 };
 
 // ============================================================================

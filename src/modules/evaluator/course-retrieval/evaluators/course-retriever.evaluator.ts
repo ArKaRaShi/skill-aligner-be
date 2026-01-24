@@ -6,6 +6,7 @@ import {
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { TokenCostCalculator } from 'src/shared/utils/token-cost-calculator.helper';
 
+import { DEFAULT_JUDGE_TIMEOUT_MS } from '../../shared/configs';
 import { IEvaluator } from '../../shared/contracts/i-evaluator.contract';
 import { CourseRetrieverEvaluatorHelper } from '../helpers/course-retriever.evaluator.helper';
 import {
@@ -40,7 +41,7 @@ export class CourseRetrieverEvaluator
   implements
     IEvaluator<CourseRetrieverEvaluatorInput, CourseRetrieverEvaluatorOutput>
 {
-  private readonly MODEL_NAME: string;
+  private readonly DEFAULT_MODEL_NAME: string;
   private readonly logger = new Logger(CourseRetrieverEvaluator.name);
 
   constructor(
@@ -48,23 +49,32 @@ export class CourseRetrieverEvaluator
     private readonly llmRouterService: ILlmRouterService,
     @Optional() modelName: string = 'gpt-4.1-mini',
   ) {
-    this.MODEL_NAME = modelName;
+    this.DEFAULT_MODEL_NAME = modelName;
   }
 
   async evaluate(
     input: CourseRetrieverEvaluatorInput,
+    options?: {
+      model?: string;
+      provider?: string;
+      timeout?: number;
+    },
   ): Promise<CourseRetrieverEvaluatorOutput> {
     const { question, skill, retrievedCourses } = input;
 
+    // Use options model/provider if provided, otherwise use defaults
+    const model = options?.model ?? this.DEFAULT_MODEL_NAME;
+    const provider = options?.provider; // Optional: let llmRouterService resolve if not specified
+
     // validate config
-    if (this.MODEL_NAME.trim() === '') {
+    if (model.trim() === '') {
       throw new Error(
         'CourseRetrieverEvaluator: MODEL_NAME is not configured.',
       );
     }
 
     this.logger.debug(
-      `Using LLM model: ${this.MODEL_NAME} for course retriever evaluation.`,
+      `Using LLM model: ${model} for course retriever evaluation.`,
     );
     this.logger.log(
       `Evaluating course retriever for question: "${question}" with skill: "${skill}" and ${retrievedCourses.length} retrieved courses.`,
@@ -89,9 +99,10 @@ export class CourseRetrieverEvaluator
     const llmResult = await this.llmRouterService.generateObject({
       prompt: userPrompt,
       systemPrompt: systemPrompt,
-      model: this.MODEL_NAME,
+      model,
+      provider,
       schema,
-      timeout: 60_000, // 60 second timeout for course evaluation
+      timeout: options?.timeout ?? DEFAULT_JUDGE_TIMEOUT_MS,
     });
 
     // Validate and type-narrow the LLM response

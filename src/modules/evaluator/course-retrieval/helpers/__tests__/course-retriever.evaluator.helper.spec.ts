@@ -2,11 +2,6 @@ import { LlmCourseEvaluationItem } from '../../schemas/schema';
 import { CourseInfo, EvaluationItem } from '../../types/course-retrieval.types';
 import { CourseRetrieverEvaluatorHelper } from '../course-retriever.evaluator.helper';
 
-// Mock the toon-format library since Jest doesn't handle ESM modules well in unit tests
-jest.mock('@toon-format/toon', () => ({
-  encode: jest.fn((data: unknown) => JSON.stringify(data)),
-}));
-
 describe('CourseRetrieverEvaluatorHelper', () => {
   describe('mapEvaluations', () => {
     const createLlmEvaluationItem = (
@@ -615,9 +610,16 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       expect(result).toBeDefined();
       expect(typeof result).toBe('string');
       expect(result.length).toBeGreaterThan(0);
-      // Verify it contains course information (toon format encodes to string)
+      // Verify it contains course information
       expect(result).toContain('CS101');
       expect(result).toContain('Introduction to Python');
+      // Verify it's valid JSON with snake_case keys
+      const parsed = JSON.parse(result);
+      expect(parsed).toHaveLength(1);
+      expect(parsed[0]).toMatchObject({
+        course_code: 'CS101',
+        course_name: 'Introduction to Python',
+      });
     });
 
     it('should build context for multiple courses', () => {
@@ -645,6 +647,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       expect(result).toContain('CS201');
       expect(result).toContain('Python Basics');
       expect(result).toContain('Java Advanced');
+      const parsed = JSON.parse(result);
+      expect(parsed).toHaveLength(2);
     });
 
     it('should handle courses with multiple learning outcomes', () => {
@@ -669,6 +673,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       expect(result).toContain('Write clean code');
       expect(result).toContain('Debug applications');
       expect(result).toContain('Work with databases');
+      const parsed = JSON.parse(result);
+      expect(parsed[0].learning_outcomes).toHaveLength(4);
     });
 
     it('should handle courses with empty learning outcomes array', () => {
@@ -686,6 +692,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Assert
       expect(result).toBeDefined();
       expect(result).toContain('CS101');
+      const parsed = JSON.parse(result);
+      expect(parsed[0].learning_outcomes).toEqual([]);
     });
 
     it('should handle empty courses array', () => {
@@ -699,6 +707,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Assert
       expect(result).toBeDefined();
       expect(typeof result).toBe('string');
+      const parsed = JSON.parse(result);
+      expect(parsed).toEqual([]);
     });
 
     it('should handle special characters in course names and outcomes', () => {
@@ -760,13 +770,31 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       const result =
         CourseRetrieverEvaluatorHelper.buildRetrievedCoursesContext(courses);
 
-      // Assert: The helper transforms to snake_case before encoding
-      // With mocked JSON.stringify, we can verify the transformation happened
+      // Assert: The helper transforms to snake_case for LLM consumption
       const parsed = JSON.parse(result);
       expect(parsed[0]).toHaveProperty('course_code', 'CS101');
       expect(parsed[0]).toHaveProperty('course_name', 'Test Course');
       expect(parsed[0]).toHaveProperty('learning_outcomes');
       expect(parsed[0].learning_outcomes).toEqual(['Outcome 1']);
+    });
+
+    it('should produce pretty-printed JSON with 2-space indentation', () => {
+      // Arrange
+      const courses: CourseInfo[] = [
+        createCourseInfo({
+          subjectCode: 'CS101',
+          subjectName: 'Test Course',
+          cleanedLearningOutcomes: ['Outcome 1'],
+        }),
+      ];
+
+      // Act
+      const result =
+        CourseRetrieverEvaluatorHelper.buildRetrievedCoursesContext(courses);
+
+      // Assert: Verify 2-space indentation
+      expect(result).toContain('  "course_code"'); // 2 spaces before key
+      expect(result).toContain('    "learning_outcomes"'); // 4 spaces (nested)
     });
   });
 });

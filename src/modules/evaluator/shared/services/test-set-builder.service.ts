@@ -13,9 +13,13 @@ import type {
   SkillExpansionRawOutput,
 } from 'src/modules/query-logging/types/query-log-step.type';
 
+import { AnswerSynthesisTestSetTransformer } from '../../answer-synthesis/loaders/answer-synthesis-test-set-transformer.service';
+import type {
+  AnswerSynthesisTestCase,
+  AnswerSynthesisTestSet,
+} from '../../answer-synthesis/types/answer-synthesis.types';
 import { TestSetTransformer } from '../transformers/test-set.transformer';
 import type {
-  AnswerSynthesisTestSet,
   ClassificationTestSet,
   CourseAggregationTestSetSerialized,
   CourseFilterTestSetSerialized,
@@ -49,8 +53,11 @@ const DEFAULT_TEST_SET_DIR = 'data/evaluation/test-sets';
 @Injectable()
 export class TestSetBuilderService {
   private readonly logger = new Logger(TestSetBuilderService.name);
+  private readonly answerSynthesisTransformer: AnswerSynthesisTestSetTransformer;
 
-  constructor(private readonly transformer: TestSetTransformer) {}
+  constructor(private readonly transformer: TestSetTransformer) {
+    this.answerSynthesisTransformer = new AnswerSynthesisTestSetTransformer();
+  }
 
   /**
    * Build test set from SKILL_EXPANSION step
@@ -314,6 +321,77 @@ export class TestSetBuilderService {
     });
   }
 
+  /**
+   * Build ANSWER_SYNTHESIS_EVAL test set (merged with context)
+   *
+   * This creates a ready-to-evaluate test set by merging:
+   * - Answer synthesis data (question + answer)
+   * - Course aggregation data (ranked courses context)
+   *
+   * The merged result can be used directly by the answer-synthesis evaluation CLI
+   * without needing to load and transform two separate files.
+   *
+   * @param queryLogIds - Query log IDs to build test set from
+   * @returns Array of merged test cases ready for evaluation
+   */
+  async buildAnswerSynthesisEvalTestSet(
+    queryLogIds: string[],
+  ): Promise<AnswerSynthesisTestCase[]> {
+    this.logger.log(
+      `Building ANSWER_SYNTHESIS_EVAL test set from ${queryLogIds.length} query logs`,
+    );
+
+    // Build both test sets separately using existing methods
+    const answerSet = await this.buildAnswerSynthesisTestSet(queryLogIds);
+
+    // Get course aggregation enriched logs to build context set
+    const aggregationLogs =
+      await this.transformer.toCourseAggregationEnrichedLogs(queryLogIds);
+
+    // Convert aggregation logs to AnswerSynthesisContextSet format
+    // The transformer only uses rankedCourses, filteredSkillCoursesMap is unused
+    const contextSet = aggregationLogs.map((log) => {
+      const step = log.aggregationStep;
+      const raw = step.output?.raw as CourseAggregationRawOutput;
+
+      if (!raw) {
+        this.logger.warn(`No raw output for query log ${log.id}`);
+        return {
+          queryLogId: log.id,
+          question: log.question,
+          filteredSkillCoursesMap: {},
+          rankedCourses: [],
+          duration: step.duration,
+        };
+      }
+
+      // filteredSkillCoursesMap is NOT used by the transformer (it only uses rankedCourses)
+      // But we need to include it to match the AnswerSynthesisContextSet type
+      // Use empty Record since the type structure is incompatible
+      const filteredSkillCoursesMap = {};
+
+      return {
+        queryLogId: log.id,
+        question: log.question,
+        filteredSkillCoursesMap,
+        rankedCourses: raw.rankedCourses ?? [],
+        duration: step.duration,
+      };
+    });
+
+    // Merge using existing transformer
+    const testCases = this.answerSynthesisTransformer.transformToTestCases(
+      answerSet,
+      contextSet,
+    );
+
+    this.logger.log(
+      `Created ${testCases.length} merged test cases (skipped ${answerSet.length - testCases.length} due to missing context)`,
+    );
+
+    return testCases;
+  }
+
   // ==========================================================================
   // SAVE METHODS (write test sets to JSON files)
   // ==========================================================================
@@ -405,5 +483,20 @@ export class TestSetBuilderService {
   ): Promise<string> {
     const testSet = await this.buildAnswerSynthesisTestSet(queryLogIds);
     return this.saveTestSet(testSet, filename, directory);
+  }
+
+  /**
+   * Build and save ANSWER_SYNTHESIS_EVAL test set (merged with context)
+   *
+   * This creates a ready-to-evaluate test set that can be used directly
+   * by the answer-synthesis evaluation CLI without needing separate files.
+   */
+  async buildAndSaveAnswerSynthesisEvalTestSet(
+    queryLogIds: string[],
+    filename: string,
+    directory?: string,
+  ): Promise<string> {
+    const testCases = await this.buildAnswerSynthesisEvalTestSet(queryLogIds);
+    return this.saveTestSet(testCases, filename, directory);
   }
 }

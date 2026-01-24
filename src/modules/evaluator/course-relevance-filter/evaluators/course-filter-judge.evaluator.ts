@@ -8,6 +8,7 @@ import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 import { ArrayHelper } from 'src/shared/utils/array.helper';
 import type { Batch } from 'src/shared/utils/array.helper';
 
+import { DEFAULT_JUDGE_TIMEOUT_MS } from '../../shared/configs';
 import {
   BINARY_JUDGE_SYSTEM_PROMPT,
   getBinaryJudgeUserPrompt,
@@ -174,7 +175,7 @@ export class CourseFilterJudgeEvaluator {
       systemPrompt,
       model: 'gpt-4.1-mini', // Default judge model
       schema,
-      timeout: 60_000, // 60 second timeout
+      timeout: DEFAULT_JUDGE_TIMEOUT_MS,
     });
 
     // Validate and type-narrow the LLM response

@@ -5,10 +5,10 @@ export const getCourseRetrieverJudgeUserPrompt = (
 ) => `
 Evaluate following list of courses retrieved against the user question and skill.
 
-User Question: 
+User Question:
 ${question}
 
-Skill: 
+Skill:
 ${skill}
 
 Retrieved Courses:

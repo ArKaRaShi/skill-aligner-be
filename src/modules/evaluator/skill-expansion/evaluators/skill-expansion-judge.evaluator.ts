@@ -6,6 +6,7 @@ import {
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 
+import { DEFAULT_JUDGE_TIMEOUT_MS } from '../../shared/configs';
 import {
   getSkillExpansionJudgeUserPrompt,
   SKILL_EXPANSION_JUDGE_SYSTEM_PROMPT,
@@ -22,9 +23,6 @@ import type {
 // ============================================================================
 // SKILL EXPANSION JUDGE EVALUATOR SERVICE
 // ============================================================================
-
-/** Default timeout for LLM calls */
-const DEFAULT_TIMEOUT = 60_000; // 60 seconds
 
 /**
  * LLM-as-a-Judge evaluator for skill expansion quality.
@@ -96,7 +94,7 @@ export class SkillExpansionJudgeEvaluator {
       model: options?.model ?? 'gpt-4o-mini',
       provider: options?.provider,
       schema,
-      timeout: options?.timeout ?? DEFAULT_TIMEOUT,
+      timeout: options?.timeout ?? DEFAULT_JUDGE_TIMEOUT_MS,
     });
 
     // Validate and type-narrow the LLM response

@@ -5,12 +5,12 @@ import {
   ILlmRouterService,
 } from '../../shared/adapters/llm/contracts/i-llm-router-service.contract';
 import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
-import { AppConfigService } from '../../shared/kernel/config/app-config.service';
 import { QueryLoggingModule } from '../query-logging/query-logging.module';
 import { QueryProcessorModule } from '../query-processor/query-processor.module';
 // Answer Synthesis imports
 import { AnswerSynthesisJudgeEvaluator } from './answer-synthesis/evaluators/answer-synthesis-judge.evaluator';
 import { AnswerSynthesisTestSetLoaderService } from './answer-synthesis/loaders/answer-synthesis-test-set-loader.service';
+import { AnswerSynthesisTestSetTransformer } from './answer-synthesis/loaders/answer-synthesis-test-set-transformer.service';
 import { AnswerSynthesisComparisonService } from './answer-synthesis/services/answer-synthesis-comparison.service';
 import { AnswerSynthesisLowFaithfulnessAnalyzerService } from './answer-synthesis/services/answer-synthesis-low-faithfulness-analyzer.service';
 import { AnswerSynthesisMetricsCalculator } from './answer-synthesis/services/answer-synthesis-metrics-calculator.service';
@@ -28,14 +28,13 @@ import { CourseFilterMetricsCalculator } from './course-relevance-filter/service
 import { CourseRetrieverEvaluator } from './course-retrieval/evaluators/course-retriever.evaluator';
 import { EvaluationProgressTrackerService } from './course-retrieval/evaluators/evaluation-progress-tracker.service';
 import { CourseRetrievalTestSetLoaderService } from './course-retrieval/loaders/course-retrieval-test-set-loader.service';
+import { CourseRetrievalTestSetTransformer } from './course-retrieval/loaders/course-retrieval-test-set-transformer.service';
 import { CourseRetrievalComparisonService } from './course-retrieval/services/course-retrieval-comparison.service';
 import { CourseRetrievalResultManagerService } from './course-retrieval/services/course-retrieval-result-manager.service';
-import {
-  CourseRetrievalRunnerService,
-  I_COURSE_RETRIEVAL_RUNNER_TOKEN,
-} from './course-retrieval/services/course-retrieval-runner.service';
+import { CourseRetrievalRunnerService } from './course-retrieval/services/course-retrieval-runner.service';
 import { EvaluatorController } from './evaluator.controller';
 import { QuestionClassificationEvaluatorService } from './question-classification/evaluators/question-classification-evaluator.service';
+import { EvaluatorJudgeConfig } from './shared/configs';
 import { QuestionSetCreatorService } from './shared/services/question-set-creator.service';
 import { TestSetBuilderService } from './shared/services/test-set-builder.service';
 import { TestSetTransformer } from './shared/transformers/test-set.transformer';
@@ -55,14 +54,11 @@ import { SkillExpansionEvaluationRunnerService } from './skill-expansion/service
     QuestionClassificationEvaluatorService,
     {
       provide: CourseRetrieverEvaluator,
-      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
-      useFactory: (
-        config: AppConfigService,
-        llmRouter: ILlmRouterService,
-      ): CourseRetrieverEvaluator => {
+      inject: [I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (llmRouter: ILlmRouterService): CourseRetrieverEvaluator => {
         return new CourseRetrieverEvaluator(
           llmRouter,
-          config.courseRetrieverEvaluatorLlmModel,
+          EvaluatorJudgeConfig.COURSE_RETRIEVAL.JUDGE_MODEL,
         );
       },
     },
@@ -72,11 +68,8 @@ import { SkillExpansionEvaluationRunnerService } from './skill-expansion/service
     TestSetTransformer,
     TestSetBuilderService,
     CourseRetrievalTestSetLoaderService,
+    CourseRetrievalTestSetTransformer,
     CourseRetrievalRunnerService,
-    {
-      provide: I_COURSE_RETRIEVAL_RUNNER_TOKEN,
-      useClass: CourseRetrievalRunnerService,
-    },
     // Course Relevance Filter providers
     CourseFilterTestSetTransformer,
     CourseFilterTestSetLoaderService,
@@ -95,6 +88,7 @@ import { SkillExpansionEvaluationRunnerService } from './skill-expansion/service
     SkillExpansionEvaluationRunnerService,
     // Answer Synthesis providers
     AnswerSynthesisTestSetLoaderService,
+    AnswerSynthesisTestSetTransformer,
     AnswerSynthesisJudgeEvaluator,
     AnswerSynthesisComparisonService,
     AnswerSynthesisMetricsCalculator,
@@ -103,14 +97,16 @@ import { SkillExpansionEvaluationRunnerService } from './skill-expansion/service
     AnswerSynthesisRunnerService,
   ],
   exports: [
-    I_COURSE_RETRIEVAL_RUNNER_TOKEN,
+    CourseRetrievalRunnerService,
+    CourseRetrievalTestSetLoaderService,
+    CourseRetrievalTestSetTransformer,
     TestSetTransformer,
     TestSetBuilderService,
-    CourseRetrievalTestSetLoaderService,
     CourseFilterEvaluationRunnerService,
     SkillExpansionTestSetLoaderService,
     SkillExpansionEvaluationRunnerService,
     AnswerSynthesisTestSetLoaderService,
+    AnswerSynthesisTestSetTransformer,
     AnswerSynthesisRunnerService,
   ],
 })

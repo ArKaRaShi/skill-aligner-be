@@ -72,6 +72,11 @@ const AVAILABLE_STEPS = [
     name: 'ANSWER_SYNTHESIS',
     method: 'buildAnswerSynthesisTestSet',
   },
+  {
+    key: 'answer-synthesis-eval',
+    name: 'ANSWER_SYNTHESIS_EVAL',
+    method: 'buildAnswerSynthesisEvalTestSet',
+  },
 ] as const;
 
 type StepKey = (typeof AVAILABLE_STEPS)[number]['key'];
@@ -334,6 +339,13 @@ async function buildTestSet(args: CliArgs): Promise<void> {
         break;
       case 'answer-synthesis':
         savedPath = await testSetBuilder.buildAndSaveAnswerSynthesisTestSet(
+          ids,
+          filename,
+          directory,
+        );
+        break;
+      case 'answer-synthesis-eval':
+        savedPath = await testSetBuilder.buildAndSaveAnswerSynthesisEvalTestSet(
           ids,
           filename,
           directory,

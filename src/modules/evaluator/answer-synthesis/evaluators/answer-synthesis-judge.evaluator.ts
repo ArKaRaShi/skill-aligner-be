@@ -6,6 +6,7 @@ import {
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
 
+import { DEFAULT_JUDGE_TIMEOUT_MS } from '../../shared/configs';
 import {
   ANSWER_SYNTHESIS_JUDGE_SYSTEM_PROMPT,
   getAnswerSynthesisJudgeUserPrompt,
@@ -36,7 +37,6 @@ import type {
 export class AnswerSynthesisJudgeEvaluator {
   private readonly logger = new Logger(AnswerSynthesisJudgeEvaluator.name);
   private readonly defaultJudgeModel = 'gpt-4o'; // Stronger model for judging
-  private readonly defaultTimeout = 60_000; // 60 seconds
 
   constructor(
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
@@ -76,7 +76,7 @@ export class AnswerSynthesisJudgeEvaluator {
       systemPrompt,
       model: judgeModel,
       schema: AnswerSynthesisJudgeVerdictSchema,
-      timeout: this.defaultTimeout,
+      timeout: DEFAULT_JUDGE_TIMEOUT_MS,
     });
 
     // Extract token usage
