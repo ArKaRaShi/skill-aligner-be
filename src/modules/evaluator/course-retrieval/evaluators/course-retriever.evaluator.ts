@@ -10,8 +10,8 @@ import { IEvaluator } from '../../shared/contracts/i-evaluator.contract';
 import { CourseRetrieverEvaluatorHelper } from '../helpers/course-retriever.evaluator.helper';
 import { MetricsCalculator } from '../metrics/metrics-calculator';
 import {
-  COURSE_RETRIEVER_EVALUATOR_SYSTEM_PROMPT,
-  getCourseRetrieverEvaluatorUserPrompt,
+  COURSE_RETRIEVER_JUDGE_SYSTEM_PROMPT,
+  getCourseRetrieverJudgeUserPrompt,
 } from '../prompts/course-retriever.evaluator.prompt';
 import {
   CourseEvaluationItemSchema,
@@ -59,14 +59,14 @@ export class CourseRetrieverEvaluator
     );
 
     // build prompts
-    const userPrompt = getCourseRetrieverEvaluatorUserPrompt(
+    const userPrompt = getCourseRetrieverJudgeUserPrompt(
       question,
       skill,
       CourseRetrieverEvaluatorHelper.buildRetrievedCoursesContext(
         retrievedCourses,
       ),
     );
-    const systemPrompt = COURSE_RETRIEVER_EVALUATOR_SYSTEM_PROMPT;
+    const systemPrompt = COURSE_RETRIEVER_JUDGE_SYSTEM_PROMPT;
 
     // define schema for evaluation
     const schema = getCourseRetrievalEvaluatorSchema(

@@ -1,4 +1,4 @@
-export const getCourseRetrieverEvaluatorUserPrompt = (
+export const getCourseRetrieverJudgeUserPrompt = (
   question: string,
   skill: string,
   retrievedCourses: string, // this should be encoded string of courses
@@ -16,108 +16,50 @@ ${retrievedCourses}
 `;
 
 // system prompt for course retriever evaluator
-export const COURSE_RETRIEVER_EVALUATOR_SYSTEM_PROMPT = `
-You are an Expert Curriculum Auditor and Search Relevance Evaluator.
+export const COURSE_RETRIEVER_JUDGE_SYSTEM_PROMPT = `
+You are an AI Search Relevance Evaluator.
+Your task is to rate the TOPICAL RELEVANCE of a Course to a Target Skill using a standard IR Graded Scale.
 
-Instructions:
-Your task is to evaluate the quality of retrieved courses against two distinct dimensions:
-1. Skill Relevance (Subject Matter Alignment).
-2. Contextual Alignment (User Question Intent).
+You must assess the content coverage based on the COURSE NAME and LEARNING OUTCOMES.
 
-For EACH course provided in the "Retrieved Courses" list, you must output a JSON object containing the evaluation.
+---
 
-Evaluation Criteria:
+RELEVANCE SCALE (0-3):
 
-Criterion 1: Skill Relevance
-To what extent does the course cover the specific "Skill" provided in the input?
-Constraint: Ignore the User Question/Context for this score. Focus ONLY on the coverage of the subject matter.
+SCORE 3: HIGHLY RELEVANT
+- DEFINITION: The skill is a MAIN THEME or PRIMARY LEARNING OBJECTIVE of the course.
+- CRITERIA: The content covers the skill COMPREHENSIVELY. It is exactly what a user searching for this skill would want as a core answer.
 
-Score 3 (Strong Relevance): 
-The course and learning outcomes are primarily dedicated to teaching this skill. 
+SCORE 2: FAIRLY RELEVANT
+- DEFINITION: The skill is discussed briefly or as part of a LARGER MODULE.
+- CRITERIA: It provides some USEFUL LEARNING or application but does not offer complete mastery on its own. It is a distinct component of the course.
 
-Score 2 (Moderate Relevance): 
-The skill is a major module or tool used in the course and its learning outcomes.
+SCORE 1: MARGINALLY RELEVANT
+- DEFINITION: The skill is mentioned in PASSING.
+- CRITERIA: It appears in the description but is NOT a primary learning outcome. It might be a minor example, a prerequisite, or a buzzword without depth.
 
-Score 1 (Weak Relevance): 
-The skill is mentioned as a minor topic or prerequisite in the course or its learning outcomes.
+SCORE 0: IRRELEVANT
+- DEFINITION: The course contains NO INFORMATION about the skill requested.
+- CRITERIA: There is no semantic connection, or it is a HOMONYM ERROR (wrong context/meaning).
 
-Score 0 (Irrelevant): 
-The skill is not found in the course or its learning outcomes.
+---
 
-Criterion 2: Context Match
-How well does this course align with the user's question intent, domain, and application context?
-Constraint: Ignore whether the course teaches the required skill well. Focus only on domain and intent alignment.
+EVALUATION RULES:
 
-Score 3 (Strong Alignment):
-The course domain and application context strongly match the user's explicit or implicit intent.
+1. EVIDENCE FIRST: Judge ONLY based on the provided text (Name & Outcomes). Do not guess or hallucinate content.
+2. STRICT SEMANTICS: Be careful with HOMONYMS (e.g., "Architecture" in Software vs. Building). If context implies a different meaning, SCORE 0.
+3. INDEPENDENT SCORING: Evaluate each course on its own merit.
 
-Score 2 (Partial / Exploratory Alignment):
-The course domain is related and useful for exploration or background understanding, but is broader or less targeted than the user's intent.
+OUTPUT FORMAT:
 
-Score 1 (Context Mismatch):
-The course domain does not align with the user's intent, even if the subject matter appears related.
-
-Score 0 (Irrelevant):
-The course domain is clearly unrelated to the user's intent or goal.
-
-Guidelines for Evaluation:
-- The relevance scores are conceptually independent and must not influence each other during evaluation. And, must in discrete values of 0, 1, 2, or 3.
-- The reasoning must be concise and directly justify the assigned score.
-
-Output Format:
-You must return a valid JSON object with a single key "evaluations" containing an array of objects.
-
+Return a valid JSON object:
 {
   "evaluations": [
     {
-      "course_code": "<course_code>",
-      "course_name": "<course_name>",
-      "skill_relevance_score": <skill_relevance_score>,
-      "skill_reason": "<skill_reason_string>",
-      "context_alignment_score": <context_alignment_score>,
-      "context_reason": "<context_reason_string>"
-    },
-    ...
+      "code": "<COURSE_CODE>",
+      "score": <0|1|2|3>,
+      "reason": "<Brief justification>"
+    }
   ]
-}
-
-Example:
-Input: 
-Question: "อยากทำงานเป็น System Analyst ในบริษัทเทคโนโลยี"
-Skill: "การวิเคราะห์และออกแบบระบบ"
-Retrieved Courses: 
-[
-  {
-    "course_code": "01204341",
-    "course_name": "วิศวกรรมซอฟต์แวร์",
-    "learning_outcomes": ["สามารถวิเคราะห์ความต้องการ และออกแบบพระบบซอฟต์แวร์ได้", "สามารถนำอัลกอริทึมและโครงสร้างข้อมูลมาใช้ในการพัฒนาซอฟต์แวร์ได้"]
-  },
-  {
-    "course_code": "01215211",
-    "course_name": "การจัดการระบบขนส่งและโลจิสติกส์",
-    "learning_outcomes": ["วิเคราะห์โครงข่ายการขนส่งได้", "สามารถออกแบบระบบการไหลเวียนสินค้าได้"]
-  }
-]
-
-Output:
-{
-    "evaluations": [
-        {
-            "course_code": "01204341",
-            "course_name": "วิศวกรรมซอฟต์แวร์",
-            "skill_relevance_score": 3,
-            "skill_reason": "เนื้อหาหลักคือการวิเคราะห์และออกแบบระบบ (Direct Skill Match)",
-            "context_alignment_score": 3,
-            "context_reason": "High Alignment: ตรงกับเป้าหมายของผู้ใช้อย่างสมบูรณ์ ในด้านของการวิเคราะห์และออกแบบระบบในบริษัทเทคโนโลยี"   
-        },
-        {
-            "course_code": "01215211",
-            "course_name": "การจัดการระบบขนส่งและโลจิสติกส์",
-            "skill_relevance_score": 3,
-            "skill_reason": "มีการสอนการวิเคราะห์และออกแบบระบบเช่นกัน (High Skill Match)",
-            "context_alignment_score": 1,
-            "context_reason": "Context Mismatch: ทักษะตรงกัน แต่บริบทเป็นโลจิสติกส์ ซึ่งไม่ตรงกับเป้าหมายของผู้ใช้ ที่ต้องการทำงานในบริษัทเทคโนโลยี"
-        }
-    ]
 }
 `;
