@@ -8,6 +8,8 @@ import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 
 import { EmbeddingModule } from '../../shared/adapters/embedding/embedding.module';
 import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
+import { CampusModule } from '../campus/campus.module';
+import { FacultyModule } from '../faculty/faculty.module';
 import { QuestionAnalysesModule } from '../question-analyses/question-analyses.module';
 import { CourseController } from './adapters/inbound/http/course.controller';
 import { I_COURSE_CLICK_LOG_REPOSITORY_TOKEN } from './contracts/i-course-click-log-repository.contract';
@@ -27,7 +29,13 @@ import { CourseRetrieverService } from './services/course-retriever.service';
 import { CourseUseCases } from './use-cases';
 
 @Module({
-  imports: [GptLlmModule, EmbeddingModule, QuestionAnalysesModule],
+  imports: [
+    GptLlmModule,
+    EmbeddingModule,
+    QuestionAnalysesModule,
+    FacultyModule,
+    CampusModule,
+  ],
   controllers: [CourseController],
   providers: [
     ...CourseUseCases,

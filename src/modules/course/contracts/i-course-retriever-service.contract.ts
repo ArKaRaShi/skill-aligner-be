@@ -1,4 +1,7 @@
-import { EmbeddingUsage } from 'src/shared/contracts/types/embedding-usage.type';
+import {
+  EmbeddingUsage,
+  QueryEmbeddingUsage,
+} from 'src/shared/contracts/types/embedding-usage.type';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import { CourseWithLearningOutcomeV2Match } from '../types/course.type';
@@ -18,6 +21,8 @@ export type FindCoursesWithLosBySkillsWithFilterParams = {
   facultyId?: Identifier;
   isGenEd?: boolean;
   academicYearSemesters?: AcademicYearSemesterFilter[];
+  /** Embedding model to use (e.g., 'e5-base', 'text-embedding-3-small'). Falls back to default if not specified. */
+  embeddingModel?: string;
 };
 
 type Skill = string;
@@ -26,6 +31,23 @@ type Skill = string;
 export type CourseRetrieverOutput = {
   coursesBySkill: Map<Skill, CourseWithLearningOutcomeV2Match[]>;
   embeddingUsage: EmbeddingUsage;
+};
+
+export type FindLosByQueryWithFilterParams = {
+  query: string;
+  loThreshold?: number;
+  topNLos?: number;
+  campusId?: Identifier;
+  facultyId?: Identifier;
+  isGenEd?: boolean;
+  academicYearSemesters?: AcademicYearSemesterFilter[];
+  /** Embedding model to use (e.g., 'e5-base', 'text-embedding-3-small'). Falls back to default if not specified. */
+  embeddingModel?: string;
+};
+
+export type CoursesByQueryOutput = {
+  courses: CourseWithLearningOutcomeV2Match[];
+  embeddingUsage: QueryEmbeddingUsage;
 };
 
 export interface ICourseRetrieverService {
@@ -37,4 +59,13 @@ export interface ICourseRetrieverService {
   getCoursesWithLosBySkillsWithFilter: (
     params: FindCoursesWithLosBySkillsWithFilterParams,
   ) => Promise<CourseRetrieverOutput>;
+
+  /**
+   * Find courses by a single query string with optional filters.
+   * @param params - The parameters for finding courses by query.
+   * @returns Courses ranked by similarity score, with matched learning outcomes, plus embedding usage metadata.
+   */
+  getCoursesByQuery: (
+    params: FindLosByQueryWithFilterParams,
+  ) => Promise<CoursesByQueryOutput>;
 }

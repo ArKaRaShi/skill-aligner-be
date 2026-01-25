@@ -6,7 +6,7 @@ import {
   MOCK_VECTOR7_ID,
   MOCK_VECTOR8_ID,
   VECTOR_DIMENSION_768,
-} from './find-los-by-skills.fixture';
+} from '../fixtures/find-los-by-skills.fixture';
 
 describe('PrismaCourseLearningOutcomeRepository - Similarity Ranking (Integration)', () => {
   let fixture: FindLosBySkillsTestFixture;

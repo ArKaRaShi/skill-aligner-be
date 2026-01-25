@@ -59,3 +59,13 @@ export type CourseView = {
   createdAt: Date;
   updatedAt: Date;
 };
+
+/**
+ * CourseView variant for query-based retrieval.
+ * Unlike CourseView (which uses matchedSkills for skill-based search),
+ * this includes matchedLearningOutcomes with similarity scores from
+ * semantic search against a natural language query.
+ */
+export type CourseViewWithSimilarity = Omit<CourseView, 'matchedSkills'> & {
+  matchedLearningOutcomes: MatchedLearningOutcome[];
+};

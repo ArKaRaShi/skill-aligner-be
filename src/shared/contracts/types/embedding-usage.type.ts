@@ -25,3 +25,17 @@ export type EmbeddingUsage = {
   bySkill: SkillEmbeddingUsage[];
   totalTokens: number;
 };
+
+/**
+ * Single-query embedding usage with token counts and metadata.
+ */
+export type QueryEmbeddingUsage = {
+  query: string;
+  model: string;
+  provider: string;
+  dimension: number;
+  embeddedText: string;
+  generatedAt: string;
+  promptTokens: number;
+  totalTokens: number;
+};

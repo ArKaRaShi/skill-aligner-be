@@ -5,7 +5,7 @@ import {
   MOCK_CLO2_ID,
   MOCK_CLO7_ID,
   VECTOR_DIMENSION_1536,
-} from './find-los-by-skills.fixture';
+} from '../fixtures/find-los-by-skills.fixture';
 
 describe('PrismaCourseLearningOutcomeRepository - Multi-Dimension (Integration)', () => {
   let fixture: FindLosBySkillsTestFixture;

@@ -4,11 +4,15 @@ import { ILlmRouterService } from 'src/shared/adapters/llm/contracts/i-llm-route
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import {
+  FindLosByQueryOutput,
   FindLosBySkillsOutput,
   ICourseLearningOutcomeRepository,
 } from '../../contracts/i-course-learning-outcome-repository.contract';
 import { ICourseRepository } from '../../contracts/i-course-repository.contract';
-import { FindCoursesWithLosBySkillsWithFilterParams } from '../../contracts/i-course-retriever-service.contract';
+import {
+  FindCoursesWithLosBySkillsWithFilterParams,
+  FindLosByQueryWithFilterParams,
+} from '../../contracts/i-course-retriever-service.contract';
 import {
   LearningOutcome,
   MatchedLearningOutcome,
@@ -77,6 +81,7 @@ describe('CourseRetrieverService', () => {
 
     loRepository = {
       findLosBySkills: jest.fn(),
+      findLosByQuery: jest.fn(),
     } as jest.Mocked<ICourseLearningOutcomeRepository>;
 
     const mockLlmRouter: Partial<jest.Mocked<ILlmRouterService>> = {
@@ -312,6 +317,256 @@ describe('CourseRetrieverService', () => {
       ]);
       expect(courseMatch.remainingLearningOutcomes).toHaveLength(1);
       expect(courseMatch.allLearningOutcomes).toHaveLength(2);
+    });
+  });
+
+  const baseQueryParams: FindLosByQueryWithFilterParams = {
+    query: 'test query',
+    loThreshold: 0.5,
+    topNLos: 10,
+  };
+
+  describe('getCoursesByQuery', () => {
+    it('returns empty courses array when no learning outcomes are found', async () => {
+      const mockOutput: FindLosByQueryOutput = {
+        learningOutcomes: [],
+        embeddingUsage: {
+          query: 'test query',
+          model: 'e5-base',
+          provider: 'local',
+          dimension: 768,
+          embeddedText: 'test query',
+          generatedAt: new Date().toISOString(),
+          promptTokens: 0,
+          totalTokens: 0,
+        },
+      };
+      loRepository.findLosByQuery.mockResolvedValue(mockOutput);
+
+      const result = await service.getCoursesByQuery(baseQueryParams);
+
+      expect(result.courses).toEqual([]);
+      expect(
+        courseRepository.findCourseByLearningOutcomeIds,
+      ).not.toHaveBeenCalled();
+    });
+
+    it('passes through embedding usage metadata from repository', async () => {
+      const lo1 = buildMatchedLearningOutcome({
+        loId: 'lo-1' as Identifier,
+        similarityScore: 0.9,
+      });
+
+      const mockOutput: FindLosByQueryOutput = {
+        learningOutcomes: [lo1],
+        embeddingUsage: {
+          query: 'test query',
+          model: 'e5-base',
+          provider: 'local',
+          dimension: 768,
+          embeddedText: 'test query',
+          generatedAt: '2024-01-01T00:00:00.000Z',
+          promptTokens: 5,
+          totalTokens: 5,
+        },
+      };
+      loRepository.findLosByQuery.mockResolvedValue(mockOutput);
+
+      const course = buildCourse({
+        courseLearningOutcomes: [
+          buildLearningOutcome({ loId: 'lo-1' as Identifier }),
+        ],
+      });
+
+      courseRepository.findCourseByLearningOutcomeIds.mockResolvedValue(
+        new Map<Identifier, Course[]>([['lo-1' as Identifier, [course]]]),
+      );
+
+      const result = await service.getCoursesByQuery(baseQueryParams);
+
+      // Verify embedding metadata is passed through correctly
+      expect(result.embeddingUsage).toEqual({
+        query: 'test query',
+        model: 'e5-base',
+        provider: 'local',
+        dimension: 768,
+        embeddedText: 'test query',
+        generatedAt: '2024-01-01T00:00:00.000Z',
+        promptTokens: 5,
+        totalTokens: 5,
+      });
+    });
+
+    it('aggregates courses with matched learning outcomes', async () => {
+      const lo1 = buildMatchedLearningOutcome({
+        loId: 'lo-1' as Identifier,
+        similarityScore: 0.9,
+      });
+      const lo2 = buildMatchedLearningOutcome({
+        loId: 'lo-2' as Identifier,
+        similarityScore: 0.8,
+      });
+
+      const mockOutput: FindLosByQueryOutput = {
+        learningOutcomes: [lo1, lo2],
+        embeddingUsage: {
+          query: 'test query',
+          model: 'e5-base',
+          provider: 'local',
+          dimension: 768,
+          embeddedText: 'test query',
+          generatedAt: new Date().toISOString(),
+          promptTokens: 0,
+          totalTokens: 0,
+        },
+      };
+      loRepository.findLosByQuery.mockResolvedValue(mockOutput);
+
+      const course = buildCourse({
+        courseLearningOutcomes: [
+          buildLearningOutcome({ loId: 'lo-1' as Identifier }),
+          buildLearningOutcome({ loId: 'lo-2' as Identifier }),
+        ],
+      });
+
+      courseRepository.findCourseByLearningOutcomeIds.mockResolvedValue(
+        new Map<Identifier, Course[]>([
+          ['lo-1' as Identifier, [course]],
+          ['lo-2' as Identifier, [course]],
+        ]),
+      );
+
+      const result = await service.getCoursesByQuery(baseQueryParams);
+
+      expect(result.courses).toHaveLength(1);
+      const [courseMatch] = result.courses;
+      expect(courseMatch.id).toBe(course.id);
+      expect(courseMatch.matchedLearningOutcomes).toHaveLength(2);
+      expect(courseMatch.matchedLearningOutcomes.map((lo) => lo.loId)).toEqual([
+        'lo-1',
+        'lo-2',
+      ]);
+      expect(courseMatch.remainingLearningOutcomes).toHaveLength(1);
+      expect(courseMatch.allLearningOutcomes).toHaveLength(2);
+    });
+
+    it('sorts courses by highest similarity score', async () => {
+      const lo1 = buildMatchedLearningOutcome({
+        loId: 'lo-1' as Identifier,
+        similarityScore: 0.7,
+      });
+      const lo2 = buildMatchedLearningOutcome({
+        loId: 'lo-2' as Identifier,
+        similarityScore: 0.95,
+      });
+
+      const mockOutput: FindLosByQueryOutput = {
+        learningOutcomes: [lo1, lo2],
+        embeddingUsage: {
+          query: 'test query',
+          model: 'e5-base',
+          provider: 'local',
+          dimension: 768,
+          embeddedText: 'test query',
+          generatedAt: new Date().toISOString(),
+          promptTokens: 0,
+          totalTokens: 0,
+        },
+      };
+      loRepository.findLosByQuery.mockResolvedValue(mockOutput);
+
+      const course1 = buildCourse({
+        id: 'course-1' as Identifier,
+        courseLearningOutcomes: [
+          buildLearningOutcome({ loId: 'lo-1' as Identifier }),
+        ],
+      });
+      const course2 = buildCourse({
+        id: 'course-2' as Identifier,
+        courseLearningOutcomes: [
+          buildLearningOutcome({ loId: 'lo-2' as Identifier }),
+        ],
+      });
+
+      courseRepository.findCourseByLearningOutcomeIds.mockResolvedValue(
+        new Map<Identifier, Course[]>([
+          ['lo-1' as Identifier, [course1]],
+          ['lo-2' as Identifier, [course2]],
+        ]),
+      );
+
+      const result = await service.getCoursesByQuery(baseQueryParams);
+
+      expect(result.courses).toHaveLength(2);
+      // course2 has higher similarity (0.95) than course1 (0.7)
+      expect(result.courses[0].id).toBe('course-2');
+      expect(result.courses[1].id).toBe('course-1');
+
+      // Verify scores are correctly calculated
+      expect(result.courses[0].matchedLearningOutcomes[0].similarityScore).toBe(
+        0.95,
+      );
+      expect(result.courses[1].matchedLearningOutcomes[0].similarityScore).toBe(
+        0.7,
+      );
+    });
+
+    it('handles multiple courses with different learning outcomes', async () => {
+      const lo1 = buildMatchedLearningOutcome({
+        loId: 'lo-1' as Identifier,
+        similarityScore: 0.85,
+      });
+      const lo2 = buildMatchedLearningOutcome({
+        loId: 'lo-2' as Identifier,
+        similarityScore: 0.75,
+      });
+
+      const mockOutput: FindLosByQueryOutput = {
+        learningOutcomes: [lo1, lo2],
+        embeddingUsage: {
+          query: 'test query',
+          model: 'e5-base',
+          provider: 'local',
+          dimension: 768,
+          embeddedText: 'test query',
+          generatedAt: new Date().toISOString(),
+          promptTokens: 0,
+          totalTokens: 0,
+        },
+      };
+      loRepository.findLosByQuery.mockResolvedValue(mockOutput);
+
+      const course1 = buildCourse({
+        id: 'course-1' as Identifier,
+        subjectName: 'Course 1',
+        courseLearningOutcomes: [
+          buildLearningOutcome({ loId: 'lo-1' as Identifier }),
+        ],
+      });
+      const course2 = buildCourse({
+        id: 'course-2' as Identifier,
+        subjectName: 'Course 2',
+        courseLearningOutcomes: [
+          buildLearningOutcome({ loId: 'lo-2' as Identifier }),
+        ],
+      });
+
+      courseRepository.findCourseByLearningOutcomeIds.mockResolvedValue(
+        new Map<Identifier, Course[]>([
+          ['lo-1' as Identifier, [course1]],
+          ['lo-2' as Identifier, [course2]],
+        ]),
+      );
+
+      const result = await service.getCoursesByQuery(baseQueryParams);
+
+      expect(result.courses).toHaveLength(2);
+      expect(result.courses.map((c) => c.subjectName)).toEqual([
+        'Course 1',
+        'Course 2',
+      ]);
+      expect(result.courses[0].matchedLearningOutcomes).toHaveLength(1);
+      expect(result.courses[1].matchedLearningOutcomes).toHaveLength(1);
     });
   });
 });

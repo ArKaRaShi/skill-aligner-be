@@ -9,103 +9,46 @@ import { Identifier } from 'src/shared/contracts/types/identifier';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 
-import { PrismaCourseLearningOutcomeRepository } from '../../prisma-course-learning-outcome.repository';
+import { PrismaCourseLearningOutcomeRepository } from '../../../prisma-course-learning-outcome.repository';
+// Import constants directly from find-los-by-skills.fixture
+import {
+  buildVectorFromSequence,
+  insertCourseLearningOutcomeRecord,
+  MOCK_CAMPUS1_ID,
+  MOCK_CAMPUS2_ID,
+  MOCK_CLO1_ID,
+  MOCK_CLO2_ID,
+  MOCK_CLO3_ID,
+  MOCK_CLO4_ID,
+  MOCK_CLO5_ID,
+  MOCK_CLO6_ID,
+  MOCK_CLO7_ID,
+  MOCK_CLO8_ID,
+  MOCK_COURSE1_ID,
+  MOCK_COURSE2_ID,
+  MOCK_COURSE3_ID,
+  MOCK_COURSE4_ID,
+  MOCK_COURSE5_ID,
+  MOCK_COURSE6_ID,
+  MOCK_FACULTY1_ID,
+  MOCK_FACULTY2_ID,
+  MOCK_VECTOR1_ID,
+  MOCK_VECTOR2_ID,
+  MOCK_VECTOR3_ID,
+  MOCK_VECTOR4_ID,
+  MOCK_VECTOR5_ID,
+  MOCK_VECTOR6_ID,
+  MOCK_VECTOR7_ID,
+  MOCK_VECTOR8_ID,
+  VECTOR_DIMENSION_768,
+  VECTOR_DIMENSION_1536,
+} from './find-los-by-skills.fixture';
 
 // =============================================================================
-// MOCK UUID CONSTANTS
+// TEST FIXTURE CLASS FOR findLosByQuery
 // =============================================================================
 
-// First campus and faculty
-export const MOCK_CAMPUS1_ID = '550e8400-e29b-41d4-a716-446655440001';
-export const MOCK_FACULTY1_ID = '550e8400-e29b-41d4-a716-446655440002';
-export const MOCK_COURSE1_ID = '550e8400-e29b-41d4-a716-446655440004';
-export const MOCK_COURSE2_ID = '550e8400-e29b-41d4-a716-446655440005';
-export const MOCK_CLO1_ID = '550e8400-e29b-41d4-a716-446655440006';
-export const MOCK_CLO2_ID = '550e8400-e29b-41d4-a716-446655440007';
-export const MOCK_CLO3_ID = '550e8400-e29b-41d4-a716-446655440008';
-export const MOCK_VECTOR1_ID = '550e8400-e29b-41d4-a716-446655440009';
-export const MOCK_VECTOR2_ID = '550e8400-e29b-41d4-a716-446655440010';
-export const MOCK_VECTOR3_ID = '550e8400-e29b-41d4-a716-446655440011';
-
-// Second campus and faculty
-export const MOCK_CAMPUS2_ID = '550e8400-e29b-41d4-a716-446655440015';
-export const MOCK_FACULTY2_ID = '550e8400-e29b-41d4-a716-446655440016';
-export const MOCK_COURSE3_ID = '550e8400-e29b-41d4-a716-446655440018';
-export const MOCK_COURSE4_ID = '550e8400-e29b-41d4-a716-446655440019';
-export const MOCK_CLO4_ID = '550e8400-e29b-41d4-a716-446655440020';
-export const MOCK_CLO5_ID = '550e8400-e29b-41d4-a716-446655440021';
-export const MOCK_CLO6_ID = '550e8400-e29b-41d4-a716-446655440022';
-export const MOCK_VECTOR4_ID = '550e8400-e29b-41d4-a716-446655440023';
-export const MOCK_VECTOR5_ID = '550e8400-e29b-41d4-a716-446655440024';
-export const MOCK_VECTOR6_ID = '550e8400-e29b-41d4-a716-446655440025';
-
-// Additional IDs for testing similarity ranking and deduplication
-export const MOCK_COURSE5_ID = '550e8400-e29b-41d4-a716-446655440029';
-export const MOCK_COURSE6_ID = '550e8400-e29b-41d4-a716-446655440030';
-export const MOCK_CLO7_ID = '550e8400-e29b-41d4-a716-446655440031';
-export const MOCK_CLO8_ID = '550e8400-e29b-41d4-a716-446655440032';
-export const MOCK_VECTOR7_ID = '550e8400-e29b-41d4-a716-446655440033';
-export const MOCK_VECTOR8_ID = '550e8400-e29b-41d4-a716-446655440034';
-
-export const VECTOR_DIMENSION_768 = 768;
-export const VECTOR_DIMENSION_1536 = 1536;
-
-// =============================================================================
-// HELPER FUNCTIONS
-// =============================================================================
-
-export const buildVectorFromSequence = (
-  sequence: number[],
-  dimension: number = VECTOR_DIMENSION_768,
-) =>
-  Array.from({ length: dimension }, (_, index) => {
-    if (!sequence.length) {
-      throw new Error('Vector sequence must not be empty');
-    }
-
-    return sequence[index % sequence.length];
-  });
-
-export async function insertCourseLearningOutcomeRecord({
-  prisma,
-  id,
-  courseId,
-  cloNo,
-  originalCloName,
-  cleanedCloName,
-  skipEmbedding = false,
-  hasEmbedding768 = true,
-  hasEmbedding1536 = false,
-}: {
-  prisma: PrismaService;
-  id: string;
-  courseId: Identifier | string;
-  cloNo: number;
-  originalCloName: string;
-  cleanedCloName: string;
-  skipEmbedding?: boolean;
-  hasEmbedding768?: boolean;
-  hasEmbedding1536?: boolean;
-}) {
-  await prisma.courseLearningOutcome.create({
-    data: {
-      id,
-      cloNo,
-      originalCloName,
-      cleanedCloName,
-      courseId,
-      skipEmbedding,
-      hasEmbedding768,
-      hasEmbedding1536,
-    },
-  });
-}
-
-// =============================================================================
-// TEST FIXTURE CLASS
-// =============================================================================
-
-export class FindLosBySkillsTestFixture {
+export class FindLosByQueryTestFixture {
   module: TestingModule;
   repository: PrismaCourseLearningOutcomeRepository;
   prisma: PrismaService;
@@ -303,12 +246,6 @@ export class FindLosBySkillsTestFixture {
     this.offering6Id = offering6.id as Identifier;
 
     // Create learning outcomes
-    await this.createLearningOutcomes();
-    await this.createVectors();
-    this.setupMockEmbedding();
-  }
-
-  private async createLearningOutcomes() {
     await insertCourseLearningOutcomeRecord({
       prisma: this.prisma,
       id: MOCK_CLO1_ID,
@@ -396,9 +333,8 @@ export class FindLosBySkillsTestFixture {
       hasEmbedding768: true,
       hasEmbedding1536: false,
     });
-  }
 
-  private async createVectors() {
+    // Create vectors
     const mockVector768 = buildVectorFromSequence(
       [0.2, 0.1, 0.05, 0.02, 0.01, 0.03, 0.04, 0.15],
       VECTOR_DIMENSION_768,
@@ -453,26 +389,20 @@ export class FindLosBySkillsTestFixture {
         data: { vectorId: update.vectorId },
       });
     }
-  }
 
-  private setupMockEmbedding() {
-    // Mock embedding client response for 768-dimension
-    this.mockEmbeddingRouterService.embedMany.mockImplementation(
-      ({ texts }: { texts: string[] }) => {
-        return Promise.resolve(
-          texts.map(() => ({
-            vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_768),
-            metadata: {
-              model: 'e5-base',
-              provider: 'e5',
-              dimension: 768,
-              embeddedText: 'test',
-              generatedAt: new Date().toISOString(),
-            },
-          })),
-        );
+    // Mock embedding client response for 768-dimension (embedOne, not embedMany)
+    this.mockEmbeddingRouterService.embedOne.mockResolvedValue({
+      vector: buildVectorFromSequence([0.5], VECTOR_DIMENSION_768),
+      metadata: {
+        model: 'e5-base',
+        provider: 'e5',
+        dimension: VECTOR_DIMENSION_768,
+        embeddedText: 'test query',
+        generatedAt: new Date().toISOString(),
+        promptTokens: 10,
+        totalTokens: 10,
       },
-    );
+    });
   }
 
   async cleanup() {

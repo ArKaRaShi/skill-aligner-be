@@ -1,4 +1,7 @@
-import { EmbeddingUsage } from 'src/shared/contracts/types/embedding-usage.type';
+import {
+  EmbeddingUsage,
+  QueryEmbeddingUsage,
+} from 'src/shared/contracts/types/embedding-usage.type';
 import { Identifier } from 'src/shared/contracts/types/identifier';
 
 import { MatchedLearningOutcome } from '../types/course-learning-outcome-v2.type';
@@ -33,6 +36,25 @@ export type FindLosBySkillsOutput = {
   embeddingUsage: EmbeddingUsage;
 };
 
+export type FindLosByQueryParams = {
+  query: string;
+  embeddingConfiguration: {
+    model: string;
+    provider: string;
+  };
+  threshold?: number;
+  topN?: number;
+  campusId?: Identifier;
+  facultyId?: Identifier;
+  isGenEd?: boolean;
+  academicYearSemesters?: AcademicYearSemesterFilter[];
+};
+
+export type FindLosByQueryOutput = {
+  learningOutcomes: MatchedLearningOutcome[];
+  embeddingUsage: QueryEmbeddingUsage;
+};
+
 export interface ICourseLearningOutcomeRepository {
   /**
    * Find learning outcomes by multiple skills via semantic search.
@@ -51,4 +73,20 @@ export interface ICourseLearningOutcomeRepository {
     isGenEd,
     academicYearSemesters,
   }: FindLosBySkillsParams): Promise<FindLosBySkillsOutput>;
+
+  /**
+   * Find learning outcomes by a single query string via semantic search.
+   * @param params The parameters for finding learning outcomes.
+   * @returns Learning outcomes ranked by similarity score, plus embedding usage metadata.
+   */
+  findLosByQuery({
+    query,
+    embeddingConfiguration,
+    threshold,
+    topN,
+    campusId,
+    facultyId,
+    isGenEd,
+    academicYearSemesters,
+  }: FindLosByQueryParams): Promise<FindLosByQueryOutput>;
 }

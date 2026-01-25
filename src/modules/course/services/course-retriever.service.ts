@@ -16,7 +16,9 @@ import {
 } from '../contracts/i-course-repository.contract';
 import {
   CourseRetrieverOutput,
+  CoursesByQueryOutput,
   FindCoursesWithLosBySkillsWithFilterParams,
+  FindLosByQueryWithFilterParams,
   ICourseRetrieverService,
 } from '../contracts/i-course-retriever-service.contract';
 import { FilterLoPromptFactory } from '../prompts';
@@ -51,13 +53,14 @@ export class CourseRetrieverService implements ICourseRetrieverService {
     facultyId,
     isGenEd,
     academicYearSemesters,
+    embeddingModel,
   }: FindCoursesWithLosBySkillsWithFilterParams): Promise<CourseRetrieverOutput> {
     this.logger.debug(`Retrieving courses for skills: ${skills.join(', ')}`);
     const repositoryResult =
       await this.courseLearningOutcomeRepository.findLosBySkills({
         skills,
         embeddingConfiguration: {
-          model: this.embeddingModel,
+          model: embeddingModel ?? this.embeddingModel,
           provider: this.embeddingProvider,
         },
         threshold: loThreshold,
@@ -171,6 +174,122 @@ export class CourseRetrieverService implements ICourseRetrieverService {
 
     return {
       coursesBySkill: coursesBySkills,
+      embeddingUsage: repositoryResult.embeddingUsage,
+    };
+  }
+
+  async getCoursesByQuery({
+    query,
+    loThreshold,
+    topNLos,
+    campusId,
+    facultyId,
+    isGenEd,
+    academicYearSemesters,
+    embeddingModel,
+  }: FindLosByQueryWithFilterParams): Promise<CoursesByQueryOutput> {
+    this.logger.debug(`Retrieving courses for query: ${query}`);
+
+    const repositoryResult =
+      await this.courseLearningOutcomeRepository.findLosByQuery({
+        query,
+        embeddingConfiguration: {
+          model: embeddingModel ?? this.embeddingModel,
+          provider: this.embeddingProvider,
+        },
+        threshold: loThreshold,
+        topN: topNLos,
+        campusId,
+        facultyId,
+        isGenEd,
+        academicYearSemesters,
+      });
+
+    const learningOutcomes = repositoryResult.learningOutcomes;
+    this.logger.debug(
+      `Retrieved ${learningOutcomes.length} learning outcomes for query`,
+    );
+
+    // No learning outcomes found, return empty courses array
+    if (learningOutcomes.length === 0) {
+      return {
+        courses: [],
+        embeddingUsage: repositoryResult.embeddingUsage,
+      };
+    }
+
+    // Get courses for the matched learning outcomes
+    const learningOutcomeIds = learningOutcomes.map((lo) => lo.loId);
+    this.logger.debug(
+      `Retrieving courses for query with LO IDs: ${learningOutcomeIds.join(', ')}`,
+    );
+
+    const coursesByLearningOutcomeIds =
+      await this.courseRepository.findCourseByLearningOutcomeIds({
+        learningOutcomeIds,
+        campusId,
+        facultyId,
+        isGenEd,
+        academicYearSemesters,
+      });
+
+    // Aggregate courses with their matching learning outcomes
+    const courseMatches: CourseWithLearningOutcomeV2Match[] = [];
+
+    for (const [
+      learningOutcomeId,
+      courses,
+    ] of coursesByLearningOutcomeIds.entries()) {
+      // Find the matching learning outcome to get similarity score
+      const matchingLearningOutcome = learningOutcomes.find(
+        (lo) => lo.loId === learningOutcomeId,
+      );
+
+      // If there's a matching learning outcome, associate it with the courses
+      if (matchingLearningOutcome) {
+        for (const course of courses) {
+          const existingCourseMatch = courseMatches.find(
+            (match) => match.id === course.id,
+          );
+
+          const { courseLearningOutcomes, ...courseWithoutLearningOutcomes } =
+            course;
+
+          if (existingCourseMatch) {
+            existingCourseMatch.matchedLearningOutcomes.push(
+              matchingLearningOutcome,
+            );
+          } else {
+            courseMatches.push({
+              ...courseWithoutLearningOutcomes,
+              matchedLearningOutcomes: [matchingLearningOutcome],
+              remainingLearningOutcomes: courseLearningOutcomes.filter(
+                (lo) => lo.loId !== learningOutcomeId,
+              ),
+              allLearningOutcomes: courseLearningOutcomes,
+            });
+          }
+        }
+      }
+    }
+
+    // Sort courses by highest similarity score
+    const sortedCourseMatches = courseMatches.sort((a, b) => {
+      const aMaxScore = Math.max(
+        ...a.matchedLearningOutcomes.map((lo) => lo.similarityScore),
+      );
+      const bMaxScore = Math.max(
+        ...b.matchedLearningOutcomes.map((lo) => lo.similarityScore),
+      );
+      return bMaxScore - aMaxScore;
+    });
+
+    this.logger.debug(
+      `Completed course retrieval for query: ${query}, found ${sortedCourseMatches.length} courses`,
+    );
+
+    return {
+      courses: sortedCourseMatches,
       embeddingUsage: repositoryResult.embeddingUsage,
     };
   }

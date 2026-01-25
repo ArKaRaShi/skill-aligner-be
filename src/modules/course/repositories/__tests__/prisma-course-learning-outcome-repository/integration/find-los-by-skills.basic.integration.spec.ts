@@ -12,7 +12,7 @@ import {
   MOCK_CLO8_ID,
   VECTOR_DIMENSION_768,
   VECTOR_DIMENSION_1536,
-} from './find-los-by-skills.fixture';
+} from '../fixtures/find-los-by-skills.fixture';
 
 describe('PrismaCourseLearningOutcomeRepository - Basic Filters (Integration)', () => {
   let fixture: FindLosBySkillsTestFixture;
