@@ -67,7 +67,7 @@ export const EvaluatorJudgeConfig = {
    */
   ANSWER_SYNTHESIS: {
     /** Judge model (must match LLM_MODEL_REGISTRATIONS.baseModel) */
-    JUDGE_MODEL: 'gpt-4.1-mini',
+    JUDGE_MODEL: 'gpt-5-mini',
     /** Judge provider (must be 'openai' or 'openrouter') */
     JUDGE_PROVIDER: 'openrouter',
   },

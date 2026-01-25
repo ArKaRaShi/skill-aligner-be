@@ -12,7 +12,7 @@ import { CourseRetrieverEvaluatorHelper } from '../helpers/course-retriever.eval
 import {
   COURSE_RETRIEVER_JUDGE_SYSTEM_PROMPT,
   getCourseRetrieverJudgeUserPrompt,
-} from '../prompts/course-retriever.evaluator.prompt';
+} from '../prompts/course-retriever.judge.prompt';
 import {
   CourseEvaluationItemSchema,
   getCourseRetrievalEvaluatorSchema,
