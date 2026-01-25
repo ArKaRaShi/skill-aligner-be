@@ -196,11 +196,11 @@ describe('SkillExpansionJudgeEvaluator', () => {
       // Act
       await evaluator.evaluate(input);
 
-      // Assert
+      // Assert - blind evaluation: only skill is included, not reason/learningOutcome
       const promptArg = llmRouter.generateObject.mock.calls[0][0];
       expect(promptArg.prompt).toContain('Object-Oriented Programming');
-      expect(promptArg.prompt).toContain('User asked about OOP');
-      expect(promptArg.prompt).toContain(
+      expect(promptArg.prompt).not.toContain('User asked about OOP');
+      expect(promptArg.prompt).not.toContain(
         'Understand encapsulation, abstraction, inheritance, polymorphism',
       );
     });

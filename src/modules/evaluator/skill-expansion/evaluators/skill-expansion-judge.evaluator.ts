@@ -135,8 +135,6 @@ export class SkillExpansionJudgeEvaluator {
     const skillsData = JSON.stringify(
       skills.map((s) => ({
         skill: s.skill,
-        reason: s.reason,
-        learningOutcome: s.learningOutcome,
       })),
       null,
       2,
