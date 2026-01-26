@@ -1,0 +1,144 @@
+{
+  "testCaseId": "fa617f52-c86b-4b8c-976b-bfdb073f1070-ภาษาสันสกฤตเบื้องต้น",
+  "question": "อยากเรียนภาษาบาลี",
+  "skill": "ภาษาสันสกฤตเบื้องต้น",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Course focuses on business Chinese language skills, no mention of Sanskrit language."
+    },
+    {
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about basic English listening and speaking, no relation to Sanskrit language."
+    },
+    {
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "relevanceScore": 0,
+      "reason": "Course covers basic English grammar structure, no content related to Sanskrit."
+    },
+    {
+      "subjectCode": "01396141-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Course is about business Chinese conversation, no mention of Sanskrit."
+    },
+    {
+      "subjectCode": "02702131-68",
+      "subjectName": "โครงสร้างภาษาอังกฤษ I",
+      "relevanceScore": 0,
+      "reason": "Course covers English sentence structure, unrelated to Sanskrit language."
+    },
+    {
+      "subjectCode": "04351131-68",
+      "subjectName": "การเขียนย่อหน้าภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on English paragraph writing skills, no Sanskrit content."
+    },
+    {
+      "subjectCode": "03754231-67",
+      "subjectName": "การอ่านภาษาอังกฤษในชีวิตประจำวัน",
+      "relevanceScore": 0,
+      "reason": "Course is about reading English in daily life, no connection to Sanskrit language."
+    },
+    {
+      "subjectCode": "01362573-66",
+      "subjectName": "สัทวิทยาภาษาจีนโบราณ",
+      "relevanceScore": 2,
+      "reason": "Course on ancient Chinese phonetics includes influence of Sanskrit on Chinese phonetics, indicating some relevant content on Sanskrit influence but not comprehensive Sanskrit language instruction."
+    },
+    {
+      "subjectCode": "01420463-66",
+      "subjectName": "ฟิสิกส์ของดาว",
+      "relevanceScore": 0,
+      "reason": "Course is about astrophysics, unrelated to Sanskrit language."
+    },
+    {
+      "subjectCode": "01362112-63",
+      "subjectName": "ภาษาจีนพื้นฐาน II",
+      "relevanceScore": 0,
+      "reason": "Course is basic Chinese language, no mention of Sanskrit."
+    },
+    {
+      "subjectCode": "03754221-67",
+      "subjectName": "การออกเสียงภาษาอังกฤษขั้นพื้นฐาน",
+      "relevanceScore": 0,
+      "reason": "Course covers English pronunciation basics, no Sanskrit content."
+    },
+    {
+      "subjectCode": "01396222-67",
+      "subjectName": "การอ่านภาษาจีนเพื่องานอาชีพ II",
+      "relevanceScore": 0,
+      "reason": "Course is about reading Chinese for professional purposes, no Sanskrit content."
+    },
+    {
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Course focuses on communication skills for teachers, no mention of Sanskrit language."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.15384615384615385,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 12,
+        "macroAverageRate": 92.3076923076923,
+        "microAverageRate": 92.3076923076923,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0.316,
+        "at15": 0.316,
+        "atAll": 0.316
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0.046,
+        "at15": 0.036,
+        "atAll": 0.039
+      }
+    },
+    "precision": {
+      "at5": 0,
+      "at10": 0.1,
+      "at15": 0.077,
+      "atAll": 0.077
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2180,
+  "outputTokens": 382
+}

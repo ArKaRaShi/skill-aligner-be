@@ -1,0 +1,144 @@
+{
+  "testCaseId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การวิเคราะห์งบการเงิน",
+  "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+  "skill": "การวิเคราะห์งบการเงิน",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Course includes basic financial statement analysis as a learning outcome, indicating the skill is covered as part of the course but not the main focus."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 2,
+      "reason": "Course covers analysis of financial reports as a learning outcome, relevant to financial statement analysis but within the context of international accounting."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 3,
+      "reason": "Course title and learning outcomes focus directly on financial statement analysis and valuation, making it highly relevant and comprehensive for the skill."
+    },
+    {
+      "subjectCode": "03760442-64",
+      "subjectName": "การบัญชีนิติวิทยาเบื้องต้น",
+      "relevanceScore": 3,
+      "reason": "Course outcomes explicitly include analyzing financial statements for forensic purposes, indicating comprehensive coverage of financial statement analysis."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 2,
+      "reason": "Course includes explanation of financial statement preparation and financial analysis methods, covering the skill fairly as part of broader financial and accounting topics."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Course mentions basic financial feasibility assessment and cost calculation but financial statement analysis is not a primary focus."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 1,
+      "reason": "Course focuses on accounting principles related to assets and financial statement preparation but does not emphasize financial statement analysis."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "Course focuses on data analysis for accounting, which may support financial analysis but does not directly cover financial statement analysis."
+    },
+    {
+      "subjectCode": "03759211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 2,
+      "reason": "Course includes explanation of financial analysis for decision making, relevant to the skill but within a broader financial management context."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Course focuses on profit planning and control, which may involve some financial analysis but not specifically financial statement analysis."
+    },
+    {
+      "subjectCode": "03651231-65",
+      "subjectName": "การคำนวณเชิงเศรษฐศาสตร์เบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course focuses on economic calculations and policies, no direct connection to financial statement analysis."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Course covers managerial accounting and strategic management, with limited direct focus on financial statement analysis."
+    },
+    {
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Course covers basic accounting and financial statement preparation but does not emphasize financial statement analysis."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.5384615384615385,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 46.15384615384615,
+        "microAverageRate": 46.15384615384615,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.907,
+        "at10": 0.92,
+        "at15": 0.923,
+        "atAll": 0.923
+      },
+      "ideal": {
+        "at5": 0.772,
+        "at10": 0.64,
+        "at15": 0.526,
+        "atAll": 0.576
+      }
+    },
+    "precision": {
+      "at5": 1,
+      "at10": 0.6,
+      "at15": 0.462,
+      "atAll": 0.462
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2436,
+  "outputTokens": 474
+}

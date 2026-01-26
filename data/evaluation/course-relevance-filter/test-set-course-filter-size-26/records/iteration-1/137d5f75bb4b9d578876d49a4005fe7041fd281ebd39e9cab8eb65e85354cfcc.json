@@ -1,0 +1,2555 @@
+{
+  "queryLogId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da",
+  "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+  "courses": [
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04256121-66",
+      "subjectName": "การวิเคราะห์ข้อมูลเชิงสถิติ",
+      "outcomes": [
+        "วิเคราะห์ข้อมูลด้วยสถิติวิเคราะห์ได้",
+        "นำเสนอข้อมูลด้วยตารางและแผนภูมิได้ โดยคำนึงถึงจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "f94fcfa3-3773-43cc-9653-d4e003559483",
+              "name": "วิเคราะห์ข้อมูลด้วยสถิติวิเคราะห์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "f94fcfa3-3773-43cc-9653-d4e003559483",
+              "name": "วิเคราะห์ข้อมูลด้วยสถิติวิเคราะห์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f94fcfa3-3773-43cc-9653-d4e003559483",
+              "name": "วิเคราะห์ข้อมูลด้วยสถิติวิเคราะห์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches statistical analysis skills, directly relevant to the user's goal of applying AI in financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches statistical data analysis, a foundational skill for analyzing financial reports with AI."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "outcomes": [
+        "สร้างตัวแบบการเรียนรู้เชิงสถิติได้",
+        "เลือกใช้ตัวแบบการเรียนรู้เชิงสถิติในการวิเคราะห์ข้อมูลได้อย่างเหมาะสม",
+        "วิเคราะห์ข้อมูลเพื่อสร้างโอกาสทางธุรกิจโดยใช้ตัวแบบการเรียนรู้เชิงสถิติได้",
+        "แสดงออกถึงความซื่อสัตย์ เคารพกฎระเบียบและมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "cc682a12-ef31-4016-84c2-06d183d22917",
+              "name": "เลือกใช้ตัวแบบการเรียนรู้เชิงสถิติในการวิเคราะห์ข้อมูลได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "b7fd4f7a-45f1-4629-a627-c8da7906cece",
+              "name": "สร้างตัวแบบการเรียนรู้เชิงสถิติได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on statistical learning for business, directly relevant to applying AI techniques in financial data analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers statistical learning models useful for business data analysis, enabling AI applications in finance."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04252612-67",
+      "subjectName": "วิทยาการข้อมูลขั้นสูง",
+      "outcomes": [
+        "สามารถจำแนกความหมายและกระบวนการของวิทยาการข้อมูล",
+        "สามารถสร้างกรอบแนวคิด สร้างมโนภาพของข้อมูลและใช้ภาษาโปรแกรมในการวินิจฉัยข้อมูลได้",
+        "สามารถใช้เครื่องมือในการวิเคราะห์ข้อมูลด้วยวิธีการทางสถิติ และวิเคราะห์ข้อมูลด้วยการเรียนรู้ของเครื่อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "d7dd0d62-9ad4-42c6-a937-dc8b7f209868",
+              "name": "สามารถใช้เครื่องมือในการวิเคราะห์ข้อมูลด้วยวิธีการทางสถิติ และวิเคราะห์ข้อมูลด้วยการเรียนรู้ของเครื่อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Covers data science concepts and statistical tools, highly relevant for applying AI in financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Advanced data science course including machine learning techniques relevant to AI-based financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04252522-67",
+      "subjectName": "ปัญญาประดิษฐ์และโครงข่ายประสาทเทียม",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดสมัยใหม่ในปัญญาประดิษฐ์และโครงข่ายประสาทเทียม และการประยุกต์ใช้งานได้",
+        "สามารถออกแบบและพัฒนาเทคนิคปัญญาประดิษฐ์ และโครงข่ายประสาทเทียมตามข้อกำหนดในโลกแห่งความเป็นจริงได้",
+        "สามารถกำหนดปัญหาจริง เลือก และนำแบบจำลองปัญญาประดิษฐ์ที่เกี่ยวข้องไปใช้ในการแก้ปัญหาระบบอัจฉริยะ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "d74c4063-adc3-485a-be95-49f76ec61e6e",
+              "name": "สามารถอธิบายแนวคิดสมัยใหม่ในปัญญาประดิษฐ์และโครงข่ายประสาทเทียม และการประยุกต์ใช้งานได้"
+            },
+            {
+              "id": "d72364cd-f393-4377-8297-bbf0fad197a6",
+              "name": "สามารถกำหนดปัญหาจริง เลือก และนำแบบจำลองปัญญาประดิษฐ์ที่เกี่ยวข้องไปใช้ในการแก้ปัญหาระบบอัจฉริยะ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Teaches AI and neural networks with direct application to real-world problems, highly relevant for applying AI to financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on AI and neural networks, directly relevant to applying AI in financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04256355-66",
+      "subjectName": "โปรแกรมประยุกต์การเรียนรู้ของเครื่อง",
+      "outcomes": [
+        "สามารถเลือกขั้นตอนวิธีการเรียนรู้ของเครื่องแบบไม่มีผู้สอนเพื่อแก้ปัญหาได้",
+        "สามารถเลือกขั้นตอนวิธีการเรียนรู้ของเครื่องแบบมีผู้สอนเพื่อแก้ปัญหาได้",
+        "สามารถวิเคราะห์ผลการทดลองได้",
+        "สามารถพัฒนาแบบจำลองจากกรณีศึกษาได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "3db06d90-6bec-41e4-bf48-bb545abd4c41",
+              "name": "สามารถเลือกขั้นตอนวิธีการเรียนรู้ของเครื่องแบบไม่มีผู้สอนเพื่อแก้ปัญหาได้"
+            },
+            {
+              "id": "71f3e0a8-fc5a-4c85-b3ff-567b77307804",
+              "name": "สามารถเลือกขั้นตอนวิธีการเรียนรู้ของเครื่องแบบมีผู้สอนเพื่อแก้ปัญหาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches machine learning application skills, directly relevant to applying AI in financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches machine learning algorithms and model development, essential for AI applications in finance."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "outcomes": [
+        "วิเคราะห์ข้อมูลในรายงานทางการเงิน",
+        "นำเทคโนโลยีมาใช้ประกอบกับการวิเคราะห์ข้อมูลในรายงานทางการเงิน เพื่อสนับสนุนการตัดสินใจ สื่อสาร และให้คำแนะนำแก่ผู้ที่เกี่ยวข้องได้",
+        "ประเมินมูลค่ากิจการ ประเมินราคาหลักทรัพย์ และวิเคราะห์ความคุ้มค่าโครงการจากข้อมูลในรายงานทางการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "fddec55c-f2e9-4150-9d90-ff1b72c41952",
+              "name": "วิเคราะห์ข้อมูลในรายงานทางการเงิน"
+            },
+            {
+              "id": "16702777-e364-4140-899d-a4e93bc5ba4f",
+              "name": "นำเทคโนโลยีมาใช้ประกอบกับการวิเคราะห์ข้อมูลในรายงานทางการเงิน เพื่อสนับสนุนการตัดสินใจ สื่อสาร และให้คำแนะนำแก่ผู้ที่เกี่ยวข้องได้"
+            },
+            {
+              "id": "b23356bd-1f8e-4b76-8c5d-df5b04fdc92b",
+              "name": "ประเมินมูลค่ากิจการ ประเมินราคาหลักทรัพย์ และวิเคราะห์ความคุ้มค่าโครงการจากข้อมูลในรายงานทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "fddec55c-f2e9-4150-9d90-ff1b72c41952",
+              "name": "วิเคราะห์ข้อมูลในรายงานทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches financial report analysis and applying technology to support decision-making, directly relevant to applying AI in financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Directly addresses financial report analysis and use of technology to support decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "outcomes": [
+        "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ",
+        "ใช้เครื่องมือการวิเคราะห์ข้อมูลประเภทต่างๆ ได้ สอดคล้องกับประเภทของข้อมูล",
+        "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี",
+        "จัดทำรายงานที่ได้จากการวิเคราะห์ข้อมูลเพื่อนำเสนอผู้บริหารและผู้ที่เกี่ยวข้องได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "23cdc4d5-bcef-4657-8470-2beec783e546",
+              "name": "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ"
+            },
+            {
+              "id": "aca105f6-01ae-4a0f-9872-1ba7240d4ce1",
+              "name": "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "23cdc4d5-bcef-4657-8470-2beec783e546",
+              "name": "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ"
+            },
+            {
+              "id": "aca105f6-01ae-4a0f-9872-1ba7240d4ce1",
+              "name": "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course focuses on data analysis methods, tools, and reporting for accounting, directly supporting the application of AI in financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers data analysis methods for accounting data, relevant to financial report analysis with AI."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01051511-64",
+      "subjectName": "การวิเคราะห์ข้อมูลประยุกต์ในการวิจัยเทคโนโลยีชีวภาพ",
+      "outcomes": [
+        "เลือกวิธีการทางสถิติเพื่อใช้ในการดำเนินการวิจัย",
+        "วิเคราะห์ผลการทดลองเพื่อให้ได้ข้อสรุปของการทดลอง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "65f78b55-2fe0-43ec-9143-f3a8301cd466",
+              "name": "เลือกวิธีการทางสถิติเพื่อใช้ในการดำเนินการวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches applied data analysis and statistical methods, foundational for understanding data analysis, but not specifically tailored to AI or financial reports."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on applied data analysis in biotechnology research, unrelated to financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "กำหนดปัญหา ออกแบบงาน วิจัยอย่างเป็นระบบ",
+        "มีทักษะในการทำวิจัยการวิจัยและดำเนินการทำวิจัยอย่างเป็นระบบตามจรรยาบรรณนักวิจัย",
+        "เลือกใช้วิธีการทางสถิติในการวิเคราะห์ และแปลผลการทดลองทางสถิติได้",
+        "ใช้เทคโนโลยีสารสนเทศในการสืบค้นข้อมูลและนำเสนอข้อมูลสารสนเทศได้",
+        "สื่อสารด้วยภาษาเขียนโดยเรียบเรียงเป็นรายงานเพื่อนำเสนองานวิจัยได้มีแบบแผน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "3333b71d-a7e4-462c-830d-b23544067338",
+              "name": "เลือกใช้วิธีการทางสถิติในการวิเคราะห์ และแปลผลการทดลองทางสถิติได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes statistical analysis and research methodology, useful as foundational knowledge, but not directly focused on AI or financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Develops research and statistical analysis skills, supporting AI-based financial data analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02537699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "สร้างหรือพัฒนาองค์ความรู้จากการค้นคว้า การดำเนินการวิจัยและมีทักษะในการทำวิจัยอย่างเป็นระบบ",
+        "ใช้เทคโนโลยีสารสนเทศในการสืบค้นข้อมูลและนำเสนอข้อมูลสารสนเทศของตนเองได้",
+        "เลือกใช้วิธีการทางสถิติในการวางแผน การวิเคราะห์ และแปลผลการทดลองทางสถิติได้",
+        "สื่อสารด้วยภาษาเขียนโดยเรียบเรียงเป็นรายงานเพื่อนำเสนองานวิจัยได้มีแบบแผน",
+        "ดำเนินงานวิจัยโดยอยู่บนพื้นฐานของความรับผิดชอบ ความคิดสร้างสรรค์ และจรรยาบรรณนักวิจัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c024db74-899e-4eb5-be6c-8738b0cc4f02",
+              "name": "เลือกใช้วิธีการทางสถิติในการวางแผน การวิเคราะห์ และแปลผลการทดลองทางสถิติได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides research and statistical analysis skills, foundational for understanding data analysis, but not specifically aligned with AI application in finance."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Similar to other thesis course, enhances research and statistical skills applicable to AI in finance."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02212572-65",
+      "subjectName": "สถิติประยุกต์สำหรับวิศวกรรมอาหาร",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการวางแผนการทดลอง การรวบรวมข้อมูล การวิเคราะห์ข้อมูลที่ได้ทั้งในเชิงคุณภาพคือ การวิเคราะห์ความแปรปรวน และเชิงปริมาณคือการวิเคราะห์การถดถอย หรือรีเกรชัน",
+        "สามารถใช้โปรแกรมสำเร็จรูปทางสถิติช่วยในการวิเคราะห์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0d34bc62-c295-46df-bfda-da5ae12845e4",
+              "name": "สามารถใช้โปรแกรมสำเร็จรูปทางสถิติช่วยในการวิเคราะห์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "0d34bc62-c295-46df-bfda-da5ae12845e4",
+              "name": "สามารถใช้โปรแกรมสำเร็จรูปทางสถิติช่วยในการวิเคราะห์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches statistical methods and software, relevant foundational knowledge for AI in financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches applied statistics and use of statistical software, which are enabling tools for financial report analysis with AI."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01008591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางโรคพืช",
+      "outcomes": [
+        "เลือกใช้วิธีการและวางแผนการทดลองศึกษาเชื้อสาเหตุโรคพืชแต่ละกลุ่ม",
+        "เลือกใช้วิธีการทางสถิติเพื่อวิเคราะห์ผลการทดลองด้วยโปรแกรมทางสถิติ",
+        "นำเสนอโครงร่างวิทยานิพนธ์ที่เกี่ยวข้องกับโรคพืช",
+        "เตรียมต้นฉบับเพื่อการตีพิมพ์งานวิจัยทางโรคพืชทั้งระดับชาติและนานาชาติ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a6ceb304-1fd9-4ada-852a-c16743be4d28",
+              "name": "เลือกใช้วิธีการทางสถิติเพื่อวิเคราะห์ผลการทดลองด้วยโปรแกรมทางสถิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers research methods and statistical analysis, foundational for understanding data analysis, but not specific to AI or finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on plant disease research methods, irrelevant to AI application in financial analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04181591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีการอาหาร",
+      "outcomes": [
+        "วางแผนการวิจัยและเลือกใช้การวิเคราะห์ทางสถิติได้อย่างเหมาะสม",
+        "พัฒนาโครงร่างวิทยานิพนธ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "8c46f7d5-0f01-4c49-b327-4f194509cb9b",
+              "name": "วางแผนการวิจัยและเลือกใช้การวิเคราะห์ทางสถิติได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes research planning and statistical analysis, foundational knowledge but not directly related to AI or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on food technology research methods, not related to financial analysis or AI."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03602221-65",
+      "subjectName": "ความน่าจะเป็นและสถิติประยุกต์สำหรับวิศวกร",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานสถิติเชิงวิศวกรรม",
+        "สามารถใช้สารสนเทศสถิติในการแก้ไขปัญหาเชิงวิศวกรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "dedc8ef2-901c-4903-b5bf-36534c77ed03",
+              "name": "สามารถอธิบายหลักการพื้นฐานสถิติเชิงวิศวกรรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides probability and applied statistics, useful as foundational knowledge for data analysis, but not specific to AI or finance."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers probability and applied statistics useful as foundational knowledge for AI-based financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02207251-66",
+      "subjectName": "สถิติทางวิศวกรรม",
+      "outcomes": [
+        "สามารถวางแผนการทดลองและเลือกใช้พารามิเตอร์ทางสถิติด้านวิศวกรรมได้",
+        "สามารถใช้คอมพิวเตอร์ช่วยในการวิเคราะห์ทางสถิติได้",
+        "สามารถแปลผลการคำนวณพารามิเตอร์ทางสถิติทางวิศวกรรมเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "15dd341e-9198-468a-93af-065b5239c3b7",
+              "name": "สามารถใช้คอมพิวเตอร์ช่วยในการวิเคราะห์ทางสถิติได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides statistical planning and analysis skills, foundational for data analysis, but not specifically tailored to AI or finance."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches engineering statistics and computer-aided statistical analysis, relevant as enabling tools for AI in finance."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02162592-67",
+      "subjectName": "สถิติเพื่อการวิจัยทางด้านคณิตศาสตร์ศึกษา",
+      "outcomes": [
+        "สามารถวิเคราะห์และตรวจสอบข้อมูลได้ถูกต้องตามหลักสถิติ",
+        "สามารถวิเคราะห์และเลือกใช้สถิติที่ถูกต้องกับงานวิจัยทางด้านคณิตศาสตร์ศึกษาในยุคปัจจุบันได้อย่างเหมาะสม",
+        "สามารถเลือกใช้สถิติสำหรับการวิเคราะห์ข้อมูลเชิงปริมาณทางด้านคณิตศาสตร์ศึกษาได้สอดคล้องกับสภาพปัญหา",
+        "สามารถเลือกใช้สถิติวิเคราะห์ความสัมพันธ์ระหว่างตัวแปรได้อย่างถูกต้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1c916fc9-b1b0-496f-b0d9-72a7368f1455",
+              "name": "สามารถเลือกใช้สถิติสำหรับการวิเคราะห์ข้อมูลเชิงปริมาณทางด้านคณิตศาสตร์ศึกษาได้สอดคล้องกับสภาพปัญหา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches statistical analysis for research, foundational knowledge but not directly related to AI or financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on statistics for research, providing useful skills for data analysis in financial AI applications."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "outcomes": [
+        "ค้นคว้าข้อมูลที่ทันสมัยด้วยเทคโนโลยีดิจิทัล",
+        "ออกแบบการทดลองงานวิจัยวิทยาศาสตร์เชิงบูรณาการ",
+        "เลือกวิธีการทางสถิติที่เหมาะสมเพื่อการวางแผนการทดลอง วิเคราะห์และแปลผลได้",
+        "เรียบเรียง นำเสนอผลงานวิจัยได้อย่างมีแบบแผนทั้งในรูปรายงานเชิงวิธีการและแบบปากเปล่า"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "3c76623b-7f42-44cf-a167-7902db3f2ced",
+              "name": "เลือกวิธีการทางสถิติที่เหมาะสมเพื่อการวางแผนการทดลอง วิเคราะห์และแปลผลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on research design and statistical analysis, foundational but not specific to AI or financial data."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Advanced research methods in agricultural R&D, not directly relevant to financial AI analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "จัดการและออกแบบฐานข้อมูลได้",
+        "วิเคราะห์ข้อมูลด้วยฟังก์ชันการคำนวณได้",
+        "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้",
+        "ประยุกต์การสอบถามข้อมูลในการทำงานด้านวิทยาการข้อมูลได้",
+        "สามารถแสดงออกถึงความซื่อสัตย์ และเคารพกฎระเบียบและจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "9420d61d-b1b5-448b-9170-2bba3a5d45a6",
+              "name": "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7c0b01f2-d537-4577-b7f2-ef24ff6cc488",
+              "name": "วิเคราะห์ข้อมูลด้วยฟังก์ชันการคำนวณได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers data querying and database management, foundational for NLP data processing."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches data querying and database management, enabling skills useful for AI data handling in finance."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02702131-68",
+      "subjectName": "โครงสร้างภาษาอังกฤษ I",
+      "outcomes": [
+        "วิเคราะห์และอธิบายประเภททางไวยากรณ์ของคำ วลี และอนุประโยค หน้าที่ของส่วนประกอบของประโยค",
+        "บอกความแตกต่างของโครงสร้างประโยคพื้นฐานที่แตกต่างกันได้",
+        "แบ่งกลุ่มประเภทของประโยคที่มีความหลากหลายได้",
+        "สร้างสรรค์ประโยคที่สื่อความหมายได้อย่างเหมาะสมและถูกต้องตามหลักไวยากรณ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f7965a16-6ba1-4615-bd94-76fc37c92f0e",
+              "name": "สร้างสรรค์ประโยคที่สื่อความหมายได้อย่างเหมาะสมและถูกต้องตามหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "English grammar structure, foundational for NLP language processing."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "English grammar course, no direct relevance to AI or financial analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03610111-66",
+      "subjectName": "เปิดโลกวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดพื้นฐานของระบบปัญญาประดิษฐ์ ตลอดจน ระบบอินเตอร์เน็ทของสรรพสิ่งที่ใช้อยู่ในปัจจุบันได้",
+        "สามารถใช้เครื่องมือปัญญาประดิษฐ์ในการทำงานเบื้องต้นได้",
+        "สามารถสร้างโปรแกรมควบคุมระบบอัตโนมัติอย่างง่ายโดยใช้ไมโครคอมพิวเตอร์ได้",
+        "สามารถทำงานเป็นหมู่คณะได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2913f587-42e7-48d8-aea4-01ccb5d53505",
+              "name": "สามารถอธิบายแนวคิดพื้นฐานของระบบปัญญาประดิษฐ์ ตลอดจน ระบบอินเตอร์เน็ทของสรรพสิ่งที่ใช้อยู่ในปัจจุบันได้"
+            },
+            {
+              "id": "f5a98356-69b8-4401-b63b-ae5e745fd7ec",
+              "name": "สามารถใช้เครื่องมือปัญญาประดิษฐ์ในการทำงานเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches basic AI concepts and tools, which are prerequisites for applying AI in financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Introduces AI concepts and tools, directly relevant for applying AI in financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานและความสำคัญของการวิเคราะห์ข้อมูลในปัญญาประดิษฐ์ได้",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อการเรียนและชีวิตประจำวันได้อย่างเหมาะสม",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาเชิงธุรกิจได้อย่างเหมาะสม",
+        "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้",
+        "วิเคราะห์ผลกระทบของเทคโนโลยีปัญญาประดิษฐ์ต่อสังคมและประเด็นจริยธรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "290697b6-36c7-404b-ac55-b67e92a42cfa",
+              "name": "อธิบายหลักการพื้นฐานและความสำคัญของการวิเคราะห์ข้อมูลในปัญญาประดิษฐ์ได้"
+            },
+            {
+              "id": "f116f6de-12a5-4a9c-890c-65edf5ac4243",
+              "name": "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อการเรียนและชีวิตประจำวันได้อย่างเหมาะสม"
+            },
+            {
+              "id": "f4c59672-4e32-4e90-b229-349cf4b3ca26",
+              "name": "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาเชิงธุรกิจได้อย่างเหมาะสม"
+            },
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f116f6de-12a5-4a9c-890c-65edf5ac4243",
+              "name": "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อการเรียนและชีวิตประจำวันได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides foundational knowledge on AI principles and applications, relevant for applying AI to financial data analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers AI fundamentals and applying AI technology to solve business problems, relevant for AI in financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01204561-66",
+      "subjectName": "ปัญญาประดิษฐ์ขั้นสูง",
+      "outcomes": [
+        "สามารถประยุกต์ใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาที่เหมาะสมได้",
+        "สามารถออกแบบและวิเคราะห์ระบบปัญญาประดิษฐ์ที่ชาญฉลาดได้",
+        "สามารถให้ความเห็นเกี่ยวกับงานวิจัยทางด้านเทคโนโลยีปัญญาประดิษฐ์ที่เป็นปัจจุบัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "472fa051-ec27-4164-9033-a46c53245197",
+              "name": "สามารถประยุกต์ใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาที่เหมาะสมได้"
+            },
+            {
+              "id": "a02c6b38-9647-4eca-9088-e76f33d882af",
+              "name": "สามารถออกแบบและวิเคราะห์ระบบปัญญาประดิษฐ์ที่ชาญฉลาดได้"
+            },
+            {
+              "id": "b860949d-aab7-4917-94f6-38a7475659ce",
+              "name": "สามารถให้ความเห็นเกี่ยวกับงานวิจัยทางด้านเทคโนโลยีปัญญาประดิษฐ์ที่เป็นปัจจุบัน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on advanced AI application design and analysis, useful for implementing AI in financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Advanced AI course enabling design and application of intelligent AI systems, useful for applying AI in financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01204569-66",
+      "subjectName": "การเรียนรู้ของเครื่องจักรสำหรับการประยุกต์ทางวิศวกรรม",
+      "outcomes": [
+        "สามารถวางแผน ดำเนินการ และรายงานผลโครงงานที่มีองค์ประกอบหลักเป็นการเรียนรู้โดยเครื่องจักรได้",
+        "สามารถเปรียบเทียบ เลือกใช้ และอธิบายเหตุผลที่เลือกใช้เทคนิคการเรียนรู้โดยเครื่องจักรสำหรับสถานการณ์ต่างๆ ได้",
+        "สามารถทบทวนวรรณกรรมและเปรียบเทียบงานวิจัยและองค์ความรู้เกี่ยวกับการเรียนรู้โดยเครื่องจักรที่มีความเป็นปัจจุบันได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "24a9f505-c1e2-45db-a31e-f3392a7aeb48",
+              "name": "สามารถวางแผน ดำเนินการ และรายงานผลโครงงานที่มีองค์ประกอบหลักเป็นการเรียนรู้โดยเครื่องจักรได้"
+            },
+            {
+              "id": "b527a2c4-add2-40d1-a310-14891f4328bf",
+              "name": "สามารถเปรียบเทียบ เลือกใช้ และอธิบายเหตุผลที่เลือกใช้เทคนิคการเรียนรู้โดยเครื่องจักรสำหรับสถานการณ์ต่างๆ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "This course covers machine learning for engineering applications, providing foundational knowledge that can support understanding AI applications in finance."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on machine learning techniques and project execution, enabling skills to apply AI methods in financial data analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01420413-66",
+      "subjectName": "วิทยาศาสตร์ข้อมูลและการเรียนรู้ของเครื่องสำหรับนักฟิสิกส์",
+      "outcomes": [
+        "สามารถอธิบายหลักการเบื้องต้นเกี่ยวกับวิทยาศาสตร์ข้อมูล การเรียนรู้ของเครื่อง พร้อมยกตัวอย่างการประยุกต์ใช้ในงานวิจัยทางฟิสิกส์",
+        "สามารถใช้โปรแกรมเกี่ยวกับการจัดการข้อมูล และการสร้างกราฟสำหรับการหาความสัมพันธ์และวิเคราะห์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e3022d18-ade1-4005-8a45-5fab7902ad83",
+              "name": "สามารถอธิบายหลักการเบื้องต้นเกี่ยวกับวิทยาศาสตร์ข้อมูล การเรียนรู้ของเครื่อง พร้อมยกตัวอย่างการประยุกต์ใช้ในงานวิจัยทางฟิสิกส์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "This course covers data science and machine learning for physicists, providing relevant foundational knowledge for applying AI in financial data analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is tailored for physicists applying data science and machine learning, not directly relevant to financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "outcomes": [
+        "สามารถบอกความแตกต่างของการบัญชีระหว่างประเทศ",
+        "สามารถระบุความแตกต่างของนโยการบัญชีที่สำคัญ",
+        "สามารถวิเคราะห์รายงานทางการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "25d70ad9-8bb9-4f89-943d-92674f499c2d",
+              "name": "สามารถวิเคราะห์รายงานทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "It covers financial report analysis and international accounting differences, foundational for understanding financial data, but not specifically about AI or data analysis techniques."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches financial report analysis and international accounting differences, directly relevant to understanding financial reports."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03759211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "outcomes": [
+        "สามารถอธิบายวัตถุประสงค์และความสำคัญของการจัดการทางการเงิน จุดมุ่งหมาย บทบาทหน้าที่ของผู้บริหารการเงินได้",
+        "สามารถอธิบายแนวความคิดทางการเงิน ได้แก่ มูลค่าเงินตามเวลา ความเสี่ยงและผลตอบแทนได้",
+        "สามารถอธิบายการวิเคราะห์ทางการเงิน เพื่อนำไปใช้ประกอบการตัดสินใจทางการเงินได้",
+        "สามารถอธิบายการจัดหาเงินทุนของธุรกิจและการบริหารสินทรัพย์ของธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "823e478e-1172-4b5a-8e88-3e6194c415dd",
+              "name": "สามารถอธิบายการวิเคราะห์ทางการเงิน เพื่อนำไปใช้ประกอบการตัดสินใจทางการเงินได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "It covers financial analysis concepts essential for understanding financial data, but not specifically about applying AI techniques."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers financial management and financial analysis concepts, providing foundational knowledge for analyzing financial reports."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03651231-65",
+      "subjectName": "การคำนวณเชิงเศรษฐศาสตร์เบื้องต้น",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการทางคณิตศาสตร์สำหรับ การวิเคราะห์และตัดสินใจทางเศรษฐศาสตร์และธุรกิจได้",
+        "วิเคราะห์ดุลยภาพตลาดและระบบการเงินเบื้องต้นได้",
+        "อธิบายตัวแบบทางคณิตศาสตร์สำหรับบสภาวะทางเศรษฐศาสตร์และธุรกิจได้",
+        "วิเคราะห์นโยบายทางการเงินและ นโยบายการคลังกับวิกฤตเศรษฐกิจต่าง ๆ ได้",
+        "แสดงออกถึงความซื่อสัตย์ทางวิชาการ และการเคารพกฎระเบียบและค่านิยมอันดีงามของสังคม และจรรยาบรรณวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f8be3053-99de-4981-9eb9-edda89ee9323",
+              "name": "วิเคราะห์ดุลยภาพตลาดและระบบการเงินเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides mathematical and economic analysis foundations relevant for understanding financial data, but not specifically about AI or data analysis tools."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches mathematical and economic analysis useful for decision making in finance, supporting financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานทางธุรกิจได้",
+        "วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้",
+        "ตัดสินใจทางธุรกิจ โดยโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "77b8fc58-3ede-4448-8dba-b9655fd2a672",
+              "name": "วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "77b8fc58-3ede-4448-8dba-b9655fd2a672",
+              "name": "วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes data analysis and decision-making simulations, useful as a prerequisite for applying AI techniques in financial analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers business simulation and data analysis using software, enabling practical skills for business and financial data analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03760442-64",
+      "subjectName": "การบัญชีนิติวิทยาเบื้องต้น",
+      "outcomes": [
+        "สามารถตรวจสอบความทุจริตที่เกิดขึ้นจากรายงานทางการเงินได้",
+        "สามารถวิเคราะห์งบการเงินเพื่อสืบสวนหาข้อเท็จจริงเกี่ยวกับประเด็นที่ต้องการทราบจากงบการเงินได้",
+        "สามารถนำเทคโนโลยีมีช่วยในการสืบสวนและวิเคราะห์รายงานทางการเงินได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "47aed286-d38b-4170-87d7-0b2f198daf77",
+              "name": "สามารถวิเคราะห์งบการเงินเพื่อสืบสวนหาข้อเท็จจริงเกี่ยวกับประเด็นที่ต้องการทราบจากงบการเงินได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers forensic accounting and financial investigation techniques, which are relevant for understanding financial reports but not directly about AI or data analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on forensic accounting and using technology to investigate and analyze financial reports, highly relevant."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04256231-66",
+      "subjectName": "การวิเคราะห์ข้อมูลด้วยโปรแกรมตารางทำการสำหรับนักวิทยาการข้อมูล",
+      "outcomes": [
+        "สามารถใช้โปรแกรมตารางทำการเพื่อการนำเข้า คัดกรอง จัดการข้อมูลจากแหล่งข้อมูลที่แตกต่างกัน",
+        "สามารถใช้้โปรแกรมตารางทำการเพื่อทำการคำนวณ วิเคราะห์ สรุป และนำเสนอข้อมูล"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "28de3296-011b-4923-b408-64c2ab72c5f2",
+              "name": "สามารถใช้้โปรแกรมตารางทำการเพื่อทำการคำนวณ วิเคราะห์ สรุป และนำเสนอข้อมูล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches data analysis using spreadsheets, which is foundational for data analysis, relevant for AI-driven financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches data analysis using spreadsheet software, an enabling tool for analyzing financial data and reports."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการออกแบบการทดลองได้อย่างถูกต้อง",
+        "เลือกแผนการทดลองได้อย่างเหมาะสมกับปัญหาและวัตถุประสค์ของการทดลอง",
+        "วิเคราะห์ข้อมูลและนำเสนอผลการวิเคราะห์การทดลองได้อย่างถูกต้อง",
+        "ประยุกต์ใช้โปรแกรมสำเร็จรูปในการวิเคราะห์ข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "4655c30a-7740-48b1-8f80-b2abf45c50ab",
+              "name": "ประยุกต์ใช้โปรแกรมสำเร็จรูปในการวิเคราะห์ข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers experimental design and data analysis with software, foundational knowledge useful for applying AI in financial data analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers experimental design and data analysis with software tools, useful for analyzing financial reports with AI."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "outcomes": [
+        "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม",
+        "สร้างการคำนวณข้อมูล พารามิเตอร์ตารางและแผนภูมิ เพื่อนำเสนอภาพข้อมูลได้อย่่างเหมาะสม",
+        "วิเคราะห์ข้อมูลขั้นสูงได้",
+        "สร้างแดชบอร์ดและนำเสนอผ่านระบบสารสนเทศได้",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ซื่อสัตย์ ปฎิบัติงานร่วมกับผู้อื่นได้ และมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "fe40af0b-4426-47c6-93fa-f18d1f54ada1",
+              "name": "วิเคราะห์ข้อมูลขั้นสูงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on data visualization and analysis, foundational for AI-driven report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches advanced data analysis and visualization for business, directly relevant to financial report analysis using AI."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02537591-68",
+      "subjectName": "ระเบียบวิธีวิจัยทางด้านวิจัยและพัฒนาการเกษตร",
+      "outcomes": [
+        "เทคโนโลยีสารสนเทศในการสืบค้นข้อมูลและทบทวนวรรณกรรมที่เกี่ยวข้องเพื่อติดตามความก้าวหน้าทางเทคโนโลยีใหม่ ๆ ที่เกี่ยวข้องและวิพากษ์งานวิจัยได้อย่างสร้างสรรค์",
+        "แก้ไขปัญหาโดยวิธีการวิจัยได้อย่างเหมาะสมบนพื้นฐานของจริยธรรมการวิจัย",
+        "สื่อสารองค์ความรู้ผ่านกระบวนความคิดตามกระบวนการวิจัยอย่างเป็นระบบในรูปแบบการนำเสนอที่เป็นทางการและไม่เป็นทางการได้",
+        "ใช้โปรแกรมคอมพิวเตอร์ในการวิเคราะห์ผลการทดลองทางสถิติ และแปลผลการวิเคราะห์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f9ac7ece-6914-455c-b2c1-2b425e7befc3",
+              "name": "ใช้โปรแกรมคอมพิวเตอร์ในการวิเคราะห์ผลการทดลองทางสถิติ และแปลผลการวิเคราะห์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers research methodology and data analysis with software, foundational for applying AI in financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on agricultural research methods, not relevant to financial report analysis or AI application."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02182592-67",
+      "subjectName": "สถิติและวิธีวิจัยทางการศึกษา",
+      "outcomes": [
+        "สามารถออกแบบกระบวนการวิจัยทางนวัตกรรมการศึกษาได้",
+        "ารถใช้โปรแกรมทางสถิติในการวิเคราะห์ข้อมูลวิจัยได้",
+        "สามารถเขียนรายงานการวิจัยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f8575fbd-a24c-4b6e-bb6e-3f3f1af7daa1",
+              "name": "ารถใช้โปรแกรมทางสถิติในการวิเคราะห์ข้อมูลวิจัยได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers research design and statistical analysis, foundational for AI applications in data analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches statistics and research methods with statistical software, foundational for AI-based financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "outcomes": [
+        "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง",
+        "สร้างประโยคได้ถูกต้องตามแบบแผน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a8ebfc0f-c584-47e5-b93c-928c2f909b67",
+              "name": "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง"
+            },
+            {
+              "id": "132d36aa-ae45-4ac7-9a1b-b292eec6eec4",
+              "name": "สร้างประโยคได้ถูกต้องตามแบบแผน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on basic English grammar, not directly related to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic English grammar course, unrelated to AI or financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "outcomes": [
+        "อธิบายคำศัพท์และไวยากรณ์ได้",
+        "เลือกใช้คำศัพท์และรูปประโยคได้ถูกต้องตามหลักภาษา",
+        "สื่อสารภาษาจีนธุรกิจได้ถูกต้องตามบริบท"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c3204fdf-ab70-458b-8b2f-6ec5929316a7",
+              "name": "เลือกใช้คำศัพท์และรูปประโยคได้ถูกต้องตามหลักภาษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Business Chinese language skills, not related to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language course, not relevant to AI or financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01355131-63",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษเบื้องต้น",
+      "outcomes": [
+        "สามารถทำงานที่ได้รับมอบหมายได้อย่างถูกต้องและลุล่วงตามเวลาที่กำหนด",
+        "สามารถทำงานที่ได้รับมอบหมายโดยไม่ละเมิดจรรยาบรรณทางวิชาการ",
+        "สามารถนำองค์ความรู้ทางด้านภาษาอังกฤษมาประยุกต์ใช้เพื่อให้เกิดประโยชน์แก่ตนเองและสังคม",
+        "สามารถฟังและพูดโต้ตอบด้วยภาษาอังกฤษในหัวข้อด้านวิชาการ สังคมและวิชาชีพได้ สรุปใจความและประเด็นสำคัญจากสิ่งที่ฟังได้ถูกต้อง สามารถแยกแยะประเภทของข้อมูลที่อ่านในสื่อสิ่งพิมพ์และสื่อออนไลน์ และสามารถนำเสนอรายงานทั้งในรูปแบบปากเปล่าและการเขียนอย่างถูกต้องครบถ้วน ทั้งนี้เทียบเท่าระดับ c1 (proficient user) ตามมาตรฐานสากล common european framework of reference for languages: learning, teaching, assessment (cefr)",
+        "สามารถประยุกต์ใช้องค์ความรู้ภาษาศาสตร์ ภาษาอังกฤษด้านต่างๆ เช่น การออกเสียงภาษาอังกฤษอย่างถูกต้องตามหลักสัทศาสตร์และสัทวิทยาภาษาอังกฤษ สามารถวิเคราะห์ความหมายและที่มาของคำตามหลักวิทยาหน่วยคำภาษาอังกฤษ สามารถวิเคราะห์โครงสร้างและความหมายของวลีและประโยคตามหลักวากยสัมพันธ์ภาษาอังกฤษ ตลอดจนสามารถวิเคราะห์วิวัฒนาการและการเปลี่ยนแปลงของภาษาอังกฤษ รวมถึงนานาภาษาอังกฤษโลก (world englishes)",
+        "สามารถอ่าน ตีความ วิเคราะห์และวิจารณ์วรรณกรรมประเภทร้อยแก้ว ร้อยกรอง และบทละครอังกฤษและอเมริกันและที่ประพันธ์หรือแปลเป็นภาษาอังกฤษ โดยการอิงทฤษฎีวรรรกรรมที่เกี่ยวข้อง เพื่อเข้าใจความสำคัญของปัจเจกชน สังคมและวัฒนธรรม อันจะนำไปสู่การอยู่ร่วมกันอย่างสันติ",
+        "สามารถแปลข้อความและตัวบทประเภทต่างๆ จากภาษาอังกฤษเป็นภาษาไทยและภาษาไทยเป็นภาษาอังกฤษ เช่น ตัวบทประเภทให้ข้อมูล (ข่าวและสารคดี) แสดงความรู้สึก (นวนิยาย) โน้มน้าว (สุนทรพจน์และคำปราศรัย) ตลอดจนการแปลตัวบทที่ใช้คำศัพท์เฉพาะสาขาวิชาให้ถูกต้อง ครบถ้วนและสละสลวย อันเป็นผลมาจากความเข้าใจภาษาและโครงสร้างของทั้งภาษาไทยและภาษาอังกฤษ",
+        "สามารถใช้ภาษาอังกฤษที่ได้จากการประมวลผลการเรียนรู้ทั้งหมดเพื่อใช้งานได้อย่างมีประสิทธิภาพ",
+        "สามารถประยุกต์ใช้องค์ความรู้ภาษาอังกฤษในการคิดวิเคราะห์ วิจารณ์อย่างมีเหตุผลและสามารถแก้ปัญหาอย่างเป็นระบบ",
+        "สามารถประยุกต์ใช้องค์ความรู้ด้านภาษาอังกฤษในการทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ มีภาวะผู้นำ เข้าใจบทบาทของตนเองและรับฟังความคิดเห็นของผู้อื่น ปรับตัวให้เข้ากับความหลากหลายในสถานที่ทำงานและสังคม",
+        "สามารถประมวลทักษะและองค์ความรู้ด้านภาษาอังกฤษเพื่อนำมาใช้ในการทำงานของตนเองอย่างมีประสิทธิภาพ",
+        "สามารถแยกแยะประเภทของข้อมูลภาษาอังกฤษที่ใช้ในสื่อสิ่งพิมพ์และสื่อออนไลน์ สามารถนำเสนอรายงานในที่ประชุมโดยใช้สื่อเทคโนโลยี",
+        "สามารถใช้เทคโนโลยีดิจิทัลที่มีอยู่ในปัจจุบันมาใช้เพื่อพัฒนากระบวนการทำงานด้านภาษาอังกฤษเพื่อเพิ่มประสิทธิภาพในการทำงาน (digital literacy)"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "870a98a5-be7a-4682-b3d2-65c7ec19f876",
+              "name": "สามารถใช้ภาษาอังกฤษที่ได้จากการประมวลผลการเรียนรู้ทั้งหมดเพื่อใช้งานได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Basic English reading and writing skills, not specifically related to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic English reading and writing skills, not directly relevant to AI or financial analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01355390-63",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "outcomes": [
+        "สามารถทำงานที่ได้รับมอบหมายได้อย่างถูกต้องและลุล่วงตามเวลาที่กำหนด",
+        "สามารถทำงานที่ได้รับมอบหมายโดยไม่ละเมิดจรรยาบรรณทางวิชาการ",
+        "สามารถนำองค์ความรู้ทางด้านภาษาอังกฤษมาประยุกต์ใช้เพื่อให้เกิดประโยชน์แก่ตนเองและสังคม",
+        "สามารถฟังและพูดโต้ตอบด้วยภาษาอังกฤษในหัวข้อด้านวิชาการ สังคมและวิชาชีพได้ สรุปใจความและประเด็นสำคัญจากสิ่งที่ฟังได้ถูกต้อง สามารถแยกแยะประเภทของข้อมูลที่อ่านในสื่อสิ่งพิมพ์และสื่อออนไลน์ และสามารถนำเสนอรายงานทั้งในรูปแบบปากเปล่าและการเขียนอย่างถูกต้องครบถ้วน ทั้งนี้เทียบเท่าระดับ c1 (proficient user) ตามมาตรฐานสากล common european framework of reference for languages: learning, teaching, assessment (cefr)",
+        "สามารถประยุกต์ใช้องค์ความรู้ภาษาศาสตร์ ภาษาอังกฤษด้านต่างๆ เช่น การออกเสียงภาษาอังกฤษอย่างถูกต้องตามหลักสัทศาสตร์และสัทวิทยาภาษาอังกฤษ สามารถวิเคราะห์ความหมายและที่มาของคำตามหลักวิทยาหน่วยคำภาษาอังกฤษ สามารถวิเคราะห์โครงสร้างและความหมายของวลีและประโยคตามหลักวากยสัมพันธ์ภาษาอังกฤษ ตลอดจนสามารถวิเคราะห์วิวัฒนาการและการเปลี่ยนแปลงของภาษาอังกฤษ รวมถึงนานาภาษาอังกฤษโลก (world englishes)",
+        "สามารถอ่าน ตีความ วิเคราะห์และวิจารณ์วรรณกรรมประเภทร้อยแก้ว ร้อยกรอง และบทละครอังกฤษและอเมริกันและที่ประพันธ์หรือแปลเป็นภาษาอังกฤษ โดยการอิงทฤษฎีวรรรกรรมที่เกี่ยวข้อง เพื่อเข้าใจความสำคัญของปัจเจกชน สังคมและวัฒนธรรม อันจะนำไปสู่การอยู่ร่วมกันอย่างสันติ",
+        "สามารถแปลข้อความและตัวบทประเภทต่างๆ จากภาษาอังกฤษเป็นภาษาไทยและภาษาไทยเป็นภาษาอังกฤษ เช่น ตัวบทประเภทให้ข้อมูล (ข่าวและสารคดี) แสดงความรู้สึก (นวนิยาย) โน้มน้าว (สุนทรพจน์และคำปราศรัย) ตลอดจนการแปลตัวบทที่ใช้คำศัพท์เฉพาะสาขาวิชาให้ถูกต้อง ครบถ้วนและสละสลวย อันเป็นผลมาจากความเข้าใจภาษาและโครงสร้างของทั้งภาษาไทยและภาษาอังกฤษ",
+        "สามารถใช้ภาษาอังกฤษที่ได้จากการประมวลผลการเรียนรู้ทั้งหมดเพื่อใช้งานได้อย่างมีประสิทธิภาพ",
+        "สามารถประยุกต์ใช้องค์ความรู้ภาษาอังกฤษในการคิดวิเคราะห์ วิจารณ์อย่างมีเหตุผลและสามารถแก้ปัญหาอย่างเป็นระบบ",
+        "สามารถประยุกต์ใช้องค์ความรู้ด้านภาษาอังกฤษในการทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ มีภาวะผู้นำ เข้าใจบทบาทของตนเองและรับฟังความคิดเห็นของผู้อื่น ปรับตัวให้เข้ากับความหลากหลายในสถานที่ทำงานและสังคม",
+        "สามารถประมวลทักษะและองค์ความรู้ด้านภาษาอังกฤษเพื่อนำมาใช้ในการทำงานของตนเองอย่างมีประสิทธิภาพ",
+        "สามารถแยกแยะประเภทของข้อมูลภาษาอังกฤษที่ใช้ในสื่อสิ่งพิมพ์และสื่อออนไลน์ สามารถนำเสนอรายงานในที่ประชุมโดยใช้สื่อเทคโนโลยี",
+        "สามารถใช้เทคโนโลยีดิจิทัลที่มีอยู่ในปัจจุบันมาใช้เพื่อพัฒนากระบวนการทำงานด้านภาษาอังกฤษเพื่อเพิ่มประสิทธิภาพในการทำงาน (digital literacy)"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6c171fcd-5294-4f55-b9eb-df8a397179a5",
+              "name": "สามารถใช้ภาษาอังกฤษที่ได้จากการประมวลผลการเรียนรู้ทั้งหมดเพื่อใช้งานได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "General preparation course, not focused on NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Preparation for cooperative education with English focus, not related to AI or financial analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "outcomes": [
+        "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ",
+        "ใช้กลวิธีการสื่อสารที่หลากหลาย โดยคำนึงถึงความแตกต่างของผู้รับสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "8030a54d-bb13-4833-a100-4eb23d6d0482",
+              "name": "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Language communication for teachers, not specific to NLP or financial analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Communication skills for teachers, unrelated to AI or financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "outcomes": [
+        "ใช้คำศัพท์และโครงสร้างประโยคพื้นฐานเพื่อสร้างประโยคที่ถูกต้องและเข้าใจได้",
+        "แสดงความคิดเห็นและแลกเปลี่ยนข้อมูลในสถานการณ์ที่กำหนดได้",
+        "สื่อสารเนื้อหาได้อย่างชัดเจนและถูกต้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "23e0fe9c-7587-4ef0-80f7-b92dd072398f",
+              "name": "ใช้คำศัพท์และโครงสร้างประโยคพื้นฐานเพื่อสร้างประโยคที่ถูกต้องและเข้าใจได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Basic English communication skills, not directly related to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic English listening and speaking skills, no direct relevance to AI or financial analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "outcomes": [
+        "วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้",
+        "สาธิตการใช้ประโยคตามสถานการณ์ที่ได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการสนทนาทางธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "17a54e0e-cce0-453b-8ae3-7e286b4e98b2",
+              "name": "วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Business Chinese conversation skills, not related to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on Chinese business communication, unrelated to AI or financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "outcomes": [
+        "วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้",
+        "สาธิตการใช้ประโยคตามสถานการณ์ที่ได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการสนทนาทางธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "849afa61-407f-4929-81a9-fb6ce15bcdd0",
+              "name": "วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Advanced business Chinese conversation, not related to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on Chinese business communication, unrelated to AI or financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01396142-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ II",
+      "outcomes": [
+        "วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้",
+        "สาธิตการใช้ประโยคตามสถานการณ์ที่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "42ec1f56-2b7b-4c09-b837-2e58db0747e3",
+              "name": "วิเคราะห์ประโยคที่ใช้สื่อสารทางธุรกิจได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Basic business Chinese conversation, not related to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on Chinese business communication, unrelated to AI or financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "outcomes": [
+        "วิเคราะห์ประโยคที่ใช้สื่อสาร  ทางธุรกิจได้",
+        "สาธิตการใช้ประโยคตาม  สถานการณ์ที่ได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้อง  กับการสนทนาทางธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "738ccaa3-a5bb-4b42-a7d0-3acd56126a62",
+              "name": "วิเคราะห์ประโยคที่ใช้สื่อสาร  ทางธุรกิจได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Business Chinese conversation, not related to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on Chinese business communication, unrelated to AI or financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03754231-67",
+      "subjectName": "การอ่านภาษาอังกฤษในชีวิตประจำวัน",
+      "outcomes": [
+        "อธิบายความสำคัญและหลักการอ่านได้",
+        "บอกข้อมูลเฉพาะของเรื่องที่อ่านได้ในเวลาที่จำกัดได้",
+        "แปลความหมายของคำศัพท์และสำนวนต่างๆ จากบริบทแวดล้อมของเรื่องที่อ่านได้",
+        "อ่านออกเสียงภาษาอังกฤษขั้นพื้นฐานได้",
+        "สรุปประเด็นจากเรื่องที่อ่านได้",
+        "แสดงความคิดเห็นจากเรื่องที่อ่านผ่านกิจกรรมหรือการนำเสนอผลงานในรูปแบบต่างๆ ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "085d56a4-c391-487b-b878-cac733194806",
+              "name": "อ่านออกเสียงภาษาอังกฤษขั้นพื้นฐานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Everyday English reading skills, not specific to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches basic English reading skills, not relevant to AI or financial analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "outcomes": [
+        "อธิบายความรู้เกี่ยวกับหลักการใช้ปัญญาประดิษฐ์เพื่อหาความต้องการโภชนะให้สอดคล้องกับความต้องการของร่างกายสัตว์และการผลิตอาหารสัตว์",
+        "อธิบายความรู้เกี่ยวกับการพยากรณ์ราคาวัตถุดิบอาหารสัตว์ และผลิตภัณฑ์เพื่อการวางแผนการผลิตสำหรับอุตสาหกรรมทางด้าน   ปศุสัตว์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c581efe1-b837-4b46-b3cf-d2de27a56cec",
+              "name": "อธิบายความรู้เกี่ยวกับหลักการใช้ปัญญาประดิษฐ์เพื่อหาความต้องการโภชนะให้สอดคล้องกับความต้องการของร่างกายสัตว์และการผลิตอาหารสัตว์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Uses AI in a specific domain (animal science), sharing tools but not directly related to financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course applies AI in animal science, not relevant to financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01023512-68",
+      "subjectName": "การคำนวณสูตรอาหารสัตว์อุตสาหกรรม",
+      "outcomes": [
+        "เชื่อมโยงข้อมูลทางโภชนศาสตร์สัตว์ในการสร้างสูตรอาหารสัตว์กระเพาะเดี่ยวและสัตว์กระเพาะรวม",
+        "พัฒนาสูตรอาหารสัตว์โดยใช้เครื่องมือการคำนวณที่ทันสมัย",
+        "รวบรวมและวิเคราะห์ข้อมูลด้านโภชนศาสตร์สัตว์อย่างเป็นระบบโดยใช้ปัญญาประดิษฐ์",
+        "สามารถสร้างสูตรอาหารสัตว์ที่ปลอดภัย  ลดผลกระทบต่อสังคมและสิ่งแวดล้อม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "99c4c909-4ab7-40c4-8ffa-a52e987078c5",
+              "name": "รวบรวมและวิเคราะห์ข้อมูลด้านโภชนศาสตร์สัตว์อย่างเป็นระบบโดยใช้ปัญญาประดิษฐ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Uses AI for animal nutrition calculations, sharing tools but not directly relevant to financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on animal feed formulation using AI, unrelated to financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎีที่เกี่ยวข้องกับสื่อ นวัตกรรม และเทคโนโลยีสารสนเทศเพื่อการเรียนรู้",
+        "ใช้เทคโนโลยีเพื่อประโยชน์ทางด้านการพัฒนาคุณภาพการจัดเรียนรู้",
+        "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า",
+        "รวบรวมและใช้เทคโนโลยีดิจิทัลเพื่อการเรียนรู้ในรูปแบบออนไลน์ ออนไซด์ และผสมผสาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1a796050-0854-4cb8-9df4-3ea890041a43",
+              "name": "ใช้เทคโนโลยีเพื่อประโยชน์ทางด้านการพัฒนาคุณภาพการจัดเรียนรู้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "This course is about educational technology, sharing tools and concepts but not directly teaching machine learning skills for financial analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers technology for learning management, not related to AI or financial analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน",
+        "เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้",
+        "คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง",
+        "วิเคราะห์งบการเงินเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "While it includes basic financial statement analysis, its primary focus is on supply chain and cost analysis in agriculture, not directly on financial data analysis or AI."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course includes basic financial statement analysis, useful foundational knowledge for financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "outcomes": [
+        "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน",
+        "สามารถสร้างระบบการรายงานข้อสนเทศทางการบัญชีและการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "96ec8f83-1892-441d-8012-c69d9470ffb0",
+              "name": "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on financial recording and reporting in tourism industry, not directly related to financial data analysis or AI application."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers financial accounting and financial analysis, directly relevant to analyzing financial reports and can be combined with AI applications."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "outcomes": [
+        "เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ",
+        "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น",
+        "ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b74f5511-f0fd-4d06-b42b-f2b44f366710",
+              "name": "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on marketing strategies and cost calculations, not on financial data analysis or AI."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on marketing and pricing strategies for beverage business, unrelated to AI or financial report analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01202525-66",
+      "subjectName": "การออกแบบและประเมินผลกระบวนการ",
+      "outcomes": [
+        "สามารถประเมินต้นทุนการผลิต",
+        "สามารถวิเคราะห์เชิงเศรษฐศาสตร์และการทำกำไร",
+        "สามารถวิเคราะห์เชิงเทคนิคของกระบวนการทางวิศวกรรมเคมี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3aa2f914-ea9f-435a-b359-755b56c2427d",
+              "name": "สามารถวิเคราะห์เชิงเศรษฐศาสตร์และการทำกำไร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on process design and cost analysis, not directly related to financial report analysis or AI application."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers process design and evaluation mainly in chemical engineering, not relevant to AI or financial analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "outcomes": [
+        "อธิบาย",
+        "ประยุกย์ใช้",
+        "ใช้สถิติ",
+        "คำนวณ",
+        "รับผิกชอบ",
+        "ทำงานร่วมกุน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fc1fa0b5-ad83-4dcf-8374-97c973e233e0",
+              "name": "ใช้สถิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Primarily chemistry analysis with some statistics, not relevant to statistical analysis for AI or financial reports."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic analytical chemistry course with no direct connection to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "outcomes": [
+        "สามารถจำแนกและวิเคราะห์องค์ประกอบศิลป์",
+        "สามารถอธิบายสุนทรียศาสตร์และการจัดองค์ประกอบศิลป์และวัตถุ",
+        "สามารถอธิบายการสื่อสารด้วยภาษาภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3e8ca0d3-80be-4cac-8ccd-09fbd26bf55b",
+              "name": "สามารถอธิบายการสื่อสารด้วยภาษาภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on visual design, unrelated to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on design and art fundamentals, unrelated to AI or financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01448324-68",
+      "subjectName": "พอลิเมอร์ทางชีวภาพที่ยั่งยืน",
+      "outcomes": [
+        "อธิบายและแยกประเภทของพอลิเมอร์ทางชีวภาพได้",
+        "เลือกใช้พอลิเมอร์ทางชีวภาพได้",
+        "วิเคราะห์ปัญหาและแนวทางแก้ไขที่เกิดจากการใช้งานพอลิเมอร์ต่อสิ่งแวดล้อมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a57dac47-0cf4-42f2-abd8-2d80c8b72cb6",
+              "name": "เลือกใช้พอลิเมอร์ทางชีวภาพได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Polymer science, unrelated to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on sustainable biopolymers, no relevance to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03654111-67",
+      "subjectName": "สุนทรียศาสตร์ทางการกีฬา",
+      "outcomes": [
+        "สามารถอธิบายความหมายความ เป็นมาและคุณค่า ของสุนทรียศาสตร์ทางการกีฬา",
+        "สามารถยกตัวอย่างพัฒนาการกิจกรรมสุนทรียศาสตร์ทางการกีฬารวมถึงมิติสุนทรียความงาม คุณค่า และค่านิยมทางการกีฬา",
+        "สามารถประยุกต์ความรู้ด้านสุนทรียศาสตร์ทางการกีฬาที่เหมาะสมกับสภาวะการณ์ต่างๆ",
+        "สามารถประยุกต์ใช้ภาษาสื่อสารรวมทั้งเลือกใช้รูปแบบการสื่อสารได้อย่างเหมาะสม",
+        "สามารถประยุกต์ใช้เทคโนโลยีสารสนเทศเพื่อการนำเสนอผลงานในรูปแบบต่างๆ",
+        "แสดงออกถึงความซื่อสัตย์ เคารพกฎระเบียนและเข้าใจบริบทของการอยู่ร่วมกับผู้อื่น",
+        "สามารถเรียนรู้และใฝ่เรียนรู้สิ่งใหม่ในการพัฒนาตัวเอง",
+        "แสดงออกถึงความรับผิดชอบ รับฟังความคิดเห็นและสามารถทำงานร่วมกันเป็นระบบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ed188d35-5fb0-46fc-81c3-d46ffbd5f140",
+              "name": "สามารถประยุกต์ใช้ภาษาสื่อสารรวมทั้งเลือกใช้รูปแบบการสื่อสารได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Aesthetics in sports, unrelated to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Aesthetics in sports course, unrelated to AI or financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "outcomes": [
+        "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์",
+        "อธิบายความสัมพันธ์ระหว่างโครงสร้าง น้ำหนักโมเลกุล และสมบัติของพอลิเมอร์",
+        "อธิบายปฏิกิริยาพอลิเมอไรเซชันและกลไก",
+        "อธิบายวิธีการสังเคราะห์และกลไกการเกิดพอลิเมอไรเซชันร่วม",
+        "อธิบายกระบวนการเตรียมและสมบัติของเทอร์โมพลาสติกและเทอร์โมเซต",
+        "เชื่อมโยงความสัมพันธ์ระหว่างสมบัติของพอลิเมอร์และกระบวนการขึ้นรูปพอลิเมอร์ให้เหมาะสมกับผลิตภัณฑ์",
+        "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ",
+        "แสดงออกถึงความรับผิดชอบ ความมีวินัย และตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ca6b5ff6-af33-45ca-8a2d-8676241cf1d1",
+              "name": "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Polymer chemistry, unrelated to NLP or financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Polymer chemistry course, no connection to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดทฤษฎีด้านจิตวิทยา",
+        "สามารถนำความรู้ไปประยุกต์ใช้ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "779753f2-e09d-4ef7-bb11-35a85bbe8c4c",
+              "name": "สามารถนำความรู้ไปประยุกต์ใช้ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on psychology, unrelated to AI application in financial analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Applied psychology in community is not relevant to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "outcomes": [
+        "ประยุกต์องค์ความรู้ไปสู่การปฏิบัติการไปใช้ในสถานการณ์จริง",
+        "มีทักษะในการปฏิบัติการได้ถูกต้อง",
+        "มีทักษะในสื่อสารทั้งด้านภาษาและเทคโนโลยี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b91c73e6-7d8b-4298-a3cb-e3edde503380",
+              "name": "ประยุกต์องค์ความรู้ไปสู่การปฏิบัติการไปใช้ในสถานการณ์จริง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to rehabilitation science, unrelated to AI application in financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Internship in rehabilitation science and movement, unrelated to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01420211-66",
+      "subjectName": "กลศาสตร์ I",
+      "outcomes": [
+        "ใช้ความรู้ในการแก้โจทย์ปัญหากลศาสตร์ได้",
+        "อธิบายการนำความรู้ด้านกลศาสตร์ไปใช้ในชีวิตประจำวัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "41c2952b-cb64-4313-b2d9-5d86f26957ec",
+              "name": "อธิบายการนำความรู้ด้านกลศาสตร์ไปใช้ในชีวิตประจำวัน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course focuses on mechanics, unrelated to machine learning or AI applications in financial analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mechanics course unrelated to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01420243-66",
+      "subjectName": "อิเล็กทรอนิกส์เบื้องต้น",
+      "outcomes": [
+        "ให้ผู้เรียน เรียนรู้หรือมองเห็นภาพในมุมกว้างของ วิชาอิเล็กทรอนิกส์ เช่น มีเนื้อหาสาระอะไร เกี่ยวข้องกับสาขาวิชาอื่นอย่างไร มีประโยชน์อย่างไร ทั้งในด้าน การศึกษาวิจัย อุตสาหกรรม เกษตรกรรม การแพทย์ ตลอดจนประโยชน์ในชีวิตประจำวัน",
+        "ให้ผู้เรียนทราบและสามารถอธิบายการทำงานของอุปกรณ์อิเล็กทรอนิกส์ ตัวรับรู้ วงจรอิเล็กทรอนิกส์อย่างง่าย และการประยุกต์ในด้านต่างๆ",
+        "ให้ผู้เรียนทราบและสามารถอธิบายได้ว่า ถ้าจะใช้ประโยชน์จากอิเล็กทรอนิกส์ต่อไปในอนาคต จะสามารถค้นคว้าหาความรู้เพิ่มเติมได้อย่างไร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a2efaa04-0cf5-4bed-83b9-6d3ea23a210f",
+              "name": "ให้ผู้เรียนทราบและสามารถอธิบายการทำงานของอุปกรณ์อิเล็กทรอนิกส์ ตัวรับรู้ วงจรอิเล็กทรอนิกส์อย่างง่าย และการประยุกต์ในด้านต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course is about electronics fundamentals, unrelated to machine learning or AI for financial report analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on basic electronics, unrelated to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01420445-66",
+      "subjectName": "การประยุกต์ไมโครโพรเซสเซอร์ทางฟิสิกส์ภาคปฏิบัติการ",
+      "outcomes": [
+        "ได้ฝึกการใช้งาน microprocessor และ single word computer"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "743c769b-3d24-44f7-9a98-a4a2c1406f6c",
+              "name": "ได้ฝึกการใช้งาน microprocessor และ single word computer"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course focuses on microprocessors, not directly relevant to machine learning or AI applications in finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on microprocessor applications in physics lacks relevance to AI or financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01403441-65",
+      "subjectName": "วัสดุนาโน",
+      "outcomes": [
+        "เพื่อให้นักศึกษามีความรู้ความเข้าใจความหมายในเนื้อหาเกี่ยวกับเทคโนโลยีนาโน",
+        "เพื่อให้นักศึกษามีความสามารถในการประยุกต์แก้ปัญหาโจทย์ทางด้านเทคโนโลยีนาโน",
+        "เพื่อให้นักศึกษามีความรู้ทางด้านเทคโนโลยีนาโนที่ทันสมัย และทันต่อการเปลี่ยนแปลงเพื่อเป็นพื้นฐานสำหรับ การศึกษาวิทยาศาสตร์และเทคโนโลยีนาโนขั้นนสูงต่อไป"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "825e74a9-e361-4058-8577-9ffd6d5b0af3",
+              "name": "เพื่อให้นักศึกษามีความรู้ความเข้าใจความหมายในเนื้อหาเกี่ยวกับเทคโนโลยีนาโน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course is about nanomaterials, unrelated to machine learning or AI in financial analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Nanotechnology course unrelated to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "04255221-67",
+      "subjectName": "ระบบไฟฟ้ากำลังเบื้องต้น",
+      "outcomes": [
+        "สามารถวิเคราะห์วงจรไฟฟ้ากระแสสลับได้",
+        "สามารถอธิบายหลักการทำงานของเครื่องจักรกลไฟฟ้าได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3b073c15-40fe-453c-9555-56a0c9e7a034",
+              "name": "สามารถอธิบายหลักการทำงานของเครื่องจักรกลไฟฟ้าได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course is about power systems, unrelated to machine learning or AI applications in finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic power electrical systems course irrelevant to AI or financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01420441-66",
+      "subjectName": "อิเล็กทรอนิกส์กายภาพ",
+      "outcomes": [
+        "เข้าใจสมบัติทางกายภาพของสารกึ่งตัวนำเบื้องต้น",
+        "เข้าใจกระบวนการนำไฟฟ้าของสารกึ่งตัวนำ",
+        "เข้าใจสมบัติทางไฟฟ้าของรอยต่อ pn",
+        "สามารถอธิบายการทำงานของอุปกรณ์สารกึ่งตัวนำที่มีรอยต่อ pn"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e2eb1e73-9db2-4d84-a376-f7c30113a018",
+              "name": "เข้าใจกระบวนการนำไฟฟ้าของสารกึ่งตัวนำ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course is about physical electronics, unrelated to machine learning or AI for finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Physical electronics course about semiconductors not related to AI or financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "03603323-65",
+      "subjectName": "ระบบฝังตัวเบื้องต้น",
+      "outcomes": [
+        "สามารถวิเคราะห์ข้อกำหนดของระบบฝังตัวและใช้ข้อมูลที่ได้มาวิเคราะห์ปัญหาทางเทคนิคเพื่อหาแนวทางแก้ไข",
+        "สามารถแสดงออกถึงการใช้ความรู้ด้านวิศวกรรมคอมพิวเตอร์และเครื่องมือที่เรียนรู้มาในการแก้ไขปัญหาทางเทคนิคในระบบฝังตัว",
+        "สามารถออกแบบระบบฝังตัวโดยใช้วิธีการ การสื่อสาร serial (uart, i2c, spi) การออกแบบ input/output สัญญาณ analog และเครื่องมือที่เหมาะสมเพื่อให้ได้ระบบที่มีประสิทธิภาพและปลอดภัย",
+        "สามารถนำเสนอผลงานและรายงานผลการออกแบบระบบฝังตัวอย่างชัดเจนและเป็นระบบ",
+        "สามารถปฏิบัติงานในโครงการด้วยความรับผิดชอบและคำนึงถึงผลกระทบต่อสังคมและสิ่งแวดล้อม",
+        "สามารถพัฒนาและออกแบบโครงการระบบฝังตัวที่คำนึงถึงการใช้ทรัพยากรอย่างมีประสิทธิภาพและลดผลกระทบต่อสิ่งแวดล้อม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d10409dd-3297-4364-8079-b76b2e1a4456",
+              "name": "สามารถแสดงออกถึงการใช้ความรู้ด้านวิศวกรรมคอมพิวเตอร์และเครื่องมือที่เรียนรู้มาในการแก้ไขปัญหาทางเทคนิคในระบบฝังตัว"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course focuses on embedded systems, not relevant to AI or machine learning applications in financial analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Embedded systems course unrelated to AI application in financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01448214-68",
+      "subjectName": "ปฏิบัติการทางวัสดุ I",
+      "outcomes": [
+        "ดำเนินการทดลองศึกษาโครงสร้าง สมบัติทางกายภาพและเคมีของวัสดุด้วยเทคนิคต่าง ๆ ได้",
+        "วิเคราะห์ข้อมูลและทำรายงานสรุปผลการทดลองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d47a3c52-12d6-4b81-95a3-052db5f1ecba",
+              "name": "วิเคราะห์ข้อมูลและทำรายงานสรุปผลการทดลองได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on material testing and physical/chemical analysis, unrelated to data analysis or AI."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Materials lab course unrelated to AI or financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "อธิบายความรู้เกี่ยวกับโภชนศาสตร์สัตว์ในระดับอุตสาหกรรม",
+        "วิเคราะห์ข้อมูลงานวิจัย เพื่อนำเสนออย่างเป็นระบบ",
+        "สืบค้นข้อมูลและเลือกใช้เทคโนโลยีสารสนเทศในการนำเสนอผลงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ba2b6ef3-32e1-4d92-be9b-c01c357675db",
+              "name": "วิเคราะห์ข้อมูลงานวิจัย เพื่อนำเสนออย่างเป็นระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on animal nutrition research and presentation, unrelated to programming or AI for financial analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on animal nutrition irrelevant to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "01442697-68",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "วิเคราะห์และทำความเข้าใจในกระบวนการในงานวิจัยโดยใช้ความรู้ในสาขาวิชาวัสดุนาโน",
+        "สามารถใช้เทคโนโลยีสารสนเทศต่าง ๆ ช่วยในการสืบค้นข้อมูลเพิ่มเติมได้",
+        "วิเคราะห์ข้อมูลในงานวิจัยเพื่อนำไปสู่บทสรุปได้",
+        "นำเสนองานวิจัยด้วยภาษาอังกฤษได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fd2e2a64-9c8b-486a-b094-893736483b11",
+              "name": "วิเคราะห์ข้อมูลในงานวิจัยเพื่อนำไปสู่บทสรุปได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on nanomaterials research and presentation, unrelated to programming for financial data analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on nanomaterials research unrelated to AI or financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "subjectCode": "02738491-61",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางวิทยาศาสตร์ชีวภาพ",
+      "outcomes": [
+        "อธิบายกระบวนการทางวิทยาศาสตร์ได้",
+        "สืบค้นข้อมูลทางวิทยาศาสตร์ชีวภาพได้",
+        "วางแผนวิจัยทางวิทยาศาสตร์ชีวภาพได้",
+        "วิเคราะห์ข้อมูลทางวิทยาศาสตร์ชีวภาพด้วยวิธีการทางสถิติได้",
+        "อธิบายจรรณยาบรรณในการวิจัยทางวิทยาศาสตร์ได้",
+        "สามารถนำเสนอผลงานทางวิทยาศาสตร์ชีวภาพในรูปแบบต่าง ๆ",
+        "สามารถจัดทำโครงร่างงานวิจัยทางวิทยาศาสตร์ชีวภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์เชิงสถิติ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3a887e39-d4c0-4620-8eee-d9cbdc1cc56f",
+              "name": "วิเคราะห์ข้อมูลทางวิทยาศาสตร์ชีวภาพด้วยวิธีการทางสถิติได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Not found in LLM response"
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic research methodology in biological sciences not relevant to AI or financial report analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1951,
+      "outputTokens": 328
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1934,
+      "outputTokens": 337
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1931,
+      "outputTokens": 357
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 3326,
+      "outputTokens": 326
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1775,
+      "outputTokens": 322
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1846,
+      "outputTokens": 320
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2018,
+      "outputTokens": 297
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "testCaseId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การจัดการการเงินและบัญชีสำหรับธุรกิจขนาดเล็ก",
+  "question": "อยากเปิดร้านเหล้า",
+  "skill": "การจัดการการเงินและบัญชีสำหรับธุรกิจขนาดเล็ก",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on strategic management accounting, not specifically on financial and accounting management for small businesses; skill is marginally relevant as accounting principles are involved but not targeted at small business finance management."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Emphasizes managerial accounting for strategic management; relevance to small business financial and accounting management is marginal and indirect."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Covers profit planning and control which relates to financial management but not specifically tailored to small business finance and accounting management."
+    },
+    {
+      "subjectCode": "04305211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 2,
+      "reason": "Covers fundamental financial management principles including budgeting and capital structure, which are fairly relevant to financial management for small businesses though not exclusively focused on small business context."
+    },
+    {
+      "subjectCode": "02802211-67",
+      "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+      "relevanceScore": 2,
+      "reason": "Focuses on financial management specific to service businesses, including financial planning and control, which is fairly relevant to financial and accounting management for small businesses in service sector."
+    },
+    {
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "relevanceScore": 3,
+      "reason": "Covers basic accounting principles and financial statement preparation for service and trading businesses, directly relevant and comprehensive for financial and accounting management for small businesses."
+    },
+    {
+      "subjectCode": "01131111-67",
+      "subjectName": "การเงินสำหรับผู้ประกอบการ",
+      "relevanceScore": 3,
+      "reason": "Directly addresses financial tools and business environment analysis for entrepreneurs, highly relevant to financial and accounting management for small businesses."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Includes cost calculation and basic financial statement analysis but focuses on agricultural industry operations, marginally relevant to small business financial management."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 1,
+      "reason": "Focuses on basic financial issues in airline business, which is a specific industry context, marginally relevant to small business financial management."
+    },
+    {
+      "subjectCode": "06901111-66",
+      "subjectName": "หลักการจัดการธุรกิจเบื้องต้นสำหรับอุตสาหกรรมการท่องเที่ยว",
+      "relevanceScore": 0,
+      "reason": "Covers basic business management for tourism industry without specific focus on financial or accounting management for small businesses."
+    },
+    {
+      "subjectCode": "03760322-64",
+      "subjectName": "การบัญชีสำหรับเครื่องมือทางการเงินและการป้องกันความเสี่ยง",
+      "relevanceScore": 1,
+      "reason": "Focuses on accounting for financial instruments and risk hedging, which is specialized and not directly related to small business financial and accounting management."
+    },
+    {
+      "subjectCode": "03760441-64",
+      "subjectName": "การให้บริการความเชื่อมั่นเชิงวิชาชีพ",
+      "relevanceScore": 0,
+      "reason": "Focuses on audit and assurance services, unrelated to financial and accounting management for small businesses."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 2,
+      "reason": "Covers financial and accounting reporting and analysis for tourism industry, fairly relevant to financial and accounting management for small businesses in that sector."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "Focuses on data analysis for accounting, which is a supporting skill but not directly about financial and accounting management for small businesses."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.3571428571428572,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.5,
+        "at10": 0.707,
+        "at15": 0.777,
+        "atAll": 0.777
+      },
+      "ideal": {
+        "at5": 0.426,
+        "at10": 0.473,
+        "at15": 0.427,
+        "atAll": 0.446
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.4,
+      "at15": 0.357,
+      "atAll": 0.357
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2479,
+  "outputTokens": 579
+}

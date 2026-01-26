@@ -1,0 +1,144 @@
+{
+  "testCaseId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การจัดการความเสี่ยง",
+  "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+  "skill": "การจัดการความเสี่ยง",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "relevanceScore": 2,
+      "reason": "The course includes the ability to assess and manage risk as one of its learning outcomes, indicating that risk management is a distinct component but not the sole focus."
+    },
+    {
+      "subjectCode": "03764426-64",
+      "subjectName": "การจัดการความเสี่ยงโซ่อุปทาน",
+      "relevanceScore": 3,
+      "reason": "The course is specifically about supply chain risk management, covering principles and analysis of risk events, making risk management the main theme."
+    },
+    {
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "relevanceScore": 2,
+      "reason": "The course covers risk assessment in industrial safety, indicating a fair relevance to risk management as part of safety principles."
+    },
+    {
+      "subjectCode": "01442515-68",
+      "subjectName": "ความปลอดภัยเชิงปฏิบัติการ",
+      "relevanceScore": 2,
+      "reason": "The course focuses on risk management in laboratory emergencies, showing a distinct but specialized application of risk management."
+    },
+    {
+      "subjectCode": "03651436-65",
+      "subjectName": "ตัวแบบคณิตศาสตร์ประกันภัย",
+      "relevanceScore": 1,
+      "reason": "The course involves calculating risk measures in actuarial models, mentioning risk in a specialized mathematical context but not general risk management."
+    },
+    {
+      "subjectCode": "03651232-65",
+      "subjectName": "คณิตศาสตร์ประกันภัยและการบริหารความเสี่ยง",
+      "relevanceScore": 2,
+      "reason": "The course includes analysis of risk and trends in insurance business, indicating a fair relevance to risk management in the insurance context."
+    },
+    {
+      "subjectCode": "03652143-66",
+      "subjectName": "ความปลอดภัยทางเคมีและการจัดการของเสียทางเคมี",
+      "relevanceScore": 2,
+      "reason": "The course explains risks from hazardous chemicals and methods to reduce and manage these risks, showing a fair focus on risk management in chemical safety."
+    },
+    {
+      "subjectCode": "04256212-66",
+      "subjectName": "ความรู้ทั่วไปเกี่ยวกับการประกันภัย",
+      "relevanceScore": 1,
+      "reason": "The course discusses insurance selection under acceptable risk, mentioning risk in a limited context without comprehensive risk management coverage."
+    },
+    {
+      "subjectCode": "04401463-65",
+      "subjectName": "สวัสดิศึกษา",
+      "relevanceScore": 1,
+      "reason": "The course includes evaluating and selecting safety management methods, mentioning risk management concepts marginally."
+    },
+    {
+      "subjectCode": "02741542-65",
+      "subjectName": "หลักการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 1,
+      "reason": "The course covers environmental management including assessment and analysis, which may involve risk but does not explicitly focus on risk management."
+    },
+    {
+      "subjectCode": "03760441-64",
+      "subjectName": "การให้บริการความเชื่อมั่นเชิงวิชาชีพ",
+      "relevanceScore": 2,
+      "reason": "The course includes assessing risk in providing assurance services, indicating risk management as a distinct component."
+    },
+    {
+      "subjectCode": "01456355-64",
+      "subjectName": "การจัดการด้านความปลอดภัย",
+      "relevanceScore": 1,
+      "reason": "The course covers security management concepts but does not explicitly focus on risk management."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "The course focuses on profit planning and control with no mention of risk management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.5384615384615385,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 38.46153846153846,
+        "microAverageRate": 38.46153846153846,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 46.15384615384615,
+        "microAverageRate": 46.15384615384615,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.89,
+        "at10": 0.918,
+        "at15": 0.951,
+        "atAll": 0.951
+      },
+      "ideal": {
+        "at5": 0.694,
+        "at10": 0.618,
+        "at15": 0.526,
+        "atAll": 0.576
+      }
+    },
+    "precision": {
+      "at5": 0.8,
+      "at10": 0.6,
+      "at15": 0.538,
+      "atAll": 0.538
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2852,
+  "outputTokens": 484
+}

@@ -1,0 +1,2657 @@
+{
+  "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+  "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+  "courses": [
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "outcomes": [
+        "สามารถอธิบายองค์ประกอบพื้นฐานของระบบการจัดการฐานข้อมูลเชิงสัมพันธ์ได้",
+        "สามารถอธิบายแนวคิดพื้นฐานของแบบจำลองข้อมูลเชิงสัมพันธ์ แบบจำลองความสัมพันธ์เอนทิตี, การออกแบบฐานข้อมูลเชิงสัมพันธ์, พีชคณิตเชิงความสัมพันธ์ และ ภาษาสอบถามเชิงโครงสร้างได้",
+        "สามารถออกแบบแบบจำลองความสัมพันธ์เอนทิตีเพื่อแสดงถึงความสัมพันธ์ของข้อมูลที่เป็นพื้นฐานได้",
+        "สามารถปรับปรุงโครงสร้างข้อมูลของฐานข้อมูลที่มีความซํ้าซ้อนให้อยู่ในรูปแบบที่เป็นบรรทัดฐานได้",
+        "สามารถสร้างชุดคำสั่งภาษาสอบถามเชิงโครงสร้างเพื่อใช้ในการจัดการฐานข้อมูลได้",
+        "สามารถอธิบายถึง วัฏจักรฐานข้อมูล ซึ่งประกอบด้วย กระบวนการของการสร้าง การบำรุงรักษา การเพิ่มประสิทธิภาพ ของระบบฐานข้อมูลได้",
+        "สามารถอธิบายถึงกระบวนการจัดการทรานแซคชันและการควบคุมภาวะพร้อมกันได้",
+        "สามารถอธิบายถึงเทคโนโลยีและรูปแบบการเชื่อมต่อฐานข้อมูลแบบต่างๆและสามารถเลือกใช้งานได้",
+        "สามารถอธิบายถึงบทบาทหน้าที่ของผู้ดูแลระบบฐานข้อมูลและการจัดการความปลอดภัยของฐานข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "03721cbc-8212-44e6-8182-66c8f851b0dc",
+              "name": "สามารถอธิบายองค์ประกอบพื้นฐานของระบบการจัดการฐานข้อมูลเชิงสัมพันธ์ได้"
+            },
+            {
+              "id": "f05a0b88-a5e5-4451-9cc2-3dc1e11876b4",
+              "name": "สามารถอธิบายถึงเทคโนโลยีและรูปแบบการเชื่อมต่อฐานข้อมูลแบบต่างๆและสามารถเลือกใช้งานได้"
+            },
+            {
+              "id": "9a909b14-222a-4e9a-bdc9-3249927e6b59",
+              "name": "สามารถอธิบายถึงบทบาทหน้าที่ของผู้ดูแลระบบฐานข้อมูลและการจัดการความปลอดภัยของฐานข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f05a0b88-a5e5-4451-9cc2-3dc1e11876b4",
+              "name": "สามารถอธิบายถึงเทคโนโลยีและรูปแบบการเชื่อมต่อฐานข้อมูลแบบต่างๆและสามารถเลือกใช้งานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Provides comprehensive knowledge on database design, management, and technology, directly supporting the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Database systems are a fundamental technology skill relevant for working in technology fields."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "outcomes": [
+        "สามารถวิเคราะห์ ออกแบบ และสร้างฐานข้อมูลเชิงสัมพันธ์ได้อย่างถูกต้องตามหลักการ ตรงกับความต้องการของผู้ใช้",
+        ".สามารถนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูลได้",
+        "สามารถแสดงออกถึงความมุ่งมั่น ในการปฏิบัติงานกลุ่มได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "0d1b88bb-cb0e-4cd9-bbf8-f0e89deff66e",
+              "name": "สามารถวิเคราะห์ ออกแบบ และสร้างฐานข้อมูลเชิงสัมพันธ์ได้อย่างถูกต้องตามหลักการ ตรงกับความต้องการของผู้ใช้"
+            },
+            {
+              "id": "1e8d79c2-0fa6-41e4-a351-7a8a10793e63",
+              "name": ".สามารถนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1e8d79c2-0fa6-41e4-a351-7a8a10793e63",
+              "name": ".สามารถนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on database analysis, design, and application, directly aligned with the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Database design and application development are core technical skills useful in technology careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง",
+        "วิเคราะห์ปัญหาง่าย ๆ และออกแบบอัลกอริทึมเพื่อแก้ปัญหาด้วยแนวคิดเชิงตรรกะและโครงสร้างควบคุมในโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "8db17ee0-21b4-47c6-89fe-33fb1601548e",
+              "name": "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches fundamental programming concepts and problem analysis, directly supporting the target skill of basic programming."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Structured programming teaches essential programming skills needed in technology work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา",
+        "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม",
+        "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly involves writing programs to solve problems and understanding algorithms, directly supporting the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Problem solving with programming and algorithms is a key enabling skill for technology jobs."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01204325-65",
+      "subjectName": "การสื่อสารข้อมูลและเครือข่ายคอมพิวเตอร์",
+      "outcomes": [
+        "มีความรู้ความเข้าใจเกี่ยวกับหลักการพื้นฐานของการสื่อสารข้อมูลคอมพิวเตอร์",
+        "มีความรู้ความเข้าใจการทำงานของเทคโนโลยีการสื่อสารข้อมูลในปัจจุบัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a5a1088b-a652-49ef-b515-1b4cb054226c",
+              "name": "มีความรู้ความเข้าใจเกี่ยวกับหลักการพื้นฐานของการสื่อสารข้อมูลคอมพิวเตอร์"
+            }
+          ]
+        },
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "a5a1088b-a652-49ef-b515-1b4cb054226c",
+              "name": "มีความรู้ความเข้าใจเกี่ยวกับหลักการพื้นฐานของการสื่อสารข้อมูลคอมพิวเตอร์"
+            },
+            {
+              "id": "dfcb5465-3a31-4112-8a63-79dde24fd89b",
+              "name": "มีความรู้ความเข้าใจการทำงานของเทคโนโลยีการสื่อสารข้อมูลในปัจจุบัน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly covers fundamental principles and current technologies of computer communication and networks, directly aligning with the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Understanding data communication and computer networks is foundational for technology careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01204691-66",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงทางวิศวกรรมคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถสืบค้น รวบรวม วิเคราะห์ และสรุปองค์ความรู้ที่เกี่ยวข้องกับงานวิจัยจากหลากหลายแหล่งได้",
+        "สามารถอธิบาย วิเคราะห์ และเลือกและออกแบบกระบวนการในการทำวิจัยที่เหมาะสมมาใช้แก้ไขปัญหาได้",
+        "สามารถวิเคราะห์ และสรุปปัญหาเพื่อนำมากำหนดเป็นหัวข้อวิจัยของตนเองได้",
+        "สามารถนำเสนอผลการค้นคว้าวิจัย โดยมีการอ้างอิงแหล่งที่มาอย่างถูกต้องตามจรรยาบรรณ และสรุปวิจารณ์ผลอย่างซื่อสัตย์",
+        "สามารถเลือกและใช้เครื่องมือและเทคนิคที่เหมาะสมในการสืบค้น จัดหมวดหมู่ วิเคราะห์ผล และเขียนบทความวิจัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "6ef691a8-6b08-40ac-b9e9-f939289726a6",
+              "name": "สามารถอธิบาย วิเคราะห์ และเลือกและออกแบบกระบวนการในการทำวิจัยที่เหมาะสมมาใช้แก้ไขปัญหาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Teaches research methodology and analysis skills directly applicable to problem analysis and solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Advanced research methods in computer engineering are specialized and assume research focus, not general technology work."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01204591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางวิศวกรรมคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถสืบค้น รวบรวม วิเคราะห์ และสรุปองค์ความรู้ที่เกี่ยวข้องกับงานวิจัยจากหลากหลายแหล่งได้",
+        "สามารถอธิบาย วิเคราะห์ และเลือกและออกแบบกระบวนการในการทำวิจัยที่เหมาะสมมาใช้แก้ไขปัญหาได้",
+        "สามารถวิเคราะห์ และสรุปปัญหาเพื่อนำมากำหนดเป็นหัวข้อวิจัยของตนเองได้",
+        "สามารถนำเสนอผลการค้นคว้าวิจัย โดยมีการอ้างอิงแหล่งที่มาอย่างถูกต้องตามจรรยาบรรณ และสรุปวิจารณ์ผลอย่างซื่อสัตย์",
+        "สามารถเลือกและใช้เครื่องมือและเทคนิคที่เหมาะสมในการสืบค้น จัดหมวดหมู่ วิเคราะห์ผล และเขียนบทความวิจัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "74521318-e20e-46ce-a6a7-75c0a0a93c3e",
+              "name": "สามารถอธิบาย วิเคราะห์ และเลือกและออกแบบกระบวนการในการทำวิจัยที่เหมาะสมมาใช้แก้ไขปัญหาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Similar to above, focuses on research methods essential for analytical problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Research methodology courses are specialized and not directly relevant for general technology career development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "สืบค้น วิเคราะห์ ประมวลข้อมูล รวมถึงระบุวัตถุประสงค์ กระบวนการในการแก้ปัญหา และข้อสรุปของงานวิจัยทางด้านวัสดุศาสตร์ในหัวข้อที่สนใจและเกี่ยวข้องกับหัวข้องานวิจัยของนิสิต",
+        "เขียนและนำเสนอโครงร่างวิทยานิพนธ์ได้",
+        "วางแผน ดำเนินงานวิจัย และแก้ไขปัญหาระหว่างการวิจัยได้",
+        "ประมวล วิเคราะห์ อภิปราย และสรุปผลการดำเนินงานวิทยานิพนธ์ในรูปแบบของเล่มวิทยานิพนธ์และร่างบทความวิจัยได้",
+        "นำเสนอผลงานวิทยานิพนธ์ได้",
+        "ปฏิบัติงานวิจัยตามหลักจรรยาบรรณนักวิจัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "e8564a36-e9b7-46f7-9268-1c9dba596c12",
+              "name": "วางแผน ดำเนินงานวิจัย และแก้ไขปัญหาระหว่างการวิจัยได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Research-focused course teaching analysis, planning, and problem-solving skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis work is specific to research and academic contexts, not general technology career skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02714101-67",
+      "subjectName": "การคิดเชิงวิพากษ์และการแก้ปัญหา",
+      "outcomes": [
+        "อธิบายข้อเท็จจริงเพื่อสนับสนุนความคิดเห็นและการอ้างเหตุผลของตนเองได้",
+        "นำเสนอทางแก้ปัญหาโดยการใช้เหตุผลได้",
+        "ประเมิน ความเป็นเหตุผล ความคิดเห็นและแนวการอ้างเหตุผลของผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "f5dc3b54-163a-4c39-970c-9a491b3f3961",
+              "name": "นำเสนอทางแก้ปัญหาโดยการใช้เหตุผลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Explicitly teaches critical thinking and problem-solving skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Critical thinking and problem solving are foundational skills that enable success in technology roles."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "04252534-67",
+      "subjectName": "การออกแบบและการบริหารเครือข่ายขั้นสูง",
+      "outcomes": [
+        "สามารถเดินสายและออกแบบทอพอโลยีเครือข่าย",
+        "สามารถบริหารและจัดการเครือข่ายให้มีความมั่นคง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "daa05001-e4c2-4352-98d5-d40132d629b5",
+              "name": "สามารถบริหารและจัดการเครือข่ายให้มีความมั่นคง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course teaches advanced network design and management, directly relevant to understanding computer networks."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Advanced network design and management are relevant technical skills for technology careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "04256355-66",
+      "subjectName": "โปรแกรมประยุกต์การเรียนรู้ของเครื่อง",
+      "outcomes": [
+        "สามารถเลือกขั้นตอนวิธีการเรียนรู้ของเครื่องแบบไม่มีผู้สอนเพื่อแก้ปัญหาได้",
+        "สามารถเลือกขั้นตอนวิธีการเรียนรู้ของเครื่องแบบมีผู้สอนเพื่อแก้ปัญหาได้",
+        "สามารถวิเคราะห์ผลการทดลองได้",
+        "สามารถพัฒนาแบบจำลองจากกรณีศึกษาได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "71f3e0a8-fc5a-4c85-b3ff-567b77307804",
+              "name": "สามารถเลือกขั้นตอนวิธีการเรียนรู้ของเครื่องแบบมีผู้สอนเพื่อแก้ปัญหาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses directly on applying machine learning techniques, aligning perfectly with the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers machine learning applications, a core technology skill relevant for tech careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "จัดการและออกแบบฐานข้อมูลได้",
+        "วิเคราะห์ข้อมูลด้วยฟังก์ชันการคำนวณได้",
+        "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้",
+        "ประยุกต์การสอบถามข้อมูลในการทำงานด้านวิทยาการข้อมูลได้",
+        "สามารถแสดงออกถึงความซื่อสัตย์ และเคารพกฎระเบียบและจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches querying and managing databases, which are foundational for database management skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches structured data querying and database management, essential technical skills for technology work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "outcomes": [
+        "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล",
+        "ออกแบบและวิเคราะห์ข้อมูลด้วยโมเดลหลายมิติและ olap",
+        "เข้าใจแนวคิดและบทบาทของธุรกิจอัจฉริยะ",
+        "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ",
+        "บูรณาการธุรกิจอัจฉริยะในระดับองค์กร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cf98039c-a1ec-4081-a108-7e579c4cd22d",
+              "name": "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล"
+            }
+          ]
+        },
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "cf98039c-a1ec-4081-a108-7e579c4cd22d",
+              "name": "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves data warehouses and business intelligence systems, relevant to understanding data systems within computer networks."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on data warehousing and business intelligence, useful foundational knowledge for tech roles."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "outcomes": [
+        "จัดการข้อมูลขนาดใหญ่โดยคำนึงถึงความเป็นส่วนตัวและความปลอดภัยของข้อมูลได้",
+        "เลือกใช้เครื่องมือสำหรับจัดการข้อมูลขนาดใหญ่ ได้อย่างเหมาะสม",
+        "แสดงออกถึงความรับผิดชอบ ซื่อสัตย์  และเรียนรู้ด้วยตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d2444935-65f8-43e5-8648-847de57d088f",
+              "name": "จัดการข้อมูลขนาดใหญ่โดยคำนึงถึงความเป็นส่วนตัวและความปลอดภัยของข้อมูลได้"
+            },
+            {
+              "id": "2b37a5a4-1559-4aec-a17c-b07dce99b46d",
+              "name": "เลือกใช้เครื่องมือสำหรับจัดการข้อมูลขนาดใหญ่ ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers big data management with focus on privacy and security, foundational for advanced database skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Introduces big data management and tools, directly relevant to technology careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้",
+        "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้",
+        "สามารถเขียนโปรแกรมแบบขับเคลื่อนด้วยเหตุการณ์ที่มีส่วนต่อประสานกราฟิกกับผู้ใช้ตามที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "90f6a86a-dd0e-421e-9699-1d91b4b14109",
+              "name": "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้"
+            },
+            {
+              "id": "ef13bdc3-24c4-42fd-84aa-f9edfe5f1610",
+              "name": "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "This course covers object-oriented programming and event-driven programming, foundational to understanding programming, but not directly teaching basic programming skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers programming principles and object-oriented programming, fundamental for tech jobs."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "outcomes": [
+        "วิเคราะห์ปัญหาและหาแนวทางแก้ไขโดยการวิจัย",
+        "ใช้องค์ความรู้ทางสถิติ คณิตศาสตร์ ในการศึกษาค้นคว้าและแก้ไขปัญหา",
+        "พัฒนานวัตกรรมผลิตภัณฑ์ และ/หรือบริการ จากการบูรณาการความรู้ที่ได้ศึกษา",
+        "นำเสนองานและสื่อสารได้อย่างเหมาะสมกับบุคคลที่แตกต่างกันโดยใช้เทคโนโลยีดิจิทัล",
+        "มีความรับผิดชอบต่อตนเองและสังคม และมีความซื่อสัตย์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "89c65828-e8dc-480d-b33c-36a31cee2f23",
+              "name": "วิเคราะห์ปัญหาและหาแนวทางแก้ไขโดยการวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches problem analysis and solution development, which are foundational for the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Develops innovation and problem-solving skills with digital communication, beneficial for tech career development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "ประยุกต์ทฤษฎีเพื่อสร้างงานวิจัย",
+        "ออกแบบและทดสอบอุปกรณ์หรือเทคนิคเพื่อสร้างงานวิจัย",
+        "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย",
+        "ปฏิบัติงานภาคสนามในการเก็บข้อมูลงานวิจัย",
+        "บริหารงานวิจัยเพื่อสร้างสรรค์ผลงานวิจัยให้บรรลุวัตถุประสงค์และเป็นไปตามหลักจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "19c55b39-65ae-4726-9dde-94d532e9f709",
+              "name": "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on research and analysis skills necessary for problem-solving."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Research skills and problem-solving through scientific methods support advanced tech career growth."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "outcomes": [
+        "สามารถประมวลองค์ความรู้ในการวิเคราะห์และเลือกลงทุนโครงการได้อย่างเหมาะสม พร้อมทั้งแก้ไขปัญหาและพัฒนาให้เหมาะกับข้อจำกัดต่างๆ  โดยคำนึงถึงจรรยาบรรณวิชาชีพ",
+        "สามารถวิเคราะห์และประเมินปัญหาได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f8fea756-2581-4b40-90ad-16434e1d7e21",
+              "name": "สามารถวิเคราะห์และประเมินปัญหาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes analysis and problem evaluation skills relevant to problem-solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on investment project analysis, unrelated to technology career development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "outcomes": [
+        "ออกแบบหัวข้อศึกษาค้นคว้าเชิงบูรณาการข้ามศาสตร์",
+        "วิเคราะห์และแก้ไขปัญหาด้วย องค์ความรู้เชิงบูรณาการ",
+        "เรียบเรียงเขียนเป็นรายงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "4afa56fc-6758-4ce1-9750-2c8e138bc75b",
+              "name": "วิเคราะห์และแก้ไขปัญหาด้วย องค์ความรู้เชิงบูรณาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves designing research topics and solving problems through integrated knowledge."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches interdisciplinary problem solving and research, useful for broad tech skill enhancement."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01203512-66",
+      "subjectName": "การวางแผน การทำกำหนดเวลา และการควบคุมในงานบริหารการก่อสร้าง",
+      "outcomes": [
+        "สามารถประมวลแนวคิด ทฤษฎี บริหารจัดการโครงการก่อสร้างได้เป็นอย่างมีประสิทธิภาพ โดยใช้ความรู้ด้านการวางแผนและควบคุมโครงการเข้าช่วย และเพิ่มประสิทธิภาพมากขึ้นโดยการประยุกต์ใช้โปรแกรมคอมพิวเตอร์ พร้อมทั้งมีจรรยาบรรณวิชาชีพในการทำงาน",
+        "สามารถวิเคราะห์ปัญหาที่เกิดขึ้นในโครงการ พร้อมแก้ไขเพื่อลดอุปสรรค"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "95131fb9-3b69-40c5-b650-ae0965d83a62",
+              "name": "สามารถวิเคราะห์ปัญหาที่เกิดขึ้นในโครงการ พร้อมแก้ไขเพื่อลดอุปสรรค"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes planning and problem analysis in construction management, relevant to problem-solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Centers on construction project management, not relevant to technology career paths."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายทฤษฎีหลักการและกระบวนการ  วิศวกรรมซอฟต์แวร์ให้เหมาะสมกับผู้ใช้งานได",
+        "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้",
+        "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7b90c13c-c6a8-4cb8-b5d6-e880eb36c8c0",
+              "name": "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers software development and creating websites, relevant as foundational knowledge for web/app development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course teaches software engineering skills directly relevant to technology work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "outcomes": [
+        "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ",
+        "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers design software skills, foundational for creating web/app interfaces."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on product design software, not directly related to general technology career development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01352373-66",
+      "subjectName": "การรู้เท่าทันดิจิทัล",
+      "outcomes": [
+        "มีจริยธรรมในการใช้งานเครื่องมือดิจิทัลในงานนิเทศศาสตร์",
+        "มีความรู้ความเข้าใจในหลักการพื้นฐานและเครื่องมือต่าง ๆ ของการสื่อสารในระบบดิจิทัล",
+        "เป็นผู้มีความสามารถในการใช้งานและผลิตสื่อในระบบการสื่อสารดิจิทัลได้",
+        "สามารถเรียนรู้ พัฒนา ตนเองและการทำงานด้านการผลิตสื่อให้สอดคล้องกับการเปลี่ยนแปลงของเทคโนโลยีดิจิทัลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1b0ccdb3-0961-4579-ab35-c04b670ba51a",
+              "name": "มีความรู้ความเข้าใจในหลักการพื้นฐานและเครื่องมือต่าง ๆ ของการสื่อสารในระบบดิจิทัล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "It covers digital literacy and communication principles, foundational for understanding digital systems, but not specifically about computer systems or networks."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers digital literacy and adapting to digital technology changes, useful for technology work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01204526-66",
+      "subjectName": "โครงแบบเครือข่ายและการบำรุงรักษา",
+      "outcomes": [
+        "สามารถวิเคราะห์ และแก้ปัญหาเครือข่ายที่เกิดขึ้นได้",
+        "สามารถสืบค้น รวบรวม ข้อมูลเพื่อให้สามารถแก้ปัญหาที่เกิดขึ้น เพื่อให้สามารถทำงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "36625ca7-ec98-42b6-98c6-98b80cc27067",
+              "name": "สามารถวิเคราะห์ และแก้ปัญหาเครือข่ายที่เกิดขึ้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on network architecture and maintenance, which are prerequisites for understanding computer networks."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches network analysis and maintenance, a core technology skill."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถอธิบายการออกแบบฮาร์ดแวร์ส่วนต่างๆ ให้มีความเหมาะสมและทำงานสอดคล้องกันกับระบบคอมพิวเตอร์ได้",
+        "สามารถวิเคราะห์การทำงานของระบบคอมพิวเตอร์ผ่านองค์ประกอบต่างๆ ในระบบคอมพิวเตอร์ได้",
+        "สามารถใช้สถาปัตยกรรมคอมพิวเตอร์วัดและประเมินประสิทธิภาพการทำงานของระบบคอมพิวเตอร์ได้",
+        "สามารถนำเสนอรูปแบบการทำงานของสถาปัตยกรรมแบบต่างๆ ของระบบคอมพิวเตอร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7fa7de85-2d89-4e47-958d-56cbc50bda59",
+              "name": "สามารถวิเคราะห์การทำงานของระบบคอมพิวเตอร์ผ่านองค์ประกอบต่างๆ ในระบบคอมพิวเตอร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides foundational knowledge of computer architecture, essential for understanding computer systems."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers computer architecture, foundational knowledge for technology careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01418104-67",
+      "subjectName": "รู้ทันไอที",
+      "outcomes": [
+        "สามารถอธิบายลักษณะของ intelligent application ได้",
+        "สามารถกำกับการเรียนรู้ด้วยตนเอง",
+        "สามารถสื่อสารความรู้ด้านไอทีด้วยวิธีการเขียนและการนำเสนอ",
+        "สามารถสรุปความรู้เกี่ยวกับทรัพย์สินทางปัญญา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f68359cc-271d-43e3-9efa-dec768860182",
+              "name": "สามารถสื่อสารความรู้ด้านไอทีด้วยวิธีการเขียนและการนำเสนอ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers basic understanding of IT concepts and applications, foundational for working in tech-related fields."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Provides IT knowledge and self-learning skills relevant to technology development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานและความสำคัญของการวิเคราะห์ข้อมูลในปัญญาประดิษฐ์ได้",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อการเรียนและชีวิตประจำวันได้อย่างเหมาะสม",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาเชิงธุรกิจได้อย่างเหมาะสม",
+        "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้",
+        "วิเคราะห์ผลกระทบของเทคโนโลยีปัญญาประดิษฐ์ต่อสังคมและประเด็นจริยธรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "290697b6-36c7-404b-ac55-b67e92a42cfa",
+              "name": "อธิบายหลักการพื้นฐานและความสำคัญของการวิเคราะห์ข้อมูลในปัญญาประดิษฐ์ได้"
+            },
+            {
+              "id": "f116f6de-12a5-4a9c-890c-65edf5ac4243",
+              "name": "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อการเรียนและชีวิตประจำวันได้อย่างเหมาะสม"
+            },
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches fundamental AI principles and applications, relevant as prerequisite knowledge for applying AI and machine learning."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on AI fundamentals and applications, enabling technology skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03610111-66",
+      "subjectName": "เปิดโลกวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดพื้นฐานของระบบปัญญาประดิษฐ์ ตลอดจน ระบบอินเตอร์เน็ทของสรรพสิ่งที่ใช้อยู่ในปัจจุบันได้",
+        "สามารถใช้เครื่องมือปัญญาประดิษฐ์ในการทำงานเบื้องต้นได้",
+        "สามารถสร้างโปรแกรมควบคุมระบบอัตโนมัติอย่างง่ายโดยใช้ไมโครคอมพิวเตอร์ได้",
+        "สามารถทำงานเป็นหมู่คณะได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f5a98356-69b8-4401-b63b-ae5e745fd7ec",
+              "name": "สามารถใช้เครื่องมือปัญญาประดิษฐ์ในการทำงานเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides basic understanding of AI systems and tools, useful as foundational knowledge for applying AI and machine learning."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Introduces AI and IoT concepts and tools, relevant for technology work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01204561-66",
+      "subjectName": "ปัญญาประดิษฐ์ขั้นสูง",
+      "outcomes": [
+        "สามารถประยุกต์ใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาที่เหมาะสมได้",
+        "สามารถออกแบบและวิเคราะห์ระบบปัญญาประดิษฐ์ที่ชาญฉลาดได้",
+        "สามารถให้ความเห็นเกี่ยวกับงานวิจัยทางด้านเทคโนโลยีปัญญาประดิษฐ์ที่เป็นปัจจุบัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "472fa051-ec27-4164-9033-a46c53245197",
+              "name": "สามารถประยุกต์ใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาที่เหมาะสมได้"
+            },
+            {
+              "id": "a02c6b38-9647-4eca-9088-e76f33d882af",
+              "name": "สามารถออกแบบและวิเคราะห์ระบบปัญญาประดิษฐ์ที่ชาญฉลาดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides advanced AI concepts and system design, useful as prerequisite knowledge for applying AI and machine learning."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Advanced AI course directly applicable to technology problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "04256347-66",
+      "subjectName": "การประมวลผลข้อมูลขนาดใหญ่เบื้องต้น",
+      "outcomes": [
+        "สามารถวิเคราะห์ และสร้างข้อมูลขนาดใหญ่ได้ถูกต้องตามหลักการ",
+        "สามารถจัดการข้อมูลขนาดใหญ่ได้",
+        "สามารถแสดงออกถึงความมุ่งมั่น ตั้งใจ ในการปฏิบัติงานกลุ่มได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9754f0a9-d6b2-4445-b6d7-3730cb80c8cd",
+              "name": "สามารถจัดการข้อมูลขนาดใหญ่ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on big data processing, which is tangentially related but not directly about database management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches big data processing, a valuable technology skill."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "outcomes": [
+        "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้ฟังก์ชันในการวิเคราะห์ข้อมูลได้อย่างเหมาะสมและถูกต้อง",
+        "เลือกรูปแบบการนำเสนอข้อมูลได้อย่างเหมาะสม",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ด้วยความรับผิดชอบ ซื่อสัตย์ และปฎิบัติงานร่วมกับผู้อื่นได้ มีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84b67e5d-9f9b-45fb-8a17-c60f5eb856df",
+              "name": "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Centers on data analysis and visualization, sharing tools but not core database management skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches data analysis and visualization skills, which are essential technical skills for technology-related work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "outcomes": [
+        "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม",
+        "สร้างการคำนวณข้อมูล พารามิเตอร์ตารางและแผนภูมิ เพื่อนำเสนอภาพข้อมูลได้อย่่างเหมาะสม",
+        "วิเคราะห์ข้อมูลขั้นสูงได้",
+        "สร้างแดชบอร์ดและนำเสนอผ่านระบบสารสนเทศได้",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ซื่อสัตย์ ปฎิบัติงานร่วมกับผู้อื่นได้ และมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "607d6284-5f60-4f1d-b70f-20c41e69fa56",
+              "name": "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with data visualization and business intelligence, not directly about database management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on data visualization and advanced data analysis for business, providing practical tech skills relevant to technology careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "outcomes": [
+        "อธิบายภาพรวมและหลักการพื้นฐานของวิทยาการข้อมูลได้",
+        "แก้ปัญหาด้านวิทยาการข้อมูลเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "ce183532-a06f-4117-a50c-98208bb1456e",
+              "name": "แก้ปัญหาด้านวิทยาการข้อมูลเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides basic data science concepts, not specifically about database management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Introduces fundamental data science concepts, directly relevant to technology fields."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "outcomes": [
+        "ปฏิบัติตนอย่างมีความมุ่งมั่นในการเรียน มีความซื่อสัตย์ และเคารพกฎระเบียบ ข้อบังคับของสังคม",
+        "เข้าใจ และสามารถอธิบายความรู้พื้นฐานทางการจัดการ",
+        "แสวงหาความรู้จากแหล่งข้อมูลหลากหลาย เพื่อให้เท่าทันต่อปัญหาหรือการเปลี่ยนแปลงของสภาพแวดล้อม",
+        "สามารถทำงานเป็นทีม อย่างมีความรับผิดชอบต่อตนเองและสังคม",
+        "สามารถใช้เทคโนโลยีในการแสวงหาความรู้และการสื่อสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "994854dc-8cf7-4b57-a975-afd245f632b6",
+              "name": "เข้าใจ และสามารถอธิบายความรู้พื้นฐานทางการจัดการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers management and organizational skills, tangentially related but not directly about database management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers organizational and management knowledge, useful for career development in technology sectors."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "outcomes": [
+        "บอกความหมายคำศัพท์โดยอาศัยบริบท",
+        "อ่านจับใจความสำคัญของบทอ่านที่มีเนื้อหาไม่ซับซ้อน",
+        "เขียนประโยคความเดียว ความรวม ความซ้อนได้",
+        "เขียนย่อหน้าในระดับพื้นฐานได้อย่างครบถ้วนตามองค์ประกอบ",
+        "แสดงออกถึงความรับผิดชอบและความมุ่งมั่นผ่านการเข้าชั้น เรียนและการมีส่วนร่วมในชั้นเรียน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "26c5a720-6b3f-4a61-9bd9-44dc68f0d9a9",
+              "name": "เขียนย่อหน้าในระดับพื้นฐานได้อย่างครบถ้วนตามองค์ประกอบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "While improving English skills can support learning programming, this course does not focus on programming fundamentals."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Improves English reading and writing skills, an enabling tool for working in technology environments."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "04256131-66",
+      "subjectName": "โปรแกรมตารางทำการเบื้องต้น",
+      "outcomes": [
+        "สามารถอธิบายการใช้โปรแกรมตารางทำการ ในเบื้องต้นได้",
+        "สามารถใช้โปรแกรมตารางทำการเพื่อจัดการข้อมูลขั้นพื้นฐาน การคำนวณ การวิเคราะห์ และการนำเสนอข้อมูลในเบื้องต้นได้",
+        "สามารถอธิบายผลลัพธ์ของปัญหาจากการใช้โปรแกรมตารางทำการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b3bb427c-bbb0-4497-bb8f-021f5a6a434f",
+              "name": "สามารถอธิบายการใช้โปรแกรมตารางทำการ ในเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "This course teaches spreadsheet software, which is a tool rather than a programming foundation, thus only tangentially related."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches spreadsheet software basics, a fundamental tool for many technology-related tasks."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการออกแบบการทดลองได้อย่างถูกต้อง",
+        "เลือกแผนการทดลองได้อย่างเหมาะสมกับปัญหาและวัตถุประสค์ของการทดลอง",
+        "วิเคราะห์ข้อมูลและนำเสนอผลการวิเคราะห์การทดลองได้อย่างถูกต้อง",
+        "ประยุกต์ใช้โปรแกรมสำเร็จรูปในการวิเคราะห์ข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "25c9d052-74f9-4d73-babd-3163087759da",
+              "name": "อธิบายหลักการพื้นฐานของการออกแบบการทดลองได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "This course involves experimental design and data analysis, which are useful skills but not directly related to learning programming."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers experimental design and data analysis, useful technical skills applicable in technology fields."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01357353-68",
+      "subjectName": "การล่ามภาษาเยอรมัน",
+      "outcomes": [
+        "อธิบายประเภทต่าง ๆ ของ การล่าม ได้",
+        "ถ่ายทอดข้อความขนาดสั้นและ ขนาดกลางจากภาษาไทยเป็นภาษา เยอรมันได้",
+        "ถ่ายทอดข้อความขนาดยาวจาก ภาษาไทยเป็นภาษาเยอรมันได้",
+        "ระบุปัญหาและแก้ไขปัญหาจาก การล่ามได้",
+        "ใช้เทคนิคในการจดบันทึกย่อ ข้อความสำหรับการล่ามได้",
+        "ใช้เครื่องมืออิเล็กทรอนิกส์ประเภท ต่าง ๆ ในการล่ามได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "e00d1558-8dd5-41ff-99cb-68cef9d0007b",
+              "name": "ระบุปัญหาและแก้ไขปัญหาจาก การล่ามได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Language translation course, shared tools but not directly related to analytical problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on German interpreting skills, unrelated to general technology career development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "outcomes": [
+        "อธิบายความเป็นมาของการเงินธุรกิจการบิน และการดำเนินงานของธุรกิจสายการบิน การขนส่งสินค้าทางอากาศ และหน่วยงานที่เกี่ยวข้อง",
+        "วิเคราะห์ประเด็นปัญหา และการแก้ปัญหาด้านการเงินธุรกิจเบื้องต้นตามสถานการณ์อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "2b37d44d-f1a5-4f5b-9e1e-cc568b6d87e7",
+              "name": "วิเคราะห์ประเด็นปัญหา และการแก้ปัญหาด้านการเงินธุรกิจเบื้องต้นตามสถานการณ์อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Financial course, shared tools but not directly related to analytical problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Specialized in airline business finance, irrelevant to general technology career development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02201596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมเกษตร",
+      "outcomes": [
+        "อธิบายทฤษฎีีของเรื่องที่ศึกษาได้",
+        "ประยุกต์ทฤษฎีเพื่อแก้ปัญหาที่ศึกษาได้",
+        "ทำงานเป็นทีมได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "164ab47d-edb3-49a6-ba01-33481c5100d1",
+              "name": "ประยุกต์ทฤษฎีเพื่อแก้ปัญหาที่ศึกษาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Specialized engineering course, shared tools but not directly related to problem analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Specific to agricultural engineering, not broadly relevant to general technology career development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "outcomes": [
+        "อธิบายหลักการและวัตถุประสงค์ของการ ประชาสัมพันธ์ได้",
+        "อธิบายทฤษฎีที่เกี่ยวข้องกับการประชา สัมพันธ์ได้",
+        "วิเคราะห์ปัญหาและกําหนดแผนงาน ประชาสัมพันธ์ได้",
+        "อธิบายจริยธรรมและจรรยาบรรณของ นักประชาสัมพันธ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6532894d-6e5b-462e-bb28-f08c7f11af2b",
+              "name": "วิเคราะห์ปัญหาและกําหนดแผนงาน ประชาสัมพันธ์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Public relations course, shared tools but not directly related to problem analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on public relations, unrelated to technology career development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "outcomes": [
+        "อธิบายความสำคัญความจำเป็นของคุณธรรมและจริยธรรมที่มีต่อวิชาชีพครู จิตวิญญาณความเป็นครูต่อการประกอบวิชาชีพและการพัฒนาผู้เรียนได้",
+        "วิเคราะห์ ตัดสินใจ และแก้ไขปัญหาเชิงจริยธรรมอย่างมีเหตุผลในสถานการณ์ต่างๆ",
+        "อธิบายแนวทางการจัดการเรียนรู้สำหรับผู้เรียนที่มีความแตกต่างและหลากหลายทางวัฒนธรรม",
+        "ระบุแนวทางกระตุ้นการเรียนรู้และความคิดสร้างสรรค์ของผู้เรียน เพื่อส่งเสริมให้เกิดการพัฒนานวัตกร",
+        "วิเคราะห์สภาพบริบทและสถานการณ์ในโรงเรียนร่วมกับการประเมินตนเอง เพื่อเสนอแนวทางพัฒนาวิชาชีพและการเรียนรู้ตลอดชีวิต"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a5e2b55b-d333-4265-8b76-33f177ef31ac",
+              "name": "วิเคราะห์ ตัดสินใจ และแก้ไขปัญหาเชิงจริยธรรมอย่างมีเหตุผลในสถานการณ์ต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Ethics and values course, not directly related to analytical problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about teaching ethics and values, not relevant to technology work."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01150221-67",
+      "subjectName": "การพัฒนาหลักสูตรและการสอน",
+      "outcomes": [
+        "อธิบายหลักการ แนวคิด และทฤษฎี                ที่เกี่ยวข้องกับการพัฒนาหลักสูตร",
+        "ออกแบบหลักสูตรระดับสถานศึกษา และรายวิชาโดยการศึกษาวิเคราะห์ข้อมูลพื้นฐาน แนวคิด ทฤษฎีที่เกี่ยวข้องและเทคโนโลยีสารสนเทศในการพัฒนาหลักสูตร",
+        "ระบุรูปแบบการประเมินหลักสูตรและการประเมินการเรียนรู้ และการนำผลการประเมินไปใช้ในการออกแบบหลักสูตรและการสอน",
+        "ประเมินและอธิบายปัญหาและแนวโน้ม ในการพัฒนาหลักสูตรและการสอน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "50a75883-69d7-47f1-ad12-e199c29216ae",
+              "name": "ประเมินและอธิบายปัญหาและแนวโน้ม ในการพัฒนาหลักสูตรและการสอน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Curriculum development course, shared tools but not directly focused on problem analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers curriculum development and teaching, not technology skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "outcomes": [
+        "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+        "จัดทำงบประมาณธุรกิจต่างๆ",
+        "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหา",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "22fa92fd-9ba3-4e53-a004-5f02381e8c82",
+              "name": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Financial planning course, not directly related to analytical problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on profit planning and control is unrelated to technology career."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎีที่เกี่ยวข้องกับสื่อ นวัตกรรม และเทคโนโลยีสารสนเทศเพื่อการเรียนรู้",
+        "ใช้เทคโนโลยีเพื่อประโยชน์ทางด้านการพัฒนาคุณภาพการจัดเรียนรู้",
+        "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า",
+        "รวบรวมและใช้เทคโนโลยีดิจิทัลเพื่อการเรียนรู้ในรูปแบบออนไลน์ ออนไซด์ และผสมผสาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d86b7675-633d-4720-bb4d-bf623b1bf64e",
+              "name": "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า"
+            }
+          ]
+        },
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1a796050-0854-4cb8-9df4-3ea890041a43",
+              "name": "ใช้เทคโนโลยีเพื่อประโยชน์ทางด้านการพัฒนาคุณภาพการจัดเรียนรู้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to educational technology, shared tools but not directly about web/app development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course teaches use of technology and digital tools for learning, relevant as enabling skills for technology work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "outcomes": [
+        "บอกขั้นตอนการสมัครงานและการจัดเตรียมข้อมูล สำหรับสมัครงานได้",
+        "จัดทำร่างข้อเสนอโครงงานสหกิจศึกษาได้",
+        "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม",
+        "ปฏิบัติงานร่วมกับผู้อื่นได้ด้วยความมุ่งมั่น สามัคคี และเคารพกฎระเบียบ",
+        "แสดงออกถึงการมีบุคลิกภาพที่ดี สื่อสารกับผู้อื่นได้อย่างชัดเจน ตรงประเด็น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "2c00b903-7dd2-40aa-b16e-2a70f6489448",
+              "name": "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes soft skills and software use, but not specifically about web/app development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course prepares for cooperative education and job application skills, useful for entering technology careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "outcomes": [
+        "อธิบายองค์ประกอบของพลเมืองดิจิทัลได้",
+        "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้",
+        "ออกแบบสร้างชิ้นงานดิจิทัลได้",
+        "มีความรับผิดชอบต่อตนเองและสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cb239c78-2dd2-4dce-850a-f1bfa0cd7ae7",
+              "name": "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to digital citizenship and responsible use of technology, tangentially related."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on digital citizenship and use of digital technology is directly relevant to technology career development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01352219-66",
+      "subjectName": "เทคโนโลยีสารสนเทศและการสื่อสารกับสังคม",
+      "outcomes": [
+        "อธิบายแนวคิดของเทคโนโลยีสารสนเทศและ การสื่อสาร",
+        "อธิบายบทบาท ความสําคัญและผลกระทบที่มีต่อสังคมของสื่อใหม่",
+        "สามารถค้นคว้าข้อมูลและทําการสื่อสารอย่าง เหมาะสมอย่างมีจรรยาบรรณด้วยเทคโนโลยี สารสนเทศและการสื่อสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0181ec51-e807-415b-b6b4-9f0e4f7dc0a6",
+              "name": "อธิบายแนวคิดของเทคโนโลยีสารสนเทศและ การสื่อสาร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "While related to information and communication technology, it focuses on societal impacts and communication ethics, not directly on computer systems and networks."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers information and communication technology concepts and ethical use, relevant foundational knowledge for technology work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02181333-64",
+      "subjectName": "การประยุกต์คอมพิวเตอร์ทางเกษตรและสิ่งแวดล้อมศึกษา",
+      "outcomes": [
+        "สามารถบอกถึงจริยธรรมในการใช้คอมพิวเตอร์ และพรบ. คอมพิวเตอร์ได้",
+        "สามารถใช้คอมพิวเตอร์และซอฟต์แวร์ต่าง ๆ ในการผลิตสื่อและนำเสนอผลงานด้านเกษตรและสิ่งแวดล้อมศึกษาได้",
+        "สามารถเข้าถึงและจัดการข้อมูลเพื่อพัฒนางานทางเกษตรและสิ่งแวดล้อมศึกษาได้",
+        "สามารถนำเสนอผลงานทางเกษตรและสิ่งแวดล้อมศึกษาตามสถานการณ์ที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a63194da-cc51-416d-b119-f5fd8aa37255",
+              "name": "สามารถบอกถึงจริยธรรมในการใช้คอมพิวเตอร์ และพรบ. คอมพิวเตอร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "This course applies computers in agriculture and environment, but does not focus on computer systems or networks specifically."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course applies computer use to agriculture and environment, too specialized and assumes a niche."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01420244-66",
+      "subjectName": "อิเล็กทรอนิกส์เบื้องต้นภาคปฏิบัติการ",
+      "outcomes": [
+        "มีความรู้ ความเข้าใจเกี่ยวกับวงจรอิเล็กทรอนิกส์แบบต่างๆ สามารถนำไปใช้งานได้จริงในชีวิตประจำวัน",
+        "สามารถนำความรู้ทางอิเล็กทรอนิกส์ไปใช้ แก้ปัญหา และสามารถต่อยอดองค์ความรู้ได้",
+        "สามารถบูรณาการความรู้ในศาสตร์อื่นที่เกี่ยวข้องกับความรู้ทางอิเล็กทรอนิกส์",
+        "สามารถติดตามความก้าวหน้าทางวิชาการและงานวิจัยทางอิเล็กทรอนิกส์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "8bb2365e-8d73-4c0d-acfd-00a1e61dca7c",
+              "name": "มีความรู้ ความเข้าใจเกี่ยวกับวงจรอิเล็กทรอนิกส์แบบต่างๆ สามารถนำไปใช้งานได้จริงในชีวิตประจำวัน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to electronics, a component of hardware, but not directly about computer systems or networks."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on basic electronics provides foundational technical knowledge useful for technology careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถเลือกใช้ข้อมูลสารสนเทศได้ตามหลัก พรบ. คอมพิวเตอร์",
+        "สามารถอธิบายลักษณะ อุปกรณ์ และการใช้โปรแกรมคอมพิวเตอร์ได้",
+        "สามารถแปลงโน้ตดนตรีขั้นพื้นฐานได้",
+        "สามารถดำเนินงานที่ได้รับมอบหมายตามระยะเวลาที่กำหนดได้",
+        "สามารถนำเสนอรายงานโดยใช้เทคโนโลยีสารสนเทศได้",
+        "สามารถดำเนินการประยุกต์โปรแกรมคอมพิวเตอร์กับงานทางด้ายดนตรีไทยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d9e2957a-b9a8-4864-9e94-ae93ac9c7c54",
+              "name": "สามารถอธิบายลักษณะ อุปกรณ์ และการใช้โปรแกรมคอมพิวเตอร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Uses computers in music, but not relevant to understanding computer systems or networks."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on Thai music and computer applications in music, not relevant to general technology career development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01420243-66",
+      "subjectName": "อิเล็กทรอนิกส์เบื้องต้น",
+      "outcomes": [
+        "ให้ผู้เรียน เรียนรู้หรือมองเห็นภาพในมุมกว้างของ วิชาอิเล็กทรอนิกส์ เช่น มีเนื้อหาสาระอะไร เกี่ยวข้องกับสาขาวิชาอื่นอย่างไร มีประโยชน์อย่างไร ทั้งในด้าน การศึกษาวิจัย อุตสาหกรรม เกษตรกรรม การแพทย์ ตลอดจนประโยชน์ในชีวิตประจำวัน",
+        "ให้ผู้เรียนทราบและสามารถอธิบายการทำงานของอุปกรณ์อิเล็กทรอนิกส์ ตัวรับรู้ วงจรอิเล็กทรอนิกส์อย่างง่าย และการประยุกต์ในด้านต่างๆ",
+        "ให้ผู้เรียนทราบและสามารถอธิบายได้ว่า ถ้าจะใช้ประโยชน์จากอิเล็กทรอนิกส์ต่อไปในอนาคต จะสามารถค้นคว้าหาความรู้เพิ่มเติมได้อย่างไร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a2efaa04-0cf5-4bed-83b9-6d3ea23a210f",
+              "name": "ให้ผู้เรียนทราบและสามารถอธิบายการทำงานของอุปกรณ์อิเล็กทรอนิกส์ ตัวรับรู้ วงจรอิเล็กทรอนิกส์อย่างง่าย และการประยุกต์ในด้านต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to electronics, but not directly relevant to applying AI or machine learning for the user's goal."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Provides foundational knowledge in electronics, a core technology field relevant for technology career development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01420445-66",
+      "subjectName": "การประยุกต์ไมโครโพรเซสเซอร์ทางฟิสิกส์ภาคปฏิบัติการ",
+      "outcomes": [
+        "ได้ฝึกการใช้งาน microprocessor และ single word computer"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "743c769b-3d24-44f7-9a98-a4a2c1406f6c",
+              "name": "ได้ฝึกการใช้งาน microprocessor และ single word computer"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to microprocessors, but not directly relevant to AI or machine learning application skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches practical skills in microprocessor usage, an enabling tool for technology work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "outcomes": [
+        "อธิบายความรู้เกี่ยวกับหลักการใช้ปัญญาประดิษฐ์เพื่อหาความต้องการโภชนะให้สอดคล้องกับความต้องการของร่างกายสัตว์และการผลิตอาหารสัตว์",
+        "อธิบายความรู้เกี่ยวกับการพยากรณ์ราคาวัตถุดิบอาหารสัตว์ และผลิตภัณฑ์เพื่อการวางแผนการผลิตสำหรับอุตสาหกรรมทางด้าน   ปศุสัตว์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c581efe1-b837-4b46-b3cf-d2de27a56cec",
+              "name": "อธิบายความรู้เกี่ยวกับหลักการใช้ปัญญาประดิษฐ์เพื่อหาความต้องการโภชนะให้สอดคล้องกับความต้องการของร่างกายสัตว์และการผลิตอาหารสัตว์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Application of AI in specific domain (animal science), not directly aligned with general AI application skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on AI applications in animal science, too specialized and not broadly relevant to general technology careers."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "03604271-65",
+      "subjectName": "เทคโนโลยีดิจิทัลทางวิศวกรรมเครื่องกล",
+      "outcomes": [
+        "สามารถประยุกต์ความรู้ทางด้านคณิตศาสตร์ วิทยาศาสตร์ และพื้นฐานทางด้านวิศวกรรมโดยใช้คอมพิวเตอร์เป็นเครื่องมือและสามารถวิเคราะห์ข้อผิดพลาดจากการทำงานของคอมพิวเตอร์ได้",
+        "สามารถประยุกต์วิธีเชิงตัวเลขสำหรับการสร้างสมการเชิงเส้นและไม่เชิงเส้นเพื่อสร้างแบบจำลองเพื่อแก้ไขปัญหาทางวิศวกรรมเครื่องกลตามที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "03b4fce5-3b48-41e1-bc8d-6da792a3890b",
+              "name": "สามารถประยุกต์ความรู้ทางด้านคณิตศาสตร์ วิทยาศาสตร์ และพื้นฐานทางด้านวิศวกรรมโดยใช้คอมพิวเตอร์เป็นเครื่องมือและสามารถวิเคราะห์ข้อผิดพลาดจากการทำงานของคอมพิวเตอร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to digital technology in engineering, but not directly relevant to AI or machine learning application skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers digital technology applications in mechanical engineering, useful for technology skill development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02162611-67",
+      "subjectName": "คณิตศาสตร์ขั้นสูงในการจัดการเรียนรู้",
+      "outcomes": [
+        "ประมวลแนวคิด ทฤษฎี ทางด้านการจัดการเรียนรู้การสอนคณิตศาสตร์ขั้นสูง",
+        "ใช้เทคโนโลยีในการจัดการเรียนรู้ในการสอนคณิตศาสตร์ขั้นสูงได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6a25bf89-bd90-45d8-a07f-f29d2b38df6f",
+              "name": "ใช้เทคโนโลยีในการจัดการเรียนรู้ในการสอนคณิตศาสตร์ขั้นสูงได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Mathematics for learning management, not directly relevant to applying AI or machine learning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on advanced mathematics for learning management, not directly relevant to technology career development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01403291-65",
+      "subjectName": "วรรณกรรมและสารสนเทศทางเคมี",
+      "outcomes": [
+        "เข้าใจและสามารถแยกแยะประเภทของข้อมูลในระบบเอกสารเคมี",
+        "เข้าใจและมีทักษะในการค้นคว้าหาข้อมูล และสามารถเลือกใช้ฐานข้อมูลที่เหมาะสม",
+        "เข้าใจหลักการวิจัยทางวิทยาศาสตร์ และจรรยาบรรณทางการวิจัย รู้จักการเขียนรายงานและการอ้างอิงในรูปแบบที่เหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "49966e26-b165-44b1-bac2-a08400fa256d",
+              "name": "เข้าใจและมีทักษะในการค้นคว้าหาข้อมูล และสามารถเลือกใช้ฐานข้อมูลที่เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on chemical information and literature, unrelated to database management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on chemical literature and research ethics, unrelated to general technology career skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม",
+        "สามารถเขียนแบบชิ้นส่วนเครื่องจักรกลเกษตรกลเกษตร",
+        "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้",
+        "สามารถใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f2095218-79fa-4742-86d4-60a015890714",
+              "name": "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม"
+            },
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course focuses on engineering drawing and CAD software, which are unrelated to programming fundamentals."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches engineering drawing and computer-aided design, practical skills useful in technology fields."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "outcomes": [
+        "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์",
+        "อธิบายความสัมพันธ์ระหว่างโครงสร้าง น้ำหนักโมเลกุล และสมบัติของพอลิเมอร์",
+        "อธิบายปฏิกิริยาพอลิเมอไรเซชันและกลไก",
+        "อธิบายวิธีการสังเคราะห์และกลไกการเกิดพอลิเมอไรเซชันร่วม",
+        "อธิบายกระบวนการเตรียมและสมบัติของเทอร์โมพลาสติกและเทอร์โมเซต",
+        "เชื่อมโยงความสัมพันธ์ระหว่างสมบัติของพอลิเมอร์และกระบวนการขึ้นรูปพอลิเมอร์ให้เหมาะสมกับผลิตภัณฑ์",
+        "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ",
+        "แสดงออกถึงความรับผิดชอบ ความมีวินัย และตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ca6b5ff6-af33-45ca-8a2d-8676241cf1d1",
+              "name": "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "0360bc86-0ff2-4de2-b2a5-c3a58f29c203",
+              "name": "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course is about polymer chemistry, unrelated to programming or technology development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on polymer chemistry, not directly relevant to general technology career development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "outcomes": [
+        "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง",
+        "สร้างประโยคได้ถูกต้องตามแบบแผน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a8ebfc0f-c584-47e5-b93c-928c2f909b67",
+              "name": "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course is about English grammar, unrelated to programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic English grammar course, not directly related to technology career skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01419499-65",
+      "subjectName": "โครงงานจุลชีววิทยา",
+      "outcomes": [
+        "วางแผนและเขียนข้อเสนอโครงงานจุลชีววิทยาได้ถูกต้อง",
+        "ทำปฏิบัติการทางจุลชีววิทยาได้ถูกต้องตามทฤษฎี หลักการ และวิธีการ",
+        "วิเคราะห์ผลการทดลองได้ถูกต้อง",
+        "เขียนรายงานการทดลองได้ถูกต้องตามหลักการ",
+        "นำเสนอผลการทดลองโดยใช้เทคโนโลยีสารสนเทศและสื่อสารได้ถูกต้องเหมาะสม",
+        "รับผิดชอบต่อตนเองและทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "4ccc9dab-037a-472c-a414-9f6f88d3a717",
+              "name": "เขียนรายงานการทดลองได้ถูกต้องตามหลักการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This is a microbiology project course, unrelated to programming or technology development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on microbiology projects, unrelated to technology career development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "outcomes": [
+        "เขียนงานเขียนภาษาไทยที่กำหนดตามรูปแบบและหลักการเขียนได้",
+        "สืบค้นข้อมูลและอ้างอิงแหล่งข้อมูลที่ใช้ประกอบการเขียนได้อย่างถูกต้องเหมาะสม",
+        "มีความรับผิดชอบต่อตนเองและผู้อื่น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "พื้นฐานการเขียนโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "029b4afd-16cf-4672-9bec-dd8d002bc728",
+              "name": "เขียนงานเขียนภาษาไทยที่กำหนดตามรูปแบบและหลักการเขียนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course focuses on Thai writing skills, unrelated to programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches practical Thai writing skills, not directly relevant to technology work."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "outcomes": [
+        "อธิบายเกี่ยวกับเคมีที่มีอิทธิพลต่องานศิลปะ",
+        "มีทักษะการคิดวิเคราะห์ วิพากษ์ บูรณาการองค์ความรู้ รวมถึงเชื่อมโยงข้อมูลที่ได้อย่างเหมาะสม",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to art and chemistry, not relevant to web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers chemistry in art, which is not relevant to technology career development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "outcomes": [
+        "อธิบายวิทยาศาสตร์/เคมีที่เกี่ยวข้องในชีวิตประจำวันได้",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม",
+        "เชื่อมโยงประเด็นที่เกี่ยวกับเคมีที่มีในสิ่งรอบ ๆ ตัว นำไปสู่การให้ความเห็นอย่างมีวิจารณญาณได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on chemistry in daily life, not related to web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches chemistry in daily life, unrelated to technology skills or career."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02747443-65",
+      "subjectName": "นวัตกรรมและการออกแบบบริการในธุรกิจการบิน",
+      "outcomes": [
+        "อธิบายการเปลี่ยนแปลงของนวัตกรรมและการออกแบบบริการ",
+        "นำเสนอนวัตกรรมและการออกแบบบริการในธุรกิจการบินผ่านระบบสารสนเทศที่ทันสมัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c0cbdc62-a0f4-4365-a28e-db3a469fb6bc",
+              "name": "อธิบายการเปลี่ยนแปลงของนวัตกรรมและการออกแบบบริการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focused on service innovation in aviation, not relevant to web/app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on innovation in aviation business services, too niche and not a direct technology skill."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "พัฒนาองค์ความรู้ใหม่หรือผลิตภัณฑ์ใหม่",
+        "สามารถเข้าใจบทความวิจัยและสังเคราะห์ความรู้ที่ได้รับจากการศึกษาก่อนหน้านี้ โดยใช้เทคโนโลยีสารสนเทศ",
+        "แก้ปัญหาหรือวิเคราะห์ปัญหาทางวิศวกรรมที่เกิดขึ้นในอุตสาหกรรมหรือปัญหาการวิจัยที่ถูกต้อง",
+        "สามารถทำงานวิจัยได้อย่างเป็นอิสระ โดยมีจริยธรรมที่ดี",
+        "สามารถสื่อสารผลงานได้ดี ทั้งการเขียนผลการวิจัยและนำเสนอสิ่งที่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "30ae034f-0d90-44c7-85ef-003fe91e5dab",
+              "name": "พัฒนาองค์ความรู้ใหม่หรือผลิตภัณฑ์ใหม่"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Research-focused, not directly related to web or app development skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Thesis course develops research, problem-solving, and use of information technology, enabling skills for technology careers."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02738453-66",
+      "subjectName": "เศรษฐกิจบีซีจี",
+      "outcomes": [
+        "นำความรู้และทักษะทางวิทยาศาสตร์และสาขาที่เกี่ยวข้อง มาศึกษา วิจัยและแก้ปัญหาโมเดลเศรษฐกิจบีซีจีได้",
+        "ติดตามข้อมูล องค์ความรู้ทางด้านโมเดลเศรษฐกิจบีซีจี สามารถพิจารณา ตรวจสอบความถูกต้องของข้อมูล นำไปประยุกต์ได้เหมาะสมกับสถานการณ์จริง",
+        "สื่อสารและนำเสนอความคิดเห็นเกี่ยวกับโครงการวิจัยได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "09e7e10d-ae3d-43bf-99fb-c7540c00f524",
+              "name": "สื่อสารและนำเสนอความคิดเห็นเกี่ยวกับโครงการวิจัยได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Economics and BCG model, not related to web/app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on BCG economy model is specialized and not directly related to technology career development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01058111-68",
+      "subjectName": "หลักนวัตกรรมอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายลักษณะของอุตสาหกรรมเกษตรและห่วงโซ่อุปทาน",
+        "อธิบายวิธีการพัฒนานวัตกรรมและตัวอย่างเครื่องมือสำหรับใช้ออกแบบนวัตกรรม",
+        "อธิบายหลักการของแนวคิดการพัฒนาอย่างยั่งยืนและตัวอย่างการใช้เทคโนโลยีในอุตสาหกรรมเกษตรโดยอ้างอิงแนวคิดเศรษฐกิจหมุนเวียนและอุตสาหกรรมสีเขียว",
+        "เข้าเรียนและส่งงานตรงเวลา โดยไม่มีการคัดลอกผลงานผู้อื่น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "19298d4f-aedb-46ca-9742-8f4a617652d2",
+              "name": "อธิบายวิธีการพัฒนานวัตกรรมและตัวอย่างเครื่องมือสำหรับใช้ออกแบบนวัตกรรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Agricultural innovation, not relevant to web/app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on agricultural industrial innovation is too specialized and not a general technology skill."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "outcomes": [
+        "เลือกหัวข้อที่สนใจทางพฤกษศาสตร์",
+        "รวบรวมเอกสารงานวิจัยที่เกี่ยวข้องและสรุปข้อมูลที่เกี่ยวข้อง",
+        "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์",
+        "ใช้เครื่องมือและอุปกรณ์ทางพฤกษศาสตร์ได้",
+        "วิเคราะห์ผล และเรียบเรียงงานวิจัยทางพฤกษศาสตร์ได้",
+        "เข้าใจและสามารถปฏิบัติตามจรรยาบรรณงานวิจัยได้",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f713c9f3-85d9-463d-9149-7359640031a1",
+              "name": "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Botanical project, unrelated to web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on botany projects is unrelated to technology career development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "02727421-65",
+      "subjectName": "พืชเส้นใยและการใช้ประโยชน์",
+      "outcomes": [
+        "สามารถจำแนก ระบุชนิด คุณลักษณะ ประโยชน์ของเส้นใยพืชแต่ละประเภทได้",
+        "สามารถนำมาประยุกต์ใช้ในการสร้างสรรค์นวัตกรรมทางพฤกษนวัตกรรมได้",
+        "สามารถใช้ระบบสารสนเทศในการค้นหาความรู้และสื่อสารได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7cd752ce-4bd3-4aa4-a797-4c4cd3423ebc",
+              "name": "สามารถใช้ระบบสารสนเทศในการค้นหาความรู้และสื่อสารได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to computer systems or networks."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on plant fibers and their uses is not relevant to technology career skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01999111-67",
+      "subjectName": "ศาสตร์แห่งแผ่นดิน",
+      "outcomes": [
+        "สามารถยกตัวอย่างบทบาทของ มก. ใน การสร้างสรรค์ศาสตร์แห่งแผ่นดิน ต่อสังคมไทยและสังคมโลก",
+        "สามารถบอกเล่าเรื่องราวที่ทำให้เกิดความภาคภูมิใจในฐานะเป็นนิสิต มก.",
+        "สามารถออกแบบและดำเนินงานตามโครงงานได้ด้วยความมุ่งมั่น สร้างสรรค์ สามัคคี",
+        "สามารถทำงานร่วมกับผู้อื่นได้โดยยอมรับคุณค่าของผู้อื่น",
+        "สามารถเสนอแนวทางการแก้ไขปัญหาด้วยทักษะการคิดที่เหมาะสม",
+        "สามารถใช้ระบบสารสนเทศในการค้นหาความรู้และสื่อสารได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "00fc2a5f-749e-40d3-9757-e7b8a13e4480",
+              "name": "สามารถใช้ระบบสารสนเทศในการค้นหาความรู้และสื่อสารได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to the target skill in computer systems and networks."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course includes using information systems to search for knowledge and communicate, which is an enabling tool for technology work."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดทฤษฎีด้านจิตวิทยา",
+        "สามารถนำความรู้ไปประยุกต์ใช้ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "779753f2-e09d-4ef7-bb11-35a85bbe8c4c",
+              "name": "สามารถนำความรู้ไปประยุกต์ใช้ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to AI or machine learning application skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Psychology concepts are not directly relevant to developing skills for technology careers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "subjectCode": "01420211-66",
+      "subjectName": "กลศาสตร์ I",
+      "outcomes": [
+        "ใช้ความรู้ในการแก้โจทย์ปัญหากลศาสตร์ได้",
+        "อธิบายการนำความรู้ด้านกลศาสตร์ไปใช้ในชีวิตประจำวัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "41c2952b-cb64-4313-b2d9-5d86f26957ec",
+              "name": "อธิบายการนำความรู้ด้านกลศาสตร์ไปใช้ในชีวิตประจำวัน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to AI or machine learning application skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mechanics knowledge is unrelated to technology career development in this context."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2257,
+      "outputTokens": 310
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1919,
+      "outputTokens": 314
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1893,
+      "outputTokens": 292
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1967,
+      "outputTokens": 323
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2151,
+      "outputTokens": 314
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2039,
+      "outputTokens": 330
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1989,
+      "outputTokens": 320
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 884,
+      "outputTokens": 102
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "testCaseId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การวางแผนการเงินและงบประมาณ",
+  "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+  "skill": "การวางแผนการเงินและงบประมาณ",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "Course covers budgeting and profit planning/control, which relates to financial planning and budgeting as part of business finance management."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course mentions basic financial statement analysis and cost calculation but financial planning and budgeting is not a main focus."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Includes basic financial feasibility assessment and cost calculation but financial planning and budgeting is not a primary topic."
+    },
+    {
+      "subjectCode": "01999041-67",
+      "subjectName": "เศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes planning personal finances currently and in the future, directly matching financial planning and budgeting skill."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 1,
+      "reason": "Focuses on accounting for assets and financial statements, but does not cover financial planning or budgeting explicitly."
+    },
+    {
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "relevanceScore": 1,
+      "reason": "Covers preparation and presentation of cash flow statements and financial accounting but not comprehensive financial planning or budgeting."
+    },
+    {
+      "subjectCode": "01681312-66",
+      "subjectName": "เศรษฐศาสตร์การจัดการ",
+      "relevanceScore": 2,
+      "reason": "Includes application of quantitative tools for basic financial planning and cost calculations, relevant to financial planning and budgeting."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 3,
+      "reason": "Explicitly covers preparation of business budgets, cost calculations, and use of cost data for planning and control, directly relevant to financial planning and budgeting."
+    },
+    {
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "relevanceScore": 3,
+      "reason": "Focuses on personal financial planning including liquidity, investment, tax, insurance, retirement, and wealth transfer, highly relevant to the skill."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 1,
+      "reason": "Covers financial reporting and accounting methods but does not focus on financial planning or budgeting."
+    },
+    {
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Focuses on basic accounting principles and financial statement preparation without mention of financial planning or budgeting."
+    },
+    {
+      "subjectCode": "03651231-65",
+      "subjectName": "การคำนวณเชิงเศรษฐศาสตร์เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Includes analysis of financial systems and economic policies but does not cover financial planning or budgeting directly."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 2,
+      "reason": "Covers managerial accounting reports and cost calculations for strategic management, which relates to budgeting and financial planning at a strategic level."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 2,
+      "reason": "Focuses on managerial accounting principles and use of cost data for planning and control in strategic management, relevant to financial planning and budgeting."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.6428571428571428,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 42.857142857142854,
+        "microAverageRate": 42.857142857142854,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.599,
+        "at10": 0.773,
+        "at15": 0.834,
+        "atAll": 0.834
+      },
+      "ideal": {
+        "at5": 0.544,
+        "at10": 0.585,
+        "at15": 0.528,
+        "atAll": 0.551
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.5,
+      "at15": 0.5,
+      "atAll": 0.5
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2784,
+  "outputTokens": 517
+}

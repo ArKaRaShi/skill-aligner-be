@@ -1,0 +1,168 @@
+{
+  "testCaseId": "00e399aa-cf3c-472b-b5be-9a6e86e10637-การวิเคราะห์และตีความกฎหมาย",
+  "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+  "skill": "การวิเคราะห์และตีความกฎหมาย",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 1,
+      "reason": "Course covers basic legal principles and explains law related to persons, but does not explicitly mention analysis or interpretation of law."
+    },
+    {
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes interpreting and applying general principles of civil and personal law correctly, directly addressing legal analysis and interpretation."
+    },
+    {
+      "subjectCode": "01603121-65",
+      "subjectName": "จรรยาบรรณและกฎหมายทางการพยาบาลสัตว์",
+      "relevanceScore": 1,
+      "reason": "Course covers understanding of ethics and related laws in veterinary nursing, but legal analysis and interpretation is not a main focus."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Course is about business Chinese language and culture, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Course is about business Chinese language and culture, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Course is about business Chinese language and culture, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on research methodology and problem solving, not legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01456498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Course involves researching and analyzing criminology and justice system issues, which may include some legal interpretation but not focused on legal analysis skill."
+    },
+    {
+      "subjectCode": "04306141-64",
+      "subjectName": "หลักรัฐศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course covers political science concepts, not legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01453113-68",
+      "subjectName": "ประวัติศาสตร์กฎหมาย",
+      "relevanceScore": 1,
+      "reason": "Course covers history and evolution of Thai law, but does not focus on analysis or interpretation of law."
+    },
+    {
+      "subjectCode": "03754231-67",
+      "subjectName": "การอ่านภาษาอังกฤษในชีวิตประจำวัน",
+      "relevanceScore": 0,
+      "reason": "Course is about English reading skills, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "02804211-67",
+      "subjectName": "กฎหมายและจรรยาบรรณวิชาชีพในธุรกิจการบิน",
+      "relevanceScore": 2,
+      "reason": "Course includes analysis of aviation laws and regulations, which involves some legal interpretation relevant to the skill."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on innovation project development and problem solving, not legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "06903496-66",
+      "subjectName": "เรื่องเฉพาะทางการท่องเที่ยวเชิงสุขภาพ",
+      "relevanceScore": 0,
+      "reason": "Course covers research principles and methods, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "06902491-66",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางการท่องเที่ยวเชิงวัฒนธรรม",
+      "relevanceScore": 0,
+      "reason": "Course covers basic research methods in cultural tourism, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "06903491-66",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางการท่องเที่ยวเชิงสุขภาพ",
+      "relevanceScore": 0,
+      "reason": "Course covers basic research methods in health tourism, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01600391-65",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางเทคนิคการสัตวแพทย์",
+      "relevanceScore": 0,
+      "reason": "Course covers research methods in veterinary techniques, unrelated to legal analysis or interpretation."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.5294117647058824,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 11,
+        "macroAverageRate": 64.70588235294117,
+        "microAverageRate": 64.70588235294117,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 23.529411764705884,
+        "microAverageRate": 23.529411764705884,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.608,
+        "at10": 0.673,
+        "at15": 0.764,
+        "atAll": 0.764
+      },
+      "ideal": {
+        "at5": 0.384,
+        "at10": 0.293,
+        "at15": 0.258,
+        "atAll": 0.238
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.133,
+      "atAll": 0.118
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2674,
+  "outputTokens": 561
+}

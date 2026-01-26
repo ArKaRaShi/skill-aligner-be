@@ -1,0 +1,150 @@
+{
+  "testCaseId": "75dd76dc-b23f-4728-b9a4-09621f52a26b-การจัดการโครงการและความปลอดภัยในงานวิศวกรรม",
+  "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+  "skill": "การจัดการโครงการและความปลอดภัยในงานวิศวกรรม",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "02201598-66",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Course mentions planning study or experiments and teamwork but does not explicitly cover project management or safety in engineering work."
+    },
+    {
+      "subjectCode": "03604262-65",
+      "subjectName": "อาชีวอนามัย ความปลอดภัย และสิ่งแวดล้อม",
+      "relevanceScore": 3,
+      "reason": "Course focuses on occupational health, safety, and environment in engineering, covering accident prevention, safety standards, and design with safety considerations, directly relevant to safety management in engineering projects."
+    },
+    {
+      "subjectCode": "03604361-65",
+      "subjectName": "การออกแบบเครื่องจักรกล I",
+      "relevanceScore": 2,
+      "reason": "Course includes design of mechanical parts considering engineering standards and safety, which relates to safety in engineering work but does not cover project management."
+    },
+    {
+      "subjectCode": "01203521-66",
+      "subjectName": "กฎหมายและการจัดการสัญญาก่อสร้าง",
+      "relevanceScore": 2,
+      "reason": "Course covers construction law and contract management with problem analysis and conflict resolution in construction project management, relevant to project management aspect."
+    },
+    {
+      "subjectCode": "01203511-66",
+      "subjectName": "วิศวกรรมก่อสร้างและการบริหารโครงการ",
+      "relevanceScore": 3,
+      "reason": "Course covers construction engineering and project management including safety in construction, leadership, teamwork, and conflict resolution, directly addressing project management and safety in engineering work."
+    },
+    {
+      "subjectCode": "01058343-68",
+      "subjectName": "ปฏิบัติการวิเคราะห์คุณภาพทางกายภาพและเคมีในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course mentions safety requirements in laboratory analysis but does not cover project management or broader engineering safety management."
+    },
+    {
+      "subjectCode": "02738490-61",
+      "subjectName": "สหกิจศึกษา",
+      "relevanceScore": 1,
+      "reason": "Course involves research project work with ethics and safety considerations but only marginally related to project management and safety in engineering."
+    },
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Course is about thesis work and research problem solving with ethics but does not explicitly cover project management or safety in engineering."
+    },
+    {
+      "subjectCode": "01203512-66",
+      "subjectName": "การวางแผน การทำกำหนดเวลา และการควบคุมในงานบริหารการก่อสร้าง",
+      "relevanceScore": 3,
+      "reason": "Course focuses on planning, scheduling, and control in construction management with professional ethics, directly relevant to project management in engineering."
+    },
+    {
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "relevanceScore": 3,
+      "reason": "Course is about project management for resource development including teamwork, conflict resolution, and project management principles, highly relevant to project management in engineering."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course is about engineering drawing and communication, no coverage of project management or safety in engineering."
+    },
+    {
+      "subjectCode": "03652143-66",
+      "subjectName": "ความปลอดภัยทางเคมีและการจัดการของเสียทางเคมี",
+      "relevanceScore": 3,
+      "reason": "Course covers chemical safety and hazardous waste management including laws, risk reduction, and safety systems, directly relevant to safety management in engineering work."
+    },
+    {
+      "subjectCode": "03602211-65",
+      "subjectName": "วัสดุศาสตร์สำหรับวิศวกร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on materials science for engineers without mention of project management or safety management."
+    },
+    {
+      "subjectCode": "03610226-66",
+      "subjectName": "การปฏิบัติงานทางวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ II",
+      "relevanceScore": 0,
+      "reason": "Course covers digital and intelligent electronics engineering work without mention of project management or safety."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.6428571428571428,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 5,
+        "macroAverageRate": 35.714285714285715,
+        "microAverageRate": 35.714285714285715,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.669,
+        "at10": 0.781,
+        "at15": 0.833,
+        "atAll": 0.833
+      },
+      "ideal": {
+        "at5": 0.669,
+        "at10": 0.638,
+        "at15": 0.54,
+        "atAll": 0.564
+      }
+    },
+    "precision": {
+      "at5": 0.8,
+      "at10": 0.6,
+      "at15": 0.5,
+      "atAll": 0.5
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3307,
+  "outputTokens": 546
+}

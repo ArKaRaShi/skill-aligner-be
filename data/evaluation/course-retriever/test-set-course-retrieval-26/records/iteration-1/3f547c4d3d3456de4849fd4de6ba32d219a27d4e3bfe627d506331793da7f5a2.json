@@ -1,0 +1,132 @@
+{
+  "testCaseId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การบริหารทรัพยากรมนุษย์",
+  "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+  "skill": "การบริหารทรัพยากรมนุษย์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01132222-65",
+      "subjectName": "การจัดการทรัพยากรมนุษย์",
+      "relevanceScore": 3,
+      "reason": "Course name is 'การจัดการทรัพยากรมนุษย์' (Human Resource Management) and learning outcomes cover principles, analysis, and activities directly related to human resource management comprehensively."
+    },
+    {
+      "subjectCode": "06901112-66",
+      "subjectName": "การจัดการทรัพยากรมนุษย์เพื่ออุตสาหกรรมท่องเที่ยวเชิงวัฒนธรรมและสุขภาพ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on human resource management specifically in tourism, culture, and health industries, covering planning, systems, and characteristics of HR management, directly relevant to the skill."
+    },
+    {
+      "subjectCode": "01475523-64",
+      "subjectName": "การปฏิบัติงานของมนุษย์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on human performance and behavior analysis, which is related but only marginally relevant to human resource management as a broader skill."
+    },
+    {
+      "subjectCode": "02052531-68",
+      "subjectName": "การพัฒนามนุษย์และองค์การภาคการเกษตร",
+      "relevanceScore": 2,
+      "reason": "Course covers human development and organizational development in agriculture, including HR development and policy analysis, which is fairly relevant to human resource management."
+    },
+    {
+      "subjectCode": "01468597-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Course is a seminar on social management and development policy, no direct connection to human resource management."
+    },
+    {
+      "subjectCode": "01203522-66",
+      "subjectName": "ความเป็นผู้นำและการบริหารในงานก่อสร้าง",
+      "relevanceScore": 2,
+      "reason": "Course on leadership and management in construction includes managing people and organizational strategy, which relates fairly to human resource management but is industry-specific and not comprehensive."
+    },
+    {
+      "subjectCode": "01394699-64",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Course is about thesis research management and ethics, unrelated to human resource management."
+    },
+    {
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "relevanceScore": 1,
+      "reason": "Course on project management for resource development mentions teamwork and conflict resolution but does not focus on human resource management specifically."
+    },
+    {
+      "subjectCode": "01475528-64",
+      "subjectName": "การฝึกอบรมและการพัฒนาในองค์การ",
+      "relevanceScore": 2,
+      "reason": "Course on training and development in organizations covers training programs and their relation to organizational development, which is a component of human resource management."
+    },
+    {
+      "subjectCode": "04402332-65",
+      "subjectName": "การยศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course on ergonomics focuses on physical work environment design, unrelated to human resource management skill."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "Course on accounting for business management focuses on budgeting and cost accounting, no relevance to human resource management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 1.2727272727272727,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 4,
+        "macroAverageRate": 36.36363636363637,
+        "microAverageRate": 36.36363636363637,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.831,
+        "at10": 0.959,
+        "at15": 0.959,
+        "atAll": 0.959
+      },
+      "ideal": {
+        "at5": 0.707,
+        "at10": 0.578,
+        "at15": 0.448,
+        "atAll": 0.545
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.5,
+      "at15": 0.455,
+      "atAll": 0.455
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2408,
+  "outputTokens": 447
+}

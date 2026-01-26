@@ -1,0 +1,120 @@
+{
+  "testCaseId": "cd96176f-8e18-4270-9c76-8c6b1cf19594-การออกแบบซอฟต์แวร์",
+  "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+  "skill": "การออกแบบซอฟต์แวร์",
+  "retrievedCount": 9,
+  "evaluations": [
+    {
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 3,
+      "reason": "The course 'วิศวกรรมซอฟต์แวร์' explicitly includes 'สามารถออกแบบโครงสร้างซอฟต์แวร์เพื่อตอบสนองต่อความต้องการของผู้ว่าจ้างได้' indicating comprehensive coverage of software design as a primary learning outcome."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "The course focuses on engineering drawing and software for drafting, unrelated to software design."
+    },
+    {
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "relevanceScore": 0,
+      "reason": "The course covers computer architecture hardware design, not software design."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "The course is about preparation for cooperative education and job application skills, no software design content."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 1,
+      "reason": "The course covers software engineering theory and development but does not explicitly mention software design as a main outcome; software design is likely mentioned in passing."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "The course is about engineering drawing and basic CAD software, unrelated to software design."
+    },
+    {
+      "subjectCode": "03760332-64",
+      "subjectName": "การบริหารต้นทุน",
+      "relevanceScore": 0,
+      "reason": "The course focuses on cost management and cost system design, unrelated to software design."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "The course is about computer-aided product design in 2D and 3D, unrelated to software design."
+    },
+    {
+      "subjectCode": "02201323-66",
+      "subjectName": "สมบัติทางกายภาพของผลิตภัณฑ์เกษตร",
+      "relevanceScore": 0,
+      "reason": "The course deals with physical properties of agricultural products and related software, unrelated to software design."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 9,
+    "meanRelevanceScore": 0.4444444444444444,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 7,
+        "macroAverageRate": 77.77777777777777,
+        "microAverageRate": 77.77777777777777,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.933,
+        "at10": 0.933,
+        "at15": 0.933,
+        "atAll": 0.933
+      },
+      "ideal": {
+        "at5": 0.383,
+        "at10": 0.248,
+        "at15": 0.193,
+        "atAll": 0.265
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.111,
+      "at15": 0.111,
+      "atAll": 0.111
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1972,
+  "outputTokens": 347
+}

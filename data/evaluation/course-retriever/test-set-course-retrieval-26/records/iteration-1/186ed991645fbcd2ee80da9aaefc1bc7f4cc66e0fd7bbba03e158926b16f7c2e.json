@@ -1,0 +1,138 @@
+{
+  "testCaseId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a-กฎหมายและข้อบังคับเกี่ยวกับปศุสัตว์",
+  "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+  "skill": "กฎหมายและข้อบังคับเกี่ยวกับปศุสัตว์",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01603358-65",
+      "subjectName": "วิสัญญีและศัลยกรรมทางการพยาบาลสัตว์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on anesthesia and surgery in animals, no mention of laws or regulations related to livestock."
+    },
+    {
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "relevanceScore": 2,
+      "reason": "Course includes knowledge about laws related to animal keeping, which is related to livestock regulations but broader and not solely focused on livestock law."
+    },
+    {
+      "subjectCode": "01603325-65",
+      "subjectName": "สุขอนามัยเนื้อสัตว์จากฟาร์มถึงผู้บริโภค",
+      "relevanceScore": 0,
+      "reason": "Course covers meat hygiene and safety, no mention of laws or regulations related to livestock."
+    },
+    {
+      "subjectCode": "02033391-64",
+      "subjectName": "การวิจัยทางสัตว์",
+      "relevanceScore": 0,
+      "reason": "Course is about animal research methods and statistics, no mention of laws or regulations related to livestock."
+    },
+    {
+      "subjectCode": "01420213-66",
+      "subjectName": "ฟิสิกส์เชิงคณิตศาสตร์ I",
+      "relevanceScore": 0,
+      "reason": "Course is about mathematical physics, unrelated to livestock laws or regulations."
+    },
+    {
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 1,
+      "reason": "Course covers basic legal principles generally, but does not specify livestock or animal-related laws."
+    },
+    {
+      "subjectCode": "01023522-68",
+      "subjectName": "อุตสาหกรรมอาหารสัตว์เลี้ยง",
+      "relevanceScore": 2,
+      "reason": "Course includes knowledge about laws and regulations for pet food production, which relates to regulations in animal industry but not specifically livestock law."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Course is a seminar focusing on animal nutrition knowledge, no mention of laws or regulations."
+    },
+    {
+      "subjectCode": "01603111-65",
+      "subjectName": "แนวคิดและทฤษฎีทางการพยาบาลสัตว์",
+      "relevanceScore": 0,
+      "reason": "Course covers concepts and theories in animal nursing, no mention of laws or regulations."
+    },
+    {
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 1,
+      "reason": "Course covers basic legal principles and laws about persons, but no specific mention of livestock or animal-related laws."
+    },
+    {
+      "subjectCode": "02804211-67",
+      "subjectName": "กฎหมายและจรรยาบรรณวิชาชีพในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on laws and ethics in aviation business, unrelated to livestock laws or regulations."
+    },
+    {
+      "subjectCode": "01456254-64",
+      "subjectName": "การป้องกันอาชญากรรม",
+      "relevanceScore": 0,
+      "reason": "Course covers crime prevention laws generally, no mention of livestock or animal-related laws."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.5,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.301,
+        "at10": 0.614,
+        "at15": 0.614,
+        "atAll": 0.614
+      },
+      "ideal": {
+        "at5": 0.143,
+        "at10": 0.189,
+        "at15": 0.146,
+        "atAll": 0.168
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.2,
+      "at15": 0.167,
+      "atAll": 0.167
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2238,
+  "outputTokens": 410
+}

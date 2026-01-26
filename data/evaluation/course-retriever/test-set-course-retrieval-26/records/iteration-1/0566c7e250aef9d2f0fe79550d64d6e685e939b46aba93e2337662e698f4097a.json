@@ -1,0 +1,138 @@
+{
+  "testCaseId": "a7728000-0818-42b5-a49f-c89f4ee59ab5-การตลาด",
+  "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+  "skill": "การตลาด",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 3,
+      "reason": "Course name is 'หลักการตลาด' (Principles of Marketing) and learning outcomes cover marketing concepts, processes, market segmentation, consumer behavior, marketing mix, and basic market research comprehensively, directly addressing the skill 'การตลาด' (Marketing)."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 3,
+      "reason": "Course focuses on marketing management, including creating and presenting marketing plans, analyzing marketing opportunities, and understanding the role and importance of marketing management, which is highly relevant to the skill 'การตลาด'."
+    },
+    {
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "relevanceScore": 2,
+      "reason": "Course covers international marketing principles and group work but with limited detail; marketing is a distinct component but not comprehensive, so fairly relevant to 'การตลาด'."
+    },
+    {
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "relevanceScore": 3,
+      "reason": "Course on agricultural and food business marketing, covering marketing strategies, marketing mix factors, marketing principles, activities, and consumer behavior, directly relevant and comprehensive for 'การตลาด'."
+    },
+    {
+      "subjectCode": "01136113-68",
+      "subjectName": "เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด",
+      "relevanceScore": 1,
+      "reason": "Course is applied economics for marketers, with some mention of economics' impact on marketing but marketing is not the main focus, so marginally relevant to 'การตลาด'."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 2,
+      "reason": "Course on targeted marketing and pricing strategies for beverage business, covering pricing strategy and marketing design, relevant as a distinct marketing component but specialized, fairly relevant to 'การตลาด'."
+    },
+    {
+      "subjectCode": "01134442-65",
+      "subjectName": "หลักการจัดการโลจิสติกส์",
+      "relevanceScore": 1,
+      "reason": "Course on logistics management with some explanation of logistics principles for marketers; marketing is mentioned but not the main focus, marginally relevant to 'การตลาด'."
+    },
+    {
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "relevanceScore": 3,
+      "reason": "Course on media and technology for content marketing, covering content marketing concepts, media and technology development, and marketing principles, highly relevant to 'การตลาด'."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Course on agricultural industrial product development including designing products to meet market needs; marketing is part of the course but not the main focus, fairly relevant to 'การตลาด'."
+    },
+    {
+      "subjectCode": "03758111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 3,
+      "reason": "Course named 'หลักการตลาด' (Principles of Marketing) covering marketing theories, management processes, terminology, strategy analysis, and marketing mix, directly and comprehensively relevant to 'การตลาด'."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 1,
+      "reason": "Course on advertising principles with research and planning for advertising; marketing is related but advertising is a subfield, so marginally relevant to 'การตลาด'."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 3,
+      "reason": "Course on marketing management in aviation business, covering marketing environment analysis, consumer behavior, and marketing mix in aviation, directly relevant and comprehensive for 'การตลาด'."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 2.25,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 6,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.856,
+        "at10": 0.912,
+        "at15": 0.958,
+        "atAll": 0.958
+      },
+      "ideal": {
+        "at5": 0.856,
+        "at10": 0.809,
+        "at15": 0.689,
+        "atAll": 0.793
+      }
+    },
+    "precision": {
+      "at5": 0.8,
+      "at10": 0.8,
+      "at15": 0.75,
+      "atAll": 0.75
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2012,
+  "outputTokens": 600
+}

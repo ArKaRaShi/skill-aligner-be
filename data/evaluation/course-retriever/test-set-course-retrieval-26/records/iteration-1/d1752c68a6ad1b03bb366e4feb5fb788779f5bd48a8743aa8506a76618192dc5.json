@@ -1,0 +1,156 @@
+{
+  "testCaseId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การพัฒนาเว็บและแอปพลิเคชัน",
+  "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+  "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 2,
+      "reason": "Course includes creating simple AI applications, which may involve app development, but web and app development is not the main focus."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes developing software in website form, directly covering web and application development as a primary learning outcome."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on pigments in art, unrelated to web or app development."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Course covers chemistry in modern life, no relation to web or app development."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course covers database design and querying, which is a minor component related to backend aspects of app development but not comprehensive."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "Course about polymer chemistry, unrelated to web or app development."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 1,
+      "reason": "Course involves using digital technology for learning management, which may marginally relate to app usage but not development."
+    },
+    {
+      "subjectCode": "02747443-65",
+      "subjectName": "นวัตกรรมและการออกแบบบริการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course about innovation and service design in aviation business, no mention of web or app development."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on computer-aided product design (2D/3D), unrelated to web or app development."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 1,
+      "reason": "Course mentions selecting software for information retrieval and presentation, marginally related but not focused on web/app development."
+    },
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Thesis course may involve product development but no explicit mention of web or app development."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Course includes designing digital artifacts and using digital technology, marginally related but not focused on development."
+    },
+    {
+      "subjectCode": "02738453-66",
+      "subjectName": "เศรษฐกิจบีซีจี",
+      "relevanceScore": 0,
+      "reason": "Course about BCG economy model, unrelated to web or app development."
+    },
+    {
+      "subjectCode": "01058111-68",
+      "subjectName": "หลักนวัตกรรมอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course about agricultural industrial innovation, no relation to web or app development."
+    },
+    {
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course about botanical research project, unrelated to web or app development."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0.6666666666666666,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 53.333333333333336,
+        "microAverageRate": 53.333333333333336,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.767,
+        "at10": 0.782,
+        "at15": 0.87,
+        "atAll": 0.87
+      },
+      "ideal": {
+        "at5": 0.484,
+        "at10": 0.36,
+        "at15": 0.31,
+        "atAll": 0.31
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.2,
+      "at15": 0.133,
+      "atAll": 0.133
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2990,
+  "outputTokens": 500
+}

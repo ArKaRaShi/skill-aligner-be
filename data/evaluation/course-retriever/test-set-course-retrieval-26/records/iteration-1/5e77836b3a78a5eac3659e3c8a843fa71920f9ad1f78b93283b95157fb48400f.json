@@ -1,0 +1,144 @@
+{
+  "testCaseId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การสร้างแบรนด์ส่วนบุคคล",
+  "question": "tiktoker ต้องเรียนอะไรบ้าง",
+  "skill": "การสร้างแบรนด์ส่วนบุคคล",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 2,
+      "reason": "Course focuses on brand creation and management generally, including brand identity and communication strategies, but does not specify personal branding explicitly; skill is part of a larger branding context."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 0,
+      "reason": "Course is about technology innovation design and product prototyping, unrelated to personal branding."
+    },
+    {
+      "subjectCode": "01242141-67",
+      "subjectName": "พื้นฐานคณิตศาสตร์และกลศาสตร์เพื่อการออกแบบ",
+      "relevanceScore": 0,
+      "reason": "Course covers mathematics and mechanics for product design, no relation to personal branding."
+    },
+    {
+      "subjectCode": "01999036-67",
+      "subjectName": "ความสุขในพลวัตของชีวิต",
+      "relevanceScore": 1,
+      "reason": "Course includes self-value explanation and self-management for happiness, which marginally relates to personal branding through self-awareness but not directly about branding."
+    },
+    {
+      "subjectCode": "01352212-66",
+      "subjectName": "วาทวิทยาเพื่องานนิเทศศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Course on rhetoric and communication skills development may support personal image but does not focus on personal branding explicitly."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 0,
+      "reason": "Course on advertising principles focuses on advertising research and design, not personal branding."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course about marketing and pricing strategies for beverage business, unrelated to personal branding."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course on agricultural product development, no connection to personal branding."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 0,
+      "reason": "Course on practical Thai writing skills, no relation to personal branding."
+    },
+    {
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "relevanceScore": 1,
+      "reason": "Course on professional teaching roles and ethics includes self-development which may marginally relate to personal branding but not directly."
+    },
+    {
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "relevanceScore": 0,
+      "reason": "Course on landscape architecture design, unrelated to personal branding."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Course on digital citizenship and digital creation, no direct relation to personal branding."
+    },
+    {
+      "subjectCode": "02999038-67",
+      "subjectName": "ความสุขในศตวรรษที่ 21",
+      "relevanceScore": 1,
+      "reason": "Course on happiness and positive thinking includes self-related topics that marginally relate to personal branding but not focused on it."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.46153846153846156,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 61.53846153846154,
+        "microAverageRate": 61.53846153846154,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.714,
+        "at10": 0.787,
+        "at15": 0.853,
+        "atAll": 0.853
+      },
+      "ideal": {
+        "at5": 0.319,
+        "at10": 0.228,
+        "at15": 0.192,
+        "atAll": 0.21
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.077,
+      "atAll": 0.077
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2514,
+  "outputTokens": 439
+}

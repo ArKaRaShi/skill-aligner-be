@@ -1,0 +1,156 @@
+{
+  "testCaseId": "3ef3d308-ac42-453e-bce7-bb7376046c41-การใช้โซเชียลมีเดียเพื่อการตลาด",
+  "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+  "skill": "การใช้โซเชียลมีเดียเพื่อการตลาด",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 1,
+      "reason": "Course mentions using technology for publicity and communication related to food sales, which marginally relates to social media marketing but not specifically focused on it."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 1,
+      "reason": "Course covers marketing management broadly, including marketing plans, but does not specifically address social media marketing."
+    },
+    {
+      "subjectCode": "01402511-65",
+      "subjectName": "ชีวเคมีการทำหน้าที่ระดับเซลล์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on biochemistry and cellular functions; no relevant content on social media marketing."
+    },
+    {
+      "subjectCode": "01402512-65",
+      "subjectName": "โครงสร้างและการทำหน้าที่ของชีวโมเลกุล",
+      "relevanceScore": 0,
+      "reason": "Course covers biomolecular structure and function; no relevant content on social media marketing."
+    },
+    {
+      "subjectCode": "01352333-66",
+      "subjectName": "การสื่อสารการตลาด",
+      "relevanceScore": 2,
+      "reason": "Course on marketing communication includes use of information technology for integrated marketing communication plans, which likely covers social media marketing as part of the communication mix."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 1,
+      "reason": "Course covers marketing principles and basics including marketing mix, but no explicit mention of social media marketing."
+    },
+    {
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "relevanceScore": 2,
+      "reason": "Course on media and technology for content marketing includes marketing concepts and media technology development, which likely includes social media marketing as a component."
+    },
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 2,
+      "reason": "Course on brand creation and management includes communication strategies in mixed marketing channels and content strategy, which likely involves social media marketing."
+    },
+    {
+      "subjectCode": "01357365-68",
+      "subjectName": "ภาษาเยอรมันเพื่องานธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on German language for aviation business; no relevant content on social media marketing."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 0,
+      "reason": "Course on innovative technology design; no relevant content on social media marketing."
+    },
+    {
+      "subjectCode": "02717112-67",
+      "subjectName": "การเมืองไทยร่วมสมัย",
+      "relevanceScore": 1,
+      "reason": "Course on contemporary Thai politics includes understanding social media but from a political/social perspective, not marketing."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 1,
+      "reason": "Course on storytelling with images includes digital media communication but does not specifically cover social media marketing."
+    },
+    {
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "relevanceScore": 1,
+      "reason": "Course on international marketing covers marketing principles but no specific mention of social media marketing."
+    },
+    {
+      "subjectCode": "01058497-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar course includes making presentations and researching innovations but no direct focus on social media marketing."
+    },
+    {
+      "subjectCode": "01055566-66",
+      "subjectName": "การสร้างคุณค่าในเทคโนโลยีอุตสาหกรรมและการจัดการสินค้าสิ่งทอ",
+      "relevanceScore": 1,
+      "reason": "Course on value creation in industrial technology and textile marketing includes modern marketing strategies but no explicit mention of social media marketing."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0.9333333333333333,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 4,
+        "macroAverageRate": 26.666666666666668,
+        "microAverageRate": 26.666666666666668,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 53.333333333333336,
+        "microAverageRate": 53.333333333333336,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.474,
+        "at10": 0.608,
+        "at15": 0.773,
+        "atAll": 0.773
+      },
+      "ideal": {
+        "at5": 0.272,
+        "at10": 0.298,
+        "at15": 0.306,
+        "atAll": 0.306
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.3,
+      "at15": 0.2,
+      "atAll": 0.2
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3028,
+  "outputTokens": 534
+}

@@ -1,0 +1,2272 @@
+{
+  "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+  "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+  "courses": [
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "outcomes": [
+        "สามารถอธิบายองค์ประกอบพื้นฐานของระบบการจัดการฐานข้อมูลเชิงสัมพันธ์ได้",
+        "สามารถอธิบายแนวคิดพื้นฐานของแบบจำลองข้อมูลเชิงสัมพันธ์ แบบจำลองความสัมพันธ์เอนทิตี, การออกแบบฐานข้อมูลเชิงสัมพันธ์, พีชคณิตเชิงความสัมพันธ์ และ ภาษาสอบถามเชิงโครงสร้างได้",
+        "สามารถออกแบบแบบจำลองความสัมพันธ์เอนทิตีเพื่อแสดงถึงความสัมพันธ์ของข้อมูลที่เป็นพื้นฐานได้",
+        "สามารถปรับปรุงโครงสร้างข้อมูลของฐานข้อมูลที่มีความซํ้าซ้อนให้อยู่ในรูปแบบที่เป็นบรรทัดฐานได้",
+        "สามารถสร้างชุดคำสั่งภาษาสอบถามเชิงโครงสร้างเพื่อใช้ในการจัดการฐานข้อมูลได้",
+        "สามารถอธิบายถึง วัฏจักรฐานข้อมูล ซึ่งประกอบด้วย กระบวนการของการสร้าง การบำรุงรักษา การเพิ่มประสิทธิภาพ ของระบบฐานข้อมูลได้",
+        "สามารถอธิบายถึงกระบวนการจัดการทรานแซคชันและการควบคุมภาวะพร้อมกันได้",
+        "สามารถอธิบายถึงเทคโนโลยีและรูปแบบการเชื่อมต่อฐานข้อมูลแบบต่างๆและสามารถเลือกใช้งานได้",
+        "สามารถอธิบายถึงบทบาทหน้าที่ของผู้ดูแลระบบฐานข้อมูลและการจัดการความปลอดภัยของฐานข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "03721cbc-8212-44e6-8182-66c8f851b0dc",
+              "name": "สามารถอธิบายองค์ประกอบพื้นฐานของระบบการจัดการฐานข้อมูลเชิงสัมพันธ์ได้"
+            },
+            {
+              "id": "9a909b14-222a-4e9a-bdc9-3249927e6b59",
+              "name": "สามารถอธิบายถึงบทบาทหน้าที่ของผู้ดูแลระบบฐานข้อมูลและการจัดการความปลอดภัยของฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Directly covers database design, management, and querying, essential for data handling in apps."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Database systems are essential for web and mobile app development to manage data effectively."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "outcomes": [
+        "สามารถวิเคราะห์ ออกแบบ และสร้างฐานข้อมูลเชิงสัมพันธ์ได้อย่างถูกต้องตามหลักการ ตรงกับความต้องการของผู้ใช้",
+        ".สามารถนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูลได้",
+        "สามารถแสดงออกถึงความมุ่งมั่น ในการปฏิบัติงานกลุ่มได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "1e8d79c2-0fa6-41e4-a351-7a8a10793e63",
+              "name": ".สามารถนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Covers database analysis, design, and application, directly relevant to data handling in apps."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Designing and creating relational databases supports backend development for apps."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายทฤษฎีหลักการและกระบวนการ  วิศวกรรมซอฟต์แวร์ให้เหมาะสมกับผู้ใช้งานได",
+        "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้",
+        "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7b90c13c-c6a8-4cb8-b5d6-e880eb36c8c0",
+              "name": "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7b90c13c-c6a8-4cb8-b5d6-e880eb36c8c0",
+              "name": "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches software engineering principles and creating websites, relevant foundational knowledge for web app development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Software engineering includes developing websites, directly relevant to web app creation."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "outcomes": [
+        "สามารถออกแบบผลิตภัณฑ์ที่มีฐานจากองค์ความรู้หรือเทคโนโลยี",
+        "สร้างต้นแบบผลิตภัณฑ์ที่แสดงการใช้สอยจากเทคโนโลยี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "8c7c79a8-f8d4-45eb-a3e5-3f0df1902ec7",
+              "name": "สร้างต้นแบบผลิตภัณฑ์ที่แสดงการใช้สอยจากเทคโนโลยี"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "8c7c79a8-f8d4-45eb-a3e5-3f0df1902ec7",
+              "name": "สร้างต้นแบบผลิตภัณฑ์ที่แสดงการใช้สอยจากเทคโนโลยี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers designing and prototyping technology-based products, which can include app development as a form of technological innovation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on product design and innovation, not directly related to app development skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "outcomes": [
+        "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล",
+        "ออกแบบและวิเคราะห์ข้อมูลด้วยโมเดลหลายมิติและ olap",
+        "เข้าใจแนวคิดและบทบาทของธุรกิจอัจฉริยะ",
+        "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ",
+        "บูรณาการธุรกิจอัจฉริยะในระดับองค์กร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ae9d3ea4-e347-45c7-b9b3-4aad09577757",
+              "name": "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cf98039c-a1ec-4081-a108-7e579c4cd22d",
+              "name": "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers data warehouse and business intelligence systems, foundational knowledge relevant to web app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Data warehousing and business intelligence are specialized areas not directly needed for basic app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "outcomes": [
+        "สามารถอธิบายวิธีการใช้เครื่องมือทางคอมพิวเตอร์ได้อย่างถูกต้องและปลอดภัยไม่กระทำผิดกฎหมายและขัดหลักจริยธรรมทางคอมพิวเตอร์",
+        "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อแก้ไขปัญหาในงานด้านเอกสาร และวิเคราะห์ข้อมูลได้",
+        "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อสร้างสรรค์ผลงานทางด้านมัลติมีเดียได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c988b1db-7c2b-4ae2-ba96-262a92b0b708",
+              "name": "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อสร้างสรรค์ผลงานทางด้านมัลติมีเดียได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides foundational computer skills and tools that are prerequisites for app development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Computer tools and skills are foundational enabling tools for app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "04256132-66",
+      "subjectName": "การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "สามารถพัฒนาโปรแกรมเพื่อใช้สำหรับการเข้าถึงข้อมูลได้",
+        "สามารถเตรียมข้อมูล การประมวลผลข้อมูลได้",
+        "สามารถนำเสนอผลของข้อมูลได้อย่างเหมาะสมและมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "0863f859-9783-41a0-b15f-10c20935b78f",
+              "name": "สามารถพัฒนาโปรแกรมเพื่อใช้สำหรับการเข้าถึงข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers programming skills relevant for developing web or mobile applications."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Programming for data science teaches programming skills useful for app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "outcomes": [
+        "วิเคราะห์ปัญหาและหาแนวทางแก้ไขโดยการวิจัย",
+        "ใช้องค์ความรู้ทางสถิติ คณิตศาสตร์ ในการศึกษาค้นคว้าและแก้ไขปัญหา",
+        "พัฒนานวัตกรรมผลิตภัณฑ์ และ/หรือบริการ จากการบูรณาการความรู้ที่ได้ศึกษา",
+        "นำเสนองานและสื่อสารได้อย่างเหมาะสมกับบุคคลที่แตกต่างกันโดยใช้เทคโนโลยีดิจิทัล",
+        "มีความรับผิดชอบต่อตนเองและสังคม และมีความซื่อสัตย์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "edd547e5-faf4-41ad-ba3d-dac0eaf2d10e",
+              "name": "พัฒนานวัตกรรมผลิตภัณฑ์ และ/หรือบริการ จากการบูรณาการความรู้ที่ได้ศึกษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes designing and prototyping technology-based products, which can encompass app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Product innovation project is not directly related to app development skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา",
+        "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม",
+        "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches problem-solving and programming concepts, foundational for learning JavaScript."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Problem solving and programming fundamentals are enabling skills for app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้",
+        "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้",
+        "สามารถเขียนโปรแกรมแบบขับเคลื่อนด้วยเหตุการณ์ที่มีส่วนต่อประสานกราฟิกกับผู้ใช้ตามที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ef13bdc3-24c4-42fd-84aa-f9edfe5f1610",
+              "name": "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้"
+            },
+            {
+              "id": "20e94419-d42d-494e-8a8e-b99b79bb2f2d",
+              "name": "สามารถเขียนโปรแกรมแบบขับเคลื่อนด้วยเหตุการณ์ที่มีส่วนต่อประสานกราฟิกกับผู้ใช้ตามที่กำหนดได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "20e94419-d42d-494e-8a8e-b99b79bb2f2d",
+              "name": "สามารถเขียนโปรแกรมแบบขับเคลื่อนด้วยเหตุการณ์ที่มีส่วนต่อประสานกราฟิกกับผู้ใช้ตามที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers programming principles and event-driven programming, relevant as foundational knowledge."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Object-oriented programming and event-driven programming with GUI are relevant to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "จัดการและออกแบบฐานข้อมูลได้",
+        "วิเคราะห์ข้อมูลด้วยฟังก์ชันการคำนวณได้",
+        "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้",
+        "ประยุกต์การสอบถามข้อมูลในการทำงานด้านวิทยาการข้อมูลได้",
+        "สามารถแสดงออกถึงความซื่อสัตย์ และเคารพกฎระเบียบและจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9420d61d-b1b5-448b-9170-2bba3a5d45a6",
+              "name": "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            },
+            {
+              "id": "9420d61d-b1b5-448b-9170-2bba3a5d45a6",
+              "name": "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches database management and querying, which are foundational for data handling in web and mobile apps."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on database querying and data science, not directly related to web or mobile app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02201131-66",
+      "subjectName": "การเขียนโปรแกรมและระบบ IoT ทางการเกษตร",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมคอมพิวเตอร์ด้วยภาษาระดับสูง รวมถึงการเขียนใช้งานตัวแปรและฟังก์ชันเงื่อนไขต่าง ๆ",
+        "สามารถประยุกต์ใช้งานระบบ iot และระบบคลาวด์คอมพิวติ้งสำหรับใช้ทางด้านการเกษตรและอุตสาหกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a3e59fb9-83fa-454b-90a9-feacc9f730ab",
+              "name": "สามารถเขียนโปรแกรมคอมพิวเตอร์ด้วยภาษาระดับสูง รวมถึงการเขียนใช้งานตัวแปรและฟังก์ชันเงื่อนไขต่าง ๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes programming with high-level languages and IoT, relevant as foundational knowledge for JavaScript."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches programming with high-level languages and IoT systems, providing foundational coding skills useful for app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "04253371-65",
+      "subjectName": "การควบคุมแบบตรรกะและระบบอัตโนมัติ",
+      "outcomes": [
+        "อธิบาย (explain) หลักการทำงาน โครงสร้าง และส่วนประกอบสำคัญของพีแอลซี ตลอดจนระบุประเภทและหน้าที่ของอุปกรณ์อินพุตและเอาต์พุตที่ใช้ในงานอุตสาหกรรมได้อย่างถูกต้อง",
+        "เขียน (write) โปรแกรมควบคุมอัตโนมัติเบื้องต้นโดยใช้ภาษาแลดเดอร์บนซอฟต์แวร์สำหรับพีแอลซีแต่ละรุ่นได้อย่างมีประสิทธิภาพ เพื่อควบคุมการทำงานของระบบทางกลได้",
+        "เชื่อมต่อ (connect) และตั้งค่าพีแอลซีกับอุปกรณ์อินพุต/เอาต์พุตและคอมพิวเตอร์ เพื่อดาวน์โหลด/อัปโหลดโปรแกรม รวมถึงสามารถใช้ซอฟต์แวร์ hmi ในการออกแบบหน้าจอควบคุมและเชื่อมโยงกับพีแอลซีได้อย่างถูกต้อง",
+        "วิเคราะห์ (analyze) และ แก้ไขปัญหา (troubleshoot) การทำงานของโปรแกรมแลดเดอร์และการเชื่อมต่อของระบบควบคุมอัตโนมัติที่ใช้พีแอลซีได้อย่างเป็นระบบ เพื่อหาสาเหตุและแก้ไขข้อผิดพลาดที่เกิดขึ้น",
+        "ออกแบบ (design) และ ประยุกต์ใช้ (apply) พีแอลซีและ hmi เพื่อควบคุมและเฝ้าระวังกระบวนการทางกลหรือระบบอัตโนมัติขนาดเล็กได้อย่างบูรณาการ โดยคำนึงถึงความปลอดภัยและประสิทธิภาพการทำงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "936c3a6d-9b56-42aa-9367-a40bb75d6ae9",
+              "name": "เขียน (write) โปรแกรมควบคุมอัตโนมัติเบื้องต้นโดยใช้ภาษาแลดเดอร์บนซอฟต์แวร์สำหรับพีแอลซีแต่ละรุ่นได้อย่างมีประสิทธิภาพ เพื่อควบคุมการทำงานของระบบทางกลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers automation control and programming logic, useful foundational knowledge for app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on industrial automation and PLC programming, which is unrelated to web or mobile app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานและความสำคัญของการวิเคราะห์ข้อมูลในปัญญาประดิษฐ์ได้",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อการเรียนและชีวิตประจำวันได้อย่างเหมาะสม",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาเชิงธุรกิจได้อย่างเหมาะสม",
+        "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้",
+        "วิเคราะห์ผลกระทบของเทคโนโลยีปัญญาประดิษฐ์ต่อสังคมและประเด็นจริยธรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Discusses AI principles and creating simple AI applications, relevant as foundational knowledge."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers AI basics and creating simple AI applications, which can be relevant for building intelligent web or mobile apps."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "outcomes": [
+        "จัดการข้อมูลขนาดใหญ่โดยคำนึงถึงความเป็นส่วนตัวและความปลอดภัยของข้อมูลได้",
+        "เลือกใช้เครื่องมือสำหรับจัดการข้อมูลขนาดใหญ่ ได้อย่างเหมาะสม",
+        "แสดงออกถึงความรับผิดชอบ ซื่อสัตย์  และเรียนรู้ด้วยตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2b37a5a4-1559-4aec-a17c-b07dce99b46d",
+              "name": "เลือกใช้เครื่องมือสำหรับจัดการข้อมูลขนาดใหญ่ ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers big data management, relevant as a prerequisite for handling large-scale data in apps."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on big data management, which is not directly relevant to beginner web or mobile app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "04256347-66",
+      "subjectName": "การประมวลผลข้อมูลขนาดใหญ่เบื้องต้น",
+      "outcomes": [
+        "สามารถวิเคราะห์ และสร้างข้อมูลขนาดใหญ่ได้ถูกต้องตามหลักการ",
+        "สามารถจัดการข้อมูลขนาดใหญ่ได้",
+        "สามารถแสดงออกถึงความมุ่งมั่น ตั้งใจ ในการปฏิบัติงานกลุ่มได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "9754f0a9-d6b2-4445-b6d7-3730cb80c8cd",
+              "name": "สามารถจัดการข้อมูลขนาดใหญ่ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on big data processing, relevant as a foundational skill for data management in apps."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on big data processing, not related to web or mobile app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายความสำคัญในการนำเอาตัวแบบกระบวนการพัฒนาซอฟต์แวร์ไปใช้ในโครงงานทางซอฟต์แวร์ได้",
+        "สามารถระบุความต้องการที่ผู้มีส่วนเกี่ยวข้องต้องการให้เกิดขึ้นในซอฟต์แวร์ได้",
+        "สามารถวิเคราะห์สิ่งที่เกิดขึ้นภายในกระบวนการทางธุรกิจของผู้ว่าจ้างได้",
+        "สามารถออกแบบโครงสร้างซอฟต์แวร์เพื่อตอบสนองต่อความต้องการของผู้ว่าจ้างได้",
+        "สามารถนำต้นแบบกระบวนพัฒนาซอฟต์แวร์แบบร่วมสมัยมาใช้ในโครงการพัฒนาซอฟต์แวร์ได้",
+        "รับรู้ถึงความสำคัญในกระบวนการทวนสอบซอฟต์แวร์",
+        "สามารถพัฒนาซอฟต์แวร์ที่ตรงต่อความต้องการของผู้ว่าจ้างได้",
+        "สามารถอธิบายความแตกต่างในรูปแบบของการบำรุงรักษาซอฟต์แวร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "484f1753-34ee-44da-b798-dd47239d6eb7",
+              "name": "สามารถนำต้นแบบกระบวนพัฒนาซอฟต์แวร์แบบร่วมสมัยมาใช้ในโครงการพัฒนาซอฟต์แวร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers software development processes and design, foundational knowledge relevant to React or Flutter app development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Software engineering course covers software development processes and requirements, essential for building web or mobile apps."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "outcomes": [
+        "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ",
+        "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers computer-aided design which can be foundational for UI/UX design, but not explicitly focused on UI/UX."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on computer-aided product design (2D/3D), unrelated to app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎีที่เกี่ยวข้องกับสื่อ นวัตกรรม และเทคโนโลยีสารสนเทศเพื่อการเรียนรู้",
+        "ใช้เทคโนโลยีเพื่อประโยชน์ทางด้านการพัฒนาคุณภาพการจัดเรียนรู้",
+        "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า",
+        "รวบรวมและใช้เทคโนโลยีดิจิทัลเพื่อการเรียนรู้ในรูปแบบออนไลน์ ออนไซด์ และผสมผสาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d86b7675-633d-4720-bb4d-bf623b1bf64e",
+              "name": "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d86b7675-633d-4720-bb4d-bf623b1bf64e",
+              "name": "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d86b7675-633d-4720-bb4d-bf623b1bf64e",
+              "name": "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with educational technology and digital resources, tangentially related but not specific to web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on educational technology and media design, not on app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03752111-67",
+      "subjectName": "ทรัพยากรสารสนเทศเพื่อการค้นคว้า",
+      "outcomes": [
+        "เลือกใช้เครื่องมือในการค้นหาสารสนเทศได้อย่างมีประสิทธิภาพ",
+        "สามารถจำแนกประเภทสารสนเทศจากแหล่งข้อมูลต่างๆในยุคดิจิทัลและนำมาใช้ได้อย่างเหมาะสม",
+        "สามารถเลือกใช้เครื่องมือในการสืบค้นสารสนเทศเพื่อการศึกษาได้อย่างมีประสิทธิภาพ",
+        "สามารถนำเสนองานที่เกิดจากการค้นคว้า และใช้ทรัพยากรสารสนเทศได้อย่างถูกต้องตามหลักวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "fd385399-53bc-4fba-95d4-d6557a9cd70b",
+              "name": "เลือกใช้เครื่องมือในการค้นหาสารสนเทศได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on information resource management and search tools, tangentially related but not directly about web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on information resource management and research skills, not app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "พัฒนาองค์ความรู้ใหม่หรือผลิตภัณฑ์ใหม่",
+        "สามารถเข้าใจบทความวิจัยและสังเคราะห์ความรู้ที่ได้รับจากการศึกษาก่อนหน้านี้ โดยใช้เทคโนโลยีสารสนเทศ",
+        "แก้ปัญหาหรือวิเคราะห์ปัญหาทางวิศวกรรมที่เกิดขึ้นในอุตสาหกรรมหรือปัญหาการวิจัยที่ถูกต้อง",
+        "สามารถทำงานวิจัยได้อย่างเป็นอิสระ โดยมีจริยธรรมที่ดี",
+        "สามารถสื่อสารผลงานได้ดี ทั้งการเขียนผลการวิจัยและนำเสนอสิ่งที่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "30ae034f-0d90-44c7-85ef-003fe91e5dab",
+              "name": "พัฒนาองค์ความรู้ใหม่หรือผลิตภัณฑ์ใหม่"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "30ae034f-0d90-44c7-85ef-003fe91e5dab",
+              "name": "พัฒนาองค์ความรู้ใหม่หรือผลิตภัณฑ์ใหม่"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Research thesis, may involve technology but not specifically about web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course focuses on research skills, not directly on web or mobile app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02201445-66",
+      "subjectName": "ไมโครคอนโทรลเลอร์สำหรับวิศวกรรมเกษตร",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมควบคุมและเชื่อมต่อวงจรสำหรับควบคุมการทำงานของเซนเซอร์และอุปกรณ์ไฟฟ้าได้",
+        "สามารถพัฒนาแอพพลิเคชันควบคุมการทำงานของอุปกรณ์ต่างๆ บนสมาร์ทโฟนได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "dab0f5b3-2d1a-4c0f-bb71-a79b96d8d9a6",
+              "name": "สามารถพัฒนาแอพพลิเคชันควบคุมการทำงานของอุปกรณ์ต่างๆ บนสมาร์ทโฟนได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "dab0f5b3-2d1a-4c0f-bb71-a79b96d8d9a6",
+              "name": "สามารถพัฒนาแอพพลิเคชันควบคุมการทำงานของอุปกรณ์ต่างๆ บนสมาร์ทโฟนได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "dab0f5b3-2d1a-4c0f-bb71-a79b96d8d9a6",
+              "name": "สามารถพัฒนาแอพพลิเคชันควบคุมการทำงานของอุปกรณ์ต่างๆ บนสมาร์ทโฟนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes developing applications for smartphones, but primarily focused on microcontroller programming in agriculture."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course includes programming and developing smartphone applications, directly relevant to mobile app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01058111-68",
+      "subjectName": "หลักนวัตกรรมอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายลักษณะของอุตสาหกรรมเกษตรและห่วงโซ่อุปทาน",
+        "อธิบายวิธีการพัฒนานวัตกรรมและตัวอย่างเครื่องมือสำหรับใช้ออกแบบนวัตกรรม",
+        "อธิบายหลักการของแนวคิดการพัฒนาอย่างยั่งยืนและตัวอย่างการใช้เทคโนโลยีในอุตสาหกรรมเกษตรโดยอ้างอิงแนวคิดเศรษฐกิจหมุนเวียนและอุตสาหกรรมสีเขียว",
+        "เข้าเรียนและส่งงานตรงเวลา โดยไม่มีการคัดลอกผลงานผู้อื่น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "19298d4f-aedb-46ca-9742-8f4a617652d2",
+              "name": "อธิบายวิธีการพัฒนานวัตกรรมและตัวอย่างเครื่องมือสำหรับใช้ออกแบบนวัตกรรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on innovation in agriculture industry, not directly on mobile or web app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on agricultural industry innovation, not related to app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02747443-65",
+      "subjectName": "นวัตกรรมและการออกแบบบริการในธุรกิจการบิน",
+      "outcomes": [
+        "อธิบายการเปลี่ยนแปลงของนวัตกรรมและการออกแบบบริการ",
+        "นำเสนอนวัตกรรมและการออกแบบบริการในธุรกิจการบินผ่านระบบสารสนเทศที่ทันสมัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c0cbdc62-a0f4-4365-a28e-db3a469fb6bc",
+              "name": "อธิบายการเปลี่ยนแปลงของนวัตกรรมและการออกแบบบริการ"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c0cbdc62-a0f4-4365-a28e-db3a469fb6bc",
+              "name": "อธิบายการเปลี่ยนแปลงของนวัตกรรมและการออกแบบบริการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with service innovation and design, not specifically on app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on innovation and service design in aviation business, unrelated to app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "outcomes": [
+        "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม",
+        "สร้างการคำนวณข้อมูล พารามิเตอร์ตารางและแผนภูมิ เพื่อนำเสนอภาพข้อมูลได้อย่่างเหมาะสม",
+        "วิเคราะห์ข้อมูลขั้นสูงได้",
+        "สร้างแดชบอร์ดและนำเสนอผ่านระบบสารสนเทศได้",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ซื่อสัตย์ ปฎิบัติงานร่วมกับผู้อื่นได้ และมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "607d6284-5f60-4f1d-b70f-20c41e69fa56",
+              "name": "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on data visualization and business intelligence, tangential to core data management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on data visualization for business, not on app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "outcomes": [
+        "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้ฟังก์ชันในการวิเคราะห์ข้อมูลได้อย่างเหมาะสมและถูกต้อง",
+        "เลือกรูปแบบการนำเสนอข้อมูลได้อย่างเหมาะสม",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ด้วยความรับผิดชอบ ซื่อสัตย์ และปฎิบัติงานร่วมกับผู้อื่นได้ มีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84b67e5d-9f9b-45fb-8a17-c60f5eb856df",
+              "name": "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a9c61cc1-1de9-47cb-b544-f0e8b78ca1b7",
+              "name": "เลือกรูปแบบการนำเสนอข้อมูลได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Centers on data analysis and visualization, related but not directly about database use or data management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on data analysis and visualization, not on app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01403291-65",
+      "subjectName": "วรรณกรรมและสารสนเทศทางเคมี",
+      "outcomes": [
+        "เข้าใจและสามารถแยกแยะประเภทของข้อมูลในระบบเอกสารเคมี",
+        "เข้าใจและมีทักษะในการค้นคว้าหาข้อมูล และสามารถเลือกใช้ฐานข้อมูลที่เหมาะสม",
+        "เข้าใจหลักการวิจัยทางวิทยาศาสตร์ และจรรยาบรรณทางการวิจัย รู้จักการเขียนรายงานและการอ้างอิงในรูปแบบที่เหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "49966e26-b165-44b1-bac2-a08400fa256d",
+              "name": "เข้าใจและมีทักษะในการค้นคว้าหาข้อมูล และสามารถเลือกใช้ฐานข้อมูลที่เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to information retrieval and data, but not specifically about database management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on chemical literature and information, unrelated to app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "กำหนดปัญหา ออกแบบงาน วิจัยอย่างเป็นระบบ",
+        "มีทักษะในการทำวิจัยการวิจัยและดำเนินการทำวิจัยอย่างเป็นระบบตามจรรยาบรรณนักวิจัย",
+        "เลือกใช้วิธีการทางสถิติในการวิเคราะห์ และแปลผลการทดลองทางสถิติได้",
+        "ใช้เทคโนโลยีสารสนเทศในการสืบค้นข้อมูลและนำเสนอข้อมูลสารสนเทศได้",
+        "สื่อสารด้วยภาษาเขียนโดยเรียบเรียงเป็นรายงานเพื่อนำเสนองานวิจัยได้มีแบบแผน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "07af778e-fa8d-46c7-bb4b-07996c080e20",
+              "name": "ใช้เทคโนโลยีสารสนเทศในการสืบค้นข้อมูลและนำเสนอข้อมูลสารสนเทศได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes research and data analysis skills, tangential to core data management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course focused on research methodology, not app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03610122-66",
+      "subjectName": "ระบบการสื่อสารทางสายและไร้สายพื้นฐาน",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานของระบบสื่อสารแบบดิจิทัลรูปแบบต่างๆได้",
+        "สามารถเลือกใช้รูปแบบการสื่อสารได้เหมาะสมกับลักษณะการใช้งาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "793a5680-cae2-4a0d-ae2f-f5a1e41d5ed7",
+              "name": "สามารถเลือกใช้รูปแบบการสื่อสารได้เหมาะสมกับลักษณะการใช้งาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers communication systems, which may be tangentially related to UI/UX in terms of understanding communication technologies, but not directly relevant to UI/UX design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers communication systems basics, not related to app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01352212-66",
+      "subjectName": "วาทวิทยาเพื่องานนิเทศศาสตร์",
+      "outcomes": [
+        "สื่อสารด้วยการพูดให้อยู่หลักจริยธรรมทางวิชาชีพ",
+        "สามารถนาหลักวาทวิทยามาอธิบายจุดแข็ง จุดอ่อนการพูดของบุคคลสาธารณะ และเสนอแนะปรับปรุงแนวทางการพูดของตนเองได้",
+        "สามารถวิเคราะห์สถานการณ์ เขียนบท และพูดในโอกาสต่างๆ ต่อหน้าสาธารณชนได้ เช่น พูดพูดสุนทรพจน์ พูดทางสื่อมวลชน และสื่อใหม่ ให้บรรลุวัตถุประสงค์",
+        "สามารถพัฒนาบุคลิกภาพในการสื่อสารของตนได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "18012971-e642-432d-a3d5-cdb041fa850a",
+              "name": "สามารถพัฒนาบุคลิกภาพในการสื่อสารของตนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Communication skills are relevant for UI/UX, but the course does not specifically teach UI/UX design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on rhetoric and communication skills, not on app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01352219-66",
+      "subjectName": "เทคโนโลยีสารสนเทศและการสื่อสารกับสังคม",
+      "outcomes": [
+        "อธิบายแนวคิดของเทคโนโลยีสารสนเทศและ การสื่อสาร",
+        "อธิบายบทบาท ความสําคัญและผลกระทบที่มีต่อสังคมของสื่อใหม่",
+        "สามารถค้นคว้าข้อมูลและทําการสื่อสารอย่าง เหมาะสมอย่างมีจรรยาบรรณด้วยเทคโนโลยี สารสนเทศและการสื่อสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0181ec51-e807-415b-b6b4-9f0e4f7dc0a6",
+              "name": "อธิบายแนวคิดของเทคโนโลยีสารสนเทศและ การสื่อสาร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Understanding ICT and communication impacts UI/UX, but the course does not teach UI/UX design specifically."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers information technology and communication concepts relevant to web and mobile app development context."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "04252111-65",
+      "subjectName": "ดิจิทัลอิเล็กทรอนิกส์พื้นฐาน",
+      "outcomes": [
+        "สามารถระบุองค์ประกอบของอุปกรณ์สำคัญและลักษณะการทำงานในวงจรดิจิตอลและวงจรอิเล็กทรอนิกส์ได้",
+        "สามารถคำนวณปริมาณทางไฟฟ้าพื้นฐานได้ เช่น กระแสไฟฟ้า แรงดันไฟฟ้า กำลังงานไฟฟ้า ของอุปกรณ์อิเล็กทรอนิกส์ได้",
+        "สามารถคำนวณปริมาณทางไฟฟ้าในระบบวงจรดิจิตอลและอิเล็กทรอนิกส์พื้นฐานในสภาวะการทำงานปกติได้",
+        "สามารถใช้เครื่องมือและอุปกรณ์ คอมพิวเตอร์ เทคโนโลยีดิจิทัลเพื่อช่วยในการวิเคราะห์และออกแบบวงจรดิจิตอลและวงจรอิเล็กทรอนิกส์ได้",
+        "มีมนุษยสัมพันธ์และสามารถทำงานร่วมกับผู้อื่น",
+        "มีวินัย เข้าเรียนตรงเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "96823afe-7472-489a-89b4-60297f9154ea",
+              "name": "มีมนุษยสัมพันธ์และสามารถทำงานร่วมกับผู้อื่น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Digital electronics fundamentals can underpin understanding of digital interfaces, but not directly teaching UI/UX design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on digital electronics hardware, not directly related to app development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "outcomes": [
+        "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์",
+        "อธิบายความสัมพันธ์ระหว่างโครงสร้าง น้ำหนักโมเลกุล และสมบัติของพอลิเมอร์",
+        "อธิบายปฏิกิริยาพอลิเมอไรเซชันและกลไก",
+        "อธิบายวิธีการสังเคราะห์และกลไกการเกิดพอลิเมอไรเซชันร่วม",
+        "อธิบายกระบวนการเตรียมและสมบัติของเทอร์โมพลาสติกและเทอร์โมเซต",
+        "เชื่อมโยงความสัมพันธ์ระหว่างสมบัติของพอลิเมอร์และกระบวนการขึ้นรูปพอลิเมอร์ให้เหมาะสมกับผลิตภัณฑ์",
+        "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ",
+        "แสดงออกถึงความรับผิดชอบ ความมีวินัย และตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "0360bc86-0ff2-4de2-b2a5-c3a58f29c203",
+              "name": "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "0360bc86-0ff2-4de2-b2a5-c3a58f29c203",
+              "name": "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ca6b5ff6-af33-45ca-8a2d-8676241cf1d1",
+              "name": "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์"
+            },
+            {
+              "id": "0360bc86-0ff2-4de2-b2a5-c3a58f29c203",
+              "name": "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to chemistry and polymers, unrelated to web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers polymer chemistry, unrelated to software or app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "outcomes": [
+        "บอกขั้นตอนการสมัครงานและการจัดเตรียมข้อมูล สำหรับสมัครงานได้",
+        "จัดทำร่างข้อเสนอโครงงานสหกิจศึกษาได้",
+        "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม",
+        "ปฏิบัติงานร่วมกับผู้อื่นได้ด้วยความมุ่งมั่น สามัคคี และเคารพกฎระเบียบ",
+        "แสดงออกถึงการมีบุคลิกภาพที่ดี สื่อสารกับผู้อื่นได้อย่างชัดเจน ตรงประเด็น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "2c00b903-7dd2-40aa-b16e-2a70f6489448",
+              "name": "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on job preparation and project proposals, not directly on web or mobile app development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Prepares for cooperative education including software use and communication, useful for app development career readiness."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01018524-65",
+      "subjectName": "เครื่องจักรกลหลังการเก็บเกี่ยวขั้นสูง",
+      "outcomes": [
+        "อธิบายความสำคัญของเครื่องจักรกลเก็บเกี่ยว หลังการเก็บเกี่ยว และแปรสภาพได้",
+        "เลือกใช้เครื่องจักรกลเก็บเกี่ยวและหลังการเก็บเกี่ยวได้",
+        "เลือกใช้เครื่องจักรกลแปรสภาพได้",
+        "ออกแบบและพัฒนาระบบปฏิบัติหลังการเก็บเกี่ยวได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "70efc0d4-1bed-4896-867c-3a5a34afe444",
+              "name": "ออกแบบและพัฒนาระบบปฏิบัติหลังการเก็บเกี่ยวได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "70efc0d4-1bed-4896-867c-3a5a34afe444",
+              "name": "ออกแบบและพัฒนาระบบปฏิบัติหลังการเก็บเกี่ยวได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to machinery in agriculture, unrelated to web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on post-harvest machinery, irrelevant to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "outcomes": [
+        "อธิบายประเภทของเครื่องดื่ม หลัก และเทคนิคการเตรียมเครื่องดื่มได้",
+        "เลือกใช้อุปกรณ์และส่วนผสมต่างๆ ในการเตรียมเครื่องดื่มได้ถูกต้อง",
+        "ประยุกต์และพัฒนาตำรับเครื่องดื่มได้อย่างเหมาะสม",
+        "ปฏิบัติงานกลุ่มด้านการจัดเตรียมเครื่องดื่มร่วมกับผู้อื่นด้วยความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f66cc449-efea-4371-a025-2c3c27c5b6c4",
+              "name": "ประยุกต์และพัฒนาตำรับเครื่องดื่มได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f66cc449-efea-4371-a025-2c3c27c5b6c4",
+              "name": "ประยุกต์และพัฒนาตำรับเครื่องดื่มได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to beverage preparation, unrelated to web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers beverage preparation, unrelated to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01001572-64",
+      "subjectName": "การสื่อสารเชิงสร้างสรรค์และสารสนเทศทางการเกษตร",
+      "outcomes": [
+        "เลือกใช้วิธีการสื่อสารในการส่งเสริมการเกษตรได้อย่างสร้างสรรค์",
+        "ออกแบบการสื่อสารสร้างสรรค์ในการส่งเสริมการเกษตร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e6cd210f-8fdc-4065-876e-ecc85d6ef2a8",
+              "name": "ออกแบบการสื่อสารสร้างสรรค์ในการส่งเสริมการเกษตร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to communication in agriculture, not relevant to web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on creative communication in agriculture, not relevant to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "outcomes": [
+        "อธิบายเกี่ยวกับเคมีที่มีอิทธิพลต่องานศิลปะ",
+        "มีทักษะการคิดวิเคราะห์ วิพากษ์ บูรณาการองค์ความรู้ รวมถึงเชื่อมโยงข้อมูลที่ได้อย่างเหมาะสม",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on art and chemistry, unrelated to web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on chemistry in art, unrelated to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "outcomes": [
+        "อธิบายวิทยาศาสตร์/เคมีที่เกี่ยวข้องในชีวิตประจำวันได้",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม",
+        "เชื่อมโยงประเด็นที่เกี่ยวกับเคมีที่มีในสิ่งรอบ ๆ ตัว นำไปสู่การให้ความเห็นอย่างมีวิจารณญาณได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with modern chemistry in daily life, unrelated to web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers general chemistry in daily life, not related to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02201323-66",
+      "subjectName": "สมบัติทางกายภาพของผลิตภัณฑ์เกษตร",
+      "outcomes": [
+        "สามารถอธิบาย หลักการพื้นฐาน เกี่ยวกับสมบัติทาง กายภาพผลิตผลเกษตร",
+        "สามารถประยุกต์ ความรู้สำหรับการ คำนวณสมบัติทางกายภาพผลิตผลเกษตร",
+        "มีทักษะในการใช้ ซอฟต์แวร์ที่เกี่ยวข้องใน การคำนวณ แสดงผล และแปลผล"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "6ca6177d-5a25-45b2-81e7-289b92545bb1",
+              "name": "มีทักษะในการใช้ ซอฟต์แวร์ที่เกี่ยวข้องใน การคำนวณ แสดงผล และแปลผล"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "6ca6177d-5a25-45b2-81e7-289b92545bb1",
+              "name": "มีทักษะในการใช้ ซอฟต์แวร์ที่เกี่ยวข้องใน การคำนวณ แสดงผล และแปลผล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to physical properties of agricultural products, unrelated to web or mobile app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on physical properties of agricultural products, not relevant to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายแนวคิดนวัตกรรมผลิตภัณฑ์ทางโภชนาการ",
+        "ระบุชนิดของวัตถุดิบและกระบวนการสำหรับการผลิตผลิตภัณฑ์ทางโภชนาการและสุขภาพ",
+        "ออกแบบผลิตภัณฑ์ทางโภชนาการด้วยความรู้พื้นฐานที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7795086e-5fdc-45b2-a7c6-998a1a38686b",
+              "name": "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7795086e-5fdc-45b2-a7c6-998a1a38686b",
+              "name": "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on nutritional products, unrelated to app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on nutritional product innovation, unrelated to web or mobile app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "outcomes": [
+        "เลือกหัวข้อที่สนใจทางพฤกษศาสตร์",
+        "รวบรวมเอกสารงานวิจัยที่เกี่ยวข้องและสรุปข้อมูลที่เกี่ยวข้อง",
+        "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์",
+        "ใช้เครื่องมือและอุปกรณ์ทางพฤกษศาสตร์ได้",
+        "วิเคราะห์ผล และเรียบเรียงงานวิจัยทางพฤกษศาสตร์ได้",
+        "เข้าใจและสามารถปฏิบัติตามจรรยาบรรณงานวิจัยได้",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f713c9f3-85d9-463d-9149-7359640031a1",
+              "name": "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focused on botany research, unrelated to app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about botany research projects, no connection to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม",
+        "สามารถเขียนแบบชิ้นส่วนเครื่องจักรกลเกษตรกลเกษตร",
+        "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้",
+        "สามารถใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on engineering drawing and CAD software, unrelated to programming or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers engineering drawing and CAD software, not relevant to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "outcomes": [
+        "สามารถวาดภาพฉายออร์โธกราฟฟิก ภาพสามมิติ และมุมมองช่วยได้",
+        "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้",
+        "สามารถนำเสนอแบบวิศวกรรมและสื่อสารข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on engineering drawing and visualization, not programming or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on engineering drawing skills, unrelated to web or mobile app creation."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "outcomes": [
+        "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง",
+        "สร้างประโยคได้ถูกต้องตามแบบแผน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a8ebfc0f-c584-47e5-b93c-928c2f909b67",
+              "name": "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง"
+            },
+            {
+              "id": "132d36aa-ae45-4ac7-9a1b-b292eec6eec4",
+              "name": "สร้างประโยคได้ถูกต้องตามแบบแผน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on English grammar, unrelated to programming or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "English grammar course does not directly enable or relate to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "04252459-65",
+      "subjectName": "ฮาร์มอนิกในระบบไฟฟ้ากำลัง",
+      "outcomes": [
+        "สามารถอธิบาย แหล่งกำเนิดฮาร์มอนิก ผลกระทบที่เกิดขึ้น การตรวจวัดปริมาณฮาร์มอนิก ค่ามาตรฐานระดับฮาร์มอนิก และการขจัดฮาร์มอนิก ในระบบไฟฟ้ากำลังได้อย่างถูกต้อง",
+        "สามารถคำนวณปริมาณฮาร์มอนิกในระบบไฟฟ้าได้อย่างถูกต้อง",
+        "อธิบายการแก้ปัญหาฮาร์มอนิกได้อย่างถูกต้อง",
+        "สามารถใช้เครื่องมือและอุปกรณ์ คอมพิวเตอร์ เทคโนโลยีดิจิทัลเพื่อการตรวจวัดและวิเคราะห์ปริมาณฮาร์มอนิกในระบบไฟฟ้ากำลังได้ถูกต้อง",
+        "มีมนุษยสัมพันธ์และสามารถทำงานร่วมกับผู้อื่นได้",
+        "มีวินัย เข้าเรียนตรงเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a50a4cc5-02e8-4fc7-adfe-5223bcd4950c",
+              "name": "อธิบายการแก้ปัญหาฮาร์มอนิกได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a50a4cc5-02e8-4fc7-adfe-5223bcd4950c",
+              "name": "อธิบายการแก้ปัญหาฮาร์มอนิกได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with electrical harmonics, unrelated to programming or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on electrical harmonics is unrelated to software or app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01442697-68",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "วิเคราะห์และทำความเข้าใจในกระบวนการในงานวิจัยโดยใช้ความรู้ในสาขาวิชาวัสดุนาโน",
+        "สามารถใช้เทคโนโลยีสารสนเทศต่าง ๆ ช่วยในการสืบค้นข้อมูลเพิ่มเติมได้",
+        "วิเคราะห์ข้อมูลในงานวิจัยเพื่อนำไปสู่บทสรุปได้",
+        "นำเสนองานวิจัยด้วยภาษาอังกฤษได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b3f7d35b-5de4-4843-8f4b-1072933b1f51",
+              "name": "นำเสนองานวิจัยด้วยภาษาอังกฤษได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Research seminar, not related to programming or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on nanomaterials research and IT tools is not relevant to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "outcomes": [
+        "อธิบายหลักการบัญชีบริหาร",
+        "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์",
+        "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9eb4a5c4-f3b8-4a64-a614-dba154455776",
+              "name": "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to database use or data management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Strategic management accounting is unrelated to web or mobile app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการของการออกแบบการทดลอง",
+        "ใช้วิธีการทางสถิติและการจัดการข้อมูลเพื่อบูรณาการกับการวิจัยที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อวิเคราะห์ความแปรปรวนและการเปรียบเทียบค่าเฉลี่ย",
+        "ทำงานเป็นทีม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "eb20a881-3340-4a9b-8959-38404b981640",
+              "name": "ใช้วิธีการทางสถิติและการจัดการข้อมูลเพื่อบูรณาการกับการวิจัยที่เกี่ยวข้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "af36ae52-fbc3-45d8-bb26-c5e005cee559",
+              "name": "อธิบายแนวคิดและหลักการของการออกแบบการทดลอง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on experimental design and statistical analysis, not on data management or databases."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on experimental design and statistical analysis is not directly relevant to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02201211-66",
+      "subjectName": "การใช้คอมพิวเตอร์ช่วยในการออกแบบทางวิศวกรรมเกษตร",
+      "outcomes": [
+        "สามารถการใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้อย่างถูกต้องเหมาะสม",
+        "สามารถสร้างแบบจำลองทางกายภาพและการจำลองสถานการณ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "166ed832-222d-45a7-b5a7-bd7005b0fd84",
+              "name": "สามารถสร้างแบบจำลองทางกายภาพและการจำลองสถานการณ์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focused on engineering design and modeling, not app development frameworks."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on computer-aided engineering design, not software or app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "02731322-65",
+      "subjectName": "พีชคณิตนามธรรม",
+      "outcomes": [
+        "พิสูจน์การเป็นกรุป กรุปย่อย กรุปย่อยปรกติ กรุปผลหารได้",
+        "พิสูจน์การเป็นริง ริงย่อย ริงผลหารได้",
+        "พิสูจน์การเป็นฟีลด์ได้",
+        "อธิบายและตรวจสอบคุณสมบัติของกรุป ริง และฟีลด์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "efe2a513-79b0-43a2-a5d5-b516e7cd2ca7",
+              "name": "อธิบายและตรวจสอบคุณสมบัติของกรุป ริง และฟีลด์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Mathematics course unrelated to app development frameworks."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Abstract algebra is unrelated to web or mobile app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "outcomes": [
+        "สามารถสร้างสรรค์ผลงานเสียงได้",
+        "สามารถสร้างสรรค์ผลงานจากเทคโนโลยีได้",
+        "สามารถถ่ายทอดเพื่อการแสดงได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "edd98085-3447-4e58-973c-c22e2ac03e88",
+              "name": "สามารถสร้างสรรค์ผลงานจากเทคโนโลยีได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Music programming, unrelated to app development frameworks."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Music composition software skills do not enable app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "outcomes": [
+        "อธิบายองค์ประกอบของพลเมืองดิจิทัลได้",
+        "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้",
+        "ออกแบบสร้างชิ้นงานดิจิทัลได้",
+        "มีความรับผิดชอบต่อตนเองและสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "cecab1c3-8c28-487e-82bc-449dc9c1b00a",
+              "name": "ออกแบบสร้างชิ้นงานดิจิทัลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on digital citizenship, not on app development frameworks."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Digital citizenship includes using digital technology and designing digital works, which can support app creation."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "outcomes": [
+        "อธิบายความรู้ใหม่ที่เกี่ยวข้องกับนวัตกรรมและเทคโนโลยีอุตสาหกรรมเกษตร",
+        "มีความรับผิดชอบ ตรงต่อเวลา และความอดทน",
+        "ปฏิบัติงานร่วมกับผู้อื่นตามหน้าที่ที่ได้รับมอบหมาย",
+        "สื่อสารกับผู้ร่วมงานและหัวหน้างานได้ชัดเจน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d3fd44ce-bddc-483c-8fbf-b7f9e73c3b6f",
+              "name": "สื่อสารกับผู้ร่วมงานและหัวหน้างานได้ชัดเจน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "General internship outcomes unrelated to UI/UX design skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Internship focused on agricultural technology is not relevant to app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "เรียบเรียงข้อมูลเพื่อนำเสนอ",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้รูปแบบการนำเสนอที่เหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "0645c687-458e-45c9-b0a6-085246b1efbe",
+              "name": "เลือกใช้รูปแบบการนำเสนอที่เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "General presentation skills without specific focus on UI/UX design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar skills on presentation and teamwork do not directly enable app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "outcomes": [
+        "สามารถออกแบบภูมิทัศน์ โดยบูรณาการทฤษฎีในศาสตร์ที่เกี่ยวข้องทางภูมิสถาปัตยกรรมมาใช้เพื่อตอบโจทย์ทางภูมิสถาปัตยกรรม",
+        "สามารถวิเคราะห์สภาพสังคมวัฒนธรรม สภาพแวดล้อม และปัจจัยที่เกี่ยวข้อง เพื่อนำไปใช้ในการออกแบบภูมิสถาปัตยกรรม",
+        "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "77db2b30-ebad-4b7f-8707-fb64883c36b2",
+              "name": "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Landscape architecture design, unrelated to UI/UX for apps."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Landscape architecture design is unrelated to web or mobile app development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2050,
+      "outputTokens": 302
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2356,
+      "outputTokens": 349
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2116,
+      "outputTokens": 303
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2109,
+      "outputTokens": 305
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1898,
+      "outputTokens": 310
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1213,
+      "outputTokens": 179
+    }
+  ]
+}

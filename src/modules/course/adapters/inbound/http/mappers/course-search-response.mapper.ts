@@ -67,6 +67,9 @@ export class CourseSearchResponseMapper {
       })),
       matchedLoCount: course.matchedLearningOutcomes.length,
       totalLoCount: course.courseLearningOutcomes.length,
+      allLearningOutcomes: course.courseLearningOutcomes.map((lo) => ({
+        name: lo.cleanedName ?? lo.originalName,
+      })),
     };
 
     return plainToInstance(CourseSearchItemResponseDto, itemDto, {

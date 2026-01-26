@@ -1,0 +1,46 @@
+{
+  "testSetName": "test-failed-skill",
+  "iterationNumber": 1,
+  "entries": [
+    {
+      "hash": "2615134b16bd26e652cca1aa481e93c87488866d8dff86854f790c42aa4d3945",
+      "queryLogId": "fbf0dcb4-caa9-4c3e-9d1e-111111111111",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "skill": "การตัดต่อวิดีโอ",
+      "completedAt": "2026-01-25T08:53:34.638Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงเทคนิคที่เป็นวิชาในมหาวิทยาลัย (เช่น Video Production/Digital Editing) และตรงกับการเป็น TikToker"
+      }
+    },
+    {
+      "hash": "9bd7f04c86888cd388f978f8043dbd9b05975c8b16656bd61f0037898e57ee7a",
+      "queryLogId": "fbf0dcb4-caa9-4c3e-9d1e-111111111111",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "skill": "กลศาสตร์ควอนตัม",
+      "completedAt": "2026-01-25T08:53:34.638Z",
+      "result": {
+        "verdict": "FAIL",
+        "note": "เป็นวิชาทางวิทยาศาสตร์ระดับมหาวิทยาลัยแต่ไม่เกี่ยวข้องหรือเป็นสะพานไปสู่การเป็น TikToker"
+      }
+    },
+    {
+      "hash": "42d09762763537c66dbd22105efed06721115795c6df2339f76b59be36715d91",
+      "queryLogId": "fbf0dcb4-caa9-4c3e-9d1e-111111111111",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "skill": "การติดตั้งแอปพลิเคชัน",
+      "completedAt": "2026-01-25T08:53:34.638Z",
+      "result": {
+        "verdict": "FAIL",
+        "note": "เป็นขั้นตอนปฏิบัติพื้นฐาน/เชิงเทคนิคระดับประยุกต์ มากกว่าจะเป็นสมรรถนะเชิงวิชาการที่สอนในรูปแบบหลักสูตรมหาวิทยาลัย"
+      }
+    }
+  ],
+  "lastUpdated": "2026-01-25T08:53:34.638Z",
+  "statistics": {
+    "totalItems": 3,
+    "completedItems": 3,
+    "pendingItems": 0,
+    "completionPercentage": 100
+  }
+}

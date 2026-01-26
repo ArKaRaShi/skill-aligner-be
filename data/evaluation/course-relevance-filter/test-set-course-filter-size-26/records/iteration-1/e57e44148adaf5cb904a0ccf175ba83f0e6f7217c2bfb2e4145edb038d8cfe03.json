@@ -1,0 +1,1928 @@
+{
+  "queryLogId": "a7728000-0818-42b5-a49f-c89f4ee59ab5",
+  "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+  "courses": [
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "outcomes": [
+        "สามารถวิเคราะห์ข้อมูลเพื่อวางแผนการโฆษณาได้",
+        "สามารถสังเคราะห์แนวทางออกแบบชิ้นงาน โฆษณาได้",
+        "สามารถทําวิจัยเพื่อการโฆษณาได้อย่างมีจริยธรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "f77f1359-3f99-4d66-9639-6961407be990",
+              "name": "สามารถทําวิจัยเพื่อการโฆษณาได้อย่างมีจริยธรรม"
+            }
+          ]
+        },
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1f46b10a-444c-4416-b71b-11bdb241726d",
+              "name": "สามารถสังเคราะห์แนวทางออกแบบชิ้นงาน โฆษณาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Specifically teaches advertising, which is a core component of branding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers advertising principles which are closely related to brand promotion and management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "outcomes": [
+        "อธิบายความสำคัญของการสร้างแบรนด์ในแต่ละขั้นตอนของการออกแบบกลยุทธ์และการสร้างการเติบโตให้ธุรกิจอย่างยั่งยืน",
+        "สร้างแนวคิดของแบรนด์และออกแบบเอกลักษณ์ของแบรนด์ที่แตกต่างกันตามกลุ่มลูกค้า รวมถึงกำหนดกลยุทธ์สำหรับการสร้างเนื้อหา",
+        "พัฒนาแผนกลยุทธ์ที่เป็นระยะสั้นและระยะยาวสำหรับการแข่งขัน รวมถึงกลยุทธ์การสื่อสารในช่องทางการตลาดแบบผสมผสานสำหรับนวัตกรรม",
+        "สื่อสารได้อย่างมีประสิทธิผล เพื่อถ่ายทอดความคิดที่แสดงถึงการทดสอบการนำแนวคิดและทฤษฎีมาประยุกต์กับข้อมูลทางการตลาด"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "b0f2505c-ebce-4f50-8eb0-d52746a28355",
+              "name": "อธิบายความสำคัญของการสร้างแบรนด์ในแต่ละขั้นตอนของการออกแบบกลยุทธ์และการสร้างการเติบโตให้ธุรกิจอย่างยั่งยืน"
+            },
+            {
+              "id": "2b64fb7f-b2b2-4327-a08f-d4d7ba9b93f5",
+              "name": "สร้างแนวคิดของแบรนด์และออกแบบเอกลักษณ์ของแบรนด์ที่แตกต่างกันตามกลุ่มลูกค้า รวมถึงกำหนดกลยุทธ์สำหรับการสร้างเนื้อหา"
+            }
+          ]
+        },
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "46960f73-fa49-469f-9534-4c790fd063ce",
+              "name": "สื่อสารได้อย่างมีประสิทธิผล เพื่อถ่ายทอดความคิดที่แสดงถึงการทดสอบการนำแนวคิดและทฤษฎีมาประยุกต์กับข้อมูลทางการตลาด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches about brand creation and management, directly aligning with the user's goal of learning about branding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Directly teaches brand creation and management, fully relevant to the question."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01352215-66",
+      "subjectName": "การออกแบบกราฟิกเพื่อการสื่อสาร",
+      "outcomes": [
+        "สามารถอธิบายหลักจิตวิทยา หลักการเล่า เรื่องด้วยภาพ หลักการจัดองค์ประกอบศิลป์ หลักการ ออกแบบประสบการณ์ผู้ใช้สื่อปฏิสัมพันธ์",
+        "สามารถผลิตผลงานกราฟิกเพื่อการสื่อสาร ได้อย่างสวยงามและเหมาะสมกับสื่อ โดยไม่ละเมิด สิทธิ์ในทรัพย์สินทางปัญญาของผู้อื่น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "3c71d54b-b89b-41d2-844b-4a318c3f7c61",
+              "name": "สามารถผลิตผลงานกราฟิกเพื่อการสื่อสาร ได้อย่างสวยงามและเหมาะสมกับสื่อ โดยไม่ละเมิด สิทธิ์ในทรัพย์สินทางปัญญาของผู้อื่น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Explicitly teaches graphic design for communication, directly relevant to branding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Graphic design skills support brand identity creation, enabling effective brand communication."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01352333-66",
+      "subjectName": "การสื่อสารการตลาด",
+      "outcomes": [
+        "สามารถพัฒนาแผนการสื่อสารการตลาดแบบ ผสมผสานได้",
+        "สามารถนําเทคโนโลยีสารสนเทศมาใช้ในการ นําเสนอแผนการสื่อสารการตลาดแบบผสมผสานได้",
+        "สามารถวิเคราะห์แนวทางการถ่ายทอดความรู้ด้านเทคนิคการใช้เครื่องมือการสื่อสารการตลาดให้แก่ผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "b5fce12f-1955-44d3-a9b9-a08dc8e2b9c1",
+              "name": "สามารถพัฒนาแผนการสื่อสารการตลาดแบบ ผสมผสานได้"
+            },
+            {
+              "id": "20d1e8d4-67e5-450f-a8e7-6f57e1ed9f7c",
+              "name": "สามารถนําเทคโนโลยีสารสนเทศมาใช้ในการ นําเสนอแผนการสื่อสารการตลาดแบบผสมผสานได้"
+            },
+            {
+              "id": "9e49e2bd-2589-45b5-b136-0a9135338a26",
+              "name": "สามารถวิเคราะห์แนวทางการถ่ายทอดความรู้ด้านเทคนิคการใช้เครื่องมือการสื่อสารการตลาดให้แก่ผู้อื่นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course covers marketing communication strategies, which are essential for branding and marketing communication skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Marketing communication is essential for brand messaging and promotion."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "outcomes": [
+        "อธิบายลักษณะและกระบวนการทางการตลาด แนวความคิด บทบาท ความสำคัญ หน้าที่และปัจจัยทางการตลาด การแบ่งส่วนตลาด  การเลือกตลาดเป้าหมาย พฤติกรรมผู้บริโภค",
+        "อธิบายส่วนประสมการตลาด และการวิจัยการตลาดเบื้องต้น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d581e874-827c-44c4-aecd-f46c278c9851",
+              "name": "อธิบายลักษณะและกระบวนการทางการตลาด แนวความคิด บทบาท ความสำคัญ หน้าที่และปัจจัยทางการตลาด การแบ่งส่วนตลาด  การเลือกตลาดเป้าหมาย พฤติกรรมผู้บริโภค"
+            },
+            {
+              "id": "c74978ea-5a9b-4633-b5fd-755e7295d7f9",
+              "name": "อธิบายส่วนประสมการตลาด และการวิจัยการตลาดเบื้องต้น"
+            }
+          ]
+        },
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c74978ea-5a9b-4633-b5fd-755e7295d7f9",
+              "name": "อธิบายส่วนประสมการตลาด และการวิจัยการตลาดเบื้องต้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches fundamental marketing principles, including branding concepts, which are prerequisites for understanding branding strategies."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Fundamental marketing principles provide foundational knowledge for brand management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "outcomes": [
+        "เพื่อให้นิสิตเข้าใจถึงบทบาทและความสำคัญของการจัดการการตลาด",
+        "เพื่อให้นิสิตสามารถวิเคราะห์โอกาสทางการตลาด และนำไปประยุกต์ใช้กับวิชาชีพได้จริง",
+        "เพื่อฝึกทักษะในการทำงานร่วมกัน  การสร้างสรรค์แผนการตลาดและการจัดทำแผนการตลาด  ตลอดจนรูปแบบในการนำเสนอแผนการตลาด"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "59808bbe-fa9b-4b49-9654-a15d9110e5ce",
+              "name": "เพื่อให้นิสิตเข้าใจถึงบทบาทและความสำคัญของการจัดการการตลาด"
+            },
+            {
+              "id": "bb90f698-78dc-4088-b931-2b715a999025",
+              "name": "เพื่อให้นิสิตสามารถวิเคราะห์โอกาสทางการตลาด และนำไปประยุกต์ใช้กับวิชาชีพได้จริง"
+            }
+          ]
+        },
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "59808bbe-fa9b-4b49-9654-a15d9110e5ce",
+              "name": "เพื่อให้นิสิตเข้าใจถึงบทบาทและความสำคัญของการจัดการการตลาด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on marketing management and planning, which are essential for developing branding strategies."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Marketing management skills help in planning and executing brand strategies."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "outcomes": [
+        "เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ",
+        "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น",
+        "ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d97e2233-3c79-458c-8a68-72bed7f7a751",
+              "name": "ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม"
+            }
+          ]
+        },
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e09af498-e17a-4ce7-903d-a2de5c1d3e77",
+              "name": "เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ"
+            },
+            {
+              "id": "d97e2233-3c79-458c-8a68-72bed7f7a751",
+              "name": "ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e09af498-e17a-4ce7-903d-a2de5c1d3e77",
+              "name": "เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ"
+            },
+            {
+              "id": "d97e2233-3c79-458c-8a68-72bed7f7a751",
+              "name": "ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "This course covers marketing strategies and pricing, which are foundational knowledge relevant to branding but not directly about brand creation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on pricing strategy for beverage business, too niche and not broadly about branding."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "outcomes": [
+        "มีสำนึกดี มีความซื่อสัตย์ มีความรับผิดชอบต่อสังคมในการใช้แนวคิดเพื่อการเขียน",
+        "อธิบายแนวคิดหลักการตลาดเชิงเนื้อหา พัฒนาการของสื่อและเทคโนโลยีทางการตลาด",
+        "แสวงหาความรู้เพิ่มเติมจากแหล่งข้อมูลที่หลากหลาย ด้วยการสัมภาษณ์ผู้เชี่ยวชาญในวิชาชีพต่างๆหรือเก็บข้อมูลจากสถานประกอบการเพื่อมาใช้ในการผลิตเนื้อหา",
+        "มีมนุษยสัมพันธ์ที่ดีในการร่วมกันทำงานเป็นทีม สามารถปรับตัวให้เข้ากับสถานการณ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ac45aefb-553a-483f-b8bc-e1c463ed0937",
+              "name": "อธิบายแนวคิดหลักการตลาดเชิงเนื้อหา พัฒนาการของสื่อและเทคโนโลยีทางการตลาด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes content marketing and media, which are relevant to branding strategies."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Content marketing and media technology are important tools for brand building and communication."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "03758111-65",
+      "subjectName": "หลักการตลาด",
+      "outcomes": [
+        "มีความรู้ความเข้าใจในแนวคิด ทฤษฎีด้านการตลาด กระบวนการจัดการการตลาด ศัพท์ด้านการตลาด และมีทักษะการคิดวิเคราะห์กลยุทธ์และส่วนประสมทางการตลาดตามกรณีศึกษา เพื่อนำไปประยุกต์ใช้ ในวิชาขั้นสูงได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "cb750702-909e-4504-88c9-9d7ed8fb4b45",
+              "name": "มีความรู้ความเข้าใจในแนวคิด ทฤษฎีด้านการตลาด กระบวนการจัดการการตลาด ศัพท์ด้านการตลาด และมีทักษะการคิดวิเคราะห์กลยุทธ์และส่วนประสมทางการตลาดตามกรณีศึกษา เพื่อนำไปประยุกต์ใช้ ในวิชาขั้นสูงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers marketing concepts and strategies, including branding fundamentals."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Marketing principles and strategy analysis support understanding of brand management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "outcomes": [
+        "อธิบายหลักการการตลาดระหว่างประเทศได้",
+        "ทำงานกลุ่มตามที่มอบหมายได้สำเร็จ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "13d9ded7-1577-43f0-9e5b-3dfff5e67fdb",
+              "name": "อธิบายหลักการการตลาดระหว่างประเทศได้"
+            }
+          ]
+        },
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "13d9ded7-1577-43f0-9e5b-3dfff5e67fdb",
+              "name": "อธิบายหลักการการตลาดระหว่างประเทศได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers international marketing concepts; relevant but not specifically about branding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "International marketing knowledge can expand brand management to global markets."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "outcomes": [
+        "อธิบายความสำคัญของธุรกิจการเกษตรและอาหารได้",
+        "อธิบายหลักการแนวคิดทางการตลาด กิจกรรมและหน้าที่ทางการตลาดต่างๆ พฤติกรรมการซื้อ",
+        "วิเคราะห์ปัจจัยที่มีอิทธิพลต่อการกำหนดส่วนประสมการตลาด",
+        "วางกลยุทธ์ในธุรกิจเกษตรและอาหารได้ ภายใต้จริยธรรมการตลาดและความรับผิดชอบต่อสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "8fe624f4-3c9a-4981-bb52-8f5c27a38b42",
+              "name": "อธิบายหลักการแนวคิดทางการตลาด กิจกรรมและหน้าที่ทางการตลาดต่างๆ พฤติกรรมการซื้อ"
+            },
+            {
+              "id": "623b2203-f064-45f9-9304-d753b0606376",
+              "name": "วิเคราะห์ปัจจัยที่มีอิทธิพลต่อการกำหนดส่วนประสมการตลาด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with agricultural and food marketing, not specifically branding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers marketing principles and strategies, which are foundational for brand creation and management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01136113-68",
+      "subjectName": "เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด",
+      "outcomes": [
+        "มีวินัยและซื่อสัตย์",
+        "อธิบายความสำคัญของเศรษฐศาสตร์และผลกระทบต่อด้านการตลาดได้",
+        "ทำงานกลุ่มตามที่มอบหมายได้สำเร็จ",
+        "แสดงพฤติกรรมในการปรับตัว ยอมรับมุมมองที่หลากหลาย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "fd86bf7c-b094-40d9-8be5-b1d8e21d11a3",
+              "name": "อธิบายความสำคัญของเศรษฐศาสตร์และผลกระทบต่อด้านการตลาดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides economic context for marketing but not directly about branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on applied economics for marketers but does not directly relate to branding or brand management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01134442-65",
+      "subjectName": "หลักการจัดการโลจิสติกส์",
+      "outcomes": [
+        "อธิบายหลักการโลจิสติกส์สำหรับนักการตลาดได้",
+        "ทำงานกลุ่มตามที่มอบหมายได้สำเร็จ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "ed9262e7-ee5b-4877-8f35-42a6ae44cf66",
+              "name": "อธิบายหลักการโลจิสติกส์สำหรับนักการตลาดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to logistics management, tangential to branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers logistics management, which is not directly relevant to brand creation or branding strategies."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายหลักการของการพัฒนาผลิตภัณฑ์อาหารได้",
+        "ออกแบบผลิตภัณฑ์ที่ตอบสนองความต้องการของตลาดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9e74e606-5630-4d22-a640-9f28c0b4f2c4",
+              "name": "ออกแบบผลิตภัณฑ์ที่ตอบสนองความต้องการของตลาดได้"
+            }
+          ]
+        },
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9e74e606-5630-4d22-a640-9f28c0b4f2c4",
+              "name": "ออกแบบผลิตภัณฑ์ที่ตอบสนองความต้องการของตลาดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on product development in agriculture, not branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on product development in agricultural industry, not on branding or brand management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "outcomes": [
+        "อธิบายลักษณะการตลาด พฤติกรรมผู้บริโภค  และส่วนประสมทางการตลาดในธุรกิจการบิน",
+        "วิเคราะห์สภาพแวดล้อมและแผนการตลาดธุรกิจ การบิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "7e281aac-30e3-4efa-ad80-effe549b8a35",
+              "name": "อธิบายลักษณะการตลาด พฤติกรรมผู้บริโภค  และส่วนประสมทางการตลาดในธุรกิจการบิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on airline marketing, not specifically on branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Marketing in aviation business is too niche and not directly related to general brand creation."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01242141-67",
+      "subjectName": "พื้นฐานคณิตศาสตร์และกลศาสตร์เพื่อการออกแบบ",
+      "outcomes": [
+        "อธิบายหลักการทางคณิตศาสตร์และกลศาสตร์ที่นำมาใช้เพื่อการออกแบบผลิตภัณฑ์",
+        "เลือกวัสดุให้เหมาะสมกับการใช้สอยและการออกแบบผลิตภัณฑ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b729e14d-9d24-4a74-89ab-517155ac234a",
+              "name": "เลือกวัสดุให้เหมาะสมกับการใช้สอยและการออกแบบผลิตภัณฑ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "This course covers fundamental mathematics and mechanics for design, which are tangential tools and not directly related to branding creation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematics and mechanics for design are unrelated to branding or marketing."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "outcomes": [
+        "สามารถออกแบบผลิตภัณฑ์ที่มีฐานจากองค์ความรู้หรือเทคโนโลยี",
+        "สร้างต้นแบบผลิตภัณฑ์ที่แสดงการใช้สอยจากเทคโนโลยี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "8c7c79a8-f8d4-45eb-a3e5-3f0df1902ec7",
+              "name": "สร้างต้นแบบผลิตภัณฑ์ที่แสดงการใช้สอยจากเทคโนโลยี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "This course focuses on designing products based on technology and innovation, which is tangential to branding and not directly about brand creation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Innovative technology design focuses on product design, not branding or brand management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01055571-66",
+      "subjectName": "การบริหารและจัดการสินค้าแฟชั่น",
+      "outcomes": [
+        "สามารถวางแผนกลุ่มสินค้าตามแนวคิดของแบรนด์และบริหารจัดการสินค้าแฟชั่นได้",
+        "สามารถวางระบบการตั้งราคาขาย การบริหารงานยอดขาย วิเคราะห์กำไร ต้นทุน",
+        "สามารถประยุกต์และต่อยอดความรู้ในการจัดการสินค้าเพื่อนำเสนอต้นแบบธุรกิจแฟชั่นที่มีศักยภาพในการแข่งขันได้ รวมทั้งสามารถวางแผนการจัดซื้อและการจัดการสินค้าสิ่งทอและแฟชั่นในและต่างประเทศ และการจัดการสินค้าคงคลังได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "2e07f4b9-293c-4885-a479-cb1873b8a10d",
+              "name": "สามารถวางแผนกลุ่มสินค้าตามแนวคิดของแบรนด์และบริหารจัดการสินค้าแฟชั่นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "This course is about managing fashion products, which is tangentially related to branding but not specifically about brand creation."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Directly involves brand concept and management in fashion products, relevant to brand creation and management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01242121-67",
+      "subjectName": "ปฏิบัติการออกแบบภาพและวัตถุ",
+      "outcomes": [
+        "สามารถออกแบบจัดองค์ประกอบศิลป์",
+        "สร้างผลงานการจัดองค์ประกอบศิลป์และวัตถุได้ตามแนวคิด"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0ff4b183-c99d-4664-8885-727bfb3eacde",
+              "name": "สร้างผลงานการจัดองค์ประกอบศิลป์และวัตถุได้ตามแนวคิด"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "56008bd3-af66-444d-8a70-538cb49fac8f",
+              "name": "สามารถออกแบบจัดองค์ประกอบศิลป์"
+            },
+            {
+              "id": "0ff4b183-c99d-4664-8885-727bfb3eacde",
+              "name": "สร้างผลงานการจัดองค์ประกอบศิลป์และวัตถุได้ตามแนวคิด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "This course involves visual and object design, which can support branding visually but is not directly about brand creation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on artistic design composition, not on branding or marketing."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "outcomes": [
+        "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ",
+        "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on design software and 3D/2D design, not specifically on branding or graphic design for communication."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Computer-aided product design is a technical skill unrelated to branding or brand management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01999034-67",
+      "subjectName": "ศิลปวิจักษณ์",
+      "outcomes": [
+        "อธิบายแนวคิดเรื่องความงามในศิลปะแขนงต่างๆ",
+        "ถ่ายทอดความหลากหลาย บทบาท และคุณค่าของความงามของศิลปะ",
+        "อธิบายแสดงทรรศนะเกี่ยวกับความงามต่อศิลปะแขนงต่างๆได้",
+        "ค้นคว้าข้อมูลจากแหล่งข้อมูลที่หลากหลายเพื่อใช้วิเคราะห์และวิจารณ์ศิลปะแขนง",
+        "แสดงออกซึ่งความรับผิดชอบ ความตรงต่อเวลา และจรรยาบรรณของนักวิชาการ",
+        "ทำงานร่วมกับผู้อื่นได้อย่างราบรื่น สามารถแก้ปัญหาที่เกิดขึ้นจากการทำงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84f34598-753b-4461-b5a2-fecc869d8b03",
+              "name": "อธิบายแนวคิดเรื่องความงามในศิลปะแขนงต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Art theory and aesthetics, foundational knowledge but not directly about graphic design or branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on art criticism and aesthetics, not related to branding or brand creation."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "outcomes": [
+        "อธิบายระดับการสื่อสาร",
+        "อธิบายแนวคิด ทฤษฎี การสื่อสารมวลชน เบื้องต้น",
+        "ประยุกต์แนวคิดด้านการสื่อสารเพื่ออธิบาย การสื่อสารในสื่อมวลชนได้",
+        "สามารถนําจริยธรรมของสื่อมวลชนมาใช้เพื่อ การสื่อสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c72d4a74-01b4-4f16-8ffd-a20cbb462532",
+              "name": "อธิบายระดับการสื่อสาร"
+            },
+            {
+              "id": "5b099282-47fd-4635-8cc6-34712f557899",
+              "name": "อธิบายแนวคิด ทฤษฎี การสื่อสารมวลชน เบื้องต้น"
+            },
+            {
+              "id": "7b5bb478-52bb-498f-9620-c4992e62d51c",
+              "name": "ประยุกต์แนวคิดด้านการสื่อสารเพื่ออธิบาย การสื่อสารในสื่อมวลชนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "While related to communication, it focuses on mass media communication theories, not specifically on branding or marketing communication."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers communication and mass media theory, but does not specifically address branding or brand management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "outcomes": [
+        "วิเคราะห์ประโยคที่ใช้สื่อสาร  ทางธุรกิจได้",
+        "สาธิตการใช้ประโยคตาม  สถานการณ์ที่ได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้อง  กับการสนทนาทางธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "738ccaa3-a5bb-4b42-a7d0-3acd56126a62",
+              "name": "วิเคราะห์ประโยคที่ใช้สื่อสาร  ทางธุรกิจได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on business Chinese language skills, which can support branding in Chinese markets but does not teach branding itself."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on business Chinese language skills, not on branding or brand development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "outcomes": [
+        "อธิบายหลักการบัญชีบริหาร",
+        "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์",
+        "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "4aac15ca-75e5-4b45-ba2f-68ce9e2cf508",
+              "name": "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on strategic management and accounting principles, not specifically on branding or brand planning."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches strategic management accounting which can support business planning including brand strategy."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "03764321-64",
+      "subjectName": "การจัดหาในห่วงโซ่อุปทาน",
+      "outcomes": [
+        "สามารถทำงานจัดซื้อได้อย่างมีคุณธรรม จริยธรรม ในการดำเนินธุรกิจ",
+        "สามารถใช้หลักการจัดซื้อจัดหาเพื่อจัดทำกลยุทธ์ทางธุรกิจได้้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "07bab059-21d8-4192-86ca-f7a3d036ccce",
+              "name": "สามารถใช้หลักการจัดซื้อจัดหาเพื่อจัดทำกลยุทธ์ทางธุรกิจได้้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with supply chain procurement and strategy, not directly related to branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on procurement in supply chain, unrelated to branding or brand creation."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01390429-64",
+      "subjectName": "การจัดนำเที่ยวนอกประเทศ",
+      "outcomes": [
+        "อธิบายหลักการธุรกิจจัดการนำเที่ยวนอกประเทศได้",
+        "วางแผนการดำเนินงานธุรกิจการนำเที่ยวนอกประเทศได้",
+        "นำเสนอแนวทางแก้ไขปัญหา อุปสรรค และเสนอแนะแนวทางการปรับปรุงและแก้ไขปัญหาในสถานการณ์การปฏิบัติงานจริงได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0e48547c-d7c5-4518-baa2-63375289ed58",
+              "name": "วางแผนการดำเนินงานธุรกิจการนำเที่ยวนอกประเทศได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Centered on international tourism management, not on branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers international tourism business management, not relevant to branding."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01681311-66",
+      "subjectName": "การประกอบกิจการยุคใหม่",
+      "outcomes": [
+        "อธิบายบทบาทของผู้ประกอบการยุคใหม่ และแนวโน้มทางเศรษฐกิจ เทคโนโลยี และสังคมที่เกี่ยวข้องได้",
+        "วิเคราะห์และประเมินสภาพแวดล้อมทางธุรกิจ พฤติกรรมผู้บริโภค และแนวทางการสร้างคุณค่าในตลาดเป้าหมายได้",
+        "วางแผนโมเดลธุรกิจและแนวทางผลิตสินค้า/บริการโดยใช้เครื่องมือ bmc และแนวคิดเชิงกลยุทธ์",
+        "สร้างและนำเสนอแนวคิดธุรกิจร่วมสมัยโดยใช้เทคโนโลยี และทักษะด้านการสื่อสารผู้ประกอบการ",
+        "จัดทำแผนธุรกิจฉบับย่อสำหรับกิจการต้นแบบได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cf9de940-5410-4207-a365-2c23da420ba3",
+              "name": "วางแผนโมเดลธุรกิจและแนวทางผลิตสินค้า/บริการโดยใช้เครื่องมือ bmc และแนวคิดเชิงกลยุทธ์"
+            },
+            {
+              "id": "ae567f62-d7de-4b0b-a3ea-e63898e46934",
+              "name": "จัดทำแผนธุรกิจฉบับย่อสำหรับกิจการต้นแบบได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers modern entrepreneurship and business model planning, but not specifically branding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers entrepreneurship, business environment analysis, and business model planning, which are relevant to brand creation."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "outcomes": [
+        "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+        "จัดทำงบประมาณธุรกิจต่างๆ",
+        "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            },
+            {
+              "id": "22fa92fd-9ba3-4e53-a004-5f02381e8c82",
+              "name": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on profit planning and control, not on branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on profit planning and control, not directly related to branding."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "02999049-67",
+      "subjectName": "การออกแบบความคิดเชิงสร้างสรรค์สำหรับธุรกิจเพื่อสังคม",
+      "outcomes": [
+        "คาดการณ์โอกาสและความได้เปรียบทางการแข่งขันบนพื้นฐานความถนัดและทุนชุมชนที่มี",
+        "นำเสนอแนวทางแก้ไขปัญหาชุมชนและสังคมตนเองอย่างสร้างสรรค์",
+        "จัดทำแผนธุรกิจเพื่อสังคมอย่างเป็นระบบ",
+        "นำเสนอการเชื่อมโยงแนวคิดธุรกิจเพื่อสังคม แนวคิดการออกแบบความคิด แนวคิดเศรษฐกิจเชิงสร้างสรรค์ และการพัฒนาที่ยั่งยืนกับปัญหาชุมชนและสังคมของตนเองได้",
+        "ประเมินความยั่งยืนและวิเคราะห์จุดแข็งจุดอ่อนของโครงการต้นแบบ แนวคิดการขยายผลและต่อยอดธุรกิจเพื่อสังคมเพื่อความยั่งยืนได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3923779d-0ef4-4dc1-9e58-c8913c7eab03",
+              "name": "จัดทำแผนธุรกิจเพื่อสังคมอย่างเป็นระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Centered on social business and creative thinking, not on branding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches creative thinking and business planning for social enterprises, relevant to brand development and business strategy."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "outcomes": [
+        "อธิบายลักษณะนิสัยตามธรรมชาติและความต้องการพื้นฐานของสัตว์เลี้ยงแต่ละชนิดได้",
+        "ถ่ายทอดความรู้เกี่ยวกับอันตรายและโรคที่สำคัญที่เกิดจากสัตว์เลี้ยงได้",
+        "ถ่ายทอดความรู้เกี่ยวกับกฎหมายที่เกี่ยวข้องกับการเลี้ยงสัตว์ ปัญหาด้านสังคมและสิ่งแวดล้อมที่เกิดจากการเลี้ยงสัตว์ได้",
+        "นำเสนอแนวทางการวางแผนธุรกิจสัตว์เลี้ยงเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b8ae2899-e421-46a5-b36e-aa98c23841df",
+              "name": "นำเสนอแนวทางการวางแผนธุรกิจสัตว์เลี้ยงเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to pet business planning, not branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on pet care and related social issues, not related to branding or brand creation."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานทางธุรกิจได้",
+        "วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้",
+        "ตัดสินใจทางธุรกิจ โดยโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "25b62fe7-3f72-4bcf-b079-3f16a373ccd7",
+              "name": "ตัดสินใจทางธุรกิจ โดยโปรแกรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Business simulation skills, not specifically branding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers business principles and decision-making, which are foundational for brand management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01999112-67",
+      "subjectName": "แนวคิดเศรษฐกิจหมุนเวียนเพื่อความยั่งยืน",
+      "outcomes": [
+        "เชื่อมโยงความสัมพันธ์ระหว่างทรัพยากรธรรมชาติ การเปลี่ยนแปลงของสภาพภูมิอากาศและสิ่งแวดล้อมที่เปลี่ยนไปได้",
+        "ออกแบบธุรกิจและวางแผนโครงงานภายใต้แนวคิดเศรษฐกิจหมุนเวียน",
+        "สามารถแสดงความคิดเห็นที่สะท้อนถึงความตระหนักด้านทรัพยากร สถานการณ์การเปลี่ยนแปลงของสภาพภูมิอากาศและสิ่งแวดล้อม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "103501cd-36df-4657-86c4-69b6b276448d",
+              "name": "ออกแบบธุรกิจและวางแผนโครงงานภายใต้แนวคิดเศรษฐกิจหมุนเวียน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Sustainable economy concepts, not branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on circular economy and sustainability, not directly related to branding."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "02052581-68",
+      "subjectName": "การจัดการธุรกิจเกษตรเพื่อผู้ประกอบการสมัยใหม่",
+      "outcomes": [
+        "สามารถวิเคราะห์กระบวนการในการจัดการธุรกิจเกษตรตลอดโซ่อุปทานทั้งด้านการผลิต ตลาด และการเงินได้",
+        "สามารถประยุกต์ความรู้เกี่ยวกับระบบสารสนเทศ นวัตกรรมเกษตรและโมเดลธุรกิจอื่นๆ มาใช้ในการจัดการธุรกิจเกษตรได้",
+        "สามารถวางแผนและเขียนแผนธุรกิจเกษตรได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "bf3959b2-6198-4e67-9739-86e15032ad8c",
+              "name": "สามารถวางแผนและเขียนแผนธุรกิจเกษตรได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Agricultural business management, not branding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Includes business management and business plan writing, useful for brand creation and management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "02747441-65",
+      "subjectName": "การจัดการเชิงกลยุทธ์ในธุรกิจการบิน",
+      "outcomes": [
+        "อธิบายความหมายและกระบวนการจัดการเชิงกลยุทธ์ การวิเคราะห์เชิงกลยุทธ์ การวางแผน การนำกลยุทธ์ไปปฏิบัติ",
+        "วิเคราะห์กลยุทธ์ระดับต่างๆ ของธุรกิจการบินจากสถานการณ์จริง",
+        "ใช้เทคโนโลยีในการค้นคว้าข้อมูลและนำเสนอการงานผ่านระบบสารสนเทศได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "5f666a00-a232-4bfb-a6bc-c0455496b6e4",
+              "name": "วิเคราะห์กลยุทธ์ระดับต่างๆ ของธุรกิจการบินจากสถานการณ์จริง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Aviation strategic management, not branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Specific to strategic management in aviation, not relevant to general branding."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "พัฒนาองค์ความรู้ใหม่หรือผลิตภัณฑ์ใหม่",
+        "สามารถเข้าใจบทความวิจัยและสังเคราะห์ความรู้ที่ได้รับจากการศึกษาก่อนหน้านี้ โดยใช้เทคโนโลยีสารสนเทศ",
+        "แก้ปัญหาหรือวิเคราะห์ปัญหาทางวิศวกรรมที่เกิดขึ้นในอุตสาหกรรมหรือปัญหาการวิจัยที่ถูกต้อง",
+        "สามารถทำงานวิจัยได้อย่างเป็นอิสระ โดยมีจริยธรรมที่ดี",
+        "สามารถสื่อสารผลงานได้ดี ทั้งการเขียนผลการวิจัยและนำเสนอสิ่งที่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "30ae034f-0d90-44c7-85ef-003fe91e5dab",
+              "name": "พัฒนาองค์ความรู้ใหม่หรือผลิตภัณฑ์ใหม่"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This is a thesis course focused on research and knowledge development, not specifically on branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course focused on research skills, not specifically on branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01305211-67",
+      "subjectName": "การใช้ประโยชน์วนผลิตภัณฑ์",
+      "outcomes": [
+        "เชื่อมโยงการใช้ประโยชน์ผลิตภัณฑ์กับกายวิภาคหรือคุณสมบัติของเนื้อไม้บางประการได้",
+        "สร้างผลิตภัณฑ์จากไม้หรือของป่าอย่างง่ายได้",
+        "ปฏิบัติงานในชั้นเรียนตามที่ได้รับมอบหมายด้วยความรับผิดชอบและทำงานเป็นทีมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3b23bf91-51a1-4863-86fa-8c1ca991abca",
+              "name": "สร้างผลิตภัณฑ์จากไม้หรือของป่าอย่างง่ายได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course focuses on product utilization and craftsmanship, unrelated to branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on wood product utilization, unrelated to branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01025333-64",
+      "subjectName": "ปฏิบัติการเกษตรเขตร้อน",
+      "outcomes": [
+        "ฝึกทักษะปฏิบัติด้านการวิเคราะห์ทางเคมีของดินและปุ๋ย",
+        "ฝึกทักษะปฏิบัติด้านการขยายพันธุ์พืช วิทยาการเมล็ดพันธุ์",
+        "ฝึกทักษะปฏิบัติด้านการประเมินโรคและการวินิจฉัยโรค การจำแนกแมลงและการประเมินความเสียหายจากแมลง",
+        "ฝึกทักษะปฏิบัติที่เกี่ยวข้องกับการผลิตสัตว์",
+        "ฝึกทักษะปฏิบัติด้านเครื่องจักรกลทางการเกษตรและระบบน้ำที่ใช้ในการผลิตและการจัดการการผลิตพืช"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "84e76d8b-5b75-4466-913c-15cdc35b4e31",
+              "name": "ฝึกทักษะปฏิบัติที่เกี่ยวข้องกับการผลิตสัตว์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course is about agricultural practices, unrelated to branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Agricultural practice skills unrelated to branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01058321-68",
+      "subjectName": "เทคโนโลยีการบรรจุและอายุการเก็บรักษา",
+      "outcomes": [
+        "ระบุประเภทและสมบัติของวัสดุบรรจุภัณฑ์ที่ใช้สำหรับสินค้าเทคโนโลยีเกษตร-อาหาร",
+        "เลือกวัสดุบรรจุภัณฑ์และเทคโนโลยีที่เหมาะสมกับข้อกำหนดของผลิตภัณฑ์",
+        "วิเคราะห์ปัจจัยที่มาจากภายในและภายนอกของผลิตภัณฑ์เทคโนโลยีเกษตร-อาหารเพื่อประเมินผลกระทบต่อคุณภาพผลิตภัณฑ์และอายุการเก็บรักษา",
+        "สร้างแนวทางของนวัตกรรมบรรจุภัณฑ์สำหรับผลิตภัณฑ์เทคโนโลยีเกษตร-อาหารโดยพิจารณาถึงความต้องการของผู้บริโภค ข้อกำหนดของผลิตภัณฑ์ และผลกระทบต่อสิ่งแวดล้อม",
+        "นำเสนอแนวทางของนวัตกรรมบรรจุภัณฑ์สำหรับผลิตภัณฑ์เทคโนโลยีเกษตร-อาหาร ด้วยเทคนิคการสื่อสารที่มีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a38a7162-1ed7-49a1-9234-56f67e6314bd",
+              "name": "เลือกวัสดุบรรจุภัณฑ์และเทคโนโลยีที่เหมาะสมกับข้อกำหนดของผลิตภัณฑ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course is about packaging technology, not related to branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Packaging technology for agricultural products, not focused on brand creation or management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01605698-67",
+      "subjectName": "ปัญหาพิเศษ",
+      "outcomes": [
+        "อธิบายความรู้และทฤษฎีการวิจัยขั้นสูงที่ใช้ในการทำงานวิจัยได้",
+        "เลือกเทคโนโลยีขั้นสูงมาใช้กับการวิจัยด้านสุขภาพสัตว์ได้",
+        "สร้างผลงานวิชาการจากงานวิจัยที่ทำได้",
+        "นำเสนอผลงานวิจัยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสร้างแบรนด์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "65941341-3fe4-4a0c-b9ba-8c5ef173fe09",
+              "name": "สร้างผลงานวิชาการจากงานวิจัยที่ทำได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This is a research-focused course, not specifically about branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Special problems course focused on advanced research, not branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "outcomes": [
+        "สามารถออกแบบภูมิทัศน์ โดยบูรณาการทฤษฎีในศาสตร์ที่เกี่ยวข้องทางภูมิสถาปัตยกรรมมาใช้เพื่อตอบโจทย์ทางภูมิสถาปัตยกรรม",
+        "สามารถวิเคราะห์สภาพสังคมวัฒนธรรม สภาพแวดล้อม และปัจจัยที่เกี่ยวข้อง เพื่อนำไปใช้ในการออกแบบภูมิสถาปัตยกรรม",
+        "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "77db2b30-ebad-4b7f-8707-fb64883c36b2",
+              "name": "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on landscape architecture design, unrelated to graphic design or branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Landscape architecture design unrelated to branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "เรียบเรียงข้อมูลเพื่อนำเสนอ",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้รูปแบบการนำเสนอที่เหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b32b2452-8d75-44b5-aa7f-7ec018f8c0c4",
+              "name": "เรียบเรียงข้อมูลเพื่อนำเสนอ"
+            },
+            {
+              "id": "0645c687-458e-45c9-b0a6-085246b1efbe",
+              "name": "เลือกใช้รูปแบบการนำเสนอที่เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "General seminar skills, not related to graphic design or branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on presentation and teamwork skills, not on branding or brand creation."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "outcomes": [
+        "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้ฟังก์ชันในการวิเคราะห์ข้อมูลได้อย่างเหมาะสมและถูกต้อง",
+        "เลือกรูปแบบการนำเสนอข้อมูลได้อย่างเหมาะสม",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ด้วยความรับผิดชอบ ซื่อสัตย์ และปฎิบัติงานร่วมกับผู้อื่นได้ มีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a9c61cc1-1de9-47cb-b544-f0e8b78ca1b7",
+              "name": "เลือกรูปแบบการนำเสนอข้อมูลได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Data visualization and analysis, not related to graphic branding design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about data analysis and visualization, unrelated to branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "outcomes": [
+        "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ",
+        "ใช้เครื่องมือการวิเคราะห์ข้อมูลประเภทต่างๆ ได้ สอดคล้องกับประเภทของข้อมูล",
+        "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี",
+        "จัดทำรายงานที่ได้จากการวิเคราะห์ข้อมูลเพื่อนำเสนอผู้บริหารและผู้ที่เกี่ยวข้องได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "aca105f6-01ae-4a0f-9872-1ba7240d4ce1",
+              "name": "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Accounting data analysis, unrelated to graphic design or branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers data analysis for accounting, no connection to branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "outcomes": [
+        "สามารถวาดภาพฉายออร์โธกราฟฟิก ภาพสามมิติ และมุมมองช่วยได้",
+        "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้",
+        "สามารถนำเสนอแบบวิศวกรรมและสื่อสารข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "463544a2-869f-4ec4-a798-f8d1373f6d77",
+              "name": "สามารถวาดภาพฉายออร์โธกราฟฟิก ภาพสามมิติ และมุมมองช่วยได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Engineering drawing, unrelated to branding or graphic design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches engineering drawing skills, irrelevant to branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01247111-64",
+      "subjectName": "ปฏิบัติการออกแบบเชิงนิเวศ I",
+      "outcomes": [
+        "สามารถใช้พื้นฐานองค์ประกอบศิลป์ เพื่อสร้างสรรค์งานโดยใช้วัสดุจากธรรมชาติหรือวัสดุเหลือใช้ได้",
+        "สามารถออกแบบฟังก์ชั่นระดับพื้นฐานที่คำนึงถึงสิ่งแวดล้อม พฤติกรรมมนุษย์ และสัดส่วนมนุษย์ได้",
+        "สามารถอธิบายหลักการออกแบบเชิงนิเวศ",
+        "สามารถนำเสนอแบบสถาปัตยกรรมทั้ง 2 มิติ และหุ่นจำลอง 3 มิติในเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e9e3b5d8-7b97-4521-94a8-dae34c0ef016",
+              "name": "สามารถอธิบายหลักการออกแบบเชิงนิเวศ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Ecological design, not related to branding or graphic design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on ecological design and art elements, not branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "04403597-67",
+      "subjectName": "สัมนา",
+      "outcomes": [
+        "สามารถอธิบายเนื้อหา เหตุผล วิเคราะห์ และวิจารณ์ประเด็นปัญหาที่น่าสนใจในทางวิทยาศาสตร์สุขภาพหนึ่งเดียว",
+        "มีทักษะในการออกแบบและเสนอได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "6183af93-1255-4ef4-bc0a-d1b6b65e8cf8",
+              "name": "มีทักษะในการออกแบบและเสนอได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "General seminar skills, not specific to graphic design or branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about scientific health topics and seminar skills, unrelated to branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "outcomes": [
+        "เลือกใช้และดูแลรักษาอุปกรณ์เครื่องใช้ในครัวได้ถูกต้อง",
+        "เลือกซื้อวัตถุดิบเตรียมวัตถุดิบและเก็บรักษาวัตถุดิบอาหารประเภทต่างๆได้ถูกต้อง",
+        "ประกอบอาหารและจัดสำรับอาหารคาวหวานได้ถูกต้อง",
+        "ตกแต่งจานอาหารด้วยความคิดสร้างสรรค์",
+        "ทำงานกลุ่มด้านการจัดเตรียมและการประกอบอาหารด้วยความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบกราฟิก",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "2fc8f7e1-26c1-4722-b160-6d21a6f5aa8b",
+              "name": "ตกแต่งจานอาหารด้วยความคิดสร้างสรรค์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Cooking and presentation, unrelated to graphic design or branding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about food preparation and cooking, no relevance to branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01661313-65",
+      "subjectName": "การสื่อสารเพื่อการจัดการสิ่งแวดล้อม",
+      "outcomes": [
+        "อธิบายบทบาทและความสำคัญของการสื่อสารในการจัดการสิ่งแวดล้อม",
+        "วิเคราะห์และประเมินกลุ่มเป้าหมายเพื่อการสื่อสารที่มีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9111cb40-082a-46e0-8453-960e218f26b6",
+              "name": "อธิบายบทบาทและความสำคัญของการสื่อสารในการจัดการสิ่งแวดล้อม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on environmental communication, unrelated to branding or marketing communication."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers communication for environmental management, not branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "outcomes": [
+        "ผลิตอาหารจำนวนมากและจัดบริการอาหารเพื่อการค้าและจำหน่ายได้จริง",
+        "เลือกใช้เทคโนโลยีเพื่อการประชาสัมพันธ์ และการสื่อสารที่เกี่ยวข้องกับการจำหน่ายอาหารได้",
+        "ปฏิบัติงานร่วมกับผู้อื่นในการจัดบริการอาหารเพื่อการค้าและจำหน่ายได้",
+        "ให้บริการอาหารด้วยคุณธรรมและจรรยาบรรณวิชาชีพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "06ad00e3-bdb2-4445-9a4c-682cab2bc1cd",
+              "name": "เลือกใช้เทคโนโลยีเพื่อการประชาสัมพันธ์ และการสื่อสารที่เกี่ยวข้องกับการจำหน่ายอาหารได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to food service management, unrelated to branding or marketing communication."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on food service management and related communication, not branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01402511-65",
+      "subjectName": "ชีวเคมีการทำหน้าที่ระดับเซลล์",
+      "outcomes": [
+        "อธิบายการขนส่งโปรตีนภายในเซลล์",
+        "อธิบายการแยกประเภทและการเสื่อมของโปรตีน",
+        "เชื่อมโยงองค์ประกอบทางชีวเคมีและกลไกการทำงานของโครงร่างของเซลล์",
+        "อธิบายกลไกการถ่ายโอนสัญญาณระหว่างเซลล์และการถ่ายโอนสัญญาณรับความรู้สึก",
+        "อธิบายวัฏจักรเซลล์ และเชื่อมโยงกับโปรตีนในวัฏจักรเซลล์และการควบคุมวัฏจักรเซลล์",
+        "อธิบายกระบวนการตายของเซลล์ตามกำหนด และเปรียบเทียบความแตกต่างของการตายของเซลล์แบบต่างๆ ได้",
+        "อธิบายการเจริญและพัฒนาของมะเร็ง เชื่อมโยงยีนที่เกี่ยวข้องกับโรคมะเร็ง กลไกทางเอพิเจเนติกส์ที่เกี่ยวข้องกับการเกิดโรคมะเร็งได้",
+        "ใช้เทคโนโลยีสื่อสารสนเทศเพื่อการสื่อสารได้",
+        "นำเสนอรายงานหรือโครงการค้นคว้าแบบปากเปล่าได้",
+        "ร่วมมือกับผู้อื่นในการทำงานร่วมกัน เป็นผู้นำหรือผู้ตามที่ดี",
+        "มีความรับผิดชอบ เข้าเรียนและส่งงานในเวลาที่กำหนด"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcf3245c-5b39-49fd-930c-542cbc8bbb90",
+              "name": "ใช้เทคโนโลยีสื่อสารสนเทศเพื่อการสื่อสารได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Biochemistry course unrelated to branding or marketing."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about biochemistry at the cellular level, unrelated to branding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "01402512-65",
+      "subjectName": "โครงสร้างและการทำหน้าที่ของชีวโมเลกุล",
+      "outcomes": [
+        "ระบุและอธิบายโครงสร้างและหน้าที่ของสารชีวโมเลกุล",
+        "เชื่อมโยงความสัมพันธ์ระหว่างโครงสร้างและหน้าที่ของสารชีวโมเลกุล",
+        "อธิบายกระบวนการการสร้างและสลายสารชีวโมเลกุล",
+        "วิเคราะห์และแปลผลการทดลองและงานวิจัยที่เกี่ยวข้องกับสารชีวโมเลกุลได้",
+        "ใช้เทคโนโลยีสื่อสารสนเทศเพื่อการสื่อสารได้",
+        "นำเสนอรายงานหรือโครงการค้นคว้าแบบปากเปล่าได้",
+        "รับผิดชอบ เข้าเรียนและส่งงานในเวลาที่กำหนด",
+        "ร่วมมือกับผู้อื่นในการทำงานร่วมกัน เป็นผู้นำหรือผู้ตามที่ดี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "5c9efc96-cc87-4d0b-9a91-d1b242fe4760",
+              "name": "ใช้เทคโนโลยีสื่อสารสนเทศเพื่อการสื่อสารได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Biomolecular structure course unrelated to branding or marketing."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on biomolecules and biology, unrelated to branding or marketing."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "outcomes": [
+        "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ",
+        "ใช้กลวิธีการสื่อสารที่หลากหลาย โดยคำนึงถึงความแตกต่างของผู้รับสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารการตลาด",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "84ab18ca-e7bb-426e-8016-ac1122beec8b",
+              "name": "ใช้กลวิธีการสื่อสารที่หลากหลาย โดยคำนึงถึงความแตกต่างของผู้รับสาร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language for teaching communication, not related to branding or marketing communication."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about language communication for teachers, not related to branding or brand creation."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1870,
+      "outputTokens": 292
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1595,
+      "outputTokens": 325
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2033,
+      "outputTokens": 327
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2152,
+      "outputTokens": 287
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2061,
+      "outputTokens": 291
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 842,
+      "outputTokens": 68
+    }
+  ]
+}

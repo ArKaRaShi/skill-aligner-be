@@ -1,0 +1,1916 @@
+{
+  "queryLogId": "97b42158-60af-46d3-aa60-049d1243d2ee",
+  "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+  "courses": [
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "outcomes": [
+        "สามารถสร้างสรรค์ผลงานเสียงได้",
+        "สามารถสร้างสรรค์ผลงานจากเทคโนโลยีได้",
+        "สามารถถ่ายทอดเพื่อการแสดงได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "b27b15a1-25a2-4d9f-9494-b188a7b143de",
+              "name": "สามารถสร้างสรรค์ผลงานเสียงได้"
+            }
+          ]
+        },
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "edd98085-3447-4e58-973c-c22e2ac03e88",
+              "name": "สามารถสร้างสรรค์ผลงานจากเทคโนโลยีได้"
+            }
+          ]
+        },
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "b27b15a1-25a2-4d9f-9494-b188a7b143de",
+              "name": "สามารถสร้างสรรค์ผลงานเสียงได้"
+            },
+            {
+              "id": "edd98085-3447-4e58-973c-c22e2ac03e88",
+              "name": "สามารถสร้างสรรค์ผลงานจากเทคโนโลยีได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Teaches sound design and music creation using technology, directly relevant to sound design."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course integrates computer programming with music composition, directly matching the user's interest in tech and music combination."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "outcomes": [
+        "สามารถสร้างสรรค์ผลงานทางดนตรีในรูปแบบต่าง ๆ ที่แสดงให้ถึงการบูรณาการหลักการ และคุณลักษณะของดนตรีต่างประเภทและต่างวัฒนธรรม รวมถึงบูรณาการองค์ความรู้ทางดนตรีร่วมกับศาสตร์อื่น",
+        "สามารถเลือกใช้เทคโนโลยีดิจิทัลในการสร้างสรรค์ผลงานดนตรีอย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "9ca5279c-b250-416e-9640-1d03be1f6b4e",
+              "name": "สามารถเลือกใช้เทคโนโลยีดิจิทัลในการสร้างสรรค์ผลงานดนตรีอย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9ca5279c-b250-416e-9640-1d03be1f6b4e",
+              "name": "สามารถเลือกใช้เทคโนโลยีดิจิทัลในการสร้างสรรค์ผลงานดนตรีอย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "9ca5279c-b250-416e-9640-1d03be1f6b4e",
+              "name": "สามารถเลือกใช้เทคโนโลยีดิจิทัลในการสร้างสรรค์ผลงานดนตรีอย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Teaches integration of music with technology and creative synthesis, directly relevant to the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on integrating music with digital technology, fitting the user's desire to learn tech combined with music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถเลือกใช้ข้อมูลสารสนเทศได้ตามหลัก พรบ. คอมพิวเตอร์",
+        "สามารถอธิบายลักษณะ อุปกรณ์ และการใช้โปรแกรมคอมพิวเตอร์ได้",
+        "สามารถแปลงโน้ตดนตรีขั้นพื้นฐานได้",
+        "สามารถดำเนินงานที่ได้รับมอบหมายตามระยะเวลาที่กำหนดได้",
+        "สามารถนำเสนอรายงานโดยใช้เทคโนโลยีสารสนเทศได้",
+        "สามารถดำเนินการประยุกต์โปรแกรมคอมพิวเตอร์กับงานทางด้ายดนตรีไทยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "9050ac74-63ae-4a48-bf59-d50673356ecd",
+              "name": "สามารถแปลงโน้ตดนตรีขั้นพื้นฐานได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "9050ac74-63ae-4a48-bf59-d50673356ecd",
+              "name": "สามารถแปลงโน้ตดนตรีขั้นพื้นฐานได้"
+            },
+            {
+              "id": "9e76950a-e279-4261-92e3-516c9d92b0bc",
+              "name": "สามารถดำเนินการประยุกต์โปรแกรมคอมพิวเตอร์กับงานทางด้ายดนตรีไทยได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Specifically combines Thai music with computer technology, directly relevant to target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches application of computer technology to traditional Thai music, relevant to combining tech and music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา",
+        "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม",
+        "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Teaches programming and algorithms, directly relevant for programming skills needed in music tech."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "General programming and problem-solving course without direct music context, thus irrelevant."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "02184111-67",
+      "subjectName": "ดนตรีไทย I",
+      "outcomes": [
+        "อธิบายหลักการทางทฤษฎีดนตรีไทย",
+        "อธิบายรูปแบบวงดนตรีได้",
+        "เข้าใจหลักการเขียนโน้ตเพลง ระบบเสียง บันไดเสียง การเขียนโน้ตเพลง",
+        "เรียนรู้บทเพลงและการขับร้องเพลงไทยเบื้องต้น",
+        "สามารถฝึกปฏิบัติการบรรเลงเครื่องดนตรีไทยได้",
+        "อธิบายบทบาทหน้าที่ของดนตรีไทยในสังคมได้",
+        "เห็นคุณค่าและตระหนักถึงความสำคัญของดนตรีไทยเป็นแนวทางในการอนุรักษ์ ส่งเสริมดนตรีไทยและปลูกฝังจิตสำนึกในการอนุรักษ์ดนตรีไทย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c0a8f555-9d69-4d62-9e89-0982446368a7",
+              "name": "อธิบายหลักการทางทฤษฎีดนตรีไทย"
+            },
+            {
+              "id": "5c247e13-7b52-49ef-b359-4feacee498b1",
+              "name": "อธิบายรูปแบบวงดนตรีได้"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "5c247e13-7b52-49ef-b359-4feacee498b1",
+              "name": "อธิบายรูปแบบวงดนตรีได้"
+            },
+            {
+              "id": "dd822c53-5634-4250-b034-da5b1385d45e",
+              "name": "เข้าใจหลักการเขียนโน้ตเพลง ระบบเสียง บันไดเสียง การเขียนโน้ตเพลง"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c0a8f555-9d69-4d62-9e89-0982446368a7",
+              "name": "อธิบายหลักการทางทฤษฎีดนตรีไทย"
+            },
+            {
+              "id": "5c247e13-7b52-49ef-b359-4feacee498b1",
+              "name": "อธิบายรูปแบบวงดนตรีได้"
+            }
+          ]
+        },
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c0a8f555-9d69-4d62-9e89-0982446368a7",
+              "name": "อธิบายหลักการทางทฤษฎีดนตรีไทย"
+            },
+            {
+              "id": "5c247e13-7b52-49ef-b359-4feacee498b1",
+              "name": "อธิบายรูปแบบวงดนตรีได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches Thai music theory, which is relevant for understanding music, but not specifically for mixed tech and music."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on traditional Thai music theory and practice without technology integration, not matching tech+music interest."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386524-66",
+      "subjectName": "การอ่านและตีความบทประพันธ์ผ่านสกอร์",
+      "outcomes": [
+        "สามารถวิเคราะห์และตีความโดยใช้ทฤษฎีดนตรีได้",
+        "สามารถสร้างและนำเสนอโดยประยุกต์กับศาสตร์อื่น ๆ ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "855802b4-40ff-4970-929f-670b1e0edaca",
+              "name": "สามารถวิเคราะห์และตีความโดยใช้ทฤษฎีดนตรีได้"
+            }
+          ]
+        },
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "855802b4-40ff-4970-929f-670b1e0edaca",
+              "name": "สามารถวิเคราะห์และตีความโดยใช้ทฤษฎีดนตรีได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "855802b4-40ff-4970-929f-670b1e0edaca",
+              "name": "สามารถวิเคราะห์และตีความโดยใช้ทฤษฎีดนตรีได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on music analysis and interpretation, foundational for music understanding, but not directly on music theory for composition or integration."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Includes applying music theory with other sciences, implying interdisciplinary integration relevant to tech and music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางดนตรี",
+      "outcomes": [
+        "สามารถอธิบายความหมายและความสำคัญของการวิจัยทางดนตรีได้",
+        "สามารถอธิบายระเบียบวิธีและขั้นตอนการทำวิจัยทางดนตรีได้",
+        "สามารถกำหนด วิเคราะห์ และสังเคราะห์ปัญหา สร้างกรอบแนวคิดในการทำวิจัยทางดนตรี",
+        "มีทักษะในการเขียนโครงร่างงานวิจัย การเลือกใช้แนวคิดและทฤษฎี การเก็บรวบรวมข้อมูล และการนำเสนองานวิจัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "3c780b6a-b2bc-4260-8fb8-27effc1b2697",
+              "name": "สามารถอธิบายความหมายและความสำคัญของการวิจัยทางดนตรีได้"
+            },
+            {
+              "id": "bcf7a5ed-9549-43b2-85a1-92302ef72e27",
+              "name": "สามารถอธิบายระเบียบวิธีและขั้นตอนการทำวิจัยทางดนตรีได้"
+            },
+            {
+              "id": "7c3b69cc-d5c9-48d7-83c4-9ae75860e7de",
+              "name": "สามารถกำหนด วิเคราะห์ และสังเคราะห์ปัญหา สร้างกรอบแนวคิดในการทำวิจัยทางดนตรี"
+            }
+          ]
+        },
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "3c780b6a-b2bc-4260-8fb8-27effc1b2697",
+              "name": "สามารถอธิบายความหมายและความสำคัญของการวิจัยทางดนตรีได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "7c3b69cc-d5c9-48d7-83c4-9ae75860e7de",
+              "name": "สามารถกำหนด วิเคราะห์ และสังเคราะห์ปัญหา สร้างกรอบแนวคิดในการทำวิจัยทางดนตรี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides research methodology in music, useful for academic understanding but not for practical music theory or tech integration."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Research methodology in music is more academic and not directly related to tech and music combination."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "ประยุกต์ทฤษฎีเพื่อสร้างงานวิจัย",
+        "ออกแบบและทดสอบอุปกรณ์หรือเทคนิคเพื่อสร้างงานวิจัย",
+        "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย",
+        "ปฏิบัติงานภาคสนามในการเก็บข้อมูลงานวิจัย",
+        "บริหารงานวิจัยเพื่อสร้างสรรค์ผลงานวิจัยให้บรรลุวัตถุประสงค์และเป็นไปตามหลักจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "89271ea4-c675-4188-8517-253134ee5796",
+              "name": "ประยุกต์ทฤษฎีเพื่อสร้างงานวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Research-focused, useful for in-depth study but not specifically for learning music theory."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course focused on research skills, not specifically on tech and music integration."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386533-66",
+      "subjectName": "การอำนวยเพลงขั้นสูง",
+      "outcomes": [
+        "สามารถถ่ายทอดความรู้จากวัฒนธรรมดนตรีต่าง ๆ ได้",
+        "สามารถวิเคราะห์บทเพลงและถ่ายทอดได้",
+        "สามารถสร้างสรรค์ผลงานและบูรณาการได้",
+        "สามารถรับผิดชอบและทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "88dbdc4a-bcc2-408b-b2e1-623b62eda25e",
+              "name": "สามารถถ่ายทอดความรู้จากวัฒนธรรมดนตรีต่าง ๆ ได้"
+            }
+          ]
+        },
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "88dbdc4a-bcc2-408b-b2e1-623b62eda25e",
+              "name": "สามารถถ่ายทอดความรู้จากวัฒนธรรมดนตรีต่าง ๆ ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "50c029b8-1d08-4655-abe3-88387660392f",
+              "name": "สามารถวิเคราะห์บทเพลงและถ่ายทอดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Advanced music performance and analysis, relevant for understanding music structure and theory."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Advanced conducting and cultural music knowledge without explicit tech integration, less relevant."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386523-66",
+      "subjectName": "การประพันธ์เพลงในคริสต์ศตวรรษที่ 21",
+      "outcomes": [
+        "สามารถสร้างสรรค์ผลงานทางดนตรีได้ รวมถึงบูรณาการองค์ความรู้ด้านอื่นมาประยุกต์ใช้",
+        "สามารถนำเทคโนโลยีมาช่วยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "fe6be833-c7b7-4afe-9f9a-e5cda35abed2",
+              "name": "สามารถสร้างสรรค์ผลงานทางดนตรีได้ รวมถึงบูรณาการองค์ความรู้ด้านอื่นมาประยุกต์ใช้"
+            },
+            {
+              "id": "8f72dca9-3811-426a-a734-7472704c8b2f",
+              "name": "สามารถนำเทคโนโลยีมาช่วยได้"
+            }
+          ]
+        },
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "fe6be833-c7b7-4afe-9f9a-e5cda35abed2",
+              "name": "สามารถสร้างสรรค์ผลงานทางดนตรีได้ รวมถึงบูรณาการองค์ความรู้ด้านอื่นมาประยุกต์ใช้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes use of technology in music composition, foundational for understanding music technology, but not specifically about tech skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on music composition with integration of technology, directly relevant to user's interest."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386512-66",
+      "subjectName": "การประพันธ์เพลง I",
+      "outcomes": [
+        "สามารถสร้างสรรค์ผลงานทางดนตรีได้ รวมถึงบูรณาการองค์ความรู้ด้านอื่นมาประยุกต์ใช้",
+        "สามารถนำเทคโนโลยีมาช่วยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "4cbf095c-fc26-4121-ade2-2a1c85465dba",
+              "name": "สามารถสร้างสรรค์ผลงานทางดนตรีได้ รวมถึงบูรณาการองค์ความรู้ด้านอื่นมาประยุกต์ใช้"
+            },
+            {
+              "id": "46df976e-54f6-4555-89dd-54d368aca8ad",
+              "name": "สามารถนำเทคโนโลยีมาช่วยได้"
+            }
+          ]
+        },
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "4cbf095c-fc26-4121-ade2-2a1c85465dba",
+              "name": "สามารถสร้างสรรค์ผลงานทางดนตรีได้ รวมถึงบูรณาการองค์ความรู้ด้านอื่นมาประยุกต์ใช้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers music composition with technology, relevant as a prerequisite for music tech skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course integrates music composition with technology, matching the user's interest in tech and music combination."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386513-66",
+      "subjectName": "การประพันธ์เพลง II",
+      "outcomes": [
+        "สามารถสร้างสรรค์ผลงานทางดนตรีได้ รวมถึงบูรณาการองค์ความรู้ด้านอื่นมาประยุกต์ใช้",
+        "สามารถนำเทคโนโลยีมาช่วยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "15bf8d31-6e4f-4b82-bd37-f54f9ce66ca2",
+              "name": "สามารถสร้างสรรค์ผลงานทางดนตรีได้ รวมถึงบูรณาการองค์ความรู้ด้านอื่นมาประยุกต์ใช้"
+            },
+            {
+              "id": "2b94536a-73e1-4300-b30d-e2d3c88fa9cb",
+              "name": "สามารถนำเทคโนโลยีมาช่วยได้"
+            }
+          ]
+        },
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "15bf8d31-6e4f-4b82-bd37-f54f9ce66ca2",
+              "name": "สามารถสร้างสรรค์ผลงานทางดนตรีได้ รวมถึงบูรณาการองค์ความรู้ด้านอื่นมาประยุกต์ใช้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Advanced music composition with technology, foundational knowledge for target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Advanced music composition course that also incorporates technology, relevant to user's query."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้",
+        "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้",
+        "สามารถเขียนโปรแกรมแบบขับเคลื่อนด้วยเหตุการณ์ที่มีส่วนต่อประสานกราฟิกกับผู้ใช้ตามที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ef13bdc3-24c4-42fd-84aa-f9edfe5f1610",
+              "name": "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers object-oriented programming and event-driven programming, foundational for programming for music but not specific to music."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on programming for robotics, unrelated to music or music technology."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "outcomes": [
+        "สามารถอธิบายวิธีการใช้เครื่องมือทางคอมพิวเตอร์ได้อย่างถูกต้องและปลอดภัยไม่กระทำผิดกฎหมายและขัดหลักจริยธรรมทางคอมพิวเตอร์",
+        "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อแก้ไขปัญหาในงานด้านเอกสาร และวิเคราะห์ข้อมูลได้",
+        "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อสร้างสรรค์ผลงานทางด้านมัลติมีเดียได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c988b1db-7c2b-4ae2-ba96-262a92b0b708",
+              "name": "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อสร้างสรรค์ผลงานทางด้านมัลติมีเดียได้"
+            }
+          ]
+        },
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c988b1db-7c2b-4ae2-ba96-262a92b0b708",
+              "name": "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อสร้างสรรค์ผลงานทางด้านมัลติมีเดียได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides essential computer skills and tools, foundational for programming for music but not specific to it."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches computer tools and multimedia creation skills, enabling technology use in music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "03609161-65",
+      "subjectName": "เปิดโลกวิศวกรรมระบบการผลิตดิจิทัล",
+      "outcomes": [
+        "สามารถอธิบายหลักการของเทคโนโลยีดิจิทัลที่เกี่ยวข้องในระบบการผลิตดิจิทัล",
+        "สามารถอธิบายความเชื่อมโยงขององค์ความรู้ในรายวิชาต่างๆ ในหลักสูตร",
+        "สามารถวางแผนอาชีพในอนาคตเมื่อสำเร็จการศึกษา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "6c613c99-b83e-4983-afde-a83ae6e5cf71",
+              "name": "สามารถอธิบายหลักการของเทคโนโลยีดิจิทัลที่เกี่ยวข้องในระบบการผลิตดิจิทัล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides understanding of digital production systems, which underpin digital music production, but does not teach music creation directly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers digital production engineering systems, not directly related to music or music technology."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "02184131-67",
+      "subjectName": "ดนตรีไทย  II",
+      "outcomes": [
+        "อธิบายประวัติความเป็นมาและคุณลักษณะของดนตรีในแต่ละยุคสมัย",
+        "ปฏิบัติการฝึกบรรเลงดนตรีไทยและขับร้องเพลงไทยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "467d819a-3feb-4a92-b26b-890b4bba0eff",
+              "name": "อธิบายประวัติความเป็นมาและคุณลักษณะของดนตรีในแต่ละยุคสมัย"
+            }
+          ]
+        },
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "467d819a-3feb-4a92-b26b-890b4bba0eff",
+              "name": "อธิบายประวัติความเป็นมาและคุณลักษณะของดนตรีในแต่ละยุคสมัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Builds on Thai music but not directly related to music theory or tech-music integration."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches Thai music history and practice, relevant to music but lacks explicit tech integration."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "02184141-67",
+      "subjectName": "ดนตรีตะวันตก II",
+      "outcomes": [
+        "อธิบายประวัติความเป็นมาและคุณลักษณะของดนตรีในแต่ละยุคสมัย",
+        "ปฏิบัติการฝึกบรรเลงดนตรีตะวันตกและขับร้องเพลงตะวันตกได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "34da7d8c-4708-4ea4-92be-4e609993dc32",
+              "name": "อธิบายประวัติความเป็นมาและคุณลักษณะของดนตรีในแต่ละยุคสมัย"
+            }
+          ]
+        },
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "34da7d8c-4708-4ea4-92be-4e609993dc32",
+              "name": "อธิบายประวัติความเป็นมาและคุณลักษณะของดนตรีในแต่ละยุคสมัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers Western music history and practice, tangential to music theory but not focused on music theory fundamentals."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches Western music history and practice, relevant to music but lacks explicit tech integration."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386547-66",
+      "subjectName": "วรรณกรรมวงดุริยางค์เครื่องลมยุคคลาสสิคถึงยุคปัจจุบัน",
+      "outcomes": [
+        "สามารถอธิบายภูมิหลังประวัติศาสตร์บทเพลงในยุคคลาสสิกถึงปัจจุบัน",
+        "สามารถอธิบายถึงแนวทางกำปฏิบัติบทเพลงในยุคโบราณถึงยุคคลาสสิกถึงปัจจุบัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "575a7579-c574-48ad-acff-9d92f5404904",
+              "name": "สามารถอธิบายภูมิหลังประวัติศาสตร์บทเพลงในยุคคลาสสิกถึงปัจจุบัน"
+            },
+            {
+              "id": "8a2366a6-ce77-434a-bfe0-2ffaa12fc166",
+              "name": "สามารถอธิบายถึงแนวทางกำปฏิบัติบทเพลงในยุคโบราณถึงยุคคลาสสิกถึงปัจจุบัน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Discusses music history and repertoire, tangential to music theory but not directly relevant."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers historical and practical aspects of wind ensemble music, providing music context."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386546-66",
+      "subjectName": "วรรณกรรมวงดุริยางค์เครื่องลมยุคโบราณถึงยุคคลาสสิค",
+      "outcomes": [
+        "สามารถอธิบายภูมิหลังประวัติศาสตร์บทเพลงในยุคโบราณถึงยุคคลาสสิก",
+        "สามารถอธิบายถึงแนวทางการปฏิบัติบทเพลงในยุคโบราณถึงยุคคลาสสิกได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "08e86287-6c1d-4b09-96a2-bd39c18c1a91",
+              "name": "สามารถอธิบายถึงแนวทางการปฏิบัติบทเพลงในยุคโบราณถึงยุคคลาสสิกได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Historical music literature, tangential to music theory."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on historical wind ensemble music, relevant for music knowledge foundation."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "02184171-67",
+      "subjectName": "การปฏิบัติเครื่องดนตรีตะวันตก",
+      "outcomes": [
+        "ปฏิบัติเครื่องดนตรีตะวันตกแบบเดี่ยวที่ได้มาตรฐาน",
+        "ปฏิบัติเครื่องดนตรีตะวันตกบรรเลงวงที่ได้มาตรฐาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "fe4e2b16-d181-4aab-a497-ac734d20fa7f",
+              "name": "ปฏิบัติเครื่องดนตรีตะวันตกแบบเดี่ยวที่ได้มาตรฐาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Practical performance, not focused on music theory fundamentals."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Practical course on Western musical instruments, relevant to music skills though no explicit tech focus."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "02801213-67",
+      "subjectName": "หลักการออกเสียงภาษาอังกฤษเพื่อการสื่อสารในอุตสาหกรรมบริการ",
+      "outcomes": [
+        "สามารถอธิบายลักษณะและฐานกรณ์ที่ใช้ในการผลิตเสียงชนิดต่าง ๆ ได้",
+        "สามารถอ่านสัทอักษรและออกเสียงได้ถูกต้องทั้งในระดับคำ ระดับประโยคเพื่อสื่อสารในสถานการณ์ต่าง ๆ ที่กำหนดให้ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6d62acf7-a697-415e-a988-af7d9d932ee1",
+              "name": "สามารถอธิบายลักษณะและฐานกรณ์ที่ใช้ในการผลิตเสียงชนิดต่าง ๆ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on English pronunciation and phonetics for communication, tangential to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on English pronunciation for service industry, unrelated to technology and music combination."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01242141-67",
+      "subjectName": "พื้นฐานคณิตศาสตร์และกลศาสตร์เพื่อการออกแบบ",
+      "outcomes": [
+        "อธิบายหลักการทางคณิตศาสตร์และกลศาสตร์ที่นำมาใช้เพื่อการออกแบบผลิตภัณฑ์",
+        "เลือกวัสดุให้เหมาะสมกับการใช้สอยและการออกแบบผลิตภัณฑ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b729e14d-9d24-4a74-89ab-517155ac234a",
+              "name": "เลือกวัสดุให้เหมาะสมกับการใช้สอยและการออกแบบผลิตภัณฑ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides foundational knowledge in mathematics and mechanics for design, tangential to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers math and mechanics for design, not related to music or technology integration with music."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01242121-67",
+      "subjectName": "ปฏิบัติการออกแบบภาพและวัตถุ",
+      "outcomes": [
+        "สามารถออกแบบจัดองค์ประกอบศิลป์",
+        "สร้างผลงานการจัดองค์ประกอบศิลป์และวัตถุได้ตามแนวคิด"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "56008bd3-af66-444d-8a70-538cb49fac8f",
+              "name": "สามารถออกแบบจัดองค์ประกอบศิลป์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on visual design and composition, sharing tools but not directly related to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about visual design and composition, no direct link to music or technology in music."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการของการออกแบบการทดลอง",
+        "ใช้วิธีการทางสถิติและการจัดการข้อมูลเพื่อบูรณาการกับการวิจัยที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อวิเคราะห์ความแปรปรวนและการเปรียบเทียบค่าเฉลี่ย",
+        "ทำงานเป็นทีม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "af36ae52-fbc3-45d8-bb26-c5e005cee559",
+              "name": "อธิบายแนวคิดและหลักการของการออกแบบการทดลอง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Experimental design and analysis, useful for research but not directly related to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on experimental planning and analysis is unrelated to music or technology in music."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการออกแบบการทดลองได้อย่างถูกต้อง",
+        "เลือกแผนการทดลองได้อย่างเหมาะสมกับปัญหาและวัตถุประสค์ของการทดลอง",
+        "วิเคราะห์ข้อมูลและนำเสนอผลการวิเคราะห์การทดลองได้อย่างถูกต้อง",
+        "ประยุกต์ใช้โปรแกรมสำเร็จรูปในการวิเคราะห์ข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "25c9d052-74f9-4d73-babd-3163087759da",
+              "name": "อธิบายหลักการพื้นฐานของการออกแบบการทดลองได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Engineering experimental design, tangentially related to research methods but not specific to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Engineering experimental design course does not relate to music or technology in music."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386534-66",
+      "subjectName": "การบรรเลงเปียโนประกอบ",
+      "outcomes": [
+        "สามารถสร้างสรรค์ผลงานร่วมกับเครื่องดนตรีอื่น ๆ ได้",
+        "สามารถรับผิดชอบและทำงานร่วมกับผู้อื่นได้",
+        "สามารถถ่ายทอดความรู้ทางการปฏิบัติเครื่องดนตรีร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cdf405e8-fe7d-455c-82d3-82ef9b281d58",
+              "name": "สามารถสร้างสรรค์ผลงานร่วมกับเครื่องดนตรีอื่น ๆ ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cdf405e8-fe7d-455c-82d3-82ef9b281d58",
+              "name": "สามารถสร้างสรรค์ผลงานร่วมกับเครื่องดนตรีอื่น ๆ ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cdf405e8-fe7d-455c-82d3-82ef9b281d58",
+              "name": "สามารถสร้างสรรค์ผลงานร่วมกับเครื่องดนตรีอื่น ๆ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Performance skills, tangential to music technology, not focused on tech integration."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on piano performance involves music skills, relevant to the music part of the question."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "outcomes": [
+        "อธิบายองค์ประกอบของพลเมืองดิจิทัลได้",
+        "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้",
+        "ออกแบบสร้างชิ้นงานดิจิทัลได้",
+        "มีความรับผิดชอบต่อตนเองและสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cb239c78-2dd2-4dce-850a-f1bfa0cd7ae7",
+              "name": "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้"
+            }
+          ]
+        },
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cb239c78-2dd2-4dce-850a-f1bfa0cd7ae7",
+              "name": "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้"
+            },
+            {
+              "id": "cecab1c3-8c28-487e-82bc-449dc9c1b00a",
+              "name": "ออกแบบสร้างชิ้นงานดิจิทัลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Digital citizenship and technology use, tangentially related but not specific to music technology."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Digital citizenship course involves digital technology skills, relevant as enabling tools for technology in music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "outcomes": [
+        "วิเคราะห์ปัญหาและหาแนวทางแก้ไขโดยการวิจัย",
+        "ใช้องค์ความรู้ทางสถิติ คณิตศาสตร์ ในการศึกษาค้นคว้าและแก้ไขปัญหา",
+        "พัฒนานวัตกรรมผลิตภัณฑ์ และ/หรือบริการ จากการบูรณาการความรู้ที่ได้ศึกษา",
+        "นำเสนองานและสื่อสารได้อย่างเหมาะสมกับบุคคลที่แตกต่างกันโดยใช้เทคโนโลยีดิจิทัล",
+        "มีความรับผิดชอบต่อตนเองและสังคม และมีความซื่อสัตย์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "85cb90d1-1a81-4da7-94df-3ef38899be8a",
+              "name": "นำเสนองานและสื่อสารได้อย่างเหมาะสมกับบุคคลที่แตกต่างกันโดยใช้เทคโนโลยีดิจิทัล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Involves innovation and digital presentation, but not specifically related to music or sound production."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Innovation project course involves integrating knowledge and digital technology, useful for combining technology and music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01352373-66",
+      "subjectName": "การรู้เท่าทันดิจิทัล",
+      "outcomes": [
+        "มีจริยธรรมในการใช้งานเครื่องมือดิจิทัลในงานนิเทศศาสตร์",
+        "มีความรู้ความเข้าใจในหลักการพื้นฐานและเครื่องมือต่าง ๆ ของการสื่อสารในระบบดิจิทัล",
+        "เป็นผู้มีความสามารถในการใช้งานและผลิตสื่อในระบบการสื่อสารดิจิทัลได้",
+        "สามารถเรียนรู้ พัฒนา ตนเองและการทำงานด้านการผลิตสื่อให้สอดคล้องกับการเปลี่ยนแปลงของเทคโนโลยีดิจิทัลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3cf9682b-32c4-432b-83b7-dda27a40272d",
+              "name": "เป็นผู้มีความสามารถในการใช้งานและผลิตสื่อในระบบการสื่อสารดิจิทัลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides understanding of digital media and ethics, useful as a background but not directly related to music production."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Digital literacy course teaches digital tools and media production, enabling technology skills applicable to music technology."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "02201596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมเกษตร",
+      "outcomes": [
+        "อธิบายทฤษฎีีของเรื่องที่ศึกษาได้",
+        "ประยุกต์ทฤษฎีเพื่อแก้ปัญหาที่ศึกษาได้",
+        "ทำงานเป็นทีมได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "66084673-39fa-49e1-99b4-8dd5da28958a",
+              "name": "อธิบายทฤษฎีีของเรื่องที่ศึกษาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to music or music theory."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Agricultural engineering specialization is unrelated to music or technology in music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดทฤษฎีด้านจิตวิทยา",
+        "สามารถนำความรู้ไปประยุกต์ใช้ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "5343e48e-512e-4f3b-bc45-54453291fd91",
+              "name": "สามารถอธิบายแนวคิดทฤษฎีด้านจิตวิทยา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to music or music theory."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on applied psychology, unrelated to technology and music combination."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01058151-68",
+      "subjectName": "ปฏิบัติการสร้างสรรค์เพื่อการกินดีอยู่ดี",
+      "outcomes": [
+        "อธิบายองค์ประกอบและหลักการออกแบบ ทฤษฎีสี อัตลักษณ์ของสีและการรับรู้ เพื่อนำไปใช้ในการออกแบบเพื่อการกินดีอยู่ดี",
+        "ระบุปัญหา และเสนอแนวคิดการออกแบบนวัตกรรมพร้อมอธิบายคุณค่า เพื่อตอบปัญหาที่ระบุ โดยใช้กระบวนการคิดเชิงออกแบบ บนพื้นฐานของวัฒนธรรม รูปแบบการใช้ชีวิต รสชาติ อารมณ์และความรู้สีกของกลุ่มเป้าหมาย",
+        "สื่อสารผ่านการมองเห็น การเล่าเรื่อง และการนำเสนอ เพื่ออธิบายแนวคิดการออกแบบ",
+        "ปฏิบัติงานร่วมกับผู้อื่นที่มีความหลากหลายทางวัฒนธรรมได้อย่างมีประสิทธิภาพและมีส่วนร่วมในชั้นเรียน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1b1d9787-e424-49c3-a166-06c82df04535",
+              "name": "สื่อสารผ่านการมองเห็น การเล่าเรื่อง และการนำเสนอ เพื่ออธิบายแนวคิดการออกแบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on design principles related to food and lifestyle, unrelated to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about design for well-being and culture, not related to technology or music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "outcomes": [
+        "แสดงออกถึงการรับฟังและยอมรับความคิดเห็นของผู้อื่น",
+        "เลือกคำศัพท์ระดับ hsk 5 มาใช้ในบริบทที่แตกต่างกันได้",
+        "ตีความข้อความที่ฟังหรืออ่านได้",
+        "สร้างงานโดยใช้เทคโนโลยีสารสนเทศและอธิบายงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fa57585a-8ad8-495c-8f95-57cf115d371a",
+              "name": "ตีความข้อความที่ฟังหรืออ่านได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language proficiency course unrelated to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Chinese language course unrelated to technology and music integration."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "outcomes": [
+        "สามารถออกแบบภูมิทัศน์ โดยบูรณาการทฤษฎีในศาสตร์ที่เกี่ยวข้องทางภูมิสถาปัตยกรรมมาใช้เพื่อตอบโจทย์ทางภูมิสถาปัตยกรรม",
+        "สามารถวิเคราะห์สภาพสังคมวัฒนธรรม สภาพแวดล้อม และปัจจัยที่เกี่ยวข้อง เพื่อนำไปใช้ในการออกแบบภูมิสถาปัตยกรรม",
+        "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "77db2b30-ebad-4b7f-8707-fb64883c36b2",
+              "name": "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Landscape architecture design, unrelated to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on landscape architecture design, no connection to music or technology."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01001572-64",
+      "subjectName": "การสื่อสารเชิงสร้างสรรค์และสารสนเทศทางการเกษตร",
+      "outcomes": [
+        "เลือกใช้วิธีการสื่อสารในการส่งเสริมการเกษตรได้อย่างสร้างสรรค์",
+        "ออกแบบการสื่อสารสร้างสรรค์ในการส่งเสริมการเกษตร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e6cd210f-8fdc-4065-876e-ecc85d6ef2a8",
+              "name": "ออกแบบการสื่อสารสร้างสรรค์ในการส่งเสริมการเกษตร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Agricultural communication course, unrelated to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Communication in agriculture is irrelevant to combining technology and music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "outcomes": [
+        "เลือกหัวข้อที่สนใจทางพฤกษศาสตร์",
+        "รวบรวมเอกสารงานวิจัยที่เกี่ยวข้องและสรุปข้อมูลที่เกี่ยวข้อง",
+        "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์",
+        "ใช้เครื่องมือและอุปกรณ์ทางพฤกษศาสตร์ได้",
+        "วิเคราะห์ผล และเรียบเรียงงานวิจัยทางพฤกษศาสตร์ได้",
+        "เข้าใจและสามารถปฏิบัติตามจรรยาบรรณงานวิจัยได้",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f713c9f3-85d9-463d-9149-7359640031a1",
+              "name": "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Botanical research project, unrelated to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Botany project course unrelated to music or technology."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "04403597-67",
+      "subjectName": "สัมนา",
+      "outcomes": [
+        "สามารถอธิบายเนื้อหา เหตุผล วิเคราะห์ และวิจารณ์ประเด็นปัญหาที่น่าสนใจในทางวิทยาศาสตร์สุขภาพหนึ่งเดียว",
+        "มีทักษะในการออกแบบและเสนอได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "6183af93-1255-4ef4-bc0a-d1b6b65e8cf8",
+              "name": "มีทักษะในการออกแบบและเสนอได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Science seminar, unrelated to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on health science topics, no relevance to music and technology."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "outcomes": [
+        "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง",
+        "สร้างประโยคได้ถูกต้องตามแบบแผน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบเสียง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "132d36aa-ae45-4ac7-9a1b-b292eec6eec4",
+              "name": "สร้างประโยคได้ถูกต้องตามแบบแผน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "English grammar course, unrelated to sound design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic English grammar course unrelated to music or technology."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "03654111-67",
+      "subjectName": "สุนทรียศาสตร์ทางการกีฬา",
+      "outcomes": [
+        "สามารถอธิบายความหมายความ เป็นมาและคุณค่า ของสุนทรียศาสตร์ทางการกีฬา",
+        "สามารถยกตัวอย่างพัฒนาการกิจกรรมสุนทรียศาสตร์ทางการกีฬารวมถึงมิติสุนทรียความงาม คุณค่า และค่านิยมทางการกีฬา",
+        "สามารถประยุกต์ความรู้ด้านสุนทรียศาสตร์ทางการกีฬาที่เหมาะสมกับสภาวะการณ์ต่างๆ",
+        "สามารถประยุกต์ใช้ภาษาสื่อสารรวมทั้งเลือกใช้รูปแบบการสื่อสารได้อย่างเหมาะสม",
+        "สามารถประยุกต์ใช้เทคโนโลยีสารสนเทศเพื่อการนำเสนอผลงานในรูปแบบต่างๆ",
+        "แสดงออกถึงความซื่อสัตย์ เคารพกฎระเบียนและเข้าใจบริบทของการอยู่ร่วมกับผู้อื่น",
+        "สามารถเรียนรู้และใฝ่เรียนรู้สิ่งใหม่ในการพัฒนาตัวเอง",
+        "แสดงออกถึงความรับผิดชอบ รับฟังความคิดเห็นและสามารถทำงานร่วมกันเป็นระบบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ebc59d05-bfa1-4538-adf3-f322ec8320d7",
+              "name": "สามารถประยุกต์ใช้เทคโนโลยีสารสนเทศเพื่อการนำเสนอผลงานในรูปแบบต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to music or music technology."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Aesthetics in sports course unrelated to music or technology."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01386541-66",
+      "subjectName": "วัฒนธรรมดนตรีของโลก: ดนตรีพื้นเมือง",
+      "outcomes": [
+        "สามารถอธิบายถึงคุณลักษณะของดนตรีพื้นเมืองในภูมิภาคสำคัญของโลกได้",
+        "สามารถจำแนกประเภทของเครื่องดนตรี ระบบเสียง ของดนตรีพื้นเมืองในภูมิภาคสำคัญของโลกได้",
+        "สามารถอธิบายบทบาทและหน้าที่ในสังคมของดนตรีพื้นเมืองในภูมิภาคสำคัญของโลกได้",
+        "มีทักษะในการค้นคว้าหาความรู้เพิ่มเติมในเรื่องดนตรีพื้นเมืองในภูมิภาคต่าง ๆ ของโลกจากแหล่งข้อมูลที่น่าเชื่อถือได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c322e963-d0fc-4fcb-8e12-3a65d14e9e15",
+              "name": "สามารถจำแนกประเภทของเครื่องดนตรี ระบบเสียง ของดนตรีพื้นเมืองในภูมิภาคสำคัญของโลกได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Cultural music study, unrelated to music technology."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on world music cultures provides foundational knowledge in music, relevant to user's interest in music; can serve as contextual foundation."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม",
+        "สามารถเขียนแบบชิ้นส่วนเครื่องจักรกลเกษตรกลเกษตร",
+        "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้",
+        "สามารถใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on engineering drawing and CAD software, unrelated to music programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on engineering drawing and software, unrelated to music or technology integration with music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "outcomes": [
+        "สามารถวาดภาพฉายออร์โธกราฟฟิก ภาพสามมิติ และมุมมองช่วยได้",
+        "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้",
+        "สามารถนำเสนอแบบวิศวกรรมและสื่อสารข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on engineering design and visualization, not relevant to music or programming for music."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about engineering drawing techniques without connection to music or technology in music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายแนวคิดนวัตกรรมผลิตภัณฑ์ทางโภชนาการ",
+        "ระบุชนิดของวัตถุดิบและกระบวนการสำหรับการผลิตผลิตภัณฑ์ทางโภชนาการและสุขภาพ",
+        "ออกแบบผลิตภัณฑ์ทางโภชนาการด้วยความรู้พื้นฐานที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7795086e-5fdc-45b2-a7c6-998a1a38686b",
+              "name": "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to food innovation and agriculture, unrelated to music or programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers nutritional product innovation, unrelated to music or technology in music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01004497-64",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "สืบค้นข้อมูลที่เกี่ยวข้องกับงานวิจัยด้านกีฏวิทยาด้วยเทคโนโลยีสารสนเทศที่เหมาะสม",
+        "ออกแบบรูปแบบการนำเสนอข้อมูลผลการวิจัยให้กระชับ ชัดเจน และเข้าใจง่าย โดยคำนึงถึงความซื่อตรงทางวิชาการ",
+        "นำเสนอผลงานวิจัยทางด้านกีฏวิทยาด้วยสื่อที่สร้างสรรค์ และเทคโนโลยีดิจิทัล",
+        "ออกแบบข้อมูลเพื่อนำเสนอผลงานการวิจัยทางวิทยาศาสตร์ในรูปแบบของการประชุมสัมมนาเชิงวิชาการระดับสมาคมหรือระดับชาติได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d851c752-102d-4021-9689-607330646c44",
+              "name": "นำเสนอผลงานวิจัยทางด้านกีฏวิทยาด้วยสื่อที่สร้างสรรค์ และเทคโนโลยีดิจิทัล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes are related to research presentation and information dissemination, not music or sound production."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar course focused on entomology research presentation, no relevance to music or technology in music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01241313-66",
+      "subjectName": "การออกแบบร่างองค์ประกอบงานภูมิสถาปัตยกรรม",
+      "outcomes": [
+        "สามารถออกแบบภูมิสถาปัตยกรรม โดยบูรณาการทฤษฎีในศาสตร์ที่เกี่ยวข้องทางภูมิสถาปัตยกรรมมาใช้เพื่อสร้างและตอบโจทย์ทางภูมิสถาปัตยกรรม",
+        "สามารถวิเคราะห์สภาพสังคมวัฒนธรรม สภาพแวดล้อม และปัจจัยที่เกี่ยวข้อง และนำไปใช้ในกระบวนการออกแบบภูมิสถาปัตยกรรมได้อย่างเท่าทันสถานการณ์",
+        "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจโดยใช้สื่อดิจิทัลได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c66a697e-a97a-4d14-ae38-9cf679b1c4eb",
+              "name": "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจโดยใช้สื่อดิจิทัลได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to music or digital sound production."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on landscape architecture design, unrelated to music or technology in music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01241312-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม IV",
+      "outcomes": [
+        "สามารถวางผังและออกแบบภูมิทัศน์ โดยบูรณาการทฤษฎีในศาสตร์ที่เกี่ยวข้องทางภูมิสถาปัตยกรรมมาใช้เพื่อตอบโจทย์ทางภูมิสถาปัตยกรรม",
+        "สามารถวิเคราะห์สภาพสังคมวัฒนธรรม สภาพแวดล้อม และปัจจัยที่เกี่ยวข้องเพื่อนำไปใช้ในการออกแบบภูมิสถาปัตยกรรมได้อย่าง และยั่งยืน",
+        "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจโดยใช้สื่อดิจิทัลได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "59d2f6c9-0ff1-4aef-8da8-f8d29207b29b",
+              "name": "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจโดยใช้สื่อดิจิทัลได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to the target skill of digital music and sound production."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on landscape architecture design, no connection to music or technology in music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01241412-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม VI",
+      "outcomes": [
+        "สามารถออกแบบภูมิสถาปัตยกรรม โดยบูรณาการทฤษฎีในศาสตร์ที่เกี่ยวข้องเพื่อตอบโจทย์ทางภูมิสถาปัตยกรรม",
+        "สามารถวิเคราะห์สภาพสังคมวัฒนธรรม สภาพแวดล้อม และปัจจัยที่เกี่ยวข้อง เพื่อนำไปใช้ในการออกแบบภูมิสถาปัตยกรรมได้อย่างเท่าทันสถานการณ์ ยืดหยุ่น และยั่งยืน",
+        "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจโดยใช้สื่อดิจิทัลอย่างเหมาะสม",
+        "สามารถปฏิบัติงานร่วมกับเพื่อนร่วมกลุ่ม",
+        "สามารถให้ความเห็นและยอมรับฟังความเห็นของผู้อื่น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "465a67dd-4e7d-4cc8-b3ac-9fe2af21ee43",
+              "name": "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจโดยใช้สื่อดิจิทัลอย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to the target skill of digital music and sound production."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Advanced landscape architecture design course, irrelevant to music or technology in music."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "outcomes": [
+        "ใช้ภาพเป็นสื่อกลางในการสื่อสาร",
+        "ใช้ภาพในการวางแผนและแก้ไขปัญหาได้อย่างเป็นขั้นตอน",
+        "สร้างชิ้นงานสื่อดิจิทัลเพื่อนำเสนอเหตุการณ์และเล่าเรื่องราวด้วยภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "db002076-288e-429a-9b82-ff3572a110d4",
+              "name": "สร้างชิ้นงานสื่อดิจิทัลเพื่อนำเสนอเหตุการณ์และเล่าเรื่องราวด้วยภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on visual storytelling, not on sound or music production."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on storytelling with images and digital media can enable skills useful for multimedia music technology integration."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1865,
+      "outputTokens": 337
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1643,
+      "outputTokens": 323
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1729,
+      "outputTokens": 329
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2026,
+      "outputTokens": 300
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1812,
+      "outputTokens": 261
+    }
+  ]
+}

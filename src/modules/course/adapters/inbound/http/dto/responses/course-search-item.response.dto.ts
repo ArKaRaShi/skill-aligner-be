@@ -75,6 +75,14 @@ export class CourseSearchItemResponseDto {
   })
   @Expose()
   totalLoCount: number;
+
+  @ApiProperty({
+    description: 'All learning outcomes for the course',
+  })
+  @Expose()
+  allLearningOutcomes: Array<{
+    name: string;
+  }>;
 }
 
 /**

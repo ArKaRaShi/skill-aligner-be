@@ -1,0 +1,144 @@
+{
+  "testCaseId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การวางแผนการเงิน",
+  "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+  "skill": "การวางแผนการเงิน",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01999041-67",
+      "subjectName": "เศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes 'วางแผนการเงินในปัจจุบันและอนาคต' as a learning outcome, directly covering financial planning comprehensively."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course mentions financial analysis aspects like cost calculation and financial statements but does not focus on financial planning."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "Course covers planning and controlling profit, including budgeting, which relates to financial planning but is focused on profit control rather than personal financial planning."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 0,
+      "reason": "Course focuses on accounting principles related to assets, no mention of financial planning."
+    },
+    {
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "relevanceScore": 3,
+      "reason": "Course is about personal financial management and explicitly covers personal financial planning including liquidity, investment, tax, insurance, retirement, and wealth transfer."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Course involves financial feasibility and cost calculation but is focused on marketing and pricing strategy, not financial planning."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on international accounting differences, no mention of financial planning."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 1,
+      "reason": "Course involves financial statement analysis and valuation, which may support financial planning but does not cover planning itself."
+    },
+    {
+      "subjectCode": "02802211-67",
+      "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+      "relevanceScore": 2,
+      "reason": "Course includes financial planning and control for service business, which relates to financial planning but in a business context."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 0,
+      "reason": "Course focuses on accounting and financial reporting for tourism industry, no direct mention of financial planning."
+    },
+    {
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "relevanceScore": 0,
+      "reason": "Course focuses on intermediate accounting topics, no mention of financial planning."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 2,
+      "reason": "Course covers strategic management accounting including planning and control, related to financial planning in a business context."
+    },
+    {
+      "subjectCode": "04305211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 2,
+      "reason": "Course covers financial management fundamentals including budgeting and capital structure, related to financial planning in business context."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.3076923076923077,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.769,
+        "at10": 0.769,
+        "at15": 0.885,
+        "atAll": 0.885
+      },
+      "ideal": {
+        "at5": 0.655,
+        "at10": 0.518,
+        "at15": 0.462,
+        "atAll": 0.506
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.4,
+      "at15": 0.462,
+      "atAll": 0.462
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2198,
+  "outputTokens": 466
+}

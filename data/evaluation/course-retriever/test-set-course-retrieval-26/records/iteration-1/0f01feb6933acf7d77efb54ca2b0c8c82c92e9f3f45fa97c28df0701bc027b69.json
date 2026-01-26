@@ -1,0 +1,138 @@
+{
+  "testCaseId": "be573eca-6596-418a-888d-f4f0c0d5651d-การเขียนโปรแกรมเชิงวัตถุ",
+  "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+  "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers object-oriented programming principles and writing object-oriented programs as main learning outcomes."
+    },
+    {
+      "subjectCode": "01420242-66",
+      "subjectName": "ปฏิบัติงานอุปกรณ์ II",
+      "relevanceScore": 0,
+      "reason": "Course focuses on mechanical drawing for metal materials, no mention of programming or object-oriented concepts."
+    },
+    {
+      "subjectCode": "01420241-66",
+      "subjectName": "ปฏิบัติงานอุปกรณ์ I",
+      "relevanceScore": 0,
+      "reason": "Course focuses on mechanical drawing for wood and plastic materials, no programming content."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 0,
+      "reason": "Course covers structured programming, not object-oriented programming."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about engineering drawing and basic CAD software, unrelated to programming."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course focuses on engineering drawing and CAD software, no programming content."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "Course involves programming for problem solving but does not specify object-oriented programming; likely marginally relevant."
+    },
+    {
+      "subjectCode": "03607151-67",
+      "subjectName": "เปิดโลกวิทยาการหุ่นยนต์",
+      "relevanceScore": 1,
+      "reason": "Course includes programming simple robots but does not specify object-oriented programming; marginal relevance."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course about nutritional product innovation, no programming content."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course about computer-aided product design, no programming content."
+    },
+    {
+      "subjectCode": "04256111-66",
+      "subjectName": "คณิตศาสตร์สำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Course covers mathematics for data science, no programming content."
+    },
+    {
+      "subjectCode": "02738490-61",
+      "subjectName": "สหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "Course is a cooperative education project with no programming content."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.4166666666666667,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 9,
+        "macroAverageRate": 75,
+        "microAverageRate": 75,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.726,
+        "at10": 0.883,
+        "at15": 0.883,
+        "atAll": 0.883
+      },
+      "ideal": {
+        "at5": 0.339,
+        "at10": 0.268,
+        "at15": 0.208,
+        "atAll": 0.239
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.083,
+      "atAll": 0.083
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2154,
+  "outputTokens": 353
+}

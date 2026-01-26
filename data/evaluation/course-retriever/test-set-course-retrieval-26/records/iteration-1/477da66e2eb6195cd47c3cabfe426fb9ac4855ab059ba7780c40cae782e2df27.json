@@ -1,0 +1,162 @@
+{
+  "testCaseId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การวิเคราะห์ข้อมูลโซเชียลมีเดีย",
+  "question": "tiktoker ต้องเรียนอะไรบ้าง",
+  "skill": "การวิเคราะห์ข้อมูลโซเชียลมีเดีย",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02717112-67",
+      "subjectName": "การเมืองไทยร่วมสมัย",
+      "relevanceScore": 1,
+      "reason": "Course mentions social media as a source and emphasizes media literacy but does not focus on social media data analysis."
+    },
+    {
+      "subjectCode": "01600497-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Course covers academic data analysis generally but does not specify social media data analysis."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Course covers advanced data analysis and data visualization which can be applied to social media data but does not explicitly focus on social media."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 0,
+      "reason": "Focuses on financial data analysis, unrelated to social media data analysis."
+    },
+    {
+      "subjectCode": "04256121-66",
+      "subjectName": "การวิเคราะห์ข้อมูลเชิงสถิติ",
+      "relevanceScore": 1,
+      "reason": "Covers statistical data analysis generally but no specific mention of social media data."
+    },
+    {
+      "subjectCode": "03600014-67",
+      "subjectName": "การแก้ปัญหาเชิงสร้างสรรค์และทักษะการคิดเชิงวิพากษ์",
+      "relevanceScore": 1,
+      "reason": "Includes analysis of information credibility and communication but no direct focus on social media data analysis."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Focuses on research data analysis and presentation, no specific mention of social media data."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "Focuses on data analysis for accounting, unrelated to social media data analysis."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 2,
+      "reason": "Includes data analysis for advertising planning which may involve social media data but not explicitly stated."
+    },
+    {
+      "subjectCode": "01442697-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Focuses on research data analysis in nanomaterials, no mention of social media data."
+    },
+    {
+      "subjectCode": "02747498-65",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Uses statistics to analyze trends in aviation business, no explicit mention of social media data."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Focuses on business Chinese conversation, unrelated to social media data analysis."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Focuses on business Chinese conversation, unrelated to social media data analysis."
+    },
+    {
+      "subjectCode": "01396142-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Focuses on business Chinese conversation, unrelated to social media data analysis."
+    },
+    {
+      "subjectCode": "01401455-66",
+      "subjectName": "การตอบสนองทางสรีรวิทยาต่อฮอร์โมนพืช",
+      "relevanceScore": 0,
+      "reason": "Focuses on plant hormone physiology, unrelated to social media data analysis."
+    },
+    {
+      "subjectCode": "01401351-66",
+      "subjectName": "สรีรวิทยาเบื้องต้นของพืช",
+      "relevanceScore": 0,
+      "reason": "Focuses on plant physiology, unrelated to social media data analysis."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 0.75,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 37.5,
+        "microAverageRate": 37.5,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.659,
+        "at10": 0.796,
+        "at15": 0.841,
+        "atAll": 0.841
+      },
+      "ideal": {
+        "at5": 0.341,
+        "at10": 0.361,
+        "at15": 0.295,
+        "atAll": 0.283
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.2,
+      "at15": 0.133,
+      "atAll": 0.125
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2763,
+  "outputTokens": 507
+}

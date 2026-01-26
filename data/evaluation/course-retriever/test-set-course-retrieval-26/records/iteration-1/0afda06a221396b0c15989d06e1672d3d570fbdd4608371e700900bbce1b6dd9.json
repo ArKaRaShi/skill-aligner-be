@@ -1,0 +1,168 @@
+{
+  "testCaseId": "cd96176f-8e18-4270-9c76-8c6b1cf19594-การวิเคราะห์และออกแบบระบบ",
+  "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+  "skill": "การวิเคราะห์และออกแบบระบบ",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on English language systems and structure, not on system analysis and design in the intended context."
+    },
+    {
+      "subjectCode": "02738312-66",
+      "subjectName": "หลักการจัดระบบและอนุกรมวิธาน",
+      "relevanceScore": 0,
+      "reason": "Course covers taxonomy and classification in biological sciences, unrelated to system analysis and design."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Course involves research design and problem solving but does not specifically cover system analysis and design."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Course focuses on business Chinese language skills, not system analysis and design."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Course focuses on business Chinese language skills, not system analysis and design."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Course focuses on business Chinese language skills, not system analysis and design."
+    },
+    {
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "Course includes systematic research design and problem definition, which relates fairly to system analysis and design."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Course covers analysis and presentation of research data, marginally related to system analysis and design."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 1,
+      "reason": "Course covers experimental design and data analysis, marginally related but not focused on system analysis and design."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "Course involves data analysis for accounting, marginally related to system analysis and design."
+    },
+    {
+      "subjectCode": "02804112-67",
+      "subjectName": "องค์การและการจัดการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on organization and management in aviation business, unrelated to system analysis and design."
+    },
+    {
+      "subjectCode": "02747442-65",
+      "subjectName": "การจัดการคุณภาพบริการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on quality management in aviation business, unrelated to system analysis and design."
+    },
+    {
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "relevanceScore": 1,
+      "reason": "Course covers project investment analysis, marginally related to system analysis and design."
+    },
+    {
+      "subjectCode": "01241232-66",
+      "subjectName": "การออกแบบก่อสร้างภูมิสถาปัตยกรรม II",
+      "relevanceScore": 1,
+      "reason": "Course involves design and construction in landscape architecture, marginally related to system design but not system analysis and design in IT or software context."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 1,
+      "reason": "Course involves problem analysis and innovation development, marginally related to system analysis and design."
+    },
+    {
+      "subjectCode": "01448214-68",
+      "subjectName": "ปฏิบัติการทางวัสดุ I",
+      "relevanceScore": 0,
+      "reason": "Course focuses on material science experiments, unrelated to system analysis and design."
+    },
+    {
+      "subjectCode": "02232271-66",
+      "subjectName": "วิศวกรรมขนส่ง และโลจิสติกส์",
+      "relevanceScore": 2,
+      "reason": "Course covers analysis and evaluation of transport and logistics systems, fairly relevant to system analysis and design."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.6470588235294118,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 47.05882352941177,
+        "microAverageRate": 47.05882352941177,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 41.1764705882353,
+        "microAverageRate": 41.1764705882353,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 11.764705882352942,
+        "microAverageRate": 11.764705882352942,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.109,
+        "at10": 0.352,
+        "at15": 0.483,
+        "atAll": 0.564
+      },
+      "ideal": {
+        "at5": 0.057,
+        "at10": 0.152,
+        "at15": 0.162,
+        "atAll": 0.174
+      }
+    },
+    "precision": {
+      "at5": 0,
+      "at10": 0.1,
+      "at15": 0.067,
+      "atAll": 0.118
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2869,
+  "outputTokens": 554
+}

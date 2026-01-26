@@ -1,0 +1,132 @@
+{
+  "testCaseId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การใช้เครื่องปรุงและวัตถุดิบไทย",
+  "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+  "skill": "การใช้เครื่องปรุงและวัตถุดิบไทย",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Course covers selection, preparation, and preservation of various food ingredients, which likely includes Thai ingredients as part of general food preparation."
+    },
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 1,
+      "reason": "Course focuses on international cuisine with some mention of ingredient selection, but Thai ingredients are not specifically highlighted."
+    },
+    {
+      "subjectCode": "01058371-68",
+      "subjectName": "มาตรฐานและกฎหมายสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course discusses standards and laws related to agricultural products and raw materials, but not specifically about Thai ingredients or their use in cooking."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course is about beverage preparation, no mention of Thai ingredients or cooking."
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on food processing, nutrition, and food sources globally, no specific mention of Thai ingredients or their use."
+    },
+    {
+      "subjectCode": "03654112-67",
+      "subjectName": "สมุนไพรไทยให้คุณ",
+      "relevanceScore": 1,
+      "reason": "Course on Thai herbs which are related to Thai ingredients but focuses on herbal products and health rather than cooking ingredients broadly."
+    },
+    {
+      "subjectCode": "01017412-66",
+      "subjectName": "การผลิตขนมไทย",
+      "relevanceScore": 1,
+      "reason": "Course on Thai desserts production, likely involves some Thai ingredients but does not explicitly cover use of Thai seasonings and ingredients broadly."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course on advanced agricultural product processing engineering, no mention of Thai ingredients or culinary use."
+    },
+    {
+      "subjectCode": "02727496-65",
+      "subjectName": "เรื่องเฉพาะทางพฤกษนวัตกรรม",
+      "relevanceScore": 2,
+      "reason": "Course includes selection and analysis of plant-based food ingredients with nutritional value, which may include Thai ingredients as part of food preparation."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course on agricultural product development, no specific mention of Thai ingredients or their culinary use."
+    },
+    {
+      "subjectCode": "01023514-68",
+      "subjectName": "วัตถุดิบอาหารสัตว์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on animal feed ingredients, unrelated to Thai cooking ingredients."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.7272727272727273,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 45.45454545454545,
+        "microAverageRate": 45.45454545454545,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 36.36363636363637,
+        "microAverageRate": 36.36363636363637,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.684,
+        "at10": 0.896,
+        "at15": 0.896,
+        "atAll": 0.896
+      },
+      "ideal": {
+        "at5": 0.354,
+        "at10": 0.324,
+        "at15": 0.252,
+        "atAll": 0.306
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.2,
+      "at15": 0.182,
+      "atAll": 0.182
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2395,
+  "outputTokens": 399
+}

@@ -1,0 +1,2139 @@
+{
+  "queryLogId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370",
+  "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+  "courses": [
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานทางธุรกิจได้",
+        "วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้",
+        "ตัดสินใจทางธุรกิจ โดยโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "77b8fc58-3ede-4448-8dba-b9655fd2a672",
+              "name": "วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้"
+            }
+          ]
+        },
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "25b62fe7-3f72-4bcf-b079-3f16a373ccd7",
+              "name": "ตัดสินใจทางธุรกิจ โดยโปรแกรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Specifically teaches business scenario simulation, directly useful for daily decision-making."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course teaches decision-making using business simulation tools, relevant for daily decision support."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03651321-65",
+      "subjectName": "การวิเคราะห์การตัดสินใจและการประยุกต์",
+      "outcomes": [
+        "อธิบายแนวคิดและโครงสร้างของปัญหาการตัดสินใจ และตารางการตัดสินใจได",
+        "อธิบายหลักการการวิเคราะห์ตัวแบบภายใต้ สภาวะแน่นอน สภาวะเสี่ยงและสภาวะไม่แน่นอนได้",
+        "วิเคราะห์การตัดสินใจด้วยแผนผังต้นไม้และตัวแบบกำหนดการเชิงเส้นได้",
+        "คำนวณค่าคาดหมายของสารสนเทศที่สมบูรณ์ เพื่อใช้ในการตัดสินใจทางธุรกิจได้",
+        "ปฏิบัติงานที่ได้รับมอบหมาย และทำงานร่วมกับผู้อื่นด้วยความรับผิดชอบได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "88535861-b230-40a3-bc52-2d3bc0daaaa0",
+              "name": "อธิบายแนวคิดและโครงสร้างของปัญหาการตัดสินใจ และตารางการตัดสินใจได"
+            },
+            {
+              "id": "0523575a-b56d-40f3-9a16-b18cb198d538",
+              "name": "วิเคราะห์การตัดสินใจด้วยแผนผังต้นไม้และตัวแบบกำหนดการเชิงเส้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "88535861-b230-40a3-bc52-2d3bc0daaaa0",
+              "name": "อธิบายแนวคิดและโครงสร้างของปัญหาการตัดสินใจ และตารางการตัดสินใจได"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches decision analysis and modeling, directly related to systematic decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on decision analysis and application, directly relevant to improving decision-making skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "outcomes": [
+        "วิเคราะห์ข้อมูลในรายงานทางการเงิน",
+        "นำเทคโนโลยีมาใช้ประกอบกับการวิเคราะห์ข้อมูลในรายงานทางการเงิน เพื่อสนับสนุนการตัดสินใจ สื่อสาร และให้คำแนะนำแก่ผู้ที่เกี่ยวข้องได้",
+        "ประเมินมูลค่ากิจการ ประเมินราคาหลักทรัพย์ และวิเคราะห์ความคุ้มค่าโครงการจากข้อมูลในรายงานทางการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "fddec55c-f2e9-4150-9d90-ff1b72c41952",
+              "name": "วิเคราะห์ข้อมูลในรายงานทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches financial data analysis and decision support, relevant for decision-making tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Specialized in financial statement analysis, not broadly applicable to general daily decision-making."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "04256121-66",
+      "subjectName": "การวิเคราะห์ข้อมูลเชิงสถิติ",
+      "outcomes": [
+        "วิเคราะห์ข้อมูลด้วยสถิติวิเคราะห์ได้",
+        "นำเสนอข้อมูลด้วยตารางและแผนภูมิได้ โดยคำนึงถึงจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f94fcfa3-3773-43cc-9653-d4e003559483",
+              "name": "วิเคราะห์ข้อมูลด้วยสถิติวิเคราะห์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides statistical data analysis skills essential for data-driven decision making."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches statistical data analysis, an enabling tool for informed decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "outcomes": [
+        "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ",
+        "ใช้เครื่องมือการวิเคราะห์ข้อมูลประเภทต่างๆ ได้ สอดคล้องกับประเภทของข้อมูล",
+        "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี",
+        "จัดทำรายงานที่ได้จากการวิเคราะห์ข้อมูลเพื่อนำเสนอผู้บริหารและผู้ที่เกี่ยวข้องได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "23cdc4d5-bcef-4657-8470-2beec783e546",
+              "name": "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ"
+            },
+            {
+              "id": "dd8eda6d-41cb-42b4-bfb2-371a42c7e666",
+              "name": "ใช้เครื่องมือการวิเคราะห์ข้อมูลประเภทต่างๆ ได้ สอดคล้องกับประเภทของข้อมูล"
+            },
+            {
+              "id": "aca105f6-01ae-4a0f-9872-1ba7240d4ce1",
+              "name": "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี"
+            },
+            {
+              "id": "e85647a3-77e1-445e-b41b-2fbc96114bb3",
+              "name": "จัดทำรายงานที่ได้จากการวิเคราะห์ข้อมูลเพื่อนำเสนอผู้บริหารและผู้ที่เกี่ยวข้องได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers data analysis methods for accounting, useful for financial decision support."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on data analysis for accounting, too specialized for general daily decision support."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "outcomes": [
+        "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม",
+        "สร้างการคำนวณข้อมูล พารามิเตอร์ตารางและแผนภูมิ เพื่อนำเสนอภาพข้อมูลได้อย่่างเหมาะสม",
+        "วิเคราะห์ข้อมูลขั้นสูงได้",
+        "สร้างแดชบอร์ดและนำเสนอผ่านระบบสารสนเทศได้",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ซื่อสัตย์ ปฎิบัติงานร่วมกับผู้อื่นได้ และมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "fe40af0b-4426-47c6-93fa-f18d1f54ada1",
+              "name": "วิเคราะห์ข้อมูลขั้นสูงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches data visualization and analysis for business, directly applicable to decision-making."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers data visualization and analysis, useful tools for decision-making support."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01204519-66",
+      "subjectName": "วิทยาศาสตร์ข้อมูลขั้นสูง",
+      "outcomes": [
+        "สามารถเลือกใช้วิธีการที่เหมาะสมในการวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ",
+        "สามารถประเมินประสิทธิภาพของโมเดลโดยใช้หลักทางสถิติได้",
+        "สามารถให้ความเห็นเกี่ยวกับงานวิจัยทางด้านวิทยาศาสตร์ช้อมูลที่เป็นปัจจุบัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1f8493ce-42d3-4ee8-b9a2-acd853a2068c",
+              "name": "สามารถเลือกใช้วิธีการที่เหมาะสมในการวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches advanced data analysis techniques, foundational for decision support systems."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Advanced data science methods enhance analytical skills for decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "04403513-67",
+      "subjectName": "ระบาดวิทยาสถิติประยุกต์",
+      "outcomes": [
+        "สามารถประยุกต์ใช้เทคนิคทางระบาดวิทยาและสถิติได้อย่างเหมาะสม",
+        "สามารถวิเคราะห์ข้อมูล แปลผลการวิเคราะห์ข้อมูล และนำเสนอผลการวิเคราะห์ข้อมูลได้ถูกต้องเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "678f477c-c39a-41cb-8481-16719edac6e3",
+              "name": "สามารถวิเคราะห์ข้อมูล แปลผลการวิเคราะห์ข้อมูล และนำเสนอผลการวิเคราะห์ข้อมูลได้ถูกต้องเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Applies statistical analysis to epidemiology, relevant for data-driven decision making."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Specialized in epidemiology statistics, not broadly relevant to general daily decisions."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "outcomes": [
+        "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้ฟังก์ชันในการวิเคราะห์ข้อมูลได้อย่างเหมาะสมและถูกต้อง",
+        "เลือกรูปแบบการนำเสนอข้อมูลได้อย่างเหมาะสม",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ด้วยความรับผิดชอบ ซื่อสัตย์ และปฎิบัติงานร่วมกับผู้อื่นได้ มีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "84b67e5d-9f9b-45fb-8a17-c60f5eb856df",
+              "name": "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "37edc531-141e-4b6e-933d-b404b1f6670f",
+              "name": "เลือกใช้ฟังก์ชันในการวิเคราะห์ข้อมูลได้อย่างเหมาะสมและถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on data analysis and visualization, useful for decision support tools."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches data analysis and visualization, enabling better decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "outcomes": [
+        "สามารถประเมินประสิทธิภาพการควบคุมภายในได้",
+        "สามารถประเมินและบริหารความเสี่ยงได้",
+        "สามารถวิเคราะห์หลักการกำกับดูแลได้",
+        "สามารถตรวจสอบภายในด้านต่างๆ ได้",
+        "มีความรับผิดชอบต่อหน้าที่ ซื่อสัตย์ ตรงต่อเวลา และสามารถทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7255f585-21e3-4b8a-b5e3-0eb7183ad1cc",
+              "name": "สามารถประเมินและบริหารความเสี่ยงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches risk assessment and internal control evaluation, which are foundational for managing daily life risks."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on internal audit and control, not directly relevant to general daily decision-making."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03764426-64",
+      "subjectName": "การจัดการความเสี่ยงโซ่อุปทาน",
+      "outcomes": [
+        "สามารถวิเคราะห์เหตุการณ์ความเสี่ยงในโซ่อุปทานได้อย่างมีความรับผิดชอบต่อผู้มีส่วนได้ส่วนเสีย",
+        "สามารถอธิบายหลักการ และแนวคิดการจัดการความเสี่ยงได้อย่างถูกต้องตามหลักการ",
+        "สามารถตอบสนองต่อเหตุการณ์ความเสี่ยงในโซ่อุปทานได้อย่างถูกต้องตามหลักการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c524cb0c-d3e8-41a7-9b05-c05f75f018e9",
+              "name": "สามารถวิเคราะห์เหตุการณ์ความเสี่ยงในโซ่อุปทานได้อย่างมีความรับผิดชอบต่อผู้มีส่วนได้ส่วนเสีย"
+            },
+            {
+              "id": "ec4d4a23-382e-43c1-8ee8-ba073b7665cb",
+              "name": "สามารถอธิบายหลักการ และแนวคิดการจัดการความเสี่ยงได้อย่างถูกต้องตามหลักการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on supply chain risk management, providing underlying principles relevant to personal risk decision-making."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on supply chain risk management, which is too specialized and not directly relevant to daily decision-making tools."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "outcomes": [
+        "สามารถอธิบายหลักการของความปลอดภัยในอุตสาหกรรมได้",
+        "สามารถอธิบายหลักการของสภาพแวดล้อมในการทำงานที่อาจก่อให้เกิดอันตรายได้",
+        "สามารถอธิบายหลักการป้องกันอัคคีภัยเบื้องต้นในอุตสาหกรรมได้",
+        "สามารถประเมินความเสี่ยงในการทำงานได้",
+        "สามารถเสนอแนวทางในการป้องกันการเกิดอุบัติเหตุในการทำงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "01b9513a-3e3b-4972-bcea-91a3f540f60b",
+              "name": "สามารถประเมินความเสี่ยงในการทำงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers risk assessment and prevention in industrial settings, applicable as foundational knowledge for daily risk management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on industrial safety principles, not general decision-making or thinking tools for daily life."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01442515-68",
+      "subjectName": "ความปลอดภัยเชิงปฏิบัติการ",
+      "outcomes": [
+        "ระบุประเภทของอันตรายในห้องปฏิบัติการได้",
+        "ประเมินความเสี่ยงในห้องปฏิบัติการได้",
+        "วิเคราะห์ผลกระทบด้านความปลอดภัยที่อาจเกิดขึ้นทั้งต่อตนเองและผู้ร่วมปฏิบัติงานในห้องปฏิบัติการได้",
+        "นำเสนอแนวคิดในการบริหารจัดการความเสี่ยงเมื่อเกิดภาวะฉุกเฉินในห้องปฏิบัติการได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "3af5b807-fd8e-4f32-bd1e-b7b5d8cc7325",
+              "name": "ประเมินความเสี่ยงในห้องปฏิบัติการได้"
+            },
+            {
+              "id": "7e0cef4c-a87d-4b81-becc-efe8cddef117",
+              "name": "นำเสนอแนวคิดในการบริหารจัดการความเสี่ยงเมื่อเกิดภาวะฉุกเฉินในห้องปฏิบัติการได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides practical risk assessment and management in laboratories, relevant as foundational safety and risk knowledge."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers laboratory safety risk management, irrelevant to general life decision-making tools."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "04401463-65",
+      "subjectName": "สวัสดิศึกษา",
+      "outcomes": [
+        "อธิบายแนวคิดหลักเกี่ยวกับสวัสดิศึกษา อุบัติเหตุ การบาดเจ็บ และการใช้ชีวิตอย่างปลอดภัยได้อย่างถูกต้อง",
+        "วิเคราะห์สาเหตุของอุบัติเหตุและภัยต่างๆ พร้อมทั้งออกแบบแผนการป้องกันในระดับบ้าน โรงเรียน ชุมชน และสถานประกอบการได้",
+        "ประเมินและเลือกใช้วิธีการในการจัดการความปลอดภัย เช่น การใช้ยาอย่างปลอดภัย การป้องกันอัคคีภัย และการบรรเทาสาธารณภัยได้อย่างเหมาะสม",
+        "สื่อสารและส่งเสริมแนวทางการใช้ชีวิตอย่างมีสุขภาพดีในบริบทของสวัสดิศึกษาได้อย่างสร้างสรรค์และมีจริยธรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a62efe95-eab6-41d4-89b8-38382b276e1a",
+              "name": "ประเมินและเลือกใช้วิธีการในการจัดการความปลอดภัย เช่น การใช้ยาอย่างปลอดภัย การป้องกันอัคคีภัย และการบรรเทาสาธารณภัยได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes analysis of accidents and safety planning, foundational for understanding risk in daily life."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches safety concepts and accident prevention applicable to daily life decision-making and risk assessment."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01456355-64",
+      "subjectName": "การจัดการด้านความปลอดภัย",
+      "outcomes": [
+        "สามารถอธิบายถึงความสำคัญของการศึกษาวิชาการจัดการด้านความปลอดภัย",
+        "สามารถอธิบายแนวคิดและเรื่องทั่วไปเกี่ยวกับการรักษาความปลอดภัย เทคนิควิธีการรักษาความปลอดภัยบุคคล อาคารสถานที่ ทรัพย์สิน สิ่งอำนวยความสะดวก และเอกสารต่าง ๆ",
+        "สามารถประยุกต์ใช้ความรู้ด้านการรักษาความปลอดภัยในชีวิตประจำวันของตน รวมทั้งสามารถนำไปใช้เป็นพื้นความรู้ในการทำงานในหน่วยงานด้านรักษาความปลอดภัยและหน่วยงานอื่น",
+        "สามารถเสนอแนวทางในการบริหารงาน การจัดการหน่วยงานรักษาความปลอดภัยทั้งภาครัฐ และเอกชน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c4b5898d-ea4a-4c2d-b80a-74665ceb6763",
+              "name": "สามารถอธิบายถึงความสำคัญของการศึกษาวิชาการจัดการด้านความปลอดภัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers security management and safety, relevant as foundational knowledge for daily risk management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers security management knowledge that can be applied to personal safety and decision-making in daily life."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "outcomes": [
+        "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล",
+        "ออกแบบและวิเคราะห์ข้อมูลด้วยโมเดลหลายมิติและ olap",
+        "เข้าใจแนวคิดและบทบาทของธุรกิจอัจฉริยะ",
+        "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ",
+        "บูรณาการธุรกิจอัจฉริยะในระดับองค์กร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ae9d3ea4-e347-45c7-b9b3-4aad09577757",
+              "name": "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ae9d3ea4-e347-45c7-b9b3-4aad09577757",
+              "name": "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "It covers decision support systems and data analysis, foundational for systematic decision-making, but not directly teaching the skill itself."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches data warehousing and decision support systems, enabling tools for improving decision-making skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03602312-65",
+      "subjectName": "วิศวกรรมอุตสาหการและระบบเบื้องต้น",
+      "outcomes": [
+        "สามารถเข้าใจหลักการวิศวกรรมอุตสาหการและวิศวกรรมระบบได้อย่างสมบูรณ์",
+        "สามารถเลือกใช้เทคนิคในการตัดสินใจเพื่อประเมินทางเลือกและการตัดสินใจอย่างมีเหตุผล",
+        "สามารถปรับปรุงกระบวนการและระบบ การดำเนินงาน การจัดการซัพลายเชน และการจัดการการดำเนินงาน",
+        "สามารถเใช้เครื่องมือวิเคราะห์ ในการจำลอง และการบริหารโครงการ เพื่อการวิเคราะห์ที่ซับซ้อนมากขึ้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "22711252-2780-403e-acdc-4a3a6d67c254",
+              "name": "สามารถเลือกใช้เทคนิคในการตัดสินใจเพื่อประเมินทางเลือกและการตัดสินใจอย่างมีเหตุผล"
+            }
+          ]
+        },
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "22711252-2780-403e-acdc-4a3a6d67c254",
+              "name": "สามารถเลือกใช้เทคนิคในการตัดสินใจเพื่อประเมินทางเลือกและการตัดสินใจอย่างมีเหตุผล"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "22711252-2780-403e-acdc-4a3a6d67c254",
+              "name": "สามารถเลือกใช้เทคนิคในการตัดสินใจเพื่อประเมินทางเลือกและการตัดสินใจอย่างมีเหตุผล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers decision techniques in engineering systems, relevant as foundational knowledge for systematic decision-making."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Includes decision-making techniques and tools useful for evaluating options and making reasoned decisions."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "outcomes": [
+        "สามารถแก้ไขปัญหาด้วยการสร้างแบบจำลองคณิตศาสตร์ที่เหมาะสม",
+        "สามารถวิเคราะห์ตัดสินใจเพื่อประเมินทางเลือกและการตัดสินใจอย่างมีเหตุผลในสถานการณ์ที่มีความไม่แน่นอน",
+        "สามารถเลือกใช้ซอฟท์แวร์สำหรับการตัดสินใจเพื่อหาคำตอบที่เหมาะที่สุดหรือคำตอบโดยประมาณ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "157be491-d42c-4c33-a049-a44ac160fe7a",
+              "name": "สามารถวิเคราะห์ตัดสินใจเพื่อประเมินทางเลือกและการตัดสินใจอย่างมีเหตุผลในสถานการณ์ที่มีความไม่แน่นอน"
+            }
+          ]
+        },
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "157be491-d42c-4c33-a049-a44ac160fe7a",
+              "name": "สามารถวิเคราะห์ตัดสินใจเพื่อประเมินทางเลือกและการตัดสินใจอย่างมีเหตุผลในสถานการณ์ที่มีความไม่แน่นอน"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "481460f8-fb01-45c1-9250-dde474b38b48",
+              "name": "สามารถเลือกใช้ซอฟท์แวร์สำหรับการตัดสินใจเพื่อหาคำตอบที่เหมาะที่สุดหรือคำตอบโดยประมาณ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes decision analysis in operational research, foundational for systematic decision-making."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on operational research and decision analysis, directly relevant to improving decision-making skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01651531-68",
+      "subjectName": "นโยบายสิ่งแวดล้อมเพื่อการพัฒนาที่ยั่งยืน",
+      "outcomes": [
+        "สามารถวิเคราะห์กระบวนการวิทยาศาสตร์และเทคโนโลยีสิ่งแวดล้อมสู่การวิเคราะห์ปัญหาสิ่งแวดล้อมเชิงระบบ",
+        "สามารถวิเคราะห์หลักการ วิธีการ และแนวทางเชิงปฏิบัติของเครื่องมือการจัดการสิ่งแวดล้อมเชิงระบบ",
+        "สามารถเลือกแนวทางการนำเครื่องมือการจัดการสิ่งแวดล้อมมาประยุกต์ใช้ในการจัดการสิ่งแวดล้อมได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "780664a7-88a4-49c6-abe0-beb40d65255c",
+              "name": "สามารถวิเคราะห์หลักการ วิธีการ และแนวทางเชิงปฏิบัติของเครื่องมือการจัดการสิ่งแวดล้อมเชิงระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves systemic analysis of environmental policies, relevant as foundational knowledge for decision-making."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on environmental policy and management, not general decision-making tools for daily life."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01951211-67",
+      "subjectName": "วิทยาศาสตร์ระบบสุขภาพ I",
+      "outcomes": [
+        "ประพฤติตนด้วยความซื่อสัตย์สุจริต มีวินัยในตนเอง",
+        "มีความรู้ในหลักการและทฤษฎีความเป็นมนุษย์ สังคมวิทยาและมานุษยวิทยาทางการแพทย์ จริยธรรมทางการแพทย์ ความสัมพันธ์ระหว่างแพทย์และผู้ป่วย",
+        "อธิบายปัญหาสุขภาพที่สำคัญในกลุ่มประชากรเบื้องต้น",
+        "สื่อสารและสร้างสัมพันธภาพที่ ทำงานเป็นทีม มีความรับผิดชอบ",
+        "จัดการแสวงหาความรู้เพื่อพัฒนาตนเองให้มีทักษะชีวิต ทักษะการทำงานด้วยความยืดหยุ่น ใช้เทคโนโลยีสารสนเทศและแหล่งความรู้ที่ทันสมัย",
+        "คิดวิเคราะห์อย่างมีวิจารณญาณ การแก้ปัญหาอย่างเป็นระบบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2b050e1f-71ef-4069-a6da-19343ffe1a2c",
+              "name": "คิดวิเคราะห์อย่างมีวิจารณญาณ การแก้ปัญหาอย่างเป็นระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers systemic health sciences, providing foundational understanding relevant to decision-making."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches critical thinking, problem solving, and life skills applicable to daily decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01451356-65",
+      "subjectName": "ภูมิสารสนเทศศาสตร์เพื่อการจัดการภัยพิบัติ",
+      "outcomes": [
+        "เลือกใช้ข้อมูลอย่างมีจรรยาบรรณตามหลักวิชาการ มีแหล่งอ้างอิงที่ถูกต้อง มีการจัดการข้อมูลที่เกี่ยวข้องกับภัยพิบัติและผลกระทบต่อชุมชนอย่างมีจริยธรรม",
+        "ผู้เรียนมีความซื่อสัตย์ต่องาน และการสอบ",
+        "อธิบายหลักการพื้นฐานของการจัดการภัยพิบัติได้อย่างถูกต้อง",
+        "ประยุกต์ใช้แนวคิดและทฤษฎีด้านการจัดการภัยพิบัติแต่ละประเภทได้อย่างถูกต้องเหมาะสม",
+        "วิเคราะห์ประเภทของภัยพิบัติและกระบวนการจัดการในแต่ละช่วง (ก่อน-ระหว่าง-หลัง) ได้อย่างมีเหตุผล",
+        "เลือกเครื่องมือเทคโนโลยีภูมิสารสนเทศในการจัดการภัยพิบัติได้อย่างเหมาะสม",
+        "วิเคราะห์ผลกระทบจากภัยพิบัติได้อย่างถูกต้อง",
+        "การทำงานร่วมกันเพื่อพัฒนาและนำเสนอแผนการจัดการภัยพิบัติโดยใช้ข้อมูลและเหตุการณ์จริงได้",
+        "ผู้เรียนแสดงความเป็นผู้นำ ความรับผิดชอบ และการตัดสินใจในการประเมินด้านภัยพิบัติ และการจัดการภัยพิบัติ",
+        "สังเคราะห์ข้อมูลจากหลายแหล่งเพื่อนำเสนอแนวทางการจัดการภัยพิบัติ และมีทักษะการใช้เทคโนโลยีสารสนเทศได้อย่างเหมาะสม",
+        "นำเสนอผลการวิเคราะห์ออกแบบการบริหารจัดการภัยพิบัติแบบบูรณาการ โดยคำนึงถึงทรัพยากร ความเสี่ยง และผู้ได้รับผลกระทบ ในรูปแบบที่สอดคล้องกับหลักวิชาการได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a3edd999-26c0-461e-81a6-267c62e8d5b1",
+              "name": "เลือกเครื่องมือเทคโนโลยีภูมิสารสนเทศในการจัดการภัยพิบัติได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves using geospatial information technology for disaster management, relevant as decision support."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on disaster management using geoinformatics, which is too specialized and not directly relevant to general decision-making tools for daily life."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "outcomes": [
+        "จัดการข้อมูลขนาดใหญ่โดยคำนึงถึงความเป็นส่วนตัวและความปลอดภัยของข้อมูลได้",
+        "เลือกใช้เครื่องมือสำหรับจัดการข้อมูลขนาดใหญ่ ได้อย่างเหมาะสม",
+        "แสดงออกถึงความรับผิดชอบ ซื่อสัตย์  และเรียนรู้ด้วยตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2b37a5a4-1559-4aec-a17c-b07dce99b46d",
+              "name": "เลือกใช้เครื่องมือสำหรับจัดการข้อมูลขนาดใหญ่ ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers big data management, which underpins decision support systems."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers big data management and tools, which can enable better decision-making by handling large datasets effectively."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01442697-68",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "วิเคราะห์และทำความเข้าใจในกระบวนการในงานวิจัยโดยใช้ความรู้ในสาขาวิชาวัสดุนาโน",
+        "สามารถใช้เทคโนโลยีสารสนเทศต่าง ๆ ช่วยในการสืบค้นข้อมูลเพิ่มเติมได้",
+        "วิเคราะห์ข้อมูลในงานวิจัยเพื่อนำไปสู่บทสรุปได้",
+        "นำเสนองานวิจัยด้วยภาษาอังกฤษได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "fd2e2a64-9c8b-486a-b094-893736483b11",
+              "name": "วิเคราะห์ข้อมูลในงานวิจัยเพื่อนำไปสู่บทสรุปได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on research data analysis in a specific field, not directly on decision-making tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar focused on nanomaterials research, irrelevant to general decision-making tools."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01600497-65",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "สามารถสืบค้นข้อมูลความก้าวหน้าทางวิชาการจาก แหล่งข้อมูลที่น่าเชื่อถือ",
+        "สามารถนำเสนอข้อมูลความก้าวหน้าทางวิชาการ",
+        "สามารถวิเคราะห์ข้อมูลทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "50817ba9-db39-4b3c-bd39-72e6166d0067",
+              "name": "สามารถวิเคราะห์ข้อมูลทางวิชาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on academic research data analysis, not on practical decision tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on academic research skills without direct link to decision-making tools for daily life."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "อธิบายความรู้เกี่ยวกับโภชนศาสตร์สัตว์ในระดับอุตสาหกรรม",
+        "วิเคราะห์ข้อมูลงานวิจัย เพื่อนำเสนออย่างเป็นระบบ",
+        "สืบค้นข้อมูลและเลือกใช้เทคโนโลยีสารสนเทศในการนำเสนอผลงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "ba2b6ef3-32e1-4d92-be9b-c01c357675db",
+              "name": "วิเคราะห์ข้อมูลงานวิจัย เพื่อนำเสนออย่างเป็นระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Centered on research data analysis in animal nutrition, not on daily decision-making tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on animal nutrition research, unrelated to decision-making tools for everyday life."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03651436-65",
+      "subjectName": "ตัวแบบคณิตศาสตร์ประกันภัย",
+      "outcomes": [
+        "ตีความข้อมูลโดยอาศัยการแจกแจงที่อิงพารามิเตอร์ได้",
+        "สร้างตัวแบบคณิตศาสตร์ประกันภัยสำหรับประเมินค่าสินไหมทดแทนในธุรกิจประกันภัยได้",
+        "คำนวณค่าความเสี่ยงโดยใช้ตัววัดที่เหมาะสมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "537fae73-c219-4b4b-a245-75849633d5e0",
+              "name": "คำนวณค่าความเสี่ยงโดยใช้ตัววัดที่เหมาะสมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on mathematical modeling of insurance risks, which is tangential to personal daily risk decision-making."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematical modeling for insurance is too niche and assumes a specific sub-industry."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03651232-65",
+      "subjectName": "คณิตศาสตร์ประกันภัยและการบริหารความเสี่ยง",
+      "outcomes": [
+        "อธิบายแนวคิดเกี่ยวกับการประกันภัย การประกันชีวิต การประกันวินาศภัย และประกันภัยต่อได้",
+        "คำนวณเงินสำรองประกันภัย อัตราผลตอบแทนและต้นทุนแบบประกันชีวิตได้",
+        "อธิบายเงื่อนไขของสัญญาประกันภัยได้",
+        "วิเคราะห์ความเสี่ยงและแนวโน้มของธุรกิจประกันภัยได้",
+        "ปฏิบัติงานที่ได้รับมอบหมาย และทำงานร่วมกับผู้อื่นด้วยความรับผิดชอบ พร้อมทั้งเคารพกฎระเบียบของสังคมตามจรรยาบรรณวิชาชีพประกันภัยได้",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "81271838-65b3-4312-9ad0-6bd687bddcb4",
+              "name": "วิเคราะห์ความเสี่ยงและแนวโน้มของธุรกิจประกันภัยได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with insurance mathematics and risk management concepts, not directly applicable to daily life decision tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Insurance and risk management course is specialized and not broadly applicable to general decision-making tools."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03652143-66",
+      "subjectName": "ความปลอดภัยทางเคมีและการจัดการของเสียทางเคมี",
+      "outcomes": [
+        "อธิบายความหมาย ประเภท และสมบัติของวัตถุอันตราย รวมถึงผลกระทบต่อสุขภาพของมนุษย์ สิ่งแวดล้อม และความปลอดภัยในสถานที่ทำงาน โดยสามารถระบุอันตราย และความเสี่ยงจากสารเคมี และวัตถุอันตรายต่างๆ ได้",
+        "อธิบายวิธีการลดความเสี่ยงจากวัตถุอันตราย เช่น การใช้สารทดแทน การควบคุมทางวิศวกรรม การใช้อุปกรณ์ป้องกันส่วนบุคคล และอธิบายวิธีการจัดการวัตถุอันตราย เช่น การจัดเก็บ การขนส่ง การติดฉลาก การจัดการกากของเสียอันตราย",
+        "จำแนกประเภทวัตถุอันตราย การขออนุญาต การจัดทำเอกสาร กฎหมายและข้อบังคับเกี่ยวกับวัตถุอันตราย เพื่อปฏิบัติงานได้อย่างถูกต้องตามกฎหมาย",
+        "อธิบายระบบจัดการด้านป้องกันภัยและข้อบกพร่องของแผนการระงับอุบัติเหตุ เพื่อเพิ่มประสิทธิภาพในการป้องกัน และลดความเสี่ยงจากอุบัติเหตุ",
+        "ทำงานร่วมกับผู้อื่น และมีความรับผิดชอบต่อหน้าที่",
+        "มีความมุ่งมั่นในการพัฒนาตนเองอย่างต่อเนื่อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6418d0f5-9063-4484-83dd-a81f4bbb7fbe",
+              "name": "อธิบายวิธีการลดความเสี่ยงจากวัตถุอันตราย เช่น การใช้สารทดแทน การควบคุมทางวิศวกรรม การใช้อุปกรณ์ป้องกันส่วนบุคคล และอธิบายวิธีการจัดการวัตถุอันตราย เช่น การจัดเก็บ การขนส่ง การติดฉลาก การจัดการกากของเสียอันตราย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Specialized in chemical safety and waste management, tangential to personal risk decision-making tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Chemical safety and waste management is specialized and unrelated to general decision-making tools."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "04256212-66",
+      "subjectName": "ความรู้ทั่วไปเกี่ยวกับการประกันภัย",
+      "outcomes": [
+        "สามารถเลือกแบบประกันภัยที่เหมาะสม ภายใต้ความเสี่ยงที่ยอมรับได้",
+        "สามารถอธิบายความแตกต่างระหว่างการประกันภัยในรูปแบบต่างๆ ได้",
+        "สามารถแสดงออกถึงความมุ่งมั่นในการเรียนรู้ ในการเลือกแบบประกันภัย ในการแก้โจทย์ปัญหาได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "df8fc193-6380-4445-902e-90e1597d6cfd",
+              "name": "สามารถเลือกแบบประกันภัยที่เหมาะสม ภายใต้ความเสี่ยงที่ยอมรับได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides general insurance knowledge, not directly related to daily decision-making tools for risk management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "General insurance knowledge is industry-specific and not directly useful for everyday decision-making tools."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "02741542-65",
+      "subjectName": "หลักการจัดการสิ่งแวดล้อม",
+      "outcomes": [
+        "เข้าใจและอธิบายการจัดการสิ่งแวดล้อมที่ครอบคลุมทุกมิติ",
+        "บูรณาการความรู้ในการจัดการสิ่งแวดล้อมหลากมิติ",
+        "วิเคราะห์และประเมินความเป็นไปได้ในการจัดการสิ่งแวดล้อม",
+        "ประยุกต์ใช้หลักการจัดการสิ่งแวดล้อมได้อย่างเหมาะสมกับสถานการณ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "13c864fa-72a4-4b85-9d25-4a49e8c960e5",
+              "name": "วิเคราะห์และประเมินความเป็นไปได้ในการจัดการสิ่งแวดล้อม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on environmental management principles, tangential to personal risk decision tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Environmental management principles are not directly related to personal decision-making tools for daily life."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03760441-64",
+      "subjectName": "การให้บริการความเชื่อมั่นเชิงวิชาชีพ",
+      "outcomes": [
+        "สามารถประเมินความเสี่ยงในการให้บริการความเชื่อมัี่นได้",
+        "สามารถจัดทำแผนการตรวจสอบบัญชีและโปรแกรมการตรวจสอบบัญชี",
+        "สามารถประยุกต์เทคนิคการตรวจสอบบัญชีในการจััดทำกระดาษทำการ",
+        "สามารถเขียนรายงานการตรวจสอบบัญชีได้ถูกต้อง ตามมาตรฐานการสอบบัญชี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "ef52b477-4355-4b12-b8b2-c027cb13f16b",
+              "name": "สามารถประเมินความเสี่ยงในการให้บริการความเชื่อมัี่นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to auditing and assurance services, not directly relevant to personal risk decision tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on professional assurance and auditing, unrelated to personal decision-making tools."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "outcomes": [
+        "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+        "จัดทำงบประมาณธุรกิจต่างๆ",
+        "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "890d0df3-519d-429e-b23d-7d1de8bdd3eb",
+              "name": "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on business profit planning, tangential to personal daily risk decision-making tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about profit planning and control in business, not relevant to daily life decision-making tools."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "02738312-66",
+      "subjectName": "หลักการจัดระบบและอนุกรมวิธาน",
+      "outcomes": [
+        "สามารถอธิบายหลักของอนุกรมวิธาน และวิธีการจำแนกสิ่งมีชีวิต",
+        "สามารถเชื่อมโยงอนุกรมวิธานกับความหลากหลายทางชีวภาพ",
+        "สามารถนำความรู้ด้านอนุกรมวิธานมาใช้ในการศึกษาทางวิทยาศาสตร์ชีวภาพ",
+        "สามารถอธิบายหลักของการจัดระบบ",
+        "สามารถเชื่อมโยงความรู้ด้านอนุกรมวิธานกับการใช้ประโยชน์ความหลากหลายทางชีวภาพอย่างยั่งยืน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9e6ea8d0-ddbe-4538-9810-c5ba9a2ebfed",
+              "name": "สามารถอธิบายหลักของการจัดระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on classification and systematization in biology, sharing the 'system' concept but unrelated to decision-making skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers taxonomy and biological classification, irrelevant to decision-making tools for daily life."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01101171-65",
+      "subjectName": "คณิตเศรษฐศาสตร์ I",
+      "outcomes": [
+        "เลือกใช้วิธีการที่เหมาะสมในการแก้ปัญหาระบบสมการเชิงเส้นได้",
+        "ใช้หลักการของแรงค์เพื่อตรวจสอบลักษณะเซตคำตอบของระบบสมการเชิงเส้นได้",
+        "ใช้การดำเนินการตามแถวเพื่อหาอินเวิร์สเมทริกซ์ได้",
+        "ใช้ดีเนอรมินันท์เพื่อจำแนกเมทริกซ์ที่มีอินเวิร์สกับไม่มีอินเวิร์สออกจากกันได้",
+        "ตรวจสอบความต่อเนื่องของฟังก์ชันที่พบในการเรียนทฤษฎีเศรษฐศาสตร์ได้",
+        "หาอนุพันธ์และปริพันธ์ของฟังก์ชันที่พบบ่อยในการเรียนทฤษฎีเศรษฐศาสตร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "312b0cb4-7dc7-4487-9c22-2952a8df6567",
+              "name": "เลือกใช้วิธีการที่เหมาะสมในการแก้ปัญหาระบบสมการเชิงเส้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with mathematical methods in economics, foundational but not directly related to decision-making skills in daily life."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Mathematical economics teaches problem-solving and analytical skills useful for decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "02802115-67",
+      "subjectName": "การวิเคราะห์เชิงปริมาณในธุรกิจบริการ",
+      "outcomes": [
+        "สามารถสาธิตวิธีการวิเคราะห์เชิงปริมาณในธุรกิจบริการที่กำหนดให้ได้",
+        "สามารถบอกการเลือกวิธีการวิเคราะห์เชิงปริมาณจากสถานการณ์ที่กำหนดให้ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "df844177-cc0f-4373-9dce-9ec8c6685c6d",
+              "name": "สามารถบอกการเลือกวิธีการวิเคราะห์เชิงปริมาณจากสถานการณ์ที่กำหนดให้ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on quantitative analysis methods, useful but not directly teaching decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Quantitative analysis in business services provides analytical tools applicable to decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01475521-64",
+      "subjectName": "จิตวิทยาอุตสาหกรรมและองค์การ",
+      "outcomes": [
+        "อธิบายแนวคิดและทฤษฎีที่เกี่ยวข้องกับจิตวิทยาเบื้องต้น",
+        "นำความรู้ทางจิตวิทยาไปอธิบายพฤติกรรมมนุษย์",
+        "นำความรู้ทางจิตวิทยาไปประยุกต์เพื่อพัฒนา ป้องกัน และช่วยเหลือมนุษย์ในการทำงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "db409ece-5ae7-4fdb-8440-930ec9f3d622",
+              "name": "อธิบายแนวคิดและทฤษฎีที่เกี่ยวข้องกับจิตวิทยาเบื้องต้น"
+            },
+            {
+              "id": "922b1c6a-1eec-4281-8153-7cbd5bd7eabe",
+              "name": "นำความรู้ทางจิตวิทยาไปอธิบายพฤติกรรมมนุษย์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides general psychological concepts and behavior explanation, but not specifically decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Industrial and organizational psychology offers understanding of human behavior aiding decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดทฤษฎีด้านจิตวิทยา",
+        "สามารถนำความรู้ไปประยุกต์ใช้ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "5343e48e-512e-4f3b-bc45-54453291fd91",
+              "name": "สามารถอธิบายแนวคิดทฤษฎีด้านจิตวิทยา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on applying psychological knowledge broadly, not specifically on decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Applied community psychology teaches concepts that can help in personal decision-making contexts."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "02198113-67",
+      "subjectName": "จิตวิทยาเพื่อการเรียนรู้และการจัดการเรียนรู้",
+      "outcomes": [
+        "อธิบายทฤษฎีจิตวิทยาพื้นฐาน จิตวิทยาพัฒนาการ จิตวิทยาการศึกษา จิตวิทยาการเรียนรู้ และจิตวิทยาการให้คำปรึกษา",
+        "เขียนแผนการจัดการเรียนรู้ที่ส่งเสริมการเรียนรู้ของผู้เรียนที่หลากหลาย",
+        "ออกแบบและบริหารจัดการเรียนรู้บริบทในชีวิตจริง บูรณาการแนวคิดปรัชญาเศรษฐกิจพอเพียง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "55cc740f-9b58-454a-91af-1c1cda4f8b97",
+              "name": "อธิบายทฤษฎีจิตวิทยาพื้นฐาน จิตวิทยาพัฒนาการ จิตวิทยาการศึกษา จิตวิทยาการเรียนรู้ และจิตวิทยาการให้คำปรึกษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Centers on learning and teaching psychology, not directly on decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Psychology for learning and management includes theories useful for improving decision-making skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01475532-64",
+      "subjectName": "จิตวิทยาสังคมประยุกต์ในการทำงาน",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎีทางจิตวิทยาสังคม พฤติกรรมทางสังคมระดับบุคคล ระหว่างบุคคล และระดับกลุ่มในองค์การ",
+        "นำความรู้ทางจิตวิทยาสังคมไปใช้กับชีวิตส่วนตัวและชีวิตการทำงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "674deec6-f672-4c23-a7b9-c9f5a15e45a5",
+              "name": "นำความรู้ทางจิตวิทยาสังคมไปใช้กับชีวิตส่วนตัวและชีวิตการทำงาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with social psychology in work contexts, not specifically decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Applied social psychology in work relates to understanding social behavior, aiding personal decisions."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01475537-64",
+      "subjectName": "จิตวิทยาการทำงานเป็นทีม",
+      "outcomes": [
+        "อธิบายถึงแนวความคิด หลักการ และทฤษฎีที่เกี่ยวข้องกับจิตวิทยาในการทำงานเป็นทีม",
+        "ประยุกต์ใช้หลักการ วิธีการ และเทคนิคต่างๆ ทางจิตวิทยาไปใช้ในการพัฒนาตนและเพิ่มประสิทธิผลในทีมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b2a3019f-cd22-4f30-b998-0992328d2f98",
+              "name": "อธิบายถึงแนวความคิด หลักการ และทฤษฎีที่เกี่ยวข้องกับจิตวิทยาในการทำงานเป็นทีม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on team psychology and collaboration, not directly on decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Psychology of teamwork teaches skills for effective collaboration and decision-making in groups."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "outcomes": [
+        "อธิบายหลักการและแนวคิดในกลุ่มจิตวิทยาการศึกษา จิตวิทยาพัฒนาการ จิตวิทยาการแนะแนว และจิตวิทยาการปรึกษา",
+        "วิเคราะห์กรณีศึกษาเกี่ยวกับจิตวิทยาการศึกษา การจัดการชั้นเรียน จิตวิทยาการแนะแนว และจิตวิทยาการปรึกษา",
+        "ประยุกต์ความรู้จากจิตวิทยาการศึกษา จิตวิทยาพัฒนาการมาใช้ในบริการแนะแนวและบริการให้การปรึกษา",
+        "ใช้เทคโนโลยีสารสนเทศในการให้คำปรึกษา",
+        "สาธิตกระบวนการให้การปรึกษา",
+        "ออกแบบการจัดกิจกรรมแนะแนวในโรงเรียน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "5882338e-84f7-4130-9706-a28c30e97594",
+              "name": "อธิบายหลักการและแนวคิดในกลุ่มจิตวิทยาการศึกษา จิตวิทยาพัฒนาการ จิตวิทยาการแนะแนว และจิตวิทยาการปรึกษา"
+            },
+            {
+              "id": "571aaced-78cb-4714-9af4-bda380985c5a",
+              "name": "วิเคราะห์กรณีศึกษาเกี่ยวกับจิตวิทยาการศึกษา การจัดการชั้นเรียน จิตวิทยาการแนะแนว และจิตวิทยาการปรึกษา"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e5bc6f97-a024-4231-a497-4caa7c039f0c",
+              "name": "ใช้เทคโนโลยีสารสนเทศในการให้คำปรึกษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Centered on educational psychology and counseling, not decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers psychological principles and counseling techniques that can help in decision-making and thinking processes in daily life."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01475535-64",
+      "subjectName": "จิตวิทยาการเปลี่ยนแปลงและการพัฒนา",
+      "outcomes": [
+        "อธิบายแนวคิดและทฤษฎีทางจิตวิทยาในการเปลี่ยนแปลงและพัฒนาองค์การ",
+        "วิเคราะห์ปัจจัยและแนวทางในการเปลี่ยนแปลงและพัฒนาองค์การ",
+        "ประยุกต์ใช้จิตวิทยาเพื่อการเปลี่ยนแปลงและการพัฒนาองค์การ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a65fb275-d77e-40e6-9d6d-6f7f76ee07ad",
+              "name": "อธิบายแนวคิดและทฤษฎีทางจิตวิทยาในการเปลี่ยนแปลงและพัฒนาองค์การ"
+            },
+            {
+              "id": "0dafbfda-900b-4597-9ac2-53425eeaa78a",
+              "name": "ประยุกต์ใช้จิตวิทยาเพื่อการเปลี่ยนแปลงและการพัฒนาองค์การ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with change management and development, not specifically decision-making skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on organizational change psychology, which is not directly relevant to individual daily decision-making."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01475522-64",
+      "subjectName": "จิตวิทยาบุคลากร",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎี และกระบวนการที่เกี่ยวข้องกับจิตวิทยาบุคลากร",
+        "สามารถประยุกต์ใช้ความรู้เกี่ยวกับจิตวิทยาบุคลากรไปใช้ในการทำงานและการพัฒนาการทำงานในสภาพแวดล้อมการทำงานที่เป็นจริง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "37ff5a83-6e4b-41b0-8319-fa5fd3c006b8",
+              "name": "อธิบายแนวคิด ทฤษฎี และกระบวนการที่เกี่ยวข้องกับจิตวิทยาบุคลากร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on personnel psychology, not directly on decision-making skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on personnel psychology in work environments, not general decision-making tools for daily life."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03752111-67",
+      "subjectName": "ทรัพยากรสารสนเทศเพื่อการค้นคว้า",
+      "outcomes": [
+        "เลือกใช้เครื่องมือในการค้นหาสารสนเทศได้อย่างมีประสิทธิภาพ",
+        "สามารถจำแนกประเภทสารสนเทศจากแหล่งข้อมูลต่างๆในยุคดิจิทัลและนำมาใช้ได้อย่างเหมาะสม",
+        "สามารถเลือกใช้เครื่องมือในการสืบค้นสารสนเทศเพื่อการศึกษาได้อย่างมีประสิทธิภาพ",
+        "สามารถนำเสนองานที่เกิดจากการค้นคว้า และใช้ทรัพยากรสารสนเทศได้อย่างถูกต้องตามหลักวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "fd385399-53bc-4fba-95d4-d6557a9cd70b",
+              "name": "เลือกใช้เครื่องมือในการค้นหาสารสนเทศได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on information retrieval and research skills, tangential to decision support tools."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches effective use of information resources and tools, enabling better decision-making through research and information gathering."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01137556-68",
+      "subjectName": "ประเด็นร่วมสมัยทางการบัญชีและเทคโนโลยีสารสนเทศ",
+      "outcomes": [
+        "ประเมินการเปลี่ยนแปลงทางด้านเทคโนโลยีที่ส่งผลต่อวิชาชีพบัญชีได้",
+        "ใช้ข้อมูลทางการบัญชีและเทคโนโลยีสารสนเทศสมัยใหม่ เพื่อสนับสนุนการตัดสินใจในองค์กรได้",
+        "สืบค้นข้อมูล เพื่อประกอบการประเมินผลกระทบของเทคโนโลยีที่มีต่อวิชาชีพบัญชี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9c0963c2-17b2-49b9-ae8e-aed3e810abc9",
+              "name": "ใช้ข้อมูลทางการบัญชีและเทคโนโลยีสารสนเทศสมัยใหม่ เพื่อสนับสนุนการตัดสินใจในองค์กรได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers modern information technology in accounting, but not specifically decision support tools."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches use of accounting data and IT to support decision-making, which can be an enabling tool for personal or organizational decisions."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "02721121-67",
+      "subjectName": "การจัดการธุรกิจเพื่อสังคมที่ยั่งยืน",
+      "outcomes": [
+        "สามารถเสนอแนวทางการจัดการเพื่อการพัฒนาสังคมอย่างยั่งยืนได้",
+        "สามารถเลือกเครื่องมือที่เหมาะสมในการแก้ปัญหาองค์กรในด้านต่างๆ ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0ca635ac-4169-4d89-8e5c-3322c58614f2",
+              "name": "สามารถเลือกเครื่องมือที่เหมาะสมในการแก้ปัญหาองค์กรในด้านต่างๆ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on sustainable social enterprise management, not directly on decision tools."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on management tools and problem-solving approaches applicable to social sustainability, useful for decision-making skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01448214-68",
+      "subjectName": "ปฏิบัติการทางวัสดุ I",
+      "outcomes": [
+        "ดำเนินการทดลองศึกษาโครงสร้าง สมบัติทางกายภาพและเคมีของวัสดุด้วยเทคนิคต่าง ๆ ได้",
+        "วิเคราะห์ข้อมูลและทำรายงานสรุปผลการทดลองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d47a3c52-12d6-4b81-95a3-052db5f1ecba",
+              "name": "วิเคราะห์ข้อมูลและทำรายงานสรุปผลการทดลองได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on material experiments, unrelated to decision-making tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on material science experiments, unrelated to decision-making tools for daily life."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03610227-66",
+      "subjectName": "วิศวกรรมวัดคุมพื้นฐาน",
+      "outcomes": [
+        "สามารถเข้าใจและอธิบายองค์ประกอบของการวัดได้",
+        "สามารถวิเคราะห์ข้อมูล และอธิบายผลลัพธ์จากการวัดได้",
+        "สามารถอธิบายการทำงานของระบบควบคุมได้",
+        "สามารถเลือกใช้ และออกแบบระบบควบคุมพื้นฐานให้เหมาะสมกับงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3c257fe5-c1ef-421a-b63d-6a0d5f5ded37",
+              "name": "สามารถเลือกใช้ และออกแบบระบบควบคุมพื้นฐานให้เหมาะสมกับงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to measurement and control systems, unrelated to decision-making skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on measurement and control engineering, not relevant to personal decision-making tools."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01241332-66",
+      "subjectName": "การออกแบบก่อสร้างภูมิสถาปัตยกรรม IV",
+      "outcomes": [
+        "สามารถอธิบายวิธีการและกระบวนการในการออกแบบก่อสร้างภูมิสถาปัตยกรรม รวมทั้งเลือกใช้ได้เหมาะสมกับสภาพกายภาพพื้นที่ และแนวคิดในการออกแบบงานภูมิทัศน์",
+        "สามารถอธิบายและ เลือกใช้ประเภทโครงสร้าง และงานระบบ ได้อย่างเหมาะสมกับสภาพกายภาพพื้นที่ และแนวคิดในการออกแบบงานภูมิทัศน์",
+        "สามารถอธิบายถึงประเภท ลักษณะ และแนวทางในการเลือกใช้เทคโนโลยีการก่อสร้างที่ทันสมัยและเป็นมิตรต่อสิ่งแวดล้อม",
+        "สามารถวิเคราะห์สภาพแวดล้อมทางกายภาพ เพื่อวางผังและออกแบบภูมิสถาปัตยกรรม",
+        "สามารถนำเสนอแบบก่อสร้างได้ถูกต้องตามมาตรฐานและสามารถสื่อสารกับวิชาชีพอื่นที่เกี่ยวข้องได้",
+        "สามารถเลือกใช้สื่อและสื่อดิจิทัลหรือเทคโนโลยีสารสนเทศในการนำเสนอผลงานออกแบบก่อสร้างงานภูมิสถาปัตยกรรมได้อย่างเหมาะสมกับบุคคลที่แตกต่างกัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "2bba9fa6-4b76-46f6-b6c7-3fe4035bc686",
+              "name": "สามารถอธิบายและ เลือกใช้ประเภทโครงสร้าง และงานระบบ ได้อย่างเหมาะสมกับสภาพกายภาพพื้นที่ และแนวคิดในการออกแบบงานภูมิทัศน์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Design and construction planning in landscape architecture, unrelated to decision-making skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on landscape architecture design and construction, unrelated to decision-making tools for daily life."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "outcomes": [
+        "อธิบายความสำคัญความจำเป็นของคุณธรรมและจริยธรรมที่มีต่อวิชาชีพครู จิตวิญญาณความเป็นครูต่อการประกอบวิชาชีพและการพัฒนาผู้เรียนได้",
+        "วิเคราะห์ ตัดสินใจ และแก้ไขปัญหาเชิงจริยธรรมอย่างมีเหตุผลในสถานการณ์ต่างๆ",
+        "อธิบายแนวทางการจัดการเรียนรู้สำหรับผู้เรียนที่มีความแตกต่างและหลากหลายทางวัฒนธรรม",
+        "ระบุแนวทางกระตุ้นการเรียนรู้และความคิดสร้างสรรค์ของผู้เรียน เพื่อส่งเสริมให้เกิดการพัฒนานวัตกร",
+        "วิเคราะห์สภาพบริบทและสถานการณ์ในโรงเรียนร่วมกับการประเมินตนเอง เพื่อเสนอแนวทางพัฒนาวิชาชีพและการเรียนรู้ตลอดชีวิต"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a5e2b55b-d333-4265-8b76-33f177ef31ac",
+              "name": "วิเคราะห์ ตัดสินใจ และแก้ไขปัญหาเชิงจริยธรรมอย่างมีเหตุผลในสถานการณ์ต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on ethics and values in teaching, not related to decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches ethical decision-making and problem-solving skills, directly relevant to improving daily life decisions."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "outcomes": [
+        "วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ",
+        "วิเคราะห์ความสัมพันธ์ของส่วนประกอบของภาษาอังกฤษเพื่ออธิบายความกำกวมของภาษา",
+        "ค้นคว้าหาความรู้เพิ่มเติมจากแหล่งข้อมูลทางอินเทอร์เนตมาใช้วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ",
+        "แสดงความรับผิดชอบต่อการเรียนและเคารพระเบียบและจริยธรรมทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตัดสินใจเชิงระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "aa38db0f-6727-4b25-b5f9-e065b1adca66",
+              "name": "วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language system analysis unrelated to decision-making skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on English language structure, unrelated to decision-making tools for daily life."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01475539-64",
+      "subjectName": "จิตวิทยาเพื่อจิตวิญญาณในสถานที่ทำงาน",
+      "outcomes": [
+        "อธิบายความสำคัญ ความหมาย แนวคิดทฤษฎี และงานวิจัยที่เกี่ยวข้องกับเรื่องจิตวิทยากับจิตวิญญาณในสถานที่ทำงาน และแนวทางในการพัฒนาจิตวิญญาณในสถานที่ทำงาน",
+        "สามารถวางแผนโดยนำความรู้ที่เกี่ยวกับจิตวิทยาไปใช้ในการพัฒนาจิตวิญญาณในสถานที่ทำงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาการตัดสินใจ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "207d9d5c-3624-44b7-b35c-ab5b4a363278",
+              "name": "สามารถวางแผนโดยนำความรู้ที่เกี่ยวกับจิตวิทยาไปใช้ในการพัฒนาจิตวิญญาณในสถานที่ทำงาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on spiritual psychology at work, not related to decision-making skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers psychology concepts applicable to workplace spirituality and personal development, relevant for decision-making and thinking tools."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "outcomes": [
+        "บอกขั้นตอนการสมัครงานและการจัดเตรียมข้อมูล สำหรับสมัครงานได้",
+        "จัดทำร่างข้อเสนอโครงงานสหกิจศึกษาได้",
+        "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม",
+        "ปฏิบัติงานร่วมกับผู้อื่นได้ด้วยความมุ่งมั่น สามัคคี และเคารพกฎระเบียบ",
+        "แสดงออกถึงการมีบุคลิกภาพที่ดี สื่อสารกับผู้อื่นได้อย่างชัดเจน ตรงประเด็น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "2c00b903-7dd2-40aa-b16e-2a70f6489448",
+              "name": "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Primarily career preparation and soft skills, unrelated to decision support tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on co-op preparation and job application skills, not directly related to decision-making tools."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "02738497-61",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "ค้นคว้า คัดกรองข้อมูลจากฐานข้อมูลบทความวิจัย เพื่อเลือกบทความวิจัยที่ต้องการนำเสนอได้อย่างถูกต้อง",
+        "อ่านและแปลบทความวิจัยภาษาอังกฤษ และสรุปใจความสำคัญได้อย่างถูกต้อง",
+        "อธิบายหลักการและเหตุผลในคำถามวิจัยของบทความวิจัยที่เลือกด้วยความรู้พื้นฐานในด้านวิทยาศาสตร์ชีวภาพได้",
+        "อธิบายความรู้พื้นฐานในด้านวิทยาศาสตร์ชีวภาพที่เกี่ยวข้องกับบทความวิจัยที่เลือกได้",
+        "อธิบายหลักการและเหตุผลในการออกแบบทดลองในของบทความวิจัยที่เลือกได้",
+        "อธิบายหลักการและเหตุผลของการใช้เครื่องมือในของบทความวิจัยที่เลือกได้",
+        "อภิปรายวิธีการทดลอง ผลการทดลอง ของบทความวิจัยที่เลือก ด้วยหลักการทางวิทยาศาสตร์ชีวภาพและหลักสถิติพื้นฐานได้ และตอบคำถามที่ต้องอาศัยกระบวนการคิดวิเคราะห์ได้อย่างมีเหตุผล",
+        "สร้างสื่อเพื่อนำเสนอข้อมูลของบทความวิจัยที่เลือกได้อย่างถูกต้อง และเหมาะสม",
+        "อ้างอิงแหล่งข้อมูลที่นำมานำเสนอได้อย่างถูกต้อง และไม่นำเสนอข้อมูลของผู้อื่นเป็นข้อมูลของตนเอง",
+        "สื่อสารและนำเสนอความรู้ และความคิดเห็น ในระดับทั่วไปและระดับวิชาการได้อย่างถูกต้อง และมีบุคลิกภาพเพื่อการสื่อสารที่เหมาะสม",
+        "มีส่วนร่วมในการเป็นผู้ฟังและผู้จัดสถานที่เพื่อการนำเสนอ   ตั้งคำถาม และ/หรือเสนอความคิดเห็นแก่ผู้นำเสนอโดยอ้างอิงจากความรู้ในด้านวิทยาศาสตร์ชีวภาพได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "bd36a333-ba44-405d-9f0e-809214a6cf8c",
+              "name": "อธิบายหลักการและเหตุผลของการใช้เครื่องมือในของบทความวิจัยที่เลือกได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Research presentation and analysis, not specifically decision support tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar course centered on scientific research presentation, not relevant to daily decision-making tools."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "02738497-66",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "ค้นคว้า คัดกรองข้อมูลจากฐานข้อมูลบทความวิจัย เพื่อเลือกบทความวิจัยที่ต้องการนำเสนอได้อย่างถูกต้อง",
+        "อ่านและแปลบทความวิจัยภาษาอังกฤษ และสรุปใจความสำคัญได้อย่างถูกต้อง",
+        "อธิบายหลักการและเหตุผลในคำถามวิจัยของบทความวิจัยที่เลือกด้วยความรู้พื้นฐานในด้านวิทยาศาสตร์ชีวภาพได้",
+        "อธิบายความรู้พื้นฐานในด้านวิทยาศาสตร์ชีวภาพที่เกี่ยวข้องกับบทความวิจัยที่เลือกได้",
+        "อธิบายหลักการและเหตุผลในการออกแบบทดลองในของบทความวิจัยที่เลือกได้",
+        "อธิบายหลักการและเหตุผลของการใช้เครื่องมือในของบทความวิจัยที่เลือกได้",
+        "อภิปรายวิธีการทดลอง ผลการทดลอง ของบทความวิจัยที่เลือก ด้วยหลักการทางวิทยาศาสตร์ชีวภาพและหลักสถิติพื้นฐานได้ และตอบคำถามที่ต้องอาศัยกระบวนการคิดวิเคราะห์ได้อย่างมีเหตุผล",
+        "สร้างสื่อเพื่อนำเสนอข้อมูลของบทความวิจัยที่เลือกได้อย่างถูกต้อง และเหมาะสม",
+        "อ้างอิงแหล่งข้อมูลที่นำมานำเสนอได้อย่างถูกต้อง และไม่นำเสนอข้อมูลของผู้อื่นเป็นข้อมูลของตนเอง",
+        "สื่อสารและนำเสนอความรู้ และความคิดเห็น ในระดับทั่วไปและระดับวิชาการได้อย่างถูกต้อง และมีบุคลิกภาพเพื่อการสื่อสารที่เหมาะสม",
+        "มีส่วนร่วมในการเป็นผู้ฟังและผู้จัดสถานที่เพื่อการนำเสนอ   ตั้งคำถาม และ/หรือเสนอความคิดเห็นแก่ผู้นำเสนอโดยอ้างอิงจากความรู้ในด้านวิทยาศาสตร์ชีวภาพได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "85671382-5fd8-4b9b-82c9-84d37a16fb5d",
+              "name": "อธิบายหลักการและเหตุผลของการใช้เครื่องมือในของบทความวิจัยที่เลือกได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Same as above, unrelated to decision support tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Same as above, focused on scientific research seminars, irrelevant to the question."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01420472-66",
+      "subjectName": "วัสดุศาสตร์ II",
+      "outcomes": [
+        "อธิบายโครงสร้างผลึกและจุลภาคของวัสดุทางวิศวกรรม (เช่น โลหะ เซรามิก พอลิเมอร์ วัสดุผสม) ได้",
+        "คำนวณค่าที่เกี่ยวข้องกับสมบัติเชิงกล ความร้อน แสงและไฟฟ้าของวัสดุต่าง ๆ",
+        "สามารถวิเคราะห์และเลือกวัสดุที่เหมาะสมกับการใช้งานได้",
+        "ทำงานเป็นทีมและสื่อสารผลการวิเคราะห์ด้านวัสดุศาสตร์ได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "91dafd3a-56bf-44a3-8eac-485bf666279e",
+              "name": "สามารถวิเคราะห์และเลือกวัสดุที่เหมาะสมกับการใช้งานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Materials science, unrelated to decision support tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Material science course unrelated to decision-making or thinking tools for daily life."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01074523-68",
+      "subjectName": "ปฏิบัติการในอุตสาหกรรมเครื่องดื่ม",
+      "outcomes": [
+        "ปฏิบัติการโดยใช้เครื่องมือได้ตรงตามวัตถุประสงค์ของการผลิตเครื่องดื่มรวมถึงการวิเคราะห์และควบคุมคุณภาพ",
+        "เลือกเครื่องมือในหน่วยปฏิบัติการการผลิตเครื่องดื่มและการวิเคราะห์คุณภาพเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "5726a742-324e-4488-a43a-420ad619f0d0",
+              "name": "เลือกเครื่องมือในหน่วยปฏิบัติการการผลิตเครื่องดื่มและการวิเคราะห์คุณภาพเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Practical industry operations, not related to decision support."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Industrial beverage production course unrelated to decision-making tools."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "subjectCode": "01448213-68",
+      "subjectName": "การวิเคราะห์ลักษณะเฉพาะของวัสดุ",
+      "outcomes": [
+        "อธิบายหลักการของเครื่องมือและเทคนิควิเคราะห์ลักษณะเฉพาะของวัสดุได้",
+        "เลือกใช้เครื่องมือหรือเทคนิควิเคราะห์ลักษณะเฉพาะของวัสดุที่เหมาะสมกับงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "4866dfd1-87f1-4b15-984a-49bbe336fb16",
+              "name": "เลือกใช้เครื่องมือหรือเทคนิควิเคราะห์ลักษณะเฉพาะของวัสดุที่เหมาะสมกับงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Material analysis, unrelated to decision support tools."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on material analysis techniques, not relevant to decision-making tools for daily life."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1900,
+      "outputTokens": 312
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2280,
+      "outputTokens": 342
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2386,
+      "outputTokens": 344
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1840,
+      "outputTokens": 317
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2182,
+      "outputTokens": 355
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2251,
+      "outputTokens": 262
+    }
+  ]
+}

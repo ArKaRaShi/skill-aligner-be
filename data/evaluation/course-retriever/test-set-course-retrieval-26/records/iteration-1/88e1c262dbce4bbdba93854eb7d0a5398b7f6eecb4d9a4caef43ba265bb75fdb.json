@@ -1,0 +1,126 @@
+{
+  "testCaseId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การทำอาหารไทย",
+  "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+  "skill": "การทำอาหารไทย",
+  "retrievedCount": 10,
+  "evaluations": [
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on general food processing, nutrition, and food sources, with no mention of Thai cooking."
+    },
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 2,
+      "reason": "Covers international cuisine including Eastern food preparation, which may include some Thai cooking, but not focused solely on Thai cuisine."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 1,
+      "reason": "General principles of food preparation and cooking without specific mention of Thai cuisine; Thai cooking may be marginally included."
+    },
+    {
+      "subjectCode": "01017412-66",
+      "subjectName": "การผลิตขนมไทย",
+      "relevanceScore": 3,
+      "reason": "Specifically focuses on Thai desserts (ขนมไทย), a key part of Thai cooking, covering production and scientific knowledge."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural product processing engineering, unrelated to Thai cooking skills."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural product development and market design, no mention of Thai cooking."
+    },
+    {
+      "subjectCode": "01390428-64",
+      "subjectName": "การท่องเที่ยวเชิงอาหาร",
+      "relevanceScore": 2,
+      "reason": "Focuses on food tourism including Thai food and wisdom, relevant to Thai cuisine but from a tourism perspective rather than cooking skills."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 1,
+      "reason": "Focuses on food service management and production for commerce, with no specific focus on Thai cooking."
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on advanced food quality measurement, unrelated to cooking skills."
+    },
+    {
+      "subjectCode": "01017497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar on academic research in food and nutrition, no direct focus on Thai cooking."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 10,
+    "meanRelevanceScore": 0.9,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 10,
+        "microAverageRate": 10,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.502,
+        "at10": 0.664,
+        "at15": 0.664,
+        "atAll": 0.664
+      },
+      "ideal": {
+        "at5": 0.345,
+        "at10": 0.296,
+        "at15": 0.23,
+        "atAll": 0.296
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.3,
+      "at15": 0.3,
+      "atAll": 0.3
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1976,
+  "outputTokens": 352
+}

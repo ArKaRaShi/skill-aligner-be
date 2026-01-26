@@ -1,0 +1,25 @@
+{
+  "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+  "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+  "systemAnswer": "การลองทำ web app หรือ mobile app อาจเกี่ยวข้องกับหลายด้าน เช่น **การพัฒนาเว็บแอปพลิเคชัน**, **การพัฒนาโมบายแอปพลิเคชัน**, **การใช้ฐานข้อมูลและการจัดการข้อมูล**, หรือ **การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)** ซึ่งแต่ละด้านอาจช่วยสำรวจแนวคิดพื้นฐานได้ โดยอิงจากผลลัพธ์การเรียนรู้ของรายวิชาที่มี  \n\nด้าน **การใช้ฐานข้อมูลและการจัดการข้อมูล** ซึ่งมักเป็นส่วนสำคัญสำหรับ app ที่ต้องเก็บและดึงข้อมูล รายวิชา **ระบบฐานข้อมูล (03603251-65)** ครอบคลุมการอธิบายองค์ประกอบพื้นฐานของระบบฐานข้อมูลเชิงสัมพันธ์ การออกแบบแบบจำลองความสัมพันธ์เอนทิตี การสร้างคำสั่งภาษาสอบถามเชิงโครงสร้าง (SQL) และการจัดการทรานแซคชัน แต่ไม่ครอบคลุมการเชื่อมต่อกับ frontend ของ web หรือ mobile app โดยตรง ส่วนรายวิชา **ระบบฐานข้อมูลและการประยุกต์ (04256141-66)** ช่วยให้วิเคราะห์ ออกแบบ และสร้างฐานข้อมูลเชิงสัมพันธ์ตามความต้องการผู้ใช้ รวมถึงนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูล ซึ่งอาจเป็นจุดเริ่มต้นสำหรับการทดลอง app ที่มีข้อมูล แต่ยังไม่เน้นการพัฒนา UI หรือ deployment  \n\nด้าน **การพัฒนาเว็บแอปพลิเคชัน** รายวิชา **วิศวกรรมซอฟต์แวร์ (02739321-64)** ครอบคลุมการอธิบายกระบวนการวิศวกรรมซอฟต์แวร์และการพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานในรูปแบบเว็บไซต์ ซึ่งอาจช่วยสำรวจการสร้างเว็บเบื้องต้น แต่ไม่ระบุเครื่องมือหรือเฟรมเวิร์กเฉพาะ และไม่ครอบคลุม mobile app ส่วนรายวิชา **ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี (01242321-67)** ช่วยให้สร้างต้นแบบผลิตภัณฑ์ที่แสดงการใช้สอยจากเทคโนโลยี ซึ่งอาจนำไปประยุกต์กับ web หรือ mobile prototype ได้ในทางอ้อม แต่เน้นการออกแบบผลิตภัณฑ์มากกว่าการเขียนโค้ด app เต็มรูปแบบ  \n\nสำหรับ **การพัฒนาโมบายแอปพลิเคชัน** หรือด้านที่เกี่ยวข้อง เช่น **การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter** รายวิชาในชุดข้อมูลนี้ส่วนใหญ่ไม่ครอบคลุมโดยตรง เช่น รายวิชา **ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ (01204161-65)** สามารถสร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่าย แต่เน้น AI มากกว่าการพัฒนา mobile app ทั่วไป และรายวิชา **ไมโครคอนโทรลเลอร์สำหรับวิศวกรรมเกษตร (02201445-66)** ครอบคลุมการพัฒนาแอปพลิเคชันควบคุมอุปกรณ์บนสมาร์ทโฟน แต่จำกัดเฉพาะบริบทเกษตรและ hardware  \n\nรายวิชาเหล่านี้ส่วนใหญ่ให้มุมมองพื้นฐานหรือด้านสนับสนุน เช่น การจัดการข้อมูล การออกแบบ prototype หรือกระบวนการพัฒนาซอฟต์แวร์ ซึ่งอาจช่วยสำรวจแนวคิดเบื้องต้นสำหรับ web app หรือ mobile app ได้ แต่ไม่มีรายวิชาใดที่ตรงกับการทำ app เต็มรูปแบบโดยตรงตามผลลัพธ์การเรียนรู้ที่ระบุ หากสนใจด้านเฉพาะเจาะจงเพิ่มเติม อาจสำรวจผลลัพธ์การเรียนรู้เหล่านี้เพื่อดูช่องว่างต่อไป",
+  "judgeVerdict": {
+    "faithfulness": {
+      "score": 4,
+      "reasoning": "Mostly accurate and grounded in the provided context: the answer correctly links database courses (03603251, 04256141) to data skills, software-engineering and prototyping courses (02739321, 01242321) to web/prototype development, and notes AI- or hardware-focused courses for specific mobile-app cases (01204161, 02201445). Internal claims (e.g., DB course not covering frontend integration) match the learning outcomes. Minor overgeneralization: the answer asserts that no course directly covers full end-to-end app development, but the context does include some courses that explicitly mention mobile app development or frameworks (e.g., smartphone app control, mapped skills referencing React/Flutter), so that absolute claim is slightly unsupported."
+    },
+    "completeness": {
+      "score": 5,
+      "reasoning": "Excellent bridging: the answer groups relevant skills (web, mobile, DB, UI/UX), cites specific courses and which aspects they cover, and explains how each course can help someone who wants to try building a web or mobile app. It also points out gaps and suggests reviewing learning outcomes to identify what additional skills might be needed."
+    }
+  },
+  "overallScore": 4.5,
+  "passed": true,
+  "courseCount": 32,
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 9360,
+      "outputTokens": 1807
+    }
+  ]
+}

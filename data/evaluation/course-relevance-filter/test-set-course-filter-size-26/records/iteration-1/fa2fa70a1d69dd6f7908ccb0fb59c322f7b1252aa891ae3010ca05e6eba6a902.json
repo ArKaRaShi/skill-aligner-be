@@ -1,0 +1,2611 @@
+{
+  "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+  "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+  "courses": [
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "outcomes": [
+        "อธิบายความหมาย แนวคิด หลักการ และความสำคัญของการบัญชีเพื่อการจัดการ รูปแบบกระบวนการผลิต และประเภทต้นทุน",
+        "สามารถคำนวณต้นทุนผลิตภัณฑ์  จัดทำงบต้นทุนผลิต และงบกำไรขาดทุนเพื่อใช้ในการบริหารจัดการ",
+        "สามารถการจัดทำงบประมาณของธุรกิจผลิต",
+        "สามารถนำข้อมูลต้นทุนมาวิเคราะห์เพื่อใช้ในการวางแผน ควบคุม ประเมินผลปฏิบัติงาน และการตัดสินใจลงทุน",
+        "มีทักษะในการประสานงานกับผู้อื่น  การทำงานร่วมกับผู้อื่นได้อย่างมีความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "0a406337-1db6-4e38-8873-d08b33c3ec69",
+              "name": "สามารถการจัดทำงบประมาณของธุรกิจผลิต"
+            }
+          ]
+        },
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a4b536ae-a2a7-40b2-9861-c0737c6fee34",
+              "name": "มีทักษะในการประสานงานกับผู้อื่น  การทำงานร่วมกับผู้อื่นได้อย่างมีความรับผิดชอบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on budgeting and cost analysis directly applicable to event planning and management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on accounting and cost management, which is not directly relevant to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "outcomes": [
+        "อธิบายระดับการสื่อสาร",
+        "อธิบายแนวคิด ทฤษฎี การสื่อสารมวลชน เบื้องต้น",
+        "ประยุกต์แนวคิดด้านการสื่อสารเพื่ออธิบาย การสื่อสารในสื่อมวลชนได้",
+        "สามารถนําจริยธรรมของสื่อมวลชนมาใช้เพื่อ การสื่อสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "c72d4a74-01b4-4f16-8ffd-a20cbb462532",
+              "name": "อธิบายระดับการสื่อสาร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on communication theories and media, directly relevant to event communication and coordination."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Communication principles are useful for event planning and managing communication with stakeholders."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "04403697-67",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "สามารถอธิบาย วิเคราะห์ สังเคราะห์และวิพากษ์ประเด็นปัญหาที่น่าสนใจทางวิทยาศาสตร์สุขภาพหนึ่งเดียว",
+        "มีทักษะในการสื่อสารและนำเสนอผลงานทางวิชาการได้อย่างชำนาญ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "6a8d2181-af2c-4949-b001-283fce2d7662",
+              "name": "มีทักษะในการสื่อสารและนำเสนอผลงานทางวิชาการได้อย่างชำนาญ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Includes skills in communication, analysis, and presentation directly relevant to event organization."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar skills focus on scientific health topics and academic presentation, not event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01661313-65",
+      "subjectName": "การสื่อสารเพื่อการจัดการสิ่งแวดล้อม",
+      "outcomes": [
+        "อธิบายบทบาทและความสำคัญของการสื่อสารในการจัดการสิ่งแวดล้อม",
+        "วิเคราะห์และประเมินกลุ่มเป้าหมายเพื่อการสื่อสารที่มีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "9111cb40-082a-46e0-8453-960e218f26b6",
+              "name": "อธิบายบทบาทและความสำคัญของการสื่อสารในการจัดการสิ่งแวดล้อม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on communication in environmental management, directly relevant to event communication and coordination."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Environmental communication is too specialized and not directly related to event planning."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "outcomes": [
+        "อธิบายลักษณะและกระบวนการทางการตลาด แนวความคิด บทบาท ความสำคัญ หน้าที่และปัจจัยทางการตลาด การแบ่งส่วนตลาด  การเลือกตลาดเป้าหมาย พฤติกรรมผู้บริโภค",
+        "อธิบายส่วนประสมการตลาด และการวิจัยการตลาดเบื้องต้น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "c74978ea-5a9b-4633-b5fd-755e7295d7f9",
+              "name": "อธิบายส่วนประสมการตลาด และการวิจัยการตลาดเบื้องต้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Provides essential marketing concepts directly applicable to event marketing and promotion."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Marketing principles are relevant for promoting and managing events effectively."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02802241-67",
+      "subjectName": "หลักการวางแผนการจัดงานอีเวนต์",
+      "outcomes": [
+        "สามารถบอกขั้นตอนการดำเนินงานธุรกิจอีเวนต์ได้",
+        "สามารถสาธิตรูปแบบและหลักการวางแผนการดำเนินงานธุรกิจอีเวนต์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "d81279fd-3f99-4d57-9304-47d0a8a1a3b2",
+              "name": "สามารถบอกขั้นตอนการดำเนินงานธุรกิจอีเวนต์ได้"
+            },
+            {
+              "id": "3f104d26-a89a-4e87-8020-fd9667d430f1",
+              "name": "สามารถสาธิตรูปแบบและหลักการวางแผนการดำเนินงานธุรกิจอีเวนต์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "d81279fd-3f99-4d57-9304-47d0a8a1a3b2",
+              "name": "สามารถบอกขั้นตอนการดำเนินงานธุรกิจอีเวนต์ได้"
+            },
+            {
+              "id": "3f104d26-a89a-4e87-8020-fd9667d430f1",
+              "name": "สามารถสาธิตรูปแบบและหลักการวางแผนการดำเนินงานธุรกิจอีเวนต์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches the principles and steps of planning and executing events, directly matching the user's goal."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Directly teaches planning and execution of event business, highly relevant."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02802242-67",
+      "subjectName": "อุตสาหกรรมอีเวนต์",
+      "outcomes": [
+        "สามารถบอกความสำคัญ และการจัดงานในอุตสาหกรรมอีเวนต์ได้",
+        "สามารถสาธิตขั้นตอนกระบวนการจัดงานในอุตสาหกรรมอีเวนต์แต่ละประเภทได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "33a1246a-24fc-4b92-951c-4418c1d9bec9",
+              "name": "สามารถบอกความสำคัญ และการจัดงานในอุตสาหกรรมอีเวนต์ได้"
+            },
+            {
+              "id": "4d2ab2df-2c20-439c-989a-072f19a7958c",
+              "name": "สามารถสาธิตขั้นตอนกระบวนการจัดงานในอุตสาหกรรมอีเวนต์แต่ละประเภทได้"
+            }
+          ]
+        },
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "33a1246a-24fc-4b92-951c-4418c1d9bec9",
+              "name": "สามารถบอกความสำคัญ และการจัดงานในอุตสาหกรรมอีเวนต์ได้"
+            },
+            {
+              "id": "4d2ab2df-2c20-439c-989a-072f19a7958c",
+              "name": "สามารถสาธิตขั้นตอนกระบวนการจัดงานในอุตสาหกรรมอีเวนต์แต่ละประเภทได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches the process and importance of event organization, directly related to designing and decorating events."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers event industry knowledge and event organization processes, directly relevant."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "outcomes": [
+        "สามารถอธิบายหลักการของความปลอดภัยในอุตสาหกรรมได้",
+        "สามารถอธิบายหลักการของสภาพแวดล้อมในการทำงานที่อาจก่อให้เกิดอันตรายได้",
+        "สามารถอธิบายหลักการป้องกันอัคคีภัยเบื้องต้นในอุตสาหกรรมได้",
+        "สามารถประเมินความเสี่ยงในการทำงานได้",
+        "สามารถเสนอแนวทางในการป้องกันการเกิดอุบัติเหตุในการทำงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "01b9513a-3e3b-4972-bcea-91a3f540f60b",
+              "name": "สามารถประเมินความเสี่ยงในการทำงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Explicitly teaches safety principles, hazard assessment, and accident prevention, directly aligned with event safety management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Industrial safety is not specifically related to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02193311-67",
+      "subjectName": "การจัดการความปลอดภัยในสถานศึกษาและชุมชน",
+      "outcomes": [
+        "อธิบายและวิเคราะห์การจัดการความปลอดภัยในสถานศึกษาและชุมชน ที่จำเป็นต่อการดำรงชีวิต การประกอบอาชีพ และสามารถนำไปประยุกต์ใช้ในการจัดการเรียนรู้ และการทำวิจัยในชั้นเรียน",
+        "ฝึกทักษะความสามารถทางกิจกรรมทางกาย สมรรถภาพทางกาย พฤติกรรมสุขภาพ ดิจิทัล และสามารถนำไปประยุกต์ใช้ในการจัดการเรียนรู้ และการทำวิจัยในชั้นเรียน",
+        "แสดงพฤติกรรมที่สะท้อนความซื่อสัตย์สุจริต มีวินัย ขยันหมั่นเพียร เอื้อเฟื้อเผื่อแผ่ เมตตา โอบอ้อมอารี ช่วยเหลือผู้อื่น เสียสละ เห็นอกเห็นใจผู้อื่น จิตอาสา จิตสาธารณะ และการรักษาสิ่งแวดล้อม",
+        "ฝึกทักษะการเรียนรู้และประสบการณ์ที่ดี เพื่อพัฒนาภาวะผู้นำ ทำงานเป็นทีม มีความคิดสร้างสรรค์ ความคิดวิจารณญาณ ค่านิยมทางสุขภาพ มีความรับผิดชอบ เป็นแบบอย่างที่ดี บุคลิกภาพดี สื่อสารอย่างมีประสิทธิภาพ มีน้ำใจนักกีฬา รู้ดิจิทัล และรู้เท่าทันสื่อ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "d27d452c-08aa-45b9-ac90-4860d6e59806",
+              "name": "อธิบายและวิเคราะห์การจัดการความปลอดภัยในสถานศึกษาและชุมชน ที่จำเป็นต่อการดำรงชีวิต การประกอบอาชีพ และสามารถนำไปประยุกต์ใช้ในการจัดการเรียนรู้ และการทำวิจัยในชั้นเรียน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Explicitly teaches safety management in community and school settings, directly relevant."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on safety management in schools and communities, not event planning."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "outcomes": [
+        "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+        "จัดทำงบประมาณธุรกิจต่างๆ",
+        "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            },
+            {
+              "id": "22fa92fd-9ba3-4e53-a004-5f02381e8c82",
+              "name": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "890d0df3-519d-429e-b23d-7d1de8bdd3eb",
+              "name": "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร"
+            },
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            },
+            {
+              "id": "22fa92fd-9ba3-4e53-a004-5f02381e8c82",
+              "name": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "22fa92fd-9ba3-4e53-a004-5f02381e8c82",
+              "name": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches budgeting and financial planning, which are essential for managing event budgets."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Profit planning and control is business finance focused, not specific to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "outcomes": [
+        "อธิบายหลักการบัญชีบริหาร",
+        "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์",
+        "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers strategic management accounting and cost analysis, relevant for budget management in events."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on strategic management accounting, not related to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "outcomes": [
+        "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์",
+        "สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์",
+        "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์",
+        "ใช้ช้อมูลการบัญชีบริหารที่เป็นตัวเงินและไม่เป็นตัวเงินเพื่อประเมินผลการปฏิบัติงานเชิงกลยุทธ์ของกิจการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c70ceb7e-3d99-486b-8523-b7c72ae45b46",
+              "name": "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์"
+            },
+            {
+              "id": "30aac482-71d3-49d2-a107-631a19296ee0",
+              "name": "สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์"
+            },
+            {
+              "id": "335b4c5f-c29c-40cf-914e-871cfbcd900c",
+              "name": "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes strategic cost management and reporting, useful for budget control."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on management accounting for strategic decisions, irrelevant to event planning."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03602351-65",
+      "subjectName": "การวิเคราะห์ต้นทุนทางอุตสาหกรรม",
+      "outcomes": [
+        "สามารถหาต้นทุนการผลิต จัดทำงบประมาณต้นทุนการผลิตและองค์ประกอบของต้นทุนการผลิต",
+        "สามารถจัดทำงบประมาณกรณีสายการผลิตมีลักษณะแบบงานสั่งผลิตและแบบกระบวนการ",
+        "สามารถวิเคราะห์และหาความสัมพันธ์ระหว่างต้นทุน ปริมาณและกำไรได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "03c2e22e-8f48-4cc6-ad9f-075a2b91531c",
+              "name": "สามารถจัดทำงบประมาณกรณีสายการผลิตมีลักษณะแบบงานสั่งผลิตและแบบกระบวนการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides cost analysis skills relevant for managing event budgets."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers industrial cost analysis, no direct relevance to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03760331-64",
+      "subjectName": "หลักการบัญชีต้นทุน II",
+      "outcomes": [
+        "สามารถจัดข้อมูลบัญชีต้นทุนเพื่อการทำงานของผู้บริหาร สำหรับการตัดสินใจ วางแผน สั่งการและจูงใจ ควบคุมและประเมินผล",
+        "สามารถใช้โปรแกรมคอมพิวเตอร์วิเคราะห์และจัดทำข้อมูลบัญชีต้นทุนตามวัตถุประสงค์ทางการบริหารได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2f3f9f68-02e4-4da6-94aa-9548a98031a7",
+              "name": "สามารถจัดข้อมูลบัญชีต้นทุนเพื่อการทำงานของผู้บริหาร สำหรับการตัดสินใจ วางแผน สั่งการและจูงใจ ควบคุมและประเมินผล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Cost accounting skills applicable for budget planning and control."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Cost accounting principles unrelated to event organization skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03760231-64",
+      "subjectName": "หลักการบัญชีต้นทุน I",
+      "outcomes": [
+        "สามารถจัดทำงานบัญชีต้นทุนตลอดวงจรปีงบประมาณขององค์การได้",
+        "สามารถประยุกต์โปรแกรมคอมพิวเตอร์วิเคราะห์ข้อมูลและจัดทำข้อมูลบัญชีต้นทุนและรายงานทางการเงินได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2c85bab1-7a41-41b4-8641-b67483e21ff9",
+              "name": "สามารถจัดทำงานบัญชีต้นทุนตลอดวงจรปีงบประมาณขององค์การได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Fundamental cost accounting knowledge relevant for managing event budgets."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic cost accounting course, not connected to event planning."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02999042-67",
+      "subjectName": "การพัฒนานิสิต",
+      "outcomes": [
+        "สามารถอธิบายหลักนิติธรรม และจริยธรรม ในการใช้ชีวิตได้",
+        "สามารถอธิบายความแตกต่างหลากหลายทางวัฒนธรรมของสังคม",
+        "สามารถประสานงานและทำงานร่วมกับผู้อื่นได้",
+        "สามารถดำเนินโครงการตามหลัก pdca ได้",
+        "สามารถใช้สื่อสารสนเทศในการเรียนรู้ตลอดชีวิตและพัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e06bfde3-180a-41a8-b97f-fc1cdf81a74f",
+              "name": "สามารถประสานงานและทำงานร่วมกับผู้อื่นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes coordination and communication skills, foundational for event organization."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches project management (PDCA) and teamwork skills useful for event organization."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03764322-64",
+      "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+      "outcomes": [
+        "สามารถอธิบายความสำคัญของการเจรจาต่อรองเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง",
+        "สามารถอธิบายหลักการเจรจาต่อรองพื้นฐานเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง",
+        "สามารถเข้าใจและนำเสนอความรู้ด้านการเจรจาต่อรองเบื้องต้นเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง",
+        "สามารถสื่อสารและทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ",
+        "สามารถประยุกต์ใช้ความรู้ในการเจรจาต่อรองเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1245abef-5c1f-4a6e-b88f-3f0ab261727a",
+              "name": "สามารถสื่อสารและทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Negotiation and communication skills relevant to coordination, but not specific to event management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Negotiation skills and communication are enabling tools relevant to managing events."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "outcomes": [
+        "ประยุกต์องค์ความรู้ไปสู่การปฏิบัติการไปใช้ในสถานการณ์จริง",
+        "มีทักษะในการปฏิบัติการได้ถูกต้อง",
+        "มีทักษะในสื่อสารทั้งด้านภาษาและเทคโนโลยี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e8f83229-f353-4102-89e8-f3a931c5f89a",
+              "name": "มีทักษะในสื่อสารทั้งด้านภาษาและเทคโนโลยี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Practical skills and communication are included, relevant to event coordination."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Internship in rehabilitation science unrelated to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "outcomes": [
+        "อธิบายหลักการและวัตถุประสงค์ของการ ประชาสัมพันธ์ได้",
+        "อธิบายทฤษฎีที่เกี่ยวข้องกับการประชา สัมพันธ์ได้",
+        "วิเคราะห์ปัญหาและกําหนดแผนงาน ประชาสัมพันธ์ได้",
+        "อธิบายจริยธรรมและจรรยาบรรณของ นักประชาสัมพันธ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "928f3afc-3709-4b2a-9d28-9603ef2b2ade",
+              "name": "อธิบายหลักการและวัตถุประสงค์ของการ ประชาสัมพันธ์ได้"
+            },
+            {
+              "id": "6532894d-6e5b-462e-bb28-f08c7f11af2b",
+              "name": "วิเคราะห์ปัญหาและกําหนดแผนงาน ประชาสัมพันธ์ได้"
+            },
+            {
+              "id": "402a0d73-ac63-4fe5-8d65-d80b8f6226cd",
+              "name": "อธิบายจริยธรรมและจรรยาบรรณของ นักประชาสัมพันธ์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6532894d-6e5b-462e-bb28-f08c7f11af2b",
+              "name": "วิเคราะห์ปัญหาและกําหนดแผนงาน ประชาสัมพันธ์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches principles and planning of PR, which are foundational for event PR and promotion."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Public relations principles are directly relevant to event organization."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "outcomes": [
+        "เพื่อให้นิสิตเข้าใจถึงบทบาทและความสำคัญของการจัดการการตลาด",
+        "เพื่อให้นิสิตสามารถวิเคราะห์โอกาสทางการตลาด และนำไปประยุกต์ใช้กับวิชาชีพได้จริง",
+        "เพื่อฝึกทักษะในการทำงานร่วมกัน  การสร้างสรรค์แผนการตลาดและการจัดทำแผนการตลาด  ตลอดจนรูปแบบในการนำเสนอแผนการตลาด"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "59808bbe-fa9b-4b49-9654-a15d9110e5ce",
+              "name": "เพื่อให้นิสิตเข้าใจถึงบทบาทและความสำคัญของการจัดการการตลาด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on marketing management skills that underpin event marketing strategies."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Marketing management skills are useful and relevant for organizing events."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "outcomes": [
+        "มีสำนึกดี มีความซื่อสัตย์ มีความรับผิดชอบต่อสังคมในการใช้แนวคิดเพื่อการเขียน",
+        "อธิบายแนวคิดหลักการตลาดเชิงเนื้อหา พัฒนาการของสื่อและเทคโนโลยีทางการตลาด",
+        "แสวงหาความรู้เพิ่มเติมจากแหล่งข้อมูลที่หลากหลาย ด้วยการสัมภาษณ์ผู้เชี่ยวชาญในวิชาชีพต่างๆหรือเก็บข้อมูลจากสถานประกอบการเพื่อมาใช้ในการผลิตเนื้อหา",
+        "มีมนุษยสัมพันธ์ที่ดีในการร่วมกันทำงานเป็นทีม สามารถปรับตัวให้เข้ากับสถานการณ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ac45aefb-553a-483f-b8bc-e1c463ed0937",
+              "name": "อธิบายแนวคิดหลักการตลาดเชิงเนื้อหา พัฒนาการของสื่อและเทคโนโลยีทางการตลาด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers content marketing and media technology, useful for promotional activities at events."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers media and technology for content marketing, useful for event marketing and promotion."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "outcomes": [
+        "อธิบายความสำคัญของการสร้างแบรนด์ในแต่ละขั้นตอนของการออกแบบกลยุทธ์และการสร้างการเติบโตให้ธุรกิจอย่างยั่งยืน",
+        "สร้างแนวคิดของแบรนด์และออกแบบเอกลักษณ์ของแบรนด์ที่แตกต่างกันตามกลุ่มลูกค้า รวมถึงกำหนดกลยุทธ์สำหรับการสร้างเนื้อหา",
+        "พัฒนาแผนกลยุทธ์ที่เป็นระยะสั้นและระยะยาวสำหรับการแข่งขัน รวมถึงกลยุทธ์การสื่อสารในช่องทางการตลาดแบบผสมผสานสำหรับนวัตกรรม",
+        "สื่อสารได้อย่างมีประสิทธิผล เพื่อถ่ายทอดความคิดที่แสดงถึงการทดสอบการนำแนวคิดและทฤษฎีมาประยุกต์กับข้อมูลทางการตลาด"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "46960f73-fa49-469f-9534-4c790fd063ce",
+              "name": "สื่อสารได้อย่างมีประสิทธิผล เพื่อถ่ายทอดความคิดที่แสดงถึงการทดสอบการนำแนวคิดและทฤษฎีมาประยุกต์กับข้อมูลทางการตลาด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches brand management, which is important for promoting and branding events."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on brand creation and management is relevant for event branding and marketing strategy."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01136113-68",
+      "subjectName": "เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด",
+      "outcomes": [
+        "มีวินัยและซื่อสัตย์",
+        "อธิบายความสำคัญของเศรษฐศาสตร์และผลกระทบต่อด้านการตลาดได้",
+        "ทำงานกลุ่มตามที่มอบหมายได้สำเร็จ",
+        "แสดงพฤติกรรมในการปรับตัว ยอมรับมุมมองที่หลากหลาย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "fd86bf7c-b094-40d9-8be5-b1d8e21d11a3",
+              "name": "อธิบายความสำคัญของเศรษฐศาสตร์และผลกระทบต่อด้านการตลาดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides economic principles useful for strategic marketing decisions in events."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Applied economics for marketers provides foundational knowledge useful in event marketing decisions."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01242121-67",
+      "subjectName": "ปฏิบัติการออกแบบภาพและวัตถุ",
+      "outcomes": [
+        "สามารถออกแบบจัดองค์ประกอบศิลป์",
+        "สร้างผลงานการจัดองค์ประกอบศิลป์และวัตถุได้ตามแนวคิด"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "56008bd3-af66-444d-8a70-538cb49fac8f",
+              "name": "สามารถออกแบบจัดองค์ประกอบศิลป์"
+            },
+            {
+              "id": "0ff4b183-c99d-4664-8885-727bfb3eacde",
+              "name": "สร้างผลงานการจัดองค์ประกอบศิลป์และวัตถุได้ตามแนวคิด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "This course teaches design composition and creating visual works, which are foundational skills useful for designing event decorations."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Designing images and objects supports event visual design and decoration skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "outcomes": [
+        "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ",
+        "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches digital design tools which can be useful for designing event decorations."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Computer-aided product design skills can aid in creating event materials and displays."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "outcomes": [
+        "สามารถประเมินประสิทธิภาพการควบคุมภายในได้",
+        "สามารถประเมินและบริหารความเสี่ยงได้",
+        "สามารถวิเคราะห์หลักการกำกับดูแลได้",
+        "สามารถตรวจสอบภายในด้านต่างๆ ได้",
+        "มีความรับผิดชอบต่อหน้าที่ ซื่อสัตย์ ตรงต่อเวลา และสามารถทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7255f585-21e3-4b8a-b5e3-0eb7183ad1cc",
+              "name": "สามารถประเมินและบริหารความเสี่ยงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches risk assessment and internal control, relevant for managing event safety and risk."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Internal audit and control principles are unrelated to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03764426-64",
+      "subjectName": "การจัดการความเสี่ยงโซ่อุปทาน",
+      "outcomes": [
+        "สามารถวิเคราะห์เหตุการณ์ความเสี่ยงในโซ่อุปทานได้อย่างมีความรับผิดชอบต่อผู้มีส่วนได้ส่วนเสีย",
+        "สามารถอธิบายหลักการ และแนวคิดการจัดการความเสี่ยงได้อย่างถูกต้องตามหลักการ",
+        "สามารถตอบสนองต่อเหตุการณ์ความเสี่ยงในโซ่อุปทานได้อย่างถูกต้องตามหลักการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ec4d4a23-382e-43c1-8ee8-ba073b7665cb",
+              "name": "สามารถอธิบายหลักการ และแนวคิดการจัดการความเสี่ยงได้อย่างถูกต้องตามหลักการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on supply chain risk management, which is related to overall risk management in event planning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Supply chain risk management is not directly relevant to event planning."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "04401463-65",
+      "subjectName": "สวัสดิศึกษา",
+      "outcomes": [
+        "อธิบายแนวคิดหลักเกี่ยวกับสวัสดิศึกษา อุบัติเหตุ การบาดเจ็บ และการใช้ชีวิตอย่างปลอดภัยได้อย่างถูกต้อง",
+        "วิเคราะห์สาเหตุของอุบัติเหตุและภัยต่างๆ พร้อมทั้งออกแบบแผนการป้องกันในระดับบ้าน โรงเรียน ชุมชน และสถานประกอบการได้",
+        "ประเมินและเลือกใช้วิธีการในการจัดการความปลอดภัย เช่น การใช้ยาอย่างปลอดภัย การป้องกันอัคคีภัย และการบรรเทาสาธารณภัยได้อย่างเหมาะสม",
+        "สื่อสารและส่งเสริมแนวทางการใช้ชีวิตอย่างมีสุขภาพดีในบริบทของสวัสดิศึกษาได้อย่างสร้างสรรค์และมีจริยธรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a62efe95-eab6-41d4-89b8-38382b276e1a",
+              "name": "ประเมินและเลือกใช้วิธีการในการจัดการความปลอดภัย เช่น การใช้ยาอย่างปลอดภัย การป้องกันอัคคีภัย และการบรรเทาสาธารณภัยได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes safety concepts, accident analysis, and safety planning, directly relevant to event safety and risk management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Occupational safety concepts are not specifically related to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03651232-65",
+      "subjectName": "คณิตศาสตร์ประกันภัยและการบริหารความเสี่ยง",
+      "outcomes": [
+        "อธิบายแนวคิดเกี่ยวกับการประกันภัย การประกันชีวิต การประกันวินาศภัย และประกันภัยต่อได้",
+        "คำนวณเงินสำรองประกันภัย อัตราผลตอบแทนและต้นทุนแบบประกันชีวิตได้",
+        "อธิบายเงื่อนไขของสัญญาประกันภัยได้",
+        "วิเคราะห์ความเสี่ยงและแนวโน้มของธุรกิจประกันภัยได้",
+        "ปฏิบัติงานที่ได้รับมอบหมาย และทำงานร่วมกับผู้อื่นด้วยความรับผิดชอบ พร้อมทั้งเคารพกฎระเบียบของสังคมตามจรรยาบรรณวิชาชีพประกันภัยได้",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "81271838-65b3-4312-9ad0-6bd687bddcb4",
+              "name": "วิเคราะห์ความเสี่ยงและแนวโน้มของธุรกิจประกันภัยได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers risk analysis and insurance concepts, foundational for understanding risk management in events."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Insurance mathematics and risk management are not directly applicable to event organizing."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01442515-68",
+      "subjectName": "ความปลอดภัยเชิงปฏิบัติการ",
+      "outcomes": [
+        "ระบุประเภทของอันตรายในห้องปฏิบัติการได้",
+        "ประเมินความเสี่ยงในห้องปฏิบัติการได้",
+        "วิเคราะห์ผลกระทบด้านความปลอดภัยที่อาจเกิดขึ้นทั้งต่อตนเองและผู้ร่วมปฏิบัติงานในห้องปฏิบัติการได้",
+        "นำเสนอแนวคิดในการบริหารจัดการความเสี่ยงเมื่อเกิดภาวะฉุกเฉินในห้องปฏิบัติการได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "3af5b807-fd8e-4f32-bd1e-b7b5d8cc7325",
+              "name": "ประเมินความเสี่ยงในห้องปฏิบัติการได้"
+            },
+            {
+              "id": "7e0cef4c-a87d-4b81-becc-efe8cddef117",
+              "name": "นำเสนอแนวคิดในการบริหารจัดการความเสี่ยงเมื่อเกิดภาวะฉุกเฉินในห้องปฏิบัติการได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on risk assessment and safety management in laboratories, applicable as foundational knowledge for event safety."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Operational safety in laboratories is irrelevant to event planning."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01456355-64",
+      "subjectName": "การจัดการด้านความปลอดภัย",
+      "outcomes": [
+        "สามารถอธิบายถึงความสำคัญของการศึกษาวิชาการจัดการด้านความปลอดภัย",
+        "สามารถอธิบายแนวคิดและเรื่องทั่วไปเกี่ยวกับการรักษาความปลอดภัย เทคนิควิธีการรักษาความปลอดภัยบุคคล อาคารสถานที่ ทรัพย์สิน สิ่งอำนวยความสะดวก และเอกสารต่าง ๆ",
+        "สามารถประยุกต์ใช้ความรู้ด้านการรักษาความปลอดภัยในชีวิตประจำวันของตน รวมทั้งสามารถนำไปใช้เป็นพื้นความรู้ในการทำงานในหน่วยงานด้านรักษาความปลอดภัยและหน่วยงานอื่น",
+        "สามารถเสนอแนวทางในการบริหารงาน การจัดการหน่วยงานรักษาความปลอดภัยทั้งภาครัฐ และเอกชน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c4b5898d-ea4a-4c2d-b80a-74665ceb6763",
+              "name": "สามารถอธิบายถึงความสำคัญของการศึกษาวิชาการจัดการด้านความปลอดภัย"
+            },
+            {
+              "id": "d8fbfbc8-b1ee-475d-81e3-af398aced5d1",
+              "name": "สามารถเสนอแนวทางในการบริหารงาน การจัดการหน่วยงานรักษาความปลอดภัยทั้งภาครัฐ และเอกชน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers safety management principles and application, relevant for organizing safe events."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers safety management, which is important for event organization to ensure secure environments."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03652143-66",
+      "subjectName": "ความปลอดภัยทางเคมีและการจัดการของเสียทางเคมี",
+      "outcomes": [
+        "อธิบายความหมาย ประเภท และสมบัติของวัตถุอันตราย รวมถึงผลกระทบต่อสุขภาพของมนุษย์ สิ่งแวดล้อม และความปลอดภัยในสถานที่ทำงาน โดยสามารถระบุอันตราย และความเสี่ยงจากสารเคมี และวัตถุอันตรายต่างๆ ได้",
+        "อธิบายวิธีการลดความเสี่ยงจากวัตถุอันตราย เช่น การใช้สารทดแทน การควบคุมทางวิศวกรรม การใช้อุปกรณ์ป้องกันส่วนบุคคล และอธิบายวิธีการจัดการวัตถุอันตราย เช่น การจัดเก็บ การขนส่ง การติดฉลาก การจัดการกากของเสียอันตราย",
+        "จำแนกประเภทวัตถุอันตราย การขออนุญาต การจัดทำเอกสาร กฎหมายและข้อบังคับเกี่ยวกับวัตถุอันตราย เพื่อปฏิบัติงานได้อย่างถูกต้องตามกฎหมาย",
+        "อธิบายระบบจัดการด้านป้องกันภัยและข้อบกพร่องของแผนการระงับอุบัติเหตุ เพื่อเพิ่มประสิทธิภาพในการป้องกัน และลดความเสี่ยงจากอุบัติเหตุ",
+        "ทำงานร่วมกับผู้อื่น และมีความรับผิดชอบต่อหน้าที่",
+        "มีความมุ่งมั่นในการพัฒนาตนเองอย่างต่อเนื่อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "99576eaa-eb7c-436d-8f4c-e915df6eb232",
+              "name": "อธิบายระบบจัดการด้านป้องกันภัยและข้อบกพร่องของแผนการระงับอุบัติเหตุ เพื่อเพิ่มประสิทธิภาพในการป้องกัน และลดความเสี่ยงจากอุบัติเหตุ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers chemical safety and hazard management, relevant for event safety involving hazardous materials."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on chemical safety and waste management, unrelated to general event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน",
+        "เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้",
+        "คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง",
+        "วิเคราะห์งบการเงินเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes cost analysis and financial statement analysis, but not specifically about event budgeting or management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on agricultural industry operations, irrelevant to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "outcomes": [
+        "สามารถแสดงออกถึงการมีความซื่อสัตย์ สุจริต มีความรับผิดชอบต่องานที่ได้รับมอบหมาย และ สามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี",
+        "สามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์",
+        "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง",
+        "สามารถอธิบายหลักเบื้องต้นของภาษีมูลค่าเพิ่ม และ การควบคุมภายในเกี่ยวกับเงินสดได้",
+        "สามารถปฏิบัติงานภายใต้ระบบใบสำคัญ และ จัดทำกรณีศึกษาเสมือนจริงแบบกลุ่มได้",
+        "แสดงถึงความรับผิดชอบต่อหน้าที่โดยการตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "7a0c48ec-7e72-4a60-81cd-98723f92beb4",
+              "name": "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Basic accounting principles; foundational but not specific to budget management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic accounting principles are not directly relevant to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "outcomes": [
+        "สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้",
+        "สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้",
+        "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้",
+        "มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "5f29ab8a-8b9e-4173-a70b-5923bbe5937c",
+              "name": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Intermediate accounting skills; useful background but not directly about budgeting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Intermediate accounting topics unrelated to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "outcomes": [
+        "สามารถบันทึกบัญชีและแสดงมูลค่าของหนี้สินในงบการเงินได้",
+        "สามารถบันทึกบัญชีและแสดงมูลค่าของส่วนของเจ้าของในงบการเงินได้",
+        "สามารถจัดทำและนำเสนองบกระแสเงินสดได้",
+        "มีความรับผิดชอบต่อหน้าที่ ซื่อสัตย์ และตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "866cb7f1-ccac-4bc7-8428-69b27cfc67d2",
+              "name": "สามารถจัดทำและนำเสนองบกระแสเงินสดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Advanced accounting; relevant for financial understanding but not specific to event budgeting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Advanced accounting topics not relevant to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01401463-66",
+      "subjectName": "ชีววิทยาวิวัฒนาการของพืช",
+      "outcomes": [
+        "อธิบายทฤษฎี หลักฐาน ปัจจัยทางวิวัฒนาการ แนวโน้มของวิวัฒนาการและสาเหตุการสูญพันธุ์ กระบวนการวิวัฒนาการ วิวัฒนาการและความหลากหลายของพืชดอก  และวิวัฒนาการของระบบนิเวศของพืชได้",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c8b9374a-d825-4e2b-b456-34f83baa2c8d",
+              "name": "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "The outcomes include communication and research skills but are focused on plant evolution, not event organization or communication skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Plant evolutionary biology unrelated to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01401442-66",
+      "subjectName": "พรรณไม้น้ำ",
+      "outcomes": [
+        "อธิบายลักษณะทางพฤกษศาสตร์ และความสำคัญของพรรณไม้น้ำได้",
+        "จำแนกกลุ่มของพรรณไม้น้ำตามลักษณะนิเวศได้",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "20c29788-ecf3-428c-86aa-319d07fb798d",
+              "name": "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "The outcomes involve botanical knowledge and communication, but are not related to event management or coordination."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Study of aquatic plants is irrelevant to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "outcomes": [
+        "เลือกหัวข้อที่สนใจทางพฤกษศาสตร์",
+        "รวบรวมเอกสารงานวิจัยที่เกี่ยวข้องและสรุปข้อมูลที่เกี่ยวข้อง",
+        "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์",
+        "ใช้เครื่องมือและอุปกรณ์ทางพฤกษศาสตร์ได้",
+        "วิเคราะห์ผล และเรียบเรียงงานวิจัยทางพฤกษศาสตร์ได้",
+        "เข้าใจและสามารถปฏิบัติตามจรรยาบรรณงานวิจัยได้",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "838322e1-1a5f-402b-aac2-120253823c8f",
+              "name": "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Research and communication skills are included, but the focus is on botanical projects, not event organization."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Botany project work unrelated to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01401399-66",
+      "subjectName": "การฝึกงานทางพฤกษศาสตร์",
+      "outcomes": [
+        "ประยุกต์ความรู้ทางพฤกษศาสตร์ไปใช้ในการปฏิบัติงานได้",
+        "ใช้เครื่องมือและอุปกรณ์ในทางพฤกษศาสตร์ได้",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c053a2ac-b5fc-4a02-a16c-0dab99484ef2",
+              "name": "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Practical skills in botany and communication are taught, but not related to event planning or coordination."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Botany internship not relevant to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "outcomes": [
+        "อธิบายเกี่ยวกับเคมีที่มีอิทธิพลต่องานศิลปะ",
+        "มีทักษะการคิดวิเคราะห์ วิพากษ์ บูรณาการองค์ความรู้ รวมถึงเชื่อมโยงข้อมูลที่ได้อย่างเหมาะสม",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "The course covers chemistry and communication, but not event management or coordination."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on chemistry in art, unrelated to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "outcomes": [
+        "อธิบายวิทยาศาสตร์/เคมีที่เกี่ยวข้องในชีวิตประจำวันได้",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม",
+        "เชื่อมโยงประเด็นที่เกี่ยวกับเคมีที่มีในสิ่งรอบ ๆ ตัว นำไปสู่การให้ความเห็นอย่างมีวิจารณญาณได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on chemistry and communication, not on event organization or coordination."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers general chemistry in daily life, no direct relevance to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "outcomes": [
+        "อธิบายความรู้ใหม่ที่เกี่ยวข้องกับนวัตกรรมและเทคโนโลยีอุตสาหกรรมเกษตร",
+        "มีความรับผิดชอบ ตรงต่อเวลา และความอดทน",
+        "ปฏิบัติงานร่วมกับผู้อื่นตามหน้าที่ที่ได้รับมอบหมาย",
+        "สื่อสารกับผู้ร่วมงานและหัวหน้างานได้ชัดเจน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d3fd44ce-bddc-483c-8fbf-b7f9e73c3b6f",
+              "name": "สื่อสารกับผู้ร่วมงานและหัวหน้างานได้ชัดเจน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes communication and responsibility, but not specific to event organization or coordination."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Internship course develops responsibility, teamwork, and communication skills useful for event management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "04404222-67",
+      "subjectName": "หลักอนามัยสิ่งแวดล้อม",
+      "outcomes": [
+        "สามารถอธิบายความสำคัญของงานอนามัยสิ่งแวดล้อม",
+        "สามารถอธิบายหลักการจัดการน้ำสะอาดการสุขาภิบาลอาหาร มลพิษทางอากาศ การจัดการขยะและของเสียอันตราย การควบคุมแมลงและสัตว์นำโรค การสุขาภิบาลอาหาร การสุขาภิบาลที่พักอาศัย เหตุรำคาญ",
+        "สามารถตรวจวิเคราะห์ด้านอนามัยสิ่งแวดล้อมในชุมชนและสถานประกอบการได้",
+        "สามารถสื่อสาร และการทำงานเป็นทีมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c2a9edeb-190d-442a-a357-a82f73c28a82",
+              "name": "สามารถสื่อสาร และการทำงานเป็นทีมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Environmental health knowledge and teamwork are included, but not event planning or coordination."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Environmental health principles are not directly relevant to event planning."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายทฤษฎีหลักการและกระบวนการ  วิศวกรรมซอฟต์แวร์ให้เหมาะสมกับผู้ใช้งานได",
+        "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้",
+        "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "165ea99c-043c-4b5c-847e-499cd3c7ac78",
+              "name": "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+            }
+          ]
+        },
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "165ea99c-043c-4b5c-847e-499cd3c7ac78",
+              "name": "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Software engineering skills are related to technology but not specifically to event organization or communication."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Software engineering is not directly related to event management skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01420454-66",
+      "subjectName": "พลังงานแสงอาทิตย์",
+      "outcomes": [
+        "สามารถอธิบายดาราศาสตร์ของดวงอาทิตย์ พร้อมความหมายของคำศัพท์สำคัญที่เกี่ยวข้อง",
+        "สามารถอธิบายกระบวนการตกกระทบของรังสีจากดวงอาทิตย์บนพื้นโลกและปัจจัยที่มีผลต่อปริมาณรังสี",
+        "สามารถนำเสนอแนวคิดและสมการที่ใช้ในการคำนวณรังสีจากดวงอาทิตย์",
+        "สามารถอธิบายกระบวนการนำพลังงานแสงอาทิตย์มาใช้ในรูปความร้อน และในรูปไฟฟ้า",
+        "สามารถออกแบบระบบการใช้พลังงานแสงอาทิตย์ในรูปความร้อน และรูปไฟฟ้าอย่างง่าย",
+        "สามารถประเมินความคุ้มค่าในการติดตั้งระบบพลังงานแสงอาทิตย์เป็นไฟฟ้าอย่างคร่าว ๆ",
+        "สามารถทำงานเป็นทีมได้",
+        "สามารถใช้เทคโนโลยีในการค้นคว้าหาความรู้ด้วยตนเอง",
+        "สามารถพูดสื่อสาร นำเสนองานทางวิชาการได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "23d10461-88b6-47d5-b6a6-6a145ca5c670",
+              "name": "สามารถพูดสื่อสาร นำเสนองานทางวิชาการได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Technical knowledge and communication skills, but not related to event organization."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Solar energy course content is unrelated to organizing events."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01951211-67",
+      "subjectName": "วิทยาศาสตร์ระบบสุขภาพ I",
+      "outcomes": [
+        "ประพฤติตนด้วยความซื่อสัตย์สุจริต มีวินัยในตนเอง",
+        "มีความรู้ในหลักการและทฤษฎีความเป็นมนุษย์ สังคมวิทยาและมานุษยวิทยาทางการแพทย์ จริยธรรมทางการแพทย์ ความสัมพันธ์ระหว่างแพทย์และผู้ป่วย",
+        "อธิบายปัญหาสุขภาพที่สำคัญในกลุ่มประชากรเบื้องต้น",
+        "สื่อสารและสร้างสัมพันธภาพที่ ทำงานเป็นทีม มีความรับผิดชอบ",
+        "จัดการแสวงหาความรู้เพื่อพัฒนาตนเองให้มีทักษะชีวิต ทักษะการทำงานด้วยความยืดหยุ่น ใช้เทคโนโลยีสารสนเทศและแหล่งความรู้ที่ทันสมัย",
+        "คิดวิเคราะห์อย่างมีวิจารณญาณ การแก้ปัญหาอย่างเป็นระบบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "7037e432-dec3-485a-bfc4-1f58c80c82aa",
+              "name": "สื่อสารและสร้างสัมพันธภาพที่ ทำงานเป็นทีม มีความรับผิดชอบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Health sciences and communication skills, not related to event planning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Health systems science is not relevant to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02738463-61",
+      "subjectName": "นิติวิทยาศาสตร์ทางชีววิทยา",
+      "outcomes": [
+        "อธิบายความรู้พื้นฐานเกี่ยวกับบริบทของชีววิทยาที่เกี่ยวข้องกับด้านนิติวิทยาศาสตร์ได้",
+        "ประยุกต์ความรู้และทฤษฎีทางชีววิทยาในด้านต่าง ๆ เพื่อนำไปใช้ในการสืบสวนทางนิติวิทยาศาสตร์ได้",
+        "ใช้ความรู้ทางชีววิทยาในการทำงานด้านนิติวิทยาศาสตร์ โดยมีมีจิตสำนึกด้านคุณธรรม จริยธรรม จรรยาบรรณในการทำงาน และมีความรับผิดชอบต่อสังคม",
+        "สามารถสื่อสารในการทำงานร่วมกัน และนำเสนอความคิดเห็นอย่างมีเหตุผล",
+        "ศึกษาค้นคว้าองค์ความรู้ใหม่เกี่ยวกับการนำเทคนิคทางชีววิทยาทั้งพื้นฐานและขั้นสูงที่สามารถนำมานำไปใช้ในการสืบสวนทางนิติวิทยาศาสตร์ และนำมาเสนอให้ผู้อื่นได้อย่างถูกต้องตามหลักวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6dffcdd9-09ab-4a12-8105-4fb0239fe2ae",
+              "name": "สามารถสื่อสารในการทำงานร่วมกัน และนำเสนอความคิดเห็นอย่างมีเหตุผล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Biological forensics and communication, not relevant to event organization."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Forensic biology is unrelated to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "outcomes": [
+        "ผลิตอาหารจำนวนมากและจัดบริการอาหารเพื่อการค้าและจำหน่ายได้จริง",
+        "เลือกใช้เทคโนโลยีเพื่อการประชาสัมพันธ์ และการสื่อสารที่เกี่ยวข้องกับการจำหน่ายอาหารได้",
+        "ปฏิบัติงานร่วมกับผู้อื่นในการจัดบริการอาหารเพื่อการค้าและจำหน่ายได้",
+        "ให้บริการอาหารด้วยคุณธรรมและจรรยาบรรณวิชาชีพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "06ad00e3-bdb2-4445-9a4c-682cab2bc1cd",
+              "name": "เลือกใช้เทคโนโลยีเพื่อการประชาสัมพันธ์ และการสื่อสารที่เกี่ยวข้องกับการจำหน่ายอาหารได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to food service management, not directly relevant to event organization or marketing."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Food service management is relevant for events involving catering and food services."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "outcomes": [
+        "อธิบายหลักการการตลาดระหว่างประเทศได้",
+        "ทำงานกลุ่มตามที่มอบหมายได้สำเร็จ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "13d9ded7-1577-43f0-9e5b-3dfff5e67fdb",
+              "name": "อธิบายหลักการการตลาดระหว่างประเทศได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on international marketing, not specifically on event organization or promotion."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "International marketing skills can support event promotion and management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "outcomes": [
+        "อธิบายลักษณะการตลาด พฤติกรรมผู้บริโภค  และส่วนประสมทางการตลาดในธุรกิจการบิน",
+        "วิเคราะห์สภาพแวดล้อมและแผนการตลาดธุรกิจ การบิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b60fd03b-e9fd-4a34-9277-bb15f202d713",
+              "name": "วิเคราะห์สภาพแวดล้อมและแผนการตลาดธุรกิจ การบิน"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b60fd03b-e9fd-4a34-9277-bb15f202d713",
+              "name": "วิเคราะห์สภาพแวดล้อมและแผนการตลาดธุรกิจ การบิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Specialized marketing in aviation, not directly relevant to event planning or promotion."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on marketing in aviation, unrelated to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "outcomes": [
+        "เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ",
+        "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น",
+        "ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d97e2233-3c79-458c-8a68-72bed7f7a751",
+              "name": "ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Specific to beverage marketing strategies, not directly related to event organization."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course targets marketing strategies for beverage business, not relevant to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "outcomes": [
+        "อธิบายความสำคัญของธุรกิจการเกษตรและอาหารได้",
+        "อธิบายหลักการแนวคิดทางการตลาด กิจกรรมและหน้าที่ทางการตลาดต่างๆ พฤติกรรมการซื้อ",
+        "วิเคราะห์ปัจจัยที่มีอิทธิพลต่อการกำหนดส่วนประสมการตลาด",
+        "วางกลยุทธ์ในธุรกิจเกษตรและอาหารได้ ภายใต้จริยธรรมการตลาดและความรับผิดชอบต่อสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "8fe624f4-3c9a-4981-bb52-8f5c27a38b42",
+              "name": "อธิบายหลักการแนวคิดทางการตลาด กิจกรรมและหน้าที่ทางการตลาดต่างๆ พฤติกรรมการซื้อ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focused on agricultural and food business marketing, not relevant to event planning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers agricultural and food marketing, no direct link to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "outcomes": [
+        "ใช้คำศัพท์และโครงสร้างประโยคพื้นฐานเพื่อสร้างประโยคที่ถูกต้องและเข้าใจได้",
+        "แสดงความคิดเห็นและแลกเปลี่ยนข้อมูลในสถานการณ์ที่กำหนดได้",
+        "สื่อสารเนื้อหาได้อย่างชัดเจนและถูกต้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0a0ca954-73d7-4612-9105-56733f4ec65e",
+              "name": "สื่อสารเนื้อหาได้อย่างชัดเจนและถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Basic communication skills in English, useful but not specifically about event organization or marketing."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Basic English communication skills can enable effective communication in event management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01386597-66",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "สามารถวางแผนและดำเนินการสัมมนาได้",
+        "สามารถวิเคราะห์ อภิปราย และแลกเปลี่ยนความรู้ได้",
+        "สามารถใช้เทคโนโลยีประกอบการดำเนินการสัมมนาได้อย่างเหมาะสม",
+        "มีความรับผิดชอบ สามารถทำงานเป็นทีม รู้จักบทบาทหน้าที่"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "bcc9eb9e-8e26-4709-ab00-30ecaf27f93e",
+              "name": "สามารถวางแผนและดำเนินการสัมมนาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "While it involves planning and executing seminars, which are a type of event, it is more specific to seminars and not general event planning."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Seminar planning and execution skills are directly relevant to organizing events."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "outcomes": [
+        "เลือกใช้และดูแลรักษาอุปกรณ์เครื่องใช้ในครัวได้ถูกต้อง",
+        "เลือกซื้อวัตถุดิบเตรียมวัตถุดิบและเก็บรักษาวัตถุดิบอาหารประเภทต่างๆได้ถูกต้อง",
+        "ประกอบอาหารและจัดสำรับอาหารคาวหวานได้ถูกต้อง",
+        "ตกแต่งจานอาหารด้วยความคิดสร้างสรรค์",
+        "ทำงานกลุ่มด้านการจัดเตรียมและการประกอบอาหารด้วยความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "2fc8f7e1-26c1-4722-b160-6d21a6f5aa8b",
+              "name": "ตกแต่งจานอาหารด้วยความคิดสร้างสรรค์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "While it involves presentation and creativity in food presentation, it is not directly related to event design and decoration."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on food preparation is not directly related to event management skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01242141-67",
+      "subjectName": "พื้นฐานคณิตศาสตร์และกลศาสตร์เพื่อการออกแบบ",
+      "outcomes": [
+        "อธิบายหลักการทางคณิตศาสตร์และกลศาสตร์ที่นำมาใช้เพื่อการออกแบบผลิตภัณฑ์",
+        "เลือกวัสดุให้เหมาะสมกับการใช้สอยและการออกแบบผลิตภัณฑ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b729e14d-9d24-4a74-89ab-517155ac234a",
+              "name": "เลือกวัสดุให้เหมาะสมกับการใช้สอยและการออกแบบผลิตภัณฑ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides basic design principles and material selection, but not specifically about event design or decoration."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematics and mechanics for design are not relevant to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "outcomes": [
+        "สามารถออกแบบภูมิทัศน์ โดยบูรณาการทฤษฎีในศาสตร์ที่เกี่ยวข้องทางภูมิสถาปัตยกรรมมาใช้เพื่อตอบโจทย์ทางภูมิสถาปัตยกรรม",
+        "สามารถวิเคราะห์สภาพสังคมวัฒนธรรม สภาพแวดล้อม และปัจจัยที่เกี่ยวข้อง เพื่อนำไปใช้ในการออกแบบภูมิสถาปัตยกรรม",
+        "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "77db2b30-ebad-4b7f-8707-fb64883c36b2",
+              "name": "สามารถนำเสนอผลงานออกแบบให้ผู้อื่นเข้าใจ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Involves landscape design, which may be tangentially related but not directly about event decoration."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Landscape architecture design is unrelated to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "outcomes": [
+        "สามารถวิเคราะห์ข้อมูลเพื่อวางแผนการโฆษณาได้",
+        "สามารถสังเคราะห์แนวทางออกแบบชิ้นงาน โฆษณาได้",
+        "สามารถทําวิจัยเพื่อการโฆษณาได้อย่างมีจริยธรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1f46b10a-444c-4416-b71b-11bdb241726d",
+              "name": "สามารถสังเคราะห์แนวทางออกแบบชิ้นงาน โฆษณาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on advertising principles, which can support event promotion but not event design or decoration."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Advertising principles support event promotion, relevant to event management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "outcomes": [
+        "อธิบายประเภทของเครื่องดื่ม หลัก และเทคนิคการเตรียมเครื่องดื่มได้",
+        "เลือกใช้อุปกรณ์และส่วนผสมต่างๆ ในการเตรียมเครื่องดื่มได้ถูกต้อง",
+        "ประยุกต์และพัฒนาตำรับเครื่องดื่มได้อย่างเหมาะสม",
+        "ปฏิบัติงานกลุ่มด้านการจัดเตรียมเครื่องดื่มร่วมกับผู้อื่นด้วยความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "7bca9570-b21a-4bb4-a549-c15f45e86b6a",
+              "name": "เลือกใช้อุปกรณ์และส่วนผสมต่างๆ ในการเตรียมเครื่องดื่มได้ถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to event catering and presentation but not directly about designing or decorating events."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Beverage preparation is not a core skill for event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03651436-65",
+      "subjectName": "ตัวแบบคณิตศาสตร์ประกันภัย",
+      "outcomes": [
+        "ตีความข้อมูลโดยอาศัยการแจกแจงที่อิงพารามิเตอร์ได้",
+        "สร้างตัวแบบคณิตศาสตร์ประกันภัยสำหรับประเมินค่าสินไหมทดแทนในธุรกิจประกันภัยได้",
+        "คำนวณค่าความเสี่ยงโดยใช้ตัววัดที่เหมาะสมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "537fae73-c219-4b4b-a245-75849633d5e0",
+              "name": "คำนวณค่าความเสี่ยงโดยใช้ตัววัดที่เหมาะสมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Mathematical insurance modeling is tangential; not directly applicable to event risk management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on actuarial mathematics for insurance, unrelated to event management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "04252534-67",
+      "subjectName": "การออกแบบและการบริหารเครือข่ายขั้นสูง",
+      "outcomes": [
+        "สามารถเดินสายและออกแบบทอพอโลยีเครือข่าย",
+        "สามารถบริหารและจัดการเครือข่ายให้มีความมั่นคง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "daa05001-e4c2-4352-98d5-d40132d629b5",
+              "name": "สามารถบริหารและจัดการเครือข่ายให้มีความมั่นคง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to network management, not directly relevant to event safety."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers advanced network design and management, not relevant to event organization."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03602433-65",
+      "subjectName": "วิศวกรรมการซ่อมบำรุง",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานของการจัดการการบำรุงรักษา รวมถึงกลยุทธ์การบำรุงรักษาเชิงป้องกัน คาดการณ์ และแก้ไข การบำรุงรักษาที่เน้นความน่าเชื่อถือ (rcm) การบำรุงรักษาแบบทวีผลโดยทุกคนมีส่วนร่วม (tpm)",
+        "สามารถบอกแนวทางการใช้เทคโนโลยีการบำรุงรักษาที่ทันสมัย",
+        "สามารถวางแผนและจัดตารางกิจกรรมการบำรุงรักษา รวมถึงการจัดลำดับความสำคัญของงานบำรุงรักษา การจัดสรรทรัพยากร",
+        "สามารถวิเคราะห์ความน่าเชื่อถือของระบบและอุปกรณ์อุตสาหกรรมโดยใช้เทคนิคต่าง ๆ",
+        "สามารถอธิบายหลักการประยุกต์ระบบการจัดการการบำรุงรักษาด้วยคอมพิวเตอร์ (cmms) และเครื่องมือซอฟต์แวร์ที่เกี่ยวข้องกับการบำรุงรักษา",
+        "สามารถจำแนกประเภทการจัดทำงบประมาณ การประมาณต้นทุน และเทคนิคการควบคุมต้นทุนสำหรับกิจกรรมการบำรุงรักษา",
+        "มีทักษะการสื่อสารและความเป็นผู้นำที่มีประสิทธิภาพเพื่อทำงานร่วมกับทีมข้ามสายงาน สื่อสารแผนการบำรุงรักษาและลำดับความสำคัญ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารงบประมาณ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3293f125-9f90-4cd3-a75d-c5a3da4ed543",
+              "name": "สามารถจำแนกประเภทการจัดทำงบประมาณ การประมาณต้นทุน และเทคนิคการควบคุมต้นทุนสำหรับกิจกรรมการบำรุงรักษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to event management or budgeting skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about maintenance engineering, which does not relate to event planning or management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01390429-64",
+      "subjectName": "การจัดนำเที่ยวนอกประเทศ",
+      "outcomes": [
+        "อธิบายหลักการธุรกิจจัดการนำเที่ยวนอกประเทศได้",
+        "วางแผนการดำเนินงานธุรกิจการนำเที่ยวนอกประเทศได้",
+        "นำเสนอแนวทางแก้ไขปัญหา อุปสรรค และเสนอแนะแนวทางการปรับปรุงและแก้ไขปัญหาในสถานการณ์การปฏิบัติงานจริงได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "0e48547c-d7c5-4518-baa2-63375289ed58",
+              "name": "วางแผนการดำเนินงานธุรกิจการนำเที่ยวนอกประเทศได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on travel abroad business management, unrelated to event planning."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on organizing outbound tours relates to event planning and management skills applicable to event organization."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "02184284-67",
+      "subjectName": "การจัดการวงดนตรีสำหรับครูดนตรี",
+      "outcomes": [
+        "บริหารจัดการเกี่ยวกับการแสดงดนตรี การเลือกและจัดวงดนตรีที่ใช้สำหรับงานพิธีและการแสดงในวาระต่าง ๆ ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b26eaada-4d2d-44f7-bb04-d4d9b7fcd6b8",
+              "name": "บริหารจัดการเกี่ยวกับการแสดงดนตรี การเลือกและจัดวงดนตรีที่ใช้สำหรับงานพิธีและการแสดงในวาระต่าง ๆ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Specific to managing musical bands, not related to event planning."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on managing music bands for events is relevant to organizing entertainment aspects of events."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "03763376-64",
+      "subjectName": "การท่องเที่ยวเชิงผจญภัย",
+      "outcomes": [
+        "สามารถอธิบายกิจกรรมการท่องเที่ยวเชิงผจญภัยได้",
+        "สามารถระบุความเสี่ยงที่อาจเกิดขึ้นจากกิจกรรมท่องเที่ยวเชิงผจญภัยได้",
+        "สามารถวางแผนการทำกิจกรรมการท่องเที่ยวเชิงผจญภัยแต่ละรูปแบบได้อย่างปลอดภัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3b8b14a7-4e25-4c74-9ef8-423e3c352593",
+              "name": "สามารถวางแผนการทำกิจกรรมการท่องเที่ยวเชิงผจญภัยแต่ละรูปแบบได้อย่างปลอดภัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on adventure tourism activities, not event planning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on adventure tourism, which is not directly related to event management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01603359-65",
+      "subjectName": "การพยาบาลสัตว์ฉุกเฉินและวิกฤต",
+      "outcomes": [
+        "อธิบายหลักการประเมินสัตว์ป่วยในสภาวะฉุกเฉินและวิกฤตได้",
+        "อธิบายหลักการการจัดกลุ่มสัตว์ป่วยได้",
+        "จัดเตรียมรายการอุปกรณ์สำหรับภาวะฉุกเฉินได้",
+        "จัดลำดับขั้นตอนในการทำการกู้ชีพ",
+        "เลือกการพยาบาลสัตว์ป่วยในภาวะฉุกเฉินต่างๆได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "75ca6ad7-63fd-4550-a172-244c2582efb2",
+              "name": "จัดเตรียมรายการอุปกรณ์สำหรับภาวะฉุกเฉินได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to emergency animal care, unrelated to event planning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on emergency animal nursing is unrelated to event organization."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "06904222-66",
+      "subjectName": "การจัดการที่พักเพื่อการท่องเที่ยว",
+      "outcomes": [
+        "สามารถวางแผนการจัดการที่พักเพื่อรองรับนักท่องเที่ยว ได้อย่างถูกต้อง",
+        "สามารถออกแบบและวางแผนการปฏิบัติงานการจัดการ ที่พักได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ae8cbe29-4ea6-4259-ab87-15852cc88e09",
+              "name": "สามารถออกแบบและวางแผนการปฏิบัติงานการจัดการ ที่พักได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on accommodation management, not event planning."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on accommodation management supports event planning by managing lodging for attendees."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "เรียบเรียงข้อมูลเพื่อนำเสนอ",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้รูปแบบการนำเสนอที่เหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "0645c687-458e-45c9-b0a6-085246b1efbe",
+              "name": "เลือกใช้รูปแบบการนำเสนอที่เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on presentation and communication skills, not directly related to event design or decoration."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Seminar course enhances presentation and communication skills useful for event management."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "outcomes": [
+        "อธิบายองค์ประกอบของพลเมืองดิจิทัลได้",
+        "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้",
+        "ออกแบบสร้างชิ้นงานดิจิทัลได้",
+        "มีความรับผิดชอบต่อตนเองและสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "cecab1c3-8c28-487e-82bc-449dc9c1b00a",
+              "name": "ออกแบบสร้างชิ้นงานดิจิทัลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centers on digital citizenship and technology use, unrelated to event design and decoration."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Digital citizenship course teaches digital skills beneficial for managing modern events."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01420361-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น I",
+      "outcomes": [
+        "มีความเข้าใจท และสามารถอธิบายปรากฎการณ์ทางดาราศาสตร์ได้",
+        "นำความรู้ไปแก้ปัญหาและประยุกต์ใช้ในชีวิตประจำวันได้",
+        "มีวินัยและความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7bac3df5-74ae-4646-8f14-6e47dd01e55d",
+              "name": "มีวินัยและความรับผิดชอบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to event management or safety."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on astronomy, which is unrelated to event management skills or knowledge."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "subjectCode": "01420362-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น II",
+      "outcomes": [
+        "มีความเข้าใจท และสามารถอธิบายปรากฎการณ์ทางดาราศาสตร์ได้",
+        "นำความรู้ไปแก้ปัญหาและประยุกต์ใช้ในชีวิตประจำวันได้",
+        "มีวินัยและความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "80b1cf0a-8b19-4f49-b2fe-641899060880",
+              "name": "มีวินัยและความรับผิดชอบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to event management or safety."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course content on astronomy does not provide relevant skills or knowledge for organizing events."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1973,
+      "outputTokens": 301
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1851,
+      "outputTokens": 286
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2085,
+      "outputTokens": 296
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2322,
+      "outputTokens": 273
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2185,
+      "outputTokens": 283
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1781,
+      "outputTokens": 291
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1879,
+      "outputTokens": 307
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 721,
+      "outputTokens": 68
+    }
+  ]
+}

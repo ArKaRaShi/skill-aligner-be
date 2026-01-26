@@ -1,0 +1,138 @@
+{
+  "testCaseId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การตลาดดิจิทัล",
+  "question": "tiktoker ต้องเรียนอะไรบ้าง",
+  "skill": "การตลาดดิจิทัล",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "06901121-66",
+      "subjectName": "การตลาดดิจิทัลสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 3,
+      "reason": "Course name and outcomes explicitly focus on digital marketing for the tourism industry, covering key concepts and strategies, making it highly relevant to the skill 'การตลาดดิจิทัล'."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on product innovation and digital technology use in communication but does not cover digital marketing."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Course covers digital citizenship and digital technology use but not digital marketing."
+    },
+    {
+      "subjectCode": "01352373-66",
+      "subjectName": "การรู้เท่าทันดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Course focuses on digital literacy and communication ethics, not digital marketing."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course is about advanced research methods in agriculture using digital technology, not digital marketing."
+    },
+    {
+      "subjectCode": "03763321-64",
+      "subjectName": "การสื่อสารในธุรกิจโรงแรม",
+      "relevanceScore": 2,
+      "reason": "Course includes producing marketing communication and advertising media for hotel business via digital channels, partially covering digital marketing aspects."
+    },
+    {
+      "subjectCode": "03609161-65",
+      "subjectName": "เปิดโลกวิศวกรรมระบบการผลิตดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Course covers digital production systems engineering, not digital marketing."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 1,
+      "reason": "Course covers basic marketing principles and research but does not specifically address digital marketing."
+    },
+    {
+      "subjectCode": "01352333-66",
+      "subjectName": "การสื่อสารการตลาด",
+      "relevanceScore": 2,
+      "reason": "Course focuses on marketing communication using information technology, including integrated marketing communication plans, partially relevant to digital marketing."
+    },
+    {
+      "subjectCode": "01150231-67",
+      "subjectName": "นวัตกรรมและเทคโนโลยีดิจิทัลเพื่อการศึกษา",
+      "relevanceScore": 0,
+      "reason": "Course focuses on digital innovation and technology for education, not digital marketing."
+    },
+    {
+      "subjectCode": "01241313-66",
+      "subjectName": "การออกแบบร่างองค์ประกอบงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 0,
+      "reason": "Course is about landscape architecture design using digital media, not digital marketing."
+    },
+    {
+      "subjectCode": "01241312-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 0,
+      "reason": "Course is about landscape architecture design using digital media, not digital marketing."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.6666666666666666,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.527,
+        "at10": 0.813,
+        "at15": 0.813,
+        "atAll": 0.813
+      },
+      "ideal": {
+        "at5": 0.339,
+        "at10": 0.34,
+        "at15": 0.263,
+        "atAll": 0.303
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.3,
+      "at15": 0.25,
+      "atAll": 0.25
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2578,
+  "outputTokens": 394
+}

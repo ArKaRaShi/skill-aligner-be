@@ -1,0 +1,132 @@
+{
+  "testCaseId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การจัดการทรัพยากรมนุษย์",
+  "question": "อยากเปิดร้านเหล้า",
+  "skill": "การจัดการทรัพยากรมนุษย์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01132222-65",
+      "subjectName": "การจัดการทรัพยากรมนุษย์",
+      "relevanceScore": 3,
+      "reason": "Course name and all learning outcomes directly focus on human resource management, covering principles, problem analysis, HR activities, and use of technology in HR."
+    },
+    {
+      "subjectCode": "06901112-66",
+      "subjectName": "การจัดการทรัพยากรมนุษย์เพื่ออุตสาหกรรมท่องเที่ยวเชิงวัฒนธรรมและสุขภาพ",
+      "relevanceScore": 3,
+      "reason": "Course specifically addresses human resource management in tourism, culture, and health industries with detailed learning outcomes on HR planning and development."
+    },
+    {
+      "subjectCode": "01475523-64",
+      "subjectName": "การปฏิบัติงานของมนุษย์",
+      "relevanceScore": 1,
+      "reason": "Focuses on human performance and behavior analysis but does not cover human resource management explicitly."
+    },
+    {
+      "subjectCode": "02052531-68",
+      "subjectName": "การพัฒนามนุษย์และองค์การภาคการเกษตร",
+      "relevanceScore": 2,
+      "reason": "Covers human resource development and organizational development in agriculture, including policy analysis and project design, relevant to HR management but in a specific sector."
+    },
+    {
+      "subjectCode": "01468597-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course on social management and policy design without mention of human resource management."
+    },
+    {
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "relevanceScore": 1,
+      "reason": "Focuses on project management for resource development, including teamwork and conflict resolution, but not specifically on human resource management."
+    },
+    {
+      "subjectCode": "01951211-67",
+      "subjectName": "วิทยาศาสตร์ระบบสุขภาพ I",
+      "relevanceScore": 1,
+      "reason": "Includes knowledge of human and social sciences and teamwork skills but does not focus on human resource management."
+    },
+    {
+      "subjectCode": "01475538-64",
+      "subjectName": "จิตวิทยาอุตสาหกรรมและองค์การข้ามวัฒนธรรม",
+      "relevanceScore": 2,
+      "reason": "Covers industrial and organizational psychology with application to managing and developing personnel across cultures, relevant to HR management as a component."
+    },
+    {
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "relevanceScore": 0,
+      "reason": "Focuses on professional teaching roles and education management, unrelated to human resource management."
+    },
+    {
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "relevanceScore": 1,
+      "reason": "Covers basic management knowledge and teamwork but does not specifically address human resource management."
+    },
+    {
+      "subjectCode": "02741542-65",
+      "subjectName": "หลักการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 0,
+      "reason": "Focuses on environmental management principles, unrelated to human resource management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 1.2727272727272727,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 36.36363636363637,
+        "microAverageRate": 36.36363636363637,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.876,
+        "at10": 0.965,
+        "at15": 0.965,
+        "atAll": 0.965
+      },
+      "ideal": {
+        "at5": 0.707,
+        "at10": 0.577,
+        "at15": 0.447,
+        "atAll": 0.544
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.4,
+      "at15": 0.364,
+      "atAll": 0.364
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2518,
+  "outputTokens": 397
+}

@@ -1,0 +1,72 @@
+{
+  "description": "Analysis of EXPLORATORY_DELTA cases (System KEEP but Judge FAIL)",
+  "totalCases": 553,
+  "categories": {
+    "FOUNDATIONAL_OVERKEEP": {
+      "count": 1,
+      "description": "Courses that are too basic or introductory for the user level",
+      "pattern": "System keeps foundational/prerequisite courses",
+      "examples": [
+        {
+          "queryLogId": "03651442-65",
+          "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+          "subjectCode": "03651442-65",
+          "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+          "systemScore": 2,
+          "judgeReason": "Focuses on big data management, which is not directly relevant to beginner web or mobile app development."
+        }
+      ]
+    },
+    "SIBLING_MISCLASSIFICATION": {
+      "count": 124,
+      "description": "Courses that are related but not directly relevant to the question",
+      "pattern": "System keeps sibling/adjacent topics",
+      "examples": [
+        {
+          "queryLogId": "04305443-67",
+          "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+          "subjectCode": "04305443-67",
+          "subjectName": "จรรยาบรรณและมาตรฐานของการวิเคราะห์การลงทุน",
+          "systemScore": 2,
+          "judgeReason": "Focuses on ethics and standards in investment analysis, which is too specialized and not directly about personal finance management."
+        },
+        {
+          "queryLogId": "03760111-64",
+          "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+          "subjectCode": "03760111-64",
+          "subjectName": "หลักการบัญชีเบื้องต้น",
+          "systemScore": 2,
+          "judgeReason": "Basic accounting principles for business contexts, not directly related to personal financial management."
+        },
+        {
+          "queryLogId": "06901231-66",
+          "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+          "subjectCode": "06901231-66",
+          "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+          "systemScore": 1,
+          "judgeReason": "Finance and accounting for tourism industry is specialized and not directly relevant to personal money management."
+        }
+      ]
+    },
+    "CONTEXTUAL_OVERALIGNMENT": {
+      "count": 1,
+      "description": "Courses that match context but are not directly useful",
+      "pattern": "System keeps courses due to contextual keywords",
+      "examples": [
+        {
+          "queryLogId": "03603341-65",
+          "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+          "subjectCode": "03603341-65",
+          "subjectName": "วิศวกรรมซอฟต์แวร์",
+          "systemScore": 2,
+          "judgeReason": "Focuses on software engineering processes and requirements, no direct mention of OOP."
+        }
+      ]
+    }
+  },
+  "insights": {
+    "strength": "System is comprehensive in course discovery",
+    "weakness": "Keeps sibling/adjacent topics that are not directly relevant",
+    "recommendation": "Tighten semantic matching to require more direct relevance"
+  }
+}

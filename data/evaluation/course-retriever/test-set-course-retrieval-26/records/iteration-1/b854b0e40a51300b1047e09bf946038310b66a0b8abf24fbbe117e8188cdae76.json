@@ -1,0 +1,132 @@
+{
+  "testCaseId": "b41c15f8-2249-4469-9981-71cc1c75b2b4-การวางแผนและการจัดการอีเว้นต์",
+  "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+  "skill": "การวางแผนและการจัดการอีเว้นต์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02802241-67",
+      "subjectName": "หลักการวางแผนการจัดงานอีเวนต์",
+      "relevanceScore": 3,
+      "reason": "Course name and outcomes directly focus on event planning and management, covering main principles and steps comprehensively."
+    },
+    {
+      "subjectCode": "02802242-67",
+      "subjectName": "อุตสาหกรรมอีเวนต์",
+      "relevanceScore": 2,
+      "reason": "Covers event industry and event organization processes, which includes event management as a significant component but not solely focused on planning and management."
+    },
+    {
+      "subjectCode": "01386597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Includes planning and conducting seminars, which is a type of event, so it fairly covers event planning and management in a specific context."
+    },
+    {
+      "subjectCode": "01390429-64",
+      "subjectName": "การจัดนำเที่ยวนอกประเทศ",
+      "relevanceScore": 1,
+      "reason": "Focuses on international tour management; planning is involved but not related to event planning and management directly."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "Focuses on profit planning and control, unrelated to event planning and management."
+    },
+    {
+      "subjectCode": "02184284-67",
+      "subjectName": "การจัดการวงดนตรีสำหรับครูดนตรี",
+      "relevanceScore": 1,
+      "reason": "Manages music bands for events, marginally related to event management but not focused on overall event planning."
+    },
+    {
+      "subjectCode": "03763376-64",
+      "subjectName": "การท่องเที่ยวเชิงผจญภัย",
+      "relevanceScore": 1,
+      "reason": "Covers planning of adventure tourism activities, marginally related to event planning but in a different domain."
+    },
+    {
+      "subjectCode": "01603359-65",
+      "subjectName": "การพยาบาลสัตว์ฉุกเฉินและวิกฤต",
+      "relevanceScore": 0,
+      "reason": "Focuses on emergency animal nursing, no relation to event planning and management."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 1,
+      "reason": "Covers public relations planning, which may be a minor aspect of event management but not focused on event planning itself."
+    },
+    {
+      "subjectCode": "06904222-66",
+      "subjectName": "การจัดการที่พักเพื่อการท่องเที่ยว",
+      "relevanceScore": 1,
+      "reason": "Focuses on accommodation management for tourism, marginally related to event management as support but not core event planning."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Focuses on marketing management in aviation business, unrelated to event planning and management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 1.0909090909090908,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 45.45454545454545,
+        "microAverageRate": 45.45454545454545,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.937,
+        "at10": 0.984,
+        "at15": 0.984,
+        "atAll": 0.984
+      },
+      "ideal": {
+        "at5": 0.644,
+        "at10": 0.511,
+        "at15": 0.396,
+        "atAll": 0.482
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.3,
+      "at15": 0.273,
+      "atAll": 0.273
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1840,
+  "outputTokens": 396
+}
