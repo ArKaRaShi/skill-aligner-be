@@ -10,9 +10,16 @@ import { z } from 'zod';
  */
 export const ScoreDimensionSchema = z.object({
   score: z
-    .enum(['1', '2', '3', '4', '5'])
-    .transform((val) => parseInt(val, 10) as 1 | 2 | 3 | 4 | 5),
-  reasoning: z.string().min(1, 'Reasoning is required'),
+    .number()
+    .int('Score must be an integer')
+    .refine((val) => val >= 1 && val <= 5, {
+      message: 'Score must be exactly 1, 2, 3, 4, or 5',
+    })
+    .describe('Score from 1-5 on the evaluation dimension'),
+  reasoning: z
+    .string()
+    .min(1, 'Reasoning is required')
+    .describe('Explanation for the score'),
 });
 
 // ============================================================================

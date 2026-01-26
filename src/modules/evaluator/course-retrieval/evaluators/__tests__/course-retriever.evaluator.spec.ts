@@ -369,10 +369,9 @@ describe('CourseRetrieverEvaluator', () => {
 
   describe('Expected Behavior Documentation', () => {
     describe('When MODEL_NAME is properly configured', () => {
-      it('should build user prompt with question, skill, and retrieved courses context', () => {
+      it('should build user prompt with skill and retrieved courses context', () => {
         // This test documents expected behavior
         // Expected: getCourseRetrieverEvaluatorUserPrompt is called with:
-        // - question from input
         // - skill from input
         // - retrieved courses context built from helper
         expect(true).toBe(true);

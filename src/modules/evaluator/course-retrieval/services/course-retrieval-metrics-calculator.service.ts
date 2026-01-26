@@ -6,9 +6,12 @@ import type { LlmCourseEvaluationItem } from '../schemas/schema';
 import type {
   CourseRetrievalIterationMetrics,
   EvaluationItem,
+  PerClassDistribution,
+  PerClassDistributionWithContext,
+  PerClassRate,
+  PerClassRateWithContext,
   PrecisionMetricWithContext,
   RetrievalPerformanceMetrics,
-  RetrievalScoreDistribution,
 } from '../types/course-retrieval.types';
 
 /**
@@ -25,6 +28,8 @@ import type {
  * Follows the pattern from course-relevance-filter/metrics-calculator.service.ts
  */
 export class CourseRetrievalMetricsCalculator {
+  /** Threshold for considering macro and micro rates as equal (1%) */
+  private static readonly RATE_EQUALITY_THRESHOLD = 0.01;
   /**
    * Maps LLM evaluation items to internal evaluation items
    *
@@ -53,33 +58,44 @@ export class CourseRetrievalMetricsCalculator {
   }
 
   /**
-   * Calculate score distribution from scores
+   * Calculate per-class distribution from scores
    *
    * @param scores - Array of relevance scores
    * @param total - Total number of items
-   * @returns Score distribution array
+   * @returns Per-class distribution with counts and rates
    */
-  private static calculateDistribution(
+  private static calculatePerClassDistribution(
     scores: number[],
     total: number,
-  ): RetrievalScoreDistribution[] {
-    // Initialize distribution for all possible scores (0-3)
-    const distribution = new Map<number, number>();
-    for (let i = 0; i <= 3; i++) {
-      distribution.set(i, 0);
-    }
+  ): PerClassDistribution {
+    // Initialize counts for all possible scores (0-3)
+    const counts = { 0: 0, 1: 0, 2: 0, 3: 0 };
 
     // Count occurrences of each score
     for (const score of scores) {
-      distribution.set(score, (distribution.get(score) || 0) + 1);
+      counts[score as keyof typeof counts]++;
     }
 
-    // Convert to array format with percentages
-    return Array.from(distribution.entries()).map(([score, count]) => ({
-      relevanceScore: score as 0 | 1 | 2 | 3,
-      count,
-      percentage: total > 0 ? DecimalHelper.divide(count * 100, total) : 0,
-    }));
+    // Calculate rates (same for both macro and micro in single sample)
+    const createRate = (
+      score: 0 | 1 | 2 | 3,
+      label: PerClassRate['label'],
+    ): PerClassRate => ({
+      relevanceScore: score,
+      count: counts[score],
+      macroAverageRate:
+        total > 0 ? DecimalHelper.divide(counts[score] * 100, total) : 0,
+      microAverageRate:
+        total > 0 ? DecimalHelper.divide(counts[score] * 100, total) : 0,
+      label,
+    });
+
+    return {
+      score0: createRate(0, 'irrelevant'),
+      score1: createRate(1, 'slightly_relevant'),
+      score2: createRate(2, 'fairly_relevant'),
+      score3: createRate(3, 'highly_relevant'),
+    };
   }
 
   /**
@@ -87,10 +103,10 @@ export class CourseRetrievalMetricsCalculator {
    *
    * Computes simple flat metrics:
    * - Total courses evaluated
-   * - Average relevance score
-   * - Score distribution (0-3 breakdown)
-   * - Highly relevant count/rate (score 3)
-   * - Irrelevant count/rate (score 0)
+   * - Mean relevance score
+   * - Per-class distribution (0-3 breakdown with macro and micro)
+   * - NDCG metrics (ranking quality)
+   * - Precision@K metrics (proxy: score ≥ 2 = relevant)
    *
    * @param evaluations - List of evaluation items
    * @returns Retrieval performance metrics
@@ -104,57 +120,89 @@ export class CourseRetrievalMetricsCalculator {
     if (total === 0) {
       return {
         totalCourses: 0,
-        averageRelevance: 0,
-        scoreDistribution: [
-          { relevanceScore: 0, count: 0, percentage: 0 },
-          { relevanceScore: 1, count: 0, percentage: 0 },
-          { relevanceScore: 2, count: 0, percentage: 0 },
-          { relevanceScore: 3, count: 0, percentage: 0 },
-        ],
-        highlyRelevantCount: 0,
-        highlyRelevantRate: 0,
-        irrelevantCount: 0,
-        irrelevantRate: 0,
-        ndcg: { at5: 0, at10: 0, atAll: 0 },
-        precision: { at5: 0, at10: 0, atAll: 0 },
+        meanRelevanceScore: 0,
+        perClassDistribution: {
+          score0: {
+            relevanceScore: 0,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'irrelevant',
+          },
+          score1: {
+            relevanceScore: 1,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'slightly_relevant',
+          },
+          score2: {
+            relevanceScore: 2,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'fairly_relevant',
+          },
+          score3: {
+            relevanceScore: 3,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'highly_relevant',
+          },
+        },
+        ndcg: {
+          proxy: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+          ideal: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+        },
+        precision: { at5: 0, at10: 0, at15: 0, atAll: 0 },
       };
     }
 
-    // Calculate average relevance score using DecimalHelper for exact division
+    // Calculate mean relevance score using DecimalHelper for exact division
     const totalRelevance = evaluations.reduce(
       (sum, item) => sum + item.relevanceScore,
       0,
     );
-    const averageRelevance = DecimalHelper.divide(totalRelevance, total);
+    const meanRelevanceScore = DecimalHelper.divide(totalRelevance, total);
 
-    // Calculate score distribution
-    const scoreDistribution = this.calculateDistribution(
+    // Calculate per-class distribution (macro = micro for single sample)
+    const perClassDistribution = this.calculatePerClassDistribution(
       evaluations.map((e) => e.relevanceScore),
       total,
     );
 
-    // Count highly relevant courses (score 3)
-    const highlyRelevantCount = evaluations.filter(
-      (e) => e.relevanceScore === 3,
-    ).length;
-    const highlyRelevantRate = DecimalHelper.divide(
-      highlyRelevantCount * 100,
-      total,
-    );
-
-    // Count irrelevant courses (score 0)
-    const irrelevantCount = evaluations.filter(
-      (e) => e.relevanceScore === 0,
-    ).length;
-    const irrelevantRate = DecimalHelper.divide(irrelevantCount * 100, total);
-
     // Extract relevance scores for NDCG and Precision calculations
     const relevanceScores = evaluations.map((e) => e.relevanceScore);
 
-    // Calculate NDCG metrics (proxy: uses judge scores, no ground truth)
-    const ndcgAt5 = NdcgCalculator.calculateNDCG(relevanceScores, 5);
-    const ndcgAt10 = NdcgCalculator.calculateNDCG(relevanceScores, 10);
-    const ndcgAtAll = NdcgCalculator.calculateNDCG(relevanceScores, total);
+    // Calculate NDCG metrics (both proxy and ideal variants)
+    const ndcgProxyAt5 = NdcgCalculator.calculateProxyNDCG(relevanceScores, 5);
+    const ndcgProxyAt10 = NdcgCalculator.calculateProxyNDCG(
+      relevanceScores,
+      10,
+    );
+    const ndcgProxyAt15 = NdcgCalculator.calculateProxyNDCG(
+      relevanceScores,
+      15,
+    );
+    const ndcgProxyAtAll = NdcgCalculator.calculateProxyNDCG(
+      relevanceScores,
+      total,
+    );
+
+    const ndcgIdealAt5 = NdcgCalculator.calculateIdealNDCG(relevanceScores, 5);
+    const ndcgIdealAt10 = NdcgCalculator.calculateIdealNDCG(
+      relevanceScores,
+      10,
+    );
+    const ndcgIdealAt15 = NdcgCalculator.calculateIdealNDCG(
+      relevanceScores,
+      15,
+    );
+    const ndcgIdealAtAll = NdcgCalculator.calculateIdealNDCG(
+      relevanceScores,
+      total,
+    );
 
     // Calculate Precision@K metrics (proxy: score ≥ 2 = relevant)
     const precisionAt5 = PrecisionCalculator.calculatePrecisionAtK(
@@ -165,6 +213,10 @@ export class CourseRetrievalMetricsCalculator {
       relevanceScores,
       10,
     );
+    const precisionAt15 = PrecisionCalculator.calculatePrecisionAtK(
+      relevanceScores,
+      15,
+    );
     const precisionAtAll = PrecisionCalculator.calculatePrecisionAtK(
       relevanceScores,
       total,
@@ -172,20 +224,26 @@ export class CourseRetrievalMetricsCalculator {
 
     return {
       totalCourses: total,
-      averageRelevance,
-      scoreDistribution,
-      highlyRelevantCount,
-      highlyRelevantRate,
-      irrelevantCount,
-      irrelevantRate,
+      meanRelevanceScore,
+      perClassDistribution,
       ndcg: {
-        at5: ndcgAt5,
-        at10: ndcgAt10,
-        atAll: ndcgAtAll,
+        proxy: {
+          at5: ndcgProxyAt5,
+          at10: ndcgProxyAt10,
+          at15: ndcgProxyAt15,
+          atAll: ndcgProxyAtAll,
+        },
+        ideal: {
+          at5: ndcgIdealAt5,
+          at10: ndcgIdealAt10,
+          at15: ndcgIdealAt15,
+          atAll: ndcgIdealAtAll,
+        },
       },
       precision: {
         at5: precisionAt5,
         at10: precisionAt10,
+        at15: precisionAt15,
         atAll: precisionAtAll,
       },
     };
@@ -201,6 +259,10 @@ export class CourseRetrievalMetricsCalculator {
    * Each record contains per-sample metrics already calculated. This method
    * simply averages those metrics to produce the final aggregated values.
    *
+   * **Macro vs Micro Averages for Per-Class Distribution**:
+   * - **Macro-average**: Average of per-sample rates for each score class
+   * - **Micro-average**: Total count for each score class / total courses * 100
+   *
    * @param records - Array of evaluation records with per-sample metrics
    * @returns Aggregated metrics (mean across all samples)
    */
@@ -210,133 +272,191 @@ export class CourseRetrievalMetricsCalculator {
     if (records.length === 0) {
       return {
         totalCourses: 0,
-        averageRelevance: 0,
-        scoreDistribution: [
-          { relevanceScore: 0, count: 0, percentage: 0 },
-          { relevanceScore: 1, count: 0, percentage: 0 },
-          { relevanceScore: 2, count: 0, percentage: 0 },
-          { relevanceScore: 3, count: 0, percentage: 0 },
-        ],
-        highlyRelevantCount: 0,
-        highlyRelevantRate: 0,
-        irrelevantCount: 0,
-        irrelevantRate: 0,
-        ndcg: { at5: 0, at10: 0, atAll: 0 },
-        precision: { at5: 0, at10: 0, atAll: 0 },
+        meanRelevanceScore: 0,
+        perClassDistribution: {
+          score0: {
+            relevanceScore: 0,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'irrelevant',
+          },
+          score1: {
+            relevanceScore: 1,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'slightly_relevant',
+          },
+          score2: {
+            relevanceScore: 2,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'fairly_relevant',
+          },
+          score3: {
+            relevanceScore: 3,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'highly_relevant',
+          },
+        },
+        ndcg: {
+          proxy: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+          ideal: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+        },
+        precision: { at5: 0, at10: 0, at15: 0, atAll: 0 },
       };
     }
+
+    const count = records.length;
 
     // Sum all metric values across samples
     const sumMetrics = records.reduce(
       (acc, record) => ({
         totalCourses: acc.totalCourses + record.metrics.totalCourses,
-        averageRelevance:
-          acc.averageRelevance + record.metrics.averageRelevance,
-        highlyRelevantCount:
-          acc.highlyRelevantCount + record.metrics.highlyRelevantCount,
-        highlyRelevantRate:
-          acc.highlyRelevantRate + record.metrics.highlyRelevantRate,
-        irrelevantCount: acc.irrelevantCount + record.metrics.irrelevantCount,
-        irrelevantRate: acc.irrelevantRate + record.metrics.irrelevantRate,
-        ndcgAt5: acc.ndcgAt5 + record.metrics.ndcg.at5,
-        ndcgAt10: acc.ndcgAt10 + record.metrics.ndcg.at10,
-        ndcgAtAll: acc.ndcgAtAll + record.metrics.ndcg.atAll,
+        meanRelevanceScore:
+          acc.meanRelevanceScore + record.metrics.meanRelevanceScore,
+        ndcgProxyAt5: acc.ndcgProxyAt5 + record.metrics.ndcg.proxy.at5,
+        ndcgProxyAt10: acc.ndcgProxyAt10 + record.metrics.ndcg.proxy.at10,
+        ndcgProxyAt15: acc.ndcgProxyAt15 + record.metrics.ndcg.proxy.at15,
+        ndcgProxyAtAll: acc.ndcgProxyAtAll + record.metrics.ndcg.proxy.atAll,
+        ndcgIdealAt5: acc.ndcgIdealAt5 + record.metrics.ndcg.ideal.at5,
+        ndcgIdealAt10: acc.ndcgIdealAt10 + record.metrics.ndcg.ideal.at10,
+        ndcgIdealAt15: acc.ndcgIdealAt15 + record.metrics.ndcg.ideal.at15,
+        ndcgIdealAtAll: acc.ndcgIdealAtAll + record.metrics.ndcg.ideal.atAll,
         precisionAt5: acc.precisionAt5 + record.metrics.precision.at5,
         precisionAt10: acc.precisionAt10 + record.metrics.precision.at10,
+        precisionAt15: acc.precisionAt15 + record.metrics.precision.at15,
         precisionAtAll: acc.precisionAtAll + record.metrics.precision.atAll,
       }),
       {
         totalCourses: 0,
-        averageRelevance: 0,
-        highlyRelevantCount: 0,
-        highlyRelevantRate: 0,
-        irrelevantCount: 0,
-        irrelevantRate: 0,
-        ndcgAt5: 0,
-        ndcgAt10: 0,
-        ndcgAtAll: 0,
+        meanRelevanceScore: 0,
+        ndcgProxyAt5: 0,
+        ndcgProxyAt10: 0,
+        ndcgProxyAt15: 0,
+        ndcgProxyAtAll: 0,
+        ndcgIdealAt5: 0,
+        ndcgIdealAt10: 0,
+        ndcgIdealAt15: 0,
+        ndcgIdealAtAll: 0,
         precisionAt5: 0,
         precisionAt10: 0,
+        precisionAt15: 0,
         precisionAtAll: 0,
       },
     );
 
-    const count = records.length;
-
-    // Calculate combined score distribution (sum of counts, not averages)
-    const combinedDistribution = this.calculateCombinedDistribution(records);
+    // Calculate per-class distribution with both macro and micro averages
+    const perClassDistribution = this.calculateAggregatedPerClassDistribution(
+      records,
+      sumMetrics.totalCourses,
+    );
 
     return {
       totalCourses: sumMetrics.totalCourses,
-      averageRelevance: DecimalHelper.divide(
-        sumMetrics.averageRelevance,
+      meanRelevanceScore: DecimalHelper.divide(
+        sumMetrics.meanRelevanceScore,
         count,
       ),
-      scoreDistribution: combinedDistribution,
-      highlyRelevantCount: sumMetrics.highlyRelevantCount,
-      highlyRelevantRate: DecimalHelper.divide(
-        sumMetrics.highlyRelevantRate,
-        count,
-      ),
-      irrelevantCount: sumMetrics.irrelevantCount,
-      irrelevantRate: DecimalHelper.divide(sumMetrics.irrelevantRate, count),
+      perClassDistribution,
       ndcg: {
-        at5: DecimalHelper.divide(sumMetrics.ndcgAt5, count),
-        at10: DecimalHelper.divide(sumMetrics.ndcgAt10, count),
-        atAll: DecimalHelper.divide(sumMetrics.ndcgAtAll, count),
+        proxy: {
+          at5: DecimalHelper.divide(sumMetrics.ndcgProxyAt5, count),
+          at10: DecimalHelper.divide(sumMetrics.ndcgProxyAt10, count),
+          at15: DecimalHelper.divide(sumMetrics.ndcgProxyAt15, count),
+          atAll: DecimalHelper.divide(sumMetrics.ndcgProxyAtAll, count),
+        },
+        ideal: {
+          at5: DecimalHelper.divide(sumMetrics.ndcgIdealAt5, count),
+          at10: DecimalHelper.divide(sumMetrics.ndcgIdealAt10, count),
+          at15: DecimalHelper.divide(sumMetrics.ndcgIdealAt15, count),
+          atAll: DecimalHelper.divide(sumMetrics.ndcgIdealAtAll, count),
+        },
       },
       precision: {
         at5: DecimalHelper.divide(sumMetrics.precisionAt5, count),
         at10: DecimalHelper.divide(sumMetrics.precisionAt10, count),
+        at15: DecimalHelper.divide(sumMetrics.precisionAt15, count),
         atAll: DecimalHelper.divide(sumMetrics.precisionAtAll, count),
       },
     };
   }
 
   /**
-   * Calculate combined score distribution across multiple samples
+   * Calculate aggregated per-class distribution across multiple samples
    *
-   * Sums up the counts from each sample's distribution, then recalculates
-   * percentages based on the total count across all samples.
+   * Computes both macro and micro averages for each relevance score class:
+   * - **Macro-average**: Average of per-sample rates (each sample weighted equally)
+   * - **Micro-average**: Total count for each score / total courses * 100 (weighted by sample size)
    *
    * @param records - Array of evaluation records with per-sample metrics
-   * @returns Combined score distribution
+   * @param totalCourses - Total number of courses across all samples
+   * @returns Aggregated per-class distribution with macro and micro averages
    */
-  private static calculateCombinedDistribution(
+  private static calculateAggregatedPerClassDistribution(
     records: Array<{ metrics: RetrievalPerformanceMetrics }>,
-  ): RetrievalScoreDistribution[] {
-    // Initialize combined counts
-    const combinedCounts = new Map<number, number>();
-    for (let i = 0; i <= 3; i++) {
-      combinedCounts.set(i, 0);
-    }
+    totalCourses: number,
+  ): PerClassDistribution {
+    const count = records.length;
 
-    // Sum counts from all samples
-    let totalCount = 0;
+    // Initialize aggregators for each score class
+    const aggregators = {
+      0: { count: 0, macroRateSum: 0 },
+      1: { count: 0, macroRateSum: 0 },
+      2: { count: 0, macroRateSum: 0 },
+      3: { count: 0, macroRateSum: 0 },
+    };
+
+    // Aggregate across all samples
     for (const record of records) {
-      for (const dist of record.metrics.scoreDistribution) {
-        const currentCount = combinedCounts.get(dist.relevanceScore) || 0;
-        combinedCounts.set(dist.relevanceScore, currentCount + dist.count);
-        totalCount += dist.count;
-      }
-      // Only add to totalCount once per sample, not per distribution entry
-      totalCount -= record.metrics.scoreDistribution.reduce(
-        (sum, d) => sum + d.count,
-        0,
-      );
-      totalCount += record.metrics.totalCourses;
+      const dist = record.metrics.perClassDistribution;
+
+      // Sum counts and macro rates for each score class
+      aggregators[0].count += dist.score0.count;
+      aggregators[0].macroRateSum += dist.score0.macroAverageRate;
+
+      aggregators[1].count += dist.score1.count;
+      aggregators[1].macroRateSum += dist.score1.macroAverageRate;
+
+      aggregators[2].count += dist.score2.count;
+      aggregators[2].macroRateSum += dist.score2.macroAverageRate;
+
+      aggregators[3].count += dist.score3.count;
+      aggregators[3].macroRateSum += dist.score3.macroAverageRate;
     }
 
-    // Recalculate totalCount correctly
-    totalCount = records.reduce((sum, r) => sum + r.metrics.totalCourses, 0);
+    // Build final distribution with both macro and micro averages
+    const createRate = (
+      score: 0 | 1 | 2 | 3,
+      label: PerClassRate['label'],
+    ): PerClassRate => {
+      const agg = aggregators[score];
 
-    // Convert to array format with percentages using DecimalHelper for exact division
-    return Array.from(combinedCounts.entries()).map(([score, count]) => ({
-      relevanceScore: score as 0 | 1 | 2 | 3,
-      count,
-      percentage:
-        totalCount > 0 ? DecimalHelper.divide(count * 100, totalCount) : 0,
-    }));
+      return {
+        relevanceScore: score,
+        count: agg.count,
+        // Macro-average: average of per-sample rates
+        macroAverageRate:
+          count > 0 ? DecimalHelper.divide(agg.macroRateSum, count) : 0,
+        // Micro-average: total count / total courses * 100
+        microAverageRate:
+          totalCourses > 0
+            ? DecimalHelper.divide(agg.count * 100, totalCourses)
+            : 0,
+        label,
+      };
+    };
+
+    return {
+      score0: createRate(0, 'irrelevant'),
+      score1: createRate(1, 'slightly_relevant'),
+      score2: createRate(2, 'fairly_relevant'),
+      score3: createRate(3, 'highly_relevant'),
+    };
   }
 
   /**
@@ -346,11 +466,11 @@ export class CourseRetrievalMetricsCalculator {
    * - Context (numerator/denominator)
    * - Human-readable descriptions
    * - Self-documenting structure
+   * - Per-class distribution with macro vs micro breakdown
    *
    * Uses DecimalHelper for all rounding operations to ensure exact precision.
    *
-   * @param metrics - Calculated metrics (from calculateMetrics or calculateMeanMetrics)
-   * @param params - Additional context for building descriptions
+   * @param params - Metrics and context for building descriptions
    * @returns Enriched iteration metrics ready for saving
    */
   static buildEnrichedIterationMetrics(params: {
@@ -360,9 +480,15 @@ export class CourseRetrievalMetricsCalculator {
   }): CourseRetrievalIterationMetrics {
     const { metrics, sampleCount, iterationNumber } = params;
 
-    // Calculate total relevance sum for average relevance context
+    // Calculate total relevance sum for mean relevance context
     const totalRelevanceSum = DecimalHelper.multiply(
-      metrics.averageRelevance,
+      metrics.meanRelevanceScore,
+      metrics.totalCourses,
+    );
+
+    // Build enriched per-class distribution with descriptions
+    const perClassDistribution = this.buildEnrichedPerClassDistribution(
+      metrics.perClassDistribution,
       metrics.totalCourses,
     );
 
@@ -374,49 +500,55 @@ export class CourseRetrievalMetricsCalculator {
       totalCoursesEvaluated: metrics.totalCourses,
 
       // === RELEVANCE METRICS ===
-      averageRelevance: {
-        value: DecimalHelper.roundScore(metrics.averageRelevance),
+      meanRelevanceScore: {
+        meanRelevanceScore: DecimalHelper.roundScore(
+          metrics.meanRelevanceScore,
+        ),
         totalRelevanceSum: DecimalHelper.roundScore(totalRelevanceSum),
         totalCourses: metrics.totalCourses,
-        description: `Mean relevance: ${DecimalHelper.roundScore(metrics.averageRelevance)}/3 across ${metrics.totalCourses} courses`,
+        description: `Mean relevance: ${DecimalHelper.roundScore(metrics.meanRelevanceScore)}/3 across ${metrics.totalCourses} courses`,
       },
 
-      highlyRelevantRate: {
-        value: DecimalHelper.roundRate(metrics.highlyRelevantRate),
-        count: metrics.highlyRelevantCount,
-        totalCount: metrics.totalCourses,
-        description: `${metrics.highlyRelevantCount} of ${metrics.totalCourses} courses (${metrics.highlyRelevantRate.toFixed(1)}%) are highly relevant`,
-      },
-
-      irrelevantRate: {
-        value: DecimalHelper.roundRate(metrics.irrelevantRate),
-        count: metrics.irrelevantCount,
-        totalCount: metrics.totalCourses,
-        description: `${metrics.irrelevantCount} of ${metrics.totalCourses} courses (${metrics.irrelevantRate.toFixed(1)}%) are irrelevant`,
-      },
+      perClassDistribution,
 
       // === RANKING QUALITY METRICS (NDCG) ===
       ndcg: {
         at5: {
-          value: DecimalHelper.roundAverage(metrics.ndcg.at5),
+          proxyNdcg: DecimalHelper.roundAverage(metrics.ndcg.proxy.at5),
+          idealNdcg: DecimalHelper.roundAverage(metrics.ndcg.ideal.at5),
           description: this.getNdcgDescription(
-            metrics.ndcg.at5,
+            metrics.ndcg.proxy.at5,
+            metrics.ndcg.ideal.at5,
             5,
             sampleCount,
           ),
         },
         at10: {
-          value: DecimalHelper.roundAverage(metrics.ndcg.at10),
+          proxyNdcg: DecimalHelper.roundAverage(metrics.ndcg.proxy.at10),
+          idealNdcg: DecimalHelper.roundAverage(metrics.ndcg.ideal.at10),
           description: this.getNdcgDescription(
-            metrics.ndcg.at10,
+            metrics.ndcg.proxy.at10,
+            metrics.ndcg.ideal.at10,
             10,
             sampleCount,
           ),
         },
-        atAll: {
-          value: DecimalHelper.roundAverage(metrics.ndcg.atAll),
+        at15: {
+          proxyNdcg: DecimalHelper.roundAverage(metrics.ndcg.proxy.at15),
+          idealNdcg: DecimalHelper.roundAverage(metrics.ndcg.ideal.at15),
           description: this.getNdcgDescription(
-            metrics.ndcg.atAll,
+            metrics.ndcg.proxy.at15,
+            metrics.ndcg.ideal.at15,
+            15,
+            sampleCount,
+          ),
+        },
+        atAll: {
+          proxyNdcg: DecimalHelper.roundAverage(metrics.ndcg.proxy.atAll),
+          idealNdcg: DecimalHelper.roundAverage(metrics.ndcg.ideal.atAll),
+          description: this.getNdcgDescription(
+            metrics.ndcg.proxy.atAll,
+            metrics.ndcg.ideal.atAll,
             metrics.totalCourses,
             sampleCount,
           ),
@@ -437,6 +569,12 @@ export class CourseRetrievalMetricsCalculator {
           sampleCount,
           metrics.totalCourses,
         ),
+        at15: this.buildPrecisionMetricWithContext(
+          metrics.precision.at15,
+          15,
+          sampleCount,
+          metrics.totalCourses,
+        ),
         atAll: this.buildPrecisionMetricWithContext(
           metrics.precision.atAll,
           metrics.totalCourses,
@@ -448,21 +586,73 @@ export class CourseRetrievalMetricsCalculator {
   }
 
   /**
+   * Build enriched per-class distribution with descriptions
+   *
+   * Adds human-readable descriptions showing macro vs micro differences
+   * for each relevance score class.
+   *
+   * @param distribution - Per-class distribution
+   * @param totalCourses - Total number of courses
+   * @returns Enriched per-class distribution with descriptions
+   */
+  private static buildEnrichedPerClassDistribution(
+    distribution: PerClassDistribution,
+    totalCourses: number,
+  ): PerClassDistributionWithContext {
+    const buildEnrichedRate = (rate: PerClassRate): PerClassRateWithContext => {
+      const macroRounded = rate.macroAverageRate.toFixed(1);
+      const microRounded = rate.microAverageRate.toFixed(1);
+
+      let description: string;
+      if (
+        Math.abs(rate.macroAverageRate - rate.microAverageRate) <
+        CourseRetrievalMetricsCalculator.RATE_EQUALITY_THRESHOLD
+      ) {
+        // Macro and micro are the same
+        description = `${rate.count} of ${totalCourses} courses (${macroRounded}%) are ${rate.label.replace('_', ' ')}`;
+      } else {
+        // Show both macro and micro
+        description = `${rate.count} of ${totalCourses} courses are ${rate.label.replace('_', ' ')} - Macro: ${macroRounded}% (avg of sample rates), Micro: ${microRounded}% (from total counts)`;
+      }
+
+      return {
+        relevanceScore: rate.relevanceScore,
+        label: rate.label,
+        count: rate.count,
+        totalCount: totalCourses,
+        macroAverageRate: DecimalHelper.roundRate(rate.macroAverageRate),
+        microAverageRate: DecimalHelper.roundRate(rate.microAverageRate),
+        description,
+      };
+    };
+
+    return {
+      score0: buildEnrichedRate(distribution.score0),
+      score1: buildEnrichedRate(distribution.score1),
+      score2: buildEnrichedRate(distribution.score2),
+      score3: buildEnrichedRate(distribution.score3),
+    };
+  }
+
+  /**
    * Generate human-readable NDCG description
    */
   private static getNdcgDescription(
-    value: number,
+    proxyValue: number,
+    idealValue: number,
     k: number,
     sampleCount: number,
   ): string {
-    const rounded = DecimalHelper.roundAverage(value);
-    const quality = this.getQualityRating(value);
+    const proxyRounded = DecimalHelper.roundAverage(proxyValue);
+    const idealRounded = DecimalHelper.roundAverage(idealValue);
+    const proxyQuality = this.getQualityRating(proxyValue);
+    const idealQuality = this.getQualityRating(idealValue);
 
     if (k > 100) {
-      return `Mean NDCG@All: ${rounded} - ${quality} overall ranking across ${sampleCount} samples`;
+      return `Mean NDCG@All - Proxy: ${proxyRounded} (${proxyQuality}), Ideal: ${idealRounded} (${idealQuality}) - Overall ranking across ${sampleCount} samples`;
     }
 
-    return `Mean NDCG@${k}: ${rounded} - Top-${k} results show ${quality.toLowerCase()} ranking (${sampleCount} samples)`;
+    return `Mean NDCG@${k} - Proxy: ${proxyRounded} (${proxyQuality}), Ideal: ${idealRounded} (${idealQuality}) - Top-${k} results (${sampleCount} samples)`;
   }
 
   /**
@@ -486,7 +676,7 @@ export class CourseRetrievalMetricsCalculator {
     // For @All (very large k), use different description
     if (k >= totalCourses) {
       return {
-        value: roundedValue,
+        meanPrecision: roundedValue,
         relevantCount: Math.round(value * totalCourses),
         totalCount: totalCourses,
         description: `Mean precision: ${fmtPct(value)}% across all retrieved courses`,
@@ -494,7 +684,7 @@ export class CourseRetrievalMetricsCalculator {
     }
 
     return {
-      value: roundedValue,
+      meanPrecision: roundedValue,
       relevantCount,
       totalCount,
       description: `Mean Precision@${k}: ${fmtPct(value)}% - On average, ${fmtPct(value)}% of top-${k} courses are relevant (${sampleCount} samples)`,

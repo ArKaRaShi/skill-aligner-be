@@ -5,6 +5,7 @@ import {
   ILlmRouterService,
 } from 'src/shared/adapters/llm/contracts/i-llm-router-service.contract';
 import type { TokenUsage } from 'src/shared/contracts/types/token-usage.type';
+import { z } from 'zod';
 
 import { DEFAULT_JUDGE_TIMEOUT_MS } from '../../shared/configs';
 import {
@@ -14,6 +15,7 @@ import {
 import { AnswerSynthesisJudgeVerdictSchema } from '../schemas/schema';
 import type {
   AnswerSynthesisJudgeResult,
+  AnswerSynthesisJudgeVerdict,
   AnswerSynthesisTestCase,
 } from '../types/answer-synthesis.types';
 
@@ -42,6 +44,27 @@ export class AnswerSynthesisJudgeEvaluator {
     @Inject(I_LLM_ROUTER_SERVICE_TOKEN)
     private readonly llmRouterService: ILlmRouterService,
   ) {}
+
+  /**
+   * Map raw Zod output to typed verdict.
+   *
+   * Zod schema validates score as number (1-5), but our types use literal type.
+   * This mapper safely casts after validation.
+   */
+  private mapToVerdict(
+    raw: z.infer<typeof AnswerSynthesisJudgeVerdictSchema>,
+  ): AnswerSynthesisJudgeVerdict {
+    return {
+      faithfulness: {
+        score: raw.faithfulness.score as 1 | 2 | 3 | 4 | 5,
+        reasoning: raw.faithfulness.reasoning,
+      },
+      completeness: {
+        score: raw.completeness.score as 1 | 2 | 3 | 4 | 5,
+        reasoning: raw.completeness.reasoning,
+      },
+    };
+  }
 
   /**
    * Evaluate a single answer using LLM judge.
@@ -95,8 +118,11 @@ export class AnswerSynthesisJudgeEvaluator {
       `Judge evaluation complete: ${llmResult.inputTokens + llmResult.outputTokens} tokens used`,
     );
 
+    // Map raw Zod output to typed verdict (cast number to literal type)
+    const verdict = this.mapToVerdict(llmResult.object);
+
     return {
-      verdict: llmResult.object,
+      verdict,
       tokenUsage: [tokenUsage],
     };
   }

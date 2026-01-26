@@ -56,9 +56,9 @@ export const QueryPipelineConfig = {
 
   /**
    * Maximum number of learning outcomes to retrieve per skill
-   * @default 10
+   * @default 15
    */
-  COURSE_RETRIEVAL_TOP_N_LOS: 10,
+  COURSE_RETRIEVAL_TOP_N_LOS: 15,
 
   /**
    * Enable LLM-based filtering of learning outcomes before course retrieval

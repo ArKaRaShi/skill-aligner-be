@@ -8,7 +8,6 @@ import type {
   CourseInfo,
   EvaluationItem,
   RetrievalPerformanceMetrics,
-  RetrievalScoreDistribution,
 } from '../types/course-retrieval.types';
 
 // ============================================================================
@@ -23,12 +22,7 @@ export const MOCK_ITERATION_NUMBER = 1;
 // TYPE EXPORTS (for convenience)
 // ============================================================================
 
-export type {
-  CourseInfo,
-  EvaluationItem,
-  RetrievalPerformanceMetrics,
-  RetrievalScoreDistribution,
-};
+export type { CourseInfo, EvaluationItem, RetrievalPerformanceMetrics };
 
 // ============================================================================
 // FACTORY FUNCTIONS
@@ -110,38 +104,48 @@ export const createMockEvaluationItem = (
 });
 
 /**
- * Creates a mock RetrievalScoreDistribution
- */
-export const createMockRetrievalScoreDistribution = (
-  overrides: Partial<RetrievalScoreDistribution> = {},
-): RetrievalScoreDistribution => ({
-  relevanceScore: 2,
-  count: 5,
-  percentage: 50,
-  ...overrides,
-});
-
-/**
  * Creates a mock RetrievalPerformanceMetrics
  */
 export const createMockRetrievalPerformanceMetrics = (
   overrides: Partial<RetrievalPerformanceMetrics> = {},
 ): RetrievalPerformanceMetrics => ({
   totalCourses: 5,
-  averageRelevance: 2.0,
-  scoreDistribution: [
-    createMockRetrievalScoreDistribution({
+  meanRelevanceScore: 2.0,
+  perClassDistribution: {
+    score0: {
+      relevanceScore: 0,
+      count: 0,
+      macroAverageRate: 0,
+      microAverageRate: 0,
+      label: 'irrelevant',
+    },
+    score1: {
+      relevanceScore: 1,
+      count: 0,
+      macroAverageRate: 0,
+      microAverageRate: 0,
+      label: 'slightly_relevant',
+    },
+    score2: {
       relevanceScore: 2,
       count: 5,
-      percentage: 100,
-    }),
-  ],
-  highlyRelevantCount: 0,
-  highlyRelevantRate: 0,
-  irrelevantCount: 0,
-  irrelevantRate: 0,
-  ndcg: { at5: 0.8, at10: 0.75, atAll: 0.7 },
-  precision: { at5: 0.6, at10: 0.5, atAll: 0.4 },
+      macroAverageRate: 100,
+      microAverageRate: 100,
+      label: 'fairly_relevant',
+    },
+    score3: {
+      relevanceScore: 3,
+      count: 0,
+      macroAverageRate: 0,
+      microAverageRate: 0,
+      label: 'highly_relevant',
+    },
+  },
+  ndcg: {
+    proxy: { at5: 0.8, at10: 0.75, at15: 0.73, atAll: 0.7 },
+    ideal: { at5: 0.6, at10: 0.55, at15: 0.53, atAll: 0.5 },
+  },
+  precision: { at5: 0.6, at10: 0.5, at15: 0.47, atAll: 0.4 },
   ...overrides,
 });
 
@@ -201,14 +205,37 @@ export const MOCK_SCENARIOS = {
     ],
     expectedMetrics: {
       totalCourses: 3,
-      averageRelevance: 2,
-      scoreDistribution: [
-        { relevanceScore: 2, count: 3, percentage: 100 },
-      ] as RetrievalScoreDistribution[],
-      highlyRelevantCount: 0,
-      highlyRelevantRate: 0,
-      irrelevantCount: 0,
-      irrelevantRate: 0,
+      meanRelevanceScore: 2,
+      perClassDistribution: {
+        score0: {
+          relevanceScore: 0,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'irrelevant',
+        },
+        score1: {
+          relevanceScore: 1,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'slightly_relevant',
+        },
+        score2: {
+          relevanceScore: 2,
+          count: 3,
+          macroAverageRate: 100,
+          microAverageRate: 100,
+          label: 'fairly_relevant',
+        },
+        score3: {
+          relevanceScore: 3,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'highly_relevant',
+        },
+      },
     } as RetrievalPerformanceMetrics,
   },
 
@@ -236,17 +263,37 @@ export const MOCK_SCENARIOS = {
     ],
     expectedMetrics: {
       totalCourses: 4,
-      averageRelevance: 1.5,
-      scoreDistribution: [
-        { relevanceScore: 0, count: 1, percentage: 25 },
-        { relevanceScore: 1, count: 1, percentage: 25 },
-        { relevanceScore: 2, count: 1, percentage: 25 },
-        { relevanceScore: 3, count: 1, percentage: 25 },
-      ] as RetrievalScoreDistribution[],
-      highlyRelevantCount: 1,
-      highlyRelevantRate: 25,
-      irrelevantCount: 1,
-      irrelevantRate: 25,
+      meanRelevanceScore: 1.5,
+      perClassDistribution: {
+        score0: {
+          relevanceScore: 0,
+          count: 1,
+          macroAverageRate: 25,
+          microAverageRate: 25,
+          label: 'irrelevant',
+        },
+        score1: {
+          relevanceScore: 1,
+          count: 1,
+          macroAverageRate: 25,
+          microAverageRate: 25,
+          label: 'slightly_relevant',
+        },
+        score2: {
+          relevanceScore: 2,
+          count: 1,
+          macroAverageRate: 25,
+          microAverageRate: 25,
+          label: 'fairly_relevant',
+        },
+        score3: {
+          relevanceScore: 3,
+          count: 1,
+          macroAverageRate: 25,
+          microAverageRate: 25,
+          label: 'highly_relevant',
+        },
+      },
     } as RetrievalPerformanceMetrics,
   },
 
@@ -259,11 +306,37 @@ export const MOCK_SCENARIOS = {
     ),
     expectedMetrics: {
       totalCourses: 5,
-      averageRelevance: 3,
-      highlyRelevantCount: 5,
-      highlyRelevantRate: 100,
-      irrelevantCount: 0,
-      irrelevantRate: 0,
+      meanRelevanceScore: 3,
+      perClassDistribution: {
+        score0: {
+          relevanceScore: 0,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'irrelevant',
+        },
+        score1: {
+          relevanceScore: 1,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'slightly_relevant',
+        },
+        score2: {
+          relevanceScore: 2,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'fairly_relevant',
+        },
+        score3: {
+          relevanceScore: 3,
+          count: 5,
+          macroAverageRate: 100,
+          microAverageRate: 100,
+          label: 'highly_relevant',
+        },
+      },
     } as RetrievalPerformanceMetrics,
   },
 
@@ -276,11 +349,37 @@ export const MOCK_SCENARIOS = {
     ),
     expectedMetrics: {
       totalCourses: 3,
-      averageRelevance: 0,
-      highlyRelevantCount: 0,
-      highlyRelevantRate: 0,
-      irrelevantCount: 3,
-      irrelevantRate: 100,
+      meanRelevanceScore: 0,
+      perClassDistribution: {
+        score0: {
+          relevanceScore: 0,
+          count: 3,
+          macroAverageRate: 100,
+          microAverageRate: 100,
+          label: 'irrelevant',
+        },
+        score1: {
+          relevanceScore: 1,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'slightly_relevant',
+        },
+        score2: {
+          relevanceScore: 2,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'fairly_relevant',
+        },
+        score3: {
+          relevanceScore: 3,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'highly_relevant',
+        },
+      },
     } as RetrievalPerformanceMetrics,
   },
 
@@ -304,14 +403,37 @@ export const MOCK_SCENARIOS = {
     ],
     expectedMetrics: {
       totalCourses: 1,
-      averageRelevance: 2,
-      scoreDistribution: [
-        { relevanceScore: 2, count: 1, percentage: 100 },
-      ] as RetrievalScoreDistribution[],
-      highlyRelevantCount: 0,
-      highlyRelevantRate: 0,
-      irrelevantCount: 0,
-      irrelevantRate: 0,
+      meanRelevanceScore: 2,
+      perClassDistribution: {
+        score0: {
+          relevanceScore: 0,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'irrelevant',
+        },
+        score1: {
+          relevanceScore: 1,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'slightly_relevant',
+        },
+        score2: {
+          relevanceScore: 2,
+          count: 1,
+          macroAverageRate: 100,
+          microAverageRate: 100,
+          label: 'fairly_relevant',
+        },
+        score3: {
+          relevanceScore: 3,
+          count: 0,
+          macroAverageRate: 0,
+          microAverageRate: 0,
+          label: 'highly_relevant',
+        },
+      },
     } as RetrievalPerformanceMetrics,
   },
 } as const;

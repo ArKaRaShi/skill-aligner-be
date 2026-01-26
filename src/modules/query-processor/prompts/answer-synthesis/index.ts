@@ -1,24 +1,4 @@
 import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V7,
-  getAnswerSynthesisUserPromptV7,
-} from './answer-synthesis-v7.prompt';
-import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V8,
-  getAnswerSynthesisUserPromptV8,
-} from './answer-synthesis-v8.prompt';
-import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V9,
-  getAnswerSynthesisUserPromptV9,
-} from './answer-synthesis-v9.prompt';
-import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V10,
-  getAnswerSynthesisUserPromptV10,
-} from './answer-synthesis-v10.prompt';
-import {
-  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V11,
-  getAnswerSynthesisUserPromptV11,
-} from './answer-synthesis-v11.prompt';
-import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT_V12,
   getAnswerSynthesisUserPromptV12,
 } from './answer-synthesis-v12.prompt';
@@ -30,6 +10,10 @@ import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT_V14,
   getAnswerSynthesisUserPromptV14,
 } from './answer-synthesis-v14.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V15,
+  getAnswerSynthesisUserPromptV15,
+} from './answer-synthesis-v15.prompt';
 import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT,
   getAnswerSynthesisUserPrompt,
@@ -54,6 +38,26 @@ import {
   ANSWER_SYNTHESIS_SYSTEM_PROMPT_V6,
   getAnswerSynthesisUserPromptV6,
 } from './archives/answer-synthesis-v6.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V7,
+  getAnswerSynthesisUserPromptV7,
+} from './archives/answer-synthesis-v7.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V8,
+  getAnswerSynthesisUserPromptV8,
+} from './archives/answer-synthesis-v8.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V9,
+  getAnswerSynthesisUserPromptV9,
+} from './archives/answer-synthesis-v9.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V10,
+  getAnswerSynthesisUserPromptV10,
+} from './archives/answer-synthesis-v10.prompt';
+import {
+  ANSWER_SYNTHESIS_SYSTEM_PROMPT_V11,
+  getAnswerSynthesisUserPromptV11,
+} from './archives/answer-synthesis-v11.prompt';
 
 type AnswerSynthesisPrompt = {
   systemPrompt: string;
@@ -75,6 +79,7 @@ export const AnswerSynthesisPromptVersions = {
   V12: 'v12',
   V13: 'v13',
   V14: 'v14',
+  V15: 'v15',
 } as const;
 
 export type AnswerSynthesisPromptVersion =
@@ -139,6 +144,10 @@ const AnswerSynthesisPrompts: Record<
   v14: {
     systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V14,
     getUserPrompt: getAnswerSynthesisUserPromptV14,
+  },
+  v15: {
+    systemPrompt: ANSWER_SYNTHESIS_SYSTEM_PROMPT_V15,
+    getUserPrompt: getAnswerSynthesisUserPromptV15,
   },
 };
 

@@ -3,7 +3,6 @@ import {
   CourseInfo,
   EvaluationItem,
   RetrievalPerformanceMetrics,
-  RetrievalScoreDistribution,
 } from '../types/course-retrieval.types';
 import { NdcgCalculator } from './ndcg-calculator.helper';
 import { PrecisionCalculator } from './precision-calculator.helper';
@@ -38,6 +37,7 @@ export class CourseRetrieverEvaluatorHelper {
    *
    * @param evaluations - List of evaluation items
    * @returns Retrieval performance metrics with single-score model
+   * @deprecated Use CourseRetrievalMetricsCalculator.calculateMetrics instead
    */
   static calculateMetrics(
     evaluations: EvaluationItem[],
@@ -48,54 +48,89 @@ export class CourseRetrieverEvaluatorHelper {
     if (total === 0) {
       return {
         totalCourses: 0,
-        averageRelevance: 0,
-        scoreDistribution: [
-          { relevanceScore: 0, count: 0, percentage: 0 },
-          { relevanceScore: 1, count: 0, percentage: 0 },
-          { relevanceScore: 2, count: 0, percentage: 0 },
-          { relevanceScore: 3, count: 0, percentage: 0 },
-        ],
-        highlyRelevantCount: 0,
-        highlyRelevantRate: 0,
-        irrelevantCount: 0,
-        irrelevantRate: 0,
-        ndcg: { at5: 0, at10: 0, atAll: 0 },
-        precision: { at5: 0, at10: 0, atAll: 0 },
+        meanRelevanceScore: 0,
+        perClassDistribution: {
+          score0: {
+            relevanceScore: 0,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'irrelevant',
+          },
+          score1: {
+            relevanceScore: 1,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'slightly_relevant',
+          },
+          score2: {
+            relevanceScore: 2,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'fairly_relevant',
+          },
+          score3: {
+            relevanceScore: 3,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'highly_relevant',
+          },
+        },
+        ndcg: {
+          proxy: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+          ideal: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+        },
+        precision: { at5: 0, at10: 0, at15: 0, atAll: 0 },
       };
     }
 
-    // Calculate average relevance score
+    // Calculate mean relevance score
     const totalRelevance = evaluations.reduce(
       (sum, item) => sum + item.relevanceScore,
       0,
     );
-    const averageRelevance = totalRelevance / total;
+    const meanRelevanceScore = totalRelevance / total;
 
-    // Calculate score distribution
-    const scoreDistribution = this.calculateDistribution(
+    // Calculate per-class distribution
+    const perClassDistribution = this.calculatePerClassDistribution(
       evaluations.map((e) => e.relevanceScore),
       total,
     );
 
-    // Count highly relevant courses (score 3)
-    const highlyRelevantCount = evaluations.filter(
-      (e) => e.relevanceScore === 3,
-    ).length;
-    const highlyRelevantRate = (highlyRelevantCount / total) * 100;
-
-    // Count irrelevant courses (score 0)
-    const irrelevantCount = evaluations.filter(
-      (e) => e.relevanceScore === 0,
-    ).length;
-    const irrelevantRate = (irrelevantCount / total) * 100;
-
     // Extract relevance scores for NDCG and Precision calculations
     const relevanceScores = evaluations.map((e) => e.relevanceScore);
 
-    // Calculate NDCG metrics
-    const ndcgAt5 = NdcgCalculator.calculateNDCG(relevanceScores, 5);
-    const ndcgAt10 = NdcgCalculator.calculateNDCG(relevanceScores, 10);
-    const ndcgAtAll = NdcgCalculator.calculateNDCG(relevanceScores, total);
+    // Calculate NDCG metrics (both proxy and ideal variants)
+    const ndcgProxyAt5 = NdcgCalculator.calculateProxyNDCG(relevanceScores, 5);
+    const ndcgProxyAt10 = NdcgCalculator.calculateProxyNDCG(
+      relevanceScores,
+      10,
+    );
+    const ndcgProxyAt15 = NdcgCalculator.calculateProxyNDCG(
+      relevanceScores,
+      15,
+    );
+    const ndcgProxyAtAll = NdcgCalculator.calculateProxyNDCG(
+      relevanceScores,
+      total,
+    );
+
+    const ndcgIdealAt5 = NdcgCalculator.calculateIdealNDCG(relevanceScores, 5);
+    const ndcgIdealAt10 = NdcgCalculator.calculateIdealNDCG(
+      relevanceScores,
+      10,
+    );
+    const ndcgIdealAt15 = NdcgCalculator.calculateIdealNDCG(
+      relevanceScores,
+      15,
+    );
+    const ndcgIdealAtAll = NdcgCalculator.calculateIdealNDCG(
+      relevanceScores,
+      total,
+    );
 
     // Calculate Precision@K metrics
     const precisionAt5 = PrecisionCalculator.calculatePrecisionAtK(
@@ -106,6 +141,10 @@ export class CourseRetrieverEvaluatorHelper {
       relevanceScores,
       10,
     );
+    const precisionAt15 = PrecisionCalculator.calculatePrecisionAtK(
+      relevanceScores,
+      15,
+    );
     const precisionAtAll = PrecisionCalculator.calculatePrecisionAtK(
       relevanceScores,
       total,
@@ -113,53 +152,72 @@ export class CourseRetrieverEvaluatorHelper {
 
     return {
       totalCourses: total,
-      averageRelevance,
-      scoreDistribution,
-      highlyRelevantCount,
-      highlyRelevantRate,
-      irrelevantCount,
-      irrelevantRate,
+      meanRelevanceScore,
+      perClassDistribution,
       ndcg: {
-        at5: ndcgAt5,
-        at10: ndcgAt10,
-        atAll: ndcgAtAll,
+        proxy: {
+          at5: ndcgProxyAt5,
+          at10: ndcgProxyAt10,
+          at15: ndcgProxyAt15,
+          atAll: ndcgProxyAtAll,
+        },
+        ideal: {
+          at5: ndcgIdealAt5,
+          at10: ndcgIdealAt10,
+          at15: ndcgIdealAt15,
+          atAll: ndcgIdealAtAll,
+        },
       },
       precision: {
         at5: precisionAt5,
         at10: precisionAt10,
+        at15: precisionAt15,
         atAll: precisionAtAll,
       },
     };
   }
 
   /**
-   * Calculates score distribution from a list of scores
+   * Calculates per-class distribution from scores
    *
    * @param scores - Array of relevance scores
    * @param total - Total number of items
-   * @returns Score distribution with counts and percentages
+   * @returns Per-class distribution with counts and rates
    */
-  static calculateDistribution(
+  static calculatePerClassDistribution(
     scores: number[],
     total: number,
-  ): RetrievalScoreDistribution[] {
-    // Initialize distribution for all possible scores (0-3)
-    const distribution = new Map<number, number>();
-    for (let i = 0; i <= 3; i++) {
-      distribution.set(i, 0);
-    }
+  ): RetrievalPerformanceMetrics['perClassDistribution'] {
+    // Initialize counts for all possible scores (0-3)
+    const counts = { 0: 0, 1: 0, 2: 0, 3: 0 };
 
     // Count occurrences of each score
     for (const score of scores) {
-      distribution.set(score, (distribution.get(score) || 0) + 1);
+      counts[score as keyof typeof counts]++;
     }
 
-    // Convert to array format with percentages
-    return Array.from(distribution.entries()).map(([score, count]) => ({
-      relevanceScore: score as 0 | 1 | 2 | 3,
-      count,
-      percentage: total > 0 ? (count / total) * 100 : 0,
-    }));
+    // Calculate rates (same for both macro and micro in single sample)
+    const createRate = (
+      score: 0 | 1 | 2 | 3,
+      label:
+        | 'irrelevant'
+        | 'slightly_relevant'
+        | 'fairly_relevant'
+        | 'highly_relevant',
+    ) => ({
+      relevanceScore: score,
+      count: counts[score],
+      macroAverageRate: total > 0 ? (counts[score] * 100) / total : 0,
+      microAverageRate: total > 0 ? (counts[score] * 100) / total : 0,
+      label,
+    });
+
+    return {
+      score0: createRate(0, 'irrelevant'),
+      score1: createRate(1, 'slightly_relevant'),
+      score2: createRate(2, 'fairly_relevant'),
+      score3: createRate(3, 'highly_relevant'),
+    };
   }
 
   /**

@@ -130,6 +130,68 @@ export class EvaluationHashUtil {
     return HashHelper.generateHashSHA256(data);
   }
 
+  /**
+   * Generate deduplication hash for course retrieval evaluation
+   *
+   * Tracks unique (skill + courses) groups for cross-question deduplication.
+   * The question is NOT included because the judge only sees (skill, courses).
+   *
+   * Hash: SHA256(skill + "|" + sortedCoursesHash)
+   *
+   * Used to identify when multiple questions retrieve the same courses for the same skill,
+   * enabling evaluation once and applying results to all questions in the group.
+   *
+   * @param params - Hash parameters (skill + courses, NOT question)
+   * @returns SHA256 hash hex string
+   */
+  static generateCourseRetrievalDedupeHash(params: {
+    skill: string;
+    courses: Array<{
+      subjectCode: string;
+      subjectName: string;
+      cleanedLearningOutcomes: string[];
+    }>;
+  }): string {
+    const { skill, courses } = params;
+    // Sort courses by code for consistent hashing
+    const sortedCourses = courses
+      .map((c) => ({
+        code: c.subjectCode,
+        name: c.subjectName,
+        outcomes: c.cleanedLearningOutcomes.sort(),
+      }))
+      .sort((a, b) => a.code.localeCompare(b.code));
+    const coursesData = JSON.stringify(sortedCourses);
+    const data = `${skill}|${coursesData}`;
+    return HashHelper.generateHashSHA256(data);
+  }
+
+  /**
+   * Generate hash for courses array (for deduplication key)
+   *
+   * Creates a stable hash of the courses array that can be used
+   * as part of the deduplication key.
+   *
+   * @param courses - Array of courses to hash
+   * @returns SHA256 hash hex string
+   */
+  static hashCourses(
+    courses: Array<{
+      subjectCode: string;
+      subjectName: string;
+      cleanedLearningOutcomes: string[];
+    }>,
+  ): string {
+    const sortedCourses = courses
+      .map((c) => ({
+        code: c.subjectCode,
+        name: c.subjectName,
+        outcomes: c.cleanedLearningOutcomes.sort(),
+      }))
+      .sort((a, b) => a.code.localeCompare(b.code));
+    return HashHelper.generateHashSHA256(JSON.stringify(sortedCourses));
+  }
+
   // ==========================================================================
   // RECORD SAVING HASHES (Sample-Level)
   // ==========================================================================

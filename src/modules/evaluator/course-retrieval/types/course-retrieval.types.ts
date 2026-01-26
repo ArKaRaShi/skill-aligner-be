@@ -67,6 +67,25 @@ export type CourseRetrieverTestSet = {
   description: string;
   /** All test cases in this set */
   cases: CourseRetrieverTestCase[];
+  /** Deduplication statistics (after transformation) */
+  deduplicationInfo?: CourseRetrievalDedupeInfo;
+};
+
+/**
+ * Deduplication information for a test set
+ *
+ * Tracks how many duplicate (skill, courses) pairs were removed
+ * during transformation to enable cost-effective evaluation.
+ */
+export type CourseRetrievalDedupeInfo = {
+  /** Total number of test cases before deduplication */
+  totalCases: number;
+  /** Number of unique (skill, courses) groups after deduplication */
+  uniqueGroups: number;
+  /** Number of duplicate test cases removed */
+  duplicateCount: number;
+  /** Percentage of duplicates removed (0-100) */
+  deduplicationRate: number;
 };
 
 /**
@@ -75,6 +94,50 @@ export type CourseRetrieverTestSet = {
  * Ensures type safety when referencing test sets by name.
  */
 export type TestSetIdentifier = `test-set-v${number}`;
+
+// ============================================================================
+// DEDUPLICATION TYPES (for Cross-Question Skill Deduplication)
+// ============================================================================
+
+/**
+ * Deduplication key for grouping identical (skill, courses) pairs
+ *
+ * Format: "{skill}-{coursesHash}"
+ * Used to identify when multiple questions retrieve the same courses for the same skill.
+ */
+export type CourseRetrievalDedupeKey = string;
+
+/**
+ * Hash parameters for generating deduplication keys
+ *
+ * Unlike CourseRetrievalHashParams which includes question for record tracking,
+ * this only includes skill and courses for evaluation deduplication.
+ */
+export type CourseRetrievalDedupeHashParams = {
+  /** The skill being evaluated */
+  skill: string;
+  /** Courses retrieved for this skill */
+  courses: CourseInfo[];
+};
+
+/**
+ * A deduplication group of test cases
+ *
+ * Multiple test cases (questions) that share the same (skill, courses) pair.
+ * These should be evaluated once, with results applied to all test cases.
+ */
+export type CourseRetrievalDedupeGroup = {
+  /** Unique identifier for this group */
+  dedupeKey: CourseRetrievalDedupeKey;
+  /** The skill being evaluated */
+  skill: string;
+  /** Courses retrieved for this skill (same for all test cases in group) */
+  courses: CourseInfo[];
+  /** Hash of the courses array for identification */
+  coursesHash: string;
+  /** All test cases that belong to this deduplication group */
+  testCases: CourseRetrieverTestCase[];
+};
 
 /**
  * Input for running a complete test set
@@ -143,6 +206,49 @@ export type RetrievalScoreDistribution = {
   count: number;
 };
 
+/**
+ * Per-class macro and micro rate for a specific relevance score
+ *
+ * Provides both aggregation methods for transparency:
+ * - **Macro-average**: Average of sample rates (each sample weighted equally)
+ * - **Micro-average**: Total count / total items (weighted by sample size)
+ */
+export type PerClassRate = {
+  /** The relevance score this rate represents */
+  relevanceScore: RelevanceScore;
+  /** Count of courses with this score */
+  count: number;
+  /** Macro-average: average of sample rates for this score (0-100) */
+  macroAverageRate: number;
+  /** Micro-average: total count with this score / total courses * 100 (0-100) */
+  microAverageRate: number;
+  /** Label for human readability */
+  label:
+    | 'irrelevant'
+    | 'slightly_relevant'
+    | 'fairly_relevant'
+    | 'highly_relevant';
+};
+
+/**
+ * Complete per-class distribution with both macro and micro averages
+ *
+ * Shows macro vs micro for each score class, revealing:
+ * - Which score classes have consistent rates across samples (macro ≈ micro)
+ * - Which score classes vary by sample size (macro ≠ micro)
+ * - Where the overall macro/micro difference comes from
+ */
+export type PerClassDistribution = {
+  /** Score 0: Irrelevant courses */
+  score0: PerClassRate;
+  /** Score 1: Slightly relevant courses */
+  score1: PerClassRate;
+  /** Score 2: Fairly relevant courses */
+  score2: PerClassRate;
+  /** Score 3: Highly relevant courses */
+  score3: PerClassRate;
+};
+
 // ============================================================================
 // PROXY METRIC TYPES (NDCG and Precision)
 // ============================================================================
@@ -150,22 +256,59 @@ export type RetrievalScoreDistribution = {
 /**
  * NDCG (Normalized Discounted Cumulative Gain) metrics
  *
- * **Proxy Metric Notice**: These metrics use LLM judge scores as relevance.
- * Without ground truth labels, IDCG is calculated from the ideal ranking
- * of the judge's own scores (sorted descending), not from perfect ground truth.
+ * Provides two perspectives on ranking quality:
+ * - **Proxy NDCG**: Uses actual scores sorted as ideal (ranking quality of retrieved items)
+ * - **Ideal NDCG**: Uses all perfect scores (3,3,3...) as ideal (quality vs perfect ground truth)
  *
- * NDCG measures ranking quality: how close is the actual ranking to the
- * ideal ranking according to the judge?
+ * **Proxy NDCG**: Measures how well we ranked what we found
+ * - IDCG = DCG of actual scores sorted descending
+ * - Interpretation: "Perfect ranking" means best possible ordering of retrieved items
+ * - Use case: Isolate ranking quality from retrieval quality
  *
- * Values range from 0-1, where 1 = perfect ranking (scores in descending order).
+ * **Ideal NDCG**: Measures how close we are to perfect results
+ * - IDCG = DCG of all perfect scores (3, 3, 3, ...)
+ * - Interpretation: "Perfect" means all retrieved items are highly relevant (score 3)
+ * - Use case: End-to-end system quality evaluation
+ *
+ * See /docs/ndcg-metrics-approach.md for detailed explanation.
  */
 export interface NdcgMetrics {
-  /** NDCG@5: ranking quality of top 5 results */
-  at5: number;
-  /** NDCG@10: ranking quality of top 10 results */
-  at10: number;
-  /** NDCG@all: ranking quality of all results */
-  atAll: number;
+  /**
+   * Proxy NDCG: Ranking quality of retrieved items
+   *
+   * IDCG is calculated from actual scores sorted descending.
+   * Measures: "How well did we rank the courses we retrieved?"
+   *
+   * NDCG = 1.0 means "perfectly ranked what we found"
+   */
+  proxy: {
+    /** Proxy NDCG@5: ranking quality of top 5 results */
+    at5: number;
+    /** Proxy NDCG@10: ranking quality of top 10 results */
+    at10: number;
+    /** Proxy NDCG@15: ranking quality of top 15 results */
+    at15: number;
+    /** Proxy NDCG@all: ranking quality of all results */
+    atAll: number;
+  };
+  /**
+   * Ideal NDCG: Quality vs perfect ground truth
+   *
+   * IDCG is calculated from all perfect scores (3, 3, 3, ...).
+   * Measures: "How close are we to perfect results?"
+   *
+   * NDCG = 1.0 means "all retrieved items are perfect (score 3) and perfectly ranked"
+   */
+  ideal: {
+    /** Ideal NDCG@5: quality vs perfect (all 3s) at top 5 */
+    at5: number;
+    /** Ideal NDCG@10: quality vs perfect (all 3s) at top 10 */
+    at10: number;
+    /** Ideal NDCG@15: quality vs perfect (all 3s) at top 15 */
+    at15: number;
+    /** Ideal NDCG@all: quality vs perfect (all 3s) across all results */
+    atAll: number;
+  };
 }
 
 /**
@@ -184,37 +327,50 @@ export interface PrecisionMetrics {
   at5: number;
   /** Precision@10: % of top 10 with score ≥ 2 */
   at10: number;
+  /** Precision@15: % of top 15 with score ≥ 2 */
+  at15: number;
   /** Precision@all: % of all results with score ≥ 2 */
   atAll: number;
 }
 
 /**
- * Retrieval performance metrics (simplified, flat structure)
+ * Retrieval performance metrics (clean, unified structure)
  *
- * Follows the modern evaluator pattern with simple aggregated metrics
- * instead of the legacy three-level aggregation system.
+ * Follows the modern evaluator pattern with simple aggregated metrics.
  *
  * **Proxy Metrics**: NDCG and Precision use LLM judge scores as relevance.
  * See NdcgMetrics and PrecisionMetrics for detailed notices.
+ *
+ * **Macro vs Micro Averages**:
+ * - **Macro-average**: Average of sample rates (each sample/question weighted equally)
+ * - **Micro-average**: Total count / total courses (each course weighted equally)
+ *
+ * Use macro when each question should have equal influence.
+ * Use micro when overall course quality matters more.
  */
 export type RetrievalPerformanceMetrics = {
-  /** Total number of courses evaluated */
+  /** Total number of courses evaluated across all samples */
   totalCourses: number;
-  /** Average relevance score across all courses (0-3) */
-  averageRelevance: number;
-  /** Distribution of scores across all courses */
-  scoreDistribution: RetrievalScoreDistribution[];
-  /** Number of highly relevant courses (score 3) */
-  highlyRelevantCount: number;
-  /** Percentage of highly relevant courses */
-  highlyRelevantRate: number;
-  /** Number of irrelevant courses (score 0) */
-  irrelevantCount: number;
-  /** Percentage of irrelevant courses */
-  irrelevantRate: number;
+  /** Mean relevance score across all courses (0-3 scale) */
+  meanRelevanceScore: number;
+  /**
+   * Per-class distribution with macro and micro averages
+   *
+   * Contains complete breakdown for each relevance score (0-3):
+   * - Score 0: Irrelevant (no match)
+   * - Score 1: Slightly relevant (weak connection)
+   * - Score 2: Fairly relevant (moderate connection)
+   * - Score 3: Highly relevant (strong match)
+   *
+   * Each score class shows:
+   * - count: total number of courses with this score
+   * - macroAverageRate: average of per-sample rates for this score
+   * - microAverageRate: (count / totalCourses) * 100
+   */
+  perClassDistribution: PerClassDistribution;
   /** NDCG metrics (ranking quality, proxy metric) */
   ndcg: NdcgMetrics;
-  /** Precision@K metrics (proxy metric) */
+  /** Precision@K metrics (proxy metric, score ≥ 2 = relevant) */
   precision: PrecisionMetrics;
 };
 
@@ -388,24 +544,25 @@ export type CourseRetrievalHashParams = {
  * Progress file entry for a completed evaluation
  *
  * Tracks completed evaluations for crash recovery.
+ * Updated to support deduplication: each entry represents a unique (skill, courses) group.
  */
 export type CourseRetrievalProgressEntry = {
-  /** SHA256 hash for deduplication */
+  /** SHA256 hash for deduplication (hash of skill + courses) */
   hash: string;
-  /** The user's question */
-  question: string;
+  /** Deduplication key (skill + coursesHash) */
+  dedupeKey: CourseRetrievalDedupeKey;
   /** The skill being evaluated */
   skill: string;
-  /** Test case ID if present */
-  testCaseId?: string;
+  /** IDs of all test cases in this deduplication group */
+  testCases: string[];
   /** ISO timestamp when completed */
   completedAt: string;
   /** Evaluation result for progress tracking (simplified metrics) */
   result: {
     /** Number of courses retrieved */
     retrievedCount: number;
-    /** Average relevance score */
-    averageRelevance: number;
+    /** Mean relevance score */
+    meanRelevanceScore: number;
   };
 };
 
@@ -413,26 +570,38 @@ export type CourseRetrievalProgressEntry = {
  * Progress file for crash recovery
  *
  * Tracks evaluation progress across multiple samples.
+ * Updated to support deduplication: tracks unique (skill, courses) groups.
  */
 export type CourseRetrievalProgressFile = {
   /** Test set name */
   testSetName: string;
   /** Iteration number */
   iterationNumber: number;
-  /** Completed entries */
+  /** Completed entries (one per unique deduplication group) */
   entries: CourseRetrievalProgressEntry[];
   /** Last update timestamp */
   lastUpdated: string;
   /** Statistics */
   statistics: {
-    /** Total items to evaluate */
+    /** Total items to evaluate (unique groups) */
     totalItems: number;
-    /** Completed items */
+    /** Completed items (unique groups) */
     completedItems: number;
-    /** Pending items */
+    /** Pending items (unique groups) */
     pendingItems: number;
     /** Completion percentage */
     completionPercentage: number;
+  };
+  /** Deduplication statistics for this iteration */
+  deduplicationStats?: {
+    /** Total test cases before deduplication */
+    totalTestCases: number;
+    /** Unique (skill, courses) groups after deduplication */
+    uniqueGroups: number;
+    /** Number of duplicate test cases removed */
+    duplicateCount: number;
+    /** Percentage of duplicates removed */
+    deduplicationRate: number;
   };
 };
 
@@ -462,6 +631,7 @@ export interface StatisticalMetric {
 export interface NdcgAggregateMetrics {
   at5: StatisticalMetric;
   at10: StatisticalMetric;
+  at15: StatisticalMetric;
   atAll: StatisticalMetric;
 }
 
@@ -471,6 +641,7 @@ export interface NdcgAggregateMetrics {
 export interface PrecisionAggregateMetrics {
   at5: StatisticalMetric;
   at10: StatisticalMetric;
+  at15: StatisticalMetric;
   atAll: StatisticalMetric;
 }
 
@@ -493,11 +664,13 @@ export interface CourseRetrievalFinalMetricsFile {
     // NDCG metrics (ranking quality)
     ndcgAt5: StatisticalMetric;
     ndcgAt10: StatisticalMetric;
+    ndcgAt15: StatisticalMetric;
     ndcgAtAll: StatisticalMetric;
 
     // Precision metrics (% relevant in top K)
     precisionAt5: StatisticalMetric;
     precisionAt10: StatisticalMetric;
+    precisionAt15: StatisticalMetric;
     precisionAtAll: StatisticalMetric;
 
     // Existing basic metrics
@@ -515,13 +688,24 @@ export interface CourseRetrievalFinalMetricsFile {
 // ============================================================================
 
 /**
- * NDCG metric with full context
- * Follows course-relevance-filter pattern for clarity and self-documentation
+ * NDCG metric with full context (proxy and ideal)
+ *
+ * Provides both proxy and ideal NDCG perspectives for complete evaluation.
  */
 export interface NdcgMetricWithContext {
-  /** NDCG value (0-1, higher = better ranking) */
-  value: number;
-  /** Human-readable explanation of what this metric means */
+  /**
+   * Proxy NDCG: Mean proxy NDCG across all samples (0-1, higher = better)
+   *
+   * Measures: "How well did we rank the courses we retrieved?"
+   */
+  proxyNdcg: number;
+  /**
+   * Ideal NDCG: Mean ideal NDCG across all samples (0-1, higher = better)
+   *
+   * Measures: "How close are we to perfect results (all 3s)?"
+   */
+  idealNdcg: number;
+  /** Human-readable explanation of what these metrics mean */
   description: string;
 }
 
@@ -529,8 +713,8 @@ export interface NdcgMetricWithContext {
  * Precision metric with full context
  */
 export interface PrecisionMetricWithContext {
-  /** Precision value (0-1, higher = more precise) */
-  value: number;
+  /** Mean precision across all samples (0-1, higher = more precise) */
+  meanPrecision: number;
   /** Number of relevant items (score ≥ 2) in top-K */
   relevantCount: number;
   /** Total items in top-K */
@@ -541,14 +725,22 @@ export interface PrecisionMetricWithContext {
 
 /**
  * Rate metric with context (for percentage-based metrics)
+ *
+ * Includes both macro and micro averages for transparency:
+ * - **Macro-average**: Average of sample rates (each sample weighted equally)
+ * - **Micro-average**: Total count / total items (weighted by sample size)
+ *
+ * These can differ when sample sizes vary significantly.
  */
 export interface RateMetricWithContext {
-  /** Rate as percentage (0-100) */
-  value: number;
-  /** Numerator count */
+  /** Macro-average rate: average of sample rates (0-100) */
+  macroAverageRate: number;
+  /** Numerator count (summed across all samples) */
   count: number;
-  /** Total count (denominator) */
+  /** Total count (denominator, summed across all samples) */
   totalCount: number;
+  /** Micro-average rate: calculated from total counts (count/totalCount * 100) */
+  microAverageRate: number;
   /** Human-readable explanation */
   description: string;
 }
@@ -557,14 +749,57 @@ export interface RateMetricWithContext {
  * Average relevance metric with context
  */
 export interface AverageRelevanceWithContext {
-  /** Mean relevance score (0-3 scale, higher = better) */
-  value: number;
+  /** Mean relevance score across all courses (0-3 scale, higher = better) */
+  meanRelevanceScore: number;
   /** Total relevance sum across all courses */
   totalRelevanceSum: number;
   /** Total number of courses */
   totalCourses: number;
   /** Human-readable explanation */
   description: string;
+}
+
+/**
+ * Per-class rate with context (for enriched display)
+ *
+ * Shows both macro and micro averages for a specific relevance score class
+ * with human-readable descriptions.
+ */
+export interface PerClassRateWithContext {
+  /** The relevance score (0-3) */
+  relevanceScore: RelevanceScore;
+  /** Human-readable label */
+  label:
+    | 'irrelevant'
+    | 'slightly_relevant'
+    | 'fairly_relevant'
+    | 'highly_relevant';
+  /** Count of courses with this score */
+  count: number;
+  /** Total courses (for percentage calculation) */
+  totalCount: number;
+  /** Macro-average: average of per-sample rates (0-100) */
+  macroAverageRate: number;
+  /** Micro-average: count / totalCount * 100 (0-100) */
+  microAverageRate: number;
+  /** Human-readable explanation */
+  description: string;
+}
+
+/**
+ * Per-class distribution with context (for enriched display)
+ *
+ * Provides complete breakdown of all score classes with descriptions.
+ */
+export interface PerClassDistributionWithContext {
+  /** Score 0: Irrelevant courses */
+  score0: PerClassRateWithContext;
+  /** Score 1: Slightly relevant courses */
+  score1: PerClassRateWithContext;
+  /** Score 2: Fairly relevant courses */
+  score2: PerClassRateWithContext;
+  /** Score 3: Highly relevant courses */
+  score3: PerClassRateWithContext;
 }
 
 /**
@@ -592,28 +827,25 @@ export interface CourseRetrievalIterationMetrics {
 
   // === RELEVANCE METRICS ===
   /**
-   * Average LLM judge relevance score (0-3 scale)
+   * Mean relevance score across all courses (0-3 scale)
    * Measures: On average, how relevant are the retrieved courses?
    */
-  averageRelevance: AverageRelevanceWithContext;
-  // example: { value: 1.33, totalRelevanceSum: 205, totalCourses: 154,
-  //            description: "Mean relevance: 1.33/3 across 154 courses" }
+  meanRelevanceScore: AverageRelevanceWithContext;
 
   /**
-   * Highly relevant courses (score 3)
-   * Measures: What percentage of retrieved courses are highly relevant?
+   * Per-class distribution with macro and micro averages
+   *
+   * Shows breakdown for each relevance score:
+   * - Score 0: Irrelevant (no match)
+   * - Score 1: Slightly relevant (weak connection)
+   * - Score 2: Fairly relevant (moderate connection)
+   * - Score 3: Highly relevant (strong match)
+   *
+   * Each score shows both macro and micro averages, revealing:
+   * - Whether rates are consistent across samples
+   * - Which score classes drive macro/micro differences
    */
-  highlyRelevantRate: RateMetricWithContext;
-  // example: { value: 14.29, count: 22, totalCount: 154,
-  //            description: "22 of 154 courses (14.3%) are highly relevant" }
-
-  /**
-   * Irrelevant courses (score 0)
-   * Measures: What percentage of retrieved courses are irrelevant?
-   */
-  irrelevantRate: RateMetricWithContext;
-  // example: { value: 23.38, count: 36, totalCount: 154,
-  //            description: "36 of 154 courses (23.4%) are irrelevant" }
+  perClassDistribution: PerClassDistributionWithContext;
 
   // === RANKING QUALITY METRICS (NDCG) ===
   /**
@@ -626,24 +858,24 @@ export interface CourseRetrievalIterationMetrics {
      * Measures: How well-ranked are the top 5 courses?
      */
     at5: NdcgMetricWithContext;
-    // example: { value: 0.692,
-    //            description: "Mean NDCG@5: 0.69 - Top-5 results are reasonably ranked" }
 
     /**
      * NDCG@10: Mean ranking quality of top 10 results
      * Measures: How well-ranked are the top 10 courses?
      */
     at10: NdcgMetricWithContext;
-    // example: { value: 0.824,
-    //            description: "Mean NDCG@10: 0.82 - Top-10 results show good ranking" }
+
+    /**
+     * NDCG@15: Mean ranking quality of top 15 results
+     * Measures: How well-ranked are the top 15 courses?
+     */
+    at15: NdcgMetricWithContext;
 
     /**
      * NDCG@All: Mean ranking quality across all results
      * Measures: What is the overall ranking quality?
      */
     atAll: NdcgMetricWithContext;
-    // example: { value: 0.830,
-    //            description: "Mean NDCG@All: 0.83 - Good overall ranking" }
   };
 
   // === PRECISION METRICS ===
@@ -652,22 +884,16 @@ export interface CourseRetrievalIterationMetrics {
    * Measures: Of the top K courses, what percentage are relevant?
    */
   precision: {
-    /**
-     * Precision@5: Mean precision at top 5
-     * Measures: On average, what % of top-5 courses are relevant?
-     */
+    /** Precision@5: Mean precision at top 5 */
     at5: PrecisionMetricWithContext;
-    // example: { value: 0.471, relevantCount: 40, totalCount: 85,
-    //            description: "8 of 17 samples (47.1%) have relevant top-5 courses" }
 
     /** Precision@10: Mean precision at top 10 */
     at10: PrecisionMetricWithContext;
-    // example: { value: 0.425, relevantCount: 72, totalCount: 170,
-    //            description: "7 of 17 samples (42.5%) have relevant top-10 courses" }
+
+    /** Precision@15: Mean precision at top 15 */
+    at15: PrecisionMetricWithContext;
 
     /** Precision@All: Mean precision across all retrieved courses */
     atAll: PrecisionMetricWithContext;
-    // example: { value: 0.418, relevantCount: 65, totalCount: 154,
-    //            description: "Mean precision: 41.8% across all retrieved courses" }
   };
 }

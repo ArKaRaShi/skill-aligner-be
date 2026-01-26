@@ -82,7 +82,6 @@ export class CourseRetrieverEvaluator
 
     // build prompts
     const userPrompt = getCourseRetrieverJudgeUserPrompt(
-      question,
       skill,
       CourseRetrieverEvaluatorHelper.buildRetrievedCoursesContext(
         retrievedCourses,

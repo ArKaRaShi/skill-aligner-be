@@ -411,32 +411,36 @@ export class CourseRetrievalResultManagerService {
   private calculateAggregateMetricsFromIterations(
     iterationMetrics: CourseRetrievalIterationMetrics[],
   ): CourseRetrievalFinalMetricsFile['aggregateMetrics'] {
-    // Extract .value from enriched metrics across all iterations
-    const ndcgAt5Values = iterationMetrics.map((m) => m.ndcg.at5.value);
-    const ndcgAt10Values = iterationMetrics.map((m) => m.ndcg.at10.value);
-    const ndcgAtAllValues = iterationMetrics.map((m) => m.ndcg.atAll.value);
+    // Extract mean values from enriched metrics across all iterations
+    const ndcgAt5Values = iterationMetrics.map((m) => m.ndcg.at5.proxyNdcg);
+    const ndcgAt10Values = iterationMetrics.map((m) => m.ndcg.at10.proxyNdcg);
+    const ndcgAt15Values = iterationMetrics.map((m) => m.ndcg.at15.proxyNdcg);
+    const ndcgAtAllValues = iterationMetrics.map((m) => m.ndcg.atAll.proxyNdcg);
 
     const precisionAt5Values = iterationMetrics.map(
-      (m) => m.precision.at5.value,
+      (m) => m.precision.at5.meanPrecision,
     );
     const precisionAt10Values = iterationMetrics.map(
-      (m) => m.precision.at10.value,
+      (m) => m.precision.at10.meanPrecision,
+    );
+    const precisionAt15Values = iterationMetrics.map(
+      (m) => m.precision.at15.meanPrecision,
     );
     const precisionAtAllValues = iterationMetrics.map(
-      (m) => m.precision.atAll.value,
+      (m) => m.precision.atAll.meanPrecision,
     );
 
     const totalCoursesValues = iterationMetrics.map(
       (m) => m.totalCoursesEvaluated,
     );
     const averageRelevanceValues = iterationMetrics.map(
-      (m) => m.averageRelevance.value,
+      (m) => m.meanRelevanceScore.meanRelevanceScore,
     );
     const highlyRelevantRateValues = iterationMetrics.map(
-      (m) => m.highlyRelevantRate.value,
+      (m) => m.perClassDistribution.score3.macroAverageRate,
     );
     const irrelevantRateValues = iterationMetrics.map(
-      (m) => m.irrelevantRate.value,
+      (m) => m.perClassDistribution.score0.macroAverageRate,
     );
 
     // Calculate statistics using DistributionStatisticsHelper
@@ -444,6 +448,8 @@ export class CourseRetrievalResultManagerService {
       DistributionStatisticsHelper.computeDistributionStats(ndcgAt5Values);
     const ndcgAt10Stats =
       DistributionStatisticsHelper.computeDistributionStats(ndcgAt10Values);
+    const ndcgAt15Stats =
+      DistributionStatisticsHelper.computeDistributionStats(ndcgAt15Values);
     const ndcgAtAllStats =
       DistributionStatisticsHelper.computeDistributionStats(ndcgAtAllValues);
 
@@ -452,6 +458,10 @@ export class CourseRetrievalResultManagerService {
     const precisionAt10Stats =
       DistributionStatisticsHelper.computeDistributionStats(
         precisionAt10Values,
+      );
+    const precisionAt15Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAt15Values,
       );
     const precisionAtAllStats =
       DistributionStatisticsHelper.computeDistributionStats(
@@ -488,9 +498,11 @@ export class CourseRetrievalResultManagerService {
     return {
       ndcgAt5: toStatisticalMetric(ndcgAt5Stats),
       ndcgAt10: toStatisticalMetric(ndcgAt10Stats),
+      ndcgAt15: toStatisticalMetric(ndcgAt15Stats),
       ndcgAtAll: toStatisticalMetric(ndcgAtAllStats),
       precisionAt5: toStatisticalMetric(precisionAt5Stats),
       precisionAt10: toStatisticalMetric(precisionAt10Stats),
+      precisionAt15: toStatisticalMetric(precisionAt15Stats),
       precisionAtAll: toStatisticalMetric(precisionAtAllStats),
       totalCoursesEvaluated: toStatisticalMetric(totalCoursesStats),
       averageRelevance: toStatisticalMetric(averageRelevanceStats),
@@ -504,8 +516,8 @@ export class CourseRetrievalResultManagerService {
    *
    * @param params.testSetName - Test set identifier
    * @param params.iterationNumber - Iteration number
-   * @param params.judgeModel - Judge model used
-   * @param params.judgeProvider - Judge provider used
+   * @param params.judgeModel - Judge model used (fallback if records don't have model)
+   * @param params.judgeProvider - Judge provider used (fallback if records don't have provider)
    * @param params.records - Evaluation records with token usage
    */
   async saveIterationCost(params: {
@@ -531,6 +543,13 @@ export class CourseRetrievalResultManagerService {
       totalEvaluations += record.evaluations.length;
     }
 
+    // Use actual model from records (first non-empty record)
+    // This ensures the cost file reflects the actual model used, not the config default
+    const actualJudgeModel =
+      records.length > 0 ? records[0].llmModel : judgeModel;
+    const actualJudgeProvider =
+      records.length > 0 ? records[0].llmProvider : judgeProvider;
+
     // Calculate total cost
     const costSummary = TokenCostCalculator.estimateTotalCost(allTokenUsage);
     const totalInputTokens = allTokenUsage.reduce(
@@ -546,8 +565,8 @@ export class CourseRetrievalResultManagerService {
       iteration: iterationNumber,
       timestamp: new Date().toISOString(),
       testSetName,
-      judgeModel,
-      judgeProvider,
+      judgeModel: actualJudgeModel,
+      judgeProvider: actualJudgeProvider,
       samples: records.length,
       evaluations: totalEvaluations,
       totalTokens: {

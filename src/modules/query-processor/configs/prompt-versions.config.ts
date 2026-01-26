@@ -86,9 +86,10 @@ export const QueryPipelinePromptConfig = {
    * Step 6: Answer synthesis
    * Generates the final answer based on retrieved and filtered courses
    */
+  // v15: Enhanced Step 6 with scope-aware exploratory summary (explicit skill/aspect representation, dataset context, forbidden learning pathway implications)
   // v14: Duplicate of v13 (no functional changes - reserved for future use)
   // v13: Base version with comprehensive formatting rules (markdown skills/courses) and tone constraints
-  ANSWER_SYNTHESIS: AnswerSynthesisPromptVersions.V14,
+  ANSWER_SYNTHESIS: AnswerSynthesisPromptVersions.V15,
 } as const;
 
 /**

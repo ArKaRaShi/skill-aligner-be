@@ -37,6 +37,16 @@ FOCUS: ACCURACY & HALLUCINATION
 2: MOSTLY FALSE - Major factual errors or unsupported claims.
 1: COMPLETELY FALSE - Contradicts context or PURE HALLUCINATION.
 
+You MUST ALSO verify INTERNAL CONSISTENCY:
+
+- If the answer claims that a course supports a specific skill or concept,
+  that skill must be traceable to the PROVIDED CONTEXT.
+- The claimed skill or rationale must be supported by:
+  (a) the mapped skills shown in the context, or
+  (b) the stated learning outcomes of that course.
+
+If the answer attributes a course to a skill or rationale that is NOT supported by the mapped skills or learning outcomes in the provided context, treat this as an unsupported claim (hallucination).
+
 ---
 
 AXIS 2: COMPLETENESS & BRIDGING RUBRIC (1-5 Scale)
@@ -111,6 +121,9 @@ REQUIREMENTS:
 /**
  * Format course context for judge evaluation.
  *
+ * NOTE: Excludes relevance scores for BLIND EVALUATION.
+ * The judge should evaluate based on content quality, not system scores.
+ *
  * @param context - Ranked courses with matched skills
  * @returns Formatted context string
  */
@@ -136,7 +149,6 @@ ${ms.learningOutcomes.map((lo) => `- ${lo.cleanedName}`).join('\n')}`,
       .join('\n');
 
     return `COURSE: ${courseSkills.subjectName} (${courseSkills.subjectCode})
-RELEVANCE SCORE: ${courseSkills.maxRelevanceScore}
 
 SECTION 1: MATCHED EVIDENCE (Why it was picked)
 ${matchedEvidence}

@@ -171,36 +171,38 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
       // Verify hash format (64 hex characters)
       progress.entries.forEach((entry) => {
         expect(entry.hash).toMatch(/^[a-f0-9]{64}$/);
-        expect(entry.question).toBeDefined();
+        expect(entry.dedupeKey).toBeDefined();
         expect(entry.skill).toBeDefined();
-        expect(entry.testCaseId).toBeDefined();
+        expect(entry.testCases).toBeDefined();
+        expect(Array.isArray(entry.testCases)).toBe(true);
         expect(entry.completedAt).toBeDefined();
         expect(entry.result).toBeDefined();
       });
     });
 
-    it('should save progress after each sample (crash recovery)', async () => {
+    it('should save progress after each chunk (crash recovery)', async () => {
       // Arrange
-      const testSet = createTestSet('test-crash', 3);
+      const testSet = createTestSet('test-crash', 6);
       const iterationNumber = 1;
 
       let callCount = 0;
       (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
         ({ question, skill }) => {
           callCount++;
-          if (callCount === 2) {
-            throw new Error('Simulated crash');
+          // With chunked concurrency (c=3), fail chunk 1 (first 3 groups)
+          // All 3 run in parallel, errors are isolated
+          if (callCount <= 3) {
+            throw new Error('Simulated crash in chunk 1');
           }
           return Promise.resolve(createMockEvaluatorOutput(question, skill));
         },
       );
 
-      // Act & Assert
-      await expect(
-        service.runTestSet({ testSet, iterationNumber }),
-      ).rejects.toThrow('Simulated crash');
+      // Act & Assert - with Promise.allSettled, errors don't propagate
+      // The run completes but with some groups failed
+      await service.runTestSet({ testSet, iterationNumber });
 
-      // Verify progress was saved after first sample before crash
+      // Verify progress: only groups that succeeded are saved (chunk 2)
       const progressPath = path.join(
         tempDir,
         'test-crash',
@@ -211,9 +213,9 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
       const progress =
         await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
 
-      expect(progress.entries).toHaveLength(1);
-      expect(progress.statistics.completedItems).toBe(1);
-      expect(progress.statistics.completionPercentage).toBeCloseTo(33.33, 1);
+      // Chunk 1 failed (all 3 groups), Chunk 2 succeeded (3 groups)
+      expect(progress.entries).toHaveLength(3);
+      expect(progress.statistics.completedItems).toBe(3);
     });
   });
 
@@ -223,24 +225,23 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
       const testSet = createTestSet('test-resume', 3);
       const iterationNumber = 1;
 
-      // First run: crash after 2 samples
+      // First run: let only 2 complete (3rd fails)
       let firstRunCount = 0;
       (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
         ({ question, skill }) => {
           firstRunCount++;
           if (firstRunCount === 3) {
-            throw new Error('Crash');
+            throw new Error('Group 3 failed');
           }
           return Promise.resolve(createMockEvaluatorOutput(question, skill));
         },
       );
 
-      await expect(
-        service.runTestSet({ testSet, iterationNumber }),
-      ).rejects.toThrow('Crash');
-      expect(firstRunCount).toBe(3); // 2 successful, 3rd threw
+      // Run completes despite error (isolated)
+      await service.runTestSet({ testSet, iterationNumber });
+      expect(firstRunCount).toBe(3); // All 3 attempted
 
-      // Verify progress has 2 entries
+      // Verify progress has 2 entries (group 3 failed)
       const progressPath = path.join(
         tempDir,
         'test-resume',
@@ -248,11 +249,11 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
         `progress-iteration-${iterationNumber}.json`,
       );
 
-      const progressAfterCrash =
+      const progressAfterFirstRun =
         await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
-      expect(progressAfterCrash.entries).toHaveLength(2);
+      expect(progressAfterFirstRun.entries).toHaveLength(2);
 
-      // Reset mock for resume
+      // Reset mock for resume - now group 3 succeeds
       let secondRunCount = 0;
       (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
         ({ question, skill }) => {
@@ -261,7 +262,7 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
         },
       );
 
-      // Act - resume
+      // Act - resume (group 3 should succeed this time)
       await service.runTestSet({ testSet, iterationNumber });
 
       // Assert - should only call evaluate once (for the 3rd sample)
@@ -295,35 +296,47 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
   describe('Result aggregation - cached + new', () => {
     it('should combine cached results with new evaluations', async () => {
       // Arrange
-      const testSet = createTestSet('test-aggregate', 4);
+      const testSet = createTestSet('test-aggregate', 6);
       const iterationNumber = 1;
 
-      // First run: crash after 2
+      // First run: first chunk (3 groups) succeeds, second chunk fails
       let firstRunCount = 0;
       (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
         ({ question, skill }) => {
           firstRunCount++;
-          if (firstRunCount === 3) {
-            throw new Error('Crash');
+          // Fail groups in chunk 2 (groups 4, 5, 6)
+          if (firstRunCount > 3) {
+            throw new Error('Chunk 2 failed');
           }
           return Promise.resolve(createMockEvaluatorOutput(question, skill));
         },
       );
 
-      await expect(
-        service.runTestSet({ testSet, iterationNumber }),
-      ).rejects.toThrow('Crash');
+      // Run completes but chunk 2 fails
+      await service.runTestSet({ testSet, iterationNumber });
+      expect(firstRunCount).toBeGreaterThan(3);
 
-      // Resume and complete
+      // Verify only chunk 1 saved
+      const progressPath = path.join(
+        tempDir,
+        'test-aggregate',
+        'progress',
+        `progress-iteration-${iterationNumber}.json`,
+      );
+      const progressAfterFirstRun =
+        await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
+      expect(progressAfterFirstRun.entries).toHaveLength(3);
+
+      // Resume and complete remaining groups
       (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
         ({ question, skill }) =>
           Promise.resolve(createMockEvaluatorOutput(question, skill)),
       );
 
-      // Act
+      // Act - resume
       await service.runTestSet({ testSet, iterationNumber });
 
-      // Assert - verify records file has all 4 results
+      // Assert - verify records file has all 6 results
       const recordsPath = path.join(
         tempDir,
         'test-aggregate',
@@ -333,7 +346,7 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
 
       const records = await FileHelper.loadJson<unknown[]>(recordsPath);
 
-      expect(records).toHaveLength(4);
+      expect(records).toHaveLength(6);
 
       // Verify all questions are present
       const questions = records.map(
@@ -344,6 +357,8 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
         'Question 2?',
         'Question 3?',
         'Question 4?',
+        'Question 5?',
+        'Question 6?',
       ]);
     });
   });
@@ -411,6 +426,250 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
       const hashes2 = progress2.entries.map((e) => e.hash);
 
       expect(hashes1).toEqual(hashes2);
+    });
+  });
+
+  describe('Parallel execution - chunked concurrency', () => {
+    it('should process multiple groups in parallel within a chunk', async () => {
+      // Arrange - create 6 test cases (will be grouped by skill+courses)
+      const testSet = createTestSet('test-parallel', 6);
+      const iterationNumber = 1;
+
+      const evaluateCalls: Array<{ question: string; skill: string }> = [];
+
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
+        ({ question, skill }) => {
+          evaluateCalls.push({ question, skill });
+
+          // Simulate some delay to verify parallel execution
+          return new Promise((resolve) => {
+            setTimeout(
+              () => resolve(createMockEvaluatorOutput(question, skill)),
+              50, // 50ms delay
+            );
+          });
+        },
+      );
+
+      // Act
+      await service.runTestSet({ testSet, iterationNumber });
+
+      // Assert - verify all groups were evaluated
+      expect(evaluateCalls).toHaveLength(6);
+
+      // Verify progress file has correct structure
+      const progressPath = path.join(
+        tempDir,
+        'test-parallel',
+        'progress',
+        `progress-iteration-${iterationNumber}.json`,
+      );
+      const progress =
+        await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
+
+      expect(progress.entries).toHaveLength(6);
+      expect(progress.deduplicationStats?.uniqueGroups).toBe(6);
+    });
+
+    it('should save progress once per chunk (not per group)', async () => {
+      // Arrange - create 5 test cases (2 chunks: 3 + 2)
+      const testSet = createTestSet('test-chunk-progress', 5);
+      const iterationNumber = 1;
+
+      // Track progress saves by mocking saveProgress on resultManager instance
+      const resultManager = service['resultManager'];
+      const originalSaveProgress =
+        resultManager.saveProgress.bind(resultManager);
+      let progressSaveCount = 0;
+
+      resultManager.saveProgress = function (progress) {
+        progressSaveCount++;
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
+        return originalSaveProgress(progress);
+      };
+
+      // Act
+      await service.runTestSet({ testSet, iterationNumber });
+
+      // Assert - with default concurrency=3:
+      // Chunk 1: 3 groups → 1 progress save
+      // Chunk 2: 2 groups → 1 progress save
+      // Plus initial load and final saves
+      // Should be 2-4 saves (depending on implementation), NOT 5 (one per group)
+      expect(progressSaveCount).toBeLessThanOrEqual(4);
+      expect(progressSaveCount).toBeGreaterThanOrEqual(2);
+    });
+
+    it('should handle one group failing without affecting others in chunk', async () => {
+      // Arrange - create 6 test cases
+      const testSet = createTestSet('test-failure', 6);
+      const iterationNumber = 1;
+
+      let callCount = 0;
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
+        ({ question, skill }) => {
+          callCount++;
+          // Fail the 2nd call (in chunk 1)
+          if (callCount === 2) {
+            return Promise.reject(new Error('Group 2 failed'));
+          }
+          return Promise.resolve(createMockEvaluatorOutput(question, skill));
+        },
+      );
+
+      // Act - should NOT throw, errors are isolated per group
+      await service.runTestSet({ testSet, iterationNumber });
+
+      // Assert - all other groups should have been evaluated
+      expect(callCount).toBeGreaterThan(2); // More than just the failed one
+
+      // Verify progress has 5 entries (1 failed, 5 succeeded)
+      const progressPath = path.join(
+        tempDir,
+        'test-failure',
+        'progress',
+        `progress-iteration-${iterationNumber}.json`,
+      );
+      const progress =
+        await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
+
+      expect(progress.entries).toHaveLength(5);
+    });
+
+    it('should handle mixed completed and pending groups in same chunk', async () => {
+      // Arrange - create 6 test cases
+      const testSet = createTestSet('test-mixed', 6);
+      const iterationNumber = 1;
+
+      // First run: complete first 3 groups
+      let firstRunCount = 0;
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
+        ({ question, skill }) => {
+          firstRunCount++;
+          // Fail the remaining groups (4, 5, 6)
+          if (firstRunCount > 3) {
+            throw new Error('Stop after 3');
+          }
+          return Promise.resolve(createMockEvaluatorOutput(question, skill));
+        },
+      );
+
+      // Run completes despite error
+      await service.runTestSet({ testSet, iterationNumber });
+      expect(firstRunCount).toBe(6); // All 6 attempted
+
+      // Verify first 3 succeeded, last 3 failed
+      const progressPath = path.join(
+        tempDir,
+        'test-mixed',
+        'progress',
+        `progress-iteration-${iterationNumber}.json`,
+      );
+      const progressAfterFirstRun =
+        await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
+      expect(progressAfterFirstRun.entries).toHaveLength(3);
+
+      // Second run: should complete remaining 3
+      let secondRunCount = 0;
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
+        ({ question, skill }) => {
+          secondRunCount++;
+          return Promise.resolve(createMockEvaluatorOutput(question, skill));
+        },
+      );
+
+      // Act
+      await service.runTestSet({ testSet, iterationNumber });
+
+      // Assert - only 3 new evaluations (groups 4, 5, 6)
+      expect(secondRunCount).toBe(3);
+
+      // Verify final progress
+      const progressAfterResume =
+        await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
+
+      expect(progressAfterResume.entries).toHaveLength(6);
+    });
+
+    it('should handle single group (edge case for concurrency)', async () => {
+      // Arrange - create 1 test case
+      const testSet = createTestSet('test-single', 1);
+      const iterationNumber = 1;
+
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
+        ({ question, skill }) =>
+          Promise.resolve(createMockEvaluatorOutput(question, skill)),
+      );
+
+      // Act
+      await service.runTestSet({ testSet, iterationNumber });
+
+      // Assert - should complete successfully
+      expect(judgeEvaluator.evaluate).toHaveBeenCalledTimes(1);
+
+      const progressPath = path.join(
+        tempDir,
+        'test-single',
+        'progress',
+        `progress-iteration-${iterationNumber}.json`,
+      );
+      const progress =
+        await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
+
+      expect(progress.entries).toHaveLength(1);
+    });
+
+    it('should verify progress file integrity with concurrent writes', async () => {
+      // Arrange - create 10 test cases (4 chunks with concurrency=3)
+      const testSet = createTestSet('test-integrity', 10);
+      const iterationNumber = 1;
+
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation(
+        ({ question, skill }) => {
+          // Add small random delay to increase chance of race conditions
+          const delay = Math.random() * 20;
+          return new Promise((resolve) => {
+            setTimeout(
+              () => resolve(createMockEvaluatorOutput(question, skill)),
+              delay,
+            );
+          });
+        },
+      );
+
+      // Act
+      await service.runTestSet({ testSet, iterationNumber });
+
+      // Assert - verify progress file is valid JSON and has correct structure
+      const progressPath = path.join(
+        tempDir,
+        'test-integrity',
+        'progress',
+        `progress-iteration-${iterationNumber}.json`,
+      );
+
+      // File should exist and be loadable
+      const progress =
+        await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
+
+      // Verify structure
+      expect(progress.testSetName).toBe('test-integrity');
+      expect(progress.iterationNumber).toBe(1);
+      expect(progress.entries).toHaveLength(10);
+
+      // Verify all entries have required fields
+      progress.entries.forEach((entry) => {
+        expect(entry.hash).toMatch(/^[a-f0-9]{64}$/);
+        expect(entry.dedupeKey).toBeDefined();
+        expect(entry.skill).toBeDefined();
+        expect(entry.testCases).toBeDefined();
+        expect(entry.completedAt).toBeDefined();
+        expect(entry.result).toBeDefined();
+      });
+
+      // Verify no duplicate hashes
+      const hashes = progress.entries.map((e) => e.hash);
+      expect(new Set(hashes).size).toBe(10);
     });
   });
 });

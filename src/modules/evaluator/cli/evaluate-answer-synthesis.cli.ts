@@ -180,10 +180,10 @@ Answer Synthesis Evaluator CLI
 
 Usage:
   # Mode 1: Single merged test set file (recommended)
-  bun run cli evaluator:answer-synthesis --test-set <filename> [OPTIONS]
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/evaluate-answer-synthesis.cli.ts --test-set <filename> [OPTIONS]
 
   # Mode 2: Two separate files (answer + context)
-  bun run cli evaluator:answer-synthesis --answer-file <filename> --context-file <filename> [OPTIONS]
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/evaluate-answer-synthesis.cli.ts --answer-file <filename> --context-file <filename> [OPTIONS]
 
 Required Arguments (Mode 1):
   --test-set <file>       Path to merged test set JSON from --step answer-synthesis-eval
@@ -222,20 +222,20 @@ Notes:
 
 Workflow:
   # Step 1: Build merged test set (recommended)
-  bun run cli evaluator:test-set-builder \\
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/test-set-builder.cli.ts \\
     --step answer-synthesis-eval \\
     --ids query-log-id-1,query-log-id-2 \\
     --output test-set-answer-synthesis-eval.json
 
   # Step 2: Run evaluation
-  bun run cli evaluator:answer-synthesis --test-set test-set-answer-synthesis-eval.json
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/evaluate-answer-synthesis.cli.ts --test-set test-set-answer-synthesis-eval.json
 
 Examples (Mode 1 - Single File):
   # Evaluate with merged test set
-  bun run cli evaluator:answer-synthesis --test-set test-set-answer-synthesis-eval.json
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/evaluate-answer-synthesis.cli.ts --test-set test-set-answer-synthesis-eval.json
 
   # Evaluate with custom options
-  bun run cli evaluator:answer-synthesis \\
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/evaluate-answer-synthesis.cli.ts \\
     --test-set test-set-v1.json \\
     --test-set-name "my-experiment" \\
     --iterations 3 \\
@@ -243,11 +243,11 @@ Examples (Mode 1 - Single File):
 
 Examples (Mode 2 - Two Files):
   # Build separate test sets first
-  bun run cli evaluator:test-set-builder --step answer-synthesis --ids log-id-1 --output answers.json
-  bun run cli evaluator:test-set-builder --step course-aggregation --ids log-id-1 --output context.json
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/test-set-builder.cli.ts --step answer-synthesis --ids log-id-1 --output answers.json
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/test-set-builder.cli.ts --step course-aggregation --ids log-id-1 --output context.json
 
   # Then evaluate
-  bun run cli evaluator:answer-synthesis \\
+  bunx ts-node --require tsconfig-paths/register src/modules/evaluator/cli/evaluate-answer-synthesis.cli.ts \\
     --answer-file answers.json \\
     --context-file context.json \\
     --test-set-name "my-experiment" \\

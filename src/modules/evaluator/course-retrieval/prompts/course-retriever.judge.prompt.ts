@@ -1,12 +1,8 @@
 export const getCourseRetrieverJudgeUserPrompt = (
-  question: string,
   skill: string,
   retrievedCourses: string, // this should be encoded string of courses
 ) => `
-Evaluate following list of courses retrieved against the user question and skill.
-
-User Question:
-${question}
+Evaluate following list of courses retrieved against the skill.
 
 Skill:
 ${skill}

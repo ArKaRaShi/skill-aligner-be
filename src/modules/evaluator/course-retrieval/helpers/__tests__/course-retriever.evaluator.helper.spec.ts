@@ -199,19 +199,42 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       // Assert
       expect(result).toEqual({
         totalCourses: 0,
-        averageRelevance: 0,
-        scoreDistribution: [
-          { relevanceScore: 0, count: 0, percentage: 0 },
-          { relevanceScore: 1, count: 0, percentage: 0 },
-          { relevanceScore: 2, count: 0, percentage: 0 },
-          { relevanceScore: 3, count: 0, percentage: 0 },
-        ],
-        highlyRelevantCount: 0,
-        highlyRelevantRate: 0,
-        irrelevantCount: 0,
-        irrelevantRate: 0,
-        ndcg: { at5: 0, at10: 0, atAll: 0 },
-        precision: { at5: 0, at10: 0, atAll: 0 },
+        meanRelevanceScore: 0,
+        perClassDistribution: {
+          score0: {
+            relevanceScore: 0,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'irrelevant',
+          },
+          score1: {
+            relevanceScore: 1,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'slightly_relevant',
+          },
+          score2: {
+            relevanceScore: 2,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'fairly_relevant',
+          },
+          score3: {
+            relevanceScore: 3,
+            count: 0,
+            macroAverageRate: 0,
+            microAverageRate: 0,
+            label: 'highly_relevant',
+          },
+        },
+        ndcg: {
+          proxy: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+          ideal: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+        },
+        precision: { at5: 0, at10: 0, at15: 0, atAll: 0 },
       });
     });
 
@@ -228,14 +251,10 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.averageRelevance).toBe(2);
+      expect(result.meanRelevanceScore).toBe(2);
       expect(result.totalCourses).toBe(3);
-      expect(result.scoreDistribution).toEqual([
-        { relevanceScore: 0, count: 0, percentage: 0 },
-        { relevanceScore: 1, count: 0, percentage: 0 },
-        { relevanceScore: 2, count: 3, percentage: 100 },
-        { relevanceScore: 3, count: 0, percentage: 0 },
-      ]);
+      expect(result.perClassDistribution.score2.count).toBe(3);
+      expect(result.perClassDistribution.score2.macroAverageRate).toBe(100);
     });
 
     it('should calculate averages correctly for mixed scores', () => {
@@ -251,12 +270,15 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert: (3+2+1)/3 = 2
-      expect(result.averageRelevance).toBeCloseTo(2.0);
+      expect(result.meanRelevanceScore).toBeCloseTo(2.0);
       expect(result.totalCourses).toBe(3);
-      expect(result.highlyRelevantCount).toBe(1);
-      expect(result.highlyRelevantRate).toBeCloseTo(33.33, 1);
-      expect(result.irrelevantCount).toBe(0);
-      expect(result.irrelevantRate).toBe(0);
+      expect(result.perClassDistribution.score3.count).toBe(1);
+      expect(result.perClassDistribution.score3.macroAverageRate).toBeCloseTo(
+        33.33,
+        1,
+      );
+      expect(result.perClassDistribution.score0.count).toBe(0);
+      expect(result.perClassDistribution.score0.macroAverageRate).toBe(0);
     });
 
     it('should count highly relevant courses (score 3)', () => {
@@ -273,8 +295,8 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.highlyRelevantCount).toBe(2);
-      expect(result.highlyRelevantRate).toBe(50); // 2/4 = 50%
+      expect(result.perClassDistribution.score3.count).toBe(2);
+      expect(result.perClassDistribution.score3.macroAverageRate).toBe(50); // 2/4 = 50%
     });
 
     it('should count irrelevant courses (score 0)', () => {
@@ -291,11 +313,11 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.irrelevantCount).toBe(2);
-      expect(result.irrelevantRate).toBe(50); // 2/4 = 50%
+      expect(result.perClassDistribution.score0.count).toBe(2);
+      expect(result.perClassDistribution.score0.macroAverageRate).toBe(50); // 2/4 = 50%
     });
 
-    it('should calculate score distribution correctly', () => {
+    it('should calculate per-class distribution correctly', () => {
       // Arrange
       const evaluations: EvaluationItem[] = [
         createEvaluationItem({ relevanceScore: 0 }),
@@ -310,12 +332,34 @@ describe('CourseRetrieverEvaluatorHelper', () => {
         CourseRetrieverEvaluatorHelper.calculateMetrics(evaluations);
 
       // Assert
-      expect(result.scoreDistribution).toEqual([
-        { relevanceScore: 0, count: 1, percentage: 20 },
-        { relevanceScore: 1, count: 1, percentage: 20 },
-        { relevanceScore: 2, count: 1, percentage: 20 },
-        { relevanceScore: 3, count: 2, percentage: 40 },
-      ]);
+      expect(result.perClassDistribution.score0).toMatchObject({
+        relevanceScore: 0,
+        count: 1,
+        macroAverageRate: 20,
+        microAverageRate: 20,
+        label: 'irrelevant',
+      });
+      expect(result.perClassDistribution.score1).toMatchObject({
+        relevanceScore: 1,
+        count: 1,
+        macroAverageRate: 20,
+        microAverageRate: 20,
+        label: 'slightly_relevant',
+      });
+      expect(result.perClassDistribution.score2).toMatchObject({
+        relevanceScore: 2,
+        count: 1,
+        macroAverageRate: 20,
+        microAverageRate: 20,
+        label: 'fairly_relevant',
+      });
+      expect(result.perClassDistribution.score3).toMatchObject({
+        relevanceScore: 3,
+        count: 2,
+        macroAverageRate: 40,
+        microAverageRate: 40,
+        label: 'highly_relevant',
+      });
     });
 
     it('should handle single evaluation item', () => {
@@ -330,17 +374,13 @@ describe('CourseRetrieverEvaluatorHelper', () => {
 
       // Assert
       expect(result.totalCourses).toBe(1);
-      expect(result.averageRelevance).toBe(2);
-      expect(result.highlyRelevantCount).toBe(0);
-      expect(result.highlyRelevantRate).toBe(0);
-      expect(result.irrelevantCount).toBe(0);
-      expect(result.irrelevantRate).toBe(0);
-      expect(result.scoreDistribution).toEqual([
-        { relevanceScore: 0, count: 0, percentage: 0 },
-        { relevanceScore: 1, count: 0, percentage: 0 },
-        { relevanceScore: 2, count: 1, percentage: 100 },
-        { relevanceScore: 3, count: 0, percentage: 0 },
-      ]);
+      expect(result.meanRelevanceScore).toBe(2);
+      expect(result.perClassDistribution.score3.count).toBe(0);
+      expect(result.perClassDistribution.score3.macroAverageRate).toBe(0);
+      expect(result.perClassDistribution.score0.count).toBe(0);
+      expect(result.perClassDistribution.score0.macroAverageRate).toBe(0);
+      expect(result.perClassDistribution.score2.count).toBe(1);
+      expect(result.perClassDistribution.score2.macroAverageRate).toBe(100);
     });
 
     it('should calculate realistic scenario with perfect retriever', () => {
@@ -355,17 +395,13 @@ describe('CourseRetrieverEvaluatorHelper', () => {
 
       // Assert
       expect(result.totalCourses).toBe(10);
-      expect(result.averageRelevance).toBe(3);
-      expect(result.highlyRelevantCount).toBe(10);
-      expect(result.highlyRelevantRate).toBe(100);
-      expect(result.irrelevantCount).toBe(0);
-      expect(result.irrelevantRate).toBe(0);
-      expect(result.scoreDistribution).toEqual([
-        { relevanceScore: 0, count: 0, percentage: 0 },
-        { relevanceScore: 1, count: 0, percentage: 0 },
-        { relevanceScore: 2, count: 0, percentage: 0 },
-        { relevanceScore: 3, count: 10, percentage: 100 },
-      ]);
+      expect(result.meanRelevanceScore).toBe(3);
+      expect(result.perClassDistribution.score3.count).toBe(10);
+      expect(result.perClassDistribution.score3.macroAverageRate).toBe(100);
+      expect(result.perClassDistribution.score0.count).toBe(0);
+      expect(result.perClassDistribution.score0.macroAverageRate).toBe(0);
+      expect(result.perClassDistribution.score2.count).toBe(0);
+      expect(result.perClassDistribution.score2.macroAverageRate).toBe(0);
     });
 
     it('should calculate realistic scenario with poor retriever', () => {
@@ -384,47 +420,55 @@ describe('CourseRetrieverEvaluatorHelper', () => {
 
       // Assert
       expect(result.totalCourses).toBe(5);
-      expect(result.averageRelevance).toBeCloseTo(0.8); // (0+0+1+1+2)/5
-      expect(result.highlyRelevantCount).toBe(0);
-      expect(result.highlyRelevantRate).toBe(0);
-      expect(result.irrelevantCount).toBe(2);
-      expect(result.irrelevantRate).toBe(40); // 2/5 = 40%
+      expect(result.meanRelevanceScore).toBeCloseTo(0.8); // (0+0+1+1+2)/5
+      expect(result.perClassDistribution.score3.count).toBe(0);
+      expect(result.perClassDistribution.score3.macroAverageRate).toBe(0);
+      expect(result.perClassDistribution.score0.count).toBe(2);
+      expect(result.perClassDistribution.score0.macroAverageRate).toBe(40); // 2/5 = 40%
     });
   });
 
-  describe('calculateDistribution', () => {
+  describe('calculatePerClassDistribution', () => {
     it('should calculate distribution for all scores (0-3)', () => {
       // Arrange
       const scores = [0, 1, 2, 3];
       const total = 4;
 
       // Act
-      const result = CourseRetrieverEvaluatorHelper.calculateDistribution(
-        scores,
-        total,
-      );
+      const result =
+        CourseRetrieverEvaluatorHelper.calculatePerClassDistribution(
+          scores,
+          total,
+        );
 
       // Assert
-      expect(result).toHaveLength(4);
-      expect(result).toContainEqual({
+      expect(result.score0).toMatchObject({
         relevanceScore: 0,
         count: 1,
-        percentage: 25,
+        macroAverageRate: 25,
+        microAverageRate: 25,
+        label: 'irrelevant',
       });
-      expect(result).toContainEqual({
+      expect(result.score1).toMatchObject({
         relevanceScore: 1,
         count: 1,
-        percentage: 25,
+        macroAverageRate: 25,
+        microAverageRate: 25,
+        label: 'slightly_relevant',
       });
-      expect(result).toContainEqual({
+      expect(result.score2).toMatchObject({
         relevanceScore: 2,
         count: 1,
-        percentage: 25,
+        macroAverageRate: 25,
+        microAverageRate: 25,
+        label: 'fairly_relevant',
       });
-      expect(result).toContainEqual({
+      expect(result.score3).toMatchObject({
         relevanceScore: 3,
         count: 1,
-        percentage: 25,
+        macroAverageRate: 25,
+        microAverageRate: 25,
+        label: 'highly_relevant',
       });
     });
 
@@ -434,32 +478,32 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       const total = 6;
 
       // Act
-      const result = CourseRetrieverEvaluatorHelper.calculateDistribution(
-        scores,
-        total,
-      );
+      const result =
+        CourseRetrieverEvaluatorHelper.calculatePerClassDistribution(
+          scores,
+          total,
+        );
 
       // Assert
-      expect(result).toHaveLength(4); // Always returns 0-3
-      expect(result).toContainEqual({
+      expect(result.score3).toMatchObject({
         relevanceScore: 3,
         count: 3,
-        percentage: 50,
+        macroAverageRate: 50,
+        microAverageRate: 50,
       });
-      expect(result).toContainEqual({
-        relevanceScore: 1,
-        count: 2,
-        percentage: (2 / 6) * 100,
-      });
-      expect(result).toContainEqual({
-        relevanceScore: 0,
-        count: 1,
-        percentage: (1 / 6) * 100,
-      });
-      expect(result).toContainEqual({
+      expect(result.score1.count).toBe(2);
+      expect(result.score1.relevanceScore).toBe(1);
+      expect(result.score1.macroAverageRate).toBeCloseTo((2 / 6) * 100, 5);
+      expect(result.score1.microAverageRate).toBeCloseTo((2 / 6) * 100, 5);
+      expect(result.score0.count).toBe(1);
+      expect(result.score0.relevanceScore).toBe(0);
+      expect(result.score0.macroAverageRate).toBeCloseTo((1 / 6) * 100, 5);
+      expect(result.score0.microAverageRate).toBeCloseTo((1 / 6) * 100, 5);
+      expect(result.score2).toMatchObject({
         relevanceScore: 2,
         count: 0,
-        percentage: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
       });
     });
 
@@ -469,35 +513,37 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       const total = 5;
 
       // Act
-      const result = CourseRetrieverEvaluatorHelper.calculateDistribution(
-        scores,
-        total,
-      );
+      const result =
+        CourseRetrieverEvaluatorHelper.calculatePerClassDistribution(
+          scores,
+          total,
+        );
 
       // Assert
-      expect(result).toHaveLength(4); // Always returns 0-3
-      expect(result).toEqual([
-        {
-          relevanceScore: 0,
-          count: 0,
-          percentage: 0,
-        },
-        {
-          relevanceScore: 1,
-          count: 0,
-          percentage: 0,
-        },
-        {
-          relevanceScore: 2,
-          count: 5,
-          percentage: 100,
-        },
-        {
-          relevanceScore: 3,
-          count: 0,
-          percentage: 0,
-        },
-      ]);
+      expect(result.score0).toMatchObject({
+        relevanceScore: 0,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
+      expect(result.score1).toMatchObject({
+        relevanceScore: 1,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
+      expect(result.score2).toMatchObject({
+        relevanceScore: 2,
+        count: 5,
+        macroAverageRate: 100,
+        microAverageRate: 100,
+      });
+      expect(result.score3).toMatchObject({
+        relevanceScore: 3,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
     });
 
     it('should handle empty scores array', () => {
@@ -506,19 +552,37 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       const total = 0;
 
       // Act
-      const result = CourseRetrieverEvaluatorHelper.calculateDistribution(
-        scores,
-        total,
-      );
+      const result =
+        CourseRetrieverEvaluatorHelper.calculatePerClassDistribution(
+          scores,
+          total,
+        );
 
       // Assert
-      expect(result).toHaveLength(4); // Always returns 0-3 initialized
-      expect(result).toEqual([
-        { relevanceScore: 0, count: 0, percentage: 0 },
-        { relevanceScore: 1, count: 0, percentage: 0 },
-        { relevanceScore: 2, count: 0, percentage: 0 },
-        { relevanceScore: 3, count: 0, percentage: 0 },
-      ]);
+      expect(result.score0).toMatchObject({
+        relevanceScore: 0,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
+      expect(result.score1).toMatchObject({
+        relevanceScore: 1,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
+      expect(result.score2).toMatchObject({
+        relevanceScore: 2,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
+      expect(result.score3).toMatchObject({
+        relevanceScore: 3,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
     });
 
     it('should handle single score', () => {
@@ -527,23 +591,37 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       const total = 1;
 
       // Act
-      const result = CourseRetrieverEvaluatorHelper.calculateDistribution(
-        scores,
-        total,
-      );
+      const result =
+        CourseRetrieverEvaluatorHelper.calculatePerClassDistribution(
+          scores,
+          total,
+        );
 
       // Assert
-      expect(result).toHaveLength(4);
-      expect(result).toEqual([
-        { relevanceScore: 0, count: 0, percentage: 0 },
-        { relevanceScore: 1, count: 0, percentage: 0 },
-        { relevanceScore: 2, count: 0, percentage: 0 },
-        {
-          relevanceScore: 3,
-          count: 1,
-          percentage: 100,
-        },
-      ]);
+      expect(result.score0).toMatchObject({
+        relevanceScore: 0,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
+      expect(result.score1).toMatchObject({
+        relevanceScore: 1,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
+      expect(result.score2).toMatchObject({
+        relevanceScore: 2,
+        count: 0,
+        macroAverageRate: 0,
+        microAverageRate: 0,
+      });
+      expect(result.score3).toMatchObject({
+        relevanceScore: 3,
+        count: 1,
+        macroAverageRate: 100,
+        microAverageRate: 100,
+      });
     });
 
     it('should calculate percentages with floating point precision', () => {
@@ -552,41 +630,17 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       const total = 3;
 
       // Act
-      const result = CourseRetrieverEvaluatorHelper.calculateDistribution(
-        scores,
-        total,
-      );
+      const result =
+        CourseRetrieverEvaluatorHelper.calculatePerClassDistribution(
+          scores,
+          total,
+        );
 
       // Assert
-      expect(result).toHaveLength(4);
-      expect(result.find((r) => r.relevanceScore === 3)?.percentage).toBe(
-        (1 / 3) * 100,
-      );
-      expect(result.find((r) => r.relevanceScore === 2)?.percentage).toBe(
-        (1 / 3) * 100,
-      );
-      expect(result.find((r) => r.relevanceScore === 1)?.percentage).toBe(
-        (1 / 3) * 100,
-      );
-      expect(result.find((r) => r.relevanceScore === 0)?.count).toBe(0);
-    });
-
-    it('should always return scores in order 0, 1, 2, 3', () => {
-      // Arrange: Scores in random order
-      const scores = [3, 0, 2, 1];
-      const total = 4;
-
-      // Act
-      const result = CourseRetrieverEvaluatorHelper.calculateDistribution(
-        scores,
-        total,
-      );
-
-      // Assert: Result should always be in order 0, 1, 2, 3
-      expect(result[0].relevanceScore).toBe(0);
-      expect(result[1].relevanceScore).toBe(1);
-      expect(result[2].relevanceScore).toBe(2);
-      expect(result[3].relevanceScore).toBe(3);
+      expect(result.score3.macroAverageRate).toBeCloseTo((1 / 3) * 100, 5);
+      expect(result.score2.macroAverageRate).toBeCloseTo((1 / 3) * 100, 5);
+      expect(result.score1.macroAverageRate).toBeCloseTo((1 / 3) * 100, 5);
+      expect(result.score0.count).toBe(0);
     });
   });
 

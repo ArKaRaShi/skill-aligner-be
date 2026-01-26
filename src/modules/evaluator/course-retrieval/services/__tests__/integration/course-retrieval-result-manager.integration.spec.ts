@@ -119,13 +119,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           entries: [
             {
               hash: 'a'.repeat(64),
-              question: 'Test question?',
+              dedupeKey: 'Test skill-' + 'a'.repeat(64),
               skill: 'Test skill',
-              testCaseId: 'test-001',
+              testCases: ['test-001'],
               completedAt: new Date().toISOString(),
               result: {
                 retrievedCount: 2,
-                averageRelevance: 2.5,
+                meanRelevanceScore: 2.5,
               },
             },
           ],
@@ -169,13 +169,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         entries: [
           {
             hash: 'a'.repeat(64),
-            question: 'Test question?',
+            dedupeKey: 'Test skill-' + 'a'.repeat(64),
             skill: 'Test skill',
-            testCaseId: 'test-001',
+            testCases: ['test-001'],
             completedAt: new Date().toISOString(),
             result: {
               retrievedCount: 2,
-              averageRelevance: 2.5,
+              meanRelevanceScore: 2.5,
             },
           },
         ],
@@ -221,11 +221,11 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         entries: [
           {
             hash: 'a'.repeat(64),
-            question: 'First?',
+            dedupeKey: 'Skill 1-' + 'a'.repeat(64),
             skill: 'Skill 1',
-            testCaseId: 'test-001',
+            testCases: ['test-001'],
             completedAt: new Date().toISOString(),
-            result: { retrievedCount: 1, averageRelevance: 2 },
+            result: { retrievedCount: 1, meanRelevanceScore: 2 },
           },
         ],
         lastUpdated: new Date().toISOString(),
@@ -250,11 +250,11 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       // Update and save again
       progressData.entries.push({
         hash: 'b'.repeat(64),
-        question: 'Second?',
+        dedupeKey: 'Skill 2-' + 'b'.repeat(64),
         skill: 'Skill 2',
-        testCaseId: 'test-002',
+        testCases: ['test-002'],
         completedAt: new Date().toISOString(),
-        result: { retrievedCount: 1, averageRelevance: 3 },
+        result: { retrievedCount: 1, meanRelevanceScore: 3 },
       });
       progressData.statistics.completedItems = 2;
       progressData.statistics.pendingItems = 0;
@@ -297,19 +297,42 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           ],
           metrics: {
             totalCourses: 1,
-            averageRelevance: 3,
-            scoreDistribution: [
-              { relevanceScore: 3, count: 1, percentage: 100 },
-              { relevanceScore: 2, count: 0, percentage: 0 },
-              { relevanceScore: 1, count: 0, percentage: 0 },
-              { relevanceScore: 0, count: 0, percentage: 0 },
-            ],
-            highlyRelevantCount: 1,
-            highlyRelevantRate: 100,
-            irrelevantCount: 0,
-            irrelevantRate: 0,
-            ndcg: { at5: 1, at10: 1, atAll: 1 },
-            precision: { at5: 1, at10: 1, atAll: 1 },
+            meanRelevanceScore: 3,
+            perClassDistribution: {
+              score0: {
+                relevanceScore: 0,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'irrelevant',
+              },
+              score1: {
+                relevanceScore: 1,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'slightly_relevant',
+              },
+              score2: {
+                relevanceScore: 2,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'fairly_relevant',
+              },
+              score3: {
+                relevanceScore: 3,
+                count: 1,
+                macroAverageRate: 100,
+                microAverageRate: 100,
+                label: 'highly_relevant',
+              },
+            },
+            ndcg: {
+              proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+              ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            },
+            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -355,14 +378,42 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           evaluations: [],
           metrics: {
             totalCourses: 1,
-            averageRelevance: 2,
-            scoreDistribution: [],
-            highlyRelevantCount: 0,
-            highlyRelevantRate: 0,
-            irrelevantCount: 0,
-            irrelevantRate: 0,
-            ndcg: { at5: 1, at10: 1, atAll: 1 },
-            precision: { at5: 1, at10: 1, atAll: 1 },
+            meanRelevanceScore: 2,
+            perClassDistribution: {
+              score0: {
+                relevanceScore: 0,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'irrelevant',
+              },
+              score1: {
+                relevanceScore: 1,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'slightly_relevant',
+              },
+              score2: {
+                relevanceScore: 2,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'fairly_relevant',
+              },
+              score3: {
+                relevanceScore: 3,
+                count: 1,
+                macroAverageRate: 100,
+                microAverageRate: 100,
+                label: 'highly_relevant',
+              },
+            },
+            ndcg: {
+              proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+              ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            },
+            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -380,14 +431,42 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           evaluations: [],
           metrics: {
             totalCourses: 1,
-            averageRelevance: 3,
-            scoreDistribution: [],
-            highlyRelevantCount: 0,
-            highlyRelevantRate: 0,
-            irrelevantCount: 0,
-            irrelevantRate: 0,
-            ndcg: { at5: 1, at10: 1, atAll: 1 },
-            precision: { at5: 1, at10: 1, atAll: 1 },
+            meanRelevanceScore: 3,
+            perClassDistribution: {
+              score0: {
+                relevanceScore: 0,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'irrelevant',
+              },
+              score1: {
+                relevanceScore: 1,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'slightly_relevant',
+              },
+              score2: {
+                relevanceScore: 2,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'fairly_relevant',
+              },
+              score3: {
+                relevanceScore: 3,
+                count: 1,
+                macroAverageRate: 100,
+                microAverageRate: 100,
+                label: 'highly_relevant',
+              },
+            },
+            ndcg: {
+              proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+              ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            },
+            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -466,14 +545,42 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         evaluations: [],
         metrics: {
           totalCourses: 1,
-          averageRelevance: 2,
-          scoreDistribution: [],
-          highlyRelevantCount: 0,
-          highlyRelevantRate: 0,
-          irrelevantCount: 0,
-          irrelevantRate: 0,
-          ndcg: { at5: 1, at10: 1, atAll: 1 },
-          precision: { at5: 1, at10: 1, atAll: 1 },
+          meanRelevanceScore: 2,
+          perClassDistribution: {
+            score0: {
+              relevanceScore: 0,
+              count: 0,
+              macroAverageRate: 0,
+              microAverageRate: 0,
+              label: 'irrelevant',
+            },
+            score1: {
+              relevanceScore: 1,
+              count: 0,
+              macroAverageRate: 0,
+              microAverageRate: 0,
+              label: 'slightly_relevant',
+            },
+            score2: {
+              relevanceScore: 2,
+              count: 0,
+              macroAverageRate: 0,
+              microAverageRate: 0,
+              label: 'fairly_relevant',
+            },
+            score3: {
+              relevanceScore: 3,
+              count: 1,
+              macroAverageRate: 100,
+              microAverageRate: 100,
+              label: 'highly_relevant',
+            },
+          },
+          ndcg: {
+            proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+          },
+          precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
         },
         llmModel: 'gpt-4',
         llmProvider: 'openai',
@@ -520,13 +627,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         entries: [
           {
             hash: 'abc123def456'.padEnd(64, '0'),
-            question: 'Format validation question?',
+            dedupeKey: 'Format skill-' + 'abc123def456'.padEnd(64, '0'),
             skill: 'Format skill',
-            testCaseId: 'fmt-001',
+            testCases: ['fmt-001'],
             completedAt: '2025-01-24T12:00:00.000Z',
             result: {
               retrievedCount: 3,
-              averageRelevance: 2.33,
+              meanRelevanceScore: 2.33,
             },
           },
         ],
@@ -564,13 +671,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         entries: [
           {
             hash: 'a1b2c3d4e5f6'.padEnd(64, '0'),
-            question: 'Hash question?',
+            dedupeKey: 'Hash skill-' + 'a1b2c3d4e5f6'.padEnd(64, '0'),
             skill: 'Hash skill',
-            testCaseId: 'hash-001',
+            testCases: ['hash-001'],
             completedAt: new Date().toISOString(),
             result: {
               retrievedCount: 1,
-              averageRelevance: 2,
+              meanRelevanceScore: 2,
             },
           },
         ],
@@ -643,13 +750,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         iterationNumber,
         entries: Array.from({ length: 100 }, (_, i) => ({
           hash: 'hash'.padEnd(64, '0') + i,
-          question: `Question ${i}?`,
+          dedupeKey: `Skill ${i}-` + 'hash'.padEnd(64, '0') + i,
           skill: `Skill ${i}`,
-          testCaseId: `test-${i}`,
+          testCases: [`test-${i}`],
           completedAt: new Date().toISOString(),
           result: {
             retrievedCount: 1,
-            averageRelevance: 2,
+            meanRelevanceScore: 2,
           },
         })),
         lastUpdated: new Date().toISOString(),
@@ -721,14 +828,42 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           ],
           metrics: {
             totalCourses: 3,
-            averageRelevance: 1.667,
-            scoreDistribution: [],
-            highlyRelevantCount: 1,
-            highlyRelevantRate: 33.33,
-            irrelevantCount: 1,
-            irrelevantRate: 33.33,
-            ndcg: { at5: 0.8, at10: 0.8, atAll: 0.75 },
-            precision: { at5: 0.67, at10: 0.67, atAll: 0.67 },
+            meanRelevanceScore: 1.667,
+            perClassDistribution: {
+              score0: {
+                relevanceScore: 0,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'irrelevant',
+              },
+              score1: {
+                relevanceScore: 1,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'slightly_relevant',
+              },
+              score2: {
+                relevanceScore: 2,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'fairly_relevant',
+              },
+              score3: {
+                relevanceScore: 3,
+                count: 1,
+                macroAverageRate: 100,
+                microAverageRate: 100,
+                label: 'highly_relevant',
+              },
+            },
+            ndcg: {
+              proxy: { at5: 0.8, at10: 0.8, at15: 0.78, atAll: 0.75 },
+              ideal: { at5: 0.8, at10: 0.8, at15: 0.78, atAll: 0.75 },
+            },
+            precision: { at5: 0.67, at10: 0.67, at15: 0.67, atAll: 0.67 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -763,15 +898,18 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       expect(metrics.sampleCount).toBe(1);
       expect(metrics.totalCoursesEvaluated).toBe(3);
       // Enriched metrics - check the .value property
-      expect(metrics.averageRelevance.value).toBeCloseTo(1.667, 2);
-      expect(metrics.ndcg.at5.value).toBeDefined();
-      expect(metrics.ndcg.at10.value).toBeDefined();
-      expect(metrics.ndcg.atAll.value).toBeDefined();
-      expect(metrics.precision.at5.value).toBeDefined();
-      expect(metrics.precision.at10.value).toBeDefined();
-      expect(metrics.precision.atAll.value).toBeDefined();
+      expect(metrics.meanRelevanceScore.meanRelevanceScore).toBeCloseTo(
+        1.667,
+        2,
+      );
+      expect(metrics.ndcg.at5.proxyNdcg).toBeDefined();
+      expect(metrics.ndcg.at10.proxyNdcg).toBeDefined();
+      expect(metrics.ndcg.atAll.proxyNdcg).toBeDefined();
+      expect(metrics.precision.at5.meanPrecision).toBeDefined();
+      expect(metrics.precision.at10.meanPrecision).toBeDefined();
+      expect(metrics.precision.atAll.meanPrecision).toBeDefined();
       // Check descriptions exist
-      expect(metrics.averageRelevance.description).toBeDefined();
+      expect(metrics.meanRelevanceScore.description).toBeDefined();
       expect(metrics.ndcg.at5.description).toBeDefined();
     });
 
@@ -805,14 +943,42 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           ],
           metrics: {
             totalCourses: 2,
-            averageRelevance: 2.5,
-            scoreDistribution: [],
-            highlyRelevantCount: 1,
-            highlyRelevantRate: 50,
-            irrelevantCount: 0,
-            irrelevantRate: 0,
-            ndcg: { at5: 1, at10: 1, atAll: 1 },
-            precision: { at5: 1, at10: 1, atAll: 1 },
+            meanRelevanceScore: 2.5,
+            perClassDistribution: {
+              score0: {
+                relevanceScore: 0,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'irrelevant',
+              },
+              score1: {
+                relevanceScore: 1,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'slightly_relevant',
+              },
+              score2: {
+                relevanceScore: 2,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'fairly_relevant',
+              },
+              score3: {
+                relevanceScore: 3,
+                count: 1,
+                macroAverageRate: 100,
+                microAverageRate: 100,
+                label: 'highly_relevant',
+              },
+            },
+            ndcg: {
+              proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+              ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            },
+            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -881,20 +1047,55 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             ],
             metrics: {
               totalCourses: 3,
-              averageRelevance: (i + 2 + 1) / 3,
-              scoreDistribution: [],
-              highlyRelevantCount: i >= 3 ? 1 : 0,
-              highlyRelevantRate: i >= 3 ? 33.33 : 0,
-              irrelevantCount: 0,
-              irrelevantRate: 0,
+              meanRelevanceScore: (i + 2 + 1) / 3,
+              perClassDistribution: {
+                score0: {
+                  relevanceScore: 0,
+                  count: 0,
+                  macroAverageRate: 0,
+                  microAverageRate: 0,
+                  label: 'irrelevant',
+                },
+                score1: {
+                  relevanceScore: 1,
+                  count: 0,
+                  macroAverageRate: 0,
+                  microAverageRate: 0,
+                  label: 'slightly_relevant',
+                },
+                score2: {
+                  relevanceScore: 2,
+                  count: 0,
+                  macroAverageRate: 0,
+                  microAverageRate: 0,
+                  label: 'fairly_relevant',
+                },
+                score3: {
+                  relevanceScore: 3,
+                  count: 1,
+                  macroAverageRate: 100,
+                  microAverageRate: 100,
+                  label: 'highly_relevant',
+                },
+              },
               ndcg: {
-                at5: 0.7 + i * 0.05,
-                at10: 0.7 + i * 0.05,
-                atAll: 0.65 + i * 0.05,
+                proxy: {
+                  at5: 0.7 + i * 0.05,
+                  at10: 0.7 + i * 0.05,
+                  at15: 0.68 + i * 0.05,
+                  atAll: 0.65 + i * 0.05,
+                },
+                ideal: {
+                  at5: 0.6 + i * 0.05,
+                  at10: 0.6 + i * 0.05,
+                  at15: 0.58 + i * 0.05,
+                  atAll: 0.55 + i * 0.05,
+                },
               },
               precision: {
                 at5: 0.6 + i * 0.1,
                 at10: 0.6 + i * 0.1,
+                at15: 0.6 + i * 0.1,
                 atAll: 0.6 + i * 0.1,
               },
             },
@@ -1001,14 +1202,42 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           ],
           metrics: {
             totalCourses: 2,
-            averageRelevance: 2,
-            scoreDistribution: [],
-            highlyRelevantCount: 0,
-            highlyRelevantRate: 0,
-            irrelevantCount: 0,
-            irrelevantRate: 0,
-            ndcg: { at5: 0.75, at10: 0.75, atAll: 0.7 },
-            precision: { at5: 1, at10: 1, atAll: 1 },
+            meanRelevanceScore: 2,
+            perClassDistribution: {
+              score0: {
+                relevanceScore: 0,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'irrelevant',
+              },
+              score1: {
+                relevanceScore: 1,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'slightly_relevant',
+              },
+              score2: {
+                relevanceScore: 2,
+                count: 0,
+                macroAverageRate: 0,
+                microAverageRate: 0,
+                label: 'fairly_relevant',
+              },
+              score3: {
+                relevanceScore: 3,
+                count: 1,
+                macroAverageRate: 100,
+                microAverageRate: 100,
+                label: 'highly_relevant',
+              },
+            },
+            ndcg: {
+              proxy: { at5: 0.75, at10: 0.75, at15: 0.73, atAll: 0.7 },
+              ideal: { at5: 0.75, at10: 0.75, at15: 0.73, atAll: 0.7 },
+            },
+            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -1084,14 +1313,42 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             ],
             metrics: {
               totalCourses: 1,
-              averageRelevance: 2,
-              scoreDistribution: [],
-              highlyRelevantCount: 0,
-              highlyRelevantRate: 0,
-              irrelevantCount: 0,
-              irrelevantRate: 0,
-              ndcg: { at5: 0.75, at10: 0.75, atAll: 0.75 },
-              precision: { at5: 1, at10: 1, atAll: 1 },
+              meanRelevanceScore: 2,
+              perClassDistribution: {
+                score0: {
+                  relevanceScore: 0,
+                  count: 0,
+                  macroAverageRate: 0,
+                  microAverageRate: 0,
+                  label: 'irrelevant',
+                },
+                score1: {
+                  relevanceScore: 1,
+                  count: 0,
+                  macroAverageRate: 0,
+                  microAverageRate: 0,
+                  label: 'slightly_relevant',
+                },
+                score2: {
+                  relevanceScore: 2,
+                  count: 0,
+                  macroAverageRate: 0,
+                  microAverageRate: 0,
+                  label: 'fairly_relevant',
+                },
+                score3: {
+                  relevanceScore: 3,
+                  count: 1,
+                  macroAverageRate: 100,
+                  microAverageRate: 100,
+                  label: 'highly_relevant',
+                },
+              },
+              ndcg: {
+                proxy: { at5: 0.75, at10: 0.75, at15: 0.75, atAll: 0.75 },
+                ideal: { at5: 0.75, at10: 0.75, at15: 0.75, atAll: 0.75 },
+              },
+              precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
             },
             llmModel: 'gpt-4',
             llmProvider: 'openai',
@@ -1192,14 +1449,42 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             ],
             metrics: {
               totalCourses: 3,
-              averageRelevance: (3 + (i === 2 ? 3 : 2) + 1) / 3,
-              scoreDistribution: [],
-              highlyRelevantCount: i === 2 ? 2 : 1,
-              highlyRelevantRate: 0,
-              irrelevantCount: 0,
-              irrelevantRate: 0,
-              ndcg: { at5: 0.8, at10: 0.8, atAll: 0.75 },
-              precision: { at5: 0.67, at10: 0.67, atAll: 0.67 },
+              meanRelevanceScore: (3 + (i === 2 ? 3 : 2) + 1) / 3,
+              perClassDistribution: {
+                score0: {
+                  relevanceScore: 0,
+                  count: 0,
+                  macroAverageRate: 0,
+                  microAverageRate: 0,
+                  label: 'irrelevant',
+                },
+                score1: {
+                  relevanceScore: 1,
+                  count: 0,
+                  macroAverageRate: 0,
+                  microAverageRate: 0,
+                  label: 'slightly_relevant',
+                },
+                score2: {
+                  relevanceScore: 2,
+                  count: 0,
+                  macroAverageRate: 0,
+                  microAverageRate: 0,
+                  label: 'fairly_relevant',
+                },
+                score3: {
+                  relevanceScore: 3,
+                  count: 1,
+                  macroAverageRate: 100,
+                  microAverageRate: 100,
+                  label: 'highly_relevant',
+                },
+              },
+              ndcg: {
+                proxy: { at5: 0.8, at10: 0.8, at15: 0.78, atAll: 0.75 },
+                ideal: { at5: 0.8, at10: 0.8, at15: 0.78, atAll: 0.75 },
+              },
+              precision: { at5: 0.67, at10: 0.67, at15: 0.67, atAll: 0.67 },
             },
             llmModel: 'gpt-4',
             llmProvider: 'openai',

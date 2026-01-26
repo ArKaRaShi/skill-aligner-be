@@ -370,6 +370,9 @@ async function bootstrap() {
       logger.log(
         `  @10: ${finalMetrics.aggregateMetrics.ndcgAt10.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.ndcgAt10.stdDev.toFixed(4)}`,
       );
+      logger.log(
+        `  @15: ${finalMetrics.aggregateMetrics.ndcgAt15.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.ndcgAt15.stdDev.toFixed(4)}`,
+      );
       logger.log('');
       logger.log('Precision (% Relevant in Top K):');
       logger.log(
@@ -377,6 +380,9 @@ async function bootstrap() {
       );
       logger.log(
         `  @10: ${finalMetrics.aggregateMetrics.precisionAt10.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt10.stdDev.toFixed(4)}`,
+      );
+      logger.log(
+        `  @15: ${finalMetrics.aggregateMetrics.precisionAt15.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt15.stdDev.toFixed(4)}`,
       );
       logger.log('');
       logger.log(
@@ -461,6 +467,9 @@ async function bootstrap() {
         logger.log(
           `  @10: ${finalMetrics.aggregateMetrics.ndcgAt10.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.ndcgAt10.stdDev.toFixed(4)}`,
         );
+        logger.log(
+          `  @15: ${finalMetrics.aggregateMetrics.ndcgAt15.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.ndcgAt15.stdDev.toFixed(4)}`,
+        );
         logger.log('');
         logger.log('Precision (% Relevant in Top K):');
         logger.log(
@@ -468,6 +477,9 @@ async function bootstrap() {
         );
         logger.log(
           `  @10: ${finalMetrics.aggregateMetrics.precisionAt10.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt10.stdDev.toFixed(4)}`,
+        );
+        logger.log(
+          `  @15: ${finalMetrics.aggregateMetrics.precisionAt15.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt15.stdDev.toFixed(4)}`,
         );
         logger.log('');
         logger.log(

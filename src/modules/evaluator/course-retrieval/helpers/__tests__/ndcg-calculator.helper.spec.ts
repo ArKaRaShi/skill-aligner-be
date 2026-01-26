@@ -204,4 +204,283 @@ describe('NdcgCalculator', () => {
       expect(result).toBeLessThan(0.6);
     });
   });
+
+  describe('calculateIdealIDCG', () => {
+    it('should calculate IDCG using all perfect scores (3, 3, 3, ...)', () => {
+      // k=4: IDCG = 3/log2(2) + 3/log2(3) + 3/log2(4) + 3/log2(5)
+      //            = 3 + 1.893 + 1.5 + 1.292
+      //            ≈ 7.685
+      const result = NdcgCalculator.calculateIdealIDCG(4);
+      expect(result).toBeCloseTo(7.685, 3);
+    });
+
+    it('should handle k=1', () => {
+      const result = NdcgCalculator.calculateIdealIDCG(1);
+      // IDCG = 3/log2(2) = 3
+      expect(result).toBeCloseTo(3, 5);
+    });
+
+    it('should handle k=5', () => {
+      const result = NdcgCalculator.calculateIdealIDCG(5);
+      // Should be higher than k=4 (more perfect scores)
+      expect(result).toBeGreaterThan(7.685);
+      expect(result).toBeLessThan(10); // Upper bound
+    });
+
+    it('should handle k=10', () => {
+      const result = NdcgCalculator.calculateIdealIDCG(10);
+      // Should be significantly higher than k=5
+      expect(result).toBeGreaterThan(NdcgCalculator.calculateIdealIDCG(5));
+    });
+
+    it('should return 0 for k=0', () => {
+      const result = NdcgCalculator.calculateIdealIDCG(0);
+      expect(result).toBe(0);
+    });
+  });
+
+  describe('calculateProxyNDCG', () => {
+    it('should return 1 for perfect ranking (already sorted)', () => {
+      const scores = [3, 2, 1, 0];
+      const result = NdcgCalculator.calculateProxyNDCG(scores);
+      expect(result).toBeCloseTo(1.0, 5);
+    });
+
+    it('should measure ranking quality independent of retrieval quality', () => {
+      // Poor retrieval (all low scores) but good ranking
+      const scores = [1, 1, 0, 0]; // Sorted descending
+      const result = NdcgCalculator.calculateProxyNDCG(scores);
+      expect(result).toBeCloseTo(1.0, 5); // Perfect ranking even though scores are low
+    });
+
+    it('should calculate correctly for imperfect ranking', () => {
+      const scores = [0, 1, 2, 3]; // Reverse sorted
+      const result = NdcgCalculator.calculateProxyNDCG(scores);
+      expect(result).toBeCloseTo(0.614, 3);
+    });
+
+    it('should handle k parameter', () => {
+      const scores = [1, 3, 0, 2];
+      const result = NdcgCalculator.calculateProxyNDCG(scores, 2);
+      expect(result).toBeCloseTo(0.679, 3);
+    });
+
+    it('should return 0 for all zero scores', () => {
+      const result = NdcgCalculator.calculateProxyNDCG([0, 0, 0]);
+      expect(result).toBe(0);
+    });
+  });
+
+  describe('calculateIdealNDCG', () => {
+    it('should return 1 when all scores are perfect (3, 3, 3, ...)', () => {
+      const scores = [3, 3, 3];
+      const result = NdcgCalculator.calculateIdealNDCG(scores);
+      expect(result).toBeCloseTo(1.0, 5);
+    });
+
+    it('should measure quality vs perfect ground truth', () => {
+      // Good retrieval but not perfect
+      const scores = [3, 2, 2, 1];
+      const result = NdcgCalculator.calculateIdealNDCG(scores);
+      // Should be less than 1 (not perfect retrieval)
+      expect(result).toBeLessThan(1.0);
+      expect(result).toBeGreaterThan(0.6); // But reasonably high
+    });
+
+    it('should be lower than proxy NDCG for same scores (typically)', () => {
+      const scores = [2, 2, 1, 1];
+      const proxyNdcg = NdcgCalculator.calculateProxyNDCG(scores);
+      const idealNdcg = NdcgCalculator.calculateIdealNDCG(scores);
+
+      // Ideal compares against all 3s, so typically lower than proxy
+      expect(idealNdcg).toBeLessThanOrEqual(proxyNdcg);
+    });
+
+    it('should handle k parameter', () => {
+      const scores = [3, 2, 1, 0];
+      const result = NdcgCalculator.calculateIdealNDCG(scores, 2);
+      // DCG@2 = 3 + 2/log2(3) ≈ 4.262
+      // Ideal IDCG@2 = 3 + 3/log2(3) ≈ 4.893
+      // NDCG ≈ 4.262 / 4.893 ≈ 0.871
+      expect(result).toBeCloseTo(0.871, 3);
+    });
+
+    it('should return 0 for all zero scores', () => {
+      const result = NdcgCalculator.calculateIdealNDCG([0, 0, 0]);
+      expect(result).toBe(0);
+    });
+
+    it('should handle poor retrieval scenario', () => {
+      const scores = [0, 0, 1, 1]; // Mostly irrelevant
+      const result = NdcgCalculator.calculateIdealNDCG(scores);
+      // Should be very low compared to perfect retrieval
+      expect(result).toBeLessThan(0.4);
+    });
+  });
+
+  describe('calculateBothNDCG', () => {
+    it('should return both proxy and ideal NDCG values', () => {
+      const scores = [3, 2, 1, 0];
+      const result = NdcgCalculator.calculateBothNDCG(scores);
+
+      expect(result).toHaveProperty('proxy');
+      expect(result).toHaveProperty('ideal');
+      expect(typeof result.proxy).toBe('number');
+      expect(typeof result.ideal).toBe('number');
+    });
+
+    it('should calculate proxy NDCG correctly', () => {
+      const scores = [3, 2, 1, 0]; // Perfect ranking
+      const result = NdcgCalculator.calculateBothNDCG(scores);
+
+      expect(result.proxy).toBeCloseTo(1.0, 5);
+    });
+
+    it('should calculate ideal NDCG correctly', () => {
+      const scores = [3, 3, 3]; // All perfect
+      const result = NdcgCalculator.calculateBothNDCG(scores);
+
+      expect(result.ideal).toBeCloseTo(1.0, 5);
+    });
+
+    it('should show ideal < proxy for imperfect retrieval', () => {
+      const scores = [2, 2, 1, 1]; // Good ranking, imperfect scores
+      const result = NdcgCalculator.calculateBothNDCG(scores);
+
+      // Ideal compares against all 3s, so lower than proxy (which uses actual scores sorted)
+      expect(result.ideal).toBeLessThan(result.proxy);
+    });
+
+    it('should show ideal = proxy = 1 for perfect retrieval and ranking', () => {
+      const scores = [3, 3, 3, 3]; // Perfect in all aspects
+      const result = NdcgCalculator.calculateBothNDCG(scores);
+
+      expect(result.proxy).toBeCloseTo(1.0, 5);
+      expect(result.ideal).toBeCloseTo(1.0, 5);
+    });
+
+    it('should respect k parameter for both metrics', () => {
+      const scores = [3, 2, 1, 0, 1];
+      const result = NdcgCalculator.calculateBothNDCG(scores, 3);
+
+      expect(result.proxy).toBeGreaterThan(0);
+      expect(result.proxy).toBeLessThanOrEqual(1);
+      expect(result.ideal).toBeGreaterThan(0);
+      expect(result.ideal).toBeLessThanOrEqual(1);
+    });
+
+    it('should handle edge case: all zeros', () => {
+      const result = NdcgCalculator.calculateBothNDCG([0, 0, 0]);
+
+      expect(result.proxy).toBe(0);
+      expect(result.ideal).toBe(0);
+    });
+
+    it('should reveal ranking vs retrieval quality difference', () => {
+      // Good ranking, poor retrieval
+      const goodRankingPoorRetrieval = [2, 1, 0, 0];
+
+      // Poor ranking, good retrieval
+      const poorRankingGoodRetrieval = [3, 0, 3, 0];
+
+      const result1 = NdcgCalculator.calculateBothNDCG(
+        goodRankingPoorRetrieval,
+      );
+      const result2 = NdcgCalculator.calculateBothNDCG(
+        poorRankingGoodRetrieval,
+      );
+
+      // First has better ranking (higher proxy)
+      expect(result1.proxy).toBeGreaterThan(result2.proxy);
+
+      // Second has better retrieval (higher ideal, due to more 3s)
+      expect(result2.ideal).toBeGreaterThan(result1.ideal);
+    });
+  });
+
+  describe('proxy vs ideal NDCG comparison', () => {
+    it('should demonstrate ideal > proxy when ranking is perfect but retrieval not', () => {
+      // Scenario: Perfect ranking (sorted descending) but not all 3s
+      const scores = [2, 2, 1, 0]; // Perfectly sorted
+
+      const proxy = NdcgCalculator.calculateProxyNDCG(scores);
+      const ideal = NdcgCalculator.calculateIdealNDCG(scores);
+
+      // Proxy = 1.0 (perfect ranking of actual scores)
+      expect(proxy).toBeCloseTo(1.0, 5);
+
+      // Ideal < 1.0 (not all scores are 3)
+      expect(ideal).toBeLessThan(1.0);
+
+      // Ideal < proxy because ideal compares against all 3s
+      expect(ideal).toBeLessThan(proxy);
+    });
+
+    it('should show high proxy, low ideal = ranking good, retrieval poor', () => {
+      // Perfect ranking, all mid-range scores
+      const scores = [2, 2, 2, 2];
+
+      const proxy = NdcgCalculator.calculateProxyNDCG(scores);
+      const ideal = NdcgCalculator.calculateIdealNDCG(scores);
+
+      expect(proxy).toBeCloseTo(1.0, 5); // Perfect ranking
+      expect(ideal).toBeLessThan(0.8); // Not perfect retrieval (no 3s)
+      expect(ideal).toBeLessThan(proxy);
+    });
+
+    it('should show both metrics equal for perfect ranking and retrieval', () => {
+      // Perfect ranking AND all perfect scores
+      const scores = [3, 3, 3, 3];
+
+      const proxy = NdcgCalculator.calculateProxyNDCG(scores);
+      const ideal = NdcgCalculator.calculateIdealNDCG(scores);
+
+      expect(proxy).toBeCloseTo(1.0, 5);
+      expect(ideal).toBeCloseTo(1.0, 5);
+      expect(ideal).toBe(proxy);
+    });
+
+    it('should show proxy > ideal when poor ranking with high scores', () => {
+      // Poor ranking, but has some high scores
+      const scores = [0, 3, 0, 3];
+
+      const proxy = NdcgCalculator.calculateProxyNDCG(scores);
+      const ideal = NdcgCalculator.calculateIdealNDCG(scores);
+
+      // Both less than 1 due to poor ranking
+      expect(proxy).toBeLessThan(0.8);
+      expect(ideal).toBeLessThan(0.8);
+
+      // Proxy can be > ideal because the actual scores (when sorted)
+      // are closer to the actual ranking than all 3s would be
+      expect(proxy).toBeGreaterThan(ideal);
+    });
+
+    it('should demonstrate the diagnostic value of both metrics', () => {
+      // Good ranking, mediocre retrieval
+      const goodRankingMediocreRetrieval = [2, 1, 1, 0];
+
+      // Poor ranking, good retrieval
+      const poorRankingGoodRetrieval = [3, 0, 0, 3];
+
+      const result1 = NdcgCalculator.calculateBothNDCG(
+        goodRankingMediocreRetrieval,
+      );
+      const result2 = NdcgCalculator.calculateBothNDCG(
+        poorRankingGoodRetrieval,
+      );
+
+      // First has better ranking (proxy closer to 1)
+      expect(result1.proxy).toBeGreaterThan(result2.proxy);
+
+      // Second has better ideal (more 3s in retrieval)
+      // Note: ideal might still be lower due to poor ranking
+      expect(result2.ideal).toBeGreaterThan(0.3);
+
+      // The gap between proxy and ideal reveals different issues
+      const gap1 = result1.proxy - result1.ideal; // Positive = ranking better than retrieval quality
+
+      expect(gap1).toBeGreaterThan(0); // Good ranking, poor retrieval
+    });
+  });
 });

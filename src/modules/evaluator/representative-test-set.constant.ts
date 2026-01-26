@@ -144,69 +144,155 @@ export const QUESTION_SET_BEHAVIORAL = [
  * - การจัดกลุ่มนี้มีไว้เพื่อช่วย "ออกแบบการทดลองและการอธิบายระบบ"
  *   ไม่ใช่เพื่อบอกว่าผู้ใช้มี intent แบบใดแบบหนึ่งเท่านั้น
  */
-export const QUESTION_SET = [
+export const QUESTION_SET: {
+  question: string;
+  refId: string;
+}[] = [
   // Pattern A Direct/Explicit Concept
   // มี mention ชัดเจนเกี่ยวกับทักษะหรือหัวข้อที่ต้องการเรียนรู้
+
   // Topic Based
-  'มีวิชาสอนการบริหารเงินตัวเองไหม',
-  'อยากเรียนสายโค้ด มันมีวิชาอะไรบ้าง',
-  'มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม',
+  {
+    question: 'มีวิชาสอนการบริหารเงินตัวเองไหม',
+    refId: '27553284-019f-4c31-8dbe-b1bfbb5cb4d5',
+  },
+  {
+    question: 'มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม',
+    refId: 'a7728000-0818-42b5-a49f-c89f4ee59ab5',
+  },
 
   // Skill Based
-  'อยากพัฒนาทักษะการวิเคราะห์งบการเงิน',
-  'มีวิชาเกี่ยวกับ OOP บ้างไหม',
+  {
+    question: 'อยากพัฒนาทักษะการวิเคราะห์งบการเงิน',
+    refId: 'a5b1ad24-9995-4257-a50d-0d8e7931fbbf',
+  },
+  {
+    question: 'มีวิชาเกี่ยวกับ OOP บ้างไหม',
+    refId: 'cd96176f-8e18-4270-9c76-8c6b1cf19594',
+  },
 
   // Task Based
-  'การสร้างเว็บไซต์ต้องมีทักษะอะไรบ้าง',
-  'การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง',
+  {
+    question: 'การจัดงานอีเว้นตต้องเรียนอะไรบ้าง',
+    refId: 'b41c15f8-2249-4469-9981-71cc1c75b2b4',
+  },
+  {
+    question: 'การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง',
+    refId: 'dd9ce8ba-20e8-4d4d-b92b-574da63f242b',
+  },
 
   // Role Based
   // 'อยากเป็น Tiktoker มีวิชาสอนอะไรแนวนี้บ้าง',
-  'อยากเป็นนักพัฒนาเกม ต้องมีทักษะอะไรบ้าง เรียนวิชาอะไรดี',
-  'tiktoker ต้องเรียนอะไรบ้าง',
-
+  {
+    question: 'อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง',
+    refId: 'd70fb21b-c337-425b-8b11-3ee2018f3fc4',
+  },
+  {
+    question: 'tiktoker ต้องเรียนอะไรบ้าง',
+    refId: '4ec5b89c-e5c8-46dd-b9cb-628c749cead6',
+  },
   // Pattern B Outcome/Goal-Oriented
   // มีเป้าหมายหรือผลลัพธ์ที่ต้องการเรียนรู้ แต่ไม่ได้ระบุทักษะหรือหัวข้อโดยตรง
-  'อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้ ต้องมีทักษะอะไรบ้าง มีวิชาแนะนำไหม',
-  'อยากคุยกับคนจีนได้ ต้องเรียนอะไรบ้าง',
-  'อยากใช้ AI ในชีวิตประจำวันได้', // aa29f414-8a50-4692-90a5-01eb675d348c
-  'อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว',
-
-  'เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม',
-  // TODO: This question maybe direct serch can't do.
-  'อยากเขียนโค้ดให้เป็นระบบมากขึ้น มี structure ชัดเจนขึ้น มีวิชาแนะนำไหม',
+  {
+    question: 'อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้',
+    refId: '01c601d2-5583-4413-a5c6-5f463efd897c',
+  },
+  {
+    question:
+      'อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย',
+    refId: 'bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370',
+  },
+  {
+    question: 'อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว',
+    refId: 'be573eca-6596-418a-888d-f4f0c0d5651d',
+  },
+  {
+    // TODO: This question maybe direct serch can't do.
+    question:
+      'เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม',
+    refId: '1fe15613-3060-4d9e-94dc-bd9a63e9911f',
+  },
 
   // Pattern C Multi-Concept or Transition between concepts
-  'อยากเรียนภาษาจีน หรือไม่ก็ภาษาเวียดนาม มีวิชาแนะนำไหม',
-  'อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม',
+  {
+    question:
+      'อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง',
+    refId: '5c5fb47c-66ad-4a6d-9ff3-4a082f4de746',
+  },
+  {
+    question: 'อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม',
+    refId: 'fd7678cc-6adb-4868-95e7-4ac339ea04c3',
+  },
 
-  // TODO: This question maybe direct serch can't do.
-  'อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม', // ลองเทีนบเอา query ไปเสิร์ชตรงๆ topN 50 โดยไม่ skill expand ดู จะไม่เจอเกี่ยวกับ AI เลย
+  {
+    // TODO: This question maybe direct serch can't do.
+    // ลองเทีนบเอา query ไปเสิร์ชตรงๆ topN 50 โดยไม่ skill expand ดู จะไม่เจอเกี่ยวกับ AI เลย
+    question:
+      'อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม',
+    refId: '909fa76b-d7a7-41a2-bb83-f67f1eb7c9da',
+  },
+  {
+    question:
+      'อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง',
+    refId: '654330a8-2559-4273-abb4-36db7f0b31e1',
+  },
 
-  'อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง',
-
-  // TODO: This one can illustrate with baseline that use direct search only.
-  // the answer is on c48d593a-f4d9-4321-a7ff-c3d4f8943e1c
-  'อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี',
-  'อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ',
+  {
+    // TODO: This one can illustrate with baseline that use direct search only.
+    question:
+      'อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี',
+    refId: 'a945dd26-d7d4-49a4-ab23-57f3f954c8a0',
+  },
+  {
+    question: 'อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ',
+    refId: '97b42158-60af-46d3-aa60-049d1243d2ee',
+  },
 
   // จากอาจารย์
   // high coverage case (lot of courses will have learning outcome stating leadership skill)
   // questionable case (soft skill tend to have issues)
-  'อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม',
-  'อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง', // fbf0dcb4-caa9-4c3e-9d1e-0334f802b2f9
+  {
+    question: 'อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม',
+    refId: '1e7e132d-31b7-49fe-91dc-c2e0358a1b24',
+  },
+  {
+    question: 'อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง',
+    refId: '3ef3d308-ac42-453e-bce7-bb7376046c41',
+  },
   // จากเพื่อน
-  'อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม',
-  'อยากทำธุรกิจเกี่ยวกับปศุสัตว์', // b37a0b42-8dba-45bc-84c5-80f474268353
-  'อยากทำธุรกิจร้านเหล้า',
-  'อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ',
-  // failure case, no coverage in course data
-  'อยากเรียนภาษาบาลี',
+  {
+    question: 'แม่บอกให้เป็นทนาย ทำไงดี',
+    refId: '00e399aa-cf3c-472b-b5be-9a6e86e10637',
+  },
+  {
+    question: 'อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม',
+    refId: 'b3460fa2-c348-4748-b583-4b042886e0ca',
+  },
+  {
+    question: 'อยากทำธุรกิจเกี่ยวกับปศุสัตว์',
+    refId: 'acd5b76f-8185-4b10-bb37-bde0ac14c51a',
+  },
+  {
+    question: 'อยากเปิดร้านเหล้า',
+    refId: 'adc6cdc0-e0f6-4006-849b-1d06dff5368c',
+  },
+  {
+    question: 'อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ',
+    refId: '75dd76dc-b23f-4728-b9a4-09621f52a26b',
+  },
+  {
+    // failure case, no coverage in course data
+    question: 'อยากเรียนภาษาบาลี',
+    refId: 'fa617f52-c86b-4b8c-976b-bfdb073f1070',
+  },
 ];
 
-// fbf0dcb4-caa9-4c3e-9d1e-0334f802b2f9,b37a0b42-8dba-45bc-84c5-80f474268353,aa29f414-8a50-4692-90a5-01eb675d348c
+//
 
 console.log(`Behavioral Question Set Size: ${QUESTION_SET_BEHAVIORAL.length}`);
-console.log(`Representative Question Set Size: ${QUESTION_SET.length}`);
+console.log(
+  `Question Set Size: ${QUESTION_SET.length}\n`,
+  `Question Set Ids: ${QUESTION_SET.map((q) => q.refId).join(',')}`,
+);
 
 // bunx ts-node --require tsconfig-paths/register src/modules/evaluator/representative-test-set.constant.ts
