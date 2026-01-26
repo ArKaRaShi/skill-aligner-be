@@ -83,7 +83,12 @@ export class CourseRetrieverEvaluatorHelper {
           proxy: { at5: 0, at10: 0, at15: 0, atAll: 0 },
           ideal: { at5: 0, at10: 0, at15: 0, atAll: 0 },
         },
-        precision: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+        precision: {
+          at5: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at10: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at15: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          atAll: { threshold1: 0, threshold2: 0, threshold3: 0 },
+        },
       };
     }
 
@@ -132,23 +137,27 @@ export class CourseRetrieverEvaluatorHelper {
       total,
     );
 
-    // Calculate Precision@K metrics
-    const precisionAt5 = PrecisionCalculator.calculatePrecisionAtK(
-      relevanceScores,
-      5,
-    );
-    const precisionAt10 = PrecisionCalculator.calculatePrecisionAtK(
-      relevanceScores,
-      10,
-    );
-    const precisionAt15 = PrecisionCalculator.calculatePrecisionAtK(
-      relevanceScores,
-      15,
-    );
-    const precisionAtAll = PrecisionCalculator.calculatePrecisionAtK(
-      relevanceScores,
-      total,
-    );
+    // Calculate Precision@K metrics with multi-threshold support
+    const precisionAt5 =
+      PrecisionCalculator.calculateMultiThresholdPrecisionAtK(
+        relevanceScores,
+        5,
+      );
+    const precisionAt10 =
+      PrecisionCalculator.calculateMultiThresholdPrecisionAtK(
+        relevanceScores,
+        10,
+      );
+    const precisionAt15 =
+      PrecisionCalculator.calculateMultiThresholdPrecisionAtK(
+        relevanceScores,
+        15,
+      );
+    const precisionAtAll =
+      PrecisionCalculator.calculateMultiThresholdPrecisionAtK(
+        relevanceScores,
+        total,
+      );
 
     return {
       totalCourses: total,

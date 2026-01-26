@@ -42,7 +42,12 @@ describe('CourseRetrievalMetricsCalculator', () => {
           proxy: { at5: number; at10: number; at15: number; atAll: number };
           ideal: { at5: number; at10: number; at15: number; atAll: number };
         };
-        precision: { at5: number; at10: number; at15: number; atAll: number };
+        precision: {
+          at5: { threshold1: number; threshold2: number; threshold3: number };
+          at10: { threshold1: number; threshold2: number; threshold3: number };
+          at15: { threshold1: number; threshold2: number; threshold3: number };
+          atAll: { threshold1: number; threshold2: number; threshold3: number };
+        };
       }> = {},
     ): ReturnType<
       typeof CourseRetrievalMetricsCalculator.calculateMetrics
@@ -83,7 +88,12 @@ describe('CourseRetrievalMetricsCalculator', () => {
         proxy: { at5: 0.65, at10: 0.75, at15: 0.78, atAll: 0.8 },
         ideal: { at5: 0.5, at10: 0.6, at15: 0.63, atAll: 0.65 },
       },
-      precision: { at5: 0.45, at10: 0.4, at15: 0.38, atAll: 0.35 },
+      precision: {
+        at5: { threshold1: 0.7, threshold2: 0.45, threshold3: 0.2 },
+        at10: { threshold1: 0.65, threshold2: 0.4, threshold3: 0.18 },
+        at15: { threshold1: 0.63, threshold2: 0.38, threshold3: 0.17 },
+        atAll: { threshold1: 0.6, threshold2: 0.35, threshold3: 0.15 },
+      },
       ...overrides,
     });
 
@@ -271,7 +281,12 @@ describe('CourseRetrievalMetricsCalculator', () => {
     it('should enrich Precision metrics with context', () => {
       // Arrange
       const metrics = createMetrics({
-        precision: { at5: 0.6, at10: 0.5, at15: 0.45, atAll: 0.4 },
+        precision: {
+          at5: { threshold1: 0.7, threshold2: 0.6, threshold3: 0.3 },
+          at10: { threshold1: 0.65, threshold2: 0.5, threshold3: 0.25 },
+          at15: { threshold1: 0.63, threshold2: 0.45, threshold3: 0.23 },
+          atAll: { threshold1: 0.6, threshold2: 0.4, threshold3: 0.2 },
+        },
         totalCourses: 100,
       });
 
@@ -283,11 +298,11 @@ describe('CourseRetrievalMetricsCalculator', () => {
           iterationNumber: 1,
         });
 
-      // Assert
-      expect(result.precision.at5.meanPrecision).toBeCloseTo(0.6);
-      expect(result.precision.at5.description).toContain('60.0%');
-      expect(result.precision.at10.description).toContain('50.0%');
-      expect(result.precision.atAll.description).toContain('40.0%');
+      // Assert - Use threshold2 for standard metric (≥2)
+      expect(result.precision.at5.threshold2.meanPrecision).toBeCloseTo(0.6);
+      expect(result.precision.at5.threshold2.description).toContain('60.0%');
+      expect(result.precision.at10.threshold2.description).toContain('50.0%');
+      expect(result.precision.atAll.threshold2.description).toContain('40.0%');
     });
 
     it('should assign correct quality rating for NDCG values', () => {
@@ -369,7 +384,12 @@ describe('CourseRetrievalMetricsCalculator', () => {
           proxy: { at5: 1.0, at10: 1.0, at15: 1.0, atAll: 1.0 },
           ideal: { at5: 1.0, at10: 1.0, at15: 1.0, atAll: 1.0 },
         },
-        precision: { at5: 1.0, at10: 1.0, at15: 1.0, atAll: 1.0 },
+        precision: {
+          at5: { threshold1: 1.0, threshold2: 1.0, threshold3: 1.0 },
+          at10: { threshold1: 1.0, threshold2: 1.0, threshold3: 1.0 },
+          at15: { threshold1: 1.0, threshold2: 1.0, threshold3: 1.0 },
+          atAll: { threshold1: 1.0, threshold2: 1.0, threshold3: 1.0 },
+        },
         totalCourses: 50,
       });
 
@@ -384,7 +404,7 @@ describe('CourseRetrievalMetricsCalculator', () => {
       // Assert
       expect(result.meanRelevanceScore.meanRelevanceScore).toBe(3.0);
       expect(result.ndcg.at5.description).toContain('Excellent');
-      expect(result.precision.at5.meanPrecision).toBe(1.0);
+      expect(result.precision.at5.threshold2.meanPrecision).toBe(1.0);
     });
 
     it('should handle zero scores', () => {
@@ -425,7 +445,12 @@ describe('CourseRetrievalMetricsCalculator', () => {
           proxy: { at5: 0, at10: 0, at15: 0, atAll: 0 },
           ideal: { at5: 0, at10: 0, at15: 0, atAll: 0 },
         },
-        precision: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+        precision: {
+          at5: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at10: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at15: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          atAll: { threshold1: 0, threshold2: 0, threshold3: 0 },
+        },
         totalCourses: 50,
       });
 
@@ -439,7 +464,7 @@ describe('CourseRetrievalMetricsCalculator', () => {
 
       // Assert
       expect(result.ndcg.at5.description).toContain('Very Poor');
-      expect(result.precision.at5.meanPrecision).toBe(0);
+      expect(result.precision.at5.threshold2.meanPrecision).toBe(0);
     });
 
     it('should format numbers to 2 decimal places', () => {

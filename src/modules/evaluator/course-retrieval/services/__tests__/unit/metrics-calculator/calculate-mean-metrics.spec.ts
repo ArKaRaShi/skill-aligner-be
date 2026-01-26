@@ -53,7 +53,12 @@ describe('CourseRetrievalMetricsCalculator', () => {
           proxy: { at5: number; at10: number; at15: number; atAll: number };
           ideal: { at5: number; at10: number; at15: number; atAll: number };
         };
-        precision: { at5: number; at10: number; at15: number; atAll: number };
+        precision: {
+          at5: { threshold1: number; threshold2: number; threshold3: number };
+          at10: { threshold1: number; threshold2: number; threshold3: number };
+          at15: { threshold1: number; threshold2: number; threshold3: number };
+          atAll: { threshold1: number; threshold2: number; threshold3: number };
+        };
       }> = {},
     ) => {
       const metrics: ReturnType<
@@ -95,7 +100,12 @@ describe('CourseRetrievalMetricsCalculator', () => {
           proxy: { at5: 0.75, at10: 0.85, at15: 0.88, atAll: 0.9 },
           ideal: { at5: 0.75, at10: 0.85, at15: 0.88, atAll: 0.9 },
         },
-        precision: { at5: 0.6, at10: 0.5, at15: 0.45, atAll: 0.4 },
+        precision: {
+          at5: { threshold1: 0.8, threshold2: 0.6, threshold3: 0.3 },
+          at10: { threshold1: 0.75, threshold2: 0.5, threshold3: 0.25 },
+          at15: { threshold1: 0.73, threshold2: 0.45, threshold3: 0.23 },
+          atAll: { threshold1: 0.7, threshold2: 0.4, threshold3: 0.2 },
+        },
         ...overrides,
       };
 
@@ -153,7 +163,12 @@ describe('CourseRetrievalMetricsCalculator', () => {
             proxy: { at5: 0.7, at10: 0.8, at15: 0.83, atAll: 0.85 },
             ideal: { at5: 0.7, at10: 0.8, at15: 0.83, atAll: 0.85 },
           },
-          precision: { at5: 0.5, at10: 0.4, at15: 0.35, atAll: 0.3 },
+          precision: {
+            at5: { threshold1: 0.7, threshold2: 0.5, threshold3: 0.2 },
+            at10: { threshold1: 0.65, threshold2: 0.4, threshold3: 0.18 },
+            at15: { threshold1: 0.63, threshold2: 0.35, threshold3: 0.17 },
+            atAll: { threshold1: 0.6, threshold2: 0.3, threshold3: 0.15 },
+          },
         }),
         createRecordWithMetrics({
           meanRelevanceScore: 1.0,
@@ -191,7 +206,12 @@ describe('CourseRetrievalMetricsCalculator', () => {
             proxy: { at5: 0.5, at10: 0.6, at15: 0.63, atAll: 0.65 },
             ideal: { at5: 0.5, at10: 0.6, at15: 0.63, atAll: 0.65 },
           },
-          precision: { at5: 0.3, at10: 0.2, at15: 0.15, atAll: 0.1 },
+          precision: {
+            at5: { threshold1: 0.5, threshold2: 0.3, threshold3: 0.15 },
+            at10: { threshold1: 0.45, threshold2: 0.2, threshold3: 0.1 },
+            at15: { threshold1: 0.43, threshold2: 0.15, threshold3: 0.08 },
+            atAll: { threshold1: 0.4, threshold2: 0.1, threshold3: 0.05 },
+          },
         }),
       ];
 
@@ -209,7 +229,8 @@ describe('CourseRetrievalMetricsCalculator', () => {
       ); // (10 + 30) / 2
       expect(result.ndcg.proxy.at5).toBeCloseTo(0.6); // (0.7 + 0.5) / 2
       expect(result.ndcg.proxy.at10).toBeCloseTo(0.7); // (0.8 + 0.6) / 2
-      expect(result.precision.at5).toBeCloseTo(0.4); // (0.5 + 0.3) / 2
+      // Precision is now an object with threshold1, threshold2, threshold3
+      expect(result.precision.at5.threshold2).toBeCloseTo(0.4); // (0.5 + 0.3) / 2
     });
 
     it('should handle single sample', () => {
@@ -280,7 +301,10 @@ describe('CourseRetrievalMetricsCalculator', () => {
       expect(result.perClassDistribution.score0.count).toBe(0);
       expect(result.perClassDistribution.score0.macroAverageRate).toBe(0);
       expect(result.ndcg.proxy.at5).toBe(0);
-      expect(result.precision.at5).toBe(0);
+      // Precision is now an object with threshold1, threshold2, threshold3
+      expect(result.precision.at5.threshold1).toBe(0);
+      expect(result.precision.at5.threshold2).toBe(0);
+      expect(result.precision.at5.threshold3).toBe(0);
     });
 
     it('should sum counts across samples', () => {

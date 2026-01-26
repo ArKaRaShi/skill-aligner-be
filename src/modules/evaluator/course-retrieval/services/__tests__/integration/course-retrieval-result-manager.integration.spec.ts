@@ -332,7 +332,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
               proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
               ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
             },
-            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            precision: {
+              at5: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at10: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at15: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              atAll: { threshold1: 1, threshold2: 1, threshold3: 0 },
+            },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -413,7 +418,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
               proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
               ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
             },
-            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            precision: {
+              at5: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at10: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at15: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              atAll: { threshold1: 1, threshold2: 1, threshold3: 0 },
+            },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -466,7 +476,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
               proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
               ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
             },
-            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            precision: {
+              at5: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at10: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at15: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              atAll: { threshold1: 1, threshold2: 1, threshold3: 0 },
+            },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -580,7 +595,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
             ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
           },
-          precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+          precision: {
+            at5: { threshold1: 1, threshold2: 1, threshold3: 0 },
+            at10: { threshold1: 1, threshold2: 1, threshold3: 0 },
+            at15: { threshold1: 1, threshold2: 1, threshold3: 0 },
+            atAll: { threshold1: 1, threshold2: 1, threshold3: 0 },
+          },
         },
         llmModel: 'gpt-4',
         llmProvider: 'openai',
@@ -863,7 +883,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
               proxy: { at5: 0.8, at10: 0.8, at15: 0.78, atAll: 0.75 },
               ideal: { at5: 0.8, at10: 0.8, at15: 0.78, atAll: 0.75 },
             },
-            precision: { at5: 0.67, at10: 0.67, at15: 0.67, atAll: 0.67 },
+            precision: {
+              at5: { threshold1: 1, threshold2: 0.67, threshold3: 0 },
+              at10: { threshold1: 1, threshold2: 0.67, threshold3: 0 },
+              at15: { threshold1: 1, threshold2: 0.67, threshold3: 0 },
+              atAll: { threshold1: 1, threshold2: 0.67, threshold3: 0 },
+            },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -905,9 +930,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       expect(metrics.ndcg.at5.proxyNdcg).toBeDefined();
       expect(metrics.ndcg.at10.proxyNdcg).toBeDefined();
       expect(metrics.ndcg.atAll.proxyNdcg).toBeDefined();
-      expect(metrics.precision.at5.meanPrecision).toBeDefined();
-      expect(metrics.precision.at10.meanPrecision).toBeDefined();
-      expect(metrics.precision.atAll.meanPrecision).toBeDefined();
+      expect(metrics.precision.at5.threshold2.meanPrecision).toBeDefined();
+      expect(metrics.precision.at10.threshold2.meanPrecision).toBeDefined();
+      expect(metrics.precision.atAll.threshold2.meanPrecision).toBeDefined();
       // Check descriptions exist
       expect(metrics.meanRelevanceScore.description).toBeDefined();
       expect(metrics.ndcg.at5.description).toBeDefined();
@@ -978,7 +1003,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
               proxy: { at5: 1, at10: 1, at15: 1, atAll: 1 },
               ideal: { at5: 1, at10: 1, at15: 1, atAll: 1 },
             },
-            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            precision: {
+              at5: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at10: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at15: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              atAll: { threshold1: 1, threshold2: 1, threshold3: 0 },
+            },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -1093,10 +1123,26 @@ describe('CourseRetrievalResultManagerService Integration', () => {
                 },
               },
               precision: {
-                at5: 0.6 + i * 0.1,
-                at10: 0.6 + i * 0.1,
-                at15: 0.6 + i * 0.1,
-                atAll: 0.6 + i * 0.1,
+                at5: {
+                  threshold1: 1,
+                  threshold2: 0.6 + i * 0.1,
+                  threshold3: 0,
+                },
+                at10: {
+                  threshold1: 1,
+                  threshold2: 0.6 + i * 0.1,
+                  threshold3: 0,
+                },
+                at15: {
+                  threshold1: 1,
+                  threshold2: 0.6 + i * 0.1,
+                  threshold3: 0,
+                },
+                atAll: {
+                  threshold1: 1,
+                  threshold2: 0.6 + i * 0.1,
+                  threshold3: 0,
+                },
               },
             },
             llmModel: 'gpt-4',
@@ -1237,7 +1283,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
               proxy: { at5: 0.75, at10: 0.75, at15: 0.73, atAll: 0.7 },
               ideal: { at5: 0.75, at10: 0.75, at15: 0.73, atAll: 0.7 },
             },
-            precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+            precision: {
+              at5: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at10: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              at15: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              atAll: { threshold1: 1, threshold2: 1, threshold3: 0 },
+            },
           },
           llmModel: 'gpt-4',
           llmProvider: 'openai',
@@ -1282,10 +1333,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       );
       expect(finalMetrics.aggregateMetrics.ndcgAt10.stdDev).toBe(0);
 
-      expect(finalMetrics.aggregateMetrics.precisionAt10.mean).toBe(
-        finalMetrics.aggregateMetrics.precisionAt10.min,
+      expect(finalMetrics.aggregateMetrics.precisionAt10.threshold2.mean).toBe(
+        finalMetrics.aggregateMetrics.precisionAt10.threshold2.min,
       );
-      expect(finalMetrics.aggregateMetrics.precisionAt10.stdDev).toBe(0);
+      expect(
+        finalMetrics.aggregateMetrics.precisionAt10.threshold2.stdDev,
+      ).toBe(0);
     });
 
     it('should handle missing iterations gracefully', async () => {
@@ -1348,7 +1401,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
                 proxy: { at5: 0.75, at10: 0.75, at15: 0.75, atAll: 0.75 },
                 ideal: { at5: 0.75, at10: 0.75, at15: 0.75, atAll: 0.75 },
               },
-              precision: { at5: 1, at10: 1, at15: 1, atAll: 1 },
+              precision: {
+                at5: { threshold1: 1, threshold2: 1, threshold3: 0 },
+                at10: { threshold1: 1, threshold2: 1, threshold3: 0 },
+                at15: { threshold1: 1, threshold2: 1, threshold3: 0 },
+                atAll: { threshold1: 1, threshold2: 1, threshold3: 0 },
+              },
             },
             llmModel: 'gpt-4',
             llmProvider: 'openai',
@@ -1484,7 +1542,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
                 proxy: { at5: 0.8, at10: 0.8, at15: 0.78, atAll: 0.75 },
                 ideal: { at5: 0.8, at10: 0.8, at15: 0.78, atAll: 0.75 },
               },
-              precision: { at5: 0.67, at10: 0.67, at15: 0.67, atAll: 0.67 },
+              precision: {
+                at5: { threshold1: 1, threshold2: 0.67, threshold3: 0 },
+                at10: { threshold1: 1, threshold2: 0.67, threshold3: 0 },
+                at15: { threshold1: 1, threshold2: 0.67, threshold3: 0 },
+                atAll: { threshold1: 1, threshold2: 0.67, threshold3: 0 },
+              },
             },
             llmModel: 'gpt-4',
             llmProvider: 'openai',
@@ -1541,12 +1604,12 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         10, // 10 decimal places of precision
       );
 
-      // Same checks for precision
-      expect(finalMetrics.aggregateMetrics.precisionAt10.mean).toBeGreaterThan(
-        0,
-      );
+      // Same checks for precision (use threshold2 for standard metric)
       expect(
-        finalMetrics.aggregateMetrics.precisionAt10.stdDev,
+        finalMetrics.aggregateMetrics.precisionAt10.threshold2.mean,
+      ).toBeGreaterThan(0);
+      expect(
+        finalMetrics.aggregateMetrics.precisionAt10.threshold2.stdDev,
       ).toBeGreaterThanOrEqual(0);
     });
   });

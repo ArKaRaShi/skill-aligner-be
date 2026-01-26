@@ -501,12 +501,11 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       });
 
       // Act & Assert - First run: crash after 1 group
-      await expect(
-        service.runTestSet({ testSet, iterationNumber: 1 }),
-      ).rejects.toThrow('Simulated crash');
-      expect(callCount).toBe(2); // 1 successful, 2nd threw
+      // With Promise.allSettled, errors are isolated, so the run completes
+      await service.runTestSet({ testSet, iterationNumber: 1 });
+      expect(callCount).toBe(3); // All 3 attempted (2 succeeded, 1 failed)
 
-      // Verify progress has 1 entry
+      // Verify progress has 2 entries (2 successful groups, 1 failed)
       const progressPath = path.join(
         tempDir,
         'test-crash',
@@ -516,7 +515,7 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       const progress = await FileHelper.loadJson<{
         entries: unknown[];
       }>(progressPath);
-      expect(progress.entries).toHaveLength(1);
+      expect(progress.entries).toHaveLength(2);
 
       // Resume - complete remaining groups
       (judgeEvaluator.evaluate as jest.Mock).mockImplementation(() =>

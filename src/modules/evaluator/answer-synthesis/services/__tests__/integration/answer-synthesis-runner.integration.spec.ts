@@ -214,8 +214,8 @@ describe('AnswerSynthesisRunnerService Integration', () => {
     });
   });
 
-  describe('Progress incremental saving (after each sample)', () => {
-    it('should save progress after every sample', async () => {
+  describe('Progress incremental saving (after each chunk)', () => {
+    it('should save progress after every chunk', async () => {
       // Arrange
       const testSetName = 'test-set-incremental';
       const testCases = Array.from({ length: 12 }, (_, i) =>
@@ -230,7 +230,7 @@ describe('AnswerSynthesisRunnerService Integration', () => {
         config,
       });
 
-      // Assert - verify progress was saved after each sample
+      // Assert - verify progress was saved after each chunk
       const progressPath = path.join(
         tempDir,
         testSetName,
@@ -277,6 +277,293 @@ describe('AnswerSynthesisRunnerService Integration', () => {
     });
   });
 
+  describe('Parallel execution - chunked concurrency', () => {
+    it('should process multiple questions in parallel within a chunk', async () => {
+      // Arrange - create 12 test cases (3 chunks with concurrency=4)
+      const testSetName = 'test-parallel';
+      const testCases = Array.from({ length: 12 }, (_, i) =>
+        createTestCase(`ql-${i + 1}`),
+      );
+      const config = createConfig(testSetName);
+
+      // Track evaluate calls
+      const evaluateCalls: string[] = [];
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation((testCase) => {
+        evaluateCalls.push(testCase.queryLogId);
+        return Promise.resolve(createJudgeResult(testCase.queryLogId));
+      });
+
+      // Act
+      await service.runIteration({
+        iterationNumber: 1,
+        testCases,
+        config,
+      });
+
+      // Assert - verify all questions were evaluated
+      expect(evaluateCalls).toHaveLength(12);
+      expect(evaluateCalls).toEqual([
+        'ql-1',
+        'ql-2',
+        'ql-3',
+        'ql-4',
+        'ql-5',
+        'ql-6',
+        'ql-7',
+        'ql-8',
+        'ql-9',
+        'ql-10',
+        'ql-11',
+        'ql-12',
+      ]);
+
+      // Verify progress file has correct structure
+      const progressPath = path.join(
+        tempDir,
+        testSetName,
+        'iteration-1',
+        '.progress.json',
+      );
+      const progress =
+        await FileHelper.loadJson<AnswerSynthesisProgressFile>(progressPath);
+
+      expect(progress.entries).toHaveLength(12);
+      expect(progress.statistics.completedQuestions).toBe(12);
+    });
+
+    it('should save progress once per chunk (not per question)', async () => {
+      // Arrange - create 8 test cases (2 chunks: 4 + 4)
+      const testSetName = 'test-chunk-progress';
+      const testCases = Array.from({ length: 8 }, (_, i) =>
+        createTestCase(`ql-${i + 1}`),
+      );
+      const config = createConfig(testSetName);
+
+      // Track progress saves by mocking saveProgress on service instance
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      const originalSaveProgress = (service as any).saveProgress.bind(service);
+      let progressSaveCount = 0;
+
+      (service as any).saveProgress = function (...args: unknown[]) {
+        progressSaveCount++;
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
+        return originalSaveProgress(...args);
+      };
+
+      // Act
+      await service.runIteration({
+        iterationNumber: 1,
+        testCases,
+        config,
+      });
+
+      // Assert - with concurrency=4:
+      // Chunk 1: 4 questions → 1 progress save
+      // Chunk 2: 4 questions → 1 progress save
+      // Plus initial load and final saves
+      // Should be 2-4 saves (depending on implementation), NOT 8 (one per question)
+      expect(progressSaveCount).toBeLessThanOrEqual(4);
+      expect(progressSaveCount).toBeGreaterThanOrEqual(2);
+    });
+
+    it('should handle one question failing without affecting others in chunk', async () => {
+      // Arrange - create 8 test cases
+      const testSetName = 'test-failure';
+      const testCases = Array.from({ length: 8 }, (_, i) =>
+        createTestCase(`ql-${i + 1}`),
+      );
+      const config = createConfig(testSetName);
+
+      let callCount = 0;
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation((testCase) => {
+        callCount++;
+        // Fail the 2nd call (in chunk 1)
+        if (callCount === 2) {
+          return Promise.reject(new Error('Question 2 failed'));
+        }
+        return Promise.resolve(createJudgeResult(testCase.queryLogId));
+      });
+
+      // Act - should NOT throw, errors are isolated per question
+      await service.runIteration({
+        iterationNumber: 1,
+        testCases,
+        config,
+      });
+
+      // Assert - all other questions should have been evaluated
+      expect(callCount).toBeGreaterThan(2); // More than just the failed one
+
+      // Verify progress has 7 entries (1 failed, 7 succeeded)
+      const progressPath = path.join(
+        tempDir,
+        testSetName,
+        'iteration-1',
+        '.progress.json',
+      );
+      const progress =
+        await FileHelper.loadJson<AnswerSynthesisProgressFile>(progressPath);
+
+      expect(progress.entries).toHaveLength(7);
+    });
+
+    it('should handle mixed completed and pending questions in same chunk', async () => {
+      // Arrange - create 8 test cases
+      const testSetName = 'test-mixed';
+      const testCases = Array.from({ length: 8 }, (_, i) =>
+        createTestCase(`ql-${i + 1}`),
+      );
+      const config = createConfig(testSetName);
+
+      // First run: complete first 4 questions (chunk 1)
+      let firstRunCount = 0;
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation((testCase) => {
+        firstRunCount++;
+        // Fail the remaining questions (5-8)
+        if (firstRunCount > 4) {
+          throw new Error('Stop after 4');
+        }
+        return Promise.resolve(createJudgeResult(testCase.queryLogId));
+      });
+
+      // Run completes despite error
+      await service.runIteration({
+        iterationNumber: 1,
+        testCases,
+        config,
+      });
+      expect(firstRunCount).toBe(8); // All 8 attempted
+
+      // Verify first 4 succeeded, last 4 failed
+      const progressPath = path.join(
+        tempDir,
+        testSetName,
+        'iteration-1',
+        '.progress.json',
+      );
+      const progressAfterFirstRun =
+        await FileHelper.loadJson<AnswerSynthesisProgressFile>(progressPath);
+      expect(progressAfterFirstRun.entries).toHaveLength(4);
+
+      // Second run: should complete remaining 4
+      let secondRunCount = 0;
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation((testCase) => {
+        secondRunCount++;
+        return Promise.resolve(createJudgeResult(testCase.queryLogId));
+      });
+
+      // Act
+      await service.runIteration({
+        iterationNumber: 1,
+        testCases,
+        config,
+      });
+
+      // Assert - only 4 new evaluations (questions 5-8)
+      expect(secondRunCount).toBe(4);
+
+      // Verify final progress
+      const progressAfterResume =
+        await FileHelper.loadJson<AnswerSynthesisProgressFile>(progressPath);
+
+      expect(progressAfterResume.entries).toHaveLength(8);
+    });
+
+    it('should handle single question (edge case for concurrency)', async () => {
+      // Arrange - create 1 test case
+      const testSetName = 'test-single';
+      const testCases = [createTestCase('ql-1')];
+      const config = createConfig(testSetName);
+
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation((testCase) =>
+        Promise.resolve(createJudgeResult(testCase.queryLogId)),
+      );
+
+      // Act
+      await service.runIteration({
+        iterationNumber: 1,
+        testCases,
+        config,
+      });
+
+      // Assert - should complete successfully
+      expect(judgeEvaluator.evaluate).toHaveBeenCalledTimes(1);
+
+      const progressPath = path.join(
+        tempDir,
+        testSetName,
+        'iteration-1',
+        '.progress.json',
+      );
+      const progress =
+        await FileHelper.loadJson<AnswerSynthesisProgressFile>(progressPath);
+
+      expect(progress.entries).toHaveLength(1);
+    });
+
+    it('should verify progress file integrity with concurrent writes', async () => {
+      // Arrange - create 16 test cases (4 chunks with concurrency=4)
+      const testSetName = 'test-integrity';
+      const testCases = Array.from({ length: 16 }, (_, i) =>
+        createTestCase(`ql-${i + 1}`),
+      );
+      const config = createConfig(testSetName);
+
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation((testCase) => {
+        // Add small random delay to increase chance of race conditions
+        const delay = Math.random() * 20;
+        return new Promise((resolve) => {
+          setTimeout(
+            () => resolve(createJudgeResult(testCase.queryLogId)),
+            delay,
+          );
+        });
+      });
+
+      // Act
+      await service.runIteration({
+        iterationNumber: 1,
+        testCases,
+        config,
+      });
+
+      // Assert - verify progress file is valid JSON and has correct structure
+      const progressPath = path.join(
+        tempDir,
+        testSetName,
+        'iteration-1',
+        '.progress.json',
+      );
+
+      // File should exist and be loadable
+      const progress =
+        await FileHelper.loadJson<AnswerSynthesisProgressFile>(progressPath);
+
+      // Verify structure
+      expect(progress.testSetName).toBe('test-integrity');
+      expect(progress.iterationNumber).toBe(1);
+      expect(progress.entries).toHaveLength(16);
+
+      // Verify all entries have required fields
+      progress.entries.forEach((entry) => {
+        expect(entry.hash).toBeDefined();
+        expect(entry.queryLogId).toBeDefined();
+        expect(entry.question).toBeDefined();
+        expect(entry.completedAt).toBeDefined();
+        expect(entry.result).toBeDefined();
+        expect(entry.result.faithfulnessScore).toBeGreaterThanOrEqual(1);
+        expect(entry.result.faithfulnessScore).toBeLessThanOrEqual(5);
+        expect(entry.result.completenessScore).toBeGreaterThanOrEqual(1);
+        expect(entry.result.completenessScore).toBeLessThanOrEqual(5);
+        expect(typeof entry.result.passed).toBe('boolean');
+      });
+
+      // Verify no duplicate queryLogIds
+      const queryLogIds = progress.entries.map((e) => e.queryLogId);
+      expect(new Set(queryLogIds).size).toBe(16);
+    });
+  });
+
   describe('Resume from partial progress (skip completed samples)', () => {
     it('should skip already completed samples when resuming', async () => {
       // Arrange
@@ -285,30 +572,29 @@ describe('AnswerSynthesisRunnerService Integration', () => {
         createTestCase('ql-1'),
         createTestCase('ql-2'),
         createTestCase('ql-3'),
+        createTestCase('ql-4'),
       ];
       const config = createConfig(testSetName);
 
-      // First run: complete 2 samples then "crash" on the 3rd
+      // First run: complete first 2 (chunk 1), fail rest
       let firstRunCount = 0;
-      (judgeEvaluator.evaluate as jest.Mock).mockImplementation(() => {
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation((testCase) => {
         firstRunCount++;
-        if (firstRunCount === 3) {
-          // Simulate crash after 2 samples successfully completed
-          throw new Error('Simulated crash');
+        // Fail questions 3-4
+        if (firstRunCount > 2) {
+          throw new Error('Questions 3-4 failed');
         }
-        return Promise.resolve(createJudgeResult(`ql-${firstRunCount}`));
+        return Promise.resolve(createJudgeResult(testCase.queryLogId));
       });
 
-      // First iteration (will fail after 2 complete)
-      await expect(
-        service.runIteration({
-          iterationNumber: 1,
-          testCases: allTestCases,
-          config,
-        }),
-      ).rejects.toThrow('Simulated crash');
+      // Run completes despite error (errors are isolated with Promise.allSettled)
+      await service.runIteration({
+        iterationNumber: 1,
+        testCases: allTestCases,
+        config,
+      });
 
-      expect(firstRunCount).toBe(3);
+      expect(firstRunCount).toBe(4); // All 4 attempted
 
       // Verify progress file shows 2 completed
       const progressPath = path.join(
@@ -317,11 +603,12 @@ describe('AnswerSynthesisRunnerService Integration', () => {
         'iteration-1',
         '.progress.json',
       );
-      const progressAfterCrash =
+      const progressAfterFirstRun =
         await FileHelper.loadJson<AnswerSynthesisProgressFile>(progressPath);
-      expect(progressAfterCrash.statistics.completedQuestions).toBe(2);
+      expect(progressAfterFirstRun.statistics.completedQuestions).toBe(2);
 
-      // Note: records file does NOT exist because the run crashed before final save
+      // Note: With Promise.allSettled, the run completes even with failures,
+      // so the records file IS created (with the successful questions)
       const recordsPath = path.join(
         tempDir,
         testSetName,
@@ -329,13 +616,20 @@ describe('AnswerSynthesisRunnerService Integration', () => {
         'records-iteration-1.json',
       );
       const recordsExist = FileHelper.exists(recordsPath);
-      expect(recordsExist).toBe(false);
+      expect(recordsExist).toBe(true);
+
+      // Verify it has the 2 successful records
+      const records =
+        await FileHelper.loadJson<AnswerSynthesisComparisonRecord[]>(
+          recordsPath,
+        );
+      expect(records).toHaveLength(2);
 
       // Reset mock for second run
       let secondRunCount = 0;
-      (judgeEvaluator.evaluate as jest.Mock).mockImplementation(() => {
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation((testCase) => {
         secondRunCount++;
-        return Promise.resolve(createJudgeResult(`ql-${secondRunCount + 2}`));
+        return Promise.resolve(createJudgeResult(testCase.queryLogId));
       });
 
       // Act - resume iteration (should skip the 2 completed samples)
@@ -345,13 +639,13 @@ describe('AnswerSynthesisRunnerService Integration', () => {
         config,
       });
 
-      // Assert - should only evaluate 1 new sample (ql-3)
-      // Without existing records, result only contains the new record
-      expect(secondRunCount).toBe(1); // Only 1 new sample evaluated
-      expect(result).toHaveLength(1); // Only new record (no existing records to restore)
+      // Assert - should only evaluate 2 new samples (ql-3, ql-4)
+      expect(secondRunCount).toBe(2); // Only 2 new samples evaluated
+      // Result includes both existing (2) and new (2) records = 4 total
+      expect(result).toHaveLength(4);
 
       const queryLogIds = result.map((r) => r.queryLogId).sort();
-      expect(queryLogIds).toEqual(['ql-3']);
+      expect(queryLogIds).toEqual(['ql-1', 'ql-2', 'ql-3', 'ql-4']);
     });
 
     it('should load and return existing results when all samples already completed', async () => {

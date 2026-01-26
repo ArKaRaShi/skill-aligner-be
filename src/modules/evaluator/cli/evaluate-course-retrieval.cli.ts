@@ -1,6 +1,7 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
+import Table from 'cli-table3';
 import { FileHelper } from 'src/shared/utils/file';
 
 import { AppModule } from '../../../app.module';
@@ -374,17 +375,7 @@ async function bootstrap() {
         `  @15: ${finalMetrics.aggregateMetrics.ndcgAt15.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.ndcgAt15.stdDev.toFixed(4)}`,
       );
       logger.log('');
-      logger.log('Precision (% Relevant in Top K):');
-      logger.log(
-        `  @5:  ${finalMetrics.aggregateMetrics.precisionAt5.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt5.stdDev.toFixed(4)}`,
-      );
-      logger.log(
-        `  @10: ${finalMetrics.aggregateMetrics.precisionAt10.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt10.stdDev.toFixed(4)}`,
-      );
-      logger.log(
-        `  @15: ${finalMetrics.aggregateMetrics.precisionAt15.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt15.stdDev.toFixed(4)}`,
-      );
-      logger.log('');
+      displayMultiThresholdPrecision(finalMetrics);
       logger.log(
         `Final metrics saved to: ${baseDir}/${testSetName}/final-metrics/final-metrics-${args.iterations}.json`,
       );
@@ -471,17 +462,7 @@ async function bootstrap() {
           `  @15: ${finalMetrics.aggregateMetrics.ndcgAt15.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.ndcgAt15.stdDev.toFixed(4)}`,
         );
         logger.log('');
-        logger.log('Precision (% Relevant in Top K):');
-        logger.log(
-          `  @5:  ${finalMetrics.aggregateMetrics.precisionAt5.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt5.stdDev.toFixed(4)}`,
-        );
-        logger.log(
-          `  @10: ${finalMetrics.aggregateMetrics.precisionAt10.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt10.stdDev.toFixed(4)}`,
-        );
-        logger.log(
-          `  @15: ${finalMetrics.aggregateMetrics.precisionAt15.mean.toFixed(4)} ± ${finalMetrics.aggregateMetrics.precisionAt15.stdDev.toFixed(4)}`,
-        );
-        logger.log('');
+        displayMultiThresholdPrecision(finalMetrics);
         logger.log(
           `Final metrics saved to: ${baseDir}/${testSetName}/final-metrics/final-metrics-${args.totalIterations}.json`,
         );
@@ -530,6 +511,86 @@ async function bootstrap() {
     await appContext.close();
     process.exit(1);
   }
+}
+
+// ============================================================================
+// MULTI-THRESHOLD PRECISION DISPLAY
+// ============================================================================
+
+/**
+ * Format precision value as percentage with stdDev
+ */
+function formatPrecision(mean: number, stdDev: number): string {
+  return `${(mean * 100).toFixed(2)}% ± ${(stdDev * 100).toFixed(2)}%`;
+}
+
+/**
+ * Display multi-threshold precision metrics using cli-table3
+ *
+ * Shows precision at three relevance levels (≥1, ≥2, ≥3) for each cut-off position.
+ *
+ * @param finalMetrics - Final metrics containing multi-threshold precision
+ */
+function displayMultiThresholdPrecision(
+  finalMetrics: Awaited<
+    ReturnType<CourseRetrievalResultManagerService['calculateFinalMetrics']>
+  >,
+): void {
+  const { aggregateMetrics } = finalMetrics;
+
+  // Create precision table
+  const precisionTable = new Table({
+    head: ['Cut-off', '≥1 (Lenient)', '≥2 (Standard)', '≥3 (Strict)'],
+    colAligns: ['left', 'right', 'right', 'right'],
+    style: {
+      head: ['cyan', 'bold'],
+      border: ['grey'],
+    },
+  });
+
+  // Add rows for each K value
+  const kValues = [
+    { k: 5, label: '@5' },
+    { k: 10, label: '@10' },
+    { k: 15, label: '@15' },
+    { k: 0, label: '@All' },
+  ];
+
+  for (const { k, label } of kValues) {
+    let metrics:
+      | typeof aggregateMetrics.precisionAt5
+      | typeof aggregateMetrics.precisionAt10
+      | typeof aggregateMetrics.precisionAt15
+      | typeof aggregateMetrics.precisionAtAll;
+    if (k === 5) {
+      metrics = aggregateMetrics.precisionAt5;
+    } else if (k === 10) {
+      metrics = aggregateMetrics.precisionAt10;
+    } else if (k === 15) {
+      metrics = aggregateMetrics.precisionAt15;
+    } else {
+      metrics = aggregateMetrics.precisionAtAll;
+    }
+
+    precisionTable.push([
+      label,
+      formatPrecision(metrics.threshold1.mean, metrics.threshold1.stdDev),
+      formatPrecision(metrics.threshold2.mean, metrics.threshold2.stdDev),
+      formatPrecision(metrics.threshold3.mean, metrics.threshold3.stdDev),
+    ]);
+  }
+
+  console.log('');
+  console.log('Precision (% Relevant in Top K):');
+  console.log(precisionTable.toString());
+  console.log('');
+  console.log('Threshold Legend:');
+  console.log('  ≥1 (Lenient):   Score ≥ 1 - "At least slightly relevant"');
+  console.log(
+    '  ≥2 (Standard):  Score ≥ 2 - "Fairly or highly relevant" ← PRIMARY',
+  );
+  console.log('  ≥3 (Strict):    Score ≥ 3 - "Highly relevant only"');
+  console.log('');
 }
 
 // ============================================================================

@@ -311,18 +311,55 @@ export interface NdcgMetrics {
   };
 }
 
+// ============================================================================
+// MULTI-THRESHOLD PRECISION TYPES
+// ============================================================================
+
 /**
- * Precision@K metrics
+ * Multi-threshold precision value at a single cut-off position
  *
- * **Proxy Metric Notice**: These metrics use LLM judge scores as relevance.
- * "Relevant" is defined as score ≥ 2 (fairly or highly relevant).
- * Without ground truth, we cannot calculate true Recall or F1.
+ * Provides precision at three relevance thresholds:
+ * - threshold1: Score ≥ 1 (slightly, fairly, or highly relevant) - LENIENT
+ * - threshold2: Score ≥ 2 (fairly or highly relevant) - STANDARD
+ * - threshold3: Score ≥ 3 (highly relevant only) - STRICT
  *
- * Precision@K measures: "Of the top K results, how many are relevant?"
- *
- * Values range from 0-1, where 1 = all top K courses are relevant.
+ * Invariant: threshold1 ≥ threshold2 ≥ threshold3
+ * (lenient measure ≥ standard measure ≥ strict measure)
  */
-export interface PrecisionMetrics {
+export interface MultiThresholdPrecisionValue {
+  /** Threshold ≥1: At least "slightly relevant" (lenient measure) */
+  threshold1: number;
+  /** Threshold ≥2: "Fairly or highly relevant" (standard metric) */
+  threshold2: number;
+  /** Threshold ≥3: "Highly relevant" only (strict measure) */
+  threshold3: number;
+}
+
+/**
+ * Multi-threshold precision metric
+ *
+ * Replaces the single-threshold PrecisionMetric with multi-threshold values
+ * at each cut-off position (5, 10, 15, all).
+ *
+ * Provides nuanced view of retrieval quality:
+ * - threshold1: How much noise is in results? (low = lots of score 0)
+ * - threshold2: Standard quality baseline
+ * - threshold3: How many are excellent matches? (high = mostly score 3)
+ */
+export interface MultiThresholdPrecision {
+  at5: MultiThresholdPrecisionValue;
+  at10: MultiThresholdPrecisionValue;
+  at15: MultiThresholdPrecisionValue;
+  atAll: MultiThresholdPrecisionValue;
+}
+
+/**
+ * @deprecated Use MultiThresholdPrecision instead
+ *
+ * Old single-threshold precision metric (legacy format for migration)
+ * Only stores threshold 2 (score ≥ 2) as the standard metric.
+ */
+export interface LegacyPrecisionMetric {
   /** Precision@5: % of top 5 with score ≥ 2 */
   at5: number;
   /** Precision@10: % of top 10 with score ≥ 2 */
@@ -332,6 +369,23 @@ export interface PrecisionMetrics {
   /** Precision@all: % of all results with score ≥ 2 */
   atAll: number;
 }
+
+/**
+ * Precision@K metrics (multi-threshold)
+ *
+ * **Multi-Threshold Precision**: Provides precision at three relevance levels:
+ * - Threshold 1 (lenient): Score ≥ 1 - "At least slightly relevant"
+ * - Threshold 2 (standard): Score ≥ 2 - "Fairly or highly relevant" ← PRIMARY METRIC
+ * - Threshold 3 (strict): Score ≥ 3 - "Highly relevant only"
+ *
+ * **Proxy Metric Notice**: These metrics use LLM judge scores as relevance.
+ * Without ground truth, we cannot calculate true Recall or F1.
+ *
+ * Precision@K measures: "Of the top K results, how many are relevant?"
+ *
+ * Values range from 0-1, where 1 = all top K courses are relevant at that threshold.
+ */
+export type PrecisionMetrics = MultiThresholdPrecision;
 
 /**
  * Retrieval performance metrics (clean, unified structure)
@@ -667,11 +721,27 @@ export interface CourseRetrievalFinalMetricsFile {
     ndcgAt15: StatisticalMetric;
     ndcgAtAll: StatisticalMetric;
 
-    // Precision metrics (% relevant in top K)
-    precisionAt5: StatisticalMetric;
-    precisionAt10: StatisticalMetric;
-    precisionAt15: StatisticalMetric;
-    precisionAtAll: StatisticalMetric;
+    // Precision metrics (% relevant in top K) - multi-threshold
+    precisionAt5: {
+      threshold1: StatisticalMetric; // ≥1: Lenient
+      threshold2: StatisticalMetric; // ≥2: Standard
+      threshold3: StatisticalMetric; // ≥3: Strict
+    };
+    precisionAt10: {
+      threshold1: StatisticalMetric;
+      threshold2: StatisticalMetric;
+      threshold3: StatisticalMetric;
+    };
+    precisionAt15: {
+      threshold1: StatisticalMetric;
+      threshold2: StatisticalMetric;
+      threshold3: StatisticalMetric;
+    };
+    precisionAtAll: {
+      threshold1: StatisticalMetric;
+      threshold2: StatisticalMetric;
+      threshold3: StatisticalMetric;
+    };
 
     // Existing basic metrics
     totalCoursesEvaluated: StatisticalMetric;
@@ -710,7 +780,74 @@ export interface NdcgMetricWithContext {
 }
 
 /**
+ * Single threshold value with context (for display/reporting)
+ *
+ * Provides context for a single precision threshold value including:
+ * - The mean precision value
+ * - The relevant count and total count
+ * - A human-readable description
+ */
+export interface PrecisionThresholdWithContext {
+  /** Mean precision across all samples (0-1, higher = more precise) */
+  meanPrecision: number;
+  /** Number of relevant items in top-K (at this threshold) */
+  relevantCount: number;
+  /** Total items in top-K */
+  totalCount: number;
+  /** Human-readable explanation */
+  description: string;
+}
+
+/**
+ * Multi-threshold precision with context (for display/reporting)
+ *
+ * Provides enriched context for all three thresholds at each cut-off position.
+ * Each threshold includes its own precision value, counts, and description.
+ */
+export interface MultiThresholdPrecisionWithContext {
+  /** Precision@5 with multi-threshold breakdown */
+  at5: {
+    /** Threshold ≥1: Lenient precision (at least slightly relevant) */
+    threshold1: PrecisionThresholdWithContext;
+    /** Threshold ≥2: Standard precision (fairly or highly relevant) */
+    threshold2: PrecisionThresholdWithContext;
+    /** Threshold ≥3: Strict precision (highly relevant only) */
+    threshold3: PrecisionThresholdWithContext;
+  };
+  /** Precision@10 with multi-threshold breakdown */
+  at10: {
+    /** Threshold ≥1: Lenient precision (at least slightly relevant) */
+    threshold1: PrecisionThresholdWithContext;
+    /** Threshold ≥2: Standard precision (fairly or highly relevant) */
+    threshold2: PrecisionThresholdWithContext;
+    /** Threshold ≥3: Strict precision (highly relevant only) */
+    threshold3: PrecisionThresholdWithContext;
+  };
+  /** Precision@15 with multi-threshold breakdown */
+  at15: {
+    /** Threshold ≥1: Lenient precision (at least slightly relevant) */
+    threshold1: PrecisionThresholdWithContext;
+    /** Threshold ≥2: Standard precision (fairly or highly relevant) */
+    threshold2: PrecisionThresholdWithContext;
+    /** Threshold ≥3: Strict precision (highly relevant only) */
+    threshold3: PrecisionThresholdWithContext;
+  };
+  /** Precision@All with multi-threshold breakdown */
+  atAll: {
+    /** Threshold ≥1: Lenient precision (at least slightly relevant) */
+    threshold1: PrecisionThresholdWithContext;
+    /** Threshold ≥2: Standard precision (fairly or highly relevant) */
+    threshold2: PrecisionThresholdWithContext;
+    /** Threshold ≥3: Strict precision (highly relevant only) */
+    threshold3: PrecisionThresholdWithContext;
+  };
+}
+
+/**
  * Precision metric with full context
+ *
+ * @deprecated Use MultiThresholdPrecisionWithContext instead
+ * Old single-threshold precision metric with context (for migration compatibility)
  */
 export interface PrecisionMetricWithContext {
   /** Mean precision across all samples (0-1, higher = more precise) */
@@ -880,20 +1017,53 @@ export interface CourseRetrievalIterationMetrics {
 
   // === PRECISION METRICS ===
   /**
-   * Precision@K: % of top-K courses that are relevant (score ≥ 2)
-   * Measures: Of the top K courses, what percentage are relevant?
+   * Precision@K: % of top-K courses that are relevant (multi-threshold)
+   * Measures: Of the top K courses, what percentage are relevant at each threshold?
+   *
+   * **Multi-Threshold Breakdown**:
+   * - Threshold 1 (lenient): Score ≥ 1 - "At least slightly relevant"
+   * - Threshold 2 (standard): Score ≥ 2 - "Fairly or highly relevant" ← PRIMARY METRIC
+   * - Threshold 3 (strict): Score ≥ 3 - "Highly relevant only"
    */
   precision: {
-    /** Precision@5: Mean precision at top 5 */
-    at5: PrecisionMetricWithContext;
+    /** Precision@5: Mean precision at top 5 with multi-threshold breakdown */
+    at5: {
+      /** Threshold ≥1: Lenient precision (at least slightly relevant) */
+      threshold1: PrecisionThresholdWithContext;
+      /** Threshold ≥2: Standard precision (fairly or highly relevant) */
+      threshold2: PrecisionThresholdWithContext;
+      /** Threshold ≥3: Strict precision (highly relevant only) */
+      threshold3: PrecisionThresholdWithContext;
+    };
 
-    /** Precision@10: Mean precision at top 10 */
-    at10: PrecisionMetricWithContext;
+    /** Precision@10: Mean precision at top 10 with multi-threshold breakdown */
+    at10: {
+      /** Threshold ≥1: Lenient precision (at least slightly relevant) */
+      threshold1: PrecisionThresholdWithContext;
+      /** Threshold ≥2: Standard precision (fairly or highly relevant) */
+      threshold2: PrecisionThresholdWithContext;
+      /** Threshold ≥3: Strict precision (highly relevant only) */
+      threshold3: PrecisionThresholdWithContext;
+    };
 
-    /** Precision@15: Mean precision at top 15 */
-    at15: PrecisionMetricWithContext;
+    /** Precision@15: Mean precision at top 15 with multi-threshold breakdown */
+    at15: {
+      /** Threshold ≥1: Lenient precision (at least slightly relevant) */
+      threshold1: PrecisionThresholdWithContext;
+      /** Threshold ≥2: Standard precision (fairly or highly relevant) */
+      threshold2: PrecisionThresholdWithContext;
+      /** Threshold ≥3: Strict precision (highly relevant only) */
+      threshold3: PrecisionThresholdWithContext;
+    };
 
-    /** Precision@All: Mean precision across all retrieved courses */
-    atAll: PrecisionMetricWithContext;
+    /** Precision@All: Mean precision across all retrieved courses with multi-threshold breakdown */
+    atAll: {
+      /** Threshold ≥1: Lenient precision (at least slightly relevant) */
+      threshold1: PrecisionThresholdWithContext;
+      /** Threshold ≥2: Standard precision (fairly or highly relevant) */
+      threshold2: PrecisionThresholdWithContext;
+      /** Threshold ≥3: Strict precision (highly relevant only) */
+      threshold3: PrecisionThresholdWithContext;
+    };
   };
 }

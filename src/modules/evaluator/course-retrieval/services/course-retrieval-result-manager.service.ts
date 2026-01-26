@@ -417,17 +417,45 @@ export class CourseRetrievalResultManagerService {
     const ndcgAt15Values = iterationMetrics.map((m) => m.ndcg.at15.proxyNdcg);
     const ndcgAtAllValues = iterationMetrics.map((m) => m.ndcg.atAll.proxyNdcg);
 
-    const precisionAt5Values = iterationMetrics.map(
-      (m) => m.precision.at5.meanPrecision,
+    // Extract multi-threshold precision values
+    const precisionAt5_threshold1 = iterationMetrics.map(
+      (m) => m.precision.at5.threshold1.meanPrecision,
     );
-    const precisionAt10Values = iterationMetrics.map(
-      (m) => m.precision.at10.meanPrecision,
+    const precisionAt5_threshold2 = iterationMetrics.map(
+      (m) => m.precision.at5.threshold2.meanPrecision,
     );
-    const precisionAt15Values = iterationMetrics.map(
-      (m) => m.precision.at15.meanPrecision,
+    const precisionAt5_threshold3 = iterationMetrics.map(
+      (m) => m.precision.at5.threshold3.meanPrecision,
     );
-    const precisionAtAllValues = iterationMetrics.map(
-      (m) => m.precision.atAll.meanPrecision,
+
+    const precisionAt10_threshold1 = iterationMetrics.map(
+      (m) => m.precision.at10.threshold1.meanPrecision,
+    );
+    const precisionAt10_threshold2 = iterationMetrics.map(
+      (m) => m.precision.at10.threshold2.meanPrecision,
+    );
+    const precisionAt10_threshold3 = iterationMetrics.map(
+      (m) => m.precision.at10.threshold3.meanPrecision,
+    );
+
+    const precisionAt15_threshold1 = iterationMetrics.map(
+      (m) => m.precision.at15.threshold1.meanPrecision,
+    );
+    const precisionAt15_threshold2 = iterationMetrics.map(
+      (m) => m.precision.at15.threshold2.meanPrecision,
+    );
+    const precisionAt15_threshold3 = iterationMetrics.map(
+      (m) => m.precision.at15.threshold3.meanPrecision,
+    );
+
+    const precisionAtAll_threshold1 = iterationMetrics.map(
+      (m) => m.precision.atAll.threshold1.meanPrecision,
+    );
+    const precisionAtAll_threshold2 = iterationMetrics.map(
+      (m) => m.precision.atAll.threshold2.meanPrecision,
+    );
+    const precisionAtAll_threshold3 = iterationMetrics.map(
+      (m) => m.precision.atAll.threshold3.meanPrecision,
     );
 
     const totalCoursesValues = iterationMetrics.map(
@@ -453,19 +481,57 @@ export class CourseRetrievalResultManagerService {
     const ndcgAtAllStats =
       DistributionStatisticsHelper.computeDistributionStats(ndcgAtAllValues);
 
-    const precisionAt5Stats =
-      DistributionStatisticsHelper.computeDistributionStats(precisionAt5Values);
-    const precisionAt10Stats =
+    // Multi-threshold precision statistics
+    const precisionAt5_t1Stats =
       DistributionStatisticsHelper.computeDistributionStats(
-        precisionAt10Values,
+        precisionAt5_threshold1,
       );
-    const precisionAt15Stats =
+    const precisionAt5_t2Stats =
       DistributionStatisticsHelper.computeDistributionStats(
-        precisionAt15Values,
+        precisionAt5_threshold2,
       );
-    const precisionAtAllStats =
+    const precisionAt5_t3Stats =
       DistributionStatisticsHelper.computeDistributionStats(
-        precisionAtAllValues,
+        precisionAt5_threshold3,
+      );
+
+    const precisionAt10_t1Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAt10_threshold1,
+      );
+    const precisionAt10_t2Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAt10_threshold2,
+      );
+    const precisionAt10_t3Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAt10_threshold3,
+      );
+
+    const precisionAt15_t1Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAt15_threshold1,
+      );
+    const precisionAt15_t2Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAt15_threshold2,
+      );
+    const precisionAt15_t3Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAt15_threshold3,
+      );
+
+    const precisionAtAll_t1Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAtAll_threshold1,
+      );
+    const precisionAtAll_t2Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAtAll_threshold2,
+      );
+    const precisionAtAll_t3Stats =
+      DistributionStatisticsHelper.computeDistributionStats(
+        precisionAtAll_threshold3,
       );
 
     const totalCoursesStats =
@@ -500,10 +566,26 @@ export class CourseRetrievalResultManagerService {
       ndcgAt10: toStatisticalMetric(ndcgAt10Stats),
       ndcgAt15: toStatisticalMetric(ndcgAt15Stats),
       ndcgAtAll: toStatisticalMetric(ndcgAtAllStats),
-      precisionAt5: toStatisticalMetric(precisionAt5Stats),
-      precisionAt10: toStatisticalMetric(precisionAt10Stats),
-      precisionAt15: toStatisticalMetric(precisionAt15Stats),
-      precisionAtAll: toStatisticalMetric(precisionAtAllStats),
+      precisionAt5: {
+        threshold1: toStatisticalMetric(precisionAt5_t1Stats),
+        threshold2: toStatisticalMetric(precisionAt5_t2Stats),
+        threshold3: toStatisticalMetric(precisionAt5_t3Stats),
+      },
+      precisionAt10: {
+        threshold1: toStatisticalMetric(precisionAt10_t1Stats),
+        threshold2: toStatisticalMetric(precisionAt10_t2Stats),
+        threshold3: toStatisticalMetric(precisionAt10_t3Stats),
+      },
+      precisionAt15: {
+        threshold1: toStatisticalMetric(precisionAt15_t1Stats),
+        threshold2: toStatisticalMetric(precisionAt15_t2Stats),
+        threshold3: toStatisticalMetric(precisionAt15_t3Stats),
+      },
+      precisionAtAll: {
+        threshold1: toStatisticalMetric(precisionAtAll_t1Stats),
+        threshold2: toStatisticalMetric(precisionAtAll_t2Stats),
+        threshold3: toStatisticalMetric(precisionAtAll_t3Stats),
+      },
       totalCoursesEvaluated: toStatisticalMetric(totalCoursesStats),
       averageRelevance: toStatisticalMetric(averageRelevanceStats),
       highlyRelevantRate: toStatisticalMetric(highlyRelevantRateStats),

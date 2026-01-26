@@ -1,22 +1,26 @@
 import { DecimalHelper } from 'src/shared/utils/decimal.helper';
 
+import type { MultiThresholdPrecisionValue } from '../types/course-retrieval.types';
+
 /**
  * Precision@K Calculator
  *
  * Calculates precision at various cut-off positions using LLM judge scores
  * as a proxy for relevance. No ground truth labels required.
  *
- * **Important**: These are proxy metrics using LLM judge scores.
- * "Relevant" is defined as score ≥ 2 (fairly or highly relevant).
+ * **Multi-Threshold Support**: Now calculates precision at three relevance levels:
+ * - Threshold 1 (lenient): Score ≥ 1 - "At least slightly relevant"
+ * - Threshold 2 (standard): Score ≥ 2 - "Fairly or highly relevant" ← PRIMARY METRIC
+ * - Threshold 3 (strict): Score ≥ 3 - "Highly relevant only"
  *
  * Formula:
- *   Precision@K = (count of scores ≥ 2 in top K) / K
+ *   Precision@K (at threshold T) = (count of scores ≥ T in top K) / K
  *
  * This measures: "Of the top K retrieved courses, how many are relevant?"
  */
 export class PrecisionCalculator {
   /**
-   * Calculate Precision@K
+   * Calculate Precision@K at a single threshold
    *
    * @param relevanceScores - Array of relevance scores in ranked order (0-3)
    * @param k - Cut-off position
@@ -41,6 +45,34 @@ export class PrecisionCalculator {
     const actualK = topKScores.length;
     const precision = DecimalHelper.divide(relevantCount, actualK);
     return DecimalHelper.roundRate(precision);
+  }
+
+  /**
+   * Calculate multi-threshold precision at a single cut-off position
+   *
+   * Returns precision at all three thresholds (≥1, ≥2, ≥3) for a single K.
+   *
+   * @param relevanceScores - Array of relevance scores in ranked order (0-3)
+   * @param k - Cut-off position
+   * @returns Multi-threshold precision value
+   */
+  static calculateMultiThresholdPrecisionAtK(
+    relevanceScores: number[],
+    k: number,
+  ): MultiThresholdPrecisionValue {
+    if (k <= 0 || relevanceScores.length === 0) {
+      return {
+        threshold1: 0,
+        threshold2: 0,
+        threshold3: 0,
+      };
+    }
+
+    return {
+      threshold1: this.calculatePrecisionAtK(relevanceScores, k, 1), // Lenient
+      threshold2: this.calculatePrecisionAtK(relevanceScores, k, 2), // Standard
+      threshold3: this.calculatePrecisionAtK(relevanceScores, k, 3), // Strict
+    };
   }
 
   /**

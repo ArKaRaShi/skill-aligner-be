@@ -6,11 +6,12 @@ import type { LlmCourseEvaluationItem } from '../schemas/schema';
 import type {
   CourseRetrievalIterationMetrics,
   EvaluationItem,
+  MultiThresholdPrecisionValue,
   PerClassDistribution,
   PerClassDistributionWithContext,
   PerClassRate,
   PerClassRateWithContext,
-  PrecisionMetricWithContext,
+  PrecisionThresholdWithContext,
   RetrievalPerformanceMetrics,
 } from '../types/course-retrieval.types';
 
@@ -155,7 +156,12 @@ export class CourseRetrievalMetricsCalculator {
           proxy: { at5: 0, at10: 0, at15: 0, atAll: 0 },
           ideal: { at5: 0, at10: 0, at15: 0, atAll: 0 },
         },
-        precision: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+        precision: {
+          at5: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at10: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at15: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          atAll: { threshold1: 0, threshold2: 0, threshold3: 0 },
+        },
       };
     }
 
@@ -204,23 +210,27 @@ export class CourseRetrievalMetricsCalculator {
       total,
     );
 
-    // Calculate Precision@K metrics (proxy: score ≥ 2 = relevant)
-    const precisionAt5 = PrecisionCalculator.calculatePrecisionAtK(
-      relevanceScores,
-      5,
-    );
-    const precisionAt10 = PrecisionCalculator.calculatePrecisionAtK(
-      relevanceScores,
-      10,
-    );
-    const precisionAt15 = PrecisionCalculator.calculatePrecisionAtK(
-      relevanceScores,
-      15,
-    );
-    const precisionAtAll = PrecisionCalculator.calculatePrecisionAtK(
-      relevanceScores,
-      total,
-    );
+    // Calculate Precision@K metrics with multi-threshold support
+    const precisionAt5 =
+      PrecisionCalculator.calculateMultiThresholdPrecisionAtK(
+        relevanceScores,
+        5,
+      );
+    const precisionAt10 =
+      PrecisionCalculator.calculateMultiThresholdPrecisionAtK(
+        relevanceScores,
+        10,
+      );
+    const precisionAt15 =
+      PrecisionCalculator.calculateMultiThresholdPrecisionAtK(
+        relevanceScores,
+        15,
+      );
+    const precisionAtAll =
+      PrecisionCalculator.calculateMultiThresholdPrecisionAtK(
+        relevanceScores,
+        total,
+      );
 
     return {
       totalCourses: total,
@@ -307,7 +317,12 @@ export class CourseRetrievalMetricsCalculator {
           proxy: { at5: 0, at10: 0, at15: 0, atAll: 0 },
           ideal: { at5: 0, at10: 0, at15: 0, atAll: 0 },
         },
-        precision: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+        precision: {
+          at5: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at10: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at15: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          atAll: { threshold1: 0, threshold2: 0, threshold3: 0 },
+        },
       };
     }
 
@@ -327,10 +342,40 @@ export class CourseRetrievalMetricsCalculator {
         ndcgIdealAt10: acc.ndcgIdealAt10 + record.metrics.ndcg.ideal.at10,
         ndcgIdealAt15: acc.ndcgIdealAt15 + record.metrics.ndcg.ideal.at15,
         ndcgIdealAtAll: acc.ndcgIdealAtAll + record.metrics.ndcg.ideal.atAll,
-        precisionAt5: acc.precisionAt5 + record.metrics.precision.at5,
-        precisionAt10: acc.precisionAt10 + record.metrics.precision.at10,
-        precisionAt15: acc.precisionAt15 + record.metrics.precision.at15,
-        precisionAtAll: acc.precisionAtAll + record.metrics.precision.atAll,
+        // Multi-threshold precision aggregation
+        precisionAt5_threshold1:
+          acc.precisionAt5_threshold1 + record.metrics.precision.at5.threshold1,
+        precisionAt5_threshold2:
+          acc.precisionAt5_threshold2 + record.metrics.precision.at5.threshold2,
+        precisionAt5_threshold3:
+          acc.precisionAt5_threshold3 + record.metrics.precision.at5.threshold3,
+        precisionAt10_threshold1:
+          acc.precisionAt10_threshold1 +
+          record.metrics.precision.at10.threshold1,
+        precisionAt10_threshold2:
+          acc.precisionAt10_threshold2 +
+          record.metrics.precision.at10.threshold2,
+        precisionAt10_threshold3:
+          acc.precisionAt10_threshold3 +
+          record.metrics.precision.at10.threshold3,
+        precisionAt15_threshold1:
+          acc.precisionAt15_threshold1 +
+          record.metrics.precision.at15.threshold1,
+        precisionAt15_threshold2:
+          acc.precisionAt15_threshold2 +
+          record.metrics.precision.at15.threshold2,
+        precisionAt15_threshold3:
+          acc.precisionAt15_threshold3 +
+          record.metrics.precision.at15.threshold3,
+        precisionAtAll_threshold1:
+          acc.precisionAtAll_threshold1 +
+          record.metrics.precision.atAll.threshold1,
+        precisionAtAll_threshold2:
+          acc.precisionAtAll_threshold2 +
+          record.metrics.precision.atAll.threshold2,
+        precisionAtAll_threshold3:
+          acc.precisionAtAll_threshold3 +
+          record.metrics.precision.atAll.threshold3,
       }),
       {
         totalCourses: 0,
@@ -343,10 +388,18 @@ export class CourseRetrievalMetricsCalculator {
         ndcgIdealAt10: 0,
         ndcgIdealAt15: 0,
         ndcgIdealAtAll: 0,
-        precisionAt5: 0,
-        precisionAt10: 0,
-        precisionAt15: 0,
-        precisionAtAll: 0,
+        precisionAt5_threshold1: 0,
+        precisionAt5_threshold2: 0,
+        precisionAt5_threshold3: 0,
+        precisionAt10_threshold1: 0,
+        precisionAt10_threshold2: 0,
+        precisionAt10_threshold3: 0,
+        precisionAt15_threshold1: 0,
+        precisionAt15_threshold2: 0,
+        precisionAt15_threshold3: 0,
+        precisionAtAll_threshold1: 0,
+        precisionAtAll_threshold2: 0,
+        precisionAtAll_threshold3: 0,
       },
     );
 
@@ -378,10 +431,62 @@ export class CourseRetrievalMetricsCalculator {
         },
       },
       precision: {
-        at5: DecimalHelper.divide(sumMetrics.precisionAt5, count),
-        at10: DecimalHelper.divide(sumMetrics.precisionAt10, count),
-        at15: DecimalHelper.divide(sumMetrics.precisionAt15, count),
-        atAll: DecimalHelper.divide(sumMetrics.precisionAtAll, count),
+        at5: {
+          threshold1: DecimalHelper.divide(
+            sumMetrics.precisionAt5_threshold1,
+            count,
+          ),
+          threshold2: DecimalHelper.divide(
+            sumMetrics.precisionAt5_threshold2,
+            count,
+          ),
+          threshold3: DecimalHelper.divide(
+            sumMetrics.precisionAt5_threshold3,
+            count,
+          ),
+        },
+        at10: {
+          threshold1: DecimalHelper.divide(
+            sumMetrics.precisionAt10_threshold1,
+            count,
+          ),
+          threshold2: DecimalHelper.divide(
+            sumMetrics.precisionAt10_threshold2,
+            count,
+          ),
+          threshold3: DecimalHelper.divide(
+            sumMetrics.precisionAt10_threshold3,
+            count,
+          ),
+        },
+        at15: {
+          threshold1: DecimalHelper.divide(
+            sumMetrics.precisionAt15_threshold1,
+            count,
+          ),
+          threshold2: DecimalHelper.divide(
+            sumMetrics.precisionAt15_threshold2,
+            count,
+          ),
+          threshold3: DecimalHelper.divide(
+            sumMetrics.precisionAt15_threshold3,
+            count,
+          ),
+        },
+        atAll: {
+          threshold1: DecimalHelper.divide(
+            sumMetrics.precisionAtAll_threshold1,
+            count,
+          ),
+          threshold2: DecimalHelper.divide(
+            sumMetrics.precisionAtAll_threshold2,
+            count,
+          ),
+          threshold3: DecimalHelper.divide(
+            sumMetrics.precisionAtAll_threshold3,
+            count,
+          ),
+        },
       },
     };
   }
@@ -656,38 +761,63 @@ export class CourseRetrievalMetricsCalculator {
   }
 
   /**
-   * Build precision metric with context
+   * Build precision metric with context (multi-threshold version)
+   *
+   * Builds enriched context for all three thresholds (≥1, ≥2, ≥3) at a single cut-off position.
+   *
+   * @param value - Multi-threshold precision value (threshold1, threshold2, threshold3)
+   * @param k - Cut-off position (5, 10, 15, or all)
+   * @param sampleCount - Number of samples (records) in aggregation
+   * @param totalCourses - Total number of courses (for @All case)
+   * @returns Object with context for each threshold
    */
   private static buildPrecisionMetricWithContext(
-    value: number,
+    value: MultiThresholdPrecisionValue,
     k: number,
     sampleCount: number,
     totalCourses: number,
-  ): PrecisionMetricWithContext {
-    // Calculate approximate relevant count (value * total)
-    const relevantCount = Math.round(
-      value * Math.min(k, totalCourses) * sampleCount,
-    );
-    const totalCount = Math.min(k, totalCourses) * sampleCount;
-    const roundedValue = DecimalHelper.roundAverage(value);
-    // Format precision as percentage with 1 decimal place (consistency with rate display)
+  ): {
+    threshold1: PrecisionThresholdWithContext;
+    threshold2: PrecisionThresholdWithContext;
+    threshold3: PrecisionThresholdWithContext;
+  } {
+    // Format precision as percentage with 1 decimal place
     const fmtPct = (v: number) => (v * 100).toFixed(1);
 
-    // For @All (very large k), use different description
-    if (k >= totalCourses) {
+    // Build context for a single threshold
+    const buildThresholdContext = (
+      thresholdValue: number,
+      thresholdLabel: string,
+    ): PrecisionThresholdWithContext => {
+      // For @All (k >= totalCourses), use different calculation
+      if (k >= totalCourses) {
+        const relevantCount = Math.round(thresholdValue * totalCourses);
+        return {
+          meanPrecision: DecimalHelper.roundAverage(thresholdValue),
+          relevantCount,
+          totalCount: totalCourses,
+          description: `Mean precision (${thresholdLabel}): ${fmtPct(thresholdValue)}% across all retrieved courses`,
+        };
+      }
+
+      // For @K (where K < totalCourses)
+      const relevantCount = Math.round(
+        thresholdValue * Math.min(k, totalCourses) * sampleCount,
+      );
+      const totalCount = Math.min(k, totalCourses) * sampleCount;
+
       return {
-        meanPrecision: roundedValue,
-        relevantCount: Math.round(value * totalCourses),
-        totalCount: totalCourses,
-        description: `Mean precision: ${fmtPct(value)}% across all retrieved courses`,
+        meanPrecision: DecimalHelper.roundAverage(thresholdValue),
+        relevantCount,
+        totalCount,
+        description: `Mean Precision@${k} (${thresholdLabel}): ${fmtPct(thresholdValue)}% - On average, ${fmtPct(thresholdValue)}% of top-${k} courses are relevant (${sampleCount} samples)`,
       };
-    }
+    };
 
     return {
-      meanPrecision: roundedValue,
-      relevantCount,
-      totalCount,
-      description: `Mean Precision@${k}: ${fmtPct(value)}% - On average, ${fmtPct(value)}% of top-${k} courses are relevant (${sampleCount} samples)`,
+      threshold1: buildThresholdContext(value.threshold1, '≥1'),
+      threshold2: buildThresholdContext(value.threshold2, '≥2'),
+      threshold3: buildThresholdContext(value.threshold3, '≥3'),
     };
   }
 

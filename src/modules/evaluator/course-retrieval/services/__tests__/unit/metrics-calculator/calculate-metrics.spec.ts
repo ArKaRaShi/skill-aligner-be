@@ -28,9 +28,9 @@ describe('CourseRetrievalMetricsCalculator', () => {
       expect(result.meanRelevanceScore).toBe(0);
       expect(result.perClassDistribution.score0.count).toBe(0);
       expect(result.perClassDistribution.score3.count).toBe(0);
-      // NDCG and precision should also be zeroed
+      // NDCG and precision should also be zeroed (use threshold2 for standard metric)
       expect(result.ndcg.proxy.at5).toBe(0);
-      expect(result.precision.at5).toBe(0);
+      expect(result.precision.at5.threshold2).toBe(0);
     });
 
     it('should calculate averages correctly for uniform scores', () => {

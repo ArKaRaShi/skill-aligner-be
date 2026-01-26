@@ -18,6 +18,16 @@ import { AnswerSynthesisLowFaithfulnessAnalyzerService } from './answer-synthesi
 import { AnswerSynthesisResultManagerService } from './answer-synthesis-result-manager.service';
 
 // ============================================================================
+// CONSTANTS
+// ============================================================================
+
+/**
+ * Default concurrency for parallel question evaluation.
+ * Multiple questions are evaluated in parallel using Promise.allSettled().
+ */
+const DEFAULT_CONCURRENCY = 4;
+
+// ============================================================================
 // ANSWER SYNTHESIS EVALUATION RUNNER SERVICE
 // ============================================================================
 
@@ -26,18 +36,20 @@ import { AnswerSynthesisResultManagerService } from './answer-synthesis-result-m
  *
  * This service coordinates the entire evaluation pipeline:
  * 1. Load and transform test sets
- * 2. Evaluate samples with judge LLM
+ * 2. Evaluate samples with judge LLM (in parallel with chunked concurrency)
  * 3. Compare system vs judge results
  * 4. Calculate metrics and analyze patterns
  * 5. Save all results to files
  * 6. Track progress for crash recovery
  *
  * Progress tracking is done at QUESTION level (one entry per queryLogId).
+ * Questions are processed in chunks using chunked concurrency pattern.
  */
 @Injectable()
 export class AnswerSynthesisRunnerService {
   private readonly logger = new Logger(AnswerSynthesisRunnerService.name);
   private readonly baseDir: string;
+  private readonly concurrency: number;
 
   constructor(
     private readonly judgeEvaluator: AnswerSynthesisJudgeEvaluator,
@@ -47,6 +59,7 @@ export class AnswerSynthesisRunnerService {
     @Optional() baseDir?: string,
   ) {
     this.baseDir = baseDir ?? 'data/evaluation/answer-synthesis';
+    this.concurrency = DEFAULT_CONCURRENCY;
   }
 
   /**
@@ -201,72 +214,108 @@ export class AnswerSynthesisRunnerService {
       return this.loadIterationResults(testSetName, iterationNumber);
     }
 
-    // Evaluate pending test cases
+    // Evaluate pending test cases using chunked concurrency
     const records: AnswerSynthesisComparisonRecord[] = [];
 
-    for (const testCase of pendingTestCases) {
-      const hash = EvaluationHashUtil.generateAnswerSynthesisRecordHash({
-        queryLogId: testCase.queryLogId,
-      });
+    // Process questions in chunks for parallel execution
+    for (let i = 0; i < pendingTestCases.length; i += this.concurrency) {
+      const concurrentCases = pendingTestCases.slice(i, i + this.concurrency);
+      const chunkNumber = Math.floor(i / this.concurrency) + 1;
+      const totalChunks = Math.ceil(pendingTestCases.length / this.concurrency);
 
-      try {
-        // Call evaluator
-        const judgeResult = await this.judgeEvaluator.evaluate(
-          testCase,
-          config.judgeModel,
-        );
+      this.logger.log(
+        `'${testSetName}': Chunk ${chunkNumber}/${totalChunks}: Evaluating ${concurrentCases.length} questions in parallel...`,
+      );
 
-        // Compare
-        const record = this.comparisonService.compareSample(
-          testCase,
-          judgeResult,
-        );
-        records.push(record);
+      const newProgressEntries: AnswerSynthesisProgressEntry[] = [];
+      const newRecords: AnswerSynthesisComparisonRecord[] = [];
 
-        // Save record to hash-based file for crash recovery and parallel evaluation support
-        await this.resultManager.saveRecord({
-          testSetName,
-          iterationNumber,
-          hash,
-          record,
-        });
+      // Evaluate all questions in this chunk in parallel
+      const results = await Promise.allSettled(
+        concurrentCases.map(async (testCase, index) => {
+          const questionNumber = i + index + 1;
+          const hash = EvaluationHashUtil.generateAnswerSynthesisRecordHash({
+            queryLogId: testCase.queryLogId,
+          });
 
-        // Update progress
-        const progressEntry: AnswerSynthesisProgressEntry = {
-          hash,
-          queryLogId: testCase.queryLogId,
-          question: testCase.question,
-          completedAt: new Date().toISOString(),
-          result: {
-            faithfulnessScore: record.judgeVerdict.faithfulness.score,
-            completenessScore: record.judgeVerdict.completeness.score,
-            passed: record.passed,
-          },
-        };
+          // Call evaluator
+          const judgeResult = await this.judgeEvaluator.evaluate(
+            testCase,
+            config.judgeModel,
+          );
 
-        progressFile.entries.push(progressEntry);
-        progressFile.statistics.completedQuestions++;
-        progressFile.statistics.pendingQuestions--;
-        progressFile.statistics.completionPercentage =
-          (progressFile.statistics.completedQuestions /
-            progressFile.statistics.totalQuestions) *
-          100;
-        progressFile.lastUpdated = new Date().toISOString();
+          // Compare
+          const record = this.comparisonService.compareSample(
+            testCase,
+            judgeResult,
+          );
 
-        // Save progress after EVERY sample for maximum crash recovery
-        // I/O overhead (~1-5ms) is negligible compared to LLM evaluation (~1-5s)
-        await this.saveProgress(testSetName, iterationNumber, progressFile);
+          // Save record to hash-based file for crash recovery
+          await this.resultManager.saveRecord({
+            testSetName,
+            iterationNumber,
+            hash,
+            record,
+          });
 
-        const QUESTION_PREVIEW_LENGTH = 30;
-        this.logger.debug(
-          `'${testSetName}': Evaluated "${testCase.question.substring(0, QUESTION_PREVIEW_LENGTH)}..." → score=${record.overallScore.toFixed(2)}, passed=${record.passed}`,
-        );
-      } catch (error) {
-        this.logger.error(
-          `'${testSetName}': Error evaluating ${testCase.queryLogId}: ${error}`,
-        );
-        throw error;
+          // Build progress entry
+          const progressEntry: AnswerSynthesisProgressEntry = {
+            hash,
+            queryLogId: testCase.queryLogId,
+            question: testCase.question,
+            completedAt: new Date().toISOString(),
+            result: {
+              faithfulnessScore: record.judgeVerdict.faithfulness.score,
+              completenessScore: record.judgeVerdict.completeness.score,
+              passed: record.passed,
+            },
+          };
+
+          const QUESTION_PREVIEW_LENGTH = 30;
+          this.logger.debug(
+            `'${testSetName}': [Question ${questionNumber}/${testCases.length}] Evaluated "${testCase.question.substring(0, QUESTION_PREVIEW_LENGTH)}..." → score=${record.overallScore.toFixed(2)}, passed=${record.passed}`,
+          );
+
+          return { progressEntry, record };
+        }),
+      );
+
+      // Process results - handle both successes and failures
+      let successCount = 0;
+      let failureCount = 0;
+
+      for (const result of results) {
+        if (result.status === 'fulfilled') {
+          newProgressEntries.push(result.value.progressEntry);
+          newRecords.push(result.value.record);
+          successCount++;
+        } else {
+          this.logger.warn(
+            `'${testSetName}': Question evaluation failed: ${result.reason}`,
+          );
+          failureCount++;
+        }
       }
+
+      // Batch update progress file
+      progressFile.entries.push(...newProgressEntries);
+      progressFile.statistics.completedQuestions += successCount;
+      progressFile.statistics.pendingQuestions -= successCount;
+      progressFile.statistics.completionPercentage =
+        (progressFile.statistics.completedQuestions /
+          progressFile.statistics.totalQuestions) *
+        100;
+      progressFile.lastUpdated = new Date().toISOString();
+
+      // Save progress once per chunk (not per question)
+      await this.saveProgress(testSetName, iterationNumber, progressFile);
+
+      this.logger.log(
+        `'${testSetName}': Chunk ${chunkNumber}/${totalChunks} complete: ${successCount}/${concurrentCases.length} questions succeeded${failureCount > 0 ? `, ${failureCount} failed` : ''}`,
+      );
+
+      // Add successful records to main collection
+      records.push(...newRecords);
     }
 
     // Save final progress

@@ -30,6 +30,8 @@ import { EvaluationProgressTrackerService } from './course-retrieval/evaluators/
 import { CourseRetrievalTestSetLoaderService } from './course-retrieval/loaders/course-retrieval-test-set-loader.service';
 import { CourseRetrievalTestSetTransformer } from './course-retrieval/loaders/course-retrieval-test-set-transformer.service';
 import { CourseRetrievalComparisonService } from './course-retrieval/services/course-retrieval-comparison.service';
+import { CourseRetrievalMetricsCalculator } from './course-retrieval/services/course-retrieval-metrics-calculator.service';
+import { CourseRetrievalMetricsMigratorService } from './course-retrieval/services/course-retrieval-metrics-migrator.service';
 import { CourseRetrievalResultManagerService } from './course-retrieval/services/course-retrieval-result-manager.service';
 import { CourseRetrievalRunnerService } from './course-retrieval/services/course-retrieval-runner.service';
 import { EvaluatorController } from './evaluator.controller';
@@ -69,6 +71,8 @@ import { SkillExpansionEvaluationRunnerService } from './skill-expansion/service
     TestSetBuilderService,
     CourseRetrievalTestSetLoaderService,
     CourseRetrievalTestSetTransformer,
+    CourseRetrievalMetricsCalculator,
+    CourseRetrievalMetricsMigratorService,
     CourseRetrievalRunnerService,
     // Course Relevance Filter providers
     CourseFilterTestSetTransformer,

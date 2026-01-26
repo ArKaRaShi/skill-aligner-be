@@ -684,7 +684,12 @@ export class CourseRetrievalRunnerService {
           proxy: { at5: 0, at10: 0, at15: 0, atAll: 0 },
           ideal: { at5: 0, at10: 0, at15: 0, atAll: 0 },
         },
-        precision: { at5: 0, at10: 0, at15: 0, atAll: 0 },
+        precision: {
+          at5: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at10: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          at15: { threshold1: 0, threshold2: 0, threshold3: 0 },
+          atAll: { threshold1: 0, threshold2: 0, threshold3: 0 },
+        },
       },
       llmModel: 'cached',
       llmProvider: 'cached',

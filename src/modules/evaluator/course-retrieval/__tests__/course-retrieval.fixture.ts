@@ -145,7 +145,12 @@ export const createMockRetrievalPerformanceMetrics = (
     proxy: { at5: 0.8, at10: 0.75, at15: 0.73, atAll: 0.7 },
     ideal: { at5: 0.6, at10: 0.55, at15: 0.53, atAll: 0.5 },
   },
-  precision: { at5: 0.6, at10: 0.5, at15: 0.47, atAll: 0.4 },
+  precision: {
+    at5: { threshold1: 0.8, threshold2: 0.6, threshold3: 0.3 },
+    at10: { threshold1: 0.75, threshold2: 0.5, threshold3: 0.25 },
+    at15: { threshold1: 0.73, threshold2: 0.47, threshold3: 0.23 },
+    atAll: { threshold1: 0.7, threshold2: 0.4, threshold3: 0.2 },
+  },
   ...overrides,
 });
 
