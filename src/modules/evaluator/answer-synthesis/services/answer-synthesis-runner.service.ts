@@ -25,7 +25,7 @@ import { AnswerSynthesisResultManagerService } from './answer-synthesis-result-m
  * Default concurrency for parallel question evaluation.
  * Multiple questions are evaluated in parallel using Promise.allSettled().
  */
-const DEFAULT_CONCURRENCY = 4;
+const DEFAULT_CONCURRENCY = 5;
 
 // ============================================================================
 // ANSWER SYNTHESIS EVALUATION RUNNER SERVICE

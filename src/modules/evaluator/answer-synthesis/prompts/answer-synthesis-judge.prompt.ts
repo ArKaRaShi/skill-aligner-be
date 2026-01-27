@@ -47,8 +47,6 @@ You MUST ALSO verify INTERNAL CONSISTENCY:
 
 If the answer attributes a course to a skill or rationale that is NOT supported by the mapped skills or learning outcomes in the provided context, treat this as an unsupported claim (hallucination).
 
----
-
 AXIS 2: COMPLETENESS & BRIDGING RUBRIC (1-5 Scale)
 FOCUS: EXPLANATION & LOGICAL CONNECTION TO USER QUERY
 
@@ -74,17 +72,33 @@ FOCUS: EXPLANATION & LOGICAL CONNECTION TO USER QUERY
 
 ---
 
+STRUCTURAL & LOGICAL REQUIREMENTS:
+
+1. FLOW VERIFICATION:
+   - The answer should generally follow this pattern: Exploratory Framing (Broad Concept) -> Concrete Evidence (Courses/Aspects) -> Summarization.
+   - If the answer jumps straight to course lists without framing the user's broad intent first, penalize Completeness.
+
+2. ASPECT-EVIDENCE LINKING (CRITICAL):
+   - When the system groups courses under a specific "Aspect" or "Skill" (e.g., "For Video Editing... [Course A]"), you must VERIFY in "SECTION 1: MATCHED EVIDENCE" of that specific course.
+   - Does Section 1 actually list "Video Editing" (or a semantic equivalent) for Course A?
+   - IF NO: This is a "Misattribution Hallucination" (Faithfulness Score = 2 or 3). The course exists, but it does NOT support the aspect claimed by the system.
+
+3. FORMAT CHECK:
+   - Verify that courses are cited in the format: "Course Name (Course Code)".
+
+---
+
 EVALUATION STEPS:
 
-1. ANALYZE FAITHFULNESS:
+1. ANALYZE FAITHFULNESS (AXIS 1):
    - SCAN the answer for claims.
    - VERIFY each claim against the PROVIDED CONTEXT ONLY.
+   - Verify if the "Aspect Frame" (the category/skill used to group the course) is supported by the context. Specifically, ensure that the course listed under that frame implies a skill that actually MAPS to "SECTION 1: MATCHED EVIDENCE".
    - (Draft the Faithfulness Score).
 
-2. ANALYZE COMPLETENESS:
+2. ANALYZE COMPLETENESS (AXIS 2):
    - Look at the User Query.
    - CHECK if the answer provides a "Rationale" or "Bridge" linking the Course to the Query.
-   - Does it just LIST FACTS (Score 3) or EXPLAIN VALUE (Score 5)?
    - (Draft the Completeness Score).
 
 3. FORMAT OUTPUT:
@@ -150,7 +164,7 @@ ${ms.learningOutcomes.map((lo) => `- ${lo.cleanedName}`).join('\n')}`,
 
     return `COURSE: ${courseSkills.subjectName} (${courseSkills.subjectCode})
 
-SECTION 1: MATCHED EVIDENCE (Why it was picked)
+SECTION 1: MATCHED EVIDENCE (Skills & Learning Outcomes)
 ${matchedEvidence}
 
 SECTION 2: FULL CONTEXT (All learning outcomes)
@@ -193,32 +207,3 @@ Evaluate the answer based on the criteria in the system prompt.
 Return your evaluation as valid JSON.
 `;
 };
-
-// ============================================================================
-// COURSE DATA FOR JUDGE (if needed for detailed analysis)
-// ============================================================================
-
-/**
- * Format course data as JSON for structured judge input.
- * This is an alternative format if the judge needs structured data.
- *
- * @param context - Ranked courses with matched skills
- * @returns JSON string of courses array
- */
-export function formatCoursesAsJson(context: AggregatedCourseSkills[]): string {
-  const coursesData = context.map((course) => ({
-    code: course.subjectCode,
-    name: course.subjectName,
-    relevanceScore: course.maxRelevanceScore,
-    matchedSkills: course.matchedSkills.map((ms) => ({
-      skill: ms.skill,
-      relevanceScore: ms.relevanceScore,
-      learningOutcomes: ms.learningOutcomes.map((lo) => lo.cleanedName),
-    })),
-    allLearningOutcomes: course.courseLearningOutcomes.map(
-      (lo) => lo.cleanedName,
-    ),
-  }));
-
-  return JSON.stringify(coursesData, null, 2);
-}
