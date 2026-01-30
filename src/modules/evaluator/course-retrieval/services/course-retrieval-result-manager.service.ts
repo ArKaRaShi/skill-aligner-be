@@ -12,6 +12,7 @@ import type {
   CourseRetrievalIterationMetrics,
   CourseRetrievalProgressFile,
   EvaluateRetrieverOutput,
+  SkillDeduplicationStats,
 } from '../types/course-retrieval.types';
 import { CourseRetrievalMetricsCalculator } from './course-retrieval-metrics-calculator.service';
 
@@ -112,7 +113,7 @@ export class CourseRetrievalResultManagerService {
    *
    * @param testSetName - Test set identifier
    * @param iterationNumber - Iteration number
-   * @param hash - SHA256 hash of sample-unique parameters (question + skill + testCaseId)
+   * @param hash - SHA256 hash of skill (for skill-level deduplication)
    * @param record - Single evaluation record to save
    */
   async saveRecord(params: {
@@ -132,8 +133,10 @@ export class CourseRetrievalResultManagerService {
 
     await FileHelper.saveJson(filePath, record);
 
+    // Log with skill and question count
+    const questionCount = record.questionIds.length;
     this.logger.debug(
-      `Saved record for sample: ${record.question.substring(0, CourseRetrievalResultManagerService.QUESTION_PREFIX_LENGTH)}... → ${hash.substring(0, CourseRetrievalResultManagerService.HASH_PREFIX_LENGTH)}...`,
+      `Saved record for skill: "${record.skill}" (${questionCount} question${questionCount > 1 ? 's' : ''}) → ${hash.substring(0, CourseRetrievalResultManagerService.HASH_PREFIX_LENGTH)}...`,
     );
   }
 
@@ -157,7 +160,18 @@ export class CourseRetrievalResultManagerService {
     );
 
     try {
-      return await FileHelper.loadJson<CourseRetrievalProgressFile>(filePath);
+      const loaded =
+        await FileHelper.loadJson<CourseRetrievalProgressFile>(filePath);
+      // Convert skillFrequency from plain object to Map
+      if (loaded.deduplicationStats?.skillFrequency) {
+        // When loaded from JSON, skillFrequency is a plain object
+        const skillFrequencyObj = loaded.deduplicationStats
+          .skillFrequency as unknown as Record<string, number>;
+        loaded.deduplicationStats.skillFrequency = new Map(
+          Object.entries(skillFrequencyObj),
+        );
+      }
+      return loaded;
     } catch {
       // Return new progress file if not found
       return {
@@ -170,6 +184,13 @@ export class CourseRetrievalResultManagerService {
           completedItems: 0,
           pendingItems: 0,
           completionPercentage: 0,
+        },
+        deduplicationStats: {
+          totalQuestions: 0,
+          totalSkillsExtracted: 0,
+          uniqueSkillsEvaluated: 0,
+          deduplicationRate: 0,
+          skillFrequency: new Map(),
         },
       };
     }
@@ -197,7 +218,21 @@ export class CourseRetrievalResultManagerService {
         ? (progress.entries.length / progress.statistics.totalItems) * 100
         : 0;
 
-    await FileHelper.saveJson(filePath, progress);
+    // Convert Map to plain object for JSON serialization
+    const toSave = {
+      ...progress,
+      deduplicationStats: progress.deduplicationStats
+        ? {
+            ...progress.deduplicationStats,
+            skillFrequency:
+              progress.deduplicationStats.skillFrequency instanceof Map
+                ? Object.fromEntries(progress.deduplicationStats.skillFrequency)
+                : progress.deduplicationStats.skillFrequency,
+          }
+        : undefined,
+    };
+
+    await FileHelper.saveJson(filePath, toSave);
     this.logger.debug(
       `Saved progress: ${progress.statistics.completionPercentage.toFixed(1)}% complete (${progress.entries.length}/${progress.statistics.totalItems})`,
     );
@@ -253,27 +288,66 @@ export class CourseRetrievalResultManagerService {
    * @param params.testSetName - Name of the test set
    * @param params.iterationNumber - Iteration number (1-indexed)
    * @param params.records - Evaluation records for this iteration
+   * @param params.skillDeduplicationStats - Optional skill deduplication statistics
    * @returns Path to saved metrics file
    */
   async saveIterationMetrics(params: {
     testSetName: string;
     iterationNumber: number;
     records: EvaluateRetrieverOutput[];
+    skillDeduplicationStats?: SkillDeduplicationStats;
   }): Promise<string> {
     // 1. Use TREC-standard mean metrics calculation (averages per-sample metrics)
     const metrics = CourseRetrievalMetricsCalculator.calculateMeanMetrics(
       params.records,
     );
 
-    // 2. Build enriched iteration metrics with descriptions
+    // 2. Calculate unique skills count (sampleCount should be unique skills, not records.length)
+    const uniqueSkillsCount = new Set(params.records.map((r) => r.skill)).size;
+
+    // 3. Build enriched iteration metrics with descriptions
     const iterationMetrics =
       CourseRetrievalMetricsCalculator.buildEnrichedIterationMetrics({
         metrics,
-        sampleCount: params.records.length,
+        sampleCount: uniqueSkillsCount, // Use unique skills count, not records.length
         iterationNumber: params.iterationNumber,
+        skillDeduplicationStats: params.skillDeduplicationStats,
       });
 
-    // 3. Save to file
+    // Validate consistency: check for old metrics files with the bug
+    // This helps identify when loading old files where uniqueSkillsEvaluated != sampleCount
+    if (
+      iterationMetrics.skillDeduplicationStats &&
+      iterationMetrics.skillDeduplicationStats.uniqueSkillsEvaluated !==
+        iterationMetrics.sampleCount
+    ) {
+      console.warn(
+        `[CourseRetrievalResultManager] Metrics inconsistency detected:\n` +
+          `  - sampleCount: ${iterationMetrics.sampleCount}\n` +
+          `  - uniqueSkillsEvaluated: ${iterationMetrics.skillDeduplicationStats.uniqueSkillsEvaluated}\n` +
+          `  - This may indicate an old metrics file with the known bug, or a data integrity issue.\n` +
+          `  - The correct value should be: ${iterationMetrics.sampleCount}`,
+      );
+    }
+
+    // Convert skillFrequency Map to plain object for JSON serialization
+    const toSave = {
+      ...iterationMetrics,
+      skillDeduplicationStats: iterationMetrics.skillDeduplicationStats
+        ? {
+            ...iterationMetrics.skillDeduplicationStats,
+            skillFrequency:
+              iterationMetrics.skillDeduplicationStats.skillFrequency instanceof
+              Map
+                ? Object.fromEntries(
+                    iterationMetrics.skillDeduplicationStats.skillFrequency,
+                  )
+                : iterationMetrics.skillDeduplicationStats.skillFrequency,
+          }
+        : undefined,
+    };
+
+    // 4. Save to file
     const filePath = path.join(
       this.baseDir,
       params.testSetName,
@@ -281,10 +355,10 @@ export class CourseRetrievalResultManagerService {
       `metrics-iteration-${params.iterationNumber}.json`,
     );
 
-    await FileHelper.saveJson(filePath, iterationMetrics);
+    await FileHelper.saveJson(filePath, toSave);
 
     this.logger.log(
-      `Saved iteration metrics: ${filePath} (${params.records.length} samples, ${metrics.totalCourses} courses)`,
+      `Saved iteration metrics: ${filePath} (${uniqueSkillsCount} unique skills, ${metrics.totalCourses} courses)`,
     );
 
     return filePath;
@@ -459,10 +533,10 @@ export class CourseRetrievalResultManagerService {
     );
 
     const totalCoursesValues = iterationMetrics.map(
-      (m) => m.totalCoursesEvaluated,
+      (m) => m.totalCoursesRetrieved,
     );
     const averageRelevanceValues = iterationMetrics.map(
-      (m) => m.meanRelevanceScore.meanRelevanceScore,
+      (m) => m.meanRelevanceScore.macroMean,
     );
     const highlyRelevantRateValues = iterationMetrics.map(
       (m) => m.perClassDistribution.score3.macroAverageRate,
@@ -586,7 +660,7 @@ export class CourseRetrievalResultManagerService {
         threshold2: toStatisticalMetric(precisionAtAll_t2Stats),
         threshold3: toStatisticalMetric(precisionAtAll_t3Stats),
       },
-      totalCoursesEvaluated: toStatisticalMetric(totalCoursesStats),
+      totalCoursesRetrieved: toStatisticalMetric(totalCoursesStats),
       averageRelevance: toStatisticalMetric(averageRelevanceStats),
       highlyRelevantRate: toStatisticalMetric(highlyRelevantRateStats),
       irrelevantRate: toStatisticalMetric(irrelevantRateStats),

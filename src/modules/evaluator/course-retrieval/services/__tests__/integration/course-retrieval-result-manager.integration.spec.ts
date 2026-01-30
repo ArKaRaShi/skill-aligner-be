@@ -119,9 +119,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           entries: [
             {
               hash: 'a'.repeat(64),
-              dedupeKey: 'Test skill-' + 'a'.repeat(64),
               skill: 'Test skill',
-              testCases: ['test-001'],
+              questionIds: ['test-001'],
+              occurrenceCount: 1,
               completedAt: new Date().toISOString(),
               result: {
                 retrievedCount: 2,
@@ -135,6 +135,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             completedItems: 1,
             pendingItems: 0,
             completionPercentage: 100,
+          },
+          deduplicationStats: {
+            totalQuestions: 1,
+            totalSkillsExtracted: 1,
+            uniqueSkillsEvaluated: 1,
+            deduplicationRate: 0,
+            skillFrequency: new Map([['Test skill', 1]]),
           },
         },
       );
@@ -169,9 +176,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         entries: [
           {
             hash: 'a'.repeat(64),
-            dedupeKey: 'Test skill-' + 'a'.repeat(64),
             skill: 'Test skill',
-            testCases: ['test-001'],
+            questionIds: ['test-001'],
+            occurrenceCount: 1,
             completedAt: new Date().toISOString(),
             result: {
               retrievedCount: 2,
@@ -185,6 +192,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           completedItems: 1,
           pendingItems: 0,
           completionPercentage: 100,
+        },
+        deduplicationStats: {
+          totalQuestions: 1,
+          totalSkillsExtracted: 1,
+          uniqueSkillsEvaluated: 1,
+          deduplicationRate: 0,
+          skillFrequency: new Map([['Test skill', 1]]),
         },
       };
 
@@ -205,7 +219,18 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       // Verify content
       const loaded =
         await FileHelper.loadJson<typeof progressData>(progressPath);
-      expect(loaded).toEqual(progressData);
+      // Map is serialized as plain object, so check fields individually
+      expect(loaded.testSetName).toBe(progressData.testSetName);
+      expect(loaded.iterationNumber).toBe(progressData.iterationNumber);
+      expect(loaded.entries).toEqual(progressData.entries);
+      expect(loaded.statistics).toEqual(progressData.statistics);
+      expect(loaded.deduplicationStats).toBeDefined();
+      expect(loaded.deduplicationStats.totalQuestions).toBe(1);
+      expect(loaded.deduplicationStats.totalSkillsExtracted).toBe(1);
+      expect(loaded.deduplicationStats.uniqueSkillsEvaluated).toBe(1);
+      expect(loaded.deduplicationStats.deduplicationRate).toBe(0);
+      // skillFrequency is serialized as plain object
+      expect(loaded.deduplicationStats.skillFrequency['Test skill']).toBe(1);
     });
 
     it('should update existing progress file when saved multiple times', async () => {
@@ -221,9 +246,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         entries: [
           {
             hash: 'a'.repeat(64),
-            dedupeKey: 'Skill 1-' + 'a'.repeat(64),
             skill: 'Skill 1',
-            testCases: ['test-001'],
+            questionIds: ['test-001'],
+            occurrenceCount: 1,
             completedAt: new Date().toISOString(),
             result: { retrievedCount: 1, meanRelevanceScore: 2 },
           },
@@ -234,6 +259,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           completedItems: 1,
           pendingItems: 1,
           completionPercentage: 50,
+        },
+        deduplicationStats: {
+          totalQuestions: 1,
+          totalSkillsExtracted: 1,
+          uniqueSkillsEvaluated: 1,
+          deduplicationRate: 0,
+          skillFrequency: new Map([['Skill 1', 1]]),
         },
       };
 
@@ -250,9 +282,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       // Update and save again
       progressData.entries.push({
         hash: 'b'.repeat(64),
-        dedupeKey: 'Skill 2-' + 'b'.repeat(64),
         skill: 'Skill 2',
-        testCases: ['test-002'],
+        questionIds: ['test-002'],
+        occurrenceCount: 1,
         completedAt: new Date().toISOString(),
         result: { retrievedCount: 1, meanRelevanceScore: 3 },
       });
@@ -283,8 +315,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       const records: EvaluateRetrieverOutput[] = [
         {
-          testCaseId: 'test-001',
-          question: 'Question 1?',
+          questionIds: ['test-001'],
           skill: 'Skill 1',
           retrievedCount: 2,
           evaluations: [
@@ -298,6 +329,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           metrics: {
             totalCourses: 1,
             meanRelevanceScore: 3,
+            totalRelevanceSum: 3,
             perClassDistribution: {
               score0: {
                 relevanceScore: 0,
@@ -376,14 +408,14 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       const records1: EvaluateRetrieverOutput[] = [
         {
-          testCaseId: 'test-001',
-          question: 'Q1?',
+          questionIds: ['test-001'],
           skill: 'S1',
           retrievedCount: 1,
           evaluations: [],
           metrics: {
             totalCourses: 1,
             meanRelevanceScore: 2,
+            totalRelevanceSum: 2,
             perClassDistribution: {
               score0: {
                 relevanceScore: 0,
@@ -434,14 +466,14 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       const records2: EvaluateRetrieverOutput[] = [
         {
-          testCaseId: 'test-002',
-          question: 'Q2?',
+          questionIds: ['test-002'],
           skill: 'S2',
           retrievedCount: 1,
           evaluations: [],
           metrics: {
             totalCourses: 1,
             meanRelevanceScore: 3,
+            totalRelevanceSum: 3,
             perClassDistribution: {
               score0: {
                 relevanceScore: 0,
@@ -525,8 +557,8 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       expect(loaded1).toHaveLength(1);
       expect(loaded2).toHaveLength(1);
-      expect(loaded1[0].testCaseId).toBe('test-001');
-      expect(loaded2[0].testCaseId).toBe('test-002');
+      expect(loaded1[0].questionIds).toEqual(['test-001']);
+      expect(loaded2[0].questionIds).toEqual(['test-002']);
     });
   });
 
@@ -553,14 +585,14 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       await service.ensureDirectoryStructure(testSetName);
 
       const record: EvaluateRetrieverOutput = {
-        testCaseId: 'test-001',
-        question: 'Question?',
+        questionIds: ['test-001'],
         skill: 'Skill',
         retrievedCount: 1,
         evaluations: [],
         metrics: {
           totalCourses: 1,
           meanRelevanceScore: 2,
+          totalRelevanceSum: 2,
           perClassDistribution: {
             score0: {
               relevanceScore: 0,
@@ -608,12 +640,8 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         outputTokens: 50,
       };
 
-      // Save using ADR-0002 hash-based pattern
-      const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
-        question: record.question,
-        skill: record.skill,
-        testCaseId: record.testCaseId,
-      });
+      // Save using skill hash for deduplication
+      const hash = EvaluationHashUtil.hashString(record.skill);
       await service.saveRecord({
         testSetName,
         iterationNumber,
@@ -647,9 +675,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         entries: [
           {
             hash: 'abc123def456'.padEnd(64, '0'),
-            dedupeKey: 'Format skill-' + 'abc123def456'.padEnd(64, '0'),
             skill: 'Format skill',
-            testCases: ['fmt-001'],
+            questionIds: ['fmt-001'],
+            occurrenceCount: 1,
             completedAt: '2025-01-24T12:00:00.000Z',
             result: {
               retrievedCount: 3,
@@ -663,6 +691,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           completedItems: 2,
           pendingItems: 3,
           completionPercentage: 40,
+        },
+        deduplicationStats: {
+          totalQuestions: 1,
+          totalSkillsExtracted: 1,
+          uniqueSkillsEvaluated: 1,
+          deduplicationRate: 0,
+          skillFrequency: new Map([['Format skill', 1]]),
         },
       };
 
@@ -691,9 +726,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         entries: [
           {
             hash: 'a1b2c3d4e5f6'.padEnd(64, '0'),
-            dedupeKey: 'Hash skill-' + 'a1b2c3d4e5f6'.padEnd(64, '0'),
             skill: 'Hash skill',
-            testCases: ['hash-001'],
+            questionIds: ['hash-001'],
+            occurrenceCount: 1,
             completedAt: new Date().toISOString(),
             result: {
               retrievedCount: 1,
@@ -707,6 +742,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           completedItems: 1,
           pendingItems: 0,
           completionPercentage: 100,
+        },
+        deduplicationStats: {
+          totalQuestions: 1,
+          totalSkillsExtracted: 1,
+          uniqueSkillsEvaluated: 1,
+          deduplicationRate: 0,
+          skillFrequency: new Map([['Hash skill', 1]]),
         },
       };
 
@@ -743,6 +785,13 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           pendingItems: 0,
           completionPercentage: 0,
         },
+        deduplicationStats: {
+          totalQuestions: 0,
+          totalSkillsExtracted: 0,
+          uniqueSkillsEvaluated: 0,
+          deduplicationRate: 0,
+          skillFrequency: new Map(),
+        },
       };
 
       // Act
@@ -770,9 +819,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         iterationNumber,
         entries: Array.from({ length: 100 }, (_, i) => ({
           hash: 'hash'.padEnd(64, '0') + i,
-          dedupeKey: `Skill ${i}-` + 'hash'.padEnd(64, '0') + i,
           skill: `Skill ${i}`,
-          testCases: [`test-${i}`],
+          questionIds: [`test-${i}`],
+          occurrenceCount: 1,
           completedAt: new Date().toISOString(),
           result: {
             retrievedCount: 1,
@@ -785,6 +834,15 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           completedItems: 100,
           pendingItems: 0,
           completionPercentage: 100,
+        },
+        deduplicationStats: {
+          totalQuestions: 100,
+          totalSkillsExtracted: 100,
+          uniqueSkillsEvaluated: 100,
+          deduplicationRate: 0,
+          skillFrequency: new Map(
+            Array.from({ length: 100 }, (_, i) => [`Skill ${i}`, 1] as const),
+          ),
         },
       };
 
@@ -822,8 +880,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       const records: EvaluateRetrieverOutput[] = [
         {
-          testCaseId: 'test-001',
-          question: 'How to learn Python?',
+          questionIds: ['test-001'],
           skill: 'Python programming',
           retrievedCount: 3,
           evaluations: [
@@ -849,6 +906,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           metrics: {
             totalCourses: 3,
             meanRelevanceScore: 1.667,
+            totalRelevanceSum: 5,
             perClassDistribution: {
               score0: {
                 relevanceScore: 0,
@@ -921,12 +979,11 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       expect(metrics.iteration).toBe(1);
       expect(metrics.timestamp).toBeDefined();
       expect(metrics.sampleCount).toBe(1);
-      expect(metrics.totalCoursesEvaluated).toBe(3);
+      expect(metrics.totalCoursesRetrieved).toBe(3);
+      expect(metrics.totalCoursesScored).toBe(1); // Sum of distribution counts (0+0+0+1)
+      expect(metrics.coursesNotScored).toBe(2); // Gap = 3 - 1
       // Enriched metrics - check the .value property
-      expect(metrics.meanRelevanceScore.meanRelevanceScore).toBeCloseTo(
-        1.667,
-        2,
-      );
+      expect(metrics.meanRelevanceScore.macroMean).toBeCloseTo(1.667, 2);
       expect(metrics.ndcg.at5.proxyNdcg).toBeDefined();
       expect(metrics.ndcg.at10.proxyNdcg).toBeDefined();
       expect(metrics.ndcg.atAll.proxyNdcg).toBeDefined();
@@ -948,8 +1005,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       const records: EvaluateRetrieverOutput[] = Array.from(
         { length: 5 },
         (_, i) => ({
-          testCaseId: `test-${i}`,
-          question: `Question ${i}?`,
+          questionIds: [`test-${i}`],
           skill: `Skill ${i}`,
           retrievedCount: 2,
           evaluations: [
@@ -969,6 +1025,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           metrics: {
             totalCourses: 2,
             meanRelevanceScore: 2.5,
+            totalRelevanceSum: 5,
             perClassDistribution: {
               score0: {
                 relevanceScore: 0,
@@ -1035,7 +1092,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       const metrics =
         await FileHelper.loadJson<CourseRetrievalIterationMetrics>(metricsPath);
       expect(metrics.sampleCount).toBe(5);
-      expect(metrics.totalCoursesEvaluated).toBe(10); // 5 samples × 2 courses each
+      expect(metrics.totalCoursesRetrieved).toBe(10); // 5 samples × 2 courses each
+      expect(metrics.totalCoursesScored).toBe(5); // Only 5 courses scored (gap of 5)
+      expect(metrics.coursesNotScored).toBe(5); // Gap = 10 - 5
     });
   });
 
@@ -1051,8 +1110,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       for (let i = 1; i <= totalIterations; i++) {
         const records: EvaluateRetrieverOutput[] = [
           {
-            testCaseId: `test-${i}`,
-            question: `Question ${i}?`,
+            questionIds: [`test-${i}`],
             skill: `Skill ${i}`,
             retrievedCount: 3,
             evaluations: [
@@ -1078,6 +1136,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             metrics: {
               totalCourses: 3,
               meanRelevanceScore: (i + 2 + 1) / 3,
+              totalRelevanceSum: i + 2 + 1,
               perClassDistribution: {
                 score0: {
                   relevanceScore: 0,
@@ -1152,13 +1211,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           },
         ];
 
-        // Save each record using ADR-0002 hash-based pattern
+        // Save each record using skill hash for deduplication
         for (const record of records) {
-          const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
-            question: record.question,
-            skill: record.skill,
-            testCaseId: record.testCaseId,
-          });
+          const hash = EvaluationHashUtil.hashString(record.skill);
           await service.saveRecord({
             testSetName,
             iterationNumber: i,
@@ -1194,11 +1249,14 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       expect(finalMetrics.aggregateMetrics.ndcgAt10).toHaveProperty('stdDev');
 
       expect(finalMetrics.aggregateMetrics.precisionAt10).toHaveProperty(
-        'mean',
+        'threshold2',
       );
-      expect(finalMetrics.aggregateMetrics.precisionAt10).toHaveProperty(
-        'stdDev',
-      );
+      expect(
+        finalMetrics.aggregateMetrics.precisionAt10.threshold2,
+      ).toHaveProperty('mean');
+      expect(
+        finalMetrics.aggregateMetrics.precisionAt10.threshold2,
+      ).toHaveProperty('stdDev');
 
       // Verify per-iteration metrics are included
       expect(finalMetrics.perIterationMetrics[0].iteration).toBe(1);
@@ -1228,8 +1286,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
 
       const records: EvaluateRetrieverOutput[] = [
         {
-          testCaseId: 'test-001',
-          question: 'Question?',
+          questionIds: ['test-001'],
           skill: 'Skill',
           retrievedCount: 2,
           evaluations: [
@@ -1249,6 +1306,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           metrics: {
             totalCourses: 2,
             meanRelevanceScore: 2,
+            totalRelevanceSum: 4,
             perClassDistribution: {
               score0: {
                 relevanceScore: 0,
@@ -1297,13 +1355,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
         },
       ];
 
-      // Save record using ADR-0002 hash-based pattern
+      // Save record using skill hash for deduplication
       for (const record of records) {
-        const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
-          question: record.question,
-          skill: record.skill,
-          testCaseId: record.testCaseId,
-        });
+        const hash = EvaluationHashUtil.hashString(record.skill);
         await service.saveRecord({
           testSetName,
           iterationNumber: 1,
@@ -1352,8 +1406,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       for (let i = 1; i <= 2; i++) {
         const records: EvaluateRetrieverOutput[] = [
           {
-            testCaseId: `test-${i}`,
-            question: `Question ${i}?`,
+            questionIds: [`test-${i}`],
             skill: `Skill ${i}`,
             retrievedCount: 1,
             evaluations: [
@@ -1367,6 +1420,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             metrics: {
               totalCourses: 1,
               meanRelevanceScore: 2,
+              totalRelevanceSum: 2,
               perClassDistribution: {
                 score0: {
                   relevanceScore: 0,
@@ -1415,13 +1469,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           },
         ];
 
-        // Save each record using ADR-0002 hash-based pattern
+        // Save each record using skill hash for deduplication
         for (const record of records) {
-          const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
-            question: record.question,
-            skill: record.skill,
-            testCaseId: record.testCaseId,
-          });
+          const hash = EvaluationHashUtil.hashString(record.skill);
           await service.saveRecord({
             testSetName,
             iterationNumber: i,
@@ -1481,8 +1531,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
       for (let i = 0; i < totalIterations; i++) {
         const records: EvaluateRetrieverOutput[] = [
           {
-            testCaseId: `test-${i}`,
-            question: `Question ${i}?`,
+            questionIds: [`test-${i}`],
             skill: `Skill ${i}`,
             retrievedCount: 3,
             evaluations: [
@@ -1508,6 +1557,7 @@ describe('CourseRetrievalResultManagerService Integration', () => {
             metrics: {
               totalCourses: 3,
               meanRelevanceScore: (3 + (i === 2 ? 3 : 2) + 1) / 3,
+              totalRelevanceSum: 3 + (i === 2 ? 3 : 2) + 1,
               perClassDistribution: {
                 score0: {
                   relevanceScore: 0,
@@ -1556,13 +1606,9 @@ describe('CourseRetrievalResultManagerService Integration', () => {
           },
         ];
 
-        // Save each record using ADR-0002 hash-based pattern
+        // Save each record using skill hash for deduplication
         for (const record of records) {
-          const hash = EvaluationHashUtil.generateCourseRetrievalRecordHash({
-            question: record.question,
-            skill: record.skill,
-            testCaseId: record.testCaseId,
-          });
+          const hash = EvaluationHashUtil.hashString(record.skill);
           await service.saveRecord({
             testSetName,
             iterationNumber: i + 1,

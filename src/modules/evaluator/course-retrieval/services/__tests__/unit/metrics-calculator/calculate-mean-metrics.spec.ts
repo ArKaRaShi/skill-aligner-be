@@ -66,6 +66,7 @@ describe('CourseRetrievalMetricsCalculator', () => {
       > = {
         totalCourses: 10,
         meanRelevanceScore: 2.0,
+        totalRelevanceSum: 20,
         perClassDistribution: {
           score0: {
             relevanceScore: 0,

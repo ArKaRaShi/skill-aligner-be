@@ -8,14 +8,14 @@ import { FileHelper } from 'src/shared/utils/file';
 import { EvaluationHashUtil } from '../../shared/utils/evaluation-hash.util';
 import { CourseRetrieverEvaluator } from '../evaluators/course-retriever.evaluator';
 import {
-  CourseRetrievalDedupeGroup,
-  CourseRetrievalDedupeKey,
-  CourseRetrievalProgressEntry,
   CourseRetrieverTestCase,
   EvaluateRetrieverInput,
   EvaluateRetrieverOutput,
   RunTestSetInput,
+  SkillDeduplicationStats,
+  SkillEvaluationGroup,
 } from '../types/course-retrieval.types';
+import type { CourseRetrievalProgressEntry } from '../types/course-retrieval.types';
 import { CourseRetrievalMetricsCalculator } from './course-retrieval-metrics-calculator.service';
 import { CourseRetrievalResultManagerService } from './course-retrieval-result-manager.service';
 
@@ -35,9 +35,11 @@ export type CourseRetrievalEvaluationContext = {
  * Handles pipeline execution, result persistence, and file organization.
  * Uses direct class injection (modern pattern) instead of contract-based tokens.
  *
- * Progress tracking is done at SAMPLE level (question + skill combination).
- * Each sample is tracked independently with a unique hash based on question, skill,
- * and optional testCaseId. This enables crash recovery and resumable evaluations.
+ * **Skill-Level Deduplication:**
+ * Progress tracking is done at SKILL level (not question level).
+ * Each unique skill is evaluated once, regardless of how many questions
+ * contain that skill. The question is only used to derive the skill and
+ * does not affect the evaluation itself.
  *
  * @example
  * ```typescript
@@ -56,7 +58,7 @@ export type CourseRetrievalEvaluationContext = {
  * - c=3: Good balance (default)
  * - c=5+: Fast, but may hit rate limits
  */
-const DEFAULT_CONCURRENCY = 3;
+const DEFAULT_CONCURRENCY = 5;
 
 @Injectable()
 export class CourseRetrievalRunnerService {
@@ -76,12 +78,16 @@ export class CourseRetrievalRunnerService {
    * Run a complete test set with multiple test cases
    *
    * This is the main entry point for running batch evaluations.
-   * Implements cross-question deduplication: groups test cases by
-   * (skill, courses) and evaluates each unique group only once.
+   * Implements skill-level deduplication: groups test cases by skill only
+   * (not skill + courses), evaluating each unique skill once.
+   *
+   * **Key insight:** The question is only used to derive the skill.
+   * Once the skill is extracted, the question doesn't affect the evaluation.
+   * Therefore, we evaluate each unique skill exactly once.
    *
    * Progress tracking: Loads existing progress at the start, checks for
-   * completed groups (by dedupe key), skips evaluations if already completed,
-   * and saves progress after each group for crash recovery.
+   * completed skills (by skill hash), skips evaluations if already completed,
+   * and saves progress after each skill for crash recovery.
    *
    * @param input - Test set and iteration configuration
    */
@@ -98,18 +104,33 @@ export class CourseRetrievalRunnerService {
     // Ensure directory structure exists
     await this.resultManager.ensureDirectoryStructure(testSet.name);
 
-    // NEW: Group test cases by (skill, courses) for cross-question deduplication
-    const dedupeGroups = this.groupByDedupeKey(testSet.cases);
-    const totalTestCases = testSet.cases.length;
-    const uniqueGroups = dedupeGroups.size;
-    const duplicatesRemoved = totalTestCases - uniqueGroups;
+    // NEW: Group test cases by SKILL ONLY (not skill + courses)
+    const skillGroups = this.groupBySkill(testSet.cases);
+    const totalQuestions = testSet.cases.length;
+    const totalSkillsExtracted = testSet.cases.length; // One skill per test case
+    const uniqueSkills = skillGroups.size;
+    const duplicatesRemoved = totalSkillsExtracted - uniqueSkills;
     const deduplicationRate =
-      totalTestCases > 0 ? (duplicatesRemoved / totalTestCases) * 100 : 0;
+      totalSkillsExtracted > 0 ? duplicatesRemoved / totalSkillsExtracted : 0;
 
-    this.logger.log(`Test cases: ${totalTestCases}`);
-    this.logger.log(`Unique (skill, courses) groups: ${uniqueGroups}`);
+    // Build skill frequency map
+    const skillFrequency = new Map<string, number>();
+    for (const [skill, group] of skillGroups) {
+      skillFrequency.set(skill, group.occurrenceCount);
+    }
+
+    const deduplicationStats: SkillDeduplicationStats = {
+      totalQuestions,
+      totalSkillsExtracted,
+      uniqueSkillsEvaluated: uniqueSkills,
+      deduplicationRate,
+      skillFrequency,
+    };
+
+    this.logger.log(`Test cases: ${totalQuestions}`);
+    this.logger.log(`Unique skills: ${uniqueSkills}`);
     this.logger.log(
-      `Cross-question deduplication: ${duplicatesRemoved}/${totalTestCases} duplicates removed (${deduplicationRate.toFixed(1)}% reduction)`,
+      `Skill deduplication: ${duplicatesRemoved}/${totalSkillsExtracted} duplicates removed (${(deduplicationRate * 100).toFixed(1)}% reduction)`,
     );
 
     // Load existing progress (if any)
@@ -118,102 +139,105 @@ export class CourseRetrievalRunnerService {
       iterationNumber,
     });
 
-    // Initialize progress statistics for deduplication
-    progress.statistics.totalItems = uniqueGroups;
+    // Initialize progress statistics for skill deduplication
+    progress.statistics.totalItems = uniqueSkills;
     progress.statistics.completedItems = progress.entries.length;
-    progress.statistics.pendingItems = uniqueGroups - progress.entries.length;
+    progress.statistics.pendingItems = uniqueSkills - progress.entries.length;
     progress.statistics.completionPercentage =
-      uniqueGroups > 0 ? (progress.entries.length / uniqueGroups) * 100 : 0;
+      uniqueSkills > 0 ? (progress.entries.length / uniqueSkills) * 100 : 0;
 
-    // Add deduplication statistics to progress file
-    progress.deduplicationStats = {
-      totalTestCases,
-      uniqueGroups,
-      duplicateCount: duplicatesRemoved,
-      deduplicationRate,
-    };
+    // Add skill deduplication statistics to progress file
+    progress.deduplicationStats = deduplicationStats;
 
-    // Create a map of completed groups for quick lookup
-    const completedGroups = new Map<string, CourseRetrievalProgressEntry>(
-      progress.entries.map((entry) => [entry.dedupeKey ?? entry.hash, entry]),
+    // Create a map of completed skills for quick lookup (by skill hash)
+    const completedSkills = new Map<string, CourseRetrievalProgressEntry>(
+      progress.entries.map((entry) => [entry.hash, entry]),
     );
 
     this.logger.log(
-      `Progress: ${progress.entries.length}/${uniqueGroups} groups completed (${progress.statistics.completionPercentage.toFixed(1)}%)`,
+      `Progress: ${progress.entries.length}/${uniqueSkills} skills completed (${progress.statistics.completionPercentage.toFixed(1)}%)`,
     );
 
-    // Convert dedupeGroups Map to array for chunked processing
-    const groupEntries = Array.from(dedupeGroups.entries());
+    // Convert skillGroups Map to array for chunked processing
+    const groupEntries = Array.from(skillGroups.entries());
 
-    // Run each unique deduplication group with chunked concurrency
+    // Run each unique skill with chunked concurrency
     const allRecords: EvaluateRetrieverOutput[] = [];
 
-    // Process groups in chunks for parallel execution
+    // Process skills in chunks for parallel execution
     for (let i = 0; i < groupEntries.length; i += this.concurrency) {
-      const concurrentGroups = groupEntries.slice(i, i + this.concurrency);
+      const concurrentSkills = groupEntries.slice(i, i + this.concurrency);
       const chunkNumber = Math.floor(i / this.concurrency) + 1;
       const totalChunks = Math.ceil(groupEntries.length / this.concurrency);
 
       this.logger.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
       this.logger.log(
-        `Chunk ${chunkNumber}/${totalChunks}: Processing ${concurrentGroups.length} group(s)`,
+        `Chunk ${chunkNumber}/${totalChunks}: Processing ${concurrentSkills.length} skill(s)`,
       );
 
-      // Separate completed (cached) and pending groups in this chunk
+      // Separate completed (cached) and pending skills in this chunk
       const completedInChunk: Array<{
-        dedupeKey: string;
-        group: CourseRetrievalDedupeGroup;
+        skill: string;
+        group: SkillEvaluationGroup;
         entry: CourseRetrievalProgressEntry;
       }> = [];
       const pendingInChunk: Array<{
-        dedupeKey: string;
-        group: CourseRetrievalDedupeGroup;
-        groupNumber: number;
+        skill: string;
+        group: SkillEvaluationGroup;
+        skillNumber: number;
+        skillHash: string;
       }> = [];
 
-      for (const [dedupeKey, group] of concurrentGroups) {
-        const groupNumber =
-          i + concurrentGroups.indexOf([dedupeKey, group]) + 1;
+      for (const [skill, group] of concurrentSkills) {
+        // Generate skill hash for deduplication (hash of skill only)
+        const skillHash = EvaluationHashUtil.hashString(skill);
+        const skillNumber = i + concurrentSkills.indexOf([skill, group]) + 1;
 
-        if (completedGroups.has(dedupeKey)) {
-          const cachedEntry = completedGroups.get(dedupeKey)!;
-          completedInChunk.push({ dedupeKey, group, entry: cachedEntry });
+        if (completedSkills.has(skillHash)) {
+          const cachedEntry = completedSkills.get(
+            skillHash,
+          ) as CourseRetrievalProgressEntry;
+          completedInChunk.push({ skill, group, entry: cachedEntry });
           this.logger.log(
-            `[Group ${groupNumber}/${dedupeGroups.size}] Skipping ${dedupeKey.substring(0, 24)}... (already completed)`,
+            `[Skill ${skillNumber}/${skillGroups.size}] Skipping "${skill}" (already completed)`,
           );
         } else {
-          pendingInChunk.push({ dedupeKey, group, groupNumber });
+          pendingInChunk.push({ skill, group, skillNumber, skillHash });
         }
       }
 
-      // Process completed groups (cached results - no LLM calls needed)
+      // Process completed skills (cached results - no LLM calls needed)
       for (const { group, entry } of completedInChunk) {
-        for (const testCase of group.testCases) {
-          const cachedResult = this.createCachedResult(testCase, entry);
-          allRecords.push(cachedResult);
-        }
+        const cachedResult = this.createCachedResult(group, entry);
+        allRecords.push(cachedResult);
       }
 
-      // Process pending groups in parallel within this chunk
+      // Process pending skills in parallel within this chunk
       const newProgressEntries: CourseRetrievalProgressEntry[] = [];
       const batchRecords: EvaluateRetrieverOutput[] = [];
 
       const results = await Promise.allSettled(
-        pendingInChunk.map(async ({ dedupeKey, group, groupNumber }) => {
-          const { skill, courses, coursesHash, testCases } = group;
-          const progressPrefix = `[Group ${groupNumber}/${dedupeGroups.size}]`;
+        pendingInChunk.map(async ({ skill, group, skillNumber, skillHash }) => {
+          const { representativeTestCase, testCaseIds, occurrenceCount } =
+            group;
+          const progressPrefix = `[Skill ${skillNumber}/${skillGroups.size}]`;
 
           this.logger.log(
-            `${progressPrefix} Evaluating: ${skill} (${testCases.length} questions share this retrieval)`,
+            `${progressPrefix} Evaluating: "${skill}" (appears in ${occurrenceCount} question${occurrenceCount > 1 ? 's' : ''})`,
           );
-          this.logger.log(`  Courses: ${courses.length}`);
+          this.logger.log(
+            `  Questions: ${testCaseIds.map((id) => `"${id}"`).join(', ')}`,
+          );
+          this.logger.log(
+            `  Courses: ${representativeTestCase.retrievedCourses.length}`,
+          );
 
-          // Run evaluation once for the entire group
+          // Run evaluation once for this skill
           const evaluationResult = await this.evaluator.evaluate(
             {
-              question: testCases[0].question, // Question doesn't affect evaluation
+              question: representativeTestCase.question, // Question doesn't affect evaluation
               skill,
-              retrievedCourses: courses,
+              retrievedCourses: representativeTestCase.retrievedCourses,
             },
             {
               model: input.judgeModel,
@@ -233,56 +257,43 @@ export class CourseRetrievalRunnerService {
             `Irrelevant: ${evaluationResult.metrics.perClassDistribution.score0.macroAverageRate.toFixed(DECIMAL_PRECISION.RATE_COARSE)}%`,
           );
 
-          // Create records for ALL test cases in this deduplication group
-          const records: EvaluateRetrieverOutput[] = [];
-          for (const testCase of testCases) {
-            const result: EvaluateRetrieverOutput = {
-              testCaseId: testCase.id,
-              question: testCase.question,
-              skill,
-              retrievedCount: courses.length,
-              evaluations: evaluationResult.evaluations,
-              metrics: evaluationResult.metrics,
-              llmModel: evaluationResult.llmInfo.model,
-              llmProvider: evaluationResult.llmInfo.provider ?? 'unknown',
-              inputTokens: evaluationResult.llmTokenUsage.inputTokens,
-              outputTokens: evaluationResult.llmTokenUsage.outputTokens,
-            };
-
-            records.push(result);
-
-            // Save record to hash-based file for crash recovery
-            const recordHash =
-              EvaluationHashUtil.generateCourseRetrievalRecordHash({
-                question: testCase.question,
-                skill,
-                testCaseId: testCase.id,
-              });
-
-            await this.resultManager.saveRecord({
-              testSetName: testSet.name,
-              iterationNumber,
-              hash: recordHash,
-              record: result,
-            });
-          }
-
-          // Create progress entry (one per deduplication group)
-          const progressEntry: CourseRetrievalProgressEntry = {
-            hash: coursesHash, // Pure SHA256 hash (64 hex chars)
-            dedupeKey,
+          // Create ONE record for this skill (with all question IDs)
+          const result: EvaluateRetrieverOutput = {
+            questionIds: testCaseIds, // All questions that have this skill
             skill,
-            testCases: testCases.map((tc) => tc.id),
+            retrievedCount: representativeTestCase.retrievedCourses.length,
+            evaluations: evaluationResult.evaluations,
+            metrics: evaluationResult.metrics,
+            llmModel: evaluationResult.llmInfo.model,
+            llmProvider: evaluationResult.llmInfo.provider ?? 'unknown',
+            inputTokens: evaluationResult.llmTokenUsage.inputTokens,
+            outputTokens: evaluationResult.llmTokenUsage.outputTokens,
+          };
+
+          // Save record to hash-based file (skill hash)
+          await this.resultManager.saveRecord({
+            testSetName: testSet.name,
+            iterationNumber,
+            hash: skillHash,
+            record: result,
+          });
+
+          // Create progress entry (one per skill)
+          const progressEntry: CourseRetrievalProgressEntry = {
+            hash: skillHash,
+            skill,
+            questionIds: testCaseIds,
+            occurrenceCount,
             completedAt: new Date().toISOString(),
             result: {
-              retrievedCount: courses.length,
+              retrievedCount: representativeTestCase.retrievedCourses.length,
               meanRelevanceScore: evaluationResult.metrics.meanRelevanceScore,
             },
           };
 
           return {
             progressEntry,
-            records,
+            record: result,
           };
         }),
       );
@@ -290,10 +301,13 @@ export class CourseRetrievalRunnerService {
       // Process successful results
       for (const result of results) {
         if (result.status === 'fulfilled') {
-          const { progressEntry, records } = result.value;
+          const { progressEntry, record } = result.value as unknown as {
+            progressEntry: CourseRetrievalProgressEntry;
+            record: EvaluateRetrieverOutput;
+          };
           newProgressEntries.push(progressEntry);
-          batchRecords.push(...records);
-          completedGroups.set(progressEntry.dedupeKey, progressEntry);
+          batchRecords.push(record);
+          completedSkills.set(progressEntry.hash, progressEntry);
         }
       }
 
@@ -301,7 +315,7 @@ export class CourseRetrievalRunnerService {
       const failures = results.filter((r) => r.status === 'rejected');
       if (failures.length > 0) {
         this.logger.warn(
-          `${failures.length} group(s) failed in chunk ${chunkNumber}`,
+          `${failures.length} skill(s) failed in chunk ${chunkNumber}`,
         );
         for (const failure of failures) {
           this.logger.error(
@@ -313,20 +327,20 @@ export class CourseRetrievalRunnerService {
       // Add all records from this chunk
       allRecords.push(...batchRecords);
 
-      // Save progress once per chunk (not per group) to avoid file corruption
+      // Save progress once per chunk (not per skill) to avoid file corruption
       progress.entries.push(...newProgressEntries);
       progress.statistics.completedItems = progress.entries.length;
-      progress.statistics.pendingItems = uniqueGroups - progress.entries.length;
+      progress.statistics.pendingItems = uniqueSkills - progress.entries.length;
       progress.statistics.completionPercentage =
-        uniqueGroups > 0 ? (progress.entries.length / uniqueGroups) * 100 : 0;
+        uniqueSkills > 0 ? (progress.entries.length / uniqueSkills) * 100 : 0;
 
       await this.resultManager.saveProgress(progress);
 
       this.logger.log(
-        `Chunk ${chunkNumber}/${totalChunks} complete: ${newProgressEntries.length} group(s) evaluated, ${completedInChunk.length} cached`,
+        `Chunk ${chunkNumber}/${totalChunks} complete: ${newProgressEntries.length} skill(s) evaluated, ${completedInChunk.length} cached`,
       );
       this.logger.log(
-        `Progress: ${progress.entries.length}/${uniqueGroups} groups (${progress.statistics.completionPercentage.toFixed(1)}%)`,
+        `Progress: ${progress.entries.length}/${uniqueSkills} skills (${progress.statistics.completionPercentage.toFixed(1)}%)`,
       );
     }
 
@@ -337,11 +351,20 @@ export class CourseRetrievalRunnerService {
       records: allRecords,
     });
 
+    // Update deduplication stats to reflect actual completed evaluations
+    // This ensures consistency when some evaluations fail or produce no results
+    deduplicationStats.uniqueSkillsEvaluated = progress.entries.length;
+
+    // Update progress file with final deduplication stats
+    progress.deduplicationStats = deduplicationStats;
+    await this.resultManager.saveProgress(progress);
+
     // Save iteration metrics (for cross-iteration aggregation)
     await this.resultManager.saveIterationMetrics({
       testSetName: testSet.name,
       iterationNumber,
       records: allRecords,
+      skillDeduplicationStats: deduplicationStats,
     });
 
     // Save iteration cost
@@ -422,8 +445,7 @@ export class CourseRetrievalRunnerService {
     );
 
     const result: EvaluateRetrieverOutput = {
-      testCaseId: input.testCaseId,
-      question: evaluationResult.question,
+      questionIds: [input.testCaseId ?? 'single-evaluation'], // Wrap in array for consistency
       skill: evaluationResult.skill,
       retrievedCount: input.retrievedCourses.length,
       evaluations: evaluationResult.evaluations,
@@ -588,68 +610,66 @@ export class CourseRetrievalRunnerService {
   }
 
   /**
-   * Group test cases by (skill, courses) for cross-question deduplication
+   * Group test cases by skill for skill-level deduplication
    *
-   * Creates deduplication groups where multiple questions that retrieve
-   * the same courses for the same skill are grouped together.
+   * Creates skill evaluation groups where multiple questions that
+   * share the same skill are grouped together. Each unique skill
+   * is evaluated once, regardless of how many questions contain it.
    *
    * @param testCases - All test cases to group
-   * @returns Map of dedupeKey -> deduplication group
+   * @returns Map of skill -> skill evaluation group
    */
-  private groupByDedupeKey(
+  private groupBySkill(
     testCases: CourseRetrieverTestCase[],
-  ): Map<CourseRetrievalDedupeKey, CourseRetrievalDedupeGroup> {
-    const groups = new Map<string, CourseRetrievalDedupeGroup>();
+  ): Map<string, SkillEvaluationGroup> {
+    const groups = new Map<string, SkillEvaluationGroup>();
 
     for (const testCase of testCases) {
-      // Generate courses hash for deduplication
-      const coursesHash = EvaluationHashUtil.hashCourses(
-        testCase.retrievedCourses,
-      );
-      const dedupeKey: CourseRetrievalDedupeKey = `${testCase.skill}-${coursesHash}`;
+      const skill = testCase.skill;
 
-      if (!groups.has(dedupeKey)) {
-        groups.set(dedupeKey, {
-          dedupeKey,
-          skill: testCase.skill,
-          courses: testCase.retrievedCourses,
-          coursesHash,
-          testCases: [],
+      if (!groups.has(skill)) {
+        groups.set(skill, {
+          skill,
+          testCaseIds: [],
+          representativeTestCase: testCase,
+          occurrenceCount: 0,
         });
       }
 
-      groups.get(dedupeKey)!.testCases.push(testCase);
+      const group = groups.get(skill)!;
+      group.testCaseIds.push(testCase.id);
+      group.occurrenceCount++;
     }
 
     this.logger.debug(
-      `Created ${groups.size} deduplication groups from ${testCases.length} test cases`,
+      `Created ${groups.size} skill groups from ${testCases.length} test cases`,
     );
 
     return groups;
   }
 
   /**
-   * Create a cached result for a test case from a progress entry
+   * Create a cached result for a skill group from a progress entry
    *
-   * Used when a deduplication group was already evaluated in a previous run.
+   * Used when a skill was already evaluated in a previous run.
    *
-   * @param testCase - The test case to create a result for
+   * @param group - The skill evaluation group
    * @param cachedEntry - The cached progress entry
    * @returns Cached evaluation result
    */
   private createCachedResult(
-    testCase: CourseRetrieverTestCase,
+    group: SkillEvaluationGroup,
     cachedEntry: CourseRetrievalProgressEntry,
   ): EvaluateRetrieverOutput {
     return {
-      testCaseId: testCase.id,
-      question: testCase.question,
+      questionIds: group.testCaseIds, // All questions that have this skill
       skill: cachedEntry.skill,
       retrievedCount: cachedEntry.result.retrievedCount,
       evaluations: [], // Empty for cached results
       metrics: {
         totalCourses: cachedEntry.result.retrievedCount,
         meanRelevanceScore: cachedEntry.result.meanRelevanceScore,
+        totalRelevanceSum: 0, // Not available in cached results
         perClassDistribution: {
           score0: {
             relevanceScore: 0,

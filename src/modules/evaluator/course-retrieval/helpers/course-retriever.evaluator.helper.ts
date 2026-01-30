@@ -49,6 +49,7 @@ export class CourseRetrieverEvaluatorHelper {
       return {
         totalCourses: 0,
         meanRelevanceScore: 0,
+        totalRelevanceSum: 0,
         perClassDistribution: {
           score0: {
             relevanceScore: 0,
@@ -162,6 +163,7 @@ export class CourseRetrieverEvaluatorHelper {
     return {
       totalCourses: total,
       meanRelevanceScore,
+      totalRelevanceSum: totalRelevance,
       perClassDistribution,
       ndcg: {
         proxy: {

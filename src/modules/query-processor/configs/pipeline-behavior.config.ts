@@ -36,8 +36,8 @@ export const QueryPipelineConfig = {
     /** Step 2: Skill expansion - 15s (skill extraction) */
     SKILL_EXPANSION: 15_000,
 
-    /** Step 4: Course relevance filtering - 15s (filtering relevant courses) */
-    COURSE_RELEVANCE_FILTERING: 15_000,
+    /** Step 4: Course relevance filtering - 25s (filtering relevant courses with concurrency control) */
+    COURSE_RELEVANCE_FILTERING: 25_000,
 
     /** Step 6: Answer synthesis - 45s (complex answer generation with courses) */
     ANSWER_SYNTHESIS: 45_000,
@@ -105,6 +105,17 @@ export const QueryPipelineConfig = {
    * @default 100
    */
   LOGGING_COURSE_DATA_PREVIEW_LIMIT: 100,
+
+  /** ========================================================================
+   * CONCURRENCY CONFIGURATION
+   * ======================================================================== */
+
+  /**
+   * Maximum number of concurrent LLM calls for course relevance filtering
+   * Balances speed vs OpenRouter rate limits and reliability
+   * @default 6 (higher concurrency for faster processing while maintaining stability)
+   */
+  COURSE_RELEVANCE_FILTER_CONCURRENCY: 6,
 
   /** ========================================================================
    * PIPELINE STRUCTURE

@@ -8,6 +8,8 @@ import type {
   CourseInfo,
   EvaluationItem,
   RetrievalPerformanceMetrics,
+  SkillDeduplicationStats,
+  SkillEvaluationGroup,
 } from '../types/course-retrieval.types';
 
 // ============================================================================
@@ -22,7 +24,13 @@ export const MOCK_ITERATION_NUMBER = 1;
 // TYPE EXPORTS (for convenience)
 // ============================================================================
 
-export type { CourseInfo, EvaluationItem, RetrievalPerformanceMetrics };
+export type {
+  CourseInfo,
+  EvaluationItem,
+  RetrievalPerformanceMetrics,
+  SkillEvaluationGroup,
+  SkillDeduplicationStats,
+};
 
 // ============================================================================
 // FACTORY FUNCTIONS
@@ -111,6 +119,7 @@ export const createMockRetrievalPerformanceMetrics = (
 ): RetrievalPerformanceMetrics => ({
   totalCourses: 5,
   meanRelevanceScore: 2.0,
+  totalRelevanceSum: 10,
   perClassDistribution: {
     score0: {
       relevanceScore: 0,
@@ -211,6 +220,7 @@ export const MOCK_SCENARIOS = {
     expectedMetrics: {
       totalCourses: 3,
       meanRelevanceScore: 2,
+      totalRelevanceSum: 6,
       perClassDistribution: {
         score0: {
           relevanceScore: 0,
@@ -269,6 +279,7 @@ export const MOCK_SCENARIOS = {
     expectedMetrics: {
       totalCourses: 4,
       meanRelevanceScore: 1.5,
+      totalRelevanceSum: 6,
       perClassDistribution: {
         score0: {
           relevanceScore: 0,
@@ -312,6 +323,7 @@ export const MOCK_SCENARIOS = {
     expectedMetrics: {
       totalCourses: 5,
       meanRelevanceScore: 3,
+      totalRelevanceSum: 15,
       perClassDistribution: {
         score0: {
           relevanceScore: 0,
@@ -355,6 +367,7 @@ export const MOCK_SCENARIOS = {
     expectedMetrics: {
       totalCourses: 3,
       meanRelevanceScore: 0,
+      totalRelevanceSum: 0,
       perClassDistribution: {
         score0: {
           relevanceScore: 0,
@@ -409,6 +422,7 @@ export const MOCK_SCENARIOS = {
     expectedMetrics: {
       totalCourses: 1,
       meanRelevanceScore: 2,
+      totalRelevanceSum: 2,
       perClassDistribution: {
         score0: {
           relevanceScore: 0,
@@ -442,3 +456,47 @@ export const MOCK_SCENARIOS = {
     } as RetrievalPerformanceMetrics,
   },
 } as const;
+
+// ============================================================================
+// SKILL-LEVEL DEDUPLICATION FACTORY FUNCTIONS
+// ============================================================================
+
+/**
+ * Creates a mock SkillEvaluationGroup
+ */
+export const createMockSkillEvaluationGroup = (
+  overrides: Partial<SkillEvaluationGroup> = {},
+): SkillEvaluationGroup => ({
+  skill: 'python programming',
+  testCaseIds: ['q1', 'q2'],
+  representativeTestCase: createMockCourseRetrievalTestCase(),
+  occurrenceCount: 2,
+  ...overrides,
+});
+
+/**
+ * Creates a mock SkillDeduplicationStats
+ */
+export const createMockSkillDeduplicationStats = (
+  overrides: Partial<SkillDeduplicationStats> = {},
+): SkillDeduplicationStats => ({
+  totalQuestions: 10,
+  totalSkillsExtracted: 15,
+  uniqueSkillsEvaluated: 10,
+  deduplicationRate: 0.333,
+  skillFrequency: new Map([
+    ['python programming', 3],
+    ['data analysis', 2],
+  ]),
+  ...overrides,
+});
+
+/**
+ * Creates a mock CourseRetrieverTestCase
+ */
+export const createMockCourseRetrievalTestCase = () => ({
+  id: 'test-case-1',
+  question: 'How do I learn Python?',
+  skill: 'python programming',
+  retrievedCourses: [createMockCourseInfo()],
+});

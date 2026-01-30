@@ -122,6 +122,7 @@ export class CourseRetrievalMetricsCalculator {
       return {
         totalCourses: 0,
         meanRelevanceScore: 0,
+        totalRelevanceSum: 0,
         perClassDistribution: {
           score0: {
             relevanceScore: 0,
@@ -235,6 +236,7 @@ export class CourseRetrievalMetricsCalculator {
     return {
       totalCourses: total,
       meanRelevanceScore,
+      totalRelevanceSum: totalRelevance,
       perClassDistribution,
       ndcg: {
         proxy: {
@@ -283,6 +285,7 @@ export class CourseRetrievalMetricsCalculator {
       return {
         totalCourses: 0,
         meanRelevanceScore: 0,
+        totalRelevanceSum: 0,
         perClassDistribution: {
           score0: {
             relevanceScore: 0,
@@ -332,6 +335,8 @@ export class CourseRetrievalMetricsCalculator {
     const sumMetrics = records.reduce(
       (acc, record) => ({
         totalCourses: acc.totalCourses + record.metrics.totalCourses,
+        totalRelevanceSum:
+          acc.totalRelevanceSum + record.metrics.totalRelevanceSum,
         meanRelevanceScore:
           acc.meanRelevanceScore + record.metrics.meanRelevanceScore,
         ndcgProxyAt5: acc.ndcgProxyAt5 + record.metrics.ndcg.proxy.at5,
@@ -379,6 +384,7 @@ export class CourseRetrievalMetricsCalculator {
       }),
       {
         totalCourses: 0,
+        totalRelevanceSum: 0,
         meanRelevanceScore: 0,
         ndcgProxyAt5: 0,
         ndcgProxyAt10: 0,
@@ -415,6 +421,7 @@ export class CourseRetrievalMetricsCalculator {
         sumMetrics.meanRelevanceScore,
         count,
       ),
+      totalRelevanceSum: sumMetrics.totalRelevanceSum,
       perClassDistribution,
       ndcg: {
         proxy: {
@@ -498,8 +505,12 @@ export class CourseRetrievalMetricsCalculator {
    * - **Macro-average**: Average of per-sample rates (each sample weighted equally)
    * - **Micro-average**: Total count for each score / total courses * 100 (weighted by sample size)
    *
+   * **IMPORTANT**: Micro rates are calculated using the ACTUAL sum of counts from
+   * the distribution, not the totalCourses parameter. This ensures accuracy when
+   * some courses may not have relevance scores assigned (e.g., null/undefined).
+   *
    * @param records - Array of evaluation records with per-sample metrics
-   * @param totalCourses - Total number of courses across all samples
+   * @param totalCourses - Total number of courses across all samples (for validation/logging)
    * @returns Aggregated per-class distribution with macro and micro averages
    */
   private static calculateAggregatedPerClassDistribution(
@@ -534,6 +545,28 @@ export class CourseRetrievalMetricsCalculator {
       aggregators[3].macroRateSum += dist.score3.macroAverageRate;
     }
 
+    // Calculate the ACTUAL total from the aggregated counts
+    // This is the correct denominator for micro rates
+    const actualTotalCount =
+      aggregators[0].count +
+      aggregators[1].count +
+      aggregators[2].count +
+      aggregators[3].count;
+
+    // Log validation: Check for count gap (courses without relevance scores)
+    if (totalCourses > 0 && actualTotalCount !== totalCourses) {
+      const gap = totalCourses - actualTotalCount;
+      const gapPercentage = DecimalHelper.divide(gap * 100, totalCourses);
+      console.warn(
+        `[CourseRetrievalMetricsCalculator] Count gap detected in per-class distribution:\n` +
+          `  - Total courses evaluated: ${totalCourses}\n` +
+          `  - Sum of distribution counts: ${actualTotalCount}\n` +
+          `  - Gap: ${gap} courses (${gapPercentage.toFixed(2)}%)\n` +
+          `  - Possible causes: null/undefined relevance scores, missing evaluations, or filtering logic\n` +
+          `  - Using actualTotalCount (${actualTotalCount}) as denominator for micro rates`,
+      );
+    }
+
     // Build final distribution with both macro and micro averages
     const createRate = (
       score: 0 | 1 | 2 | 3,
@@ -547,10 +580,11 @@ export class CourseRetrievalMetricsCalculator {
         // Macro-average: average of per-sample rates
         macroAverageRate:
           count > 0 ? DecimalHelper.divide(agg.macroRateSum, count) : 0,
-        // Micro-average: total count / total courses * 100
+        // Micro-average: total count / actual total * 100
+        // IMPORTANT: Use actualTotalCount (not totalCourses parameter) to ensure counts sum to 100%
         microAverageRate:
-          totalCourses > 0
-            ? DecimalHelper.divide(agg.count * 100, totalCourses)
+          actualTotalCount > 0
+            ? DecimalHelper.divide(agg.count * 100, actualTotalCount)
             : 0,
         label,
       };
@@ -582,19 +616,38 @@ export class CourseRetrievalMetricsCalculator {
     metrics: RetrievalPerformanceMetrics;
     sampleCount: number;
     iterationNumber: number;
+    skillDeduplicationStats?: import('../types/course-retrieval.types').SkillDeduplicationStats;
   }): CourseRetrievalIterationMetrics {
-    const { metrics, sampleCount, iterationNumber } = params;
+    const { metrics, sampleCount, iterationNumber, skillDeduplicationStats } =
+      params;
 
-    // Calculate total relevance sum for mean relevance context
-    const totalRelevanceSum = DecimalHelper.multiply(
-      metrics.meanRelevanceScore,
+    // Calculate macro and micro means
+    // Macro: Average of per-sample means (TREC standard)
+    const macroMean = metrics.meanRelevanceScore;
+    // Micro: Total sum / total courses
+    const microMean = DecimalHelper.divide(
+      metrics.totalRelevanceSum,
       metrics.totalCourses,
     );
 
+    // Calculate the actual total from the distribution counts
+    // This is the number of courses that received relevance scores
+    const actualTotalCount =
+      metrics.perClassDistribution.score0.count +
+      metrics.perClassDistribution.score1.count +
+      metrics.perClassDistribution.score2.count +
+      metrics.perClassDistribution.score3.count;
+
+    // Calculate the gap: courses that were retrieved but not scored
+    const coursesNotScored = Math.max(
+      0,
+      metrics.totalCourses - actualTotalCount,
+    );
+
     // Build enriched per-class distribution with descriptions
+    // The outOf in the enriched output is calculated from the distribution counts
     const perClassDistribution = this.buildEnrichedPerClassDistribution(
       metrics.perClassDistribution,
-      metrics.totalCourses,
     );
 
     // Build enriched metrics using DecimalHelper for precision
@@ -602,16 +655,28 @@ export class CourseRetrievalMetricsCalculator {
       iteration: iterationNumber,
       timestamp: new Date().toISOString(),
       sampleCount,
-      totalCoursesEvaluated: metrics.totalCourses,
+
+      // === RETRIEVAL STATISTICS ===
+      totalCoursesRetrieved: metrics.totalCourses,
+      totalCoursesScored: actualTotalCount,
+      coursesNotScored: coursesNotScored,
+
+      skillDeduplicationStats: skillDeduplicationStats ?? {
+        totalQuestions: 0,
+        totalSkillsExtracted: 0,
+        uniqueSkillsEvaluated: sampleCount,
+        deduplicationRate: 0,
+        skillFrequency: new Map(),
+      },
 
       // === RELEVANCE METRICS ===
       meanRelevanceScore: {
-        meanRelevanceScore: DecimalHelper.roundScore(
-          metrics.meanRelevanceScore,
-        ),
-        totalRelevanceSum: DecimalHelper.roundScore(totalRelevanceSum),
+        macroMean: DecimalHelper.roundScore(macroMean),
+        microMean: DecimalHelper.roundScore(microMean),
+        totalRelevanceSum: metrics.totalRelevanceSum,
         totalCourses: metrics.totalCourses,
-        description: `Mean relevance: ${DecimalHelper.roundScore(metrics.meanRelevanceScore)}/3 across ${metrics.totalCourses} courses`,
+        sampleCount,
+        description: `Macro mean (TREC): ${DecimalHelper.roundScore(macroMean)}/3 (avg of ${sampleCount} samples) | Micro mean: ${DecimalHelper.roundScore(microMean)}/3 (${metrics.totalRelevanceSum}/${metrics.totalCourses} courses)`,
       },
 
       perClassDistribution,
@@ -696,14 +761,23 @@ export class CourseRetrievalMetricsCalculator {
    * Adds human-readable descriptions showing macro vs micro differences
    * for each relevance score class.
    *
+   * **IMPORTANT**: The totalCount field is calculated from the actual sum of
+   * counts in the distribution. This ensures the counts sum to the reported totalCount.
+   *
    * @param distribution - Per-class distribution
-   * @param totalCourses - Total number of courses
    * @returns Enriched per-class distribution with descriptions
    */
   private static buildEnrichedPerClassDistribution(
     distribution: PerClassDistribution,
-    totalCourses: number,
   ): PerClassDistributionWithContext {
+    // Calculate the ACTUAL total from the distribution counts
+    // This is what the counts sum to, so it should be the reported totalCount
+    const actualTotalCount =
+      distribution.score0.count +
+      distribution.score1.count +
+      distribution.score2.count +
+      distribution.score3.count;
+
     const buildEnrichedRate = (rate: PerClassRate): PerClassRateWithContext => {
       const macroRounded = rate.macroAverageRate.toFixed(1);
       const microRounded = rate.microAverageRate.toFixed(1);
@@ -714,17 +788,17 @@ export class CourseRetrievalMetricsCalculator {
         CourseRetrievalMetricsCalculator.RATE_EQUALITY_THRESHOLD
       ) {
         // Macro and micro are the same
-        description = `${rate.count} of ${totalCourses} courses (${macroRounded}%) are ${rate.label.replace('_', ' ')}`;
+        description = `${rate.count} of ${actualTotalCount} courses (${macroRounded}%) are ${rate.label.replace('_', ' ')}`;
       } else {
         // Show both macro and micro
-        description = `${rate.count} of ${totalCourses} courses are ${rate.label.replace('_', ' ')} - Macro: ${macroRounded}% (avg of sample rates), Micro: ${microRounded}% (from total counts)`;
+        description = `${rate.count} of ${actualTotalCount} courses are ${rate.label.replace('_', ' ')} - Macro: ${macroRounded}% (avg of sample rates), Micro: ${microRounded}% (from total counts)`;
       }
 
       return {
         relevanceScore: rate.relevanceScore,
         label: rate.label,
         count: rate.count,
-        totalCount: totalCourses,
+        outOf: actualTotalCount, // Use actual sum, not passed totalCourses
         macroAverageRate: DecimalHelper.roundRate(rate.macroAverageRate),
         microAverageRate: DecimalHelper.roundRate(rate.microAverageRate),
         description,

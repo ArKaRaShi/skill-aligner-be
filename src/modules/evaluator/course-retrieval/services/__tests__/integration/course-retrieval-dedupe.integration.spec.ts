@@ -174,7 +174,7 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
   });
 
   describe('Cross-question deduplication', () => {
-    it('should group test cases by (skill, courses) correctly', async () => {
+    it('should group test cases by skill correctly', async () => {
       // Arrange
       const testCases = createDedupeTestCases();
       const testSet: CourseRetrieverTestSet = {
@@ -193,7 +193,7 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       // - 1 call for Advanced programming (test-005)
       expect(judgeEvaluator.evaluate).toHaveBeenCalledTimes(3);
 
-      // Verify all test cases produced records
+      // Verify we have 3 records (one per unique skill)
       const recordsPath = path.join(
         tempDir,
         'test-dedupe',
@@ -201,7 +201,16 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
         'records-iteration-1.json',
       );
       const records = await FileHelper.loadJson<unknown[]>(recordsPath);
-      expect(records).toHaveLength(5); // All 5 test cases should have records
+      expect(records).toHaveLength(3); // One record per unique skill
+
+      // Verify the Python programming record has all 3 question IDs
+      const pythonRecord = records.find(
+        (r) => (r as { skill: string }).skill === 'Python programming',
+      );
+      expect(pythonRecord).toBeDefined();
+      expect((pythonRecord as { questionIds: string[] }).questionIds).toEqual(
+        expect.arrayContaining(['test-001', 'test-002', 'test-003']),
+      );
     });
 
     it('should skip evaluation for already completed deduplication groups', async () => {
@@ -228,7 +237,7 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       // Assert - no new evaluations should occur
       expect(judgeEvaluator.evaluate).not.toHaveBeenCalled();
 
-      // Verify records still contain all 5 test cases
+      // Verify records still contain all 3 unique skills
       const recordsPath = path.join(
         tempDir,
         'test-resume',
@@ -236,7 +245,7 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
         'records-iteration-1.json',
       );
       const records = await FileHelper.loadJson<unknown[]>(recordsPath);
-      expect(records).toHaveLength(5);
+      expect(records).toHaveLength(3); // One record per unique skill
     });
 
     it('should log deduplication statistics correctly', async () => {
@@ -261,18 +270,31 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       );
       const progress = await FileHelper.loadJson<{
         deduplicationStats?: {
-          totalTestCases: number;
-          uniqueGroups: number;
-          duplicateCount: number;
+          totalQuestions: number;
+          totalSkillsExtracted: number;
+          uniqueSkillsEvaluated: number;
           deduplicationRate: number;
+          skillFrequency: Record<string, number>;
         };
       }>(progressPath);
 
       expect(progress.deduplicationStats).toBeDefined();
-      expect(progress.deduplicationStats!.totalTestCases).toBe(5);
-      expect(progress.deduplicationStats!.uniqueGroups).toBe(3);
-      expect(progress.deduplicationStats!.duplicateCount).toBe(2);
-      expect(progress.deduplicationStats!.deduplicationRate).toBeCloseTo(40, 0); // 2 duplicates out of 5 = 40%
+      expect(progress.deduplicationStats!.totalQuestions).toBe(5);
+      expect(progress.deduplicationStats!.totalSkillsExtracted).toBe(5);
+      expect(progress.deduplicationStats!.uniqueSkillsEvaluated).toBe(3);
+      expect(progress.deduplicationStats!.deduplicationRate).toBeCloseTo(
+        0.4,
+        1,
+      ); // (5-3)/5 = 40% reduction
+      expect(
+        progress.deduplicationStats!.skillFrequency['Python programming'],
+      ).toBe(3);
+      expect(
+        progress.deduplicationStats!.skillFrequency['Java programming'],
+      ).toBe(1);
+      expect(
+        progress.deduplicationStats!.skillFrequency['Advanced programming'],
+      ).toBe(1);
     });
   });
 
@@ -376,7 +398,7 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
   });
 
   describe('Progress tracking with deduplication', () => {
-    it('should save progress entries with dedupeKey', async () => {
+    it('should save progress entries with hash and questionIds', async () => {
       // Arrange
       const testCases = createDedupeTestCases();
       const testSet: CourseRetrieverTestSet = {
@@ -399,40 +421,41 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       const progress = await FileHelper.loadJson<{
         entries: Array<{
           hash: string;
-          dedupeKey: string;
           skill: string;
-          testCases: string[];
+          questionIds: string[];
+          occurrenceCount: number;
           completedAt: string;
         }>;
       }>(progressPath);
 
-      // Should have 3 entries (one per deduplication group)
+      // Should have 3 entries (one per unique skill)
       expect(progress.entries).toHaveLength(3);
 
       // Verify each entry has required fields
       progress.entries.forEach((entry) => {
         expect(entry.hash).toMatch(/^[a-f0-9]{64}$/);
-        expect(entry.dedupeKey).toBeDefined();
         expect(entry.skill).toBeDefined();
-        expect(Array.isArray(entry.testCases)).toBe(true);
-        expect(entry.testCases.length).toBeGreaterThan(0);
+        expect(Array.isArray(entry.questionIds)).toBe(true);
+        expect(entry.questionIds.length).toBeGreaterThan(0);
+        expect(entry.occurrenceCount).toBeGreaterThan(0);
         expect(entry.completedAt).toBeDefined();
       });
 
-      // Verify the Python programming group has 3 test cases
-      const pythonGroup = progress.entries.find(
+      // Verify the Python programming entry has 3 question IDs
+      const pythonEntry = progress.entries.find(
         (e) => e.skill === 'Python programming',
       );
-      expect(pythonGroup).toBeDefined();
-      expect(pythonGroup!.testCases).toHaveLength(3);
-      expect(pythonGroup!.testCases).toContain('test-001');
-      expect(pythonGroup!.testCases).toContain('test-002');
-      expect(pythonGroup!.testCases).toContain('test-003');
+      expect(pythonEntry).toBeDefined();
+      expect(pythonEntry!.questionIds).toHaveLength(3);
+      expect(pythonEntry!.questionIds).toContain('test-001');
+      expect(pythonEntry!.questionIds).toContain('test-002');
+      expect(pythonEntry!.questionIds).toContain('test-003');
+      expect(pythonEntry!.occurrenceCount).toBe(3);
     });
   });
 
   describe('Cached results for deduplicated groups', () => {
-    it('should create cached results for all test cases in dedupe group', async () => {
+    it('should create cached results for all question IDs in skill group', async () => {
       // Arrange
       const testCases = createDedupeTestCases();
       const testSet: CourseRetrieverTestSet = {
@@ -445,7 +468,7 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       // Act
       await service.runTestSet({ testSet, iterationNumber: 1 });
 
-      // Assert - verify records file contains all 5 test cases
+      // Assert - verify records file contains 3 records (one per unique skill)
       const recordsPath = path.join(
         tempDir,
         'test-cache',
@@ -454,27 +477,28 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       );
       const records = await FileHelper.loadJson<
         Array<{
-          testCaseId: string;
-          question: string;
+          questionIds: string[];
           skill: string;
           llmModel: string;
           llmProvider: string;
         }>
       >(recordsPath);
 
-      expect(records).toHaveLength(5);
+      expect(records).toHaveLength(3);
 
-      // Verify the 3 Python test cases all have evaluation results
-      const pythonRecords = records.filter(
+      // Verify the Python programming record has all 3 question IDs
+      const pythonRecord = records.find(
         (r) => r.skill === 'Python programming',
       );
-      expect(pythonRecords).toHaveLength(3);
+      expect(pythonRecord).toBeDefined();
+      expect(pythonRecord!.questionIds).toHaveLength(3);
+      expect(pythonRecord!.questionIds).toContain('test-001');
+      expect(pythonRecord!.questionIds).toContain('test-002');
+      expect(pythonRecord!.questionIds).toContain('test-003');
 
-      // All should have the same evaluation metrics (from single LLM call)
-      pythonRecords.forEach((record) => {
-        expect(record.llmModel).toBe('gpt-4');
-        expect(record.llmProvider).toBe('openai');
-      });
+      // Should have evaluation metrics (from single LLM call)
+      expect(pythonRecord!.llmModel).toBe('gpt-4');
+      expect(pythonRecord!.llmProvider).toBe('openai');
     });
   });
 
@@ -524,7 +548,7 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
 
       await service.runTestSet({ testSet, iterationNumber: 1 });
 
-      // Assert - should have 3 records total (5 test cases, but only 3 unique groups)
+      // Assert - should have 3 records total (one per unique skill)
       const recordsPath = path.join(
         tempDir,
         'test-crash',
@@ -532,7 +556,7 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
         'records-iteration-1.json',
       );
       const records = await FileHelper.loadJson<unknown[]>(recordsPath);
-      expect(records).toHaveLength(5); // All test cases should have records
+      expect(records).toHaveLength(3); // One record per unique skill
     });
   });
 
@@ -575,8 +599,8 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       expect(judgeEvaluator.evaluate).toHaveBeenCalledTimes(1);
     });
 
-    it('should handle all test cases with same (skill, courses)', async () => {
-      // Arrange - all 5 test cases have same skill and courses
+    it('should handle all test cases with same skill', async () => {
+      // Arrange - all 5 test cases have same skill
       const course = createMockCourseInfo();
       const testSet: CourseRetrieverTestSet = {
         version: 1,
@@ -593,18 +617,23 @@ describe('CourseRetrievalRunnerService - Deduplication', () => {
       // Act
       await service.runTestSet({ testSet, iterationNumber: 1 });
 
-      // Assert - should only evaluate once
+      // Assert - should only evaluate once (one skill)
       expect(judgeEvaluator.evaluate).toHaveBeenCalledTimes(1);
 
-      // But should have 5 records (one per test case)
+      // Should have 1 record with all 5 question IDs
       const recordsPath = path.join(
         tempDir,
         'test-all-same',
         'records',
         'records-iteration-1.json',
       );
-      const records = await FileHelper.loadJson<unknown[]>(recordsPath);
-      expect(records).toHaveLength(5);
+      const records =
+        await FileHelper.loadJson<
+          Array<{ questionIds: string[]; skill: string }>
+        >(recordsPath);
+      expect(records).toHaveLength(1);
+      expect(records[0].questionIds).toHaveLength(5);
+      expect(records[0].skill).toBe('Python');
     });
 
     it('should handle all test cases with different (skill, courses)', async () => {

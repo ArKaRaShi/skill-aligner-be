@@ -100,10 +100,74 @@ export type TestSetIdentifier = `test-set-v${number}`;
 // ============================================================================
 
 /**
+ * Represents a unique skill with all its related questions
+ *
+ * Groups all test cases that share the same skill, regardless of
+ * how many times that skill appears across different questions.
+ */
+export interface SkillEvaluationGroup {
+  /** The unique skill string */
+  skill: string;
+
+  /** All test case IDs that contain this skill */
+  testCaseIds: string[];
+
+  /** Representative test case (first occurrence) for accessing courses */
+  representativeTestCase: CourseRetrieverTestCase;
+
+  /** Number of times this skill appears across all questions */
+  occurrenceCount: number;
+}
+
+/**
+ * Statistics about skill-level deduplication
+ *
+ * Tracks the transformation from raw skill extractions (counting duplicates)
+ * to unique skill evaluations (after deduplication).
+ */
+export interface SkillDeduplicationStats {
+  /** Total number of questions in test set */
+  totalQuestions: number;
+
+  /** Total skills extracted (counting duplicates across all questions) */
+  totalSkillsExtracted: number;
+
+  /**
+   * Number of unique skills that successfully completed evaluation.
+   *
+   * This may be less than the number of unique skills identified if some evaluations failed.
+   * The deduplicationRate represents duplicates removed during initial skill grouping,
+   * NOT evaluation failures.
+   *
+   * Example: If 148 skills are extracted with 8 duplicates → 140 unique skills identified,
+   * and 2 evaluations fail → uniqueSkillsEvaluated = 138
+   */
+  uniqueSkillsEvaluated: number;
+
+  /**
+   * Ratio of duplicate skills removed during initial grouping (0-1).
+   *
+   * This is calculated as: (totalSkillsExtracted - uniqueSkillsIdentified) / totalSkillsExtracted
+   * It does NOT account for evaluation failures.
+   */
+  deduplicationRate: number;
+
+  /**
+   * Per-skill frequency map (skill → occurrence count).
+   *
+   * Contains ALL unique skills identified from the test set, including those that may
+   * have failed to evaluate. The count may be greater than uniqueSkillsEvaluated.
+   */
+  skillFrequency: Map<string, number>;
+}
+
+/**
  * Deduplication key for grouping identical (skill, courses) pairs
  *
  * Format: "{skill}-{coursesHash}"
  * Used to identify when multiple questions retrieve the same courses for the same skill.
+ *
+ * @deprecated Use skill-only deduplication via SkillEvaluationGroup instead
  */
 export type CourseRetrievalDedupeKey = string;
 
@@ -407,6 +471,8 @@ export type RetrievalPerformanceMetrics = {
   totalCourses: number;
   /** Mean relevance score across all courses (0-3 scale) */
   meanRelevanceScore: number;
+  /** Total sum of all relevance scores (actual integer, not reconstructed) */
+  totalRelevanceSum: number;
   /**
    * Per-class distribution with macro and micro averages
    *
@@ -458,23 +524,41 @@ export type EvaluateRetrieverInput = {
 
 /**
  * Output from course retriever evaluation (used by runner)
+ *
+ * Updated for skill-level deduplication: one record per unique skill,
+ * tracking all questions that contain that skill.
  */
 export type EvaluateRetrieverOutput = {
-  /** Optional test case ID for grouping multiple skill evaluations */
-  testCaseId?: string;
-  question: string;
+  /** All question IDs that contain this skill (multiple questions can have the same skill) */
+  questionIds: string[];
+
+  /** The skill being evaluated */
   skill: string;
+
+  /** Number of courses retrieved */
   retrievedCount: number;
+
+  /** Individual course evaluations */
   evaluations: {
     subjectCode: string;
     subjectName: string;
     relevanceScore: number;
     reason: string;
   }[];
+
+  /** Aggregated metrics for this skill evaluation */
   metrics: RetrievalPerformanceMetrics;
+
+  /** LLM model used for evaluation */
   llmModel: string;
+
+  /** LLM provider used for evaluation */
   llmProvider: string;
+
+  /** Input tokens consumed */
   inputTokens: number;
+
+  /** Output tokens consumed */
   outputTokens: number;
 };
 
@@ -595,22 +679,27 @@ export type CourseRetrievalHashParams = {
 };
 
 /**
- * Progress file entry for a completed evaluation
+ * Progress file entry for a completed skill evaluation
  *
- * Tracks completed evaluations for crash recovery.
- * Updated to support deduplication: each entry represents a unique (skill, courses) group.
+ * Tracks completed evaluations for crash recovery using skill-level deduplication.
+ * Each entry represents a unique skill evaluated once.
  */
 export type CourseRetrievalProgressEntry = {
-  /** SHA256 hash for deduplication (hash of skill + courses) */
+  /** SHA256 hash for deduplication (hash of skill only) */
   hash: string;
-  /** Deduplication key (skill + coursesHash) */
-  dedupeKey: CourseRetrievalDedupeKey;
+
   /** The skill being evaluated */
   skill: string;
-  /** IDs of all test cases in this deduplication group */
-  testCases: string[];
+
+  /** IDs of all questions that contain this skill */
+  questionIds: string[];
+
+  /** Number of times this skill appears across all questions */
+  occurrenceCount: number;
+
   /** ISO timestamp when completed */
   completedAt: string;
+
   /** Evaluation result for progress tracking (simplified metrics) */
   result: {
     /** Number of courses retrieved */
@@ -623,40 +712,39 @@ export type CourseRetrievalProgressEntry = {
 /**
  * Progress file for crash recovery
  *
- * Tracks evaluation progress across multiple samples.
- * Updated to support deduplication: tracks unique (skill, courses) groups.
+ * Tracks evaluation progress across unique skills.
+ * Uses skill-level deduplication: each unique skill evaluated once.
  */
 export type CourseRetrievalProgressFile = {
   /** Test set name */
   testSetName: string;
+
   /** Iteration number */
   iterationNumber: number;
-  /** Completed entries (one per unique deduplication group) */
+
+  /** Completed entries (one per unique skill) */
   entries: CourseRetrievalProgressEntry[];
+
   /** Last update timestamp */
   lastUpdated: string;
+
   /** Statistics */
   statistics: {
-    /** Total items to evaluate (unique groups) */
+    /** Total unique skills to evaluate */
     totalItems: number;
-    /** Completed items (unique groups) */
+
+    /** Completed unique skills */
     completedItems: number;
-    /** Pending items (unique groups) */
+
+    /** Pending unique skills */
     pendingItems: number;
+
     /** Completion percentage */
     completionPercentage: number;
   };
-  /** Deduplication statistics for this iteration */
-  deduplicationStats?: {
-    /** Total test cases before deduplication */
-    totalTestCases: number;
-    /** Unique (skill, courses) groups after deduplication */
-    uniqueGroups: number;
-    /** Number of duplicate test cases removed */
-    duplicateCount: number;
-    /** Percentage of duplicates removed */
-    deduplicationRate: number;
-  };
+
+  /** Skill deduplication statistics for this iteration */
+  deduplicationStats: SkillDeduplicationStats;
 };
 
 // ============================================================================
@@ -744,7 +832,7 @@ export interface CourseRetrievalFinalMetricsFile {
     };
 
     // Existing basic metrics
-    totalCoursesEvaluated: StatisticalMetric;
+    totalCoursesRetrieved: StatisticalMetric;
     averageRelevance: StatisticalMetric;
     highlyRelevantRate: StatisticalMetric;
     irrelevantRate: StatisticalMetric;
@@ -884,14 +972,22 @@ export interface RateMetricWithContext {
 
 /**
  * Average relevance metric with context
+ *
+ * Provides both macro and micro averages for complete evaluation:
+ * - **Macro-average**: Average of per-sample means (each sample weighted equally)
+ * - **Micro-average**: Total sum / total courses (each course weighted equally)
  */
 export interface AverageRelevanceWithContext {
-  /** Mean relevance score across all courses (0-3 scale, higher = better) */
-  meanRelevanceScore: number;
-  /** Total relevance sum across all courses */
+  /** Macro-average: average of per-sample means (TREC standard, each sample weighted equally) */
+  macroMean: number;
+  /** Micro-average: total relevance sum / total courses (each course weighted equally) */
+  microMean: number;
+  /** Total sum of all relevance scores (actual integer, not reconstructed) */
   totalRelevanceSum: number;
-  /** Total number of courses */
+  /** Total number of courses across all samples */
   totalCourses: number;
+  /** Number of samples (question+skill pairs) */
+  sampleCount: number;
   /** Human-readable explanation */
   description: string;
 }
@@ -913,11 +1009,14 @@ export interface PerClassRateWithContext {
     | 'highly_relevant';
   /** Count of courses with this score */
   count: number;
-  /** Total courses (for percentage calculation) */
-  totalCount: number;
+  /**
+   * Total number of courses that received relevance scores
+   * (i.e., "count out of outOf" - idiomatic phrasing for percentages)
+   */
+  outOf: number;
   /** Macro-average: average of per-sample rates (0-100) */
   macroAverageRate: number;
-  /** Micro-average: count / totalCount * 100 (0-100) */
+  /** Micro-average: count / outOf * 100 (0-100) */
   microAverageRate: number;
   /** Human-readable explanation */
   description: string;
@@ -943,8 +1042,8 @@ export interface PerClassDistributionWithContext {
  * Per-iteration metrics with rich descriptions
  *
  * IMPORTANT: Uses TREC-standard aggregation:
- * - Metrics calculated per-sample (question + skill pair)
- * - Then averaged (mean) across all samples
+ * - Metrics calculated per-sample (unique skill)
+ * - Then averaged (mean) across all unique skills
  * - This is the standard approach in IR evaluation (TREC, MS MARCO)
  *
  * Each metric includes context and descriptions for:
@@ -955,19 +1054,50 @@ export interface PerClassDistributionWithContext {
 export interface CourseRetrievalIterationMetrics {
   /** Iteration number (1-indexed) */
   iteration: number;
+
   /** ISO timestamp when iteration completed */
   timestamp: string;
-  /** Number of (question, skill) pairs evaluated */
+
+  /** Number of unique skills evaluated (after deduplication) */
   sampleCount: number;
-  /** Total number of courses evaluated across all samples */
-  totalCoursesEvaluated: number;
+
+  // === RETRIEVAL STATISTICS ===
+  /** Total number of courses retrieved and sent to LLM evaluator */
+  totalCoursesRetrieved: number;
+
+  /** Total number of courses that received relevance scores */
+  totalCoursesScored: number;
+
+  /**
+   * Number of courses that did NOT receive relevance scores
+   *
+   * This represents the gap between retrieved and scored courses.
+   * Possible reasons: filtering, evaluation failures, timeouts, etc.
+   */
+  coursesNotScored: number;
+
+  /** Skill deduplication statistics for this iteration */
+  skillDeduplicationStats: SkillDeduplicationStats;
 
   // === RELEVANCE METRICS ===
   /**
-   * Mean relevance score across all courses (0-3 scale)
+   * Mean relevance score with macro and micro averages
    * Measures: On average, how relevant are the retrieved courses?
    */
-  meanRelevanceScore: AverageRelevanceWithContext;
+  meanRelevanceScore: {
+    /** Macro-average: average of per-sample means (TREC standard) */
+    macroMean: number;
+    /** Micro-average: total sum / total courses */
+    microMean: number;
+    /** Total sum of all relevance scores (actual integer) */
+    totalRelevanceSum: number;
+    /** Total number of courses */
+    totalCourses: number;
+    /** Number of samples */
+    sampleCount: number;
+    /** Human-readable explanation */
+    description: string;
+  };
 
   /**
    * Per-class distribution with macro and micro averages

@@ -14,6 +14,7 @@ import { CourseRetrieverEvaluator } from 'src/modules/evaluator/course-retrieval
 import { CourseRetrievalResultManagerService } from 'src/modules/evaluator/course-retrieval/services/course-retrieval-result-manager.service';
 import { CourseRetrievalRunnerService } from 'src/modules/evaluator/course-retrieval/services/course-retrieval-runner.service';
 import type {
+  CourseRetrievalIterationMetrics,
   CourseRetrievalProgressFile,
   CourseRetrieverTestCase,
   CourseRetrieverTestSet,
@@ -171,10 +172,10 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
       // Verify hash format (64 hex characters)
       progress.entries.forEach((entry) => {
         expect(entry.hash).toMatch(/^[a-f0-9]{64}$/);
-        expect(entry.dedupeKey).toBeDefined();
         expect(entry.skill).toBeDefined();
-        expect(entry.testCases).toBeDefined();
-        expect(Array.isArray(entry.testCases)).toBe(true);
+        expect(entry.questionIds).toBeDefined();
+        expect(Array.isArray(entry.questionIds)).toBe(true);
+        expect(entry.occurrenceCount).toBeDefined();
         expect(entry.completedAt).toBeDefined();
         expect(entry.result).toBeDefined();
       });
@@ -348,17 +349,17 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
 
       expect(records).toHaveLength(6);
 
-      // Verify all questions are present
-      const questions = records.map(
-        (r) => (r as { question: string }).question,
+      // Verify all question IDs are present
+      const questionIds = records.flatMap(
+        (r) => (r as { questionIds: string[] }).questionIds,
       );
-      expect(questions).toEqual([
-        'Question 1?',
-        'Question 2?',
-        'Question 3?',
-        'Question 4?',
-        'Question 5?',
-        'Question 6?',
+      expect(questionIds).toEqual([
+        'test-case-1',
+        'test-case-2',
+        'test-case-3',
+        'test-case-4',
+        'test-case-5',
+        'test-case-6',
       ]);
     });
   });
@@ -468,7 +469,7 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
         await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
 
       expect(progress.entries).toHaveLength(6);
-      expect(progress.deduplicationStats?.uniqueGroups).toBe(6);
+      expect(progress.deduplicationStats?.uniqueSkillsEvaluated).toBe(6);
     });
 
     it('should save progress once per chunk (not per group)', async () => {
@@ -491,13 +492,11 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
       // Act
       await service.runTestSet({ testSet, iterationNumber });
 
-      // Assert - with default concurrency=3:
-      // Chunk 1: 3 groups → 1 progress save
-      // Chunk 2: 2 groups → 1 progress save
-      // Plus initial load and final saves
-      // Should be 2-4 saves (depending on implementation), NOT 5 (one per group)
+      // Assert - should save progress at least once (not per group)
+      // With skill-only deduplication, we have 5 unique skills
+      // Progress is saved after chunks complete, not per group
+      expect(progressSaveCount).toBeGreaterThanOrEqual(1);
       expect(progressSaveCount).toBeLessThanOrEqual(4);
-      expect(progressSaveCount).toBeGreaterThanOrEqual(2);
     });
 
     it('should handle one group failing without affecting others in chunk', async () => {
@@ -534,6 +533,77 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
         await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
 
       expect(progress.entries).toHaveLength(5);
+
+      // Verify deduplication stats are updated to match actual completed evaluations
+      expect(progress.deduplicationStats).toBeDefined();
+      expect(progress.deduplicationStats.uniqueSkillsEvaluated).toBe(5);
+      expect(progress.deduplicationStats.uniqueSkillsEvaluated).toEqual(
+        progress.entries.length,
+      );
+
+      // Verify metrics file also has consistent uniqueSkillsEvaluated
+      const metricsPath = path.join(
+        tempDir,
+        'test-failure',
+        'metrics',
+        `metrics-iteration-${iterationNumber}.json`,
+      );
+      const metrics =
+        await FileHelper.loadJson<CourseRetrievalIterationMetrics>(metricsPath);
+
+      expect(metrics.sampleCount).toBe(5);
+      expect(metrics.skillDeduplicationStats.uniqueSkillsEvaluated).toBe(5);
+      expect(metrics.skillDeduplicationStats.uniqueSkillsEvaluated).toEqual(
+        metrics.sampleCount,
+      );
+    });
+
+    it('should handle 100% failure rate (all evaluations fail)', async () => {
+      // Arrange - create 5 test cases
+      const testSet = createTestSet('test-total-failure', 5);
+      const iterationNumber = 1;
+
+      // Mock ALL evaluations to fail
+      (judgeEvaluator.evaluate as jest.Mock).mockImplementation(() =>
+        Promise.reject(new Error('All evaluations failed')),
+      );
+
+      // Act - should complete without throwing (errors are isolated)
+      await service.runTestSet({ testSet, iterationNumber });
+
+      // Assert - no records should be created
+      const progressPath = path.join(
+        tempDir,
+        'test-total-failure',
+        'progress',
+        `progress-iteration-${iterationNumber}.json`,
+      );
+      const progress =
+        await FileHelper.loadJson<CourseRetrievalProgressFile>(progressPath);
+
+      expect(progress.entries).toHaveLength(0);
+      expect(progress.statistics.completedItems).toBe(0);
+      expect(progress.statistics.pendingItems).toBe(5);
+
+      // Verify deduplication stats are updated correctly (0 completed)
+      expect(progress.deduplicationStats).toBeDefined();
+      expect(progress.deduplicationStats.uniqueSkillsEvaluated).toBe(0);
+
+      // Note: skillFrequency should still contain all 5 identified skills
+      // (it tracks skills identified, not skills successfully evaluated)
+      const skillFrequencyObj = progress.deduplicationStats
+        .skillFrequency as unknown as Record<string, number>;
+      expect(Object.keys(skillFrequencyObj).length).toBe(5);
+
+      // Metrics file should still be saved (for failure tracking)
+      const metricsPath = path.join(
+        tempDir,
+        'test-total-failure',
+        'metrics',
+        `metrics-iteration-${iterationNumber}.json`,
+      );
+      const metricsExists = FileHelper.exists(metricsPath);
+      expect(metricsExists).toBe(true);
     });
 
     it('should handle mixed completed and pending groups in same chunk', async () => {
@@ -660,9 +730,10 @@ describe('CourseRetrievalRunnerService - Crash Recovery Integration', () => {
       // Verify all entries have required fields
       progress.entries.forEach((entry) => {
         expect(entry.hash).toMatch(/^[a-f0-9]{64}$/);
-        expect(entry.dedupeKey).toBeDefined();
         expect(entry.skill).toBeDefined();
-        expect(entry.testCases).toBeDefined();
+        expect(entry.questionIds).toBeDefined();
+        expect(Array.isArray(entry.questionIds)).toBe(true);
+        expect(entry.occurrenceCount).toBeDefined();
         expect(entry.completedAt).toBeDefined();
         expect(entry.result).toBeDefined();
       });

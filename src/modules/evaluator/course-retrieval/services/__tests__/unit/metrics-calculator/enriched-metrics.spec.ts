@@ -54,6 +54,7 @@ describe('CourseRetrievalMetricsCalculator', () => {
     > => ({
       totalCourses: 100,
       meanRelevanceScore: 1.5,
+      totalRelevanceSum: 150,
       perClassDistribution: {
         score0: {
           relevanceScore: 0,
@@ -115,7 +116,9 @@ describe('CourseRetrievalMetricsCalculator', () => {
       expect(result.iteration).toBe(iterationNumber);
       expect(result.timestamp).toBeDefined();
       expect(result.sampleCount).toBe(sampleCount);
-      expect(result.totalCoursesEvaluated).toBe(metrics.totalCourses);
+      expect(result.totalCoursesRetrieved).toBe(metrics.totalCourses);
+      expect(result.totalCoursesScored).toBeDefined();
+      expect(result.coursesNotScored).toBeDefined();
     });
 
     it('should enrich meanRelevanceScore with context', () => {
@@ -134,7 +137,7 @@ describe('CourseRetrievalMetricsCalculator', () => {
         });
 
       // Assert
-      expect(result.meanRelevanceScore.meanRelevanceScore).toBe(1.5);
+      expect(result.meanRelevanceScore.macroMean).toBe(1.5);
       expect(result.meanRelevanceScore.totalRelevanceSum).toBe(150); // 1.5 * 100
       expect(result.meanRelevanceScore.totalCourses).toBe(100);
       expect(result.meanRelevanceScore.description).toContain('1.5');
@@ -190,7 +193,8 @@ describe('CourseRetrievalMetricsCalculator', () => {
         15,
       );
       expect(result.perClassDistribution.score3.count).toBe(15);
-      expect(result.perClassDistribution.score3.totalCount).toBe(100);
+      // outOf is now the actual sum of distribution counts (25+20+20+15=80)
+      expect(result.perClassDistribution.score3.outOf).toBe(80);
       expect(result.perClassDistribution.score3.description).toContain('15');
       expect(result.perClassDistribution.score3.description).toContain(
         'highly',
@@ -246,7 +250,8 @@ describe('CourseRetrievalMetricsCalculator', () => {
         25,
       );
       expect(result.perClassDistribution.score0.count).toBe(25);
-      expect(result.perClassDistribution.score0.totalCount).toBe(100);
+      // totalCount is now the actual sum of distribution counts (25+20+20+15=80)
+      expect(result.perClassDistribution.score0.outOf).toBe(80);
       expect(result.perClassDistribution.score0.description).toContain('25');
     });
 
@@ -402,7 +407,7 @@ describe('CourseRetrievalMetricsCalculator', () => {
         });
 
       // Assert
-      expect(result.meanRelevanceScore.meanRelevanceScore).toBe(3.0);
+      expect(result.meanRelevanceScore.macroMean).toBe(3.0);
       expect(result.ndcg.at5.description).toContain('Excellent');
       expect(result.precision.at5.threshold2.meanPrecision).toBe(1.0);
     });
@@ -526,7 +531,7 @@ describe('CourseRetrievalMetricsCalculator', () => {
         });
 
       // Assert - should be rounded to 2 decimal places
-      expect(result.meanRelevanceScore.meanRelevanceScore).toBeCloseTo(1.33);
+      expect(result.meanRelevanceScore.macroMean).toBeCloseTo(1.33);
       expect(result.perClassDistribution.score3.macroAverageRate).toBeCloseTo(
         30,
       );

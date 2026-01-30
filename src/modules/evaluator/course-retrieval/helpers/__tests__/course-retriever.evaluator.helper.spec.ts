@@ -200,6 +200,7 @@ describe('CourseRetrieverEvaluatorHelper', () => {
       expect(result).toEqual({
         totalCourses: 0,
         meanRelevanceScore: 0,
+        totalRelevanceSum: 0,
         perClassDistribution: {
           score0: {
             relevanceScore: 0,

@@ -1,5 +1,6 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
+import pLimit from 'p-limit';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
@@ -52,67 +53,100 @@ export class CourseRelevanceFilterService
     const { getPrompts } = CourseRelevanceFilterPromptFactory();
     const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
 
-    const results: CourseRelevanceFilterResult[] = await Promise.all(
+    // Create concurrency limiter (max 3 concurrent LLM calls)
+    const limit = pLimit(
+      QueryPipelineConfig.COURSE_RELEVANCE_FILTER_CONCURRENCY,
+    );
+
+    // Process all skills with concurrency control and graceful failure handling
+    const settledResults = await Promise.allSettled(
       Array.from(skillCourseMatchMap.entries()).map(
         async ([skill, courses]: [
           string,
           CourseWithLearningOutcomeV2Match[],
-        ]) => {
-          if (courses.length === 0) {
+        ]) =>
+          limit(async () => {
+            if (courses.length === 0) {
+              this.logger.log(
+                `[CourseRelevanceFilter] No courses to filter for skill ${skill}. Skipping LLM call.`,
+              );
+              return this.buildEmptyFilterResult(promptVersion);
+            }
+
             this.logger.log(
-              `[CourseRelevanceFilter] No courses to filter for skill ${skill}. Skipping LLM call.`,
+              `[CourseRelevanceFilter] Skill: ${skill} has ${courses.length} matched courses.`,
             );
-            return this.buildEmptyFilterResult(promptVersion);
-          }
 
-          this.logger.log(
-            `[CourseRelevanceFilter] Skill: ${skill} has ${courses.length} matched courses.`,
-          );
+            const coursesData = this.buildCoursesData(courses);
+            this.logger.log(
+              `[CourseRelevanceFilter] Courses data for skill ${skill}: ${coursesData}`,
+            );
 
-          const coursesData = this.buildCoursesData(courses);
-          this.logger.log(
-            `[CourseRelevanceFilter] Courses data for skill ${skill}: ${coursesData}`,
-          );
+            const llmResult = await this.callLlmRelevanceFilter(
+              getUserPrompt(question, skill, coursesData),
+              systemPrompt,
+              CourseRelevanceFilterResultSchema,
+            );
 
-          const llmResult = await this.callLlmRelevanceFilter(
-            getUserPrompt(question, skill, coursesData),
-            systemPrompt,
-            CourseRelevanceFilterResultSchema,
-          );
+            this.logger.log(
+              `[CourseRelevanceFilter] Generated relevance filter for skill "${skill}": ${JSON.stringify(
+                llmResult.object,
+                null,
+                2,
+              )}`,
+            );
 
-          this.logger.log(
-            `[CourseRelevanceFilter] Generated relevance filter for skill "${skill}": ${JSON.stringify(
-              llmResult.object,
-              null,
-              2,
-            )}`,
-          );
+            const { tokenUsage, llmInfo } =
+              LlmMetadataBuilder.buildFromLlmResult(
+                llmResult,
+                llmResult.model,
+                getUserPrompt(question, skill, coursesData),
+                systemPrompt,
+                promptVersion,
+                'CourseRelevanceFilterResultSchema',
+              );
 
-          const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
-            llmResult,
-            llmResult.model,
-            getUserPrompt(question, skill, coursesData),
-            systemPrompt,
-            promptVersion,
-            'CourseRelevanceFilterResultSchema',
-          );
+            const courseItems: CourseRelevanceFilterItem[] =
+              this.mapToCourseItems(llmResult.object.courses);
 
-          const courseItems: CourseRelevanceFilterItem[] =
-            this.mapToCourseItems(llmResult.object.courses);
+            const { relevantCourses, nonRelevantCourses } =
+              this.categorizeCoursesByDecision(courses, courseItems, skill);
 
-          const { relevantCourses, nonRelevantCourses } =
-            this.categorizeCoursesByDecision(courses, courseItems, skill);
-
-          return this.buildFilterResult(
-            skill,
-            relevantCourses,
-            nonRelevantCourses,
-            llmInfo,
-            tokenUsage,
-          );
-        },
+            return this.buildFilterResult(
+              skill,
+              relevantCourses,
+              nonRelevantCourses,
+              llmInfo,
+              tokenUsage,
+            );
+          }),
       ),
     );
+
+    // Extract successful results, log failures
+    const results: CourseRelevanceFilterResult[] = [];
+    const failedSkills: string[] = [];
+    const skillKeys = Array.from(skillCourseMatchMap.keys());
+
+    for (let i = 0; i < settledResults.length; i++) {
+      const result = settledResults[i];
+      const skill = skillKeys[i];
+
+      if (result.status === 'fulfilled') {
+        results.push(result.value);
+      } else {
+        failedSkills.push(skill);
+        this.logger.error(
+          `[CourseRelevanceFilter] Failed to filter courses for skill "${skill}": ${result.reason instanceof Error ? result.reason.message : String(result.reason)}`,
+        );
+      }
+    }
+
+    if (failedSkills.length > 0) {
+      this.logger.warn(
+        `[CourseRelevanceFilter] ${failedSkills.length} skill(s) failed: ${failedSkills.join(', ')}. Continuing with ${results.length} successful result(s).`,
+      );
+    }
 
     return results;
   }
@@ -141,75 +175,105 @@ export class CourseRelevanceFilterService
     const { getPrompts } = CourseRelevanceFilterPromptFactory();
     const { getUserPrompt, systemPrompt } = getPrompts(promptVersion);
 
-    const results: CourseRelevanceFilterResultV2[] = await Promise.all(
+    // Create concurrency limiter (max 3 concurrent LLM calls)
+    const limit = pLimit(
+      QueryPipelineConfig.COURSE_RELEVANCE_FILTER_CONCURRENCY,
+    );
+
+    // Process all skills with concurrency control and graceful failure handling
+    const settledResults = await Promise.allSettled(
       Array.from(skillCourseMatchMap.entries()).map(
-        async ([skill, courses]: [
-          string,
-          CourseWithLearningOutcomeV2Match[],
-        ]) => {
-          if (courses.length === 0) {
+        ([skill, courses]: [string, CourseWithLearningOutcomeV2Match[]]) =>
+          limit(async () => {
+            if (courses.length === 0) {
+              this.logger.log(
+                `[CourseRelevanceFilterV2] No courses to filter for skill: "${skill}". Skipping LLM call.`,
+              );
+              return this.buildEmptyFilterResultV2(promptVersion);
+            }
+
             this.logger.log(
-              `[CourseRelevanceFilterV2] No courses to filter for skill: "${skill}". Skipping LLM call.`,
+              `[CourseRelevanceFilterV2] Skill: "${skill}" has ${courses.length} matched courses.`,
             );
-            return this.buildEmptyFilterResultV2(promptVersion);
-          }
 
-          this.logger.log(
-            `[CourseRelevanceFilterV2] Skill: "${skill}" has ${courses.length} matched courses.`,
-          );
+            const coursesData = this.buildCoursesDataV2(courses);
+            const preview =
+              coursesData.length >
+              QueryPipelineConfig.LOGGING_COURSE_DATA_PREVIEW_LIMIT
+                ? `${coursesData.slice(0, QueryPipelineConfig.LOGGING_COURSE_DATA_PREVIEW_LIMIT)}... (${courses.length} courses total)`
+                : coursesData;
+            this.logger.log(
+              `[CourseRelevanceFilterV2] Courses data for skill "${skill}": ${preview}`,
+            );
 
-          const coursesData = this.buildCoursesDataV2(courses);
-          const preview =
-            coursesData.length >
-            QueryPipelineConfig.LOGGING_COURSE_DATA_PREVIEW_LIMIT
-              ? `${coursesData.slice(0, QueryPipelineConfig.LOGGING_COURSE_DATA_PREVIEW_LIMIT)}... (${courses.length} courses total)`
-              : coursesData;
-          this.logger.log(
-            `[CourseRelevanceFilterV2] Courses data for skill "${skill}": ${preview}`,
-          );
+            const llmResult = await this.callLlmRelevanceFilter(
+              getUserPrompt(question, skill, coursesData),
+              systemPrompt,
+              CourseRelevanceFilterResultSchemaV2,
+            );
 
-          const llmResult = await this.callLlmRelevanceFilter(
-            getUserPrompt(question, skill, coursesData),
-            systemPrompt,
-            CourseRelevanceFilterResultSchemaV2,
-          );
+            this.logger.log(
+              `[CourseRelevanceFilterV2] Generated relevance filter for skill "${skill}": ${JSON.stringify(
+                llmResult.object,
+                null,
+                2,
+              )}`,
+            );
 
-          this.logger.log(
-            `[CourseRelevanceFilterV2] Generated relevance filter for skill "${skill}": ${JSON.stringify(
-              llmResult.object,
-              null,
-              2,
-            )}`,
-          );
+            const { tokenUsage, llmInfo } =
+              LlmMetadataBuilder.buildFromLlmResult(
+                llmResult,
+                llmResult.model,
+                getUserPrompt(question, skill, coursesData),
+                systemPrompt,
+                promptVersion,
+                'CourseRelevanceFilterResultSchemaV2',
+              );
 
-          const { tokenUsage, llmInfo } = LlmMetadataBuilder.buildFromLlmResult(
-            llmResult,
-            llmResult.model,
-            getUserPrompt(question, skill, coursesData),
-            systemPrompt,
-            promptVersion,
-            'CourseRelevanceFilterResultSchemaV2',
-          );
+            const courseItems: CourseRelevanceFilterItemV2[] =
+              this.mapToCourseItemsV2(llmResult.object.courses);
 
-          const courseItems: CourseRelevanceFilterItemV2[] =
-            this.mapToCourseItemsV2(llmResult.object.courses);
+            const { relevantCourses, droppedCourses, missingCourses } =
+              this.categorizeCoursesByScore(courses, courseItems, skill);
 
-          const { relevantCourses, droppedCourses, missingCourses } =
-            this.categorizeCoursesByScore(courses, courseItems, skill);
+            this.logCategorizationV2(skill, missingCourses, droppedCourses);
 
-          this.logCategorizationV2(skill, missingCourses, droppedCourses);
-
-          return this.buildFilterResultV2(
-            skill,
-            relevantCourses,
-            droppedCourses,
-            missingCourses,
-            llmInfo,
-            tokenUsage,
-          );
-        },
+            return this.buildFilterResultV2(
+              skill,
+              relevantCourses,
+              droppedCourses,
+              missingCourses,
+              llmInfo,
+              tokenUsage,
+            );
+          }),
       ),
     );
+
+    // Extract successful results, log failures
+    const results: CourseRelevanceFilterResultV2[] = [];
+    const failedSkills: string[] = [];
+    const skillKeys = Array.from(skillCourseMatchMap.keys());
+
+    for (let i = 0; i < settledResults.length; i++) {
+      const result = settledResults[i];
+      const skill = skillKeys[i];
+
+      if (result.status === 'fulfilled') {
+        results.push(result.value);
+      } else {
+        failedSkills.push(skill);
+        this.logger.error(
+          `[CourseRelevanceFilterV2] Failed to filter courses for skill "${skill}": ${result.reason instanceof Error ? result.reason.message : String(result.reason)}`,
+        );
+      }
+    }
+
+    if (failedSkills.length > 0) {
+      this.logger.warn(
+        `[CourseRelevanceFilterV2] ${failedSkills.length} skill(s) failed: ${failedSkills.join(', ')}. Continuing with ${results.length} successful result(s).`,
+      );
+    }
 
     return results;
   }

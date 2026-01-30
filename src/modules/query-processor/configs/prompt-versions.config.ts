@@ -24,6 +24,10 @@ export const QueryPipelinePromptConfig = {
    * Step 1: Question classification
    * Determines if the question is relevant, irrelevant, or dangerous
    */
+  // v18: Replaced binary "realistic vs fictional" constraint with "Academic Plausibility Test"
+  // v18: Added ACADEMIC PLAUSIBILITY HEURISTIC with 4 self-reflection questions
+  // v18: Allowed fictional topics studied academically (literature, game design, space exploration)
+  // v18: Added 3 new examples: Mars explorer (relevant), wizard (irrelevant), demonstrating academic plausibility
   // v17: Enhanced Relax Rule to handle goal-only statements (e.g., "อยากทำธุรกิจร้านเหล้า")
   // v17: Added examples for goal statements without explicit course questions
   // v16: Fixed administrative constraint with explicit examples and "NO EXCEPTION"
@@ -33,7 +37,7 @@ export const QueryPipelinePromptConfig = {
   // v15: Reduced examples from 13 to 9 (removed redundant dangerous/relevant examples)
   // v14: Added concept mapping approach, relaxed pattern requirements
   // v11: Base structure with simple pattern-based classification
-  CLASSIFICATION: QuestionClassificationPromptVersions.V17,
+  CLASSIFICATION: QuestionClassificationPromptVersions.V18,
 
   /**
    * Step 1: Query profile builder

@@ -192,6 +192,19 @@ export class EvaluationHashUtil {
     return HashHelper.generateHashSHA256(JSON.stringify(sortedCourses));
   }
 
+  /**
+   * Generate hash for a single string
+   *
+   * Creates a SHA256 hash of any string value.
+   * Used for skill-level deduplication (hash of skill only).
+   *
+   * @param str - String to hash
+   * @returns SHA256 hash hex string
+   */
+  static hashString(str: string): string {
+    return HashHelper.generateHashSHA256(str);
+  }
+
   // ==========================================================================
   // RECORD SAVING HASHES (Sample-Level)
   // ==========================================================================

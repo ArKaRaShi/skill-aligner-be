@@ -79,12 +79,16 @@ STRUCTURAL & LOGICAL REQUIREMENTS:
    - If the answer jumps straight to course lists without framing the user's broad intent first, penalize Completeness.
 
 2. ASPECT-EVIDENCE LINKING (CRITICAL):
-   - When the system groups courses under a specific "Aspect" or "Skill" (e.g., "For Video Editing... [Course A]"), you must VERIFY in "SECTION 1: MATCHED EVIDENCE" of that specific course.
-   - Does Section 1 actually list "Video Editing" (or a semantic equivalent) for Course A?
-   - IF NO: This is a "Misattribution Hallucination" (Faithfulness Score = 2 or 3). The course exists, but it does NOT support the aspect claimed by the system.
+   - When the system groups a course under a specific "Aspect/Skill", apply these checks IN ORDER:
+   
+   - (A) THE EXISTENCE CHECK (PREREQUISITE): Does "SECTION 1: MATCHED EVIDENCE" for this course ACTUALLY LIST this Aspect (or a direct synonym)?
+     -> IF NO: STOP HERE. This is a "Misattribution Hallucination" (Score 2 or 3). The course does not belong in this category, regardless of the explanation.
+     -> IF YES: Proceed to check (B).
 
-3. FORMAT CHECK:
-   - Verify that courses are cited in the format: "Course Name (Course Code)".
+   - (B) THE CONTENT CHECK: Verify claims based on LEARNING OUTCOMES (Section 2).
+     (Rationale: Do not penalize unrelated Course Names if LOs support the skill.)
+
+   - (C) REFINEMENT EXCEPTION: If the system explicitly clarifies a mismatch (e.g., "Course listed but focuses on Y, not Z"), treat this as ACCURATE nuancing ONLY IF Check (A) passed (or if the system admits the categorization itself is loose).
 
 ---
 
@@ -93,12 +97,13 @@ EVALUATION STEPS:
 1. ANALYZE FAITHFULNESS (AXIS 1):
    - SCAN the answer for claims.
    - VERIFY each claim against the PROVIDED CONTEXT ONLY.
-   - Verify if the "Aspect Frame" (the category/skill used to group the course) is supported by the context. Specifically, ensure that the course listed under that frame implies a skill that actually MAPS to "SECTION 1: MATCHED EVIDENCE".
+   - VERIFY against ASPECT-EVIDENCE LINKING (CRITICAL) in order from top to bottom.
    - (Draft the Faithfulness Score).
 
 2. ANALYZE COMPLETENESS (AXIS 2):
    - Look at the User Query.
    - CHECK if the answer provides a "Rationale" or "Bridge" linking the Course to the Query.
+   - CHECK against FLOW VERIFICATION in order from top to bottom.
    - (Draft the Completeness Score).
 
 3. FORMAT OUTPUT:
@@ -207,3 +212,15 @@ Evaluate the answer based on the criteria in the system prompt.
 Return your evaluation as valid JSON.
 `;
 };
+
+// 2. ASPECT-EVIDENCE LINKING (CRITICAL):
+//    - When the system groups a course under a specific "Aspect/Skill", apply these checks IN ORDER:
+
+//    - (A) THE EXISTENCE CHECK (PREREQUISITE): Does "SECTION 1: MATCHED EVIDENCE" for this course ACTUALLY LIST this Aspect (or a direct synonym)?
+//      -> IF NO: STOP HERE. This is a "Misattribution Hallucination" (Score 2 or 3). The course does not belong in this category, regardless of the explanation.
+//      -> IF YES: Proceed to check (B).
+
+//    - (B) THE CONTENT CHECK: Verify claims based on LEARNING OUTCOMES (Section 2).
+//      (Rationale: Do not penalize unrelated Course Names if LOs support the skill.)
+
+//    - (C) REFINEMENT EXCEPTION: If the system explicitly clarifies a mismatch (e.g., "Course listed but focuses on Y, not Z"), treat this as ACCURATE nuancing ONLY IF Check (A) passed (or if the system admits the categorization itself is loose).
