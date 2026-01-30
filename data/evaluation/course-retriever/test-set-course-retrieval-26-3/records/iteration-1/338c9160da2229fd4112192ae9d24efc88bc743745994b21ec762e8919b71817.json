@@ -1,0 +1,144 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การวางแผนเมนูอาหารไทย"
+  ],
+  "skill": "การวางแผนเมนูอาหารไทย",
+  "retrievedCount": 10,
+  "evaluations": [
+    {
+      "subjectCode": "01017322-66",
+      "subjectName": "โภชนศาสตร์ในวัฏจักรชีวิต",
+      "relevanceScore": 2,
+      "reason": "The course includes 'วางแผนเมนูอาหาร' as a learning outcome, indicating it covers menu planning, which is relevant to the skill."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 0,
+      "reason": "The course focuses on food preparation and presentation but does not mention menu planning or Thai cuisine specifically."
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "This course is about food quality analysis, not menu planning or Thai cuisine."
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "The course discusses food sources and nutrition but does not focus on menu planning or Thai cuisine."
+    },
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 1,
+      "reason": "While it covers international cuisine and food presentation, it does not specifically address Thai menu planning."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "This course is about beverage preparation, unrelated to Thai menu planning."
+    },
+    {
+      "subjectCode": "01017497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "The seminar focuses on food and nutrition articles, not menu planning."
+    },
+    {
+      "subjectCode": "01017121-66",
+      "subjectName": "หลักการทางโภชนาการและการกำหนดอาหาร",
+      "relevanceScore": 2,
+      "reason": "Includes 'การกำหนดอาหาร' which relates to diet planning, potentially relevant to menu planning, but not specifically Thai cuisine."
+    },
+    {
+      "subjectCode": "01390428-64",
+      "subjectName": "การท่องเที่ยวเชิงอาหาร",
+      "relevanceScore": 0,
+      "reason": "This course is about food tourism, not menu planning."
+    },
+    {
+      "subjectCode": "04152324-64",
+      "subjectName": "โภชนบำบัด",
+      "relevanceScore": 0,
+      "reason": "Focuses on clinical nutrition and therapy, not menu planning."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 10,
+    "meanRelevanceScore": 0.5,
+    "totalRelevanceSum": 5,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 7,
+        "macroAverageRate": 70,
+        "microAverageRate": 70,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 10,
+        "microAverageRate": 10,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.635,
+        "at10": 0.802,
+        "at15": 0.802,
+        "atAll": 0.802
+      },
+      "ideal": {
+        "at5": 0.27,
+        "at10": 0.221,
+        "at15": 0.172,
+        "atAll": 0.221
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.3,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.3,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.3,
+        "threshold2": 0.2,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2160,
+  "outputTokens": 458
+}

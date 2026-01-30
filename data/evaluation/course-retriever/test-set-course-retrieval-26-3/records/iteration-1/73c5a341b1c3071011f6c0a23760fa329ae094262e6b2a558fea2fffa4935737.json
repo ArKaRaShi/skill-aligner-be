@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "97b42158-60af-46d3-aa60-049d1243d2ee-ทฤษฎีดนตรี"
+  ],
+  "skill": "ทฤษฎีดนตรี",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "02184111-67",
+      "subjectName": "ดนตรีไทย I",
+      "relevanceScore": 3,
+      "reason": "The course explicitly mentions explaining the principles of Thai music theory as a primary outcome, making it highly relevant to the skill."
+    },
+    {
+      "subjectCode": "01386524-66",
+      "subjectName": "การอ่านและตีความบทประพันธ์ผ่านสกอร์",
+      "relevanceScore": 2,
+      "reason": "The course discusses analyzing and interpreting music theory, which is useful but not the main focus; it is part of a larger context."
+    },
+    {
+      "subjectCode": "02184131-67",
+      "subjectName": "ดนตรีไทย  II",
+      "relevanceScore": 1,
+      "reason": "While it covers the history and practice of Thai music, it does not explicitly focus on music theory as a primary skill."
+    },
+    {
+      "subjectCode": "02184141-67",
+      "subjectName": "ดนตรีตะวันตก II",
+      "relevanceScore": 0,
+      "reason": "This course is about Western music, not Thai music theory, so it is irrelevant to the skill."
+    },
+    {
+      "subjectCode": "01386591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางดนตรี",
+      "relevanceScore": 0,
+      "reason": "The course is about research methodology in music, not music theory itself."
+    },
+    {
+      "subjectCode": "02201596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "This course is about agricultural engineering, unrelated to music theory."
+    },
+    {
+      "subjectCode": "01386547-66",
+      "subjectName": "วรรณกรรมวงดุริยางค์เครื่องลมยุคคลาสสิคถึงยุคปัจจุบัน",
+      "relevanceScore": 0,
+      "reason": "Focuses on the history of classical and modern wind ensemble music, not on music theory."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "This is a thesis course about research, not music theory."
+    },
+    {
+      "subjectCode": "01386546-66",
+      "subjectName": "วรรณกรรมวงดุริยางค์เครื่องลมยุคโบราณถึงยุคคลาสสิค",
+      "relevanceScore": 0,
+      "reason": "Discusses historical background of wind music, not music theory."
+    },
+    {
+      "subjectCode": "01386533-66",
+      "subjectName": "การอำนวยเพลงขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Includes advanced music performance and analysis, which may involve some theory, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "02184171-67",
+      "subjectName": "การปฏิบัติเครื่องดนตรีตะวันตก",
+      "relevanceScore": 0,
+      "reason": "Focuses on Western instrument practice, not Thai music theory."
+    },
+    {
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "relevanceScore": 0,
+      "reason": "This course is about applied psychology in communities, unrelated to music theory."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.5833333333333334,
+    "totalRelevanceSum": 7,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.917,
+        "at10": 0.973,
+        "at15": 0.973,
+        "atAll": 0.973
+      },
+      "ideal": {
+        "at5": 0.538,
+        "at10": 0.371,
+        "at15": 0.287,
+        "atAll": 0.331
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.333,
+        "threshold2": 0.167,
+        "threshold3": 0.083
+      },
+      "atAll": {
+        "threshold1": 0.333,
+        "threshold2": 0.167,
+        "threshold3": 0.083
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2044,
+  "outputTokens": 544
+}

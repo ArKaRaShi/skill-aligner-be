@@ -1,0 +1,146 @@
+{
+  "iteration": 1,
+  "timestamp": "2026-01-26T20:15:35.061Z",
+  "testSetName": "test-set-answer-synthesis-eval-26-2",
+  "judgeModel": "gpt-5-mini",
+  "judgeProvider": "openrouter",
+  "samples": 26,
+  "totalTokens": {
+    "input": 300794,
+    "output": 35915,
+    "total": 336709
+  },
+  "totalCost": 0.1470285,
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 7329,
+      "outputTokens": 634
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 8669,
+      "outputTokens": 1094
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 8896,
+      "outputTokens": 1084
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 6484,
+      "outputTokens": 1255
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 15203,
+      "outputTokens": 1244
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 8223,
+      "outputTokens": 2067
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 13662,
+      "outputTokens": 1435
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 12214,
+      "outputTokens": 1725
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 14068,
+      "outputTokens": 1234
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 11858,
+      "outputTokens": 1160
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 8955,
+      "outputTokens": 842
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 10870,
+      "outputTokens": 1530
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 11429,
+      "outputTokens": 1471
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 9624,
+      "outputTokens": 1763
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 13859,
+      "outputTokens": 1010
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 11131,
+      "outputTokens": 1315
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 15420,
+      "outputTokens": 1455
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 7917,
+      "outputTokens": 1770
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 23779,
+      "outputTokens": 1885
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 11249,
+      "outputTokens": 1512
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 14009,
+      "outputTokens": 1849
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 9114,
+      "outputTokens": 845
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 13164,
+      "outputTokens": 1435
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 12466,
+      "outputTokens": 1754
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 16608,
+      "outputTokens": 1413
+    },
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 4594,
+      "outputTokens": 1134
+    }
+  ]
+}

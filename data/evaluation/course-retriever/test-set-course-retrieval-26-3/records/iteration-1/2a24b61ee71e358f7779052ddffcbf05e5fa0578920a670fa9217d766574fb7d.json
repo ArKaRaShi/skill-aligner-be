@@ -1,0 +1,186 @@
+{
+  "questionIds": [
+    "cd96176f-8e18-4270-9c76-8c6b1cf19594-การวิเคราะห์และออกแบบระบบ"
+  ],
+  "skill": "การวิเคราะห์และออกแบบระบบ",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "The course focuses on analyzing language systems, not system analysis and design."
+    },
+    {
+      "subjectCode": "02738312-66",
+      "subjectName": "หลักการจัดระบบและอนุกรมวิธาน",
+      "relevanceScore": 0,
+      "reason": "The course is about taxonomy and biological classification, unrelated to system analysis and design."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "The thesis course involves research design and analysis, which may include system analysis, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "The course is about business Chinese language skills, not system analysis and design."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Similar to above, focuses on language skills, not system analysis."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Same as above, language-focused course."
+    },
+    {
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Research methodology in thesis work may involve some system analysis, but it is not the main theme."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course on animal nutrition, unrelated to system analysis and design."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 2,
+      "reason": "The course on experimental design and analysis involves some aspects of system analysis in research methodology."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 2,
+      "reason": "Data analysis for accounting may include system analysis components related to data management and reporting."
+    },
+    {
+      "subjectCode": "02804112-67",
+      "subjectName": "องค์การและการจัดการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course on airline organization and management, not related to system analysis and design."
+    },
+    {
+      "subjectCode": "02747442-65",
+      "subjectName": "การจัดการคุณภาพบริการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Focuses on service quality management in aviation, not system analysis."
+    },
+    {
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "relevanceScore": 2,
+      "reason": "Investment analysis involves evaluating systems and processes, relevant to system analysis and design."
+    },
+    {
+      "subjectCode": "01241232-66",
+      "subjectName": "การออกแบบก่อสร้างภูมิสถาปัตยกรรม II",
+      "relevanceScore": 2,
+      "reason": "Design of landscape architecture includes planning and design processes akin to system analysis."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 2,
+      "reason": "Product development projects involve problem analysis and system design aspects."
+    },
+    {
+      "subjectCode": "01448214-68",
+      "subjectName": "ปฏิบัติการทางวัสดุ I",
+      "relevanceScore": 0,
+      "reason": "Material testing course unrelated to system analysis and design."
+    },
+    {
+      "subjectCode": "02232271-66",
+      "subjectName": "วิศวกรรมขนส่ง และโลจิสติกส์",
+      "relevanceScore": 2,
+      "reason": "Transport engineering and logistics involve system analysis in transportation systems."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.8235294117647058,
+    "totalRelevanceSum": 14,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 9,
+        "macroAverageRate": 52.94117647058823,
+        "microAverageRate": 52.94117647058823,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 11.764705882352942,
+        "microAverageRate": 11.764705882352942,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 35.294117647058826,
+        "microAverageRate": 35.294117647058826,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.085,
+        "at10": 0.277,
+        "at15": 0.489,
+        "atAll": 0.555
+      },
+      "ideal": {
+        "at5": 0.057,
+        "at10": 0.148,
+        "at15": 0.202,
+        "atAll": 0.212
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.467,
+        "threshold2": 0.333,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.471,
+        "threshold2": 0.353,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2869,
+  "outputTokens": 607
+}

@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การจัดการธุรกิจปศุสัตว์"
+  ],
+  "skill": "การจัดการธุรกิจปศุสัตว์",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "relevanceScore": 1,
+      "reason": "The course mentions planning a pet business as a learning outcome, which is related to livestock business management, but it is not a primary focus of the course."
+    },
+    {
+      "subjectCode": "01603446-65",
+      "subjectName": "การบริหารธุรกิจสัตว์เลี้ยงและโรงพยาบาลสัตว์",
+      "relevanceScore": 3,
+      "reason": "The course explicitly focuses on the management of pet businesses and veterinary hospitals, directly related to livestock business management."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "The course is about animal nutrition and research analysis, not specifically about livestock business management."
+    },
+    {
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "relevanceScore": 0,
+      "reason": "The course covers artificial intelligence in animal science, not livestock business management."
+    },
+    {
+      "subjectCode": "06901111-66",
+      "subjectName": "หลักการจัดการธุรกิจเบื้องต้นสำหรับอุตสาหกรรมการท่องเที่ยว",
+      "relevanceScore": 0,
+      "reason": "The course is about tourism industry management, unrelated to livestock business management."
+    },
+    {
+      "subjectCode": "01025333-64",
+      "subjectName": "ปฏิบัติการเกษตรเขตร้อน",
+      "relevanceScore": 0,
+      "reason": "The course focuses on tropical agriculture practices, not specifically on livestock business management."
+    },
+    {
+      "subjectCode": "01004332-64",
+      "subjectName": "ชีววิทยาของปลวกและการควบคุม",
+      "relevanceScore": 0,
+      "reason": "The course is about termite biology and control, not related to livestock business management."
+    },
+    {
+      "subjectCode": "01314496-67",
+      "subjectName": "เรื่องเฉพาะทางการจัดการสัตว์ป่า",
+      "relevanceScore": 0,
+      "reason": "The course discusses wildlife management, not livestock business management."
+    },
+    {
+      "subjectCode": "01600131-65",
+      "subjectName": "มาตรฐานฟาร์มและการจัดการฟาร์ม",
+      "relevanceScore": 2,
+      "reason": "The course covers farm standards and waste management, which are components of livestock farm management, but not the primary focus."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "The course involves business planning and profit control, relevant to livestock business management but not specifically focused on it."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "The course on data warehouses and intelligent business systems can be applied in livestock business management, but it is not a core focus."
+    },
+    {
+      "subjectCode": "01002111-68",
+      "subjectName": "วิทยาศาสตร์และเทคโนโลยีด้านสัตว์",
+      "relevanceScore": 0,
+      "reason": "The course is about animal science and technology, not specifically about business management."
+    },
+    {
+      "subjectCode": "01023522-68",
+      "subjectName": "อุตสาหกรรมอาหารสัตว์เลี้ยง",
+      "relevanceScore": 2,
+      "reason": "The course covers animal feed industry, which is related to livestock management, but it is not solely focused on business management."
+    },
+    {
+      "subjectCode": "01387105-67",
+      "subjectName": "พุทธจริยศาสตร์ในการดำเนินธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "The course is about wildlife management, not livestock business management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.8571428571428571,
+    "totalRelevanceSum": 12,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 57.142857142857146,
+        "microAverageRate": 57.142857142857146,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.419,
+        "at10": 0.562,
+        "at15": 0.711,
+        "atAll": 0.711
+      },
+      "ideal": {
+        "at5": 0.327,
+        "at10": 0.299,
+        "at15": 0.293,
+        "atAll": 0.306
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.429,
+        "threshold2": 0.357,
+        "threshold3": 0.071
+      },
+      "atAll": {
+        "threshold1": 0.429,
+        "threshold2": 0.357,
+        "threshold3": 0.071
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2632,
+  "outputTokens": 648
+}

@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "3ef3d308-ac42-453e-bce7-bb7376046c41-การใช้โซเชียลมีเดียเพื่อการตลาด"
+  ],
+  "skill": "การใช้โซเชียลมีเดียเพื่อการตลาด",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on food service management and marketing communication related to food, not social media marketing."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 2,
+      "reason": "Includes marketing management with some mention of communication and promotion, which may involve social media, but not explicitly focused on social media marketing."
+    },
+    {
+      "subjectCode": "01402511-65",
+      "subjectName": "ชีวเคมีการทำหน้าที่ระดับเซลล์",
+      "relevanceScore": 0,
+      "reason": "Biochemistry course with no relevance to social media marketing."
+    },
+    {
+      "subjectCode": "01402512-65",
+      "subjectName": "โครงสร้างและการทำหน้าที่ของชีวโมเลกุล",
+      "relevanceScore": 0,
+      "reason": "Biomolecular structure course unrelated to social media marketing."
+    },
+    {
+      "subjectCode": "01352333-66",
+      "subjectName": "การสื่อสารการตลาด",
+      "relevanceScore": 3,
+      "reason": "Specifically about marketing communication, including the use of information technology for marketing communication plans, directly relevant to social media marketing."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 1,
+      "reason": "Basic principles of marketing are discussed, but social media marketing is not explicitly mentioned."
+    },
+    {
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "relevanceScore": 1,
+      "reason": "Content marketing media and technology are discussed, which may include social media, but not explicitly focused on social media marketing."
+    },
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 0,
+      "reason": "Brand management course unrelated to social media marketing."
+    },
+    {
+      "subjectCode": "01357365-68",
+      "subjectName": "ภาษาเยอรมันเพื่องานธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "German language for aviation business, not related to social media marketing."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 0,
+      "reason": "Innovation technology design course unrelated to social media marketing."
+    },
+    {
+      "subjectCode": "02717112-67",
+      "subjectName": "การเมืองไทยร่วมสมัย",
+      "relevanceScore": 0,
+      "reason": "Contemporary Thai politics course unrelated to social media marketing."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 0,
+      "reason": "Storytelling with images course unrelated to social media marketing."
+    },
+    {
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "relevanceScore": 1,
+      "reason": "International marketing course may touch on social media but not explicitly focused on social media marketing."
+    },
+    {
+      "subjectCode": "01058497-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course unrelated to social media marketing."
+    },
+    {
+      "subjectCode": "01055566-66",
+      "subjectName": "การสร้างคุณค่าในเทคโนโลยีอุตสาหกรรมและการจัดการสินค้าสิ่งทอ",
+      "relevanceScore": 0,
+      "reason": "Textile and fashion industry value creation course unrelated to social media marketing."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0.5333333333333333,
+    "totalRelevanceSum": 8,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 10,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.434,
+        "at10": 0.558,
+        "at15": 0.605,
+        "atAll": 0.605
+      },
+      "ideal": {
+        "at5": 0.274,
+        "at10": 0.228,
+        "at15": 0.192,
+        "atAll": 0.192
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.333,
+        "threshold2": 0.133,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.333,
+        "threshold2": 0.133,
+        "threshold3": 0.067
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3028,
+  "outputTokens": 544
+}

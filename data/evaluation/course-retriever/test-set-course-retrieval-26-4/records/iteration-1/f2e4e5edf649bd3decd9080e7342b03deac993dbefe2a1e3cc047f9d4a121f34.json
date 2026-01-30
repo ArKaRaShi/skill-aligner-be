@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การตลาดและการส่งเสริมการขาย"
+  ],
+  "skill": "การตลาดและการส่งเสริมการขาย",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 3,
+      "reason": "Course 'หลักการตลาด' covers marketing principles including marketing mix and consumer behavior, which are core to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 1,
+      "reason": "Course 'หลักการประชาสัมพันธ์' focuses on public relations, which is related but only marginally relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 3,
+      "reason": "Course 'การจัดการการตลาด' focuses on marketing management, including creating and presenting marketing plans, directly relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "relevanceScore": 3,
+      "reason": "Course 'การตลาดธุรกิจการเกษตรและอาหาร' covers marketing principles, marketing activities, and strategy in agricultural and food business, highly relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 3,
+      "reason": "Course 'การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม' includes marketing targeting and pricing strategies, directly relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "relevanceScore": 2,
+      "reason": "Course 'สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา' covers content marketing concepts and media technology, relevant as a component of marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "relevanceScore": 3,
+      "reason": "Course 'การตลาดระหว่างประเทศ' covers international marketing principles, directly relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 3,
+      "reason": "Course 'การจัดการการตลาดในธุรกิจการบิน' covers marketing characteristics, consumer behavior, and marketing mix in aviation business, highly relevant."
+    },
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 3,
+      "reason": "Course 'การสร้างและการจัดการแบรนด์' covers brand creation and management, including marketing strategies and communication, highly relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01136113-68",
+      "subjectName": "เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด",
+      "relevanceScore": 2,
+      "reason": "Course 'เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด' covers economics impact on marketing, providing useful background but not core marketing content."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 1,
+      "reason": "Course 'การจัดการระบบบริการอาหาร' mentions using technology for publicity related to food sales, marginally relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "Course 'การวางแผนและการควบคุมกำไร' focuses on profit planning and control, unrelated to marketing and sales promotion."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 2.25,
+    "totalRelevanceSum": 27,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 7,
+        "macroAverageRate": 58.333333333333336,
+        "microAverageRate": 58.333333333333336,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.857,
+        "at10": 0.943,
+        "at15": 0.944,
+        "atAll": 0.944
+      },
+      "ideal": {
+        "at5": 0.857,
+        "at10": 0.86,
+        "at15": 0.683,
+        "atAll": 0.786
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.8
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.9,
+        "threshold3": 0.7
+      },
+      "at15": {
+        "threshold1": 0.917,
+        "threshold2": 0.75,
+        "threshold3": 0.583
+      },
+      "atAll": {
+        "threshold1": 0.917,
+        "threshold2": 0.75,
+        "threshold3": 0.583
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2232,
+  "outputTokens": 555
+}

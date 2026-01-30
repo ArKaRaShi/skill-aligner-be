@@ -1,0 +1,192 @@
+{
+  "questionIds": [
+    "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-วัฒนธรรมและธุรกิจในจีนและเวียดนาม"
+  ],
+  "skill": "วัฒนธรรมและธุรกิจในจีนและเวียดนาม",
+  "retrievedCount": 18,
+  "evaluations": [
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 2,
+      "reason": "Includes 'อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้' which relates to Chinese business culture, but primarily focuses on language skills."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 2,
+      "reason": "Similar to above, covers Chinese business culture briefly within language courses."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 2,
+      "reason": "Focuses on language and some cultural aspects related to business, but not a primary theme."
+    },
+    {
+      "subjectCode": "01396382-67",
+      "subjectName": "ภาษาและวัฒนธรรมในองค์กรจีน",
+      "relevanceScore": 3,
+      "reason": "Explicitly mentions explaining Chinese culture related to business and connecting social, economic, and cultural concepts, directly relevant."
+    },
+    {
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "relevanceScore": 2,
+      "reason": "Includes explaining Chinese culture in the context of business conversations, but not the main focus."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 2,
+      "reason": "Similar to above, cultural explanation within business conversation context."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 2,
+      "reason": "Covers cultural aspects in business conversations, but not as the primary focus."
+    },
+    {
+      "subjectCode": "01396221-67",
+      "subjectName": "การอ่านภาษาจีนเพื่องานอาชีพ I",
+      "relevanceScore": 2,
+      "reason": "Mentions connecting social, economic, and cultural concepts to business, but within reading skills."
+    },
+    {
+      "subjectCode": "01396323-67",
+      "subjectName": "การอ่านภาษาจีนผ่านสื่อสารสนเทศ",
+      "relevanceScore": 2,
+      "reason": "Includes analysis of Chinese social, cultural, and business concepts, but not the main theme."
+    },
+    {
+      "subjectCode": "01396222-67",
+      "subjectName": "การอ่านภาษาจีนเพื่องานอาชีพ II",
+      "relevanceScore": 2,
+      "reason": "Focuses on linking social, economic, and cultural ideas to business in reading context."
+    },
+    {
+      "subjectCode": "01396322-67",
+      "subjectName": "งานประพันธ์จีน II",
+      "relevanceScore": 2,
+      "reason": "Similar to above, linking cultural concepts to business."
+    },
+    {
+      "subjectCode": "01396281-67",
+      "subjectName": "ภาษาจีนเชิงสังคมและวัฒนธรรม",
+      "relevanceScore": 2,
+      "reason": "Covers social and cultural aspects of Chinese language, with some relevance to business culture."
+    },
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 2,
+      "reason": "Includes connecting social, economic, and cultural ideas to business language."
+    },
+    {
+      "subjectCode": "01470113-65",
+      "subjectName": "เอเชียตะวันออกเฉียงใต้ศึกษาเบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Focuses on Southeast Asian studies and regional diversity, tangentially related."
+    },
+    {
+      "subjectCode": "01399101-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร I",
+      "relevanceScore": 0,
+      "reason": "Vietnames language skills, not related to Chinese or Vietnamese business culture."
+    },
+    {
+      "subjectCode": "01399103-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร III",
+      "relevanceScore": 0,
+      "reason": "Same as above, no mention of Vietnamese business culture."
+    },
+    {
+      "subjectCode": "01399102-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร II",
+      "relevanceScore": 0,
+      "reason": "Same as above, no relevance to Vietnamese business culture."
+    },
+    {
+      "subjectCode": "01396111-67",
+      "subjectName": "ภาษาจีนธุรกิจ I",
+      "relevanceScore": 2,
+      "reason": "Includes communication in Chinese for business situations, with some cultural context."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 18,
+    "meanRelevanceScore": 1.6666666666666667,
+    "totalRelevanceSum": 30,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 5.555555555555555,
+        "microAverageRate": 5.555555555555555,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 13,
+        "macroAverageRate": 72.22222222222223,
+        "microAverageRate": 72.22222222222223,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 5.555555555555555,
+        "microAverageRate": 5.555555555555555,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.918,
+        "at10": 0.944,
+        "at15": 0.914,
+        "atAll": 0.951
+      },
+      "ideal": {
+        "at5": 0.715,
+        "at10": 0.698,
+        "at15": 0.648,
+        "atAll": 0.601
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.933,
+        "threshold2": 0.867,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.833,
+        "threshold2": 0.778,
+        "threshold3": 0.056
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2458,
+  "outputTokens": 673
+}

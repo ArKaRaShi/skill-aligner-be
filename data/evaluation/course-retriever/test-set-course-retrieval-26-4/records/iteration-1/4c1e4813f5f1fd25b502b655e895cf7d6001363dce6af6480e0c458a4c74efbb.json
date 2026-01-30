@@ -1,0 +1,198 @@
+{
+  "questionIds": [
+    "b41c15f8-2249-4469-9981-71cc1c75b2b4-การสื่อสารและการประสานงาน"
+  ],
+  "skill": "การสื่อสารและการประสานงาน",
+  "retrievedCount": 19,
+  "evaluations": [
+    {
+      "subjectCode": "01401463-66",
+      "subjectName": "ชีววิทยาวิวัฒนาการของพืช",
+      "relevanceScore": 1,
+      "reason": "Course mentions the ability to search for information, communicate, and present work, but communication is not a main focus."
+    },
+    {
+      "subjectCode": "01401442-66",
+      "subjectName": "พรรณไม้น้ำ",
+      "relevanceScore": 2,
+      "reason": "Includes communication and presentation skills and emphasizes accepting others' opinions and working effectively, indicating fair relevance to communication and coordination."
+    },
+    {
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Lists communication and presentation as learning outcomes along with research skills, showing communication as a distinct component."
+    },
+    {
+      "subjectCode": "01401399-66",
+      "subjectName": "การฝึกงานทางพฤกษศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Includes communication and presentation skills and working effectively with others, indicating fair relevance."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 2,
+      "reason": "Includes communication and appropriate use of information, showing some focus on communication skills."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 2,
+      "reason": "Mentions communication and appropriate use of information, indicating fair relevance."
+    },
+    {
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "relevanceScore": 3,
+      "reason": "Specifically states clear communication with coworkers and supervisors as a learning outcome, making communication and coordination a primary objective."
+    },
+    {
+      "subjectCode": "04404222-67",
+      "subjectName": "หลักอนามัยสิ่งแวดล้อม",
+      "relevanceScore": 3,
+      "reason": "Explicitly includes communication and teamwork as learning outcomes, making it highly relevant to communication and coordination."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 3,
+      "reason": "Focuses on communication levels, mass communication theories, and applying communication ethics, making it highly relevant."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 2,
+      "reason": "Includes communication and presentation of work, indicating communication is a distinct but not primary focus."
+    },
+    {
+      "subjectCode": "02999042-67",
+      "subjectName": "การพัฒนานิสิต",
+      "relevanceScore": 3,
+      "reason": "Explicitly includes coordination and working with others as a learning outcome, highly relevant to communication and coordination."
+    },
+    {
+      "subjectCode": "03764322-64",
+      "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+      "relevanceScore": 3,
+      "reason": "Focuses on negotiation, communication, and teamwork skills specifically for logistics management, highly relevant."
+    },
+    {
+      "subjectCode": "01420454-66",
+      "subjectName": "พลังงานแสงอาทิตย์",
+      "relevanceScore": 2,
+      "reason": "Mentions ability to speak, communicate, and present academic work, and teamwork, indicating fair relevance."
+    },
+    {
+      "subjectCode": "01951211-67",
+      "subjectName": "วิทยาศาสตร์ระบบสุขภาพ I",
+      "relevanceScore": 3,
+      "reason": "Includes communication, building relationships, teamwork, and responsibility as key learning outcomes, highly relevant."
+    },
+    {
+      "subjectCode": "02738463-61",
+      "subjectName": "นิติวิทยาศาสตร์ทางชีววิทยา",
+      "relevanceScore": 3,
+      "reason": "Includes communication in teamwork and presenting opinions with reasoning, making it highly relevant."
+    },
+    {
+      "subjectCode": "04403697-67",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 3,
+      "reason": "Focuses on communication and academic presentation skills as a main learning outcome, highly relevant."
+    },
+    {
+      "subjectCode": "01661313-65",
+      "subjectName": "การสื่อสารเพื่อการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 3,
+      "reason": "Focuses on communication's role and effectiveness in environmental management, making it highly relevant."
+    },
+    {
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "relevanceScore": 2,
+      "reason": "Mentions communication skills in language and technology, indicating fair relevance."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Includes coordination and responsible teamwork as a learning outcome, indicating fair relevance."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 19,
+    "meanRelevanceScore": 2.4210526315789473,
+    "totalRelevanceSum": 46,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 5.2631578947368425,
+        "microAverageRate": 5.2631578947368425,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 9,
+        "macroAverageRate": 47.36842105263158,
+        "microAverageRate": 47.36842105263158,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 9,
+        "macroAverageRate": 47.36842105263158,
+        "microAverageRate": 47.36842105263158,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.554,
+        "at10": 0.677,
+        "at15": 0.797,
+        "atAll": 0.856
+      },
+      "ideal": {
+        "at5": 0.554,
+        "at10": 0.663,
+        "at15": 0.724,
+        "atAll": 0.74
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.9,
+        "threshold3": 0.3
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.933,
+        "threshold3": 0.467
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.947,
+        "threshold3": 0.474
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3684,
+  "outputTokens": 630
+}

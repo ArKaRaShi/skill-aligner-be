@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การตัดสินใจเชิงระบบ"
+  ],
+  "skill": "การตัดสินใจเชิงระบบ",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "03651321-65",
+      "subjectName": "การวิเคราะห์การตัดสินใจและการประยุกต์",
+      "relevanceScore": 3,
+      "reason": "Course focuses on decision analysis and application, covering decision problems, decision tables, decision trees, and decision models under certainty, risk, and uncertainty, which aligns directly with systematic decision making."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Course includes application of decision support systems in business intelligence, which relates to systematic decision making as a component but not the main focus."
+    },
+    {
+      "subjectCode": "02738312-66",
+      "subjectName": "หลักการจัดระบบและอนุกรมวิธาน",
+      "relevanceScore": 0,
+      "reason": "Course is about taxonomy and classification in biological sciences, unrelated to systematic decision making."
+    },
+    {
+      "subjectCode": "01101171-65",
+      "subjectName": "คณิตเศรษฐศาสตร์ I",
+      "relevanceScore": 0,
+      "reason": "Course covers mathematical economics focusing on linear equations and calculus, no direct relation to systematic decision making."
+    },
+    {
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course mentions business decision making using software but only briefly and generally, not focused on systematic decision making principles."
+    },
+    {
+      "subjectCode": "03602312-65",
+      "subjectName": "วิศวกรรมอุตสาหการและระบบเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers industrial engineering and systems engineering basics including decision techniques to evaluate options, which relates to systematic decision making as part of broader content."
+    },
+    {
+      "subjectCode": "02802115-67",
+      "subjectName": "การวิเคราะห์เชิงปริมาณในธุรกิจบริการ",
+      "relevanceScore": 1,
+      "reason": "Course covers quantitative analysis methods in service business, which may include decision making but only marginally relevant to systematic decision making skill."
+    },
+    {
+      "subjectCode": "03610227-66",
+      "subjectName": "วิศวกรรมวัดคุมพื้นฐาน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on measurement and control engineering fundamentals, unrelated to systematic decision making."
+    },
+    {
+      "subjectCode": "01241332-66",
+      "subjectName": "การออกแบบก่อสร้างภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 0,
+      "reason": "Course is about landscape architecture design and construction, unrelated to systematic decision making."
+    },
+    {
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "relevanceScore": 1,
+      "reason": "Course includes analysis, decision, and ethical problem solving in teaching profession, marginally related to systematic decision making."
+    },
+    {
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on operational research practice including modeling, decision analysis under uncertainty, and software use for optimal decision making, directly aligned with systematic decision making."
+    },
+    {
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Course is about English language systems and structure, unrelated to systematic decision making."
+    },
+    {
+      "subjectCode": "01651531-68",
+      "subjectName": "นโยบายสิ่งแวดล้อมเพื่อการพัฒนาที่ยั่งยืน",
+      "relevanceScore": 2,
+      "reason": "Course covers environmental policy with system analysis and systemic environmental management tools, related to systematic decision making in environmental context."
+    },
+    {
+      "subjectCode": "01951211-67",
+      "subjectName": "วิทยาศาสตร์ระบบสุขภาพ I",
+      "relevanceScore": 1,
+      "reason": "Course includes critical thinking and systematic problem solving in health sciences, marginally relevant to systematic decision making."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.1428571428571428,
+    "totalRelevanceSum": 16,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 35.714285714285715,
+        "microAverageRate": 35.714285714285715,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.618,
+        "at10": 0.677,
+        "at15": 0.861,
+        "atAll": 0.861
+      },
+      "ideal": {
+        "at5": 0.526,
+        "at10": 0.439,
+        "at15": 0.432,
+        "atAll": 0.452
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.6,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.643,
+        "threshold2": 0.357,
+        "threshold3": 0.143
+      },
+      "atAll": {
+        "threshold1": 0.643,
+        "threshold2": 0.357,
+        "threshold3": 0.143
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3090,
+  "outputTokens": 526
+}

@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "be573eca-6596-418a-888d-f4f0c0d5651d-โครงสร้างข้อมูล"
+  ],
+  "skill": "โครงสร้างข้อมูล",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "The course discusses data structures as part of data warehouse and business intelligence systems, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "04252535-67",
+      "subjectName": "วิศวกรรมข้อมูลขนาดใหญ่",
+      "relevanceScore": 2,
+      "reason": "The course covers large data structures as part of big data engineering, but not as the main theme."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "Mentions basic concepts of data structures in problem-solving, but not as a primary learning outcome."
+    },
+    {
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "relevanceScore": 1,
+      "reason": "Provides an overview of data science principles, with minimal mention of data structures."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 3,
+      "reason": "The course explicitly covers database systems, including data models and structures, making it highly relevant."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Focuses on presentation and communication skills, with passing mention of data structures."
+    },
+    {
+      "subjectCode": "01008553-65",
+      "subjectName": "ข้อมูลทางพันธุกรรมของเชื้อโรคพืชและชีวสารสนเทศศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Discusses genetic data and bioinformatics, with no direct focus on data structures."
+    },
+    {
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "relevanceScore": 3,
+      "reason": "Covers database query languages and data management, directly related to data structures."
+    },
+    {
+      "subjectCode": "01007582-65",
+      "subjectName": "สรีรวิทยาหลังการเก็บเกี่ยวของผลไม้ ผักและดอกไม้",
+      "relevanceScore": 1,
+      "reason": "Focuses on post-harvest physiology, unrelated to data structures."
+    },
+    {
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "relevanceScore": 3,
+      "reason": "Provides comprehensive coverage of relational database systems, including data structures."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar skills are the main focus, with minimal mention of data structures."
+    },
+    {
+      "subjectCode": "01008553-65",
+      "subjectName": "ข้อมูลทางพันธุกรรมของเชื้อโรคพืชและชีวสารสนเทศศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Bioinformatics and genetic data are discussed, but not data structures specifically."
+    },
+    {
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "relevanceScore": 3,
+      "reason": "Explicitly covers database systems and data models, highly relevant."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Focuses on animal nutrition and research presentation, unrelated to data structures."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.7142857142857142,
+    "totalRelevanceSum": 24,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 57.142857142857146,
+        "microAverageRate": 57.142857142857146,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.633,
+        "at10": 0.784,
+        "at15": 0.849,
+        "atAll": 0.849
+      },
+      "ideal": {
+        "at5": 0.605,
+        "at10": 0.598,
+        "at15": 0.554,
+        "atAll": 0.579
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0.3
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.429,
+        "threshold3": 0.286
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.429,
+        "threshold3": 0.286
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2717,
+  "outputTokens": 611
+}

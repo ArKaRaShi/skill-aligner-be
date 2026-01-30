@@ -1,0 +1,192 @@
+{
+  "questionIds": [
+    "1e7e132d-31b7-49fe-91dc-c2e0358a1b24-การสื่อสารเพื่อการนำทีม"
+  ],
+  "skill": "การสื่อสารเพื่อการนำทีม",
+  "retrievedCount": 18,
+  "evaluations": [
+    {
+      "subjectCode": "04404222-67",
+      "subjectName": "หลักอนามัยสิ่งแวดล้อม",
+      "relevanceScore": 2,
+      "reason": "Course includes communication and teamwork skills, which relate to communication for team leadership, but leadership communication is not explicitly emphasized."
+    },
+    {
+      "subjectCode": "01420453-66",
+      "subjectName": "ทรัพยากรพลังงาน",
+      "relevanceScore": 2,
+      "reason": "Course covers communication and teamwork with colleagues effectively, relevant to communication for team leadership as part of teamwork skills."
+    },
+    {
+      "subjectCode": "01951211-67",
+      "subjectName": "วิทยาศาสตร์ระบบสุขภาพ I",
+      "relevanceScore": 2,
+      "reason": "Course outcome includes communication and team working with responsibility, relevant to communication for team leadership but not focused solely on leadership communication."
+    },
+    {
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "relevanceScore": 1,
+      "reason": "Course mentions clear communication with coworkers and supervisors but does not focus on communication for team leadership."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course mentions ability to work in teams but does not explicitly cover communication or leadership communication."
+    },
+    {
+      "subjectCode": "03602433-65",
+      "subjectName": "วิศวกรรมการซ่อมบำรุง",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes effective communication and leadership skills to work with cross-functional teams, directly relevant to communication for team leadership."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Course covers communication concepts and mass communication ethics but does not address communication for team leadership."
+    },
+    {
+      "subjectCode": "01306415-67",
+      "subjectName": "การตรวจวัดและติดตามคาร์บอนป่าไม้",
+      "relevanceScore": 1,
+      "reason": "Course mentions team role acceptance and expressing opinions, marginally relevant to communication for team leadership."
+    },
+    {
+      "subjectCode": "01661313-65",
+      "subjectName": "การสื่อสารเพื่อการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 1,
+      "reason": "Course focuses on communication for environmental management, not specifically on communication for team leadership."
+    },
+    {
+      "subjectCode": "01058223-68",
+      "subjectName": "เทคโนโลยีการแปรรูปที่ใช้ความร้อนทางอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course includes communication through presentations but does not focus on communication for team leadership."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 1,
+      "reason": "Course includes communication and information adaptation skills but not focused on communication for team leadership."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 1,
+      "reason": "Course mentions communication and information adaptation but not related to team leadership communication."
+    },
+    {
+      "subjectCode": "02201511-66",
+      "subjectName": "ทฤษฎีเครื่องจักรกลเกษตรขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course mentions teamwork but no explicit focus on communication for team leadership."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 1,
+      "reason": "Course includes teamwork but no explicit mention of communication for team leadership."
+    },
+    {
+      "subjectCode": "01203592-66",
+      "subjectName": "การฝึกงานด้านวิศวกรรมโยธา",
+      "relevanceScore": 2,
+      "reason": "Course includes communication and expressing opinions with others, relevant to communication for team leadership as part of professional interaction."
+    },
+    {
+      "subjectCode": "02201596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course mentions effective teamwork but no explicit communication or leadership communication focus."
+    },
+    {
+      "subjectCode": "02201598-66",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Course mentions effective teamwork but no explicit communication or leadership communication focus."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 1,
+      "reason": "Course includes communication and presentation skills but not focused on communication for team leadership."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 18,
+    "meanRelevanceScore": 1.3333333333333333,
+    "totalRelevanceSum": 24,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 13,
+        "macroAverageRate": 72.22222222222223,
+        "microAverageRate": 72.22222222222223,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 22.22222222222222,
+        "microAverageRate": 22.22222222222222,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 5.555555555555555,
+        "microAverageRate": 5.555555555555555,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.736,
+        "at10": 0.87,
+        "at15": 0.913,
+        "atAll": 0.919
+      },
+      "ideal": {
+        "at5": 0.574,
+        "at10": 0.542,
+        "at15": 0.509,
+        "atAll": 0.49
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.333,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.278,
+        "threshold3": 0.056
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3619,
+  "outputTokens": 587
+}

@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การทดสอบและดีบักโปรแกรม"
+  ],
+  "skill": "การทดสอบและดีบักโปรแกรม",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on experimental design and statistical analysis, no mention of program testing or debugging."
+    },
+    {
+      "subjectCode": "01419499-65",
+      "subjectName": "โครงงานจุลชีววิทยา",
+      "relevanceScore": 0,
+      "reason": "Course is about microbiology project planning and experimentation, no relation to program testing or debugging."
+    },
+    {
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course covers engineering experimental design and data analysis, no indication of software testing or debugging."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course covers advanced research methodology in agriculture, no mention of software testing or debugging."
+    },
+    {
+      "subjectCode": "01600141-65",
+      "subjectName": "ชีวเคมีทางสุขภาพสัตว์",
+      "relevanceScore": 0,
+      "reason": "Course is about animal health biochemistry and experiments, no relation to program testing or debugging."
+    },
+    {
+      "subjectCode": "01448214-68",
+      "subjectName": "ปฏิบัติการทางวัสดุ I",
+      "relevanceScore": 0,
+      "reason": "Course involves material science experiments and analysis, unrelated to program testing or debugging."
+    },
+    {
+      "subjectCode": "01008591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางโรคพืช",
+      "relevanceScore": 0,
+      "reason": "Course focuses on plant disease research methods, no software testing or debugging content."
+    },
+    {
+      "subjectCode": "02537591-68",
+      "subjectName": "ระเบียบวิธีวิจัยทางด้านวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course covers research methodology and statistical analysis in agriculture, no software testing or debugging."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Course includes designing and testing equipment or techniques for research, which marginally relates to testing but not specifically software debugging."
+    },
+    {
+      "subjectCode": "04256355-66",
+      "subjectName": "โปรแกรมประยุกต์การเรียนรู้ของเครื่อง",
+      "relevanceScore": 1,
+      "reason": "Course on machine learning applications includes analyzing experimental results, marginally related to testing but not focused on software debugging."
+    },
+    {
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 2,
+      "reason": "Software engineering course mentions importance of software verification and testing processes, indicating fair coverage of program testing and debugging."
+    },
+    {
+      "subjectCode": "03601543-66",
+      "subjectName": "อินเวอร์เตอร์กำลัง",
+      "relevanceScore": 0,
+      "reason": "Course about power inverters and harmonic analysis, unrelated to program testing or debugging."
+    },
+    {
+      "subjectCode": "03760441-64",
+      "subjectName": "การให้บริการความเชื่อมั่นเชิงวิชาชีพ",
+      "relevanceScore": 0,
+      "reason": "Course on professional assurance services and auditing, no relation to software testing or debugging."
+    },
+    {
+      "subjectCode": "01419487-65",
+      "subjectName": "จุลชีววิทยาเพื่อการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course on agricultural microbiology experiments, no connection to program testing or debugging."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.2857142857142857,
+    "totalRelevanceSum": 4,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 11,
+        "macroAverageRate": 78.57142857142857,
+        "microAverageRate": 78.57142857142857,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0.188,
+        "at15": 0.367,
+        "atAll": 0.367
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0.043,
+        "at15": 0.065,
+        "atAll": 0.068
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.214,
+        "threshold2": 0.071,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.214,
+        "threshold2": 0.071,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2856,
+  "outputTokens": 462
+}

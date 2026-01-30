@@ -1,0 +1,198 @@
+{
+  "questionIds": [
+    "75dd76dc-b23f-4728-b9a4-09621f52a26b-เทคโนโลยีการขุดเจาะน้ำมันและก๊าซ"
+  ],
+  "skill": "เทคโนโลยีการขุดเจาะน้ำมันและก๊าซ",
+  "retrievedCount": 19,
+  "evaluations": [
+    {
+      "subjectCode": "01401472-66",
+      "subjectName": "ชีววิทยาโมเลกุลของพืช",
+      "relevanceScore": 0,
+      "reason": "Course is about molecular biology of plants, unrelated to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on organization and management, not on oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Digital citizenship course does not cover oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01386523-66",
+      "subjectName": "การประพันธ์เพลงในคริสต์ศตวรรษที่ 21",
+      "relevanceScore": 0,
+      "reason": "Music composition course with technology use is unrelated to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01386512-66",
+      "subjectName": "การประพันธ์เพลง I",
+      "relevanceScore": 0,
+      "reason": "Same as above, music course not related to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01386513-66",
+      "subjectName": "การประพันธ์เพลง II",
+      "relevanceScore": 0,
+      "reason": "Same as above, music course not related to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "03604341-65",
+      "subjectName": "อุณหพลศาสตร์ II",
+      "relevanceScore": 0,
+      "reason": "Thermodynamics course focuses on physical principles, not on oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "02201511-66",
+      "subjectName": "ทฤษฎีเครื่องจักรกลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Agricultural machinery theory course unrelated to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01361491-64",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางภาษาไทย",
+      "relevanceScore": 0,
+      "reason": "Research methodology in Thai language is not related to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01420453-66",
+      "subjectName": "ทรัพยากรพลังงาน",
+      "relevanceScore": 0,
+      "reason": "Energy resources course covers energy types and technologies but not specifically oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01420454-66",
+      "subjectName": "พลังงานแสงอาทิตย์",
+      "relevanceScore": 0,
+      "reason": "Solar energy course is about solar power, not oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Research methods in agriculture are unrelated to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01420377-66",
+      "subjectName": "ผลึกเหลว",
+      "relevanceScore": 0,
+      "reason": "Liquid crystal course is unrelated to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "02741521-65",
+      "subjectName": "เทคโนโลยีการบำบัดสำหรับสิ่งแวดล้อม",
+      "relevanceScore": 0,
+      "reason": "Environmental treatment technology course does not cover oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01074597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course on beverages business is unrelated to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01386556-66",
+      "subjectName": "การสอนเครื่องกระทบขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Advanced instrument teaching course unrelated to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01386558-66",
+      "subjectName": "การสอนเครื่องลมทองเหลืองขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Same as above, unrelated to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "01386557-66",
+      "subjectName": "การสอนเครื่องลมไม้ขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Same as above, unrelated to oil and gas drilling technology."
+    },
+    {
+      "subjectCode": "04252553-67",
+      "subjectName": "เทคโนโลยีพลังงานลมขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Advanced wind energy technology course unrelated to oil and gas drilling technology."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 19,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 19,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3453,
+  "outputTokens": 672
+}

@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การบริหารทรัพยากรมนุษย์"
+  ],
+  "skill": "การบริหารทรัพยากรมนุษย์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01132222-65",
+      "subjectName": "การจัดการทรัพยากรมนุษย์",
+      "relevanceScore": 3,
+      "reason": "Course name and outcomes clearly focus on การบริหารทรัพยากรมนุษย์, covering fundamental principles, analysis, and application, making it highly relevant."
+    },
+    {
+      "subjectCode": "06901112-66",
+      "subjectName": "การจัดการทรัพยากรมนุษย์เพื่ออุตสาหกรรมท่องเที่ยวเชิงวัฒนธรรมและสุขภาพ",
+      "relevanceScore": 3,
+      "reason": "Course specifically addresses การบริหารทรัพยากรมนุษย์ในอุตสาหกรรมท่องเที่ยวเชิงวัฒนธรรมและสุขภาพ, directly related to the skill."
+    },
+    {
+      "subjectCode": "01475523-64",
+      "subjectName": "การปฏิบัติงานของมนุษย์",
+      "relevanceScore": 1,
+      "reason": "Course name and outcomes mention human behavior and performance, but not explicitly การบริหารทรัพยากรมนุษย์, only related aspects."
+    },
+    {
+      "subjectCode": "02052531-68",
+      "subjectName": "การพัฒนามนุษย์และองค์การภาคการเกษตร",
+      "relevanceScore": 1,
+      "reason": "Focuses on human development and organizational policy in agriculture, tangentially related but not core to การบริหารทรัพยากรมนุษย์."
+    },
+    {
+      "subjectCode": "01468597-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar on social management and development, not specifically about การบริหารทรัพยากรมนุษย์."
+    },
+    {
+      "subjectCode": "01203522-66",
+      "subjectName": "ความเป็นผู้นำและการบริหารในงานก่อสร้าง",
+      "relevanceScore": 2,
+      "reason": "Leadership and management in construction involve some aspects of human resource management, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "01394699-64",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Thesis on research methodology and knowledge development, unrelated to การบริหารทรัพยากรมนุษย์."
+    },
+    {
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "relevanceScore": 2,
+      "reason": "Project management for resource development may include HR aspects, but it is not explicitly centered on การบริหารทรัพยากรมนุษย์."
+    },
+    {
+      "subjectCode": "01475528-64",
+      "subjectName": "การฝึกอบรมและการพัฒนาในองค์การ",
+      "relevanceScore": 2,
+      "reason": "Training and development in organizations relate to HR functions, but the course covers broader training concepts."
+    },
+    {
+      "subjectCode": "04402332-65",
+      "subjectName": "การยศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Ergonomics focuses on work environment design, which is related but not a core component of การบริหารทรัพยากรมนุษย์."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "Management accounting for business is unrelated to การบริหารทรัพยากรมนุษย์."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 1.3636363636363635,
+    "totalRelevanceSum": 15,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.774,
+        "at10": 0.944,
+        "at15": 0.944,
+        "atAll": 0.944
+      },
+      "ideal": {
+        "at5": 0.658,
+        "at10": 0.591,
+        "at15": 0.458,
+        "atAll": 0.557
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.4,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 0.8,
+        "threshold2": 0.5,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.727,
+        "threshold2": 0.455,
+        "threshold3": 0.182
+      },
+      "atAll": {
+        "threshold1": 0.727,
+        "threshold2": 0.455,
+        "threshold3": 0.182
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2408,
+  "outputTokens": 613
+}

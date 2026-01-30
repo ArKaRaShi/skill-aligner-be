@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การวิเคราะห์เชิงสถิติ"
+  ],
+  "skill": "การวิเคราะห์เชิงสถิติ",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "04256121-66",
+      "subjectName": "การวิเคราะห์ข้อมูลเชิงสถิติ",
+      "relevanceScore": 3,
+      "reason": "The course name and outcomes explicitly focus on statistical data analysis, making it highly relevant."
+    },
+    {
+      "subjectCode": "01051511-64",
+      "subjectName": "การวิเคราะห์ข้อมูลประยุกต์ในการวิจัยเทคโนโลยีชีวภาพ",
+      "relevanceScore": 2,
+      "reason": "The course discusses statistical methods for research, which is related but not the primary focus."
+    },
+    {
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "Includes statistical analysis as part of research methodology, but not the main theme."
+    },
+    {
+      "subjectCode": "02537699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "Covers statistical methods for research design and analysis, relevant but not solely focused on statistical analysis."
+    },
+    {
+      "subjectCode": "02212572-65",
+      "subjectName": "สถิติประยุกต์สำหรับวิศวกรรมอาหาร",
+      "relevanceScore": 2,
+      "reason": "Discusses statistical principles and software for analysis, related but not the main theme."
+    },
+    {
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Mentions statistics briefly, but not as a primary learning outcome."
+    },
+    {
+      "subjectCode": "01008591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางโรคพืช",
+      "relevanceScore": 2,
+      "reason": "Uses statistical methods for plant disease research, relevant but not the main focus."
+    },
+    {
+      "subjectCode": "04181591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีการอาหาร",
+      "relevanceScore": 2,
+      "reason": "Includes statistical analysis in research planning, but not the primary theme."
+    },
+    {
+      "subjectCode": "03602221-65",
+      "subjectName": "ความน่าจะเป็นและสถิติประยุกต์สำหรับวิศวกร",
+      "relevanceScore": 2,
+      "reason": "Covers basic statistical principles for engineers, related but not the main focus."
+    },
+    {
+      "subjectCode": "02738491-61",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางวิทยาศาสตร์ชีวภาพ",
+      "relevanceScore": 2,
+      "reason": "Includes statistical analysis in scientific research, relevant but not the core theme."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 2,
+      "reason": "Focuses on statistical learning models for business, related but not primarily about statistical analysis."
+    },
+    {
+      "subjectCode": "02207251-66",
+      "subjectName": "สถิติทางวิศวกรรม",
+      "relevanceScore": 2,
+      "reason": "Discusses statistical planning and analysis in engineering, relevant but not the main theme."
+    },
+    {
+      "subjectCode": "02162592-67",
+      "subjectName": "สถิติเพื่อการวิจัยทางด้านคณิตศาสตร์ศึกษา",
+      "relevanceScore": 2,
+      "reason": "Covers statistical analysis for mathematical research, related but not the primary focus."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 2,
+      "reason": "Includes statistical methods in advanced research, relevant but not solely about statistical analysis."
+    },
+    {
+      "subjectCode": "04252612-67",
+      "subjectName": "วิทยาการข้อมูลขั้นสูง",
+      "relevanceScore": 2,
+      "reason": "Discusses data science and statistical tools, related but not the main theme."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 2,
+    "totalRelevanceSum": 30,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 13,
+        "macroAverageRate": 86.66666666666667,
+        "microAverageRate": 86.66666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 0.965,
+        "at15": 0.991,
+        "atAll": 0.991
+      },
+      "ideal": {
+        "at5": 0.78,
+        "at10": 0.714,
+        "at15": 0.703,
+        "atAll": 0.703
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.9,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.933,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.933,
+        "threshold3": 0.067
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2679,
+  "outputTokens": 553
+}

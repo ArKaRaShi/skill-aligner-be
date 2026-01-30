@@ -1,0 +1,57 @@
+{
+  "totalLowQuality": 1,
+  "totalSamples": 26,
+  "lowQualityRate": 0.038461538461538464,
+  "byFaithfulnessReason": {
+    "completelyFalse": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 1: Completely False (hallucinations or contradicts context)",
+      "examples": []
+    },
+    "mostlyFalse": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 2: Mostly False (major factual errors)",
+      "examples": []
+    },
+    "mixed": {
+      "count": 1,
+      "percentage": 1,
+      "description": "Score 3: Mixed (some supported facts, some hallucinations)",
+      "examples": [
+        {
+          "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+          "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+          "overallScore": 3.5,
+          "judgeReasoning": "Mixed accuracy. The answer correctly identifies การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์ (03607131-67) as directly covering การเขียนโปรแกรมเชิงวัตถุ (matches Section 1 and Section 2). However, it states that several other courses (e.g., การเขียนโปรแกรมเชิงโครงสร้าง 02204171-65, ปฏิบัติการการแก้ปัญหา 01204214-65, เปิดโลกวิทยาการหุ่นยนต์ 03607151-67, คณิตศาสตร์สำหรับวิทยาการข้อมูล 04256111-66) do not cover OOP directly — which conflicts with the provided context where those courses are mapped under Section 1 to the skill 'การเขียนโปรแกรมเชิงวัตถุ' or 'ภาษาโปรแกรมเชิงวัตถุ'. Thus the answer mixes supported facts with unsupported/contradictory claims (misattribution/negation of mapped skills)."
+        }
+      ]
+    }
+  },
+  "byCompletenessReason": {
+    "fail": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 1: Fail (just lists codes, or says none found when valid options exist)",
+      "examples": []
+    },
+    "weak": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 2: Weak (very little context or explanation)",
+      "examples": []
+    },
+    "descriptiveOnly": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 3: Descriptive Only (lists facts, doesn't explain value to user)",
+      "examples": []
+    }
+  },
+  "insights": {
+    "systemStrength": "High overall pass rate; No complete hallucinations; No major factual errors; All answers provide some explanation; Good explanatory bridging",
+    "systemWeakness": "Frequently mixes supported facts with hallucinations",
+    "recommendation": "Reduce partial hallucinations by requiring all claims to be context-supported."
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "654330a8-2559-4273-abb4-36db7f0b31e1-การออกแบบประสบการณ์ผู้ใช้ (UX/UI)"
+  ],
+  "skill": "การออกแบบประสบการณ์ผู้ใช้ (UX/UI)",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "02747443-65",
+      "subjectName": "นวัตกรรมและการออกแบบบริการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "The course focuses on innovation and service design in the airline industry, not specifically on UX/UI design."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "The course is about statistical learning for business, not related to UX/UI design."
+    },
+    {
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "relevanceScore": 0,
+      "reason": "The course is about landscape architecture design, not UX/UI."
+    },
+    {
+      "subjectCode": "01387105-67",
+      "subjectName": "พุทธจริยศาสตร์ในการดำเนินธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "The course covers Buddhist ethics in business, not UX/UI design."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "The course is a seminar on presentation skills, not UX/UI design."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "The course on data visualization and analysis includes some aspects of data presentation, which can relate to UX/UI, but it is not primarily focused on UX/UI design."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 0,
+      "reason": "The course is about technology in learning management, not UX/UI design."
+    },
+    {
+      "subjectCode": "01999036-67",
+      "subjectName": "ความสุขในพลวัตของชีวิต",
+      "relevanceScore": 0,
+      "reason": "The course is about happiness and life dynamics, not UX/UI design."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 0,
+      "reason": "The course is about research methodology in agriculture, not UX/UI design."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 0,
+      "reason": "The course is about experimental design and analysis, not UX/UI."
+    },
+    {
+      "subjectCode": "01475523-64",
+      "subjectName": "การปฏิบัติงานของมนุษย์",
+      "relevanceScore": 0,
+      "reason": "The course is about human work behavior, not UX/UI."
+    },
+    {
+      "subjectCode": "04256355-66",
+      "subjectName": "โปรแกรมประยุกต์การเรียนรู้ของเครื่อง",
+      "relevanceScore": 3,
+      "reason": "The course on machine learning applications directly relates to UX/UI in terms of designing intelligent systems and interfaces based on machine learning models."
+    },
+    {
+      "subjectCode": "02201211-66",
+      "subjectName": "การใช้คอมพิวเตอร์ช่วยในการออกแบบทางวิศวกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "The course is about computer-aided engineering design, not UX/UI."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "The course is about polymer chemistry, not UX/UI."
+    },
+    {
+      "subjectCode": "03610122-66",
+      "subjectName": "ระบบการสื่อสารทางสายและไร้สายพื้นฐาน",
+      "relevanceScore": 0,
+      "reason": "The course is about communication systems, not UX/UI."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0.3333333333333333,
+    "totalRelevanceSum": 5,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 13,
+        "macroAverageRate": 86.66666666666667,
+        "microAverageRate": 86.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0.167,
+        "at15": 0.357,
+        "atAll": 0.357
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0.052,
+        "at15": 0.087,
+        "atAll": 0.087
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.1,
+        "threshold2": 0.1,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.133,
+        "threshold2": 0.133,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.133,
+        "threshold2": 0.133,
+        "threshold3": 0.067
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2879,
+  "outputTokens": 556
+}

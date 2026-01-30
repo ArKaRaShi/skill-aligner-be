@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "fa617f52-c86b-4b8c-976b-bfdb073f1070-วรรณคดีและวัฒนธรรมบาลี"
+  ],
+  "skill": "วรรณคดีและวัฒนธรรมบาลี",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02708102-67",
+      "subjectName": "วรรณกรรมกับวิทยาศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course title and outcomes focus on literature and science, not specifically on Pali literature and culture."
+    },
+    {
+      "subjectCode": "01361481-64",
+      "subjectName": "ภาษาไทยในวัฒนธรรมการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course content relates to Thai language and culture in agriculture, not Pali literature and culture."
+    },
+    {
+      "subjectCode": "01388573-66",
+      "subjectName": "การวิเคราะห์ศาสนาเปรียบเทียบ",
+      "relevanceScore": 0,
+      "reason": "Course on comparative religion analysis does not explicitly cover Pali literature or culture."
+    },
+    {
+      "subjectCode": "02163312-67",
+      "subjectName": "การสอนวรรณกรรมภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Course on teaching English literature does not relate to Pali literature and culture."
+    },
+    {
+      "subjectCode": "01355131-63",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Basic English reading and writing skills course is unrelated to Pali literature and culture."
+    },
+    {
+      "subjectCode": "01355390-63",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "Course on preparing for cooperative education does not cover Pali literature or culture."
+    },
+    {
+      "subjectCode": "01387522-66",
+      "subjectName": "การวิเคราะห์ประวัติปรัชญาตะวันออกและตะวันตก",
+      "relevanceScore": 0,
+      "reason": "Analysis of Eastern and Western philosophy history does not specifically include Pali literature or culture."
+    },
+    {
+      "subjectCode": "01470113-65",
+      "subjectName": "เอเชียตะวันออกเฉียงใต้ศึกษาเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Introduction to Southeast Asian studies does not focus on Pali literature or culture."
+    },
+    {
+      "subjectCode": "01249542-68",
+      "subjectName": "ทฤษฎีทางมรดกวัฒนธรรมขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Advanced cultural heritage theory course does not explicitly cover Pali literature and culture."
+    },
+    {
+      "subjectCode": "<COURSE_CODE>",
+      "subjectName": "<COURSE_CODE>",
+      "relevanceScore": 0,
+      "reason": "No relevant content related to Pali literature and culture."
+    },
+    {
+      "subjectCode": "<COURSE_CODE>",
+      "subjectName": "<COURSE_CODE>",
+      "relevanceScore": 0,
+      "reason": "No relevant content related to Pali literature and culture."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 11,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3604,
+  "outputTokens": 459
+}

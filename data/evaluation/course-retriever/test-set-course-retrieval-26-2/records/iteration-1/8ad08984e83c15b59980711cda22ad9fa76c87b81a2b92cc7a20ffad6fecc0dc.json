@@ -1,0 +1,138 @@
+{
+  "questionIds": [
+    "cd96176f-8e18-4270-9c76-8c6b1cf19594-การออกแบบซอฟต์แวร์"
+  ],
+  "skill": "การออกแบบซอฟต์แวร์",
+  "retrievedCount": 9,
+  "evaluations": [
+    {
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 3,
+      "reason": "หลักสูตรวิศวกรรมซอฟต์แวร์ ระบุชัดเจนว่า ‘สามารถออกแบบโครงสร้างซอฟต์แวร์’ เป็นผลลัพธ์การเรียนรู้ จึงตรงกับการออกแบบซอฟต์แวร์เป็นหัวข้อหลัก"
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "เป็นการเขียนแบบทางวิศวกรรม (ภาพฉาย/3มิติ/ใช้ซอฟต์แวร์ CAD) ไม่เกี่ยวกับการออกแบบซอฟต์แวร์"
+    },
+    {
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "relevanceScore": 0,
+      "reason": "สถาปัตยกรรมคอมพิวเตอร์ในที่นี้หมายถึงฮาร์ดแวร์/สถาปัตยกรรมระบบคอมพิวเตอร์ ไม่ใช่การออกแบบซอฟต์แวร์ (ฮอโมนิมต่างบริบท)"
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "เป็นการเตรียมสหกิจศึกษาและทักษะการสมัครงาน/การนำเสนอ ไม่มีผลลัพธ์เกี่ยวกับการออกแบบซอฟต์แวร์"
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 2,
+      "reason": "ชื่อเป็นวิศวกรรมซอฟต์แวร์และมีผลลัพธ์เกี่ยวกับทฤษฎี/กระบวนการและการพัฒนาซอฟต์แวร์ แต่ไม่มีการระบุชัดเจนว่า ‘ออกแบบโครงสร้างซอฟต์แวร์’ จึงเป็นส่วนประกอบแต่ไม่ครอบคลุมเชิงออกแบบโดยตรง"
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "เน้นการเขียนแบบชิ้นส่วนเครื่องจักรและการใช้โปรแกรมเขียนแบบเชิงชิ้นงาน ไม่เกี่ยวกับการออกแบบซอฟต์แวร์"
+    },
+    {
+      "subjectCode": "03760332-64",
+      "subjectName": "การบริหารต้นทุน",
+      "relevanceScore": 0,
+      "reason": "เป็นการบริหารต้นทุนและออกแบบระบบบริหารต้นทุน/โครงการลดต้นทุน ไม่ใช่การออกแบบซอฟต์แวร์ แม้จะใช้โปรแกรมช่วยวิเคราะห์"
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์ เน้นการออกแบบชิ้นงาน 2D/3D ด้วยซอฟต์แวร์ ไม่ใช่การออกแบบซอฟต์แวร์"
+    },
+    {
+      "subjectCode": "02201323-66",
+      "subjectName": "สมบัติทางกายภาพของผลิตภัณฑ์เกษตร",
+      "relevanceScore": 0,
+      "reason": "เกี่ยวกับสมบัติทางกายภาพของผลิตผลเกษตรและการประยุกต์ใช้ซอฟต์แวร์ด้านการคำนวณ/แสดงผล ไม่ได้กล่าวถึงการออกแบบซอฟต์แวร์"
+    }
+  ],
+  "metrics": {
+    "totalCourses": 9,
+    "meanRelevanceScore": 0.5555555555555556,
+    "totalRelevanceSum": 5,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 7,
+        "macroAverageRate": 77.77777777777777,
+        "microAverageRate": 77.77777777777777,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.885,
+        "at10": 0.885,
+        "at15": 0.885,
+        "atAll": 0.885
+      },
+      "ideal": {
+        "at5": 0.427,
+        "at10": 0.277,
+        "at15": 0.215,
+        "atAll": 0.296
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.222,
+        "threshold2": 0.222,
+        "threshold3": 0.111
+      },
+      "at15": {
+        "threshold1": 0.222,
+        "threshold2": 0.222,
+        "threshold3": 0.111
+      },
+      "atAll": {
+        "threshold1": 0.222,
+        "threshold2": 0.222,
+        "threshold3": 0.111
+      }
+    }
+  },
+  "llmModel": "openai/gpt-5-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1970,
+  "outputTokens": 1526
+}

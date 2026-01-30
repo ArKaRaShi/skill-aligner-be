@@ -1,0 +1,707 @@
+{
+  "iteration": 1,
+  "timestamp": "2026-01-28T13:21:07.690Z",
+  "testSetName": "test-set-course-retrieval-26-3",
+  "judgeModel": "openai/gpt-4.1-nano",
+  "judgeProvider": "OpenRouter",
+  "samples": 138,
+  "evaluations": 1993,
+  "totalTokens": {
+    "input": 383382,
+    "output": 88667,
+    "total": 472049
+  },
+  "totalCost": 0.07380500000000006,
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2389,
+      "outputTokens": 511
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2198,
+      "outputTokens": 620
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3029,
+      "outputTokens": 523
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2331,
+      "outputTokens": 529
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2310,
+      "outputTokens": 599
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2569,
+      "outputTokens": 578
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2012,
+      "outputTokens": 611
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2370,
+      "outputTokens": 469
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2215,
+      "outputTokens": 779
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2469,
+      "outputTokens": 546
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2436,
+      "outputTokens": 836
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2486,
+      "outputTokens": 793
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2316,
+      "outputTokens": 659
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2784,
+      "outputTokens": 820
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2413,
+      "outputTokens": 724
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2154,
+      "outputTokens": 425
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 1972,
+      "outputTokens": 448
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2619,
+      "outputTokens": 791
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2869,
+      "outputTokens": 607
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2949,
+      "outputTokens": 571
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2745,
+      "outputTokens": 547
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 1840,
+      "outputTokens": 483
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2369,
+      "outputTokens": 733
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2549,
+      "outputTokens": 715
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3684,
+      "outputTokens": 706
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 1844,
+      "outputTokens": 509
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3107,
+      "outputTokens": 596
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 1976,
+      "outputTokens": 438
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2395,
+      "outputTokens": 444
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 1816,
+      "outputTokens": 396
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2718,
+      "outputTokens": 494
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 1726,
+      "outputTokens": 342
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2160,
+      "outputTokens": 458
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2408,
+      "outputTokens": 613
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2045,
+      "outputTokens": 626
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3605,
+      "outputTokens": 686
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2550,
+      "outputTokens": 525
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3356,
+      "outputTokens": 1154
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2986,
+      "outputTokens": 505
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2699,
+      "outputTokens": 486
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2000,
+      "outputTokens": 429
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2578,
+      "outputTokens": 443
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3770,
+      "outputTokens": 1055
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2763,
+      "outputTokens": 758
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2514,
+      "outputTokens": 454
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2386,
+      "outputTokens": 735
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3252,
+      "outputTokens": 659
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3130,
+      "outputTokens": 719
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2990,
+      "outputTokens": 782
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2400,
+      "outputTokens": 407
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2311,
+      "outputTokens": 577
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2059,
+      "outputTokens": 469
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3090,
+      "outputTokens": 634
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3883,
+      "outputTokens": 598
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2360,
+      "outputTokens": 595
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2852,
+      "outputTokens": 479
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2478,
+      "outputTokens": 469
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2717,
+      "outputTokens": 611
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2842,
+      "outputTokens": 653
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2704,
+      "outputTokens": 570
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2373,
+      "outputTokens": 503
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3070,
+      "outputTokens": 718
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2413,
+      "outputTokens": 613
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2856,
+      "outputTokens": 537
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 1820,
+      "outputTokens": 417
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2550,
+      "outputTokens": 682
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2775,
+      "outputTokens": 812
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2657,
+      "outputTokens": 659
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2458,
+      "outputTokens": 673
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3190,
+      "outputTokens": 1080
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2367,
+      "outputTokens": 657
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3013,
+      "outputTokens": 530
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3029,
+      "outputTokens": 520
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2807,
+      "outputTokens": 534
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2795,
+      "outputTokens": 447
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2803,
+      "outputTokens": 647
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2766,
+      "outputTokens": 817
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2104,
+      "outputTokens": 530
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2631,
+      "outputTokens": 476
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 4388,
+      "outputTokens": 675
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2438,
+      "outputTokens": 554
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2679,
+      "outputTokens": 553
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2909,
+      "outputTokens": 751
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2104,
+      "outputTokens": 791
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2879,
+      "outputTokens": 556
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3143,
+      "outputTokens": 557
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2233,
+      "outputTokens": 675
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2855,
+      "outputTokens": 512
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2526,
+      "outputTokens": 857
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3082,
+      "outputTokens": 672
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2793,
+      "outputTokens": 578
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3939,
+      "outputTokens": 1121
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2728,
+      "outputTokens": 798
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2882,
+      "outputTokens": 781
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2435,
+      "outputTokens": 518
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2425,
+      "outputTokens": 872
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2044,
+      "outputTokens": 544
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 12680,
+      "outputTokens": 1331
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3619,
+      "outputTokens": 703
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 4740,
+      "outputTokens": 945
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3314,
+      "outputTokens": 555
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3857,
+      "outputTokens": 894
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 1952,
+      "outputTokens": 694
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3028,
+      "outputTokens": 544
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2558,
+      "outputTokens": 516
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2583,
+      "outputTokens": 486
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2523,
+      "outputTokens": 582
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2674,
+      "outputTokens": 731
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 4874,
+      "outputTokens": 1644
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2487,
+      "outputTokens": 541
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3857,
+      "outputTokens": 1011
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2541,
+      "outputTokens": 504
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2366,
+      "outputTokens": 705
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2877,
+      "outputTokens": 487
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3399,
+      "outputTokens": 679
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2632,
+      "outputTokens": 648
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2271,
+      "outputTokens": 572
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2808,
+      "outputTokens": 947
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2095,
+      "outputTokens": 650
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2238,
+      "outputTokens": 429
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3309,
+      "outputTokens": 848
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2014,
+      "outputTokens": 520
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 1768,
+      "outputTokens": 362
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2232,
+      "outputTokens": 602
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2479,
+      "outputTokens": 956
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3323,
+      "outputTokens": 781
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2518,
+      "outputTokens": 483
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2730,
+      "outputTokens": 465
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3453,
+      "outputTokens": 672
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2889,
+      "outputTokens": 690
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2478,
+      "outputTokens": 884
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3307,
+      "outputTokens": 552
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2958,
+      "outputTokens": 788
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2591,
+      "outputTokens": 753
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3164,
+      "outputTokens": 520
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 3604,
+      "outputTokens": 459
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2180,
+      "outputTokens": 492
+    },
+    {
+      "model": "openai/gpt-4.1-nano",
+      "inputTokens": 2906,
+      "outputTokens": 834
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "be573eca-6596-418a-888d-f4f0c0d5651d-การวิเคราะห์ความซับซ้อนของอัลกอริทึม"
+  ],
+  "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01204512-66",
+      "subjectName": "การออกแบบและการวิเคราะห์ขั้นตอนวิธีคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "The course explicitly mentions analyzing algorithms in terms of complexity, including time complexity, which directly relates to the skill of analyzing algorithm complexity."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 2,
+      "reason": "The course covers analyzing and designing basic algorithms, which includes some aspects of complexity analysis, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 2,
+      "reason": "Analyzing problems and designing algorithms are part of the outcomes, which may include some analysis of complexity, but it is not explicitly emphasized."
+    },
+    {
+      "subjectCode": "02204433-65",
+      "subjectName": "การรู้จำรูปแบบ",
+      "relevanceScore": 1,
+      "reason": "The course discusses algorithms in the context of pattern recognition, but complexity analysis is not a primary or explicit focus."
+    },
+    {
+      "subjectCode": "01420323-66",
+      "subjectName": "การวัดเชิงควอนตัม",
+      "relevanceScore": 0,
+      "reason": "The course is about quantum measurement, which is unrelated to algorithm complexity analysis."
+    },
+    {
+      "subjectCode": "02801112-67",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษ II",
+      "relevanceScore": 0,
+      "reason": "The course focuses on English grammar, unrelated to algorithm analysis."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "The course is about polymers, not related to algorithm complexity."
+    },
+    {
+      "subjectCode": "01420441-66",
+      "subjectName": "อิเล็กทรอนิกส์กายภาพ",
+      "relevanceScore": 0,
+      "reason": "The course covers physical properties of semiconductors, unrelated to algorithm analysis."
+    },
+    {
+      "subjectCode": "03651441-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "The course is about statistical learning for business, not about algorithm complexity analysis."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 0,
+      "reason": "The course is about AI in digital life, not specifically about analyzing algorithm complexity."
+    },
+    {
+      "subjectCode": "01401472-66",
+      "subjectName": "ชีววิทยาโมเลกุลของพืช",
+      "relevanceScore": 0,
+      "reason": "The course is about molecular biology of plants, unrelated to algorithm complexity."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.7272727272727273,
+    "totalRelevanceSum": 8,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 7,
+        "macroAverageRate": 63.63636363636363,
+        "microAverageRate": 63.63636363636363,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 1,
+        "at15": 1,
+        "atAll": 1
+      },
+      "ideal": {
+        "at5": 0.644,
+        "at10": 0.418,
+        "at15": 0.324,
+        "atAll": 0.393
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.364,
+        "threshold2": 0.273,
+        "threshold3": 0.091
+      },
+      "atAll": {
+        "threshold1": 0.364,
+        "threshold2": 0.273,
+        "threshold3": 0.091
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2373,
+  "outputTokens": 503
+}

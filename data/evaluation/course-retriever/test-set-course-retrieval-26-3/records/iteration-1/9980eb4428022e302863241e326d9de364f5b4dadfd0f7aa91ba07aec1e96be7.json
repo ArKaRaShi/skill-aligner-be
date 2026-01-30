@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "b41c15f8-2249-4469-9981-71cc1c75b2b4-การบริหารงบประมาณ"
+  ],
+  "skill": "การบริหารงบประมาณ",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "Includes 'จัดทำงบประมาณธุรกิจต่างๆ' and 'วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร', which relate to budget management, but not as the primary focus."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Mentions 'คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง' and 'วิเคราะห์งบการเงินเบื้องต้นได้', which are related to budgeting but only briefly."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Includes 'ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์', which touches on budget management as part of strategic management."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Contains 'สามารถการจัดทำงบประมาณของธุรกิจผลิต' and 'นำข้อมูลต้นทุนมาวิเคราะห์เพื่อใช้ในการวางแผน ควบคุม', relevant to budget management but not the main focus."
+    },
+    {
+      "subjectCode": "03602433-65",
+      "subjectName": "วิศวกรรมการซ่อมบำรุง",
+      "relevanceScore": 1,
+      "reason": "Focuses on maintenance management, with no direct mention of budget management."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 2,
+      "reason": "Includes 'จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์' and related to strategic cost management, which can involve budgeting."
+    },
+    {
+      "subjectCode": "03602351-65",
+      "subjectName": "การวิเคราะห์ต้นทุนทางอุตสาหกรรม",
+      "relevanceScore": 2,
+      "reason": "Mentions 'จัดทำงบประมาณต้นทุนการผลิต' and 'วิเคราะห์และหาความสัมพันธ์ระหว่างต้นทุน ปริมาณและกำไรได้', relevant to budget management."
+    },
+    {
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Focuses on basic accounting principles, with no specific mention of budget management."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 1,
+      "reason": "Covers intermediate accounting topics, but no direct focus on budget management."
+    },
+    {
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "relevanceScore": 1,
+      "reason": "Discusses financial statements and responsibilities, but not specifically budget management."
+    },
+    {
+      "subjectCode": "03760331-64",
+      "subjectName": "หลักการบัญชีต้นทุน II",
+      "relevanceScore": 2,
+      "reason": "Includes 'จัดทำและนำเสนองบกระแสเงินสด' and 'ข้อมูลบัญชีต้นทุนเพื่อการทำงานของผู้บริหาร', relevant to financial planning and budgeting."
+    },
+    {
+      "subjectCode": "03760231-64",
+      "subjectName": "หลักการบัญชีต้นทุน I",
+      "relevanceScore": 2,
+      "reason": "Mentions 'จัดทำงบประมาณ' and 'วิเคราะห์ข้อมูลบัญชีต้นทุน', related to budget management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 1.5,
+    "totalRelevanceSum": 18,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.743,
+        "at10": 0.849,
+        "at15": 0.924,
+        "atAll": 0.924
+      },
+      "ideal": {
+        "at5": 0.495,
+        "at10": 0.489,
+        "at15": 0.441,
+        "atAll": 0.508
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2549,
+  "outputTokens": 715
+}

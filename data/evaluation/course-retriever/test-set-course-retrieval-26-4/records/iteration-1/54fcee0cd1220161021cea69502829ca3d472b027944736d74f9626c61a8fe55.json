@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การใช้เครื่องมือสนับสนุนการตัดสินใจ"
+  ],
+  "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes 'ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ' indicating decision support systems as a main theme."
+    },
+    {
+      "subjectCode": "03602312-65",
+      "subjectName": "วิศวกรรมอุตสาหการและระบบเบื้องต้น",
+      "relevanceScore": 3,
+      "reason": "Learning outcomes include selecting decision-making techniques and using analytical tools for decision support, showing comprehensive coverage of decision support tools."
+    },
+    {
+      "subjectCode": "03752111-67",
+      "subjectName": "ทรัพยากรสารสนเทศเพื่อการค้นคว้า",
+      "relevanceScore": 0,
+      "reason": "Focuses on information retrieval tools, not decision support tools; no direct connection to decision support."
+    },
+    {
+      "subjectCode": "01137556-68",
+      "subjectName": "ประเด็นร่วมสมัยทางการบัญชีและเทคโนโลยีสารสนเทศ",
+      "relevanceScore": 2,
+      "reason": "Includes using accounting and IT data to support organizational decision-making, indicating decision support tools are discussed but not the main focus."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "Focuses on job application preparation and software for information search and presentation, not decision support tools."
+    },
+    {
+      "subjectCode": "01451356-65",
+      "subjectName": "ภูมิสารสนเทศศาสตร์เพื่อการจัดการภัยพิบัติ",
+      "relevanceScore": 1,
+      "reason": "Mentions use of geospatial technology tools for disaster management, which may support decision-making but not focused on decision support tools explicitly."
+    },
+    {
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Focuses on educational psychology and counseling with some use of IT, but no mention of decision support tools."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Mentions selecting tools for big data management, which may relate marginally to decision support tools but not explicitly about decision support."
+    },
+    {
+      "subjectCode": "02721121-67",
+      "subjectName": "การจัดการธุรกิจเพื่อสังคมที่ยั่งยืน",
+      "relevanceScore": 1,
+      "reason": "Mentions selecting appropriate tools for organizational problem solving, but decision support tools are not a main focus."
+    },
+    {
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "relevanceScore": 3,
+      "reason": "Explicitly covers decision analysis, evaluation of alternatives, and use of software for decision-making, indicating comprehensive coverage of decision support tools."
+    },
+    {
+      "subjectCode": "02738497-61",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Focuses on research seminar skills and scientific article analysis, no mention of decision support tools."
+    },
+    {
+      "subjectCode": "02738497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Same as above, no relevance to decision support tools."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Focuses on data analysis and visualization, which may support decision-making marginally but does not focus on decision support tools."
+    },
+    {
+      "subjectCode": "01420472-66",
+      "subjectName": "วัสดุศาสตร์ II",
+      "relevanceScore": 0,
+      "reason": "Focuses on materials science, no connection to decision support tools."
+    },
+    {
+      "subjectCode": "01074523-68",
+      "subjectName": "ปฏิบัติการในอุตสาหกรรมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Focuses on operational tools for beverage industry production, unrelated to decision support tools."
+    },
+    {
+      "subjectCode": "01448213-68",
+      "subjectName": "การวิเคราะห์ลักษณะเฉพาะของวัสดุ",
+      "relevanceScore": 0,
+      "reason": "Focuses on analytical tools for material characterization, no relation to decision support tools."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 0.9375,
+    "totalRelevanceSum": 15,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 6.25,
+        "microAverageRate": 6.25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 18.75,
+        "microAverageRate": 18.75,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.753,
+        "at10": 0.878,
+        "at15": 0.909,
+        "atAll": 0.909
+      },
+      "ideal": {
+        "at5": 0.651,
+        "at10": 0.557,
+        "at15": 0.447,
+        "atAll": 0.429
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.6,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.4,
+        "threshold3": 0.3
+      },
+      "at15": {
+        "threshold1": 0.533,
+        "threshold2": 0.267,
+        "threshold3": 0.2
+      },
+      "atAll": {
+        "threshold1": 0.5,
+        "threshold2": 0.25,
+        "threshold3": 0.188
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3883,
+  "outputTokens": 580
+}

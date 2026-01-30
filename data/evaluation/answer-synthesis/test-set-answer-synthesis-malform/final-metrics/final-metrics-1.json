@@ -1,0 +1,93 @@
+{
+  "iterations": 1,
+  "timestamp": "2026-01-28T15:55:46.994Z",
+  "aggregateMetrics": {
+    "averageFaithfulnessScore": {
+      "mean": 3,
+      "min": 3,
+      "max": 3,
+      "stdDev": 0
+    },
+    "averageCompletenessScore": {
+      "mean": 5,
+      "min": 5,
+      "max": 5,
+      "stdDev": 0
+    },
+    "faithfulnessPassRate": {
+      "mean": 0,
+      "min": 0,
+      "max": 0,
+      "stdDev": 0
+    },
+    "completenessPassRate": {
+      "mean": 1,
+      "min": 1,
+      "max": 1,
+      "stdDev": 0
+    },
+    "overallPassRate": {
+      "mean": 0,
+      "min": 0,
+      "max": 0,
+      "stdDev": 0
+    }
+  },
+  "perIterationMetrics": [
+    {
+      "iteration": 1,
+      "timestamp": "2026-01-28T15:55:46.994Z",
+      "sampleCount": 1,
+      "averageFaithfulnessScore": {
+        "value": 3,
+        "numerator": 3,
+        "denominator": 1,
+        "description": "Average faithfulness score (1-5 scale)"
+      },
+      "faithfulnessPassRate": {
+        "value": 0,
+        "numerator": 0,
+        "denominator": 1,
+        "description": "Faithfulness pass rate (score ≥ 4)"
+      },
+      "faithfulnessDistribution": {
+        "score1": 0,
+        "score2": 0,
+        "score3": 1,
+        "score4": 0,
+        "score5": 0
+      },
+      "averageCompletenessScore": {
+        "value": 5,
+        "numerator": 5,
+        "denominator": 1,
+        "description": "Average completeness score (1-5 scale)"
+      },
+      "completenessPassRate": {
+        "value": 1,
+        "numerator": 1,
+        "denominator": 1,
+        "description": "Completeness pass rate (score ≥ 4)"
+      },
+      "completenessDistribution": {
+        "score1": 0,
+        "score2": 0,
+        "score3": 0,
+        "score4": 0,
+        "score5": 1
+      },
+      "overallPassRate": {
+        "value": 0,
+        "numerator": 0,
+        "denominator": 1,
+        "description": "Overall pass rate (BOTH dimensions ≥ 4)"
+      },
+      "averageCourseCount": {
+        "value": 32,
+        "numerator": 32,
+        "denominator": 1,
+        "description": "Average number of courses per question"
+      }
+    }
+  ]
+}

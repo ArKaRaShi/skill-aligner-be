@@ -1,0 +1,198 @@
+{
+  "questionIds": [
+    "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การสื่อสารและการนำเสนอเชิงเทคนิค"
+  ],
+  "skill": "การสื่อสารและการนำเสนอเชิงเทคนิค",
+  "retrievedCount": 19,
+  "evaluations": [
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 2,
+      "reason": "Course includes communication and presentation as a learning outcome but as part of broader software engineering content."
+    },
+    {
+      "subjectCode": "01058151-68",
+      "subjectName": "ปฏิบัติการสร้างสรรค์เพื่อการกินดีอยู่ดี",
+      "relevanceScore": 3,
+      "reason": "Communication and presentation are explicitly stated as key learning outcomes focused on explaining design concepts."
+    },
+    {
+      "subjectCode": "01420454-66",
+      "subjectName": "พลังงานแสงอาทิตย์",
+      "relevanceScore": 2,
+      "reason": "Includes ability to present academic work and communicate, but within the context of solar energy topic."
+    },
+    {
+      "subjectCode": "01058223-68",
+      "subjectName": "เทคโนโลยีการแปรรูปที่ใช้ความร้อนทางอุตสาหกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Communication through presentation is a stated outcome, but limited to presenting in class within industrial heat processing context."
+    },
+    {
+      "subjectCode": "02738499-61",
+      "subjectName": "โครงงานทางวิทยาศาสตร์ชีวภาพ",
+      "relevanceScore": 3,
+      "reason": "Communication and presentation are core learning outcomes, emphasizing academic level presentation and effective communication."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 2,
+      "reason": "Includes ability to present engineering drawings and communicate information, but as part of engineering drawing skills."
+    },
+    {
+      "subjectCode": "01418104-67",
+      "subjectName": "รู้ทันไอที",
+      "relevanceScore": 3,
+      "reason": "Explicitly includes communication and presentation of IT knowledge as a main learning outcome."
+    },
+    {
+      "subjectCode": "02204433-65",
+      "subjectName": "การรู้จำรูปแบบ",
+      "relevanceScore": 3,
+      "reason": "Clear focus on communicating ideas, principles, and project results both orally and in writing as a main learning outcome."
+    },
+    {
+      "subjectCode": "03604495-65",
+      "subjectName": "การเตรียมโครงงานวิศวกรรมเครื่องกลและการออกแบบ",
+      "relevanceScore": 3,
+      "reason": "Communication and presentation of engineering project work is a primary learning outcome."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Covers communication concepts and application in mass media, but not specifically technical communication and presentation."
+    },
+    {
+      "subjectCode": "01401463-66",
+      "subjectName": "ชีววิทยาวิวัฒนาการของพืช",
+      "relevanceScore": 1,
+      "reason": "Mentions ability to communicate and present work but as a minor component in a biology course."
+    },
+    {
+      "subjectCode": "01401442-66",
+      "subjectName": "พรรณไม้น้ำ",
+      "relevanceScore": 1,
+      "reason": "Includes communication and presentation but only as a minor skill in aquatic plants course."
+    },
+    {
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Communication and presentation mentioned but as part of broader botanical research project skills."
+    },
+    {
+      "subjectCode": "01401399-66",
+      "subjectName": "การฝึกงานทางพฤกษศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Communication and presentation included but only as a minor part of internship tasks."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 1,
+      "reason": "Communication is mentioned but in context of information adaptation, not specifically technical communication and presentation."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 1,
+      "reason": "Communication mentioned in context of information adaptation, not focused on technical communication and presentation."
+    },
+    {
+      "subjectCode": "04403697-67",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 3,
+      "reason": "Communication and presentation of academic work are main learning outcomes."
+    },
+    {
+      "subjectCode": "01008553-65",
+      "subjectName": "ข้อมูลทางพันธุกรรมของเชื้อโรคพืชและชีวสารสนเทศศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Presentation of data is mentioned but not focused on communication and presentation skills broadly."
+    },
+    {
+      "subjectCode": "01150161-67",
+      "subjectName": "การฝึกปฏิบัติวิชาชีพในสถานศึกษา I : รอบรู้งานครู",
+      "relevanceScore": 2,
+      "reason": "Includes presentation of knowledge from reflective thinking using creative language, but within teacher training context."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 19,
+    "meanRelevanceScore": 1.9473684210526316,
+    "totalRelevanceSum": 37,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 36.8421052631579,
+        "microAverageRate": 36.8421052631579,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 31.57894736842105,
+        "microAverageRate": 31.57894736842105,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 6,
+        "macroAverageRate": 31.57894736842105,
+        "microAverageRate": 31.57894736842105,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.782,
+        "at10": 0.892,
+        "at15": 0.868,
+        "atAll": 0.923
+      },
+      "ideal": {
+        "at5": 0.782,
+        "at10": 0.811,
+        "at15": 0.704,
+        "atAll": 0.687
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.5
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.667,
+        "threshold3": 0.333
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.632,
+        "threshold3": 0.316
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3939,
+  "outputTokens": 603
+}

@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การจัดการโครงการเทคโนโลยี"
+  ],
+  "skill": "การจัดการโครงการเทคโนโลยี",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01456464-64",
+      "subjectName": "การจัดการโครงการอาชญาวิทยาและระบบงานยุติธรรม",
+      "relevanceScore": 2,
+      "reason": "Course covers project management concepts applied to criminology and justice systems, including use of IT for project management, but not specifically technology project management."
+    },
+    {
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "relevanceScore": 2,
+      "reason": "Focuses on project management for resource development with theory and team work, relevant to project management but not specifically technology projects."
+    },
+    {
+      "subjectCode": "01004212-64",
+      "subjectName": "การจำแนกแมลงและความหลากหลาย",
+      "relevanceScore": 0,
+      "reason": "Course is about insect classification and biodiversity, unrelated to technology project management."
+    },
+    {
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "relevanceScore": 0,
+      "reason": "Course is about Chinese language proficiency and use of IT for work creation, unrelated to project management."
+    },
+    {
+      "subjectCode": "01203512-66",
+      "subjectName": "การวางแผน การทำกำหนดเวลา และการควบคุมในงานบริหารการก่อสร้าง",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers project management, planning, scheduling, and control in construction management, including use of computer programs, highly relevant to technology project management."
+    },
+    {
+      "subjectCode": "01386597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar course includes planning and use of technology but only marginally relevant to project management skill."
+    },
+    {
+      "subjectCode": "02741521-65",
+      "subjectName": "เทคโนโลยีการบำบัดสำหรับสิ่งแวดล้อม",
+      "relevanceScore": 0,
+      "reason": "Focuses on environmental treatment technology, unrelated to project management."
+    },
+    {
+      "subjectCode": "01386523-66",
+      "subjectName": "การประพันธ์เพลงในคริสต์ศตวรรษที่ 21",
+      "relevanceScore": 0,
+      "reason": "Music composition course with some technology use, not related to project management."
+    },
+    {
+      "subjectCode": "01386512-66",
+      "subjectName": "การประพันธ์เพลง I",
+      "relevanceScore": 0,
+      "reason": "Music composition course with some technology use, not related to project management."
+    },
+    {
+      "subjectCode": "01386513-66",
+      "subjectName": "การประพันธ์เพลง II",
+      "relevanceScore": 0,
+      "reason": "Music composition course with some technology use, not related to project management."
+    },
+    {
+      "subjectCode": "01242341-67",
+      "subjectName": "นวัตกรรมเทคโนโลยีเพื่อการออกแบบ",
+      "relevanceScore": 0,
+      "reason": "Course about technology innovation for design, not about project management."
+    },
+    {
+      "subjectCode": "01451356-65",
+      "subjectName": "ภูมิสารสนเทศศาสตร์เพื่อการจัดการภัยพิบัติ",
+      "relevanceScore": 2,
+      "reason": "Course on geoinformatics for disaster management includes planning and management concepts with technology use, fairly relevant to technology project management."
+    },
+    {
+      "subjectCode": "01203523-66",
+      "subjectName": "การประยุกต์ใช้แบบจำลองสารสนเทศอาคาร",
+      "relevanceScore": 0,
+      "reason": "Course about application of building information modeling technology, no project management focus."
+    },
+    {
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Thesis course involves research design and use of IT for information presentation, marginally relevant to project management."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 0,
+      "reason": "Computer program for music composition, unrelated to project management."
+    },
+    {
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Educational psychology and counseling course, unrelated to project management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 0.6875,
+    "totalRelevanceSum": 11,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 10,
+        "macroAverageRate": 62.5,
+        "microAverageRate": 62.5,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 18.75,
+        "microAverageRate": 18.75,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.25,
+        "microAverageRate": 6.25,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.679,
+        "at10": 0.696,
+        "at15": 0.812,
+        "atAll": 0.812
+      },
+      "ideal": {
+        "at5": 0.5,
+        "at10": 0.351,
+        "at15": 0.317,
+        "atAll": 0.304
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.4,
+        "threshold2": 0.267,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.375,
+        "threshold2": 0.25,
+        "threshold3": 0.063
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3082,
+  "outputTokens": 528
+}

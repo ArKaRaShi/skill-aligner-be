@@ -1,0 +1,25 @@
+{
+  "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+  "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+  "systemAnswer": "การสำรวจวิชาที่เกี่ยวข้องกับ **การเขียนโปรแกรมเชิงวัตถุ (OOP)** อาจครอบคลุมหลายมิติ เช่น การอธิบายหลักการพื้นฐานและการนำไปประยุกต์ใช้ในการเขียนโปรแกรมตามที่กำหนด โดยพิจารณาจากผลลัพธ์การเรียนรู้ที่ปรากฏในข้อมูลที่มี **รายวิชาการโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์ (03607131-67)** ครอบคลุมการอธิบายหลักการของ **การโปรแกรมเชิงวัตถุ** และการเขียนโปรแกรมโดยใช้หลักการเหล่านั้นตามที่กำหนด รวมถึงการเขียนโปรแกรมแบบขับเคลื่อนด้วยเหตุการณ์ที่มีส่วนต่อประสานกราฟิกกับผู้ใช้ ซึ่งอาจช่วยให้เข้าใจการนำ OOP ไปใช้ในบริบทหุ่นยนต์ได้\n\nในทางตรงกันข้าม **รายวิชาการเขียนโปรแกรมเชิงโครงสร้าง (02204171-65)** เน้นการอธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้างและองค์ประกอบของโปรแกรมคอมพิวเตอร์เป็นหลัก โดยไม่ครอบคลุมการเขียนโปรแกรมเชิงวัตถุโดยตรง ส่วน **รายวิชาปฏิบัติการการแก้ปัญหา (01204214-65)** มุ่งที่การเขียนโปรแกรมประยุกต์เพื่อแก้ปัญหาและแนวคิดโครงสร้างข้อมูลพื้นฐาน ซึ่งเป็นการประยุกต์โปรแกรมทั่วไปแต่ไม่ระบุถึงหลักการ OOP โดยเฉพาะ **รายวิชาเปิดโลกวิทยาการหุ่นยนต์ (03607151-67)** กล่าวถึงการสร้างและเขียนโปรแกรมหุ่นยนต์อย่างง่าย แต่ไม่เจาะจงถึง OOP และ **รายวิชาคณิตศาสตร์สำหรับวิทยาการข้อมูล (04256111-66)** เกี่ยวข้องกับการประยุกต์โปรแกรมคอมพิวเตอร์ในการแก้ปัญหาระบบสมการเชิงเส้น ซึ่งเป็นมุมมองทางคณิตศาสตร์มากกว่าการโปรแกรมเชิงวัตถุ\n\nโดยรวมแล้ว ในข้อมูลที่มีอยู่ รายวิชาที่ครอบคลุม **การเขียนโปรแกรมเชิงวัตถุ** โดยตรงคือ **รายวิชาการโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์ (03607131-67)** ในขณะที่รายวิชาอื่นๆ ให้มุมมองพื้นฐานหรือการประยุกต์โปรแกรมที่อาจเป็นบริบทสนับสนุนแต่ไม่ตรงกับ OOP อย่างชัดเจน ซึ่งเหมาะสำหรับการสำรวจทิศทางการเรียนรู้เพิ่มเติมจากผลลัพธ์การเรียนรู้เหล่านี้",
+  "judgeVerdict": {
+    "faithfulness": {
+      "score": 3,
+      "reasoning": "Mixed accuracy. The answer correctly identifies การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์ (03607131-67) as directly covering การเขียนโปรแกรมเชิงวัตถุ (matches Section 1 and Section 2). However, it states that several other courses (e.g., การเขียนโปรแกรมเชิงโครงสร้าง 02204171-65, ปฏิบัติการการแก้ปัญหา 01204214-65, เปิดโลกวิทยาการหุ่นยนต์ 03607151-67, คณิตศาสตร์สำหรับวิทยาการข้อมูล 04256111-66) do not cover OOP directly — which conflicts with the provided context where those courses are mapped under Section 1 to the skill 'การเขียนโปรแกรมเชิงวัตถุ' or 'ภาษาโปรแกรมเชิงวัตถุ'. Thus the answer mixes supported facts with unsupported/contradictory claims (misattribution/negation of mapped skills)."
+    },
+    "completeness": {
+      "score": 4,
+      "reasoning": "Good explanatory bridging. The answer frames the query, highlights the primary course that directly supports OOP (03607131-67) and explains why (explicit learning outcomes including OOP and event-driven GUI programming), and compares other courses as more foundational or applied contexts. It therefore links course outcomes to the user's question, though some explanations about other courses incorrectly downplay their mapped OOP relevance (which affects faithfulness but the logical structure and rationale are clear)."
+    }
+  },
+  "overallScore": 3.5,
+  "passed": false,
+  "courseCount": 23,
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 6484,
+      "outputTokens": 1255
+    }
+  ]
+}

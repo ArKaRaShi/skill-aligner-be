@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การบริหารธุรกิจร้านอาหารและเครื่องดื่ม"
+  ],
+  "skill": "การบริหารธุรกิจร้านอาหารและเครื่องดื่ม",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02807111-68",
+      "subjectName": "ความรู้เบื้องต้นเกี่ยวกับธุรกิจโรงแรมและภัตตาคาร",
+      "relevanceScore": 2,
+      "reason": "Course covers management and operations of hotel and restaurant businesses, which includes restaurant business management as part of the content."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 2,
+      "reason": "Focuses on marketing and pricing strategies for beverage business, relevant to beverage part of restaurant and beverage business management."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Covers preparation of beverages, which is a minor component of beverage business management but not business administration itself."
+    },
+    {
+      "subjectCode": "03764428-64",
+      "subjectName": "การจัดการโซ่อุปทานอาหาร",
+      "relevanceScore": 2,
+      "reason": "Covers food supply chain management including production, storage, and transportation, relevant to restaurant business operations."
+    },
+    {
+      "subjectCode": "03763373-64",
+      "subjectName": "การจัดการและการดำเนินการในธุรกิจนำเที่ยว",
+      "relevanceScore": 0,
+      "reason": "Focuses on tourism business management, unrelated to restaurant and beverage business management."
+    },
+    {
+      "subjectCode": "01074597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar includes knowledge linking to beverage business management but only at a discussion and information level, not core management skills."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Covers profit planning and control generally, which may be marginally relevant to business management but not specific to restaurant and beverage business."
+    },
+    {
+      "subjectCode": "01390429-64",
+      "subjectName": "การจัดนำเที่ยวนอกประเทศ",
+      "relevanceScore": 0,
+      "reason": "Focuses on international tourism business management, unrelated to restaurant and beverage business management."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 3,
+      "reason": "Directly covers food service system management including production and service of food for commercial purposes, highly relevant to restaurant business management."
+    },
+    {
+      "subjectCode": "06901111-66",
+      "subjectName": "หลักการจัดการธุรกิจเบื้องต้นสำหรับอุตสาหกรรมการท่องเที่ยว",
+      "relevanceScore": 1,
+      "reason": "Covers basic business management principles for tourism industry, marginally relevant but not specific to restaurant and beverage business."
+    },
+    {
+      "subjectCode": "01074523-68",
+      "subjectName": "ปฏิบัติการในอุตสาหกรรมเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Focuses on beverage production operations and quality control, which is a minor technical aspect related to beverage business but not management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 1.2727272727272727,
+    "totalRelevanceSum": 14,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 45.45454545454545,
+        "microAverageRate": 45.45454545454545,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.71,
+        "at10": 0.832,
+        "at15": 0.868,
+        "atAll": 0.868
+      },
+      "ideal": {
+        "at5": 0.523,
+        "at10": 0.477,
+        "at15": 0.386,
+        "atAll": 0.469
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.8,
+        "threshold2": 0.4,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.818,
+        "threshold2": 0.364,
+        "threshold3": 0.091
+      },
+      "atAll": {
+        "threshold1": 0.818,
+        "threshold2": 0.364,
+        "threshold3": 0.091
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2014,
+  "outputTokens": 407
+}

@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การพัฒนาเว็บแอปพลิเคชัน"
+  ],
+  "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on AI and data analysis, not web application development."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "Course is about polymer chemistry, unrelated to web application development."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 2,
+      "reason": "Includes developing software and creating website projects as part of the outcomes, relevant but not the primary focus."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "Course is about internship preparation, not web development."
+    },
+    {
+      "subjectCode": "01018524-65",
+      "subjectName": "เครื่องจักรกลหลังการเก็บเกี่ยวขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on machinery post-harvest, unrelated to web application development."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 0,
+      "reason": "Designing products based on technology, not specifically web applications."
+    },
+    {
+      "subjectCode": "02201445-66",
+      "subjectName": "ไมโครคอนโทรลเลอร์สำหรับวิศวกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Includes developing applications controlling devices via smartphones, relevant but not solely focused on web app development."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 0,
+      "reason": "Course about educational technology, not about web application development."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course on beverage preparation, unrelated to web development."
+    },
+    {
+      "subjectCode": "03752111-67",
+      "subjectName": "ทรัพยากรสารสนเทศเพื่อการค้นคว้า",
+      "relevanceScore": 0,
+      "reason": "Information resources for research, not related to web application development."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 0,
+      "reason": "Data warehouse and business intelligence, not specifically about web app development."
+    },
+    {
+      "subjectCode": "01001572-64",
+      "subjectName": "การสื่อสารเชิงสร้างสรรค์และสารสนเทศทางการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Agricultural communication, unrelated to web application development."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Art-related course, not relevant."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Modern chemistry in daily life, unrelated."
+    },
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Thesis research, not specifically about web app development."
+    },
+    {
+      "subjectCode": "02201323-66",
+      "subjectName": "สมบัติทางกายภาพของผลิตภัณฑ์เกษตร",
+      "relevanceScore": 0,
+      "reason": "Product physical properties, unrelated."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 0.25,
+    "totalRelevanceSum": 4,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 14,
+        "macroAverageRate": 87.5,
+        "microAverageRate": 87.5,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.307,
+        "at10": 0.511,
+        "at15": 0.511,
+        "atAll": 0.511
+      },
+      "ideal": {
+        "at5": 0.113,
+        "at10": 0.122,
+        "at15": 0.095,
+        "atAll": 0.091
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.2,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.2,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.133,
+        "threshold2": 0.133,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.125,
+        "threshold2": 0.125,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3013,
+  "outputTokens": 530
+}

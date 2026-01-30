@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "3ef3d308-ac42-453e-bce7-bb7376046c41-การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์"
+  ],
+  "skill": "การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "02747498-65",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 2,
+      "reason": "Course includes analyzing data and trends specifically in the aviation business, which relates to analyzing data and trends online in a specific domain."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 1,
+      "reason": "Focuses on financial report analysis and technology use in financial data, marginally related to data analysis but not specifically online data or trends."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Covers data import, management, advanced analysis, and visualization for business, which is fairly relevant to data and trend analysis including online data presentation."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 1,
+      "reason": "Includes researching with digital technology and statistical methods, but focus is on agricultural research, only marginally related to online data and trend analysis."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "Focuses on data analysis methods for accounting data, marginally relevant as it involves data analysis but not online data or trends."
+    },
+    {
+      "subjectCode": "04256121-66",
+      "subjectName": "การวิเคราะห์ข้อมูลเชิงสถิติ",
+      "relevanceScore": 1,
+      "reason": "Covers statistical data analysis and presentation with academic ethics, marginally relevant but no specific mention of online data or trends."
+    },
+    {
+      "subjectCode": "01058497-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Focuses on information retrieval and presentation skills, no direct relation to data or trend analysis online."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Covers efficient data management, analysis, and presentation, fairly relevant to analyzing data and trends including online data."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Includes research data analysis and information technology use for presentation, marginally relevant but not focused on online data or trends."
+    },
+    {
+      "subjectCode": "01401351-66",
+      "subjectName": "สรีรวิทยาเบื้องต้นของพืช",
+      "relevanceScore": 0,
+      "reason": "Focuses on plant physiology, no relation to data or trend analysis online."
+    },
+    {
+      "subjectCode": "01600497-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Includes academic data analysis and presentation, marginally relevant but no specific focus on online data or trends."
+    },
+    {
+      "subjectCode": "01401455-66",
+      "subjectName": "การตอบสนองทางสรีรวิทยาต่อฮอร์โมนพืช",
+      "relevanceScore": 0,
+      "reason": "Focuses on plant hormone physiology, no relation to data or trend analysis online."
+    },
+    {
+      "subjectCode": "03651232-65",
+      "subjectName": "คณิตศาสตร์ประกันภัยและการบริหารความเสี่ยง",
+      "relevanceScore": 1,
+      "reason": "Analyzes risk and trends in insurance business, marginally relevant to trend analysis but not specifically online data analysis."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1,
+    "totalRelevanceSum": 13,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 53.84615384615385,
+        "microAverageRate": 53.84615384615385,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.876,
+        "at10": 0.86,
+        "at15": 0.941,
+        "atAll": 0.941
+      },
+      "ideal": {
+        "at5": 0.503,
+        "at10": 0.421,
+        "at15": 0.357,
+        "atAll": 0.391
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.8,
+        "threshold2": 0.3,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.769,
+        "threshold2": 0.231,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.769,
+        "threshold2": 0.231,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2583,
+  "outputTokens": 496
+}

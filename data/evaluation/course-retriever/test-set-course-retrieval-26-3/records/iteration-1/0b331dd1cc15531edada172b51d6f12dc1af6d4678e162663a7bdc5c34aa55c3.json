@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-จิตวิทยาการตัดสินใจ"
+  ],
+  "skill": "จิตวิทยาการตัดสินใจ",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01475521-64",
+      "subjectName": "จิตวิทยาอุตสาหกรรมและองค์การ",
+      "relevanceScore": 1,
+      "reason": "The course discusses psychology concepts and theories related to human behavior and application in the workplace, which may include decision-making, but it is not explicitly a primary focus."
+    },
+    {
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "relevanceScore": 1,
+      "reason": "The course covers psychological concepts and their application in community settings, but decision-making is not explicitly highlighted as a main topic."
+    },
+    {
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "relevanceScore": 2,
+      "reason": "Includes decision analysis and decision-making models as part of the course outcomes, indicating a focus on decision-making skills within a broader context."
+    },
+    {
+      "subjectCode": "02198113-67",
+      "subjectName": "จิตวิทยาเพื่อการเรียนรู้และการจัดการเรียนรู้",
+      "relevanceScore": 1,
+      "reason": "Focuses on learning theories and educational psychology, with no explicit emphasis on decision-making skills."
+    },
+    {
+      "subjectCode": "03651321-65",
+      "subjectName": "การวิเคราะห์การตัดสินใจและการประยุกต์",
+      "relevanceScore": 3,
+      "reason": "Specifically addresses decision problems, decision analysis, and decision-making models, making it highly relevant to the skill."
+    },
+    {
+      "subjectCode": "03602312-65",
+      "subjectName": "วิศวกรรมอุตสาหการและระบบเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Covers decision-making techniques and process improvements, but within a broader engineering and systems context, not solely focused on decision-making."
+    },
+    {
+      "subjectCode": "01475539-64",
+      "subjectName": "จิตวิทยาเพื่อจิตวิญญาณในสถานที่ทำงาน",
+      "relevanceScore": 1,
+      "reason": "Discusses spiritual psychology in the workplace, with no direct mention of decision-making skills."
+    },
+    {
+      "subjectCode": "01475532-64",
+      "subjectName": "จิตวิทยาสังคมประยุกต์ในการทำงาน",
+      "relevanceScore": 2,
+      "reason": "Applies social psychology to work and life, which may involve decision-making, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "01475537-64",
+      "subjectName": "จิตวิทยาการทำงานเป็นทีม",
+      "relevanceScore": 2,
+      "reason": "Focuses on team psychology and development, which involves decision-making processes but not explicitly centered on the skill."
+    },
+    {
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "relevanceScore": 1,
+      "reason": "Educational and counseling psychology, with no explicit emphasis on decision-making skills."
+    },
+    {
+      "subjectCode": "01475535-64",
+      "subjectName": "จิตวิทยาการเปลี่ยนแปลงและการพัฒนา",
+      "relevanceScore": 2,
+      "reason": "Addresses organizational change and development, which may involve decision-making, but it is not the main theme."
+    },
+    {
+      "subjectCode": "01475522-64",
+      "subjectName": "จิตวิทยาบุคลากร",
+      "relevanceScore": 1,
+      "reason": "Focuses on personnel psychology and related theories, with no explicit focus on decision-making skills."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 1.5833333333333333,
+    "totalRelevanceSum": 19,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 41.666666666666664,
+        "microAverageRate": 41.666666666666664,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.612,
+        "at10": 0.767,
+        "at15": 0.811,
+        "atAll": 0.811
+      },
+      "ideal": {
+        "at5": 0.477,
+        "at10": 0.498,
+        "at15": 0.433,
+        "atAll": 0.499
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0.083
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0.083
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2360,
+  "outputTokens": 595
+}

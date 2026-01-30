@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน"
+  ],
+  "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on financial statement analysis and valuation, explicitly including the use of technology for data analysis, which aligns directly with the skill."
+    },
+    {
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Includes analysis of business data using programs, which is related but not specifically focused on financial data analysis."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 2,
+      "reason": "Covers financial report analysis as part of international accounting, but not explicitly about financial data analysis programs."
+    },
+    {
+      "subjectCode": "03760231-64",
+      "subjectName": "หลักการบัญชีต้นทุน I",
+      "relevanceScore": 2,
+      "reason": "Includes analysis of data and use of computer programs for cost accounting, related but not specifically focused on financial data analysis."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 2,
+      "reason": "Focuses on data analysis for accounting, including designing analysis methods and reporting, which is relevant but not solely about financial data analysis."
+    },
+    {
+      "subjectCode": "03760331-64",
+      "subjectName": "หลักการบัญชีต้นทุน II",
+      "relevanceScore": 2,
+      "reason": "Covers analysis and use of computer programs for cost accounting, related to financial data but not the primary focus."
+    },
+    {
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "relevanceScore": 1,
+      "reason": "Discusses experimental design and data analysis in engineering, with some mention of software, but not related to financial data analysis."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Includes financial analysis in agricultural industry context, but not specifically about financial data analysis programs."
+    },
+    {
+      "subjectCode": "04256231-66",
+      "subjectName": "การวิเคราะห์ข้อมูลด้วยโปรแกรมตารางทำการสำหรับนักวิทยาการข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Focuses on data analysis using spreadsheet programs, which is relevant to financial data analysis."
+    },
+    {
+      "subjectCode": "02212572-65",
+      "subjectName": "สถิติประยุกต์สำหรับวิศวกรรมอาหาร",
+      "relevanceScore": 2,
+      "reason": "Includes statistical analysis and use of software, related to data analysis skills applicable in finance."
+    },
+    {
+      "subjectCode": "03760433-64",
+      "subjectName": "การบัญชีเพื่อการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 2,
+      "reason": "Covers environmental accounting and data analysis with software, tangentially related but not specific to financial data analysis."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 2,
+      "reason": "Includes experimental design and statistical analysis with software, somewhat related to data analysis skills."
+    },
+    {
+      "subjectCode": "01420413-66",
+      "subjectName": "วิทยาศาสตร์ข้อมูลและการเรียนรู้ของเครื่องสำหรับนักฟิสิกส์",
+      "relevanceScore": 2,
+      "reason": "Discusses data management and analysis in physics, with software use, relevant but not specific to financial data."
+    },
+    {
+      "subjectCode": "03759211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 2,
+      "reason": "Covers financial management and analysis, including use of programs, relevant to financial data analysis."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 2,
+      "reason": "Includes financial reporting and analysis in tourism industry, related but not specifically about financial data analysis programs."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1.9333333333333333,
+    "totalRelevanceSum": 29,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 13.333333333333334,
+        "microAverageRate": 13.333333333333334,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 12,
+        "macroAverageRate": 80,
+        "microAverageRate": 80,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 0.936,
+        "at15": 0.988,
+        "atAll": 0.988
+      },
+      "ideal": {
+        "at5": 0.78,
+        "at10": 0.692,
+        "at15": 0.687,
+        "atAll": 0.687
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.867,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.867,
+        "threshold3": 0.067
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2413,
+  "outputTokens": 724
+}

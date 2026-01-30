@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "d70fb21b-c337-425b-8b11-3ee2018f3fc4-กฎหมายแรงงาน"
+  ],
+  "skill": "กฎหมายแรงงาน",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 0,
+      "reason": "Course covers basic legal principles and personal law, no mention of labor law (กฎหมายแรงงาน)."
+    },
+    {
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 0,
+      "reason": "Focus on basic legal principles and civil/person law, no indication of labor law content."
+    },
+    {
+      "subjectCode": "04354131-68",
+      "subjectName": "หลักกฎหมายมหาชน",
+      "relevanceScore": 0,
+      "reason": "Covers public law, no reference to labor law."
+    },
+    {
+      "subjectCode": "01352212-66",
+      "subjectName": "วาทวิทยาเพื่องานนิเทศศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course on rhetoric and communication, unrelated to labor law."
+    },
+    {
+      "subjectCode": "01453113-68",
+      "subjectName": "ประวัติศาสตร์กฎหมาย",
+      "relevanceScore": 0,
+      "reason": "Focus on history of law, no specific mention of labor law."
+    },
+    {
+      "subjectCode": "01456254-64",
+      "subjectName": "การป้องกันอาชญากรรม",
+      "relevanceScore": 0,
+      "reason": "Course about crime prevention and related laws, not labor law."
+    },
+    {
+      "subjectCode": "01150341-67",
+      "subjectName": "การศึกษาสำหรับบุคคลที่มีความต้องการจำเป็นพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Focus on education for special needs persons and related laws, not labor law."
+    },
+    {
+      "subjectCode": "02197531-68",
+      "subjectName": "กฎหมาย นโยบายและกลยุทธ์ทางการบริหารการศึกษา",
+      "relevanceScore": 1,
+      "reason": "Course includes laws related to education administration; labor law may be marginally relevant if related to education staff, but not a primary focus."
+    },
+    {
+      "subjectCode": "02201598-66",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Special problems course in agricultural engineering, no labor law content."
+    },
+    {
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "relevanceScore": 1,
+      "reason": "Mentions laws related to teaching profession; labor law might be marginally relevant in context of teacher profession laws but not a main topic."
+    },
+    {
+      "subjectCode": "01058371-68",
+      "subjectName": "มาตรฐานและกฎหมายสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focus on standards and laws for agricultural industry, no labor law content."
+    },
+    {
+      "subjectCode": "01017324-66",
+      "subjectName": "การวิเคราะห์อาหารและโภชนาการ",
+      "relevanceScore": 0,
+      "reason": "Course on food analysis and nutrition, unrelated to labor law."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.16666666666666666,
+    "totalRelevanceSum": 2,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 10,
+        "macroAverageRate": 83.33333333333333,
+        "microAverageRate": 83.33333333333333,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0.371,
+        "at15": 0.371,
+        "atAll": 0.371
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0.044,
+        "at15": 0.034,
+        "atAll": 0.04
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.167,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.167,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2550,
+  "outputTokens": 378
+}

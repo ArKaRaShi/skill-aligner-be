@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "00e399aa-cf3c-472b-b5be-9a6e86e10637-กฎหมายเบื้องต้น"
+  ],
+  "skill": "กฎหมายเบื้องต้น",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 3,
+      "reason": "Course name and learning outcomes explicitly cover basic principles of law, directly matching the skill 'กฎหมายเบื้องต้น' (basic law)."
+    },
+    {
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers basic principles of law and civil law interpretation, fully addressing the skill 'กฎหมายเบื้องต้น'."
+    },
+    {
+      "subjectCode": "04354131-68",
+      "subjectName": "หลักกฎหมายมหาชน",
+      "relevanceScore": 2,
+      "reason": "Focuses on public law, a subfield of law, thus fairly relevant as it covers a specific area of law but not general basic law comprehensively."
+    },
+    {
+      "subjectCode": "01453113-68",
+      "subjectName": "ประวัติศาสตร์กฎหมาย",
+      "relevanceScore": 1,
+      "reason": "Covers history and evolution of law, which is related but not directly teaching basic law principles; marginal relevance."
+    },
+    {
+      "subjectCode": "01150341-67",
+      "subjectName": "การศึกษาสำหรับบุคคลที่มีความต้องการจำเป็นพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Mentions law related to special needs education, but law is a minor part of the course; marginal relevance."
+    },
+    {
+      "subjectCode": "01456251-64",
+      "subjectName": "ความรู้เบื้องต้นทางอาชญาวิทยาและกระบวนการยุติธรรม",
+      "relevanceScore": 1,
+      "reason": "Covers criminology and justice process basics, related to law but not basic law principles; marginal relevance."
+    },
+    {
+      "subjectCode": "01456254-64",
+      "subjectName": "การป้องกันอาชญากรรม",
+      "relevanceScore": 1,
+      "reason": "Focuses on crime prevention and related laws, but not on basic law; marginal relevance."
+    },
+    {
+      "subjectCode": "01603121-65",
+      "subjectName": "จรรยาบรรณและกฎหมายทางการพยาบาลสัตว์",
+      "relevanceScore": 1,
+      "reason": "Covers ethics and laws related to veterinary nursing, a specialized legal area; marginal relevance."
+    },
+    {
+      "subjectCode": "02804211-67",
+      "subjectName": "กฎหมายและจรรยาบรรณวิชาชีพในธุรกิจการบิน",
+      "relevanceScore": 1,
+      "reason": "Covers laws and ethics in aviation business, a specialized legal context; marginal relevance."
+    },
+    {
+      "subjectCode": "01456453-64",
+      "subjectName": "กิจการตำรวจกับการบังคับใช้กฎหมายในชุมชน",
+      "relevanceScore": 2,
+      "reason": "Focuses on police and law enforcement in community, covering law application aspects; fairly relevant to basic law understanding."
+    },
+    {
+      "subjectCode": "01004461-64",
+      "subjectName": "กีฏวิทยาเชิงนิเวศ",
+      "relevanceScore": 0,
+      "reason": "Course is about ecological entomology with no connection to law; irrelevant."
+    },
+    {
+      "subjectCode": "02738463-61",
+      "subjectName": "นิติวิทยาศาสตร์ทางชีววิทยา",
+      "relevanceScore": 1,
+      "reason": "Focuses on forensic biology, related to law enforcement but not basic law principles; marginal relevance."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 1.4166666666666667,
+    "totalRelevanceSum": 17,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 58.333333333333336,
+        "microAverageRate": 58.333333333333336,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.94,
+        "at10": 0.984,
+        "at15": 0.983,
+        "atAll": 0.983
+      },
+      "ideal": {
+        "at5": 0.759,
+        "at10": 0.63,
+        "at15": 0.504,
+        "atAll": 0.58
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.917,
+        "threshold2": 0.333,
+        "threshold3": 0.167
+      },
+      "atAll": {
+        "threshold1": 0.917,
+        "threshold2": 0.333,
+        "threshold3": 0.167
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2523,
+  "outputTokens": 444
+}

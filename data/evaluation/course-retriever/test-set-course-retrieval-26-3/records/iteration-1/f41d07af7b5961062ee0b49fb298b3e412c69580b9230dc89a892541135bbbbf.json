@@ -1,0 +1,157 @@
+{
+  "questionIds": [
+    "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การตัดต่อวิดีโอ",
+    "3ef3d308-ac42-453e-bce7-bb7376046c41-การตัดต่อวิดีโอ"
+  ],
+  "skill": "การตัดต่อวิดีโอ",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on music composition and sound creation, not video editing."
+    },
+    {
+      "subjectCode": "01006246-64",
+      "subjectName": "หลักการตัดเย็บ",
+      "relevanceScore": 1,
+      "reason": "Course is about sewing and tailoring, with no relation to video editing."
+    },
+    {
+      "subjectCode": "01352362-66",
+      "subjectName": "การผลิตภาพยนตร์ดิจิทัล",
+      "relevanceScore": 3,
+      "reason": "Course on digital filmmaking production directly relates to video editing skills."
+    },
+    {
+      "subjectCode": "01352261-66",
+      "subjectName": "การภาพยนตร์เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers film production and storytelling, which may include editing, but not explicitly focused on video editing."
+    },
+    {
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "relevanceScore": 0,
+      "reason": "Course on visual and object design does not relate to video editing."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 2,
+      "reason": "Course on storytelling with images may include some aspects of video editing as part of digital media creation."
+    },
+    {
+      "subjectCode": "01401431-66",
+      "subjectName": "ไมโครเทคนิคทางพืช",
+      "relevanceScore": 0,
+      "reason": "Course on plant microtechniques is unrelated to video editing."
+    },
+    {
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course on basic analytical chemistry has no connection to video editing."
+    },
+    {
+      "subjectCode": "03652241-66",
+      "subjectName": "หลักการทางเคมีวิเคราะห์ด้วยเครื่องมือ",
+      "relevanceScore": 0,
+      "reason": "Course on analytical chemistry principles does not relate to video editing."
+    },
+    {
+      "subjectCode": "01357353-68",
+      "subjectName": "การล่ามภาษาเยอรมัน",
+      "relevanceScore": 0,
+      "reason": "Course on German interpreting is unrelated to video editing."
+    },
+    {
+      "subjectCode": "01352242-66",
+      "subjectName": "การถ่ายภาพดิจิทัล",
+      "relevanceScore": 2,
+      "reason": "Course on digital photography involves image capturing, which can be related to video editing, but not explicitly focused on editing."
+    },
+    {
+      "subjectCode": "01018524-65",
+      "subjectName": "เครื่องจักรกลหลังการเก็บเกี่ยวขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course on agricultural machinery is not related to video editing."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.8333333333333334,
+    "totalRelevanceSum": 10,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 7,
+        "macroAverageRate": 58.333333333333336,
+        "microAverageRate": 58.333333333333336,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.46,
+        "at10": 0.569,
+        "at15": 0.655,
+        "atAll": 0.655
+      },
+      "ideal": {
+        "at5": 0.338,
+        "at10": 0.272,
+        "at15": 0.242,
+        "atAll": 0.279
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.417,
+        "threshold2": 0.333,
+        "threshold3": 0.083
+      },
+      "atAll": {
+        "threshold1": 0.417,
+        "threshold2": 0.333,
+        "threshold3": 0.083
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2000,
+  "outputTokens": 429
+}

@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การจัดการโครงการเทคโนโลยี"
+  ],
+  "skill": "การจัดการโครงการเทคโนโลยี",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01456464-64",
+      "subjectName": "การจัดการโครงการอาชญาวิทยาและระบบงานยุติธรรม",
+      "relevanceScore": 2,
+      "reason": "The course discusses the application of technology in designing and managing criminal justice projects, which is a specific aspect of project management technology."
+    },
+    {
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "relevanceScore": 2,
+      "reason": "The course covers project management for resource development, including the use of theories and team collaboration, with some emphasis on technology application."
+    },
+    {
+      "subjectCode": "01004212-64",
+      "subjectName": "การจำแนกแมลงและความหลากหลาย",
+      "relevanceScore": 0,
+      "reason": "The course is about insect classification and biodiversity, unrelated to technology project management."
+    },
+    {
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "relevanceScore": 0,
+      "reason": "The course focuses on Chinese language skills and testing, not on project management technology."
+    },
+    {
+      "subjectCode": "01203512-66",
+      "subjectName": "การวางแผน การทำกำหนดเวลา และการควบคุมในงานบริหารการก่อสร้าง",
+      "relevanceScore": 2,
+      "reason": "The course involves planning, scheduling, and controlling construction projects, which includes project management concepts and some use of technology."
+    },
+    {
+      "subjectCode": "01386597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "The seminar course involves planning and using technology for seminars, but it is not primarily about project management technology."
+    },
+    {
+      "subjectCode": "02741521-65",
+      "subjectName": "เทคโนโลยีการบำบัดสำหรับสิ่งแวดล้อม",
+      "relevanceScore": 3,
+      "reason": "The course explicitly covers the use of technology for environmental treatment, which is a core aspect of technology management in environmental projects."
+    },
+    {
+      "subjectCode": "01386523-66",
+      "subjectName": "การประพันธ์เพลงในคริสต์ศตวรรษที่ 21",
+      "relevanceScore": 2,
+      "reason": "The course on music composition in the 21st century includes the use of technology, but it is not primarily about project management technology."
+    },
+    {
+      "subjectCode": "01386512-66",
+      "subjectName": "การประพันธ์เพลง I",
+      "relevanceScore": 2,
+      "reason": "Similar to the above, focuses on music composition and technology use, not on project management."
+    },
+    {
+      "subjectCode": "01386513-66",
+      "subjectName": "การประพันธ์เพลง II",
+      "relevanceScore": 2,
+      "reason": "Same as above, technology in music composition, not project management."
+    },
+    {
+      "subjectCode": "01242341-67",
+      "subjectName": "นวัตกรรมเทคโนโลยีเพื่อการออกแบบ",
+      "relevanceScore": 2,
+      "reason": "The course on innovation and technology in design discusses technological innovation, which can relate to project management in design contexts."
+    },
+    {
+      "subjectCode": "01451356-65",
+      "subjectName": "ภูมิสารสนเทศศาสตร์เพื่อการจัดการภัยพิบัติ",
+      "relevanceScore": 3,
+      "reason": "The course on geoinformatics for disaster management explicitly involves managing projects using technology, making it highly relevant."
+    },
+    {
+      "subjectCode": "01203523-66",
+      "subjectName": "การประยุกต์ใช้แบบจำลองสารสนเทศอาคาร",
+      "relevanceScore": 2,
+      "reason": "The course covers the application of information modeling technology in buildings, which involves project management aspects."
+    },
+    {
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Thesis work involves project planning and research, but it is not specifically focused on project management technology."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 2,
+      "reason": "The course on computer programs for music composition involves technology use, but not project management."
+    },
+    {
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "relevanceScore": 1,
+      "reason": "The course on educational psychology and counseling for teachers involves some use of technology, but it is not about project management technology."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.6875,
+    "totalRelevanceSum": 27,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 18.75,
+        "microAverageRate": 18.75,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 9,
+        "macroAverageRate": 56.25,
+        "microAverageRate": 56.25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.536,
+        "at10": 0.672,
+        "at15": 0.817,
+        "atAll": 0.837
+      },
+      "ideal": {
+        "at5": 0.456,
+        "at10": 0.528,
+        "at15": 0.56,
+        "atAll": 0.551
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.8,
+        "threshold2": 0.7,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.867,
+        "threshold2": 0.733,
+        "threshold3": 0.133
+      },
+      "atAll": {
+        "threshold1": 0.875,
+        "threshold2": 0.688,
+        "threshold3": 0.125
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3082,
+  "outputTokens": 672
+}

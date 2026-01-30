@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "1e7e132d-31b7-49fe-91dc-c2e0358a1b24-การตัดสินใจและแก้ไขปัญหา"
+  ],
+  "skill": "การตัดสินใจและแก้ไขปัญหา",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "02741521-65",
+      "subjectName": "เทคโนโลยีการบำบัดสำหรับสิ่งแวดล้อม",
+      "relevanceScore": 0,
+      "reason": "The course focuses on environmental technology and remediation, not decision-making or problem-solving."
+    },
+    {
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "relevanceScore": 2,
+      "reason": "Includes decision-making and ethical problem-solving as part of the module on values and characteristics of teachers."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Contains general research and problem-solving skills but not specifically focused on decision-making or problem-solving."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 2,
+      "reason": "Involves research and development of innovations, which requires decision-making and problem-solving skills."
+    },
+    {
+      "subjectCode": "01357353-68",
+      "subjectName": "การล่ามภาษาเยอรมัน",
+      "relevanceScore": 2,
+      "reason": "Covers problem-solving in interpreting and resolving issues in interpreting German, involving decision-making."
+    },
+    {
+      "subjectCode": "01999111-67",
+      "subjectName": "ศาสตร์แห่งแผ่นดิน",
+      "relevanceScore": 1,
+      "reason": "Includes some aspects of problem analysis but not explicitly focused on decision-making or problem-solving."
+    },
+    {
+      "subjectCode": "02727104-67",
+      "subjectName": "สิ่งมีชีวิตกับภัยพิบัติทางธรรมชาติ",
+      "relevanceScore": 2,
+      "reason": "Entails analyzing and solving problems related to natural disasters, involving decision-making."
+    },
+    {
+      "subjectCode": "01008211-64",
+      "subjectName": "โรคพืชวิทยาเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Focuses on understanding plant diseases and control measures, which involves decision-making."
+    },
+    {
+      "subjectCode": "02714101-67",
+      "subjectName": "การคิดเชิงวิพากษ์และการแก้ปัญหา",
+      "relevanceScore": 3,
+      "reason": "Main theme is critical thinking and problem-solving, directly aligned with the skill."
+    },
+    {
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 2,
+      "reason": "Involves analyzing and solving interdisciplinary problems, related to decision-making."
+    },
+    {
+      "subjectCode": "03651321-65",
+      "subjectName": "การวิเคราะห์การตัดสินใจและการประยุกต์",
+      "relevanceScore": 3,
+      "reason": "Centered on decision analysis and problem-solving strategies, highly relevant."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 1,
+      "reason": "Includes financial analysis but not explicitly focused on decision-making or problem-solving."
+    },
+    {
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "relevanceScore": 2,
+      "reason": "Involves analyzing investment projects, which requires decision-making skills."
+    },
+    {
+      "subjectCode": "01689492-66",
+      "subjectName": "การเรียนรู้ผ่านประสบการณ์ด้านการบูรณาการศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Focuses on applying theories to real-world problems, involving decision-making."
+    },
+    {
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "Research planning and problem-solving are part of thesis work, but not the primary focus."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1.8,
+    "totalRelevanceSum": 27,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 9,
+        "macroAverageRate": 60,
+        "microAverageRate": 60,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 13.333333333333334,
+        "microAverageRate": 13.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.451,
+        "at10": 0.609,
+        "at15": 0.761,
+        "atAll": 0.761
+      },
+      "ideal": {
+        "at5": 0.384,
+        "at10": 0.479,
+        "at15": 0.522,
+        "atAll": 0.522
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.9,
+        "threshold2": 0.7,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.933,
+        "threshold2": 0.733,
+        "threshold3": 0.133
+      },
+      "atAll": {
+        "threshold1": 0.933,
+        "threshold2": 0.733,
+        "threshold3": 0.133
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3314,
+  "outputTokens": 555
+}

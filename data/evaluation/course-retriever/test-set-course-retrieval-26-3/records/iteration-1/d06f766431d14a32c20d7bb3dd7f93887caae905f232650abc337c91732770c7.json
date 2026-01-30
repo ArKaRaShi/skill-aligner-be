@@ -1,0 +1,186 @@
+{
+  "questionIds": [
+    "654330a8-2559-4273-abb4-36db7f0b31e1-การชำระเงินออนไลน์และความปลอดภัย"
+  ],
+  "skill": "การชำระเงินออนไลน์และความปลอดภัย",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "03601534-66",
+      "subjectName": "การประสานสัมพันธ์ฉนวน",
+      "relevanceScore": 0,
+      "reason": "Course name and outcomes are related to electrical insulation and surge protection, not online payment security."
+    },
+    {
+      "subjectCode": "01420361-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น I",
+      "relevanceScore": 0,
+      "reason": "Course is about astronomy, unrelated to online payment security."
+    },
+    {
+      "subjectCode": "01420362-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น II",
+      "relevanceScore": 0,
+      "reason": "Same as above, astronomy course, not relevant."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "Data visualization for business does not cover online payment security."
+    },
+    {
+      "subjectCode": "01006246-64",
+      "subjectName": "หลักการตัดเย็บ",
+      "relevanceScore": 0,
+      "reason": "Sewing principles are unrelated to online payment security."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Marketing strategies for beverages do not include online payment security."
+    },
+    {
+      "subjectCode": "01451121-65",
+      "subjectName": "ภูมิศาสตร์มนุษย์",
+      "relevanceScore": 0,
+      "reason": "Human geography is not related to online payment security."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Digital citizenship does not specifically focus on online payment security."
+    },
+    {
+      "subjectCode": "01358511-66",
+      "subjectName": "ภาษาญี่ปุ่นระดับบัณฑิตศึกษา",
+      "relevanceScore": 0,
+      "reason": "Japanese language course is unrelated to online payment security."
+    },
+    {
+      "subjectCode": "03604281-65",
+      "subjectName": "การฝึกงานโรงงาน",
+      "relevanceScore": 0,
+      "reason": "Industrial internship does not cover online payment security."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 0,
+      "reason": "Thai writing skills are not related to online payment security."
+    },
+    {
+      "subjectCode": "01017212-66",
+      "subjectName": "สุขาภิบาลอาหารและความปลอดภัยอาหาร",
+      "relevanceScore": 0,
+      "reason": "Food sanitation and safety are unrelated to online payment security."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Statistics for business I does not focus on online payment security."
+    },
+    {
+      "subjectCode": "03651441-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Statistics for business II is not about online payment security."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Big data management is not specifically about online payment security."
+    },
+    {
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "relevanceScore": 0,
+      "reason": "Internal audit and control are not directly related to online payment security."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Data querying for data science does not focus on online payment security."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 17,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3143,
+  "outputTokens": 557
+}

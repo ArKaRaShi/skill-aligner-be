@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การจัดการความขัดแย้ง"
+  ],
+  "skill": "การจัดการความขัดแย้ง",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01475536-64",
+      "subjectName": "จิตวิทยาการจัดการความขัดแย้งในองค์การ",
+      "relevanceScore": 3,
+      "reason": "The course focuses directly on conflict management in organizations, covering psychological theories, behavior analysis during conflicts, and skills development for conflict management and negotiation, making it highly relevant."
+    },
+    {
+      "subjectCode": "01203521-66",
+      "subjectName": "กฎหมายและการจัดการสัญญาก่อสร้าง",
+      "relevanceScore": 2,
+      "reason": "The course addresses conflict reduction in construction management as part of problem analysis and prevention, indicating a fairly relevant but not primary focus on conflict management."
+    },
+    {
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "relevanceScore": 2,
+      "reason": "The course includes conflict resolution and prioritization in project management as part of teamwork skills, showing a fairly relevant but partial coverage of conflict management."
+    },
+    {
+      "subjectCode": "01118531-64",
+      "subjectName": "นโยบายและปัจจัยเชิงสถาบันเพื่อการจัดการทรัพยากร",
+      "relevanceScore": 2,
+      "reason": "The course mentions conflict resolution and prioritization in project management within institutional policy and resource management, indicating a fairly relevant component."
+    },
+    {
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "The course is about thesis research methodology in materials science with no mention of conflict management."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 0,
+      "reason": "The course covers basic finance for airline business without any reference to conflict management."
+    },
+    {
+      "subjectCode": "03764322-64",
+      "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+      "relevanceScore": 2,
+      "reason": "The course focuses on negotiation skills for logistics management, which is related to conflict management but limited to negotiation context, making it fairly relevant."
+    },
+    {
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "relevanceScore": 1,
+      "reason": "The course includes ethical decision-making and problem-solving but does not explicitly focus on conflict management, making it marginally relevant."
+    },
+    {
+      "subjectCode": "01387519-66",
+      "subjectName": "ปัญหาและทฤษฎีจริยศาสตร์",
+      "relevanceScore": 0,
+      "reason": "The course covers ethics and moral philosophy without any indication of conflict management content."
+    },
+    {
+      "subjectCode": "01132222-65",
+      "subjectName": "การจัดการทรัพยากรมนุษย์",
+      "relevanceScore": 1,
+      "reason": "The course on human resource management mentions teamwork and leadership but does not explicitly focus on conflict management, so it is marginally relevant."
+    },
+    {
+      "subjectCode": "01999034-67",
+      "subjectName": "ศิลปวิจักษณ์",
+      "relevanceScore": 1,
+      "reason": "The course includes teamwork and problem-solving in art criticism but does not focus on conflict management, making it marginally relevant."
+    },
+    {
+      "subjectCode": "01999111-68",
+      "subjectName": "เกษตรศาสตร์สร้างศาสตร์แห่งแผ่นดิน",
+      "relevanceScore": 1,
+      "reason": "The course involves problem-solving skills but does not specifically address conflict management, so it is marginally relevant."
+    },
+    {
+      "subjectCode": "01999111-67",
+      "subjectName": "ศาสตร์แห่งแผ่นดิน",
+      "relevanceScore": 1,
+      "reason": "The course includes teamwork and problem-solving skills but lacks explicit focus on conflict management, making it marginally relevant."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.2307692307692308,
+    "totalRelevanceSum": 16,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 38.46153846153846,
+        "microAverageRate": 38.46153846153846,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.888,
+        "at10": 0.871,
+        "at15": 0.966,
+        "atAll": 0.966
+      },
+      "ideal": {
+        "at5": 0.692,
+        "at10": 0.542,
+        "at15": 0.467,
+        "atAll": 0.511
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.8,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.5,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.769,
+        "threshold2": 0.385,
+        "threshold3": 0.077
+      },
+      "atAll": {
+        "threshold1": 0.769,
+        "threshold2": 0.385,
+        "threshold3": 0.077
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2986,
+  "outputTokens": 506
+}

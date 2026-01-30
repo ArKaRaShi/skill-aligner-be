@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การวางแผนการเงิน"
+  ],
+  "skill": "การวางแผนการเงิน",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01999041-67",
+      "subjectName": "เศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี",
+      "relevanceScore": 2,
+      "reason": "Includes 'วางแผนการเงินในปัจจุบันและอนาคต' as a learning outcome, indicating some coverage of financial planning, but not as the primary focus."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural industry management and supply chain analysis, not on personal or general financial planning."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "Covers planning and controlling profits, including budgeting, which relates to financial planning, but not explicitly on overall financial planning skills."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 0,
+      "reason": "Centered on intermediate accounting principles, not on financial planning."
+    },
+    {
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "relevanceScore": 3,
+      "reason": "Explicitly mentions 'การวางแผนการเงินส่วนบุคคล' and related processes, making it highly relevant to personal financial planning."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Includes financial analysis and cost calculation for marketing strategies, but not directly about financial planning."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 0,
+      "reason": "Focuses on international accounting differences, not on financial planning."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 2,
+      "reason": "Involves financial analysis and valuation, which are components of financial planning, but not the core focus."
+    },
+    {
+      "subjectCode": "02802211-67",
+      "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+      "relevanceScore": 2,
+      "reason": "Deals with financial planning and control in service businesses, relevant but not comprehensive."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 2,
+      "reason": "Covers financial and accounting methods in tourism industry, including financial analysis, relevant to financial planning."
+    },
+    {
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "relevanceScore": 2,
+      "reason": "Includes accounting and financial statement preparation, which are foundational for financial planning."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 2,
+      "reason": "Focuses on managerial accounting and strategic decision-making, related to financial planning but not the primary theme."
+    },
+    {
+      "subjectCode": "04305211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 2,
+      "reason": "Covers basic financial principles, including budgeting and capital structure, relevant to financial planning."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.5384615384615385,
+    "totalRelevanceSum": 20,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 8,
+        "macroAverageRate": 61.53846153846154,
+        "microAverageRate": 61.53846153846154,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.603,
+        "at10": 0.646,
+        "at15": 0.812,
+        "atAll": 0.812
+      },
+      "ideal": {
+        "at5": 0.47,
+        "at10": 0.464,
+        "at15": 0.452,
+        "atAll": 0.495
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.6,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.769,
+        "threshold2": 0.692,
+        "threshold3": 0.077
+      },
+      "atAll": {
+        "threshold1": 0.769,
+        "threshold2": 0.692,
+        "threshold3": 0.077
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2198,
+  "outputTokens": 620
+}

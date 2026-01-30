@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "97b42158-60af-46d3-aa60-049d1243d2ee-การออกแบบเสียง"
+  ],
+  "skill": "การออกแบบเสียง",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 2,
+      "reason": "Course focuses on creating sound works and using technology for sound creation, which relates fairly to sound design but not exclusively or comprehensively."
+    },
+    {
+      "subjectCode": "02801213-67",
+      "subjectName": "หลักการออกเสียงภาษาอังกฤษเพื่อการสื่อสารในอุตสาหกรรมบริการ",
+      "relevanceScore": 1,
+      "reason": "Course covers principles of English pronunciation and sound production, which is related to sound but in linguistic speech context, not general sound design."
+    },
+    {
+      "subjectCode": "01058151-68",
+      "subjectName": "ปฏิบัติการสร้างสรรค์เพื่อการกินดีอยู่ดี",
+      "relevanceScore": 0,
+      "reason": "Course focuses on design principles related to food and color, no relation to sound design."
+    },
+    {
+      "subjectCode": "01242141-67",
+      "subjectName": "พื้นฐานคณิตศาสตร์และกลศาสตร์เพื่อการออกแบบ",
+      "relevanceScore": 0,
+      "reason": "Course covers math and mechanics for product design, unrelated to sound design."
+    },
+    {
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "relevanceScore": 0,
+      "reason": "Course is about Chinese language proficiency and communication, no relation to sound design."
+    },
+    {
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "relevanceScore": 0,
+      "reason": "Course is about landscape architecture design, unrelated to sound design."
+    },
+    {
+      "subjectCode": "01242121-67",
+      "subjectName": "ปฏิบัติการออกแบบภาพและวัตถุ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on visual art and object design, no mention of sound design."
+    },
+    {
+      "subjectCode": "01001572-64",
+      "subjectName": "การสื่อสารเชิงสร้างสรรค์และสารสนเทศทางการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course is about creative communication in agriculture, no relation to sound design."
+    },
+    {
+      "subjectCode": "02184111-67",
+      "subjectName": "ดนตรีไทย I",
+      "relevanceScore": 1,
+      "reason": "Course covers Thai music theory and sound systems, somewhat related to sound but not focused on sound design specifically."
+    },
+    {
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course is about botany research project, unrelated to sound design."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 0,
+      "reason": "Course covers experimental design and data analysis, unrelated to sound design."
+    },
+    {
+      "subjectCode": "04403597-67",
+      "subjectName": "สัมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course with general scientific topics, no specific mention of sound design."
+    },
+    {
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about English grammar structure, unrelated to sound design."
+    },
+    {
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course is about engineering experimental design, unrelated to sound design."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.2857142857142857,
+    "totalRelevanceSum": 4,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 11,
+        "macroAverageRate": 78.57142857142857,
+        "microAverageRate": 78.57142857142857,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.84,
+        "at10": 0.936,
+        "at15": 0.936,
+        "atAll": 0.936
+      },
+      "ideal": {
+        "at5": 0.297,
+        "at10": 0.215,
+        "at15": 0.167,
+        "atAll": 0.174
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.3,
+        "threshold2": 0.1,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.214,
+        "threshold2": 0.071,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.214,
+        "threshold2": 0.071,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2425,
+  "outputTokens": 442
+}

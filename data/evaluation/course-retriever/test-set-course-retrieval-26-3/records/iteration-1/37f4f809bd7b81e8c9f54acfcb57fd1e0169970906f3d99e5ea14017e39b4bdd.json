@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "1fe15613-3060-4d9e-94dc-bd9a63e9911f-โครงสร้างข้อมูลและอัลกอริทึม"
+  ],
+  "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 2,
+      "reason": "The course explicitly mentions explaining basic concepts of data structures and algorithms, indicating coverage of the skill as part of its learning outcomes, but not as the primary focus."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 0,
+      "reason": "The course focuses on data warehouses and business intelligence systems, with no mention of data structures or algorithms."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "The course is about Chinese language and culture in business, unrelated to data structures or algorithms."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Similar to above, focuses on Chinese language skills, not on data structures or algorithms."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Same as above, unrelated to the skill in question."
+    },
+    {
+      "subjectCode": "01204512-66",
+      "subjectName": "การออกแบบและการวิเคราะห์ขั้นตอนวิธีคอมพิวเตอร์",
+      "relevanceScore": 2,
+      "reason": "The course covers analyzing and designing algorithms, including their correctness and efficiency, which relates directly to the skill."
+    },
+    {
+      "subjectCode": "02204433-65",
+      "subjectName": "การรู้จำรูปแบบ",
+      "relevanceScore": 1,
+      "reason": "The course discusses pattern recognition algorithms and related concepts, but only briefly and not as a primary focus."
+    },
+    {
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "The course is about English language systems and structures, not about data structures or algorithms."
+    },
+    {
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "relevanceScore": 1,
+      "reason": "The course explains basic data science principles and solving problems, but does not focus specifically on data structures or algorithms."
+    },
+    {
+      "subjectCode": "04252535-67",
+      "subjectName": "วิศวกรรมข้อมูลขนาดใหญ่",
+      "relevanceScore": 2,
+      "reason": "The course involves using data structures for big data analysis, which is relevant but not the primary focus."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 2,
+      "reason": "The course covers fundamental programming principles and algorithm analysis, directly related to the skill."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 2,
+      "reason": "The course involves database management and querying, which relates to data structures but not explicitly focused on algorithms."
+    },
+    {
+      "subjectCode": "01402512-65",
+      "subjectName": "โครงสร้างและการทำหน้าที่ของชีวโมเลกุล",
+      "relevanceScore": 0,
+      "reason": "The course is about biomolecular structures and functions, unrelated to data structures or algorithms."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.9230769230769231,
+    "totalRelevanceSum": 12,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 46.15384615384615,
+        "microAverageRate": 46.15384615384615,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 38.46153846153846,
+        "microAverageRate": 38.46153846153846,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.339,
+        "at10": 0.596,
+        "at15": 0.763,
+        "atAll": 0.763
+      },
+      "ideal": {
+        "at5": 0.226,
+        "at10": 0.288,
+        "at15": 0.286,
+        "atAll": 0.313
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.2,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.5,
+        "threshold2": 0.3,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.538,
+        "threshold2": 0.385,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.538,
+        "threshold2": 0.385,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2413,
+  "outputTokens": 613
+}

@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "75dd76dc-b23f-4728-b9a4-09621f52a26b-การวิเคราะห์และประเมินแหล่งพลังงาน"
+  ],
+  "skill": "การวิเคราะห์และประเมินแหล่งพลังงาน",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "02741542-65",
+      "subjectName": "หลักการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 1,
+      "reason": "Course covers environmental management and includes analysis and evaluation but does not specifically focus on energy sources."
+    },
+    {
+      "subjectCode": "04252556-67",
+      "subjectName": "การประเมินผลกระทบสิ่งแวดล้อมของการจัดการพลังงาน",
+      "relevanceScore": 2,
+      "reason": "Course focuses on environmental impact assessment of energy management, which relates to evaluating energy sources but from an environmental impact perspective."
+    },
+    {
+      "subjectCode": "03604442-65",
+      "subjectName": "วิศวกรรมโรงผลิตกำลัง",
+      "relevanceScore": 2,
+      "reason": "Course includes analysis of energy cycles and power plants, relevant to analyzing energy sources though focused on power plant engineering."
+    },
+    {
+      "subjectCode": "03601521-66",
+      "subjectName": "เสถียรภาพของระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on power system stability, unrelated to analysis and evaluation of energy sources."
+    },
+    {
+      "subjectCode": "04252555-67",
+      "subjectName": "การออกแบบอาคารเพื่อการอนุรักษ์พลังงานขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course involves energy-efficient building design analysis, marginally related to energy source evaluation."
+    },
+    {
+      "subjectCode": "02741526-65",
+      "subjectName": "เทคโนโลยีพลังงานและการใช้พลังงานอย่างยั่ง",
+      "relevanceScore": 2,
+      "reason": "Course covers energy technology and sustainable use, including understanding energy production and environmental impacts, relevant to energy source analysis and evaluation."
+    },
+    {
+      "subjectCode": "01420453-66",
+      "subjectName": "ทรัพยากรพลังงาน",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers energy resources, differences, usage processes, and management, directly addressing analysis and evaluation of energy sources."
+    },
+    {
+      "subjectCode": "03601555-66",
+      "subjectName": "เทคโนโลยีเซลล์แสงอาทิตย์",
+      "relevanceScore": 2,
+      "reason": "Course analyzes solar cell technology and systems, relevant to analysis of a specific energy source."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course is about marketing and pricing strategies for beverage business, unrelated to energy source analysis."
+    },
+    {
+      "subjectCode": "03600012-67",
+      "subjectName": "เทคโนโลยีสีเขียว",
+      "relevanceScore": 1,
+      "reason": "Course discusses energy management in context of green technology and global warming, marginally related to energy source evaluation."
+    },
+    {
+      "subjectCode": "03604331-65",
+      "subjectName": "เครื่องยนต์เผาไหม้ภายใน",
+      "relevanceScore": 2,
+      "reason": "Course analyzes internal combustion engines and fuel combustion, relevant to analysis of energy sources related to fuels."
+    },
+    {
+      "subjectCode": "04252542-67",
+      "subjectName": "เทคนิคการหาค่าเหมาะที่สุดในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on optimization in power systems, unrelated to energy source analysis."
+    },
+    {
+      "subjectCode": "04252553-67",
+      "subjectName": "เทคโนโลยีพลังงานลมขั้นสูง",
+      "relevanceScore": 2,
+      "reason": "Course covers wind energy technology and system design, relevant to analysis of a specific energy source."
+    },
+    {
+      "subjectCode": "03601524-66",
+      "subjectName": "ระเบียบวิธีใช้คอมพิวเตอร์ในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on computer methods in power systems, unrelated to energy source analysis."
+    },
+    {
+      "subjectCode": "03604341-65",
+      "subjectName": "อุณหพลศาสตร์ II",
+      "relevanceScore": 2,
+      "reason": "Course covers thermodynamics including power cycles and combustion, relevant to analysis of energy sources and their cycles."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1.3333333333333333,
+    "totalRelevanceSum": 20,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 4,
+        "macroAverageRate": 26.666666666666668,
+        "microAverageRate": 26.666666666666668,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 46.666666666666664,
+        "microAverageRate": 46.666666666666664,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.529,
+        "at10": 0.661,
+        "at15": 0.804,
+        "atAll": 0.804
+      },
+      "ideal": {
+        "at5": 0.413,
+        "at10": 0.461,
+        "at15": 0.447,
+        "atAll": 0.447
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.8,
+        "threshold2": 0.5,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.733,
+        "threshold2": 0.533,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.733,
+        "threshold2": 0.533,
+        "threshold3": 0.067
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2889,
+  "outputTokens": 515
+}

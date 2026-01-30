@@ -1,0 +1,216 @@
+{
+  "questionIds": [
+    "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-ภาษาเวียดนามเพื่อธุรกิจ"
+  ],
+  "skill": "ภาษาเวียดนามเพื่อธุรกิจ",
+  "retrievedCount": 22,
+  "evaluations": [
+    {
+      "subjectCode": "01399101-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร I",
+      "relevanceScore": 1,
+      "reason": "Course focuses on general Vietnamese communication skills without specific mention of business context."
+    },
+    {
+      "subjectCode": "01399103-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร III",
+      "relevanceScore": 1,
+      "reason": "Course covers Vietnamese communication generally, no explicit business focus."
+    },
+    {
+      "subjectCode": "01399102-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร II",
+      "relevanceScore": 1,
+      "reason": "General Vietnamese communication skills taught, no business-specific content indicated."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Course is about Chinese business language, not Vietnamese."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Focuses on Chinese business language, irrelevant to Vietnamese skill."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Chinese business language course, no Vietnamese content."
+    },
+    {
+      "subjectCode": "01396111-67",
+      "subjectName": "ภาษาจีนธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Chinese business language course, unrelated to Vietnamese."
+    },
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Chinese business language course, no Vietnamese relevance."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Chinese business conversation course, irrelevant to Vietnamese skill."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Chinese business conversation course, no Vietnamese content."
+    },
+    {
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Chinese business conversation course, unrelated to Vietnamese."
+    },
+    {
+      "subjectCode": "01396382-67",
+      "subjectName": "ภาษาและวัฒนธรรมในองค์กรจีน",
+      "relevanceScore": 0,
+      "reason": "Focus on Chinese organizational culture, not Vietnamese business language."
+    },
+    {
+      "subjectCode": "01396322-67",
+      "subjectName": "งานประพันธ์จีน II",
+      "relevanceScore": 0,
+      "reason": "Chinese literature and culture course, no Vietnamese business language content."
+    },
+    {
+      "subjectCode": "01362111-68",
+      "subjectName": "ภาษาจีนพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "Basic Chinese language course, irrelevant to Vietnamese skill."
+    },
+    {
+      "subjectCode": "01396142-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Chinese business conversation course, no Vietnamese content."
+    },
+    {
+      "subjectCode": "01362112-63",
+      "subjectName": "ภาษาจีนพื้นฐาน II",
+      "relevanceScore": 0,
+      "reason": "Basic Chinese language course, unrelated to Vietnamese."
+    },
+    {
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "relevanceScore": 0,
+      "reason": "Intermediate Chinese language course, no Vietnamese relevance."
+    },
+    {
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "relevanceScore": 0,
+      "reason": "Basic Chinese language course, irrelevant to Vietnamese skill."
+    },
+    {
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "relevanceScore": 0,
+      "reason": "Basic Chinese language course, no Vietnamese content."
+    },
+    {
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "relevanceScore": 0,
+      "reason": "Advanced Chinese language course, unrelated to Vietnamese."
+    },
+    {
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "relevanceScore": 0,
+      "reason": "Intermediate Chinese language course, no Vietnamese relevance."
+    },
+    {
+      "subjectCode": "01355103-67",
+      "subjectName": "ภาษาอังกฤษเพื่อโอกาสในการทำงาน",
+      "relevanceScore": 0,
+      "reason": "English language course for work opportunities, unrelated to Vietnamese business language."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 22,
+    "meanRelevanceScore": 0.13636363636363635,
+    "totalRelevanceSum": 3,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 19,
+        "macroAverageRate": 86.36363636363636,
+        "microAverageRate": 86.36363636363636,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 13.636363636363637,
+        "microAverageRate": 13.636363636363637,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 1,
+        "at15": 1,
+        "atAll": 1
+      },
+      "ideal": {
+        "at5": 0.241,
+        "at10": 0.156,
+        "at15": 0.121,
+        "atAll": 0.095
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.3,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.136,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2775,
+  "outputTokens": 561
+}

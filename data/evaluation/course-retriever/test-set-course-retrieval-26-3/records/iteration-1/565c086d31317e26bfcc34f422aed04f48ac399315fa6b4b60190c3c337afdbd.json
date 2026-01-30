@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "a7728000-0818-42b5-a49f-c89f4ee59ab5-การสื่อสารการตลาด"
+  ],
+  "skill": "การสื่อสารการตลาด",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 2,
+      "reason": "The course focuses on brand creation and management, with some emphasis on communication to convey ideas and strategies, but it is not primarily about marketing communication skills."
+    },
+    {
+      "subjectCode": "01352333-66",
+      "subjectName": "การสื่อสารการตลาด",
+      "relevanceScore": 3,
+      "reason": "The course explicitly aims to develop skills in integrated marketing communication planning and the use of information technology for presentation, directly aligning with the skill."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 0,
+      "reason": "The course is about mass communication theories and principles, not specifically about marketing communication skills."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 1,
+      "reason": "The course covers marketing management concepts, which may include some communication aspects, but it is not centered on marketing communication skills."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 1,
+      "reason": "The course discusses marketing principles and concepts, with limited focus on communication skills."
+    },
+    {
+      "subjectCode": "01661313-65",
+      "subjectName": "การสื่อสารเพื่อการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 0,
+      "reason": "The course is about environmental communication management, not specifically about marketing communication skills."
+    },
+    {
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "relevanceScore": 0,
+      "reason": "The course focuses on international marketing principles, not on marketing communication skills."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 0,
+      "reason": "The course is about food service management, unrelated to marketing communication."
+    },
+    {
+      "subjectCode": "01402511-65",
+      "subjectName": "ชีวเคมีการทำหน้าที่ระดับเซลล์",
+      "relevanceScore": 0,
+      "reason": "The course is about biochemistry at the cellular level, not related to marketing communication."
+    },
+    {
+      "subjectCode": "01402512-65",
+      "subjectName": "โครงสร้างและการทำหน้าที่ของชีวโมเลกุล",
+      "relevanceScore": 0,
+      "reason": "The course covers biochemistry of biomolecules, not marketing communication."
+    },
+    {
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "The course is about Chinese business conversation skills, not marketing communication."
+    },
+    {
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "The course is about language use for teachers, not marketing communication."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.5833333333333334,
+    "totalRelevanceSum": 7,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.907,
+        "at10": 0.907,
+        "at15": 0.907,
+        "atAll": 0.907
+      },
+      "ideal": {
+        "at5": 0.533,
+        "at10": 0.346,
+        "at15": 0.268,
+        "atAll": 0.308
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.333,
+        "threshold2": 0.167,
+        "threshold3": 0.083
+      },
+      "atAll": {
+        "threshold1": 0.333,
+        "threshold2": 0.167,
+        "threshold3": 0.083
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2469,
+  "outputTokens": 546
+}

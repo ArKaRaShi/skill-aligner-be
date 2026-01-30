@@ -1,0 +1,157 @@
+{
+  "questionIds": [
+    "cd96176f-8e18-4270-9c76-8c6b1cf19594-การเขียนโปรแกรมเชิงวัตถุ",
+    "be573eca-6596-418a-888d-f4f0c0d5651d-การเขียนโปรแกรมเชิงวัตถุ"
+  ],
+  "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 3,
+      "reason": "The course explicitly mentions explaining and writing programs based on object-oriented principles, making it highly relevant."
+    },
+    {
+      "subjectCode": "01420242-66",
+      "subjectName": "ปฏิบัติงานอุปกรณ์ II",
+      "relevanceScore": 0,
+      "reason": "The course focuses on mechanical design, not programming or object-oriented programming."
+    },
+    {
+      "subjectCode": "01420241-66",
+      "subjectName": "ปฏิบัติงานอุปกรณ์ I",
+      "relevanceScore": 0,
+      "reason": "The course is about mechanical design, not programming."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 2,
+      "reason": "The course covers structured programming principles, which are related but not specifically about object-oriented programming."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "The course is about engineering drawing and CAD, not programming."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "The course is about engineering drawing, not programming."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "The course involves programming for problem-solving, but not specifically about object-oriented programming."
+    },
+    {
+      "subjectCode": "03607151-67",
+      "subjectName": "เปิดโลกวิทยาการหุ่นยนต์",
+      "relevanceScore": 2,
+      "reason": "The course involves programming robots, which may include programming principles, but not explicitly focused on object-oriented programming."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "The course is about nutritional product innovation, not programming."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "The course is about product design using CAD software, not programming."
+    },
+    {
+      "subjectCode": "04256111-66",
+      "subjectName": "คณิตศาสตร์สำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "The course is about mathematics for data science, not programming."
+    },
+    {
+      "subjectCode": "02738490-61",
+      "subjectName": "สหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "The course is about scientific research methodology, not programming."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.6666666666666666,
+    "totalRelevanceSum": 8,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.678,
+        "at10": 0.848,
+        "at15": 0.848,
+        "atAll": 0.848
+      },
+      "ideal": {
+        "at5": 0.437,
+        "at10": 0.354,
+        "at15": 0.274,
+        "atAll": 0.316
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.333,
+        "threshold2": 0.25,
+        "threshold3": 0.083
+      },
+      "atAll": {
+        "threshold1": 0.333,
+        "threshold2": 0.25,
+        "threshold3": 0.083
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2154,
+  "outputTokens": 425
+}

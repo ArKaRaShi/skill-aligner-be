@@ -1,0 +1,192 @@
+{
+  "questionIds": [
+    "1e7e132d-31b7-49fe-91dc-c2e0358a1b24-การสื่อสารเพื่อการนำทีม"
+  ],
+  "skill": "การสื่อสารเพื่อการนำทีม",
+  "retrievedCount": 18,
+  "evaluations": [
+    {
+      "subjectCode": "04404222-67",
+      "subjectName": "หลักอนามัยสิ่งแวดล้อม",
+      "relevanceScore": 2,
+      "reason": "The course includes 'สามารถสื่อสาร และการทำงานเป็นทีมได้' which relates to communication and teamwork, but it is not the primary focus of the course."
+    },
+    {
+      "subjectCode": "01420453-66",
+      "subjectName": "ทรัพยากรพลังงาน",
+      "relevanceScore": 1,
+      "reason": "While teamwork and communication are mentioned, they are not primary learning outcomes; the course mainly focuses on energy resources."
+    },
+    {
+      "subjectCode": "01951211-67",
+      "subjectName": "วิทยาศาสตร์ระบบสุขภาพ I",
+      "relevanceScore": 2,
+      "reason": "Communication and teamwork are part of the outcomes, but not the main theme; they are included among other health science topics."
+    },
+    {
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "relevanceScore": 1,
+      "reason": "Communication is mentioned as a skill to be demonstrated, but it is not a primary focus."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "The course is about advanced agricultural product processing engineering, with no mention of communication or teamwork."
+    },
+    {
+      "subjectCode": "03602433-65",
+      "subjectName": "วิศวกรรมการซ่อมบำรุง",
+      "relevanceScore": 1,
+      "reason": "Teamwork is listed as an outcome, but the main focus is on maintenance engineering principles."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Communication ethics and understanding are mentioned, but not as a primary skill to be developed."
+    },
+    {
+      "subjectCode": "01306415-67",
+      "subjectName": "การตรวจวัดและติดตามคาร์บอนป่าไม้",
+      "relevanceScore": 2,
+      "reason": "The course involves analyzing and evaluating communication strategies, indicating a focus on communication skills."
+    },
+    {
+      "subjectCode": "01661313-65",
+      "subjectName": "การสื่อสารเพื่อการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 2,
+      "reason": "The course explicitly discusses the role and importance of communication in environmental management."
+    },
+    {
+      "subjectCode": "01058223-68",
+      "subjectName": "เทคโนโลยีการแปรรูปที่ใช้ความร้อนทางอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "The course is about heat processing technology in agriculture, with no relevance to communication or teamwork."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 1,
+      "reason": "Analysis and communication of chemical information are mentioned, but not as primary skills."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 1,
+      "reason": "Communication and information application are included, but not the main focus."
+    },
+    {
+      "subjectCode": "02201511-66",
+      "subjectName": "ทฤษฎีเครื่องจักรกลเกษตรขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Teamwork is listed, but the main outcomes are technical analysis of machinery."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 1,
+      "reason": "Teamwork is part of the outcomes, but the main focus is experimental design and analysis."
+    },
+    {
+      "subjectCode": "01203592-66",
+      "subjectName": "การฝึกงานด้านวิศวกรรมโยธา",
+      "relevanceScore": 1,
+      "reason": "Communication skills are mentioned, but not the primary learning objective."
+    },
+    {
+      "subjectCode": "02201596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Teamwork is included, but the main focus is theoretical explanation and application."
+    },
+    {
+      "subjectCode": "02201598-66",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Teamwork is part of the outcomes, but the main focus is on problem identification and application."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 1,
+      "reason": "Communication and presentation skills are mentioned, but not the main focus."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 18,
+    "meanRelevanceScore": 1.1111111111111112,
+    "totalRelevanceSum": 20,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 12,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 22.22222222222222,
+        "microAverageRate": 22.22222222222222,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.737,
+        "at10": 0.842,
+        "at15": 0.867,
+        "atAll": 0.925
+      },
+      "ideal": {
+        "at5": 0.459,
+        "at10": 0.439,
+        "at15": 0.415,
+        "atAll": 0.406
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.8,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.867,
+        "threshold2": 0.267,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.889,
+        "threshold2": 0.222,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3619,
+  "outputTokens": 703
+}

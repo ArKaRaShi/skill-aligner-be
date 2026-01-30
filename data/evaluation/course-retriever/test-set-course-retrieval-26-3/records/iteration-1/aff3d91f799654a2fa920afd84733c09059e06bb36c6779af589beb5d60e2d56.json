@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "b41c15f8-2249-4469-9981-71cc1c75b2b4-การตลาดและการประชาสัมพันธ์"
+  ],
+  "skill": "การตลาดและการประชาสัมพันธ์",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 2,
+      "reason": "หลักการประชาสัมพันธ์ directly relates to public relations, which is a component of marketing and publicity, but it is not comprehensive of the entire skill."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 2,
+      "reason": "หลักการตลาด covers fundamental marketing concepts, which are part of marketing and publicity, but it does not encompass the full scope of the skill."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 2,
+      "reason": "การจัดการการตลาด involves marketing management, a key aspect of marketing and publicity, but it is a subset rather than the whole skill."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 1,
+      "reason": "การจัดการระบบบริการอาหาร mentions using technology for publicity and communication, but it is not a primary focus of marketing and publicity as a whole."
+    },
+    {
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "relevanceScore": 2,
+      "reason": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา discusses media and technology in content marketing, relevant but not comprehensive of the entire skill."
+    },
+    {
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "relevanceScore": 2,
+      "reason": "การตลาดระหว่างประเทศ covers international marketing principles, which are part of marketing and publicity, but not the entire skill."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 2,
+      "reason": "การจัดการการตลาดในธุรกิจการบิน focuses on marketing in the airline industry, a specific application within marketing and publicity."
+    },
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 2,
+      "reason": "การสร้างและการจัดการแบรนด์ relates to branding, a component of marketing and publicity, but not the whole skill."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 2,
+      "reason": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม involves targeted marketing and pricing strategies, relevant but not comprehensive."
+    },
+    {
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "relevanceScore": 2,
+      "reason": "การตลาดธุรกิจการเกษตรและอาหาร covers marketing in agriculture and food, a specific area within marketing and publicity."
+    },
+    {
+      "subjectCode": "01136113-68",
+      "subjectName": "เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด",
+      "relevanceScore": 2,
+      "reason": "เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด discusses applied economics for marketers, relevant but not the core of marketing and publicity."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 0,
+      "reason": "วิศวกรรมซอฟต์แวร์ pertains to software engineering, unrelated to marketing and publicity."
+    },
+    {
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น involves communication skills, tangentially related but not a primary focus of marketing and publicity."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.6923076923076923,
+    "totalRelevanceSum": 22,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 10,
+        "macroAverageRate": 76.92307692307692,
+        "microAverageRate": 76.92307692307692,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.927,
+        "at10": 0.953,
+        "at15": 0.983,
+        "atAll": 0.983
+      },
+      "ideal": {
+        "at5": 0.618,
+        "at10": 0.635,
+        "at15": 0.539,
+        "atAll": 0.59
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.9,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.923,
+        "threshold2": 0.769,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.923,
+        "threshold2": 0.769,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2369,
+  "outputTokens": 733
+}

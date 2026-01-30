@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การเขียนโปรแกรมขั้นสูง"
+  ],
+  "skill": "การเขียนโปรแกรมขั้นสูง",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02201131-66",
+      "subjectName": "การเขียนโปรแกรมและระบบ IoT ทางการเกษตร",
+      "relevanceScore": 2,
+      "reason": "Course covers programming with high-level languages and use of variables and functions, which relates to advanced programming but within the context of IoT in agriculture, so fairly relevant."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on data visualization and business data analysis, no mention of programming skills."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about engineering drawing and basic CAD software, unrelated to programming."
+    },
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 2,
+      "reason": "Course includes object-oriented programming principles and event-driven programming, which are advanced programming concepts, but limited to robotics applications."
+    },
+    {
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Course is about English reading and writing skills, unrelated to programming."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 1,
+      "reason": "Course covers structured programming basics and algorithm design, which is foundational but not advanced programming."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "Course includes programming applications and basic data structures and algorithms, but at a fundamental level, not advanced programming."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course is about engineering drawing and presentation, no programming content."
+    },
+    {
+      "subjectCode": "04253371-65",
+      "subjectName": "การควบคุมแบบตรรกะและระบบอัตโนมัติ",
+      "relevanceScore": 1,
+      "reason": "Course involves writing ladder logic programs for PLCs, which is programming but specialized and not general advanced programming."
+    },
+    {
+      "subjectCode": "03601524-66",
+      "subjectName": "ระเบียบวิธีใช้คอมพิวเตอร์ในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on computer methods in power systems, no direct programming skill development mentioned."
+    },
+    {
+      "subjectCode": "03601523-66",
+      "subjectName": "การป้องกันระบบไฟฟ้ากำลังขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course is about advanced power system protection, no programming content indicated."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 0,
+      "reason": "Course is about practical Thai writing skills, unrelated to programming."
+    },
+    {
+      "subjectCode": "04252535-67",
+      "subjectName": "วิศวกรรมข้อมูลขนาดใหญ่",
+      "relevanceScore": 0,
+      "reason": "Course focuses on big data engineering and data processing, no explicit programming skill development described."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course is about nutritional product innovation and use of software for formulation, no programming skills."
+    },
+    {
+      "subjectCode": "01605698-67",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Course covers advanced research theory and technology selection, no programming content."
+    },
+    {
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Course is about interdisciplinary research and problem solving, no programming content."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 0.4375,
+    "totalRelevanceSum": 7,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 11,
+        "macroAverageRate": 68.75,
+        "microAverageRate": 68.75,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 18.75,
+        "microAverageRate": 18.75,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.625,
+        "at10": 0.841,
+        "at15": 0.841,
+        "atAll": 0.841
+      },
+      "ideal": {
+        "at5": 0.323,
+        "at10": 0.283,
+        "at15": 0.219,
+        "atAll": 0.21
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.5,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.333,
+        "threshold2": 0.133,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.313,
+        "threshold2": 0.125,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3070,
+  "outputTokens": 518
+}

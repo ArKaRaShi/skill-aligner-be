@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "654330a8-2559-4273-abb4-36db7f0b31e1-การพัฒนาเว็บไซต์"
+  ],
+  "skill": "การพัฒนาเว็บไซต์",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 2,
+      "reason": "The course includes 'สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานในรูปแบบเว็บไซต์ได้' which indicates some coverage of website development, but it is not the primary focus of the course."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "The outcomes focus on presentation and communication skills, with no specific mention of website development."
+    },
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "Includes 'สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานในรูปแบบเว็บไซต์ได้' suggesting some relevance, but not the main focus."
+    },
+    {
+      "subjectCode": "04181591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีการอาหาร",
+      "relevanceScore": 0,
+      "reason": "The outcomes relate to research methodology in food technology, not website development."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Covers data analysis and database management, which are related to web development, but not explicitly focused on website development itself."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Focuses on digital citizenship, not on website development."
+    },
+    {
+      "subjectCode": "03651499-65",
+      "subjectName": "โครงงานวิทยาการวิเคราะห์ข้อมูลและคณิตศาสตร์ประกันภัย",
+      "relevanceScore": 2,
+      "reason": "Includes data analysis and reporting, which can be part of website development, but not the primary focus."
+    },
+    {
+      "subjectCode": "03651497-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Focuses on data analysis and reporting, with no specific mention of website development."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Covers data management and visualization, which are relevant to website development, but not the main theme."
+    },
+    {
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "relevanceScore": 0,
+      "reason": "Focuses on professional teaching standards, unrelated to website development."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Includes creating dashboards and data visualization, which are related to web interfaces, but not explicitly about website development."
+    },
+    {
+      "subjectCode": "01605698-67",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Focuses on research skills and technology use, not specifically on website development."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "Focuses on profit planning and business analysis, unrelated to website development."
+    },
+    {
+      "subjectCode": "01055597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Focuses on research presentation skills, not on website development."
+    },
+    {
+      "subjectCode": "01008553-65",
+      "subjectName": "ข้อมูลทางพันธุกรรมของเชื้อโรคพืชและชีวสารสนเทศศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Focuses on genetic data and bioinformatics, unrelated to website development."
+    },
+    {
+      "subjectCode": "01058498-68",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Focuses on research reporting and problem-solving in research, not website development."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1,
+    "totalRelevanceSum": 16,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 37.5,
+        "microAverageRate": 37.5,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 37.5,
+        "microAverageRate": 37.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.747,
+        "at10": 0.763,
+        "at15": 0.901,
+        "atAll": 0.901
+      },
+      "ideal": {
+        "at5": 0.498,
+        "at10": 0.439,
+        "at15": 0.402,
+        "atAll": 0.386
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.5,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.667,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.625,
+        "threshold2": 0.375,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2909,
+  "outputTokens": 751
+}

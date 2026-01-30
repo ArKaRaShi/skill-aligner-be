@@ -1,0 +1,186 @@
+{
+  "questionIds": [
+    "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-ทักษะการสื่อสารทางธุรกิจ"
+  ],
+  "skill": "ทักษะการสื่อสารทางธุรกิจ",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "relevanceScore": 1,
+      "reason": "Course mentions communication skills generally but not specifically business communication."
+    },
+    {
+      "subjectCode": "04403697-67",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Course includes communication and presentation skills but in academic/scientific context, not specifically business communication."
+    },
+    {
+      "subjectCode": "02303533-68",
+      "subjectName": "ชีวกลศาสตร์ประยุกต์สำหรับวิเคราะห์การเคลื่อนไหวของมนุษย์",
+      "relevanceScore": 1,
+      "reason": "Course includes communication skills related to technology and data presentation, but not specifically business communication."
+    },
+    {
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "relevanceScore": 3,
+      "reason": "Course focuses on business Chinese conversation, analyzing and demonstrating business communication sentences, directly relevant to business communication skills."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Course covers communication theories and concepts including application in mass media, which is fairly relevant to business communication skills."
+    },
+    {
+      "subjectCode": "03602433-65",
+      "subjectName": "วิศวกรรมการซ่อมบำรุง",
+      "relevanceScore": 2,
+      "reason": "Course includes communication and leadership skills for maintenance teams, relevant to business communication in a specific industrial context."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course mentions coordination and working with others but does not focus on business communication skills explicitly."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 3,
+      "reason": "Course focuses on business Chinese conversation with emphasis on business communication sentences and cultural context."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 3,
+      "reason": "Course focuses on business Chinese conversation with emphasis on business communication sentences and cultural context."
+    },
+    {
+      "subjectCode": "01396142-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ II",
+      "relevanceScore": 3,
+      "reason": "Course focuses on business Chinese conversation with emphasis on business communication sentences."
+    },
+    {
+      "subjectCode": "03763321-64",
+      "subjectName": "การสื่อสารในธุรกิจโรงแรม",
+      "relevanceScore": 3,
+      "reason": "Course is about communication in hotel business including producing marketing messages and effective communication with colleagues, highly relevant to business communication skills."
+    },
+    {
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "relevanceScore": 1,
+      "reason": "Course mentions clear communication with coworkers and supervisors but not specifically business communication skills."
+    },
+    {
+      "subjectCode": "01681311-66",
+      "subjectName": "การประกอบกิจการยุคใหม่",
+      "relevanceScore": 3,
+      "reason": "Course includes creating and presenting business ideas using communication skills, directly relevant to business communication."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 3,
+      "reason": "Course focuses on business Chinese communication appropriate for business situations, highly relevant."
+    },
+    {
+      "subjectCode": "01058153-68",
+      "subjectName": "แรงบันดาลใจและทักษะสำคัญสำหรับผู้ประกอบการอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course mentions working with others and cooperation but does not focus on business communication skills."
+    },
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 3,
+      "reason": "Course covers brand creation and communication strategies in marketing, directly relevant to business communication skills."
+    },
+    {
+      "subjectCode": "04402332-65",
+      "subjectName": "การยศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on ergonomics and physical work environment, no relation to business communication skills."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 2,
+    "totalRelevanceSum": 34,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 35.294117647058826,
+        "microAverageRate": 35.294117647058826,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 11.764705882352942,
+        "microAverageRate": 11.764705882352942,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 8,
+        "macroAverageRate": 47.05882352941177,
+        "microAverageRate": 47.05882352941177,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.475,
+        "at10": 0.61,
+        "at15": 0.757,
+        "atAll": 0.795
+      },
+      "ideal": {
+        "at5": 0.475,
+        "at10": 0.584,
+        "at15": 0.618,
+        "atAll": 0.61
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.4
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.467
+      },
+      "atAll": {
+        "threshold1": 0.941,
+        "threshold2": 0.588,
+        "threshold3": 0.471
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3190,
+  "outputTokens": 553
+}
