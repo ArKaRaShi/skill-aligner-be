@@ -153,7 +153,7 @@ export class EmbedPipelineV3 {
     return this.prisma.courseLearningOutcome.findMany({
       where: {
         skipEmbedding: false,
-        hasEmbedding1536: false,
+        OR: [{ hasEmbedding1536: false }, { vectorId: null }],
       },
       select: {
         id: true,

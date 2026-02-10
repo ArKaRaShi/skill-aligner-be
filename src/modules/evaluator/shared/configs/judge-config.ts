@@ -24,7 +24,7 @@
 /**
  * Default timeout for judge LLM evaluation calls (in milliseconds)
  */
-// eslint-disable-next-line @typescript-eslint/no-magic-numbers
+
 export const DEFAULT_JUDGE_TIMEOUT_MS = 60_000 as const;
 
 export const EvaluatorJudgeConfig = {
