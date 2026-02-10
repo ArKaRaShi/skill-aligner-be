@@ -1,0 +1,162 @@
+{
+  "testCaseId": "b3460fa2-c348-4748-b583-4b042886e0ca-การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+  "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+  "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on research and problem solving via research process but not specifically on computer problem analysis and fixing."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 1,
+      "reason": "Includes problem analysis and research-based solutions but not specifically computer problems."
+    },
+    {
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "relevanceScore": 0,
+      "reason": "Focuses on investment project analysis, unrelated to computer problem analysis and fixing."
+    },
+    {
+      "subjectCode": "01204526-66",
+      "subjectName": "โครงแบบเครือข่ายและการบำรุงรักษา",
+      "relevanceScore": 3,
+      "reason": "Directly covers analysis and troubleshooting of network problems, highly relevant to computer problem analysis and fixing."
+    },
+    {
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Mentions problem analysis and solving with integrated knowledge but not specifically computer problems."
+    },
+    {
+      "subjectCode": "02204311-65",
+      "subjectName": "ความน่าจะเป็นและสถิติสำหรับวิศวกรคอมพิวเตอร์",
+      "relevanceScore": 1,
+      "reason": "Covers statistical analysis to solve engineering problems, marginally relevant to computer problem solving."
+    },
+    {
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "relevanceScore": 2,
+      "reason": "Covers use of computer tools to solve problems in documents and data analysis, fairly relevant to computer problem solving."
+    },
+    {
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "relevanceScore": 1,
+      "reason": "Focuses on computer architecture analysis, not directly on problem analysis and fixing."
+    },
+    {
+      "subjectCode": "01204516-66",
+      "subjectName": "การคำนวณเชิงควอนตัมขั้นสูง",
+      "relevanceScore": 2,
+      "reason": "Analyzes and identifies problems solvable by quantum computing, fairly relevant to computer problem analysis."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 3,
+      "reason": "Focuses on analyzing and designing algorithms to solve problems and programming, highly relevant to computer problem analysis and fixing."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 0,
+      "reason": "Focuses on financial problem solving in airline business, unrelated to computer problem analysis."
+    },
+    {
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "relevanceScore": 1,
+      "reason": "Covers basic data science problem solving, marginally relevant to computer problem solving."
+    },
+    {
+      "subjectCode": "04253371-65",
+      "subjectName": "การควบคุมแบบตรรกะและระบบอัตโนมัติ",
+      "relevanceScore": 3,
+      "reason": "Directly addresses analyzing and troubleshooting PLC and automation system problems, highly relevant to computer problem analysis and fixing."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Focuses on data analysis and visualization, marginally relevant to computer problem solving."
+    },
+    {
+      "subjectCode": "01204599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Research thesis with some focus on computer engineering problems but not specifically on problem analysis and fixing."
+    },
+    {
+      "subjectCode": "01204699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Same as above, research thesis with limited direct focus on computer problem analysis and fixing."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.375,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 9,
+        "macroAverageRate": 56.25,
+        "microAverageRate": 56.25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 18.75,
+        "microAverageRate": 18.75,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.412,
+        "at10": 0.636,
+        "at15": 0.719,
+        "atAll": 0.741
+      },
+      "ideal": {
+        "at5": 0.374,
+        "at10": 0.449,
+        "at15": 0.437,
+        "atAll": 0.433
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.4,
+      "at15": 0.333,
+      "atAll": 0.313
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3338,
+  "outputTokens": 527
+}

@@ -1,0 +1,111 @@
+{
+  "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+  "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+  "comparison": {
+    "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+    "skills": [
+      {
+        "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+        "systemSkill": "การเขียนโปรแกรมเชิงวัตถุ",
+        "systemReason": "ผู้ใช้ถามเกี่ยวกับ OOP ซึ่งหมายถึงการเขียนโปรแกรมเชิงวัตถุที่เป็นแนวคิดหลักในวิชานี้",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Direct match to OOP; clear university-level course outcome and assessable.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+        "systemSkill": "การออกแบบซอฟต์แวร์",
+        "systemReason": "การเขียนโปรแกรมเชิงวัตถุต้องเข้าใจการออกแบบซอฟต์แวร์เพื่อสร้างโครงสร้างโปรแกรมที่ดี",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid academic competency (software design); relevant bridge to OOP-focused course content.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+        "systemSkill": "ภาษาโปรแกรมเชิงวัตถุ",
+        "systemReason": "ต้องเรียนรู้ภาษาโปรแกรมที่สนับสนุน OOP เช่น Java, C++ หรือ Python",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Technical competency (OOP languages); teachable and assessable in courses.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+        "systemSkill": "การวิเคราะห์และออกแบบระบบ",
+        "systemReason": "เพื่อใช้ OOP อย่างมีประสิทธิภาพต้องเข้าใจการวิเคราะห์และออกแบบระบบ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Standard university course topic (systems analysis & design); relevant though broader than OOP.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+        "systemSkill": "การจัดการคลาสและอ็อบเจ็กต์",
+        "systemReason": "เป็นทักษะพื้นฐานในการใช้งาน OOP เพื่อสร้างและจัดการคลาสและอ็อบเจ็กต์",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Conceptual OOP skill (classes/objects); somewhat specific but appropriate as a learning outcome.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+        "systemSkill": "หลักการสืบทอดและการห่อหุ้ม",
+        "systemReason": "เป็นแนวคิดสำคัญใน OOP ที่ต้องเรียนรู้เพื่อเขียนโปรแกรมที่มีประสิทธิภาพ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Core OOP principles (inheritance, encapsulation); clearly teachable and assessable.",
+        "agreementType": "AGREE"
+      }
+    ],
+    "overall": {
+      "conceptPreserved": true,
+      "agreementCount": 6,
+      "disagreementCount": 0,
+      "totalSkills": 6
+    }
+  },
+  "judgeResult": {
+    "result": {
+      "skills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "verdict": "PASS",
+          "note": "Direct match to OOP; clear university-level course outcome and assessable."
+        },
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "verdict": "PASS",
+          "note": "Valid academic competency (software design); relevant bridge to OOP-focused course content."
+        },
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "verdict": "PASS",
+          "note": "Technical competency (OOP languages); teachable and assessable in courses."
+        },
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "verdict": "PASS",
+          "note": "Standard university course topic (systems analysis & design); relevant though broader than OOP."
+        },
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "verdict": "PASS",
+          "note": "Conceptual OOP skill (classes/objects); somewhat specific but appropriate as a learning outcome."
+        },
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "verdict": "PASS",
+          "note": "Core OOP principles (inheritance, encapsulation); clearly teachable and assessable."
+        }
+      ],
+      "overall": {
+        "conceptPreserved": true,
+        "summary": "All items are valid university-level competencies relevant to OOP; the list preserves the core OOP concept though some entries are broader or overlapping."
+      }
+    },
+    "tokenUsage": [
+      {
+        "model": "openai/gpt-5-mini",
+        "inputTokens": 736,
+        "outputTokens": 877
+      }
+    ]
+  },
+  "evaluatedAt": "2026-01-26T08:09:22.912Z"
+}

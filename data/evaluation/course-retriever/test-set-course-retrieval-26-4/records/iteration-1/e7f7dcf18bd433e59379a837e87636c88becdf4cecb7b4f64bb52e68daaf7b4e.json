@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การสร้างเนื้อหาดิจิทัล"
+  ],
+  "skill": "การสร้างเนื้อหาดิจิทัล",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes 'ออกแบบสร้างชิ้นงานดิจิทัลได้' (design and create digital works), directly covering digital content creation as a main learning outcome."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on creating digital media works ('สร้างชิ้นงานสื่อดิจิทัล') for storytelling, which is a core aspect of digital content creation."
+    },
+    {
+      "subjectCode": "03609161-65",
+      "subjectName": "เปิดโลกวิศวกรรมระบบการผลิตดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Course focuses on digital production systems engineering, no mention of digital content creation."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 1,
+      "reason": "Mentions using digital technology for research data retrieval and presentation, but digital content creation is not a primary focus."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 2,
+      "reason": "Course involves creating digital sound works using computer programs, which is a form of digital content creation but limited to audio."
+    },
+    {
+      "subjectCode": "01241412-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม VI",
+      "relevanceScore": 2,
+      "reason": "Course includes presenting design work using digital media appropriately, indicating some digital content creation but mainly for presentation purposes."
+    },
+    {
+      "subjectCode": "01241313-66",
+      "subjectName": "การออกแบบร่างองค์ประกอบงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 2,
+      "reason": "Similar to above, includes presenting design work with digital media, indicating partial relevance to digital content creation."
+    },
+    {
+      "subjectCode": "01241312-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 2,
+      "reason": "Includes presenting design work using digital media appropriately, showing some digital content creation skills."
+    },
+    {
+      "subjectCode": "01352373-66",
+      "subjectName": "การรู้เท่าทันดิจิทัล",
+      "relevanceScore": 2,
+      "reason": "Course covers ability to use and produce media in digital communication systems, indicating some digital content creation but within communication context."
+    },
+    {
+      "subjectCode": "06901121-66",
+      "subjectName": "การตลาดดิจิทัลสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 0,
+      "reason": "Focuses on digital marketing for tourism, no direct coverage of digital content creation."
+    },
+    {
+      "subjectCode": "01004497-64",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Includes designing and presenting research work using creative media and digital technology, indicating some digital content creation skills."
+    },
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 2,
+      "reason": "Course involves creating music works using digital technology appropriately, a form of digital content creation but focused on music."
+    },
+    {
+      "subjectCode": "01150231-67",
+      "subjectName": "นวัตกรรมและเทคโนโลยีดิจิทัลเพื่อการศึกษา",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes designing digital media, innovations, and technology for learning and communication, covering digital content creation comprehensively."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.8461538461538463,
+    "totalRelevanceSum": 24,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 53.84615384615385,
+        "microAverageRate": 53.84615384615385,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.759,
+        "at10": 0.776,
+        "at15": 0.922,
+        "atAll": 0.922
+      },
+      "ideal": {
+        "at5": 0.689,
+        "at10": 0.639,
+        "at15": 0.603,
+        "atAll": 0.66
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.6,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 0.8,
+        "threshold2": 0.7,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.846,
+        "threshold2": 0.769,
+        "threshold3": 0.231
+      },
+      "atAll": {
+        "threshold1": 0.846,
+        "threshold2": 0.769,
+        "threshold3": 0.231
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2699,
+  "outputTokens": 492
+}

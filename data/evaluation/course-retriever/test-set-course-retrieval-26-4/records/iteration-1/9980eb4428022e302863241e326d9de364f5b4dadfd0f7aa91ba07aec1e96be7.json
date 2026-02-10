@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "b41c15f8-2249-4469-9981-71cc1c75b2b4-การบริหารงบประมาณ"
+  ],
+  "skill": "การบริหารงบประมาณ",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes 'จัดทำงบประมาณธุรกิจต่างๆ' (preparing business budgets) as a key learning outcome, directly covering budget management."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course mentions 'วิเคราะห์งบการเงินเบื้องต้นได้' (basic financial statement analysis) and cost calculation but does not focus on budget management."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Course covers strategic management accounting including planning and control but does not explicitly focus on budget management."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 3,
+      "reason": "Course includes 'สามารถการจัดทำงบประมาณของธุรกิจผลิต' (ability to prepare business budgets) as a main learning outcome, directly relevant to budget management."
+    },
+    {
+      "subjectCode": "03602433-65",
+      "subjectName": "วิศวกรรมการซ่อมบำรุง",
+      "relevanceScore": 2,
+      "reason": "Course covers budgeting and cost estimation techniques for maintenance activities, indicating budget management as a component but not the main focus."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on strategic management accounting with some cost calculation but does not explicitly cover budget management."
+    },
+    {
+      "subjectCode": "03602351-65",
+      "subjectName": "การวิเคราะห์ต้นทุนทางอุตสาหกรรม",
+      "relevanceScore": 2,
+      "reason": "Course includes preparing production cost budgets and analyzing cost-volume-profit relationships, indicating budget management as a significant module."
+    },
+    {
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course focuses on basic accounting principles and financial statements without mention of budget management."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 0,
+      "reason": "Course focuses on asset accounting and financial statements, no mention of budget management."
+    },
+    {
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "relevanceScore": 0,
+      "reason": "Course focuses on liabilities, equity, and cash flow statements, no mention of budget management."
+    },
+    {
+      "subjectCode": "03760331-64",
+      "subjectName": "หลักการบัญชีต้นทุน II",
+      "relevanceScore": 1,
+      "reason": "Course covers cost accounting data for managerial decision making but does not explicitly mention budget management."
+    },
+    {
+      "subjectCode": "03760231-64",
+      "subjectName": "หลักการบัญชีต้นทุน I",
+      "relevanceScore": 1,
+      "reason": "Course covers cost accounting throughout fiscal year and use of software but no explicit mention of budget management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 1.25,
+    "totalRelevanceSum": 15,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 41.666666666666664,
+        "microAverageRate": 41.666666666666664,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.868,
+        "at10": 0.855,
+        "at15": 0.92,
+        "atAll": 0.92
+      },
+      "ideal": {
+        "at5": 0.701,
+        "at10": 0.53,
+        "at15": 0.442,
+        "atAll": 0.509
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.75,
+        "threshold2": 0.333,
+        "threshold3": 0.167
+      },
+      "atAll": {
+        "threshold1": 0.75,
+        "threshold2": 0.333,
+        "threshold3": 0.167
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2549,
+  "outputTokens": 448
+}

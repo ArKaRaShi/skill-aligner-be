@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-ความรู้ด้านวัฒนธรรมอาหารไทย"
+  ],
+  "skill": "ความรู้ด้านวัฒนธรรมอาหารไทย",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "04151352-65",
+      "subjectName": "หลักการสุขาภิบาลโรงงานอาหาร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on food sanitation principles in factories, not on Thai food culture."
+    },
+    {
+      "subjectCode": "04152231-64",
+      "subjectName": "สุขาภิบาลอาหาร",
+      "relevanceScore": 0,
+      "reason": "Course emphasizes food sanitation and standards, not specifically Thai food culture."
+    },
+    {
+      "subjectCode": "01017412-66",
+      "subjectName": "การผลิตขนมไทย",
+      "relevanceScore": 1,
+      "reason": "Includes Thai desserts but mainly from a scientific and production perspective, not cultural knowledge."
+    },
+    {
+      "subjectCode": "01390428-64",
+      "subjectName": "การท่องเที่ยวเชิงอาหาร",
+      "relevanceScore": 1,
+      "reason": "Covers Thai food tourism and regional dishes, but primarily from a tourism and presentation angle, not deep cultural knowledge."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 0,
+      "reason": "Focuses on food preparation skills, not on Thai food culture."
+    },
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 0,
+      "reason": "Covers international cuisines, not specifically Thai food culture."
+    },
+    {
+      "subjectCode": "01255101-67",
+      "subjectName": "มนุษย์กับทะเล",
+      "relevanceScore": 0,
+      "reason": "Discusses maritime culture and related knowledge, not specifically Thai food culture."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural product development, not on Thai food culture."
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "Covers global food sources and nutrition, not specifically Thai food culture."
+    },
+    {
+      "subjectCode": "01017221-66",
+      "subjectName": "โภชนศาสตร์มนุษย์",
+      "relevanceScore": 0,
+      "reason": "Deals with human nutrition science, not Thai food culture."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 0,
+      "reason": "Focuses on food service management, not on Thai food culture."
+    },
+    {
+      "subjectCode": "02212561-65",
+      "subjectName": "ระบบความปลอดภัยในอุตสาหกรรมอาหาร",
+      "relevanceScore": 0,
+      "reason": "Centered on food safety systems, not on Thai food culture."
+    },
+    {
+      "subjectCode": "06902221-66",
+      "subjectName": "หลักการจัดการมรดกทางวัฒนธรรมเพื่อการท่องเที่ยว",
+      "relevanceScore": 0,
+      "reason": "Discusses cultural heritage management for tourism, not specifically Thai food culture."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Covers advanced agricultural processing engineering, not Thai food culture."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.14285714285714285,
+    "totalRelevanceSum": 2,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 12,
+        "macroAverageRate": 85.71428571428571,
+        "microAverageRate": 85.71428571428571,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.571,
+        "at10": 0.571,
+        "at15": 0.571,
+        "atAll": 0.571
+      },
+      "ideal": {
+        "at5": 0.105,
+        "at10": 0.068,
+        "at15": 0.053,
+        "atAll": 0.055
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.143,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.143,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2718,
+  "outputTokens": 494
+}

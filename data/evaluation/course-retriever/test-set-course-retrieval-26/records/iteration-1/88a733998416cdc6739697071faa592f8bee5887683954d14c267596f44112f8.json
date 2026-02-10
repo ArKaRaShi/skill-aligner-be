@@ -1,0 +1,132 @@
+{
+  "testCaseId": "3ef3d308-ac42-453e-bce7-bb7376046c41-การสร้างเนื้อหาวิดีโอ",
+  "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+  "skill": "การสร้างเนื้อหาวิดีโอ",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 1,
+      "reason": "Course focuses on storytelling with images and digital media creation but does not explicitly cover video content creation."
+    },
+    {
+      "subjectCode": "01352261-66",
+      "subjectName": "การภาพยนตร์เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers basic film concepts including production methods and storytelling in film, which relates to video content creation as part of a larger module."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Course focuses on seminar skills and presentation but does not mention video content creation."
+    },
+    {
+      "subjectCode": "01352362-66",
+      "subjectName": "การผลิตภาพยนตร์ดิจิทัล",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers digital film production and the ability to produce films, directly addressing video content creation comprehensively."
+    },
+    {
+      "subjectCode": "01352251-66",
+      "subjectName": "การกระจายเสียงและภาพเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course includes skills in creating content for audio and visual media, which relates fairly to video content creation as part of broader media production."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 0,
+      "reason": "Course is about computer programs for music composition and sound creation, unrelated to video content creation."
+    },
+    {
+      "subjectCode": "02738361-66",
+      "subjectName": "ชีววิทยาโมเลกุลเบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Course mentions presenting molecular biology concepts using video media, but video content creation is not a main focus."
+    },
+    {
+      "subjectCode": "01058497-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Course focuses on seminar presentation and communication skills without mention of video content creation."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Course is about data analysis and visualization, no indication of video content creation."
+    },
+    {
+      "subjectCode": "01396231-67",
+      "subjectName": "การเขียนภาษาจีนเพื่อการสื่อสาร",
+      "relevanceScore": 0,
+      "reason": "Course is about Chinese writing for communication, unrelated to video content creation."
+    },
+    {
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "relevanceScore": 0,
+      "reason": "Course covers design and visual elements but does not address video content creation."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.8181818181818182,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 54.54545454545455,
+        "microAverageRate": 54.54545454545455,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.712,
+        "at10": 0.767,
+        "at15": 0.767,
+        "atAll": 0.767
+      },
+      "ideal": {
+        "at5": 0.489,
+        "at10": 0.342,
+        "at15": 0.265,
+        "atAll": 0.322
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.3,
+      "at15": 0.273,
+      "atAll": 0.273
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1952,
+  "outputTokens": 375
+}

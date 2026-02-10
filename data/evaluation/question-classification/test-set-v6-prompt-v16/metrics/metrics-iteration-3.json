@@ -1,0 +1,73 @@
+{
+  "iterationNumber": 3,
+  "overallMetrics": {
+    "totalQuestions": 200,
+    "totalCorrectClassifications": 198,
+    "totalIncorrectClassifications": 2,
+    "overallPrecision": 0.9886761761761762,
+    "overallRecall": 0.9810185185185185,
+    "macroPrecision": 0.9886761761761762,
+    "macroRecall": 0.9810185185185185,
+    "timestamp": "2026-01-21T17:48:39.783Z"
+  },
+  "classMetrics": [
+    {
+      "classLabel": "relevant",
+      "totalQuestions": 144,
+      "correctClassifications": 143,
+      "incorrectClassifications": 1,
+      "precision": 0.9930555555555556,
+      "recall": 0.9930555555555556,
+      "macroPrecision": 0.9930555555555556,
+      "macroRecall": 0.9930555555555556,
+      "timestamp": "2026-01-21T17:48:39.783Z"
+    },
+    {
+      "classLabel": "irrelevant",
+      "totalQuestions": 36,
+      "correctClassifications": 36,
+      "incorrectClassifications": 0,
+      "precision": 0.972972972972973,
+      "recall": 1,
+      "macroPrecision": 0.972972972972973,
+      "macroRecall": 1,
+      "timestamp": "2026-01-21T17:48:39.783Z"
+    },
+    {
+      "classLabel": "dangerous",
+      "totalQuestions": 20,
+      "correctClassifications": 19,
+      "incorrectClassifications": 1,
+      "precision": 1,
+      "recall": 0.95,
+      "macroPrecision": 1,
+      "macroRecall": 0.95,
+      "timestamp": "2026-01-21T17:48:39.783Z"
+    }
+  ],
+  "macroMetrics": [
+    {
+      "iteration": 3,
+      "macroPrecision": 0.9886761761761762,
+      "macroRecall": 0.9810185185185185,
+      "timestamp": "2026-01-21T17:48:39.783Z",
+      "classBreakdown": [
+        {
+          "className": "relevant",
+          "precision": 0.9930555555555556,
+          "recall": 0.9930555555555556
+        },
+        {
+          "className": "irrelevant",
+          "precision": 0.972972972972973,
+          "recall": 1
+        },
+        {
+          "className": "dangerous",
+          "precision": 1,
+          "recall": 0.95
+        }
+      ]
+    }
+  ]
+}

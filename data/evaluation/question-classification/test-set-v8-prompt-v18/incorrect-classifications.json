@@ -1,0 +1,37 @@
+[
+  {
+    "iterationNumber": 1,
+    "totalIncorrectClassifications": 2,
+    "incorrectRecords": [
+      {
+        "question": "อยากเป็น Mars terraformer ต้องมีทักษะอะไร มีวิชาไหนสอนมั้ย",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Outcome/Goal-Oriented (Pattern B) - user expresses desire to become a Mars terraformer and asks about skills and courses, which are academically plausible topics related to space science and planetary engineering.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "ba558bfedf387faa5ef53d0b9228c8c8461a27bf76bb05e056506299db854a12",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nอยากเป็น Mars terraformer ต้องมีทักษะอะไร มีวิชาไหนสอนมั้ย\n",
+          "promptVersion": "v18",
+          "timestamp": "2026-02-02T08:55:20.939Z"
+        }
+      },
+      {
+        "question": "อยากเป็นนักผจญภัยในอวกาศ ต้องมีทักษะอะไร",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Goal statement (Relax Rule) - user expresses desire to be a space explorer, which is academically plausible through aerospace engineering, space science, or related fields.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "ba558bfedf387faa5ef53d0b9228c8c8461a27bf76bb05e056506299db854a12",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nอยากเป็นนักผจญภัยในอวกาศ ต้องมีทักษะอะไร\n",
+          "promptVersion": "v18",
+          "timestamp": "2026-02-02T08:55:20.939Z"
+        }
+      }
+    ],
+    "timestamp": "2026-02-02T08:55:20.942Z"
+  }
+]

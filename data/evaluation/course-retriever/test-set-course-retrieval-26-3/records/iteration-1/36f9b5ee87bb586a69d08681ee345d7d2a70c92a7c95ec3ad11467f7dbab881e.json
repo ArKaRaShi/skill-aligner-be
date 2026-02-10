@@ -1,0 +1,204 @@
+{
+  "questionIds": [
+    "fa617f52-c86b-4b8c-976b-bfdb073f1070-การใช้พจนานุกรมภาษาบาลี"
+  ],
+  "skill": "การใช้พจนานุกรมภาษาบาลี",
+  "retrievedCount": 20,
+  "evaluations": [
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Course name and outcomes focus on Chinese language skills, not specifically on Pali dictionary usage."
+    },
+    {
+      "subjectCode": "04351131-68",
+      "subjectName": "การเขียนย่อหน้าภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Course outcomes relate to English paragraph writing, not Pali or its dictionary usage."
+    },
+    {
+      "subjectCode": "01356115-68",
+      "subjectName": "ภาษาฝรั่งเศสพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "French language skills are the focus; no mention of Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "English reading and writing skills are the focus; no reference to Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01358102-67",
+      "subjectName": "ภาษาญี่ปุ่นเบื้องต้น II",
+      "relevanceScore": 0,
+      "reason": "Japanese language outcomes do not include Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01396231-67",
+      "subjectName": "การเขียนภาษาจีนเพื่อการสื่อสาร",
+      "relevanceScore": 0,
+      "reason": "Chinese communication writing course, no mention of Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01357115-68",
+      "subjectName": "ภาษาเยอรมันพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "German language skills, not related to Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "relevanceScore": 0,
+      "reason": "Chinese language courses focus on reading, writing, and vocabulary, not Pali."
+    },
+    {
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "relevanceScore": 0,
+      "reason": "Same as above, no mention of Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "relevanceScore": 0,
+      "reason": "Same as above, no mention of Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "relevanceScore": 0,
+      "reason": "Same as above, no mention of Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "relevanceScore": 0,
+      "reason": "Same as above, no mention of Pali or its dictionary."
+    },
+    {
+      "subjectCode": "02747214-65",
+      "subjectName": "พฤติกรรมผู้บริโภคในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Business behavior in aviation, unrelated to Pali or its dictionary."
+    },
+    {
+      "subjectCode": "02747498-65",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Research in aviation business, unrelated to Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "relevanceScore": 0,
+      "reason": "Linguistics of Chinese, no mention of Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01150112-67",
+      "subjectName": "ภาษาและวัฒนธรรมสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Language and culture for teachers, no mention of Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01420475-66",
+      "subjectName": "ผลึกศาสตร์รังสีเอกซ์",
+      "relevanceScore": 0,
+      "reason": "X-ray crystallography, unrelated to Pali or its dictionary."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 0,
+      "reason": "Thai language writing, no mention of Pali or its dictionary."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Data science course, unrelated to Pali or its dictionary."
+    },
+    {
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Communication skills for teachers, no mention of Pali or its dictionary."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 20,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 20,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2906,
+  "outputTokens": 834
+}

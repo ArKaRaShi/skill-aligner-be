@@ -1,0 +1,144 @@
+{
+  "testCaseId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การจัดการความขัดแย้ง",
+  "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+  "skill": "การจัดการความขัดแย้ง",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01475536-64",
+      "subjectName": "จิตวิทยาการจัดการความขัดแย้งในองค์การ",
+      "relevanceScore": 3,
+      "reason": "Course focuses directly on conflict management in organizations, covering psychological theories and skills for managing conflict and negotiation comprehensively."
+    },
+    {
+      "subjectCode": "01203521-66",
+      "subjectName": "กฎหมายและการจัดการสัญญาก่อสร้าง",
+      "relevanceScore": 2,
+      "reason": "Course includes analysis and prevention of conflicts in construction management, addressing conflict management as part of broader legal and contract management topics."
+    },
+    {
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "relevanceScore": 2,
+      "reason": "Course covers conflict resolution as part of project management skills, including teamwork and prioritization in managing projects."
+    },
+    {
+      "subjectCode": "01118531-64",
+      "subjectName": "นโยบายและปัจจัยเชิงสถาบันเพื่อการจัดการทรัพยากร",
+      "relevanceScore": 1,
+      "reason": "Course mentions conflict resolution in teamwork and project management but focuses mainly on institutional policies and resource management."
+    },
+    {
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Course is about thesis research skills without mention of conflict management."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on basic finance for airline business, no mention of conflict management."
+    },
+    {
+      "subjectCode": "03764322-64",
+      "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+      "relevanceScore": 2,
+      "reason": "Course covers negotiation skills for logistics management, which is a key component of conflict management in that context."
+    },
+    {
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "relevanceScore": 1,
+      "reason": "Course includes ethical problem solving and decision making, which may relate marginally to conflict management but not as a primary focus."
+    },
+    {
+      "subjectCode": "01387519-66",
+      "subjectName": "ปัญหาและทฤษฎีจริยศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on ethics and moral philosophy without mention of conflict management."
+    },
+    {
+      "subjectCode": "01132222-65",
+      "subjectName": "การจัดการทรัพยากรมนุษย์",
+      "relevanceScore": 2,
+      "reason": "Course covers human resource management including problem analysis and proposing solutions, which involves conflict management aspects."
+    },
+    {
+      "subjectCode": "01999034-67",
+      "subjectName": "ศิลปวิจักษณ์",
+      "relevanceScore": 1,
+      "reason": "Course mentions problem solving in teamwork context but does not focus on conflict management specifically."
+    },
+    {
+      "subjectCode": "01999111-68",
+      "subjectName": "เกษตรศาสตร์สร้างศาสตร์แห่งแผ่นดิน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on agricultural science and university identity, no mention of conflict management."
+    },
+    {
+      "subjectCode": "01999111-67",
+      "subjectName": "ศาสตร์แห่งแผ่นดิน",
+      "relevanceScore": 1,
+      "reason": "Course includes teamwork and problem solving skills marginally related to conflict management but not as a main theme."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.1538461538461537,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.825,
+        "at10": 0.884,
+        "at15": 0.95,
+        "atAll": 0.95
+      },
+      "ideal": {
+        "at5": 0.644,
+        "at10": 0.532,
+        "at15": 0.443,
+        "atAll": 0.485
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.5,
+      "at15": 0.385,
+      "atAll": 0.385
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2986,
+  "outputTokens": 440
+}

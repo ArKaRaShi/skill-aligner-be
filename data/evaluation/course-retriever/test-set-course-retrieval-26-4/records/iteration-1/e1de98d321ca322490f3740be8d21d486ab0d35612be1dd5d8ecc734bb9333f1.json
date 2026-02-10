@@ -1,0 +1,133 @@
+{
+  "questionIds": [
+    "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การประยุกต์ใช้ปัญญาประดิษฐ์",
+    "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การประยุกต์ใช้ปัญญาประดิษฐ์"
+  ],
+  "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+  "retrievedCount": 8,
+  "evaluations": [
+    {
+      "subjectCode": "03610111-66",
+      "subjectName": "เปิดโลกวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Course covers basic concepts and use of AI tools, including simple AI applications, indicating fair relevance to AI application skill."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes creating AI applications and selecting AI technologies for daily life and business, directly addressing AI application skill comprehensively."
+    },
+    {
+      "subjectCode": "01204561-66",
+      "subjectName": "ปัญญาประดิษฐ์ขั้นสูง",
+      "relevanceScore": 3,
+      "reason": "Course focuses on applying AI technology to solve problems and designing AI systems, fully covering AI application skill."
+    },
+    {
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "relevanceScore": 3,
+      "reason": "Course is about applying AI specifically in animal science, directly relevant to AI application skill in a specialized domain."
+    },
+    {
+      "subjectCode": "04252522-67",
+      "subjectName": "ปัญญาประดิษฐ์และโครงข่ายประสาทเทียม",
+      "relevanceScore": 3,
+      "reason": "Course covers modern AI concepts, neural networks, and applying AI models to real problems, highly relevant to AI application skill."
+    },
+    {
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "relevanceScore": 0,
+      "reason": "Course is about applied psychology with no mention or connection to AI application."
+    },
+    {
+      "subjectCode": "01023512-68",
+      "subjectName": "การคำนวณสูตรอาหารสัตว์อุตสาหกรรม",
+      "relevanceScore": 2,
+      "reason": "Course involves using AI for analyzing animal nutrition data and developing feed formulas, indicating fair relevance to AI application."
+    },
+    {
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "relevanceScore": 0,
+      "reason": "Course focuses on rehabilitation science internship with no mention of AI application."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 8,
+    "meanRelevanceScore": 2,
+    "totalRelevanceSum": 16,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 4,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.927,
+        "at10": 0.928,
+        "at15": 0.928,
+        "atAll": 0.928
+      },
+      "ideal": {
+        "at5": 0.887,
+        "at10": 0.624,
+        "at15": 0.484,
+        "atAll": 0.718
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.8
+      },
+      "at10": {
+        "threshold1": 0.75,
+        "threshold2": 0.75,
+        "threshold3": 0.5
+      },
+      "at15": {
+        "threshold1": 0.75,
+        "threshold2": 0.75,
+        "threshold3": 0.5
+      },
+      "atAll": {
+        "threshold1": 0.75,
+        "threshold2": 0.75,
+        "threshold3": 0.5
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1820,
+  "outputTokens": 287
+}

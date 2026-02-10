@@ -1,0 +1,162 @@
+{
+  "testCaseId": "01c601d2-5583-4413-a5c6-5f463efd897c-การวิเคราะห์และแก้ไขปัญหา",
+  "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+  "skill": "การวิเคราะห์และแก้ไขปัญหา",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes analyzing problems and finding solutions through research as a key learning outcome, directly matching the skill."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 3,
+      "reason": "Skill of analyzing and solving problems through research is a primary learning outcome, indicating high relevance."
+    },
+    {
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on analyzing and solving problems in project investment, directly covering the skill comprehensively."
+    },
+    {
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 3,
+      "reason": "Course centers on analyzing and solving problems using integrated knowledge, making it highly relevant."
+    },
+    {
+      "subjectCode": "01357353-68",
+      "subjectName": "การล่ามภาษาเยอรมัน",
+      "relevanceScore": 2,
+      "reason": "Skill of identifying and solving problems is mentioned specifically in the context of interpreting, but as part of a larger skill set."
+    },
+    {
+      "subjectCode": "01204691-66",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงทางวิศวกรรมคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "Course outcomes emphasize analyzing and designing research processes to solve problems, fully covering the skill."
+    },
+    {
+      "subjectCode": "01204591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางวิศวกรรมคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "Same as above, comprehensive coverage of analyzing and solving problems through research methods."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 2,
+      "reason": "Analyzing and solving financial problems is included but limited to basic business finance context, partial coverage."
+    },
+    {
+      "subjectCode": "02201596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Skill is applied to problem solving in agricultural engineering topics, but as part of broader theory application."
+    },
+    {
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 3,
+      "reason": "Course includes planning, conducting research, and solving problems during research, fully covering the skill."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 2,
+      "reason": "Analyzing problems and planning public relations is included but as one component among others."
+    },
+    {
+      "subjectCode": "02714101-67",
+      "subjectName": "การคิดเชิงวิพากษ์และการแก้ปัญหา",
+      "relevanceScore": 3,
+      "reason": "Course explicitly focuses on critical thinking and problem solving as main learning outcomes."
+    },
+    {
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "relevanceScore": 2,
+      "reason": "Skill of analyzing and solving ethical problems is included but within a specific context of teaching profession ethics."
+    },
+    {
+      "subjectCode": "01150221-67",
+      "subjectName": "การพัฒนาหลักสูตรและการสอน",
+      "relevanceScore": 1,
+      "reason": "Problem evaluation is mentioned but only in the context of curriculum development, minor relevance."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "Analyzing and recommending profit planning and control is included but limited to financial management context."
+    },
+    {
+      "subjectCode": "01203512-66",
+      "subjectName": "การวางแผน การทำกำหนดเวลา และการควบคุมในงานบริหารการก่อสร้าง",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes analyzing and solving problems in construction project management, comprehensive coverage."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 2.5,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 6.25,
+        "microAverageRate": 6.25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 37.5,
+        "microAverageRate": 37.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 9,
+        "macroAverageRate": 56.25,
+        "microAverageRate": 56.25,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.956,
+        "at10": 0.946,
+        "at15": 0.956,
+        "atAll": 0.987
+      },
+      "ideal": {
+        "at5": 0.956,
+        "at10": 0.926,
+        "at15": 0.869,
+        "atAll": 0.874
+      }
+    },
+    "precision": {
+      "at5": 1,
+      "at10": 1,
+      "at15": 0.933,
+      "atAll": 0.938
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3252,
+  "outputTokens": 529
+}

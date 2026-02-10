@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "b3460fa2-c348-4748-b583-4b042886e0ca-การประกอบคอมพิวเตอร์"
+  ],
+  "skill": "การประกอบคอมพิวเตอร์",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course focuses on engineering drawing and CAD software use, no mention of computer assembly."
+    },
+    {
+      "subjectCode": "02201211-66",
+      "subjectName": "การใช้คอมพิวเตอร์ช่วยในการออกแบบทางวิศวกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course covers computer-aided design and simulation, not computer assembly."
+    },
+    {
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "relevanceScore": 0,
+      "reason": "Course relates to Thai music and computer applications in music, no computer assembly content."
+    },
+    {
+      "subjectCode": "02201231-66",
+      "subjectName": "การประยุกต์คณิตศาสตร์ในวิศวกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course involves applying mathematics and computer analysis in agricultural engineering, no assembly skills."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Course about digital citizenship and digital technology use, no computer assembly content."
+    },
+    {
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "relevanceScore": 0,
+      "reason": "Course is Chinese language with some IT use, no computer assembly content."
+    },
+    {
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "relevanceScore": 1,
+      "reason": "Course covers computer architecture and hardware design concepts but does not explicitly cover computer assembly."
+    },
+    {
+      "subjectCode": "01241271-66",
+      "subjectName": "การประยุกต์คอมพิวเตอร์ในงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 0,
+      "reason": "Course about computer applications in landscape architecture design, no computer assembly."
+    },
+    {
+      "subjectCode": "03501461-65",
+      "subjectName": "การออกแบบเรือ",
+      "relevanceScore": 0,
+      "reason": "Course about ship design using computer programs, unrelated to computer assembly."
+    },
+    {
+      "subjectCode": "03607251-67",
+      "subjectName": "งานวิศวกรรมและการผลิตใช้คอมพิวเตอร์ช่วยสำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on computer-aided engineering and robotics manufacturing, no direct mention of computer assembly."
+    },
+    {
+      "subjectCode": "01403345-65",
+      "subjectName": "การจำลองแบบด้วยคอมพิวเตอร์ในวิชาเคมีและวิศวกรรมเคมี",
+      "relevanceScore": 0,
+      "reason": "Course on computer simulation in chemistry and chemical engineering, no computer assembly content."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 0,
+      "reason": "Course about structured programming, no computer assembly content."
+    },
+    {
+      "subjectCode": "04256132-66",
+      "subjectName": "การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Course about programming for data science, no computer assembly content."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.07692307692307693,
+    "totalRelevanceSum": 1,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 12,
+        "macroAverageRate": 92.3076923076923,
+        "microAverageRate": 92.3076923076923,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0.333,
+        "at15": 0.333,
+        "atAll": 0.333
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0.024,
+        "at15": 0.019,
+        "atAll": 0.021
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.1,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.077,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.077,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2541,
+  "outputTokens": 387
+}

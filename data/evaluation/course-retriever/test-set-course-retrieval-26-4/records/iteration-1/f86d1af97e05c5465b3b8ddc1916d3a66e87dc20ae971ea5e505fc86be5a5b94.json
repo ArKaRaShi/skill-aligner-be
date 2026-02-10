@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "3ef3d308-ac42-453e-bce7-bb7376046c41-การวางแผนและการจัดการคอนเทนต์"
+  ],
+  "skill": "การวางแผนและการจัดการคอนเทนต์",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on profit planning and control, unrelated to content planning and management skill."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 1,
+      "reason": "Covers planning of public relations campaigns which may marginally relate to content planning but not comprehensive."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Focuses on data querying and database management, no relation to content planning and management."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Focuses on marketing and pricing strategies for beverage business, no mention of content planning or management."
+    },
+    {
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "relevanceScore": 1,
+      "reason": "Covers basic management knowledge and use of technology for knowledge seeking, marginally related to content management."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Focuses on marketing in aviation business, no relation to content planning and management."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 3,
+      "reason": "Directly covers technology and media for learning management including designing media and using digital technology, highly relevant to content planning and management."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Focuses on chemistry in art, unrelated to content planning and management."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Focuses on chemistry in modern life, unrelated to content planning and management."
+    },
+    {
+      "subjectCode": "04403597-67",
+      "subjectName": "สัมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar course includes designing and presenting effectively, marginally related to content management skills."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 0,
+      "reason": "Focuses on strategic managerial accounting, unrelated to content planning and management."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar course includes organizing and presenting information, marginally related to content planning and management."
+    },
+    {
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "Thesis course involves planning, analyzing, and presenting research content, fairly relevant to content planning and management skill."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 0,
+      "reason": "Focuses on marketing principles, no mention of content planning or management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.6428571428571429,
+    "totalRelevanceSum": 9,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 57.142857142857146,
+        "microAverageRate": 57.142857142857146,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.182,
+        "at10": 0.389,
+        "at15": 0.523,
+        "atAll": 0.523
+      },
+      "ideal": {
+        "at5": 0.115,
+        "at10": 0.169,
+        "at15": 0.176,
+        "atAll": 0.184
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.1,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.429,
+        "threshold2": 0.143,
+        "threshold3": 0.071
+      },
+      "atAll": {
+        "threshold1": 0.429,
+        "threshold2": 0.143,
+        "threshold3": 0.071
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2558,
+  "outputTokens": 463
+}

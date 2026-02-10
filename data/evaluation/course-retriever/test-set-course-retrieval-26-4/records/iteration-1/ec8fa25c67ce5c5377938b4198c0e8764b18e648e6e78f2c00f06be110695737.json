@@ -1,0 +1,186 @@
+{
+  "questionIds": [
+    "b3460fa2-c348-4748-b583-4b042886e0ca-ความปลอดภัยของข้อมูลและระบบ"
+  ],
+  "skill": "ความปลอดภัยของข้อมูลและระบบ",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course mentions ethics and computer technology use but does not cover data and system security specifically."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers data privacy and security as a learning outcome, directly related to data and system security."
+    },
+    {
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "relevanceScore": 3,
+      "reason": "Course includes database security management as a key learning outcome, highly relevant to data and system security."
+    },
+    {
+      "subjectCode": "04252534-67",
+      "subjectName": "การออกแบบและการบริหารเครือข่ายขั้นสูง",
+      "relevanceScore": 2,
+      "reason": "Course covers network management with emphasis on network stability, which relates to system security but not comprehensively."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course mentions ethics in IT but does not focus on data or system security."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on data warehousing and business intelligence without mention of security."
+    },
+    {
+      "subjectCode": "01005411-67",
+      "subjectName": "การบริหารจัดการฟาร์ม",
+      "relevanceScore": 0,
+      "reason": "Course is about farm management and agricultural safety, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course mentions ethics in IT but lacks focus on data or system security."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Course about art materials chemistry, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Course about modern life chemistry, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "04253181-65",
+      "subjectName": "การฝึกงานโรงงานทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course covers industrial engineering safety, not data or system security."
+    },
+    {
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "relevanceScore": 0,
+      "reason": "Course focuses on industrial safety, not related to data or system security."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Course covers digital citizenship and responsible use of technology but not specifically data or system security."
+    },
+    {
+      "subjectCode": "01058343-68",
+      "subjectName": "ปฏิบัติการวิเคราะห์คุณภาพทางกายภาพและเคมีในอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course about physical and chemical quality analysis in agriculture, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "01605523-67",
+      "subjectName": "พันธุวิศวกรรมทางเทคโนโลยีสุขภาพสัตว์",
+      "relevanceScore": 0,
+      "reason": "Course about bioengineering safety in lab work, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 1,
+      "reason": "Course mentions ethics in IT but does not focus on data or system security."
+    },
+    {
+      "subjectCode": "03651441-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ II",
+      "relevanceScore": 1,
+      "reason": "Course focuses on statistical learning models without mention of data or system security."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.8235294117647058,
+    "totalRelevanceSum": 14,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 47.05882352941177,
+        "microAverageRate": 47.05882352941177,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 35.294117647058826,
+        "microAverageRate": 35.294117647058826,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 11.764705882352942,
+        "microAverageRate": 11.764705882352942,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.841,
+        "at10": 0.743,
+        "at15": 0.776,
+        "atAll": 0.836
+      },
+      "ideal": {
+        "at5": 0.638,
+        "at10": 0.437,
+        "at15": 0.354,
+        "atAll": 0.352
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 0.6,
+        "threshold2": 0.3,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.467,
+        "threshold2": 0.2,
+        "threshold3": 0.133
+      },
+      "atAll": {
+        "threshold1": 0.529,
+        "threshold2": 0.176,
+        "threshold3": 0.118
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3399,
+  "outputTokens": 528
+}

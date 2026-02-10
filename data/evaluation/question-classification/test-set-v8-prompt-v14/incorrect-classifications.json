@@ -1,0 +1,44 @@
+[
+  {
+    "iterationNumber": 1,
+    "totalIncorrectClassifications": 1,
+    "incorrectRecords": [
+      {
+        "question": "คณะวิศวกรรมศาสตร์ มีวิชาเกี่ยวกับ AI เปิดสอนปีหน้ารึป่าว",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "The question asks about courses related to AI offered by the Faculty of Engineering, which can be mapped to academic concepts in university course learning outcomes.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "2a516565d9be9f3ec9bf0089ec51f1e67a6c328128f4897773bde6b1a1c955e9",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nคณะวิศวกรรมศาสตร์ มีวิชาเกี่ยวกับ AI เปิดสอนปีหน้ารึป่าว\n",
+          "promptVersion": "v14",
+          "timestamp": "2026-01-21T16:50:02.597Z"
+        }
+      }
+    ],
+    "timestamp": "2026-01-21T16:50:02.606Z"
+  },
+  {
+    "iterationNumber": 2,
+    "totalIncorrectClassifications": 1,
+    "incorrectRecords": [
+      {
+        "question": "คณะวิศวกรรมศาสตร์ มีวิชาเกี่ยวกับ AI เปิดสอนปีหน้ารึป่าว",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "The question asks about courses related to AI offered by the Faculty of Engineering, which can be mapped to academic concepts in university course learning outcomes.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "2a516565d9be9f3ec9bf0089ec51f1e67a6c328128f4897773bde6b1a1c955e9",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nคณะวิศวกรรมศาสตร์ มีวิชาเกี่ยวกับ AI เปิดสอนปีหน้ารึป่าว\n",
+          "promptVersion": "v14",
+          "timestamp": "2026-01-21T16:50:29.703Z"
+        }
+      }
+    ],
+    "timestamp": "2026-01-21T16:50:29.708Z"
+  }
+]

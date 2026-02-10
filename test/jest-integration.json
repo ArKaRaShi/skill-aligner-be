@@ -1,0 +1,29 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "..",
+  "roots": ["<rootDir>/src", "<rootDir>/prisma"],
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/src/$1",
+    "^prisma/(.*)$": "<rootDir>/prisma/$1",
+    "^test/(.*)$": "<rootDir>/test/$1"
+  },
+  "testRegex": ".integration.spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "transformIgnorePatterns": ["node_modules/(?!(uuid|@openrouter)/)"],
+  "setupFilesAfterEnv": ["<rootDir>/test/jest-integration.setup.ts"],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "<rootDir>/src/**/*.{ts,js}",
+    "!<rootDir>/src/pipelines-v2/**",
+    "!<rootDir>/src/**/*.spec.{ts,js}",
+    "!<rootDir>/src/**/*.module.{ts,js}",
+    "!<rootDir>/src/**/*.controller.{ts,js}",
+    "!<rootDir>/src/main.{ts,js}",
+    "!<rootDir>/src/**/*.e2e-spec.{ts,js}"
+  ],
+  "coverageDirectory": "<rootDir>/coverage",
+  "coverageReporters": ["text-summary", "lcov"],
+  "testEnvironment": "node"
+}

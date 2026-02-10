@@ -1,0 +1,210 @@
+{
+  "questionIds": [
+    "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-การเปรียบเทียบภาษาจีนและภาษาเวียดนาม"
+  ],
+  "skill": "การเปรียบเทียบภาษาจีนและภาษาเวียดนาม",
+  "retrievedCount": 21,
+  "evaluations": [
+    {
+      "subjectCode": "01399101-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร I",
+      "relevanceScore": 1,
+      "reason": "The course focuses on Vietnamese communication skills, not on comparing Chinese and Vietnamese languages."
+    },
+    {
+      "subjectCode": "01399103-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร III",
+      "relevanceScore": 1,
+      "reason": "Similar to above, it emphasizes Vietnamese communication without comparison to Chinese."
+    },
+    {
+      "subjectCode": "01399102-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร II",
+      "relevanceScore": 1,
+      "reason": "Same as above, no mention of Chinese-Vietnamese comparison."
+    },
+    {
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "relevanceScore": 0,
+      "reason": "Focuses solely on Chinese language skills, no comparison with Vietnamese."
+    },
+    {
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "relevanceScore": 0,
+      "reason": "Covers basic Chinese language skills, no comparison with Vietnamese."
+    },
+    {
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "relevanceScore": 0,
+      "reason": "Focuses on Chinese language learning, not on comparing Chinese and Vietnamese."
+    },
+    {
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "relevanceScore": 0,
+      "reason": "Advanced Chinese language skills, no mention of Vietnamese or comparison."
+    },
+    {
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "relevanceScore": 0,
+      "reason": "Chinese language skills, no comparison with Vietnamese."
+    },
+    {
+      "subjectCode": "01362112-63",
+      "subjectName": "ภาษาจีนพื้นฐาน II",
+      "relevanceScore": 0,
+      "reason": "Basic Chinese communication skills, no comparison to Vietnamese."
+    },
+    {
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "relevanceScore": 0,
+      "reason": "Linguistics of Chinese, no comparison with Vietnamese."
+    },
+    {
+      "subjectCode": "01362111-68",
+      "subjectName": "ภาษาจีนพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "Basic Chinese grammar and communication, no comparison."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Chinese business language, no comparison with Vietnamese."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Chinese business language, no comparison."
+    },
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Chinese business vocabulary and communication, no comparison."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Chinese business conversation, no comparison."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Chinese business conversation, no comparison."
+    },
+    {
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Chinese business conversation, no comparison."
+    },
+    {
+      "subjectCode": "01396141-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Chinese business speaking skills, no comparison."
+    },
+    {
+      "subjectCode": "01396111-67",
+      "subjectName": "ภาษาจีนธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Chinese business language, no comparison."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Chinese business language, no comparison."
+    },
+    {
+      "subjectCode": "01358103-67",
+      "subjectName": "ภาษาญี่ปุ่นเบื้องต้น III",
+      "relevanceScore": 0,
+      "reason": "Japanese language course, unrelated to Chinese-Vietnamese comparison."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 21,
+    "meanRelevanceScore": 0.14285714285714285,
+    "totalRelevanceSum": 3,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 18,
+        "macroAverageRate": 85.71428571428571,
+        "microAverageRate": 85.71428571428571,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 1,
+        "at15": 1,
+        "atAll": 1
+      },
+      "ideal": {
+        "at5": 0.241,
+        "at10": 0.156,
+        "at15": 0.121,
+        "atAll": 0.098
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.3,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.143,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2657,
+  "outputTokens": 659
+}

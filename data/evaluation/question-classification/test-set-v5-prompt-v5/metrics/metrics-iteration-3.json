@@ -1,0 +1,89 @@
+{
+  "iterationNumber": 3,
+  "overallMetrics": {
+    "totalQuestions": 145,
+    "totalCorrectClassifications": 135,
+    "totalIncorrectClassifications": 10,
+    "overallPrecision": 0.9318181818181819,
+    "overallRecall": 0.932638888888889,
+    "macroPrecision": 0.9318181818181819,
+    "macroRecall": 0.932638888888889,
+    "timestamp": "2025-12-12T07:37:24.523Z"
+  },
+  "classMetrics": [
+    {
+      "classLabel": "relevant",
+      "totalQuestions": 45,
+      "correctClassifications": 43,
+      "incorrectClassifications": 2,
+      "precision": 0.9772727272727273,
+      "recall": 0.9555555555555556,
+      "macroPrecision": 0.9772727272727273,
+      "macroRecall": 0.9555555555555556,
+      "timestamp": "2025-12-12T07:37:24.523Z"
+    },
+    {
+      "classLabel": "irrelevant",
+      "totalQuestions": 40,
+      "correctClassifications": 35,
+      "incorrectClassifications": 5,
+      "precision": 0.875,
+      "recall": 0.875,
+      "macroPrecision": 0.875,
+      "macroRecall": 0.875,
+      "timestamp": "2025-12-12T07:37:24.523Z"
+    },
+    {
+      "classLabel": "dangerous",
+      "totalQuestions": 30,
+      "correctClassifications": 29,
+      "incorrectClassifications": 1,
+      "precision": 1,
+      "recall": 0.9666666666666667,
+      "macroPrecision": 1,
+      "macroRecall": 0.9666666666666667,
+      "timestamp": "2025-12-12T07:37:24.523Z"
+    },
+    {
+      "classLabel": "unclear",
+      "totalQuestions": 30,
+      "correctClassifications": 28,
+      "incorrectClassifications": 2,
+      "precision": 0.875,
+      "recall": 0.9333333333333333,
+      "macroPrecision": 0.875,
+      "macroRecall": 0.9333333333333333,
+      "timestamp": "2025-12-12T07:37:24.523Z"
+    }
+  ],
+  "macroMetrics": [
+    {
+      "iteration": 3,
+      "macroPrecision": 0.9318181818181819,
+      "macroRecall": 0.932638888888889,
+      "timestamp": "2025-12-12T07:37:24.523Z",
+      "classBreakdown": [
+        {
+          "className": "relevant",
+          "precision": 0.9772727272727273,
+          "recall": 0.9555555555555556
+        },
+        {
+          "className": "irrelevant",
+          "precision": 0.875,
+          "recall": 0.875
+        },
+        {
+          "className": "dangerous",
+          "precision": 1,
+          "recall": 0.9666666666666667
+        },
+        {
+          "className": "unclear",
+          "precision": 0.875,
+          "recall": 0.9333333333333333
+        }
+      ]
+    }
+  ]
+}

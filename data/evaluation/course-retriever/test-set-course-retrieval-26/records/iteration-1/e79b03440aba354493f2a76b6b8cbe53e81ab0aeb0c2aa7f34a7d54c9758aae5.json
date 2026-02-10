@@ -1,0 +1,132 @@
+{
+  "testCaseId": "b41c15f8-2249-4469-9981-71cc1c75b2b4-การออกแบบและตกแต่งงานอีเว้นต์",
+  "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+  "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02802242-67",
+      "subjectName": "อุตสาหกรรมอีเวนต์",
+      "relevanceScore": 1,
+      "reason": "Course covers event industry and event organization processes but does not explicitly mention design or decoration of events."
+    },
+    {
+      "subjectCode": "02802241-67",
+      "subjectName": "หลักการวางแผนการจัดงานอีเวนต์",
+      "relevanceScore": 2,
+      "reason": "Course focuses on planning principles and steps for event business operations, which likely includes some aspects of event design and decoration as part of planning."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 0,
+      "reason": "Course is about food preparation and decoration of food plates, unrelated to event design and decoration."
+    },
+    {
+      "subjectCode": "01242121-67",
+      "subjectName": "ปฏิบัติการออกแบบภาพและวัตถุ",
+      "relevanceScore": 1,
+      "reason": "Course involves design of images and objects, which may be marginally related to event decoration but not specifically about event design."
+    },
+    {
+      "subjectCode": "01242141-67",
+      "subjectName": "พื้นฐานคณิตศาสตร์และกลศาสตร์เพื่อการออกแบบ",
+      "relevanceScore": 0,
+      "reason": "Course covers math and mechanics for product design, unrelated to event design and decoration."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course about presentation and teamwork, no direct relation to event design and decoration."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 1,
+      "reason": "Course on computer-aided product design may marginally relate to event decoration design but not focused on event design."
+    },
+    {
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "relevanceScore": 1,
+      "reason": "Course on landscape architecture design may have some relevance to spatial design but not specifically event design and decoration."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 0,
+      "reason": "Advertising principles course unrelated to event design and decoration."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Digital citizenship course unrelated to event design and decoration."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course on beverage preparation unrelated to event design and decoration."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.5454545454545454,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 54.54545454545455,
+        "microAverageRate": 54.54545454545455,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 36.36363636363637,
+        "microAverageRate": 36.36363636363637,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.682,
+        "at10": 0.846,
+        "at15": 0.846,
+        "atAll": 0.846
+      },
+      "ideal": {
+        "at5": 0.304,
+        "at10": 0.245,
+        "at15": 0.19,
+        "atAll": 0.231
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.091,
+      "atAll": 0.091
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1844,
+  "outputTokens": 366
+}

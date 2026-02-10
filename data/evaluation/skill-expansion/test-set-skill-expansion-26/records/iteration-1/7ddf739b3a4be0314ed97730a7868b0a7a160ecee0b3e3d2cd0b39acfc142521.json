@@ -1,0 +1,98 @@
+{
+  "queryLogId": "b3460fa2-c348-4748-b583-4b042886e0ca",
+  "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+  "comparison": {
+    "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+    "skills": [
+      {
+        "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+        "systemSkill": "การประกอบคอมพิวเตอร์",
+        "systemReason": "ตรงกับความต้องการของผู้ใช้ที่อยากประกอบคอมพิวเตอร์เอง",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Direct concept match — practical university-level lab competency in PC building and hardware assembly.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+        "systemSkill": "ฮาร์ดแวร์คอมพิวเตอร์",
+        "systemReason": "เพื่อเข้าใจส่วนประกอบและการทำงานของอุปกรณ์ต่างๆ ในคอมพิวเตอร์",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid academic/technical topic covering components and architecture; teachable and assessable.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+        "systemSkill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+        "systemReason": "จำเป็นต้องรู้วิธีติดตั้งระบบปฏิบัติการหลังจากประกอบคอมพิวเตอร์",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Appropriate technical competency (OS installation/configuration); common course outcome and assessable.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+        "systemSkill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+        "systemReason": "ช่วยให้สามารถแก้ไขปัญหาที่เกิดขึ้นระหว่างหรือหลังการประกอบคอมพิวเตอร์",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid troubleshooting/diagnostics skill; teachable and relevant to assembling and maintaining PCs.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+        "systemSkill": "ความปลอดภัยของข้อมูลและระบบ",
+        "systemReason": "เพื่อปกป้องข้อมูลและระบบคอมพิวเตอร์หลังจากประกอบเสร็จ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Relevant university-level subject on protecting systems and data; complements hardware/installation skills.",
+        "agreementType": "AGREE"
+      }
+    ],
+    "overall": {
+      "conceptPreserved": true,
+      "agreementCount": 5,
+      "disagreementCount": 0,
+      "totalSkills": 5
+    }
+  },
+  "judgeResult": {
+    "result": {
+      "skills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "verdict": "PASS",
+          "note": "Direct concept match — practical university-level lab competency in PC building and hardware assembly."
+        },
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "verdict": "PASS",
+          "note": "Valid academic/technical topic covering components and architecture; teachable and assessable."
+        },
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "verdict": "PASS",
+          "note": "Appropriate technical competency (OS installation/configuration); common course outcome and assessable."
+        },
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "verdict": "PASS",
+          "note": "Valid troubleshooting/diagnostics skill; teachable and relevant to assembling and maintaining PCs."
+        },
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "verdict": "PASS",
+          "note": "Relevant university-level subject on protecting systems and data; complements hardware/installation skills."
+        }
+      ],
+      "overall": {
+        "conceptPreserved": true,
+        "summary": "All listed skills are appropriate university-level competencies relevant to learning how to assemble and maintain a computer; the first item directly preserves the user's core intent."
+      }
+    },
+    "tokenUsage": [
+      {
+        "model": "openai/gpt-5-mini",
+        "inputTokens": 727,
+        "outputTokens": 704
+      }
+    ]
+  },
+  "evaluatedAt": "2026-01-26T08:13:52.528Z"
+}

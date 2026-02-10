@@ -4,9 +4,11 @@ services:
       context: .
       target: runtime-dev
     container_name: career-skill-aligner-app-dev
-    env_file: .env
+    env_file:
+      - .env.docker.local
     ports:
-      - '3001:3001'
+      - '3001:3001' # main app
+      - '5555:5555' # for prisma studio
     volumes:
       - ./src:/app/src # live code onlymount for development
     depends_on:
@@ -16,7 +18,7 @@ services:
       - app-network
 
   db:
-    image: postgres:16-alpine
+    image: pgvector/pgvector:pg16
     container_name: career-skill-aligner-db-dev
     environment:
       POSTGRES_DB: appdb
@@ -25,7 +27,7 @@ services:
     volumes:
       - pgdata_dev:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - '5433:5432' # Avoid using 5432 to prevent conflicts with local installations
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U user -d appdb']
       interval: 5s
@@ -34,8 +36,28 @@ services:
     networks:
       - app-network
 
+  test-db:
+    image: pgvector/pgvector:pg16
+    container_name: career-skill-aligner-db-test
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpassword123
+    volumes:
+      - pgdata_test:/var/lib/postgresql/data
+    ports:
+      - '5434:5432' # Different port for test database
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U testuser -d testdb']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks:
+      - app-network
+
 volumes:
   pgdata_dev:
+  pgdata_test:
 
 networks:
   app-network:

@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "75dd76dc-b23f-4728-b9a4-09621f52a26b-วิศวกรรมปิโตรเลียม"
+  ],
+  "skill": "วิศวกรรมปิโตรเลียม",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Course is a thesis-focused course with general research skills, not specifically related to petroleum engineering."
+    },
+    {
+      "subjectCode": "01202525-66",
+      "subjectName": "การออกแบบและประเมินผลกระบวนการ",
+      "relevanceScore": 1,
+      "reason": "Design and evaluation processes are discussed, but not specifically in the context of petroleum engineering."
+    },
+    {
+      "subjectCode": "01254461-65",
+      "subjectName": "หลักวิศวกรรมทางผลิตภัณฑ์ประมง",
+      "relevanceScore": 0,
+      "reason": "Marine engineering principles are unrelated to petroleum engineering."
+    },
+    {
+      "subjectCode": "03503321-65",
+      "subjectName": "โครงสร้างเรือและการทรงตัว",
+      "relevanceScore": 0,
+      "reason": "Ship structure and stability are not directly related to petroleum engineering."
+    },
+    {
+      "subjectCode": "02201598-66",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Civil engineering statistics are not relevant to petroleum engineering."
+    },
+    {
+      "subjectCode": "02034111-66",
+      "subjectName": "ปริทัศน์เทคโนโลยีชีวภาพทางการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Biotechnology in agriculture does not relate to petroleum engineering."
+    },
+    {
+      "subjectCode": "03601596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมไฟฟ้าและอิเล็กทรอนิกส์",
+      "relevanceScore": 0,
+      "reason": "Electrical and electronics engineering topics are not relevant."
+    },
+    {
+      "subjectCode": "02232181-66",
+      "subjectName": "ความน่าจะเป็นและสถิติสำหรับวิศวกรรมโยธา",
+      "relevanceScore": 0,
+      "reason": "Statistics for civil engineering do not pertain to petroleum engineering."
+    },
+    {
+      "subjectCode": "02034111-66",
+      "subjectName": "ปริทัศน์เทคโนโลยีชีวภาพทางการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Biotechnology in agriculture is unrelated."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Engineering drawing skills are not specific to petroleum engineering."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 2,
+      "reason": "Processing engineering is a component of petroleum engineering, providing some relevant technical knowledge."
+    },
+    {
+      "subjectCode": "03652376-66",
+      "subjectName": "เคมีอินทรีย์อุตสาหกรรม",
+      "relevanceScore": 0,
+      "reason": "Organic chemistry in industry is not directly related to petroleum engineering."
+    },
+    {
+      "subjectCode": "01420452-66",
+      "subjectName": "ฟิสิกส์ของสภาวะแวดล้อม",
+      "relevanceScore": 0,
+      "reason": "Environmental physics is not specific to petroleum engineering."
+    },
+    {
+      "subjectCode": "02232241-66",
+      "subjectName": "เศรษฐศาสตร์สำหรับวิศวกรรมโยธา",
+      "relevanceScore": 2,
+      "reason": "Engineering economics is relevant as it can be applied in petroleum project evaluations."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.35714285714285715,
+    "totalRelevanceSum": 5,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 11,
+        "macroAverageRate": 78.57142857142857,
+        "microAverageRate": 78.57142857142857,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.168,
+        "at10": 0.168,
+        "at15": 0.452,
+        "atAll": 0.452
+      },
+      "ideal": {
+        "at5": 0.071,
+        "at10": 0.046,
+        "at15": 0.097,
+        "atAll": 0.101
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.1,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.214,
+        "threshold2": 0.143,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.214,
+        "threshold2": 0.143,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2730,
+  "outputTokens": 465
+}

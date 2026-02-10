@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การจัดการหนี้สิน"
+  ],
+  "skill": "การจัดการหนี้สิน",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "The course focuses on strategic management accounting principles and decision-making, but does not specifically address debt management."
+    },
+    {
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "relevanceScore": 2,
+      "reason": "Includes learning outcomes related to recording liabilities and presenting financial statements, which are relevant to debt management, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 1,
+      "reason": "Covers asset accounting and valuation, with no specific mention of debt management."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 3,
+      "reason": "Explicitly discusses the importance of managerial accounting in strategic management, including calculating costs and preparing reports, which can encompass debt management as part of financial strategy."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 0,
+      "reason": "Focuses on airline finance and operational issues, not on debt management."
+    },
+    {
+      "subjectCode": "03651332-65",
+      "subjectName": "คณิตศาสตร์ประกันวินาศภัย",
+      "relevanceScore": 0,
+      "reason": "Deals with insurance mathematics, not related to debt management."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Includes financial analysis and cost calculation, which are relevant to debt management, but not the main focus."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "Covers profit planning and control, which can involve debt considerations, but debt management is not explicitly emphasized."
+    },
+    {
+      "subjectCode": "03764426-64",
+      "subjectName": "การจัดการความเสี่ยงโซ่อุปทาน",
+      "relevanceScore": 0,
+      "reason": "Focuses on supply chain risk management, unrelated to debt management."
+    },
+    {
+      "subjectCode": "02802211-67",
+      "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+      "relevanceScore": 2,
+      "reason": "Addresses financial planning and control in service businesses, which may include debt management aspects, but not explicitly."
+    },
+    {
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "relevanceScore": 2,
+      "reason": "Includes internal control and risk management, which can relate to debt management, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 0,
+      "reason": "Focuses on international accounting standards, not on debt management."
+    },
+    {
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "relevanceScore": 0,
+      "reason": "Covers organizational and management principles, not specifically debt management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.1538461538461537,
+    "totalRelevanceSum": 15,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 38.46153846153846,
+        "microAverageRate": 38.46153846153846,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 38.46153846153846,
+        "microAverageRate": 38.46153846153846,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.588,
+        "at10": 0.718,
+        "at15": 0.786,
+        "atAll": 0.786
+      },
+      "ideal": {
+        "at5": 0.458,
+        "at10": 0.435,
+        "at15": 0.369,
+        "atAll": 0.404
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.5,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.615,
+        "threshold2": 0.462,
+        "threshold3": 0.077
+      },
+      "atAll": {
+        "threshold1": 0.615,
+        "threshold2": 0.462,
+        "threshold3": 0.077
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2310,
+  "outputTokens": 599
+}

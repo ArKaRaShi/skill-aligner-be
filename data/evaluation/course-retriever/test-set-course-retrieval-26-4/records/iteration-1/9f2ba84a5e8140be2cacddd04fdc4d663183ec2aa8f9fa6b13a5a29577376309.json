@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)"
+  ],
+  "skill": "การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 2,
+      "reason": "Course includes using digital technology to design and create digital works, which relates to creative digital tools but not specifically Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 1,
+      "reason": "Focuses on computer programs for music composition, mentioning technology use but not specifically creative digital tools like Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "relevanceScore": 3,
+      "reason": "Explicitly covers use of computer application programs and tools to create multimedia works, directly relevant to using creative digital tools such as Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 2,
+      "reason": "Mentions using digital technology appropriately for music creation, indicating some use of creative digital tools but not comprehensive coverage."
+    },
+    {
+      "subjectCode": "03600014-67",
+      "subjectName": "การแก้ปัญหาเชิงสร้างสรรค์และทักษะการคิดเชิงวิพากษ์",
+      "relevanceScore": 1,
+      "reason": "Mentions selecting tools/processes for creative problem solving but does not specify digital creative tools."
+    },
+    {
+      "subjectCode": "01241412-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม VI",
+      "relevanceScore": 2,
+      "reason": "Includes presenting design work using digital media appropriately, implying some use of digital creative tools but not focused on them."
+    },
+    {
+      "subjectCode": "01241313-66",
+      "subjectName": "การออกแบบร่างองค์ประกอบงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 2,
+      "reason": "Similar to above, includes presenting design work using digital media appropriately, indicating some relevance."
+    },
+    {
+      "subjectCode": "01241312-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 2,
+      "reason": "Also includes presenting design work using digital media appropriately, showing some relevance to digital creative tools."
+    },
+    {
+      "subjectCode": "02182511-67",
+      "subjectName": "การออกแบบการเรียนรู้ขั้นสูงและการคิดสร้างสรรค์นวัตกรรม",
+      "relevanceScore": 1,
+      "reason": "Mentions using tools to help design and produce innovations but does not specify creative digital tools like Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 3,
+      "reason": "Focuses on using 2D and 3D design software programs, directly relevant to using creative digital tools such as Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 1,
+      "reason": "Focuses on designing technology-based products and prototypes, but no explicit mention of creative digital tools."
+    },
+    {
+      "subjectCode": "03610111-66",
+      "subjectName": "เปิดโลกวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ",
+      "relevanceScore": 0,
+      "reason": "Focuses on AI and digital electronics, no mention of creative digital tools like Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 3,
+      "reason": "Focuses on creating digital media works to tell stories with images, directly relevant to using creative digital tools such as Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "01058111-68",
+      "subjectName": "หลักนวัตกรรมอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural industry innovation and technology, no mention of creative digital tools."
+    },
+    {
+      "subjectCode": "03610226-66",
+      "subjectName": "การปฏิบัติงานทางวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ II",
+      "relevanceScore": 0,
+      "reason": "Focuses on engineering digital and electronic tools, no mention of creative digital tools like Adobe Creative Suite."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1.5333333333333334,
+    "totalRelevanceSum": 23,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 26.666666666666668,
+        "microAverageRate": 26.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.67,
+        "at10": 0.805,
+        "at15": 0.861,
+        "atAll": 0.861
+      },
+      "ideal": {
+        "at5": 0.608,
+        "at10": 0.628,
+        "at15": 0.547,
+        "atAll": 0.547
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.7,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.8,
+        "threshold2": 0.533,
+        "threshold3": 0.2
+      },
+      "atAll": {
+        "threshold1": 0.8,
+        "threshold2": 0.533,
+        "threshold3": 0.2
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2793,
+  "outputTokens": 555
+}

@@ -1,0 +1,57 @@
+{
+  "totalLowQuality": 1,
+  "totalSamples": 1,
+  "lowQualityRate": 1,
+  "byFaithfulnessReason": {
+    "completelyFalse": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 1: Completely False (hallucinations or contradicts context)",
+      "examples": []
+    },
+    "mostlyFalse": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 2: Mostly False (major factual errors)",
+      "examples": []
+    },
+    "mixed": {
+      "count": 1,
+      "percentage": 1,
+      "description": "Score 3: Mixed (some supported facts, some hallucinations)",
+      "examples": [
+        {
+          "queryLogId": "fbf0dcb4-caa9-4c3e-9d1e-0334f802b2f9",
+          "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+          "overallScore": 4,
+          "judgeReasoning": "Mixed. The answer largely stays within the provided context and does not invent outside courses; most course-to-skill attributions match Section 1 mapped skills (e.g., พฤติกรรมผู้รับสาร → การวิเคราะห์ข้อมูลผู้ชม; การภาพยนตร์เบื้องต้น & การผลิตภาพยนตร์ดิจิทัล → การสร้างเนื้อหาวิดีโอ/การตัดต่อวิดีโอ; หลักนิเทศศาสตร์/เทคโนโลยีสารสนเทศฯ → การใช้สื่อสังคมออนไลน์). However, there is a notable misattribution: เล่าเรื่องด้วยภาพ (01350102-67) is presented under “การสร้างเนื้อหาวิดีโอ/การตัดต่อวิดีโอ” in the answer, but Section 1 for that course only lists the mapped skill การใช้สื่อสังคมออนไลน์ (the content-creation evidence appears in Section 2 LOs). Per the required existence check (Section 1), that grouping is a partial mismatch, so the answer is mixed (some supported claims, one or more attributions not strictly aligned with Section 1)."
+        }
+      ]
+    }
+  },
+  "byCompletenessReason": {
+    "fail": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 1: Fail (just lists codes, or says none found when valid options exist)",
+      "examples": []
+    },
+    "weak": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 2: Weak (very little context or explanation)",
+      "examples": []
+    },
+    "descriptiveOnly": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 3: Descriptive Only (lists facts, doesn't explain value to user)",
+      "examples": []
+    }
+  },
+  "insights": {
+    "systemStrength": "No complete hallucinations; No major factual errors; All answers provide some explanation; Good explanatory bridging",
+    "systemWeakness": "Frequently mixes supported facts with hallucinations",
+    "recommendation": "Reduce partial hallucinations by requiring all claims to be context-supported."
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "testCaseId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การตลาดสำหรับธุรกิจปศุสัตว์",
+  "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+  "skill": "การตลาดสำหรับธุรกิจปศุสัตว์",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "relevanceScore": 1,
+      "reason": "Course includes basic business planning for pet animals but does not focus on marketing for livestock business specifically."
+    },
+    {
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Covers AI applications related to livestock production planning but does not address marketing aspects."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 2,
+      "reason": "Covers marketing principles and processes generally, which are relevant to marketing skills but not specific to livestock business."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Focuses on research presentation and animal nutrition, no marketing content."
+    },
+    {
+      "subjectCode": "01025333-64",
+      "subjectName": "ปฏิบัติการเกษตรเขตร้อน",
+      "relevanceScore": 0,
+      "reason": "Focuses on tropical agriculture practices and animal production skills, no marketing content."
+    },
+    {
+      "subjectCode": "02033391-64",
+      "subjectName": "การวิจัยทางสัตว์",
+      "relevanceScore": 0,
+      "reason": "Focuses on animal research methods and statistics, no marketing content."
+    },
+    {
+      "subjectCode": "01002111-68",
+      "subjectName": "วิทยาศาสตร์และเทคโนโลยีด้านสัตว์",
+      "relevanceScore": 0,
+      "reason": "Focuses on animal science and technology, no marketing content."
+    },
+    {
+      "subjectCode": "01023522-68",
+      "subjectName": "อุตสาหกรรมอาหารสัตว์เลี้ยง",
+      "relevanceScore": 0,
+      "reason": "Focuses on pet food industry and nutrition, no marketing content."
+    },
+    {
+      "subjectCode": "01023599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Focuses on animal nutrition research thesis, no marketing content."
+    },
+    {
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "relevanceScore": 3,
+      "reason": "Directly covers marketing strategies and principles for agricultural and food businesses, highly relevant to marketing for livestock business."
+    },
+    {
+      "subjectCode": "01004101-67",
+      "subjectName": "แมลงพารวย",
+      "relevanceScore": 0,
+      "reason": "Focuses on economic role of insects, no marketing content related to livestock business."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 0,
+      "reason": "Focuses on business intelligence and data systems, no marketing content specific to livestock business."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 2,
+      "reason": "Covers marketing management skills and planning generally, relevant but not specific to livestock business."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Focuses on marketing and pricing strategies for beverage business, marginally relevant as it covers marketing strategy but not livestock business."
+    },
+    {
+      "subjectCode": "01603446-65",
+      "subjectName": "การบริหารธุรกิจสัตว์เลี้ยงและโรงพยาบาลสัตว์",
+      "relevanceScore": 2,
+      "reason": "Covers business administration and competitive marketing aspects for pet and animal hospital business, fairly relevant to marketing in animal-related business."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0.8,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 53.333333333333336,
+        "microAverageRate": 53.333333333333336,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.404,
+        "at10": 0.486,
+        "at15": 0.664,
+        "atAll": 0.664
+      },
+      "ideal": {
+        "at5": 0.297,
+        "at10": 0.257,
+        "at15": 0.272,
+        "atAll": 0.272
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.2,
+      "at15": 0.267,
+      "atAll": 0.267
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2808,
+  "outputTokens": 485
+}

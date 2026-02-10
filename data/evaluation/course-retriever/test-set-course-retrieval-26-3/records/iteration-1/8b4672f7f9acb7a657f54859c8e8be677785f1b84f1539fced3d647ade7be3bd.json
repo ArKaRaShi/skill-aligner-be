@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "3ef3d308-ac42-453e-bce7-bb7376046c41-การสร้างเนื้อหาวิดีโอ"
+  ],
+  "skill": "การสร้างเนื้อหาวิดีโอ",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 2,
+      "reason": "สร้างชิ้นงานสื่อดิจิทัลเพื่อนำเสนอเหตุการณ์และเล่าเรื่องราวด้วยภาพ ซึ่งเกี่ยวข้องกับการสร้างเนื้อหาวิดีโอ แต่เน้นที่ภาพเป็นสื่อกลางมากกว่าการสร้างวิดีโอโดยตรง"
+    },
+    {
+      "subjectCode": "01352261-66",
+      "subjectName": "การภาพยนตร์เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "เน้นการอธิบายพัฒนาการและวิธีการเล่าเรื่องในภาพยนตร์ แต่ไม่ได้เน้นการสร้างเนื้อหาวิดีโอโดยตรง"
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "เน้นการเรียบเรียงข้อมูลและการนำเสนอ ซึ่งอาจรวมถึงการสร้างเนื้อหา แต่ไม่เฉพาะเจาะจงเกี่ยวกับการสร้างวิดีโอ"
+    },
+    {
+      "subjectCode": "01352362-66",
+      "subjectName": "การผลิตภาพยนตร์ดิจิทัล",
+      "relevanceScore": 3,
+      "reason": "สามารถผลิตภาพยนตร์ได้ ซึ่งเป็นการสร้างเนื้อหาวิดีโอโดยตรงและเป็นหัวใจของทักษะนี้"
+    },
+    {
+      "subjectCode": "01352251-66",
+      "subjectName": "การกระจายเสียงและภาพเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "เน้นการสร้างเนื้อหาสื่อภาพและเสียง ซึ่งเกี่ยวข้องกับการสร้างวิดีโอ แต่ไม่ได้เป็นหัวข้อหลัก"
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 1,
+      "reason": "เน้นการสร้างสรรค์ผลงานเสียงและเทคโนโลยี แต่ไม่เน้นการสร้างวิดีโอโดยตรง"
+    },
+    {
+      "subjectCode": "02738361-66",
+      "subjectName": "ชีววิทยาโมเลกุลเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "เน้นชีววิทยาโมเลกุลและการนำเสนอด้วยวิดีโอเป็นตัวอย่าง แต่ไม่เกี่ยวข้องกับการสร้างเนื้อหาวิดีโอในเชิงสร้างสรรค์"
+    },
+    {
+      "subjectCode": "01058497-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "เน้นการสื่อสารและการทำสื่อการนำเสนอ ซึ่งอาจรวมถึงวิดีโอ แต่ไม่ใช่หัวข้อหลัก"
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 0,
+      "reason": "เน้นการวิเคราะห์และสร้างภาพข้อมูล ไม่เกี่ยวข้องกับการสร้างเนื้อหาวิดีโอ"
+    },
+    {
+      "subjectCode": "01396231-67",
+      "subjectName": "การเขียนภาษาจีนเพื่อการสื่อสาร",
+      "relevanceScore": 0,
+      "reason": "เน้นการเขียนภาษาจีนและการสื่อสารด้วยคำศัพท์ ไม่เกี่ยวข้องกับการสร้างวิดีโอ"
+    },
+    {
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "relevanceScore": 1,
+      "reason": "เน้นการออกแบบภาพและวัตถุ รวมถึงการสื่อสารด้วยภาพ แต่ไม่เน้นการสร้างวิดีโอ"
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 1.0909090909090908,
+    "totalRelevanceSum": 12,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 45.45454545454545,
+        "microAverageRate": 45.45454545454545,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.855,
+        "at10": 0.828,
+        "at15": 0.868,
+        "atAll": 0.868
+      },
+      "ideal": {
+        "at5": 0.588,
+        "at10": 0.43,
+        "at15": 0.35,
+        "atAll": 0.425
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.727,
+        "threshold2": 0.273,
+        "threshold3": 0.091
+      },
+      "atAll": {
+        "threshold1": 0.727,
+        "threshold2": 0.273,
+        "threshold3": 0.091
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1952,
+  "outputTokens": 694
+}

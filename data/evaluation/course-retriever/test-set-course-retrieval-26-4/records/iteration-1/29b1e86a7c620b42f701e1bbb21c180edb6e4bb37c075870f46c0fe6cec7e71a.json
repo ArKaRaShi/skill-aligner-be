@@ -1,0 +1,192 @@
+{
+  "questionIds": [
+    "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม"
+  ],
+  "skill": "พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม",
+  "retrievedCount": 18,
+  "evaluations": [
+    {
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "relevanceScore": 3,
+      "reason": "Course focuses on Chinese linguistics, covering theories and research in Chinese linguistics, directly addressing the Chinese linguistics foundation part of the skill."
+    },
+    {
+      "subjectCode": "01362112-63",
+      "subjectName": "ภาษาจีนพื้นฐาน II",
+      "relevanceScore": 1,
+      "reason": "Basic Chinese communication skills are taught, but no explicit focus on linguistic foundations."
+    },
+    {
+      "subjectCode": "01399101-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร I",
+      "relevanceScore": 1,
+      "reason": "Vietnamese communication skills are taught, but no explicit mention of linguistic foundations."
+    },
+    {
+      "subjectCode": "01399103-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร III",
+      "relevanceScore": 1,
+      "reason": "Similar to previous Vietnamese communication courses, focuses on language use, not linguistic foundations."
+    },
+    {
+      "subjectCode": "01399102-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร II",
+      "relevanceScore": 1,
+      "reason": "Same as above, focuses on communication skills without linguistic theory."
+    },
+    {
+      "subjectCode": "01362111-68",
+      "subjectName": "ภาษาจีนพื้นฐาน I",
+      "relevanceScore": 1,
+      "reason": "Basic Chinese grammar is explained, which is a minor part of linguistic foundation, but not comprehensive."
+    },
+    {
+      "subjectCode": "01396141-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Focuses on business Chinese conversation and pronunciation, no linguistic foundation content."
+    },
+    {
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "relevanceScore": 1,
+      "reason": "Focus on pronunciation, writing, and usage of Chinese, but no explicit linguistic theory or foundation."
+    },
+    {
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "relevanceScore": 1,
+      "reason": "Similar to above, focuses on language skills, not linguistic foundations."
+    },
+    {
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "relevanceScore": 1,
+      "reason": "Same as above."
+    },
+    {
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "relevanceScore": 1,
+      "reason": "Same as above."
+    },
+    {
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "relevanceScore": 1,
+      "reason": "Same as above."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 1,
+      "reason": "Includes analysis of grammar structure in business Chinese, a minor linguistic component but not comprehensive."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 1,
+      "reason": "Same as above, minor linguistic analysis in business context."
+    },
+    {
+      "subjectCode": "01396281-67",
+      "subjectName": "ภาษาจีนเชิงสังคมและวัฒนธรรม",
+      "relevanceScore": 1,
+      "reason": "Focuses on social and cultural Chinese language use, no explicit linguistic foundation content."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Focuses on business conversation and culture, no linguistic foundation content."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Same as above."
+    },
+    {
+      "subjectCode": "01396111-67",
+      "subjectName": "ภาษาจีนธุรกิจ I",
+      "relevanceScore": 1,
+      "reason": "Basic business Chinese language skills including pinyin and characters, minor linguistic elements but not comprehensive."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 18,
+    "meanRelevanceScore": 0.9444444444444444,
+    "totalRelevanceSum": 17,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 14,
+        "macroAverageRate": 77.77777777777777,
+        "microAverageRate": 77.77777777777777,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 5.555555555555555,
+        "microAverageRate": 5.555555555555555,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 0.949,
+        "at15": 0.958,
+        "atAll": 0.988
+      },
+      "ideal": {
+        "at5": 0.559,
+        "at10": 0.456,
+        "at15": 0.428,
+        "atAll": 0.393
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.2,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.9,
+        "threshold2": 0.1,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.933,
+        "threshold2": 0.067,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.833,
+        "threshold2": 0.056,
+        "threshold3": 0.056
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2367,
+  "outputTokens": 519
+}

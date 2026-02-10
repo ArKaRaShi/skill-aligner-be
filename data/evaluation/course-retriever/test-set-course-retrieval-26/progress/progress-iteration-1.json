@@ -1,0 +1,1847 @@
+{
+  "testSetName": "test-set-course-retrieval-26",
+  "iterationNumber": 1,
+  "entries": [
+    {
+      "hash": "4ae712d56352130fa02fe9106332b8b596381eebfa7a9969b2e1806fc603111c",
+      "dedupeKey": "การบริหารการเงินส่วนบุคคล-4ae712d56352130fa02fe9106332b8b596381eebfa7a9969b2e1806fc603111c",
+      "skill": "การบริหารการเงินส่วนบุคคล",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การบริหารการเงินส่วนบุคคล"
+      ],
+      "completedAt": "2026-01-26T14:37:59.624Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.5384615384615384
+      }
+    },
+    {
+      "hash": "c4e5315b946237aa06bd4387f2bc8b618e29bcdc3a8a44e0b482678ced819198",
+      "dedupeKey": "การวางแผนการเงิน-c4e5315b946237aa06bd4387f2bc8b618e29bcdc3a8a44e0b482678ced819198",
+      "skill": "การวางแผนการเงิน",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การวางแผนการเงิน"
+      ],
+      "completedAt": "2026-01-26T14:38:09.474Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.3076923076923077
+      }
+    },
+    {
+      "hash": "6b66026b475075945cdb06d4f3cdc291f0f78c707d711b524454a99baa989972",
+      "dedupeKey": "การจัดทำงบประมาณส่วนบุคคล-6b66026b475075945cdb06d4f3cdc291f0f78c707d711b524454a99baa989972",
+      "skill": "การจัดทำงบประมาณส่วนบุคคล",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การจัดทำงบประมาณส่วนบุคคล"
+      ],
+      "completedAt": "2026-01-26T14:38:00.250Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0.3333333333333333
+      }
+    },
+    {
+      "hash": "ec4ce6df45809577af25ba86e6392bc0c3ab771227b1c740b82574872a864dcb",
+      "dedupeKey": "การลงทุนเบื้องต้น-ec4ce6df45809577af25ba86e6392bc0c3ab771227b1c740b82574872a864dcb",
+      "skill": "การลงทุนเบื้องต้น",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การลงทุนเบื้องต้น"
+      ],
+      "completedAt": "2026-01-26T14:38:16.413Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.1538461538461537
+      }
+    },
+    {
+      "hash": "6e17a3a1fcd4ce3374510dabd8ddce90a3acb6381630c46f1b451bdba9f69b00",
+      "dedupeKey": "การจัดการหนี้สิน-6e17a3a1fcd4ce3374510dabd8ddce90a3acb6381630c46f1b451bdba9f69b00",
+      "skill": "การจัดการหนี้สิน",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การจัดการหนี้สิน"
+      ],
+      "completedAt": "2026-01-26T14:38:16.879Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.6153846153846154
+      }
+    },
+    {
+      "hash": "2a29027614753891202b7962a3d81e8f6edad47eac42bbf7571f2e9f9fde229f",
+      "dedupeKey": "การสร้างแบรนด์-2a29027614753891202b7962a3d81e8f6edad47eac42bbf7571f2e9f9fde229f",
+      "skill": "การสร้างแบรนด์",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การสร้างแบรนด์"
+      ],
+      "completedAt": "2026-01-26T14:38:16.454Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.5384615384615384
+      }
+    },
+    {
+      "hash": "b4e56ac597a7290e92b2e67cbe703a64a9510af0c862b94a344b5bfaf4c08a2b",
+      "dedupeKey": "การตลาด-b4e56ac597a7290e92b2e67cbe703a64a9510af0c862b94a344b5bfaf4c08a2b",
+      "skill": "การตลาด",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การตลาด"
+      ],
+      "completedAt": "2026-01-26T14:38:25.772Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 2.25
+      }
+    },
+    {
+      "hash": "85946bd64abec2f76d45065ed0c0ce26e6f2a6d1b80f48bdb2f770459503c948",
+      "dedupeKey": "การวางแผนกลยุทธ์ธุรกิจ-85946bd64abec2f76d45065ed0c0ce26e6f2a6d1b80f48bdb2f770459503c948",
+      "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การวางแผนกลยุทธ์ธุรกิจ"
+      ],
+      "completedAt": "2026-01-26T14:38:23.478Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 2
+      }
+    },
+    {
+      "hash": "864d2e0385afeab868bad4e996effe5df01f49b2eda209f63397fad91cb87a98",
+      "dedupeKey": "การออกแบบกราฟิก-864d2e0385afeab868bad4e996effe5df01f49b2eda209f63397fad91cb87a98",
+      "skill": "การออกแบบกราฟิก",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การออกแบบกราฟิก"
+      ],
+      "completedAt": "2026-01-26T14:38:22.960Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 0.9166666666666666
+      }
+    },
+    {
+      "hash": "4109f9d6d66502a63bdfef5640deceefd27621fab816b6bf1d107f65629f8a89",
+      "dedupeKey": "การสื่อสารการตลาด-4109f9d6d66502a63bdfef5640deceefd27621fab816b6bf1d107f65629f8a89",
+      "skill": "การสื่อสารการตลาด",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การสื่อสารการตลาด"
+      ],
+      "completedAt": "2026-01-26T14:38:33.165Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 0.8333333333333334
+      }
+    },
+    {
+      "hash": "abaf05d4c7eaaf1b0c93b787deae3c134fce863d5c1d73a44dfb11c230a992bb",
+      "dedupeKey": "การวิเคราะห์งบการเงิน-abaf05d4c7eaaf1b0c93b787deae3c134fce863d5c1d73a44dfb11c230a992bb",
+      "skill": "การวิเคราะห์งบการเงิน",
+      "testCases": [
+        "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การวิเคราะห์งบการเงิน"
+      ],
+      "completedAt": "2026-01-26T14:38:34.738Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.5384615384615385
+      }
+    },
+    {
+      "hash": "5a92d27ca9de10bea4ba0df0188c5e556d8b41c1f9c6294fbac6eae72c16bd94",
+      "dedupeKey": "การบัญชีเบื้องต้น-5a92d27ca9de10bea4ba0df0188c5e556d8b41c1f9c6294fbac6eae72c16bd94",
+      "skill": "การบัญชีเบื้องต้น",
+      "testCases": [
+        "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การบัญชีเบื้องต้น"
+      ],
+      "completedAt": "2026-01-26T14:38:34.810Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.1538461538461537
+      }
+    },
+    {
+      "hash": "d8b91870de8300052cb60abed3105b70d968ee97024899dbfceb2b0698ab2229",
+      "dedupeKey": "การตีความข้อมูลทางการเงิน-d8b91870de8300052cb60abed3105b70d968ee97024899dbfceb2b0698ab2229",
+      "skill": "การตีความข้อมูลทางการเงิน",
+      "testCases": [
+        "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การตีความข้อมูลทางการเงิน"
+      ],
+      "completedAt": "2026-01-26T14:38:44.871Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 1.2142857142857142
+      }
+    },
+    {
+      "hash": "8bfc47f2871e320b6e269e51f3e548b14fc94d04bd996f7400e38f0035124020",
+      "dedupeKey": "การวางแผนการเงินและงบประมาณ-8bfc47f2871e320b6e269e51f3e548b14fc94d04bd996f7400e38f0035124020",
+      "skill": "การวางแผนการเงินและงบประมาณ",
+      "testCases": [
+        "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การวางแผนการเงินและงบประมาณ"
+      ],
+      "completedAt": "2026-01-26T14:38:43.338Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 1.6428571428571428
+      }
+    },
+    {
+      "hash": "5e62e13b911b51b8e69eee91dcd913687d1784c0f6d3a637de123bfe1d5162f7",
+      "dedupeKey": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน-5e62e13b911b51b8e69eee91dcd913687d1784c0f6d3a637de123bfe1d5162f7",
+      "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+      "testCases": [
+        "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน"
+      ],
+      "completedAt": "2026-01-26T14:38:48.911Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 1.6
+      }
+    },
+    {
+      "hash": "0eb6d13ab04d098f241b8bb5f0a589437eb164254cf9eb758f7a8e3383eb402f",
+      "dedupeKey": "การเขียนโปรแกรมเชิงวัตถุ-0eb6d13ab04d098f241b8bb5f0a589437eb164254cf9eb758f7a8e3383eb402f",
+      "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+      "testCases": [
+        "cd96176f-8e18-4270-9c76-8c6b1cf19594-การเขียนโปรแกรมเชิงวัตถุ",
+        "be573eca-6596-418a-888d-f4f0c0d5651d-การเขียนโปรแกรมเชิงวัตถุ"
+      ],
+      "completedAt": "2026-01-26T14:38:55.052Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 0.4166666666666667
+      }
+    },
+    {
+      "hash": "3a76ed5eb336fe2906184f956153c378ed484a8b9425b16d21dba8099285c04d",
+      "dedupeKey": "การออกแบบซอฟต์แวร์-3a76ed5eb336fe2906184f956153c378ed484a8b9425b16d21dba8099285c04d",
+      "skill": "การออกแบบซอฟต์แวร์",
+      "testCases": [
+        "cd96176f-8e18-4270-9c76-8c6b1cf19594-การออกแบบซอฟต์แวร์"
+      ],
+      "completedAt": "2026-01-26T14:38:54.868Z",
+      "result": {
+        "retrievedCount": 9,
+        "meanRelevanceScore": 0.4444444444444444
+      }
+    },
+    {
+      "hash": "3591257dea9abd3cee59f4dda10044027494166e2d8f4de1afc5b8664789aa60",
+      "dedupeKey": "ภาษาโปรแกรมเชิงวัตถุ-3591257dea9abd3cee59f4dda10044027494166e2d8f4de1afc5b8664789aa60",
+      "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+      "testCases": [
+        "cd96176f-8e18-4270-9c76-8c6b1cf19594-ภาษาโปรแกรมเชิงวัตถุ"
+      ],
+      "completedAt": "2026-01-26T14:38:55.733Z",
+      "result": {
+        "retrievedCount": 17,
+        "meanRelevanceScore": 0.35294117647058826
+      }
+    },
+    {
+      "hash": "de592e28aee8fbdcad7dd8e7a768804dfc75f420d1819a32ddcd1a4a5fc3ace4",
+      "dedupeKey": "การวิเคราะห์และออกแบบระบบ-de592e28aee8fbdcad7dd8e7a768804dfc75f420d1819a32ddcd1a4a5fc3ace4",
+      "skill": "การวิเคราะห์และออกแบบระบบ",
+      "testCases": [
+        "cd96176f-8e18-4270-9c76-8c6b1cf19594-การวิเคราะห์และออกแบบระบบ"
+      ],
+      "completedAt": "2026-01-26T14:39:05.249Z",
+      "result": {
+        "retrievedCount": 17,
+        "meanRelevanceScore": 0.6470588235294118
+      }
+    },
+    {
+      "hash": "e2bab76a2a3ea883db9d86c5f9b97c46f71e2056e9206d30227a90e2e592ad2b",
+      "dedupeKey": "การจัดการคลาสและอ็อบเจ็กต์-e2bab76a2a3ea883db9d86c5f9b97c46f71e2056e9206d30227a90e2e592ad2b",
+      "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+      "testCases": [
+        "cd96176f-8e18-4270-9c76-8c6b1cf19594-การจัดการคลาสและอ็อบเจ็กต์"
+      ],
+      "completedAt": "2026-01-26T14:39:04.739Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0
+      }
+    },
+    {
+      "hash": "c82b66196375df5ff08312ff92594f900a28cbeb2b88a140056f3f9b5c5fd00b",
+      "dedupeKey": "หลักการสืบทอดและการห่อหุ้ม-c82b66196375df5ff08312ff92594f900a28cbeb2b88a140056f3f9b5c5fd00b",
+      "skill": "หลักการสืบทอดและการห่อหุ้ม",
+      "testCases": [
+        "cd96176f-8e18-4270-9c76-8c6b1cf19594-หลักการสืบทอดและการห่อหุ้ม"
+      ],
+      "completedAt": "2026-01-26T14:39:04.125Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0
+      }
+    },
+    {
+      "hash": "9747291747ca186ef9885283743376e504db3965ff4c5ae94451195a7f57c474",
+      "dedupeKey": "การวางแผนและการจัดการอีเว้นต์-9747291747ca186ef9885283743376e504db3965ff4c5ae94451195a7f57c474",
+      "skill": "การวางแผนและการจัดการอีเว้นต์",
+      "testCases": [
+        "b41c15f8-2249-4469-9981-71cc1c75b2b4-การวางแผนและการจัดการอีเว้นต์"
+      ],
+      "completedAt": "2026-01-26T14:39:12.793Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 1.0909090909090908
+      }
+    },
+    {
+      "hash": "1544d8b6c6f68373a1c96e50b515e807f7d3dbc77d72db9468f0082eb97f8d2b",
+      "dedupeKey": "การตลาดและการประชาสัมพันธ์-1544d8b6c6f68373a1c96e50b515e807f7d3dbc77d72db9468f0082eb97f8d2b",
+      "skill": "การตลาดและการประชาสัมพันธ์",
+      "testCases": [
+        "b41c15f8-2249-4469-9981-71cc1c75b2b4-การตลาดและการประชาสัมพันธ์"
+      ],
+      "completedAt": "2026-01-26T14:39:13.243Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 2.3846153846153846
+      }
+    },
+    {
+      "hash": "68b7d5695676424f451df739a6278cb47c4fef297ab3af35e48d8edf774c67bf",
+      "dedupeKey": "การบริหารงบประมาณ-68b7d5695676424f451df739a6278cb47c4fef297ab3af35e48d8edf774c67bf",
+      "skill": "การบริหารงบประมาณ",
+      "testCases": [
+        "b41c15f8-2249-4469-9981-71cc1c75b2b4-การบริหารงบประมาณ"
+      ],
+      "completedAt": "2026-01-26T14:39:13.854Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 1.6666666666666667
+      }
+    },
+    {
+      "hash": "6b8410286057323fd734c4cec997be0be32448e4bd92b62e839efde35b191e9e",
+      "dedupeKey": "การสื่อสารและการประสานงาน-6b8410286057323fd734c4cec997be0be32448e4bd92b62e839efde35b191e9e",
+      "skill": "การสื่อสารและการประสานงาน",
+      "testCases": [
+        "b41c15f8-2249-4469-9981-71cc1c75b2b4-การสื่อสารและการประสานงาน"
+      ],
+      "completedAt": "2026-01-26T14:39:29.658Z",
+      "result": {
+        "retrievedCount": 19,
+        "meanRelevanceScore": 2.3157894736842106
+      }
+    },
+    {
+      "hash": "c1ea2814c1168dc8ec836a2ab48191cab30f29b1e7fd496ea035b622d4c0595e",
+      "dedupeKey": "การออกแบบและตกแต่งงานอีเว้นต์-c1ea2814c1168dc8ec836a2ab48191cab30f29b1e7fd496ea035b622d4c0595e",
+      "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+      "testCases": [
+        "b41c15f8-2249-4469-9981-71cc1c75b2b4-การออกแบบและตกแต่งงานอีเว้นต์"
+      ],
+      "completedAt": "2026-01-26T14:39:20.715Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 0.5454545454545454
+      }
+    },
+    {
+      "hash": "eb96cddb97ebfa55b7e267bb08e3ce6ad154ff6b908a71f267b3fdaca7ed17c2",
+      "dedupeKey": "การจัดการความเสี่ยงและความปลอดภัย-eb96cddb97ebfa55b7e267bb08e3ce6ad154ff6b908a71f267b3fdaca7ed17c2",
+      "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+      "testCases": [
+        "b41c15f8-2249-4469-9981-71cc1c75b2b4-การจัดการความเสี่ยงและความปลอดภัย"
+      ],
+      "completedAt": "2026-01-26T14:39:24.047Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 1.8571428571428572
+      }
+    },
+    {
+      "hash": "a7f7e2c820ace9ff0733a92042437790806ca6694836a505e38bdd7b24c21e22",
+      "dedupeKey": "การทำอาหารไทย-a7f7e2c820ace9ff0733a92042437790806ca6694836a505e38bdd7b24c21e22",
+      "skill": "การทำอาหารไทย",
+      "testCases": [
+        "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การทำอาหารไทย"
+      ],
+      "completedAt": "2026-01-26T14:39:35.878Z",
+      "result": {
+        "retrievedCount": 10,
+        "meanRelevanceScore": 0.9
+      }
+    },
+    {
+      "hash": "88cb13f675c67b0c3928507d29200daff2a6686cdf73ca4648f79631ed046adf",
+      "dedupeKey": "การใช้เครื่องปรุงและวัตถุดิบไทย-88cb13f675c67b0c3928507d29200daff2a6686cdf73ca4648f79631ed046adf",
+      "skill": "การใช้เครื่องปรุงและวัตถุดิบไทย",
+      "testCases": [
+        "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การใช้เครื่องปรุงและวัตถุดิบไทย"
+      ],
+      "completedAt": "2026-01-26T14:39:36.636Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 0.7272727272727273
+      }
+    },
+    {
+      "hash": "a324402025c041151a7ef27724871ad284eb086faabe1ae17dd519d867d894c6",
+      "dedupeKey": "เทคนิคการปรุงอาหารไทย-a324402025c041151a7ef27724871ad284eb086faabe1ae17dd519d867d894c6",
+      "skill": "เทคนิคการปรุงอาหารไทย",
+      "testCases": [
+        "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-เทคนิคการปรุงอาหารไทย"
+      ],
+      "completedAt": "2026-01-26T14:39:34.439Z",
+      "result": {
+        "retrievedCount": 9,
+        "meanRelevanceScore": 0.5555555555555556
+      }
+    },
+    {
+      "hash": "d6375df52dc422d7cddfd4146b4cac703d1de5ff12d6a172eb7f22474e050176",
+      "dedupeKey": "ความรู้ด้านวัฒนธรรมอาหารไทย-d6375df52dc422d7cddfd4146b4cac703d1de5ff12d6a172eb7f22474e050176",
+      "skill": "ความรู้ด้านวัฒนธรรมอาหารไทย",
+      "testCases": [
+        "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-ความรู้ด้านวัฒนธรรมอาหารไทย"
+      ],
+      "completedAt": "2026-01-26T14:39:43.771Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.7142857142857143
+      }
+    },
+    {
+      "hash": "36cdc8d1a8bf07a8541a79be34ee15a79b15a732368a339ae1caccab259bc43e",
+      "dedupeKey": "การจัดการครัวและความปลอดภัยในการทำอาหาร-36cdc8d1a8bf07a8541a79be34ee15a79b15a732368a339ae1caccab259bc43e",
+      "skill": "การจัดการครัวและความปลอดภัยในการทำอาหาร",
+      "testCases": [
+        "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การจัดการครัวและความปลอดภัยในการทำอาหาร"
+      ],
+      "completedAt": "2026-01-26T14:39:43.653Z",
+      "result": {
+        "retrievedCount": 9,
+        "meanRelevanceScore": 1.5555555555555556
+      }
+    },
+    {
+      "hash": "5aeb2673bfb3bcd1fee201a0c74b0fee17b16cc3cc78890692e8cbcfb980b3c6",
+      "dedupeKey": "การวางแผนเมนูอาหารไทย-5aeb2673bfb3bcd1fee201a0c74b0fee17b16cc3cc78890692e8cbcfb980b3c6",
+      "skill": "การวางแผนเมนูอาหารไทย",
+      "testCases": [
+        "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การวางแผนเมนูอาหารไทย"
+      ],
+      "completedAt": "2026-01-26T14:39:42.525Z",
+      "result": {
+        "retrievedCount": 10,
+        "meanRelevanceScore": 0.8
+      }
+    },
+    {
+      "hash": "617d0086c1ac4bd7fdd378403da638deedade7e9e8b8edd2d97348d5a3f5747a",
+      "dedupeKey": "การบริหารทรัพยากรมนุษย์-617d0086c1ac4bd7fdd378403da638deedade7e9e8b8edd2d97348d5a3f5747a",
+      "skill": "การบริหารทรัพยากรมนุษย์",
+      "testCases": [
+        "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การบริหารทรัพยากรมนุษย์"
+      ],
+      "completedAt": "2026-01-26T14:39:50.733Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 1.2727272727272727
+      }
+    },
+    {
+      "hash": "c183fd471d545b5a05bbe8a57288b8ae900b1aeb856648e03d70d729213e1156",
+      "dedupeKey": "จิตวิทยาองค์กร-c183fd471d545b5a05bbe8a57288b8ae900b1aeb856648e03d70d729213e1156",
+      "skill": "จิตวิทยาองค์กร",
+      "testCases": [
+        "d70fb21b-c337-425b-8b11-3ee2018f3fc4-จิตวิทยาองค์กร"
+      ],
+      "completedAt": "2026-01-26T14:39:50.310Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 2.090909090909091
+      }
+    },
+    {
+      "hash": "681535f996f0dc2a159762c4ba321653f38980a6f35accfdeea67963500da02e",
+      "dedupeKey": "การสื่อสารและการเจรจาต่อรอง-681535f996f0dc2a159762c4ba321653f38980a6f35accfdeea67963500da02e",
+      "skill": "การสื่อสารและการเจรจาต่อรอง",
+      "testCases": [
+        "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การสื่อสารและการเจรจาต่อรอง",
+        "00e399aa-cf3c-472b-b5be-9a6e86e10637-การสื่อสารและการเจรจาต่อรอง"
+      ],
+      "completedAt": "2026-01-26T14:39:52.458Z",
+      "result": {
+        "retrievedCount": 18,
+        "meanRelevanceScore": 1.3333333333333333
+      }
+    },
+    {
+      "hash": "397da633879e6600b4ec569f67c1d1e5cb7b91a79f94d0706c77739c491e641c",
+      "dedupeKey": "กฎหมายแรงงาน-397da633879e6600b4ec569f67c1d1e5cb7b91a79f94d0706c77739c491e641c",
+      "skill": "กฎหมายแรงงาน",
+      "testCases": [
+        "d70fb21b-c337-425b-8b11-3ee2018f3fc4-กฎหมายแรงงาน"
+      ],
+      "completedAt": "2026-01-26T14:39:57.890Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 0.75
+      }
+    },
+    {
+      "hash": "1a6a48ad0d8387fcb7e8fb3192f289d2d61a0100e68e668901ce46895b595739",
+      "dedupeKey": "การวางแผนและพัฒนาบุคลากร-1a6a48ad0d8387fcb7e8fb3192f289d2d61a0100e68e668901ce46895b595739",
+      "skill": "การวางแผนและพัฒนาบุคลากร",
+      "testCases": [
+        "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การวางแผนและพัฒนาบุคลากร"
+      ],
+      "completedAt": "2026-01-26T14:40:01.580Z",
+      "result": {
+        "retrievedCount": 17,
+        "meanRelevanceScore": 1.0588235294117647
+      }
+    },
+    {
+      "hash": "842285c1f487fb75e48e2ecc5f1a363e3479265dea1d12dc95de0b5b0bcbed88",
+      "dedupeKey": "การจัดการความขัดแย้ง-842285c1f487fb75e48e2ecc5f1a363e3479265dea1d12dc95de0b5b0bcbed88",
+      "skill": "การจัดการความขัดแย้ง",
+      "testCases": [
+        "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การจัดการความขัดแย้ง"
+      ],
+      "completedAt": "2026-01-26T14:40:00.163Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.1538461538461537
+      }
+    },
+    {
+      "hash": "073058c4a792f23132df58a151ecef7639898c3b82960d8abf18f5da967d0878",
+      "dedupeKey": "การสร้างเนื้อหาดิจิทัล-073058c4a792f23132df58a151ecef7639898c3b82960d8abf18f5da967d0878",
+      "skill": "การสร้างเนื้อหาดิจิทัล",
+      "testCases": [
+        "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การสร้างเนื้อหาดิจิทัล"
+      ],
+      "completedAt": "2026-01-26T14:40:10.301Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.6153846153846154
+      }
+    },
+    {
+      "hash": "8ac370015f0bdd6de8f983b2631361edd03d4da13db0e4fff55c45edb92ad22f",
+      "dedupeKey": "การตัดต่อวิดีโอ-8ac370015f0bdd6de8f983b2631361edd03d4da13db0e4fff55c45edb92ad22f",
+      "skill": "การตัดต่อวิดีโอ",
+      "testCases": [
+        "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การตัดต่อวิดีโอ",
+        "3ef3d308-ac42-453e-bce7-bb7376046c41-การตัดต่อวิดีโอ"
+      ],
+      "completedAt": "2026-01-26T14:40:07.969Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 0.4166666666666667
+      }
+    },
+    {
+      "hash": "2feaab2d70e0eff18fa0136b8bb8721777f0d3258ff7238fa75cb0e3d063e63b",
+      "dedupeKey": "การตลาดดิจิทัล-2feaab2d70e0eff18fa0136b8bb8721777f0d3258ff7238fa75cb0e3d063e63b",
+      "skill": "การตลาดดิจิทัล",
+      "testCases": [
+        "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การตลาดดิจิทัล",
+        "654330a8-2559-4273-abb4-36db7f0b31e1-การตลาดดิจิทัล"
+      ],
+      "completedAt": "2026-01-26T14:40:10.786Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 0.6666666666666666
+      }
+    },
+    {
+      "hash": "eeed2a9280bcbaaadfa96112d0c93aeaf330996b1573d829a95868ea7e785b82",
+      "dedupeKey": "การสื่อสารและการนำเสนอ-eeed2a9280bcbaaadfa96112d0c93aeaf330996b1573d829a95868ea7e785b82",
+      "skill": "การสื่อสารและการนำเสนอ",
+      "testCases": [
+        "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การสื่อสารและการนำเสนอ",
+        "3ef3d308-ac42-453e-bce7-bb7376046c41-การสื่อสารและการนำเสนอ"
+      ],
+      "completedAt": "2026-01-26T14:40:22.861Z",
+      "result": {
+        "retrievedCount": 20,
+        "meanRelevanceScore": 2
+      }
+    },
+    {
+      "hash": "97470872216cb443b43fb7e20d18931adccb820baf93799415a8b3b5233b7c39",
+      "dedupeKey": "การวิเคราะห์ข้อมูลโซเชียลมีเดีย-97470872216cb443b43fb7e20d18931adccb820baf93799415a8b3b5233b7c39",
+      "skill": "การวิเคราะห์ข้อมูลโซเชียลมีเดีย",
+      "testCases": [
+        "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การวิเคราะห์ข้อมูลโซเชียลมีเดีย"
+      ],
+      "completedAt": "2026-01-26T14:40:18.529Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 0.75
+      }
+    },
+    {
+      "hash": "4fcd0e79b3fdc0ba368bf79b647500fb3258fd6e34f5113174a8be84328d43b2",
+      "dedupeKey": "การสร้างแบรนด์ส่วนบุคคล-4fcd0e79b3fdc0ba368bf79b647500fb3258fd6e34f5113174a8be84328d43b2",
+      "skill": "การสร้างแบรนด์ส่วนบุคคล",
+      "testCases": [
+        "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การสร้างแบรนด์ส่วนบุคคล"
+      ],
+      "completedAt": "2026-01-26T14:40:18.168Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.46153846153846156
+      }
+    },
+    {
+      "hash": "3f9ed757c796fdd2692504696ae7b61450dd8b844d8d3639c49c66bc6e9f9e30",
+      "dedupeKey": "พื้นฐานการเขียนโปรแกรม-3f9ed757c796fdd2692504696ae7b61450dd8b844d8d3639c49c66bc6e9f9e30",
+      "skill": "พื้นฐานการเขียนโปรแกรม",
+      "testCases": [
+        "01c601d2-5583-4413-a5c6-5f463efd897c-พื้นฐานการเขียนโปรแกรม"
+      ],
+      "completedAt": "2026-01-26T14:40:29.369Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.6923076923076923
+      }
+    },
+    {
+      "hash": "d3b77e4501cbf3331c8060d6488b46521b3519ea7a1a730408e5bb22a6d8dfdd",
+      "dedupeKey": "การวิเคราะห์และแก้ไขปัญหา-d3b77e4501cbf3331c8060d6488b46521b3519ea7a1a730408e5bb22a6d8dfdd",
+      "skill": "การวิเคราะห์และแก้ไขปัญหา",
+      "testCases": [
+        "01c601d2-5583-4413-a5c6-5f463efd897c-การวิเคราะห์และแก้ไขปัญหา"
+      ],
+      "completedAt": "2026-01-26T14:40:34.257Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 2.5
+      }
+    },
+    {
+      "hash": "5ee6db1278a7d57ac768ccfaf53b4872ab82da2efdf1cc6dcffc868135c6851a",
+      "dedupeKey": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย-5ee6db1278a7d57ac768ccfaf53b4872ab82da2efdf1cc6dcffc868135c6851a",
+      "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+      "testCases": [
+        "01c601d2-5583-4413-a5c6-5f463efd897c-ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย"
+      ],
+      "completedAt": "2026-01-26T14:40:34.594Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 1
+      }
+    },
+    {
+      "hash": "d5c01f2d9d9fba738791b23afcb0db19bd749d3e41806ada1390ccb97f3ce599",
+      "dedupeKey": "การพัฒนาเว็บและแอปพลิเคชัน-d5c01f2d9d9fba738791b23afcb0db19bd749d3e41806ada1390ccb97f3ce599",
+      "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+      "testCases": [
+        "01c601d2-5583-4413-a5c6-5f463efd897c-การพัฒนาเว็บและแอปพลิเคชัน",
+        "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การพัฒนาเว็บและแอปพลิเคชัน"
+      ],
+      "completedAt": "2026-01-26T14:40:43.455Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0.6666666666666666
+      }
+    },
+    {
+      "hash": "912bbe98e727dce1005c95fdc5ae68c56a5b5652d68f916b6734e6e056b8269a",
+      "dedupeKey": "การจัดการฐานข้อมูล-912bbe98e727dce1005c95fdc5ae68c56a5b5652d68f916b6734e6e056b8269a",
+      "skill": "การจัดการฐานข้อมูล",
+      "testCases": [
+        "01c601d2-5583-4413-a5c6-5f463efd897c-การจัดการฐานข้อมูล",
+        "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การจัดการฐานข้อมูล"
+      ],
+      "completedAt": "2026-01-26T14:40:40.717Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 1.2727272727272727
+      }
+    },
+    {
+      "hash": "02304ce451dd783109b7051bdde2718bde327b4189bc4cb15b9b0704e0714089",
+      "dedupeKey": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง-02304ce451dd783109b7051bdde2718bde327b4189bc4cb15b9b0704e0714089",
+      "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+      "testCases": [
+        "01c601d2-5583-4413-a5c6-5f463efd897c-การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง"
+      ],
+      "completedAt": "2026-01-26T14:40:42.148Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 1.0833333333333333
+      }
+    },
+    {
+      "hash": "2d053ea70a801fb6d6fed6bb9a5447a57111f022e6a6bef547f1a79191b01229",
+      "dedupeKey": "การวิเคราะห์ข้อมูล-2d053ea70a801fb6d6fed6bb9a5447a57111f022e6a6bef547f1a79191b01229",
+      "skill": "การวิเคราะห์ข้อมูล",
+      "testCases": [
+        "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การวิเคราะห์ข้อมูล"
+      ],
+      "completedAt": "2026-01-26T14:40:49.802Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 2.3333333333333335
+      }
+    },
+    {
+      "hash": "68b703550bbe9e35f29487937f402a6323b85f6b597142369ee5da1bef578dc3",
+      "dedupeKey": "การตัดสินใจเชิงระบบ-68b703550bbe9e35f29487937f402a6323b85f6b597142369ee5da1bef578dc3",
+      "skill": "การตัดสินใจเชิงระบบ",
+      "testCases": [
+        "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การตัดสินใจเชิงระบบ"
+      ],
+      "completedAt": "2026-01-26T14:40:50.805Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 1.2857142857142858
+      }
+    },
+    {
+      "hash": "bfb74e36b2573d68894e2ded0319141d0e92638835edc1c9fa0c6bbe44104f28",
+      "dedupeKey": "การใช้เครื่องมือสนับสนุนการตัดสินใจ-bfb74e36b2573d68894e2ded0319141d0e92638835edc1c9fa0c6bbe44104f28",
+      "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+      "testCases": [
+        "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การใช้เครื่องมือสนับสนุนการตัดสินใจ"
+      ],
+      "completedAt": "2026-01-26T14:40:51.095Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 1.0625
+      }
+    },
+    {
+      "hash": "00bcd428d80aa54a8cd853bac23fea3d385aed5b5d0214cee27e0613b2d56f2e",
+      "dedupeKey": "จิตวิทยาการตัดสินใจ-00bcd428d80aa54a8cd853bac23fea3d385aed5b5d0214cee27e0613b2d56f2e",
+      "skill": "จิตวิทยาการตัดสินใจ",
+      "testCases": [
+        "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-จิตวิทยาการตัดสินใจ"
+      ],
+      "completedAt": "2026-01-26T14:40:58.612Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 1.3333333333333333
+      }
+    },
+    {
+      "hash": "06dcc9c0cd9474f9a0a77bdf4a3e8251e39052a042f67fa01efe30c07aebee7f",
+      "dedupeKey": "การจัดการความเสี่ยง-06dcc9c0cd9474f9a0a77bdf4a3e8251e39052a042f67fa01efe30c07aebee7f",
+      "skill": "การจัดการความเสี่ยง",
+      "testCases": [
+        "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การจัดการความเสี่ยง"
+      ],
+      "completedAt": "2026-01-26T14:41:00.263Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.5384615384615385
+      }
+    },
+    {
+      "hash": "938acfbd23a55aec27032280882a123edc77f11a2b46b1afdbbb1d9ce0daf7e8",
+      "dedupeKey": "การวิเคราะห์อัลกอริทึม-938acfbd23a55aec27032280882a123edc77f11a2b46b1afdbbb1d9ce0daf7e8",
+      "skill": "การวิเคราะห์อัลกอริทึม",
+      "testCases": [
+        "be573eca-6596-418a-888d-f4f0c0d5651d-การวิเคราะห์อัลกอริทึม"
+      ],
+      "completedAt": "2026-01-26T14:40:59.779Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.7142857142857143
+      }
+    },
+    {
+      "hash": "fc83bfe8c140d8392b19a2e802b75ccaaab1fb129d35f4c4f095fe524c09ac86",
+      "dedupeKey": "โครงสร้างข้อมูล-fc83bfe8c140d8392b19a2e802b75ccaaab1fb129d35f4c4f095fe524c09ac86",
+      "skill": "โครงสร้างข้อมูล",
+      "testCases": [
+        "be573eca-6596-418a-888d-f4f0c0d5651d-โครงสร้างข้อมูล"
+      ],
+      "completedAt": "2026-01-26T14:41:08.395Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.6428571428571429
+      }
+    },
+    {
+      "hash": "cc358ffddc829f84bb4cde7b30b5c3858819b6cbef476a61d8ba4b0174e9929f",
+      "dedupeKey": "การแก้ปัญหาเชิงคำนวณ-cc358ffddc829f84bb4cde7b30b5c3858819b6cbef476a61d8ba4b0174e9929f",
+      "skill": "การแก้ปัญหาเชิงคำนวณ",
+      "testCases": [
+        "be573eca-6596-418a-888d-f4f0c0d5651d-การแก้ปัญหาเชิงคำนวณ"
+      ],
+      "completedAt": "2026-01-26T14:41:13.070Z",
+      "result": {
+        "retrievedCount": 17,
+        "meanRelevanceScore": 1.8823529411764706
+      }
+    },
+    {
+      "hash": "a00f3cdc994b6eef2f064d0ee9ff2c8357bdbcb380b2fbf2a73fb38231f862c8",
+      "dedupeKey": "การเขียนโปรแกรมภาษา Python หรือ C++-a00f3cdc994b6eef2f064d0ee9ff2c8357bdbcb380b2fbf2a73fb38231f862c8",
+      "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+      "testCases": [
+        "be573eca-6596-418a-888d-f4f0c0d5651d-การเขียนโปรแกรมภาษา Python หรือ C++"
+      ],
+      "completedAt": "2026-01-26T14:41:09.363Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.8571428571428571
+      }
+    },
+    {
+      "hash": "d1195065540fa7df31263c3693afd3d11112bc9cbba4da2f561a3dcec04d489e",
+      "dedupeKey": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม-d1195065540fa7df31263c3693afd3d11112bc9cbba4da2f561a3dcec04d489e",
+      "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+      "testCases": [
+        "be573eca-6596-418a-888d-f4f0c0d5651d-การวิเคราะห์ความซับซ้อนของอัลกอริทึม"
+      ],
+      "completedAt": "2026-01-26T14:41:21.116Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 0.8181818181818182
+      }
+    },
+    {
+      "hash": "7fec67787bd7a44370e3731374b0697d461cd3506b70de879bb7491576835aab",
+      "dedupeKey": "การเขียนโปรแกรมขั้นสูง-7fec67787bd7a44370e3731374b0697d461cd3506b70de879bb7491576835aab",
+      "skill": "การเขียนโปรแกรมขั้นสูง",
+      "testCases": [
+        "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การเขียนโปรแกรมขั้นสูง"
+      ],
+      "completedAt": "2026-01-26T14:41:21.698Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 0.4375
+      }
+    },
+    {
+      "hash": "1f7128618c5dc63123464c6f22279d068f4bb882b509fd024c8fa188b83b548c",
+      "dedupeKey": "โครงสร้างข้อมูลและอัลกอริทึม-1f7128618c5dc63123464c6f22279d068f4bb882b509fd024c8fa188b83b548c",
+      "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+      "testCases": [
+        "1fe15613-3060-4d9e-94dc-bd9a63e9911f-โครงสร้างข้อมูลและอัลกอริทึม"
+      ],
+      "completedAt": "2026-01-26T14:41:20.934Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.1538461538461537
+      }
+    },
+    {
+      "hash": "1032870a9e5674096e2d51cb795028e0e94720645b508865143764d6e28f9965",
+      "dedupeKey": "การทดสอบและดีบักโปรแกรม-1032870a9e5674096e2d51cb795028e0e94720645b508865143764d6e28f9965",
+      "skill": "การทดสอบและดีบักโปรแกรม",
+      "testCases": [
+        "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การทดสอบและดีบักโปรแกรม"
+      ],
+      "completedAt": "2026-01-26T14:41:31.007Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.21428571428571427
+      }
+    },
+    {
+      "hash": "04e29e0ec8db6fc6c1be2c76d3263dbf8225fb68a56278013fafa54f88ae48a6",
+      "dedupeKey": "การประยุกต์ใช้ปัญญาประดิษฐ์-04e29e0ec8db6fc6c1be2c76d3263dbf8225fb68a56278013fafa54f88ae48a6",
+      "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+      "testCases": [
+        "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การประยุกต์ใช้ปัญญาประดิษฐ์",
+        "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การประยุกต์ใช้ปัญญาประดิษฐ์"
+      ],
+      "completedAt": "2026-01-26T14:41:27.800Z",
+      "result": {
+        "retrievedCount": 8,
+        "meanRelevanceScore": 1.875
+      }
+    },
+    {
+      "hash": "23cf50e2094e965c3d9be8477b6e2baed06a4c2c095aafaf817921c5e3685316",
+      "dedupeKey": "ภาษาจีนเพื่อธุรกิจ-23cf50e2094e965c3d9be8477b6e2baed06a4c2c095aafaf817921c5e3685316",
+      "skill": "ภาษาจีนเพื่อธุรกิจ",
+      "testCases": [
+        "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-ภาษาจีนเพื่อธุรกิจ"
+      ],
+      "completedAt": "2026-01-26T14:41:39.226Z",
+      "result": {
+        "retrievedCount": 20,
+        "meanRelevanceScore": 1.65
+      }
+    },
+    {
+      "hash": "2e8a23c40c40af6b6d080b7c7ee5f33cfdfc007c1474b1f193dd6f765f1977ba",
+      "dedupeKey": "ภาษาเวียดนามเพื่อธุรกิจ-2e8a23c40c40af6b6d080b7c7ee5f33cfdfc007c1474b1f193dd6f765f1977ba",
+      "skill": "ภาษาเวียดนามเพื่อธุรกิจ",
+      "testCases": [
+        "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-ภาษาเวียดนามเพื่อธุรกิจ"
+      ],
+      "completedAt": "2026-01-26T14:41:49.095Z",
+      "result": {
+        "retrievedCount": 22,
+        "meanRelevanceScore": 0.13636363636363635
+      }
+    },
+    {
+      "hash": "7d40d145ec30e07293c133e051f96d6b98b448a2f0267b31cf2897c13706ad49",
+      "dedupeKey": "การเปรียบเทียบภาษาจีนและภาษาเวียดนาม-7d40d145ec30e07293c133e051f96d6b98b448a2f0267b31cf2897c13706ad49",
+      "skill": "การเปรียบเทียบภาษาจีนและภาษาเวียดนาม",
+      "testCases": [
+        "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-การเปรียบเทียบภาษาจีนและภาษาเวียดนาม"
+      ],
+      "completedAt": "2026-01-26T14:41:50.362Z",
+      "result": {
+        "retrievedCount": 21,
+        "meanRelevanceScore": 0.047619047619047616
+      }
+    },
+    {
+      "hash": "c4bec7cdf6ef7fee723a6cf70e965c40c284145f85f41f02983a533a6be15ff6",
+      "dedupeKey": "วัฒนธรรมและธุรกิจในจีนและเวียดนาม-c4bec7cdf6ef7fee723a6cf70e965c40c284145f85f41f02983a533a6be15ff6",
+      "skill": "วัฒนธรรมและธุรกิจในจีนและเวียดนาม",
+      "testCases": [
+        "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-วัฒนธรรมและธุรกิจในจีนและเวียดนาม"
+      ],
+      "completedAt": "2026-01-26T14:41:49.657Z",
+      "result": {
+        "retrievedCount": 18,
+        "meanRelevanceScore": 2.3333333333333335
+      }
+    },
+    {
+      "hash": "dd44f449e43f23703dd50076a52b924d7bc89c3a10b59beaa2499c1a366f8d3a",
+      "dedupeKey": "ทักษะการสื่อสารทางธุรกิจ-dd44f449e43f23703dd50076a52b924d7bc89c3a10b59beaa2499c1a366f8d3a",
+      "skill": "ทักษะการสื่อสารทางธุรกิจ",
+      "testCases": [
+        "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-ทักษะการสื่อสารทางธุรกิจ"
+      ],
+      "completedAt": "2026-01-26T14:42:04.595Z",
+      "result": {
+        "retrievedCount": 17,
+        "meanRelevanceScore": 1.9411764705882353
+      }
+    },
+    {
+      "hash": "76d89207d5737c0626b29cca44bf078d9e740e391ef1c3089150760ed3d2b40d",
+      "dedupeKey": "พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม-76d89207d5737c0626b29cca44bf078d9e740e391ef1c3089150760ed3d2b40d",
+      "skill": "พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม",
+      "testCases": [
+        "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม"
+      ],
+      "completedAt": "2026-01-26T14:42:00.152Z",
+      "result": {
+        "retrievedCount": 18,
+        "meanRelevanceScore": 0.9444444444444444
+      }
+    },
+    {
+      "hash": "dd40583a52a186362b827e8fa7e8c3f9a11727e28ca86f4661ed6ea3d875ca1d",
+      "dedupeKey": "การพัฒนาเว็บแอปพลิเคชัน-dd40583a52a186362b827e8fa7e8c3f9a11727e28ca86f4661ed6ea3d875ca1d",
+      "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+      "testCases": [
+        "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การพัฒนาเว็บแอปพลิเคชัน"
+      ],
+      "completedAt": "2026-01-26T14:41:59.537Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 0.4375
+      }
+    },
+    {
+      "hash": "1896fa02319bfe39fb7a86fee1af1c155b635d5f5b0a0c618deb079167c410f1",
+      "dedupeKey": "การพัฒนาโมบายแอปพลิเคชัน-1896fa02319bfe39fb7a86fee1af1c155b635d5f5b0a0c618deb079167c410f1",
+      "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+      "testCases": [
+        "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การพัฒนาโมบายแอปพลิเคชัน"
+      ],
+      "completedAt": "2026-01-26T14:42:13.358Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0.4
+      }
+    },
+    {
+      "hash": "c9470f4a49f13bfb346cc9f49aa8a4358aa39d36cbd4521de50e010c7531dbb3",
+      "dedupeKey": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)-c9470f4a49f13bfb346cc9f49aa8a4358aa39d36cbd4521de50e010c7531dbb3",
+      "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+      "testCases": [
+        "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)"
+      ],
+      "completedAt": "2026-01-26T14:42:13.630Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0.26666666666666666
+      }
+    },
+    {
+      "hash": "332c74f7e6286924cb16fb47d7794c2f7ba52af0430212bd995a228a077ac21b",
+      "dedupeKey": "การเขียนโปรแกรมด้วยภาษา JavaScript-332c74f7e6286924cb16fb47d7794c2f7ba52af0430212bd995a228a077ac21b",
+      "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+      "testCases": [
+        "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การเขียนโปรแกรมด้วยภาษา JavaScript"
+      ],
+      "completedAt": "2026-01-26T14:42:13.173Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.3076923076923077
+      }
+    },
+    {
+      "hash": "796431a42b0dfd9b06a8c85a9863ceaecd300aae73d4c7e55c30b24438323079",
+      "dedupeKey": "การใช้ฐานข้อมูลและการจัดการข้อมูล-796431a42b0dfd9b06a8c85a9863ceaecd300aae73d4c7e55c30b24438323079",
+      "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+      "testCases": [
+        "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การใช้ฐานข้อมูลและการจัดการข้อมูล"
+      ],
+      "completedAt": "2026-01-26T14:42:22.687Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 1.6428571428571428
+      }
+    },
+    {
+      "hash": "98bb84f46342c882b706d123ad81dcb960cd1d53208ad9c2da8ff45219c4664e",
+      "dedupeKey": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter-98bb84f46342c882b706d123ad81dcb960cd1d53208ad9c2da8ff45219c4664e",
+      "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+      "testCases": [
+        "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter"
+      ],
+      "completedAt": "2026-01-26T14:42:22.692Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.5714285714285714
+      }
+    },
+    {
+      "hash": "744e8edb474d50ea2a493dd279036f15c655112ce472adb0c99c86cb66406111",
+      "dedupeKey": "การวิเคราะห์ข้อมูลทางการเงิน-744e8edb474d50ea2a493dd279036f15c655112ce472adb0c99c86cb66406111",
+      "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+      "testCases": [
+        "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การวิเคราะห์ข้อมูลทางการเงิน"
+      ],
+      "completedAt": "2026-01-26T14:42:22.740Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 1.75
+      }
+    },
+    {
+      "hash": "d8830315c7ce0665833ecb60141d9bd3388800d2c4fc8c951dbd9eb86247a5f9",
+      "dedupeKey": "การเรียนรู้ของเครื่อง (Machine Learning)-d8830315c7ce0665833ecb60141d9bd3388800d2c4fc8c951dbd9eb86247a5f9",
+      "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+      "testCases": [
+        "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การเรียนรู้ของเครื่อง (Machine Learning)"
+      ],
+      "completedAt": "2026-01-26T14:42:30.578Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.8461538461538461
+      }
+    },
+    {
+      "hash": "535d791df1eddb2478c8b1a8903c280f855acf8d7e66937300d492850dce70c0",
+      "dedupeKey": "การประมวลผลภาษาธรรมชาติ (NLP)-535d791df1eddb2478c8b1a8903c280f855acf8d7e66937300d492850dce70c0",
+      "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+      "testCases": [
+        "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การประมวลผลภาษาธรรมชาติ (NLP)"
+      ],
+      "completedAt": "2026-01-26T14:42:31.741Z",
+      "result": {
+        "retrievedCount": 17,
+        "meanRelevanceScore": 0.17647058823529413
+      }
+    },
+    {
+      "hash": "637df69dcb365c23c3b6fc4c55f402fc54563f0207860c24490f06fb3359fdfd",
+      "dedupeKey": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล-637df69dcb365c23c3b6fc4c55f402fc54563f0207860c24490f06fb3359fdfd",
+      "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+      "testCases": [
+        "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล"
+      ],
+      "completedAt": "2026-01-26T14:42:30.652Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 1.4285714285714286
+      }
+    },
+    {
+      "hash": "1fe1c2cb3856afbc7a541e807fdd242a97c27038e907b141f6a0f2cadefccde0",
+      "dedupeKey": "การวิเคราะห์เชิงสถิติ-1fe1c2cb3856afbc7a541e807fdd242a97c27038e907b141f6a0f2cadefccde0",
+      "skill": "การวิเคราะห์เชิงสถิติ",
+      "testCases": [
+        "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การวิเคราะห์เชิงสถิติ"
+      ],
+      "completedAt": "2026-01-26T14:42:43.909Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 2.2
+      }
+    },
+    {
+      "hash": "416c4ef92f44bc896da35c2139aa434f72079e2e402c4dea856d504dbe888c93",
+      "dedupeKey": "การพัฒนาเว็บไซต์-416c4ef92f44bc896da35c2139aa434f72079e2e402c4dea856d504dbe888c93",
+      "skill": "การพัฒนาเว็บไซต์",
+      "testCases": [
+        "654330a8-2559-4273-abb4-36db7f0b31e1-การพัฒนาเว็บไซต์"
+      ],
+      "completedAt": "2026-01-26T14:42:40.035Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 0.25
+      }
+    },
+    {
+      "hash": "3d8c9ac15834bb67a6cc676092051dcf2886c576f04c99a4edfe720dab6dbc6e",
+      "dedupeKey": "การจัดการธุรกิจอีคอมเมิร์ซ-3d8c9ac15834bb67a6cc676092051dcf2886c576f04c99a4edfe720dab6dbc6e",
+      "skill": "การจัดการธุรกิจอีคอมเมิร์ซ",
+      "testCases": [
+        "654330a8-2559-4273-abb4-36db7f0b31e1-การจัดการธุรกิจอีคอมเมิร์ซ"
+      ],
+      "completedAt": "2026-01-26T14:42:37.530Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 0.7272727272727273
+      }
+    },
+    {
+      "hash": "58ca37f7edf035590c4540d33f9cf63e1eeb3427906e0fe3715887891156e587",
+      "dedupeKey": "การออกแบบประสบการณ์ผู้ใช้ (UX/UI)-58ca37f7edf035590c4540d33f9cf63e1eeb3427906e0fe3715887891156e587",
+      "skill": "การออกแบบประสบการณ์ผู้ใช้ (UX/UI)",
+      "testCases": [
+        "654330a8-2559-4273-abb4-36db7f0b31e1-การออกแบบประสบการณ์ผู้ใช้ (UX/UI)"
+      ],
+      "completedAt": "2026-01-26T14:42:53.299Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0.26666666666666666
+      }
+    },
+    {
+      "hash": "851474996a60fc232d946d0b6f427263678ee548eaebee1aca2d2664a5209908",
+      "dedupeKey": "การชำระเงินออนไลน์และความปลอดภัย-851474996a60fc232d946d0b6f427263678ee548eaebee1aca2d2664a5209908",
+      "skill": "การชำระเงินออนไลน์และความปลอดภัย",
+      "testCases": [
+        "654330a8-2559-4273-abb4-36db7f0b31e1-การชำระเงินออนไลน์และความปลอดภัย"
+      ],
+      "completedAt": "2026-01-26T14:42:52.555Z",
+      "result": {
+        "retrievedCount": 17,
+        "meanRelevanceScore": 0.29411764705882354
+      }
+    },
+    {
+      "hash": "7892e80620df7d36547fe53f9bef6f5e1ec80fa7a39686d9135ac5ad32873b4b",
+      "dedupeKey": "การวิเคราะห์ข้อมูลและพฤติกรรมผู้บริโภค-7892e80620df7d36547fe53f9bef6f5e1ec80fa7a39686d9135ac5ad32873b4b",
+      "skill": "การวิเคราะห์ข้อมูลและพฤติกรรมผู้บริโภค",
+      "testCases": [
+        "654330a8-2559-4273-abb4-36db7f0b31e1-การวิเคราะห์ข้อมูลและพฤติกรรมผู้บริโภค"
+      ],
+      "completedAt": "2026-01-26T14:42:50.331Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 2.090909090909091
+      }
+    },
+    {
+      "hash": "835874ad34114dbc276c0e45bf380dc4a01021a71290114c30fc9016a905e5d4",
+      "dedupeKey": "การออกแบบประสบการณ์ผู้ใช้ (UX Design)-835874ad34114dbc276c0e45bf380dc4a01021a71290114c30fc9016a905e5d4",
+      "skill": "การออกแบบประสบการณ์ผู้ใช้ (UX Design)",
+      "testCases": [
+        "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การออกแบบประสบการณ์ผู้ใช้ (UX Design)"
+      ],
+      "completedAt": "2026-01-26T14:43:01.804Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0.26666666666666666
+      }
+    },
+    {
+      "hash": "375bd35b5bc6bf1844d0afc6c9637af8a21e9c0f24473bf0d4b41ae9d85bd6f6",
+      "dedupeKey": "การออกแบบกราฟิกดิจิทัล-375bd35b5bc6bf1844d0afc6c9637af8a21e9c0f24473bf0d4b41ae9d85bd6f6",
+      "skill": "การออกแบบกราฟิกดิจิทัล",
+      "testCases": [
+        "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การออกแบบกราฟิกดิจิทัล"
+      ],
+      "completedAt": "2026-01-26T14:43:00.739Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1
+      }
+    },
+    {
+      "hash": "7a4b14d67707452a2749fc573ba2452b897c11bea82fae39b4c1649ecee57d28",
+      "dedupeKey": "การจัดการโครงการเทคโนโลยี-7a4b14d67707452a2749fc573ba2452b897c11bea82fae39b4c1649ecee57d28",
+      "skill": "การจัดการโครงการเทคโนโลยี",
+      "testCases": [
+        "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การจัดการโครงการเทคโนโลยี"
+      ],
+      "completedAt": "2026-01-26T14:43:02.826Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 0.8125
+      }
+    },
+    {
+      "hash": "02019ebbee47d2220e08de0263bd2932750e9ea2eaef32f4137f06d5c7312a53",
+      "dedupeKey": "การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)-02019ebbee47d2220e08de0263bd2932750e9ea2eaef32f4137f06d5c7312a53",
+      "skill": "การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)",
+      "testCases": [
+        "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)"
+      ],
+      "completedAt": "2026-01-26T14:43:11.590Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 1.2
+      }
+    },
+    {
+      "hash": "4e3376f397c8377ab00e1fc076140b08976599cecc66d9cc8044c8d8f94e231a",
+      "dedupeKey": "การสื่อสารและการนำเสนอเชิงเทคนิค-4e3376f397c8377ab00e1fc076140b08976599cecc66d9cc8044c8d8f94e231a",
+      "skill": "การสื่อสารและการนำเสนอเชิงเทคนิค",
+      "testCases": [
+        "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การสื่อสารและการนำเสนอเชิงเทคนิค"
+      ],
+      "completedAt": "2026-01-26T14:43:14.392Z",
+      "result": {
+        "retrievedCount": 19,
+        "meanRelevanceScore": 2
+      }
+    },
+    {
+      "hash": "2dea81cbe1f7ade4ec2236bce14e4c5e90c5e5884201f590c64051c581c993a7",
+      "dedupeKey": "เทคโนโลยีดนตรี-2dea81cbe1f7ade4ec2236bce14e4c5e90c5e5884201f590c64051c581c993a7",
+      "skill": "เทคโนโลยีดนตรี",
+      "testCases": [
+        "97b42158-60af-46d3-aa60-049d1243d2ee-เทคโนโลยีดนตรี"
+      ],
+      "completedAt": "2026-01-26T14:43:11.113Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 1.0625
+      }
+    },
+    {
+      "hash": "d8cd8d03804f9aa5bb7487863baf0d7bba760d19038974d62aa8f61df71b4ba2",
+      "dedupeKey": "การผลิตเสียงและดนตรีดิจิทัล-d8cd8d03804f9aa5bb7487863baf0d7bba760d19038974d62aa8f61df71b4ba2",
+      "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+      "testCases": [
+        "97b42158-60af-46d3-aa60-049d1243d2ee-การผลิตเสียงและดนตรีดิจิทัล"
+      ],
+      "completedAt": "2026-01-26T14:43:23.809Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 1.125
+      }
+    },
+    {
+      "hash": "afdeda753166ab194d64fb23ec5841f33800de6b96714f23d0c8eaa6d510143b",
+      "dedupeKey": "การเขียนโปรแกรมสำหรับดนตรี-afdeda753166ab194d64fb23ec5841f33800de6b96714f23d0c8eaa6d510143b",
+      "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+      "testCases": [
+        "97b42158-60af-46d3-aa60-049d1243d2ee-การเขียนโปรแกรมสำหรับดนตรี"
+      ],
+      "completedAt": "2026-01-26T14:43:21.867Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.46153846153846156
+      }
+    },
+    {
+      "hash": "62c25415e425a13ba73f96ca0bb465d52b7862a2cf2e8649954471a5393c7636",
+      "dedupeKey": "การออกแบบเสียง-62c25415e425a13ba73f96ca0bb465d52b7862a2cf2e8649954471a5393c7636",
+      "skill": "การออกแบบเสียง",
+      "testCases": [
+        "97b42158-60af-46d3-aa60-049d1243d2ee-การออกแบบเสียง"
+      ],
+      "completedAt": "2026-01-26T14:43:22.586Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.2857142857142857
+      }
+    },
+    {
+      "hash": "96a4dcd8d29a779defd2f2b0eb66ceb4404b82be70c639695ea475dad7c56d0d",
+      "dedupeKey": "ทฤษฎีดนตรี-96a4dcd8d29a779defd2f2b0eb66ceb4404b82be70c639695ea475dad7c56d0d",
+      "skill": "ทฤษฎีดนตรี",
+      "testCases": [
+        "97b42158-60af-46d3-aa60-049d1243d2ee-ทฤษฎีดนตรี"
+      ],
+      "completedAt": "2026-01-26T14:43:30.778Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 1.0833333333333333
+      }
+    },
+    {
+      "hash": "337649529237814e670e52ec7facb30f5600256972b06ee01db446c99c5a3bff",
+      "dedupeKey": "ทักษะความเป็นผู้นำ-337649529237814e670e52ec7facb30f5600256972b06ee01db446c99c5a3bff",
+      "skill": "ทักษะความเป็นผู้นำ",
+      "testCases": [
+        "1e7e132d-31b7-49fe-91dc-c2e0358a1b24-ทักษะความเป็นผู้นำ"
+      ],
+      "completedAt": "2026-01-26T14:43:43.221Z",
+      "result": {
+        "retrievedCount": 39,
+        "meanRelevanceScore": 2.5128205128205128
+      }
+    },
+    {
+      "hash": "5429aa044c79e3f1622a6725ecc2c25151b043dff401e15098655ec1aefad1df",
+      "dedupeKey": "การสื่อสารเพื่อการนำทีม-5429aa044c79e3f1622a6725ecc2c25151b043dff401e15098655ec1aefad1df",
+      "skill": "การสื่อสารเพื่อการนำทีม",
+      "testCases": [
+        "1e7e132d-31b7-49fe-91dc-c2e0358a1b24-การสื่อสารเพื่อการนำทีม"
+      ],
+      "completedAt": "2026-01-26T14:43:32.824Z",
+      "result": {
+        "retrievedCount": 18,
+        "meanRelevanceScore": 1.2222222222222223
+      }
+    },
+    {
+      "hash": "9a6551830ba49e749b84cec9671cbb9e35a830def425172b509d6f61bc5a1638",
+      "dedupeKey": "การจัดการทีมและการทำงานเป็นกลุ่ม-9a6551830ba49e749b84cec9671cbb9e35a830def425172b509d6f61bc5a1638",
+      "skill": "การจัดการทีมและการทำงานเป็นกลุ่ม",
+      "testCases": [
+        "1e7e132d-31b7-49fe-91dc-c2e0358a1b24-การจัดการทีมและการทำงานเป็นกลุ่ม"
+      ],
+      "completedAt": "2026-01-26T14:44:07.027Z",
+      "result": {
+        "retrievedCount": 22,
+        "meanRelevanceScore": 1.6818181818181819
+      }
+    },
+    {
+      "hash": "46e85a021a5dbea6ca83096304d7d7024e10fb1511a0bc2aa483f3a83e9dc9a5",
+      "dedupeKey": "การตัดสินใจและแก้ไขปัญหา-46e85a021a5dbea6ca83096304d7d7024e10fb1511a0bc2aa483f3a83e9dc9a5",
+      "skill": "การตัดสินใจและแก้ไขปัญหา",
+      "testCases": [
+        "1e7e132d-31b7-49fe-91dc-c2e0358a1b24-การตัดสินใจและแก้ไขปัญหา"
+      ],
+      "completedAt": "2026-01-26T14:43:58.222Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 2.6
+      }
+    },
+    {
+      "hash": "c56c3cad773c33955f320a299f1ab30f359bca197ec8e5bd1a1febadafab528f",
+      "dedupeKey": "การวางแผนและการบริหารเวลา-c56c3cad773c33955f320a299f1ab30f359bca197ec8e5bd1a1febadafab528f",
+      "skill": "การวางแผนและการบริหารเวลา",
+      "testCases": [
+        "1e7e132d-31b7-49fe-91dc-c2e0358a1b24-การวางแผนและการบริหารเวลา"
+      ],
+      "completedAt": "2026-01-26T14:44:09.096Z",
+      "result": {
+        "retrievedCount": 22,
+        "meanRelevanceScore": 1.2727272727272727
+      }
+    },
+    {
+      "hash": "93c8db99ec070d882b39d9437be2788c3201554a5a314e59003f964555ed4edd",
+      "dedupeKey": "การสร้างเนื้อหาวิดีโอ-93c8db99ec070d882b39d9437be2788c3201554a5a314e59003f964555ed4edd",
+      "skill": "การสร้างเนื้อหาวิดีโอ",
+      "testCases": [
+        "3ef3d308-ac42-453e-bce7-bb7376046c41-การสร้างเนื้อหาวิดีโอ"
+      ],
+      "completedAt": "2026-01-26T14:44:19.037Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 0.8181818181818182
+      }
+    },
+    {
+      "hash": "6d21731a12c27ae290810460096628a2c5c50b767c5c216a65dc686bad1e32f9",
+      "dedupeKey": "การใช้โซเชียลมีเดียเพื่อการตลาด-6d21731a12c27ae290810460096628a2c5c50b767c5c216a65dc686bad1e32f9",
+      "skill": "การใช้โซเชียลมีเดียเพื่อการตลาด",
+      "testCases": [
+        "3ef3d308-ac42-453e-bce7-bb7376046c41-การใช้โซเชียลมีเดียเพื่อการตลาด"
+      ],
+      "completedAt": "2026-01-26T14:44:23.792Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0.9333333333333333
+      }
+    },
+    {
+      "hash": "0bf475cd9da6a55fd1fd34f14bdc33138f807cd5498c774655f606a00c73219c",
+      "dedupeKey": "การวางแผนและการจัดการคอนเทนต์-0bf475cd9da6a55fd1fd34f14bdc33138f807cd5498c774655f606a00c73219c",
+      "skill": "การวางแผนและการจัดการคอนเทนต์",
+      "testCases": [
+        "3ef3d308-ac42-453e-bce7-bb7376046c41-การวางแผนและการจัดการคอนเทนต์"
+      ],
+      "completedAt": "2026-01-26T14:44:13.926Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.5
+      }
+    },
+    {
+      "hash": "3b36b74ae80ea790462fe9422b26c316b6d9067a29023478d27e9005e5cdbfe2",
+      "dedupeKey": "การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์-3b36b74ae80ea790462fe9422b26c316b6d9067a29023478d27e9005e5cdbfe2",
+      "skill": "การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์",
+      "testCases": [
+        "3ef3d308-ac42-453e-bce7-bb7376046c41-การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์"
+      ],
+      "completedAt": "2026-01-26T14:44:34.262Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1
+      }
+    },
+    {
+      "hash": "4b78822f9fcc0318c6066daa423957f0b336b2fc8ce8d02f2c0c3ea600c59de8",
+      "dedupeKey": "กฎหมายเบื้องต้น-4b78822f9fcc0318c6066daa423957f0b336b2fc8ce8d02f2c0c3ea600c59de8",
+      "skill": "กฎหมายเบื้องต้น",
+      "testCases": [
+        "00e399aa-cf3c-472b-b5be-9a6e86e10637-กฎหมายเบื้องต้น"
+      ],
+      "completedAt": "2026-01-26T14:44:32.564Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 1.5833333333333333
+      }
+    },
+    {
+      "hash": "63fce72ee1eda3639388de022a9ada959c66ed68d585249f5419129c82b8b7ba",
+      "dedupeKey": "การวิเคราะห์และตีความกฎหมาย-63fce72ee1eda3639388de022a9ada959c66ed68d585249f5419129c82b8b7ba",
+      "skill": "การวิเคราะห์และตีความกฎหมาย",
+      "testCases": [
+        "00e399aa-cf3c-472b-b5be-9a6e86e10637-การวิเคราะห์และตีความกฎหมาย"
+      ],
+      "completedAt": "2026-01-26T14:44:33.913Z",
+      "result": {
+        "retrievedCount": 17,
+        "meanRelevanceScore": 0.5294117647058824
+      }
+    },
+    {
+      "hash": "b0e0483ff988646a5da1ce8a2c87b4e94f2c84355d636f44da8d385a4325317a",
+      "dedupeKey": "จริยธรรมและความรับผิดชอบทางกฎหมาย-b0e0483ff988646a5da1ce8a2c87b4e94f2c84355d636f44da8d385a4325317a",
+      "skill": "จริยธรรมและความรับผิดชอบทางกฎหมาย",
+      "testCases": [
+        "00e399aa-cf3c-472b-b5be-9a6e86e10637-จริยธรรมและความรับผิดชอบทางกฎหมาย"
+      ],
+      "completedAt": "2026-01-26T14:44:47.883Z",
+      "result": {
+        "retrievedCount": 23,
+        "meanRelevanceScore": 1.3478260869565217
+      }
+    },
+    {
+      "hash": "79c27b3ba3689e4471690bd66af97e14fe58cdc0231feafc41dd176871aa5767",
+      "dedupeKey": "การเขียนและร่างเอกสารทางกฎหมาย-79c27b3ba3689e4471690bd66af97e14fe58cdc0231feafc41dd176871aa5767",
+      "skill": "การเขียนและร่างเอกสารทางกฎหมาย",
+      "testCases": [
+        "00e399aa-cf3c-472b-b5be-9a6e86e10637-การเขียนและร่างเอกสารทางกฎหมาย"
+      ],
+      "completedAt": "2026-01-26T14:44:42.623Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.6428571428571429
+      }
+    },
+    {
+      "hash": "c56c3cad773c33955f320a299f1ab30f359bca197ec8e5bd1a1febadafab528f",
+      "dedupeKey": "การวางแผนและการจัดการเวลา-c56c3cad773c33955f320a299f1ab30f359bca197ec8e5bd1a1febadafab528f",
+      "skill": "การวางแผนและการจัดการเวลา",
+      "testCases": [
+        "00e399aa-cf3c-472b-b5be-9a6e86e10637-การวางแผนและการจัดการเวลา"
+      ],
+      "completedAt": "2026-01-26T14:44:47.071Z",
+      "result": {
+        "retrievedCount": 22,
+        "meanRelevanceScore": 1.2727272727272727
+      }
+    },
+    {
+      "hash": "8b0e9a9c33e9c4abc6727d9ab20c776d3ebeb960873b5b1002c2ec17482939dc",
+      "dedupeKey": "การประกอบคอมพิวเตอร์-8b0e9a9c33e9c4abc6727d9ab20c776d3ebeb960873b5b1002c2ec17482939dc",
+      "skill": "การประกอบคอมพิวเตอร์",
+      "testCases": [
+        "b3460fa2-c348-4748-b583-4b042886e0ca-การประกอบคอมพิวเตอร์"
+      ],
+      "completedAt": "2026-01-26T14:44:53.716Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.15384615384615385
+      }
+    },
+    {
+      "hash": "8480ed406049eff7a0a7dbae0d13e655220a919164d97c897b9d9d7c5736b5b3",
+      "dedupeKey": "ฮาร์ดแวร์คอมพิวเตอร์-8480ed406049eff7a0a7dbae0d13e655220a919164d97c897b9d9d7c5736b5b3",
+      "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+      "testCases": [
+        "b3460fa2-c348-4748-b583-4b042886e0ca-ฮาร์ดแวร์คอมพิวเตอร์"
+      ],
+      "completedAt": "2026-01-26T14:44:52.810Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 0.2727272727272727
+      }
+    },
+    {
+      "hash": "64e4bb93801a6c6c8cb1dd2827c6b9334733447c38eb6a7c958cb65fc204c333",
+      "dedupeKey": "การติดตั้งและตั้งค่าระบบปฏิบัติการ-64e4bb93801a6c6c8cb1dd2827c6b9334733447c38eb6a7c958cb65fc204c333",
+      "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+      "testCases": [
+        "b3460fa2-c348-4748-b583-4b042886e0ca-การติดตั้งและตั้งค่าระบบปฏิบัติการ"
+      ],
+      "completedAt": "2026-01-26T14:44:53.707Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.07692307692307693
+      }
+    },
+    {
+      "hash": "6858ad98bd2031abe5a32f1401156cf8a583eb23bddb3a059e7eb1a048fe4f62",
+      "dedupeKey": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์-6858ad98bd2031abe5a32f1401156cf8a583eb23bddb3a059e7eb1a048fe4f62",
+      "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+      "testCases": [
+        "b3460fa2-c348-4748-b583-4b042886e0ca-การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์"
+      ],
+      "completedAt": "2026-01-26T14:45:02.185Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 1.375
+      }
+    },
+    {
+      "hash": "d0b357df4d595e900eef46f646097e7c63b58d0fb02e76acb6e63516c681aa9a",
+      "dedupeKey": "ความปลอดภัยของข้อมูลและระบบ-d0b357df4d595e900eef46f646097e7c63b58d0fb02e76acb6e63516c681aa9a",
+      "skill": "ความปลอดภัยของข้อมูลและระบบ",
+      "testCases": [
+        "b3460fa2-c348-4748-b583-4b042886e0ca-ความปลอดภัยของข้อมูลและระบบ"
+      ],
+      "completedAt": "2026-01-26T14:45:02.146Z",
+      "result": {
+        "retrievedCount": 17,
+        "meanRelevanceScore": 0.7647058823529411
+      }
+    },
+    {
+      "hash": "a80a85ab5b4d7c47c2a5c63cb8070d8d34616a0f3d3fcc9cae926a16c96e00f0",
+      "dedupeKey": "การจัดการธุรกิจปศุสัตว์-a80a85ab5b4d7c47c2a5c63cb8070d8d34616a0f3d3fcc9cae926a16c96e00f0",
+      "skill": "การจัดการธุรกิจปศุสัตว์",
+      "testCases": [
+        "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การจัดการธุรกิจปศุสัตว์"
+      ],
+      "completedAt": "2026-01-26T14:45:02.068Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 1.2857142857142858
+      }
+    },
+    {
+      "hash": "837e52e9dd6c5c38871c600a5f34803312be13b3e84fe1d85b6a20ef8f603aa9",
+      "dedupeKey": "ความรู้ด้านการเลี้ยงสัตว์-837e52e9dd6c5c38871c600a5f34803312be13b3e84fe1d85b6a20ef8f603aa9",
+      "skill": "ความรู้ด้านการเลี้ยงสัตว์",
+      "testCases": [
+        "acd5b76f-8185-4b10-bb37-bde0ac14c51a-ความรู้ด้านการเลี้ยงสัตว์"
+      ],
+      "completedAt": "2026-01-26T14:45:13.992Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 1.8333333333333333
+      }
+    },
+    {
+      "hash": "a5cd3a522990fbe9bdf825975b991724963e95d3e2a61d090edbc2d33db9c950",
+      "dedupeKey": "การตลาดสำหรับธุรกิจปศุสัตว์-a5cd3a522990fbe9bdf825975b991724963e95d3e2a61d090edbc2d33db9c950",
+      "skill": "การตลาดสำหรับธุรกิจปศุสัตว์",
+      "testCases": [
+        "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การตลาดสำหรับธุรกิจปศุสัตว์"
+      ],
+      "completedAt": "2026-01-26T14:45:12.612Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0.8
+      }
+    },
+    {
+      "hash": "a57493913fd2a5701ec8b86d52b8ea82313c8e7787268d048b2b8d9caf9e4dbc",
+      "dedupeKey": "การวางแผนการเงินและการลงทุน-a57493913fd2a5701ec8b86d52b8ea82313c8e7787268d048b2b8d9caf9e4dbc",
+      "skill": "การวางแผนการเงินและการลงทุน",
+      "testCases": [
+        "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การวางแผนการเงินและการลงทุน"
+      ],
+      "completedAt": "2026-01-26T14:45:11.237Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 1.4545454545454546
+      }
+    },
+    {
+      "hash": "2355b5563ad375148f562b1ccd25f0779a044bafd2e1630671b528c7a4be3388",
+      "dedupeKey": "กฎหมายและข้อบังคับเกี่ยวกับปศุสัตว์-2355b5563ad375148f562b1ccd25f0779a044bafd2e1630671b528c7a4be3388",
+      "skill": "กฎหมายและข้อบังคับเกี่ยวกับปศุสัตว์",
+      "testCases": [
+        "acd5b76f-8185-4b10-bb37-bde0ac14c51a-กฎหมายและข้อบังคับเกี่ยวกับปศุสัตว์"
+      ],
+      "completedAt": "2026-01-26T14:45:21.392Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 0.5
+      }
+    },
+    {
+      "hash": "cddfec687b413a60c6dffbe17e73700a712ae1a148eba83ab20718e5a9e5b328",
+      "dedupeKey": "การใช้เทคโนโลยีในธุรกิจปศุสัตว์-cddfec687b413a60c6dffbe17e73700a712ae1a148eba83ab20718e5a9e5b328",
+      "skill": "การใช้เทคโนโลยีในธุรกิจปศุสัตว์",
+      "testCases": [
+        "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การใช้เทคโนโลยีในธุรกิจปศุสัตว์"
+      ],
+      "completedAt": "2026-01-26T14:45:24.592Z",
+      "result": {
+        "retrievedCount": 16,
+        "meanRelevanceScore": 1.5625
+      }
+    },
+    {
+      "hash": "9ad039a54d105b104187cc055217441a395ed9f1ce1d45ed0842412a3f36efe1",
+      "dedupeKey": "การบริหารธุรกิจร้านอาหารและเครื่องดื่ม-9ad039a54d105b104187cc055217441a395ed9f1ce1d45ed0842412a3f36efe1",
+      "skill": "การบริหารธุรกิจร้านอาหารและเครื่องดื่ม",
+      "testCases": [
+        "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การบริหารธุรกิจร้านอาหารและเครื่องดื่ม"
+      ],
+      "completedAt": "2026-01-26T14:45:21.566Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 1.1818181818181819
+      }
+    },
+    {
+      "hash": "31cb9ed3af527c9fa21b961a82ac414a071094f485a1ed2c50d523dd7880eeb5",
+      "dedupeKey": "กฎหมายและข้อบังคับเกี่ยวกับการขายเครื่องดื่มแอลกอฮอล์-31cb9ed3af527c9fa21b961a82ac414a071094f485a1ed2c50d523dd7880eeb5",
+      "skill": "กฎหมายและข้อบังคับเกี่ยวกับการขายเครื่องดื่มแอลกอฮอล์",
+      "testCases": [
+        "adc6cdc0-e0f6-4006-849b-1d06dff5368c-กฎหมายและข้อบังคับเกี่ยวกับการขายเครื่องดื่มแอลกอฮอล์"
+      ],
+      "completedAt": "2026-01-26T14:45:29.628Z",
+      "result": {
+        "retrievedCount": 8,
+        "meanRelevanceScore": 0.25
+      }
+    },
+    {
+      "hash": "66376c4236fff97d77c10cc8332ae5900512ceb924506ac339536746b9dc3f41",
+      "dedupeKey": "การตลาดและการส่งเสริมการขาย-66376c4236fff97d77c10cc8332ae5900512ceb924506ac339536746b9dc3f41",
+      "skill": "การตลาดและการส่งเสริมการขาย",
+      "testCases": [
+        "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การตลาดและการส่งเสริมการขาย"
+      ],
+      "completedAt": "2026-01-26T14:45:33.149Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 2.0833333333333335
+      }
+    },
+    {
+      "hash": "54a83540458bf24dcca70fd433161b0cac7f025807696d1d74b21ebce7c79a14",
+      "dedupeKey": "การจัดการการเงินและบัญชีสำหรับธุรกิจขนาดเล็ก-54a83540458bf24dcca70fd433161b0cac7f025807696d1d74b21ebce7c79a14",
+      "skill": "การจัดการการเงินและบัญชีสำหรับธุรกิจขนาดเล็ก",
+      "testCases": [
+        "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การจัดการการเงินและบัญชีสำหรับธุรกิจขนาดเล็ก"
+      ],
+      "completedAt": "2026-01-26T14:45:35.993Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 1.3571428571428572
+      }
+    },
+    {
+      "hash": "74965d3994580a2b9a8f747faaf3c7953f8bea861fd49bcd22401a269c0bc023",
+      "dedupeKey": "การบริการลูกค้าและการสื่อสาร-74965d3994580a2b9a8f747faaf3c7953f8bea861fd49bcd22401a269c0bc023",
+      "skill": "การบริการลูกค้าและการสื่อสาร",
+      "testCases": [
+        "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การบริการลูกค้าและการสื่อสาร"
+      ],
+      "completedAt": "2026-01-26T14:45:48.822Z",
+      "result": {
+        "retrievedCount": 18,
+        "meanRelevanceScore": 1.6111111111111112
+      }
+    },
+    {
+      "hash": "88b3f810ec14b08887578345e4acc6166b4e9248a6dfa62f7f48895363e56640",
+      "dedupeKey": "การจัดการทรัพยากรมนุษย์-88b3f810ec14b08887578345e4acc6166b4e9248a6dfa62f7f48895363e56640",
+      "skill": "การจัดการทรัพยากรมนุษย์",
+      "testCases": [
+        "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การจัดการทรัพยากรมนุษย์"
+      ],
+      "completedAt": "2026-01-26T14:45:43.512Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 1.2727272727272727
+      }
+    },
+    {
+      "hash": "9b9315dddab2c7d8d305712a5f744a6407cadad51c8c42fd7e7dad3403d9caca",
+      "dedupeKey": "วิศวกรรมปิโตรเลียม-9b9315dddab2c7d8d305712a5f744a6407cadad51c8c42fd7e7dad3403d9caca",
+      "skill": "วิศวกรรมปิโตรเลียม",
+      "testCases": [
+        "75dd76dc-b23f-4728-b9a4-09621f52a26b-วิศวกรรมปิโตรเลียม"
+      ],
+      "completedAt": "2026-01-26T14:45:44.010Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0.2857142857142857
+      }
+    },
+    {
+      "hash": "8c269b6760b9c6acbc2d6baace0b62621a9aa36fa2f5223c7f8b66c58087c893",
+      "dedupeKey": "เทคโนโลยีการขุดเจาะน้ำมันและก๊าซ-8c269b6760b9c6acbc2d6baace0b62621a9aa36fa2f5223c7f8b66c58087c893",
+      "skill": "เทคโนโลยีการขุดเจาะน้ำมันและก๊าซ",
+      "testCases": [
+        "75dd76dc-b23f-4728-b9a4-09621f52a26b-เทคโนโลยีการขุดเจาะน้ำมันและก๊าซ"
+      ],
+      "completedAt": "2026-01-26T14:45:59.490Z",
+      "result": {
+        "retrievedCount": 19,
+        "meanRelevanceScore": 0.15789473684210525
+      }
+    },
+    {
+      "hash": "0b9e7378711a7f72a5df7f7aad2872f96ccb01781ead1c38cf22cc4451faa193",
+      "dedupeKey": "การวิเคราะห์และประเมินแหล่งพลังงาน-0b9e7378711a7f72a5df7f7aad2872f96ccb01781ead1c38cf22cc4451faa193",
+      "skill": "การวิเคราะห์และประเมินแหล่งพลังงาน",
+      "testCases": [
+        "75dd76dc-b23f-4728-b9a4-09621f52a26b-การวิเคราะห์และประเมินแหล่งพลังงาน"
+      ],
+      "completedAt": "2026-01-26T14:45:59.163Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 1
+      }
+    },
+    {
+      "hash": "7858c1352c85e1e8f1183e098874a0e49c7514d2e6b093bca9acb53524c26858",
+      "dedupeKey": "ความรู้ด้านวิทยาศาสตร์พื้นฐาน เช่น ฟิสิกส์และเคมี-7858c1352c85e1e8f1183e098874a0e49c7514d2e6b093bca9acb53524c26858",
+      "skill": "ความรู้ด้านวิทยาศาสตร์พื้นฐาน เช่น ฟิสิกส์และเคมี",
+      "testCases": [
+        "75dd76dc-b23f-4728-b9a4-09621f52a26b-ความรู้ด้านวิทยาศาสตร์พื้นฐาน เช่น ฟิสิกส์และเคมี"
+      ],
+      "completedAt": "2026-01-26T14:45:58.527Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.9230769230769231
+      }
+    },
+    {
+      "hash": "6833f7f2c9d771f0b14c05eff4c7889c53d51bf00e52dc7a6205e201ac999f70",
+      "dedupeKey": "ทักษะภาษาอังกฤษทางวิชาการ-6833f7f2c9d771f0b14c05eff4c7889c53d51bf00e52dc7a6205e201ac999f70",
+      "skill": "ทักษะภาษาอังกฤษทางวิชาการ",
+      "testCases": [
+        "75dd76dc-b23f-4728-b9a4-09621f52a26b-ทักษะภาษาอังกฤษทางวิชาการ"
+      ],
+      "completedAt": "2026-01-26T14:46:11.992Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 1.6
+      }
+    },
+    {
+      "hash": "2c55b0ce3917acf9ef874a3cef3f411a65a7e2a254053c067dd31cf6984d81be",
+      "dedupeKey": "การจัดการโครงการและความปลอดภัยในงานวิศวกรรม-2c55b0ce3917acf9ef874a3cef3f411a65a7e2a254053c067dd31cf6984d81be",
+      "skill": "การจัดการโครงการและความปลอดภัยในงานวิศวกรรม",
+      "testCases": [
+        "75dd76dc-b23f-4728-b9a4-09621f52a26b-การจัดการโครงการและความปลอดภัยในงานวิศวกรรม"
+      ],
+      "completedAt": "2026-01-26T14:46:09.777Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 1.6428571428571428
+      }
+    },
+    {
+      "hash": "176c58711629242bccf497ec98ee82ade8aee13b0301d5b2a6077656407301fb",
+      "dedupeKey": "ภาษาบาลี-176c58711629242bccf497ec98ee82ade8aee13b0301d5b2a6077656407301fb",
+      "skill": "ภาษาบาลี",
+      "testCases": [
+        "fa617f52-c86b-4b8c-976b-bfdb073f1070-ภาษาบาลี"
+      ],
+      "completedAt": "2026-01-26T14:46:12.024Z",
+      "result": {
+        "retrievedCount": 20,
+        "meanRelevanceScore": 0
+      }
+    },
+    {
+      "hash": "04064f9dedfc16d493bb926bf01f042552eaa467877927604d1310927fd83964",
+      "dedupeKey": "ไวยากรณ์ภาษาบาลี-04064f9dedfc16d493bb926bf01f042552eaa467877927604d1310927fd83964",
+      "skill": "ไวยากรณ์ภาษาบาลี",
+      "testCases": [
+        "fa617f52-c86b-4b8c-976b-bfdb073f1070-ไวยากรณ์ภาษาบาลี"
+      ],
+      "completedAt": "2026-01-26T14:46:20.563Z",
+      "result": {
+        "retrievedCount": 18,
+        "meanRelevanceScore": 0
+      }
+    },
+    {
+      "hash": "6a028a76e2ee5e3e330de8be0d183254c0b6521a0ad04b85d2819ee76796541e",
+      "dedupeKey": "การอ่านและแปลภาษาบาลี-6a028a76e2ee5e3e330de8be0d183254c0b6521a0ad04b85d2819ee76796541e",
+      "skill": "การอ่านและแปลภาษาบาลี",
+      "testCases": [
+        "fa617f52-c86b-4b8c-976b-bfdb073f1070-การอ่านและแปลภาษาบาลี"
+      ],
+      "completedAt": "2026-01-26T14:46:17.662Z",
+      "result": {
+        "retrievedCount": 14,
+        "meanRelevanceScore": 0
+      }
+    },
+    {
+      "hash": "10a0b7f6c4f2a9e1668d5db4c32eb86734c2be9033d9ab23f6d4c6dc835a62b7",
+      "dedupeKey": "วรรณคดีและวัฒนธรรมบาลี-10a0b7f6c4f2a9e1668d5db4c32eb86734c2be9033d9ab23f6d4c6dc835a62b7",
+      "skill": "วรรณคดีและวัฒนธรรมบาลี",
+      "testCases": [
+        "fa617f52-c86b-4b8c-976b-bfdb073f1070-วรรณคดีและวัฒนธรรมบาลี"
+      ],
+      "completedAt": "2026-01-26T14:46:19.073Z",
+      "result": {
+        "retrievedCount": 11,
+        "meanRelevanceScore": 0.5454545454545454
+      }
+    },
+    {
+      "hash": "3c76ea60a7dc9100ab11ab886bdc8fead56c094822379a25f23435debb05c5e6",
+      "dedupeKey": "ภาษาสันสกฤตเบื้องต้น-3c76ea60a7dc9100ab11ab886bdc8fead56c094822379a25f23435debb05c5e6",
+      "skill": "ภาษาสันสกฤตเบื้องต้น",
+      "testCases": [
+        "fa617f52-c86b-4b8c-976b-bfdb073f1070-ภาษาสันสกฤตเบื้องต้น"
+      ],
+      "completedAt": "2026-01-26T14:46:27.078Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.15384615384615385
+      }
+    },
+    {
+      "hash": "a511da4bddd6238459b5948dcffebbd013371de3f1e82f4e98fcf83dcadad74b",
+      "dedupeKey": "การใช้พจนานุกรมภาษาบาลี-a511da4bddd6238459b5948dcffebbd013371de3f1e82f4e98fcf83dcadad74b",
+      "skill": "การใช้พจนานุกรมภาษาบาลี",
+      "testCases": [
+        "fa617f52-c86b-4b8c-976b-bfdb073f1070-การใช้พจนานุกรมภาษาบาลี"
+      ],
+      "completedAt": "2026-01-26T14:46:30.840Z",
+      "result": {
+        "retrievedCount": 20,
+        "meanRelevanceScore": 0
+      }
+    }
+  ],
+  "lastUpdated": "2026-01-26T14:46:30.840Z",
+  "statistics": {
+    "totalItems": 140,
+    "completedItems": 140,
+    "pendingItems": 0,
+    "completionPercentage": 100
+  },
+  "deduplicationStats": {
+    "totalTestCases": 148,
+    "uniqueGroups": 140,
+    "duplicateCount": 8,
+    "deduplicationRate": 5.405405405405405
+  }
+}

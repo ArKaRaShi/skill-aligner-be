@@ -1,0 +1,132 @@
+{
+  "testCaseId": "be573eca-6596-418a-888d-f4f0c0d5651d-การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+  "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+  "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01204512-66",
+      "subjectName": "การออกแบบและการวิเคราะห์ขั้นตอนวิธีคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers analysis of algorithm complexity (time complexity) as a primary learning outcome."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 2,
+      "reason": "Course includes analysis and design of basic algorithms, which relates to algorithm complexity but not comprehensively."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 1,
+      "reason": "Mentions algorithm design for simple problems but does not explicitly cover complexity analysis."
+    },
+    {
+      "subjectCode": "02204433-65",
+      "subjectName": "การรู้จำรูปแบบ",
+      "relevanceScore": 1,
+      "reason": "Covers algorithms related to pattern recognition but does not focus on complexity analysis."
+    },
+    {
+      "subjectCode": "01420323-66",
+      "subjectName": "การวัดเชิงควอนตัม",
+      "relevanceScore": 0,
+      "reason": "Course on quantum measurement with no relation to algorithm complexity."
+    },
+    {
+      "subjectCode": "02801112-67",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษ II",
+      "relevanceScore": 0,
+      "reason": "Course on English grammar structure, unrelated to algorithm complexity."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "Course on polymer chemistry, unrelated to algorithm complexity."
+    },
+    {
+      "subjectCode": "01420441-66",
+      "subjectName": "อิเล็กทรอนิกส์กายภาพ",
+      "relevanceScore": 0,
+      "reason": "Course on physical electronics and semiconductors, unrelated to algorithm complexity."
+    },
+    {
+      "subjectCode": "03651441-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ II",
+      "relevanceScore": 1,
+      "reason": "Covers statistical learning models for complex data but does not focus on algorithm complexity analysis."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 1,
+      "reason": "Covers AI basics and data analysis but does not explicitly address algorithm complexity analysis."
+    },
+    {
+      "subjectCode": "01401472-66",
+      "subjectName": "ชีววิทยาโมเลกุลของพืช",
+      "relevanceScore": 0,
+      "reason": "Course on molecular biology of plants, unrelated to algorithm complexity."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.8181818181818182,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 45.45454545454545,
+        "microAverageRate": 45.45454545454545,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 36.36363636363637,
+        "microAverageRate": 36.36363636363637,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.931,
+        "at10": 0.974,
+        "at15": 0.974,
+        "atAll": 0.974
+      },
+      "ideal": {
+        "at5": 0.587,
+        "at10": 0.424,
+        "at15": 0.329,
+        "atAll": 0.4
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.2,
+      "at15": 0.182,
+      "atAll": 0.182
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2373,
+  "outputTokens": 329
+}

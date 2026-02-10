@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การใช้ฐานข้อมูลและการจัดการข้อมูล"
+  ],
+  "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 3,
+      "reason": "Course focuses on database design, management, and querying using structured query language, directly covering database use and data management comprehensively."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Course includes data import and management as part of data visualization for business, covering data handling as a distinct component but not comprehensively on databases."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Course covers data management and analysis effectively, which relates to data handling, but does not focus specifically on database systems."
+    },
+    {
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "relevanceScore": 3,
+      "reason": "Course covers fundamental concepts of relational database management systems, database design, normalization, SQL commands, and database lifecycle, fully addressing database use and management."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on managerial accounting and strategic management, no coverage of database or data management."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Course covers data warehouse structures and business intelligence systems, including data modeling and analysis, relevant to data management but not core database management."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers big data management basics and tools, relevant to data management but not traditional database systems."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 1,
+      "reason": "Course mentions data management in context of experimental design and statistical analysis, but only as a minor component."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Course relates to chemistry and art, with no connection to database or data management."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Course focuses on chemistry in daily life, no relation to database or data management."
+    },
+    {
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "relevanceScore": 3,
+      "reason": "Course covers analysis, design, and creation of relational databases and database applications, directly addressing database use and management."
+    },
+    {
+      "subjectCode": "01403291-65",
+      "subjectName": "วรรณกรรมและสารสนเทศทางเคมี",
+      "relevanceScore": 1,
+      "reason": "Course involves understanding and searching chemical information databases, but focuses on literature and information retrieval rather than database management."
+    },
+    {
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Course includes use of information technology for data retrieval and presentation in research, but database management is not a primary focus."
+    },
+    {
+      "subjectCode": "04256347-66",
+      "subjectName": "การประมวลผลข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers analysis and management of big data, relevant to data management but not traditional database systems."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.5714285714285714,
+    "totalRelevanceSum": 22,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 35.714285714285715,
+        "microAverageRate": 35.714285714285715,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.816,
+        "at10": 0.776,
+        "at15": 0.929,
+        "atAll": 0.929
+      },
+      "ideal": {
+        "at5": 0.741,
+        "at10": 0.605,
+        "at15": 0.576,
+        "atAll": 0.602
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.8,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.786,
+        "threshold2": 0.571,
+        "threshold3": 0.214
+      },
+      "atAll": {
+        "threshold1": 0.786,
+        "threshold2": 0.571,
+        "threshold3": 0.214
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2803,
+  "outputTokens": 521
+}

@@ -1,0 +1,144 @@
+{
+  "testCaseId": "97b42158-60af-46d3-aa60-049d1243d2ee-การเขียนโปรแกรมสำหรับดนตรี",
+  "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+  "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "relevanceScore": 2,
+      "reason": "Course involves applying computer programs to Thai music, indicating some programming for music but not comprehensive programming instruction."
+    },
+    {
+      "subjectCode": "02184111-67",
+      "subjectName": "ดนตรีไทย I",
+      "relevanceScore": 0,
+      "reason": "Focuses on Thai music performance and theory without mention of programming."
+    },
+    {
+      "subjectCode": "01386534-66",
+      "subjectName": "การบรรเลงเปียโนประกอบ",
+      "relevanceScore": 0,
+      "reason": "Focuses on piano performance and collaboration, no programming content."
+    },
+    {
+      "subjectCode": "01386524-66",
+      "subjectName": "การอ่านและตีความบทประพันธ์ผ่านสกอร์",
+      "relevanceScore": 0,
+      "reason": "Focuses on music score interpretation and theory, no programming content."
+    },
+    {
+      "subjectCode": "01386591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางดนตรี",
+      "relevanceScore": 0,
+      "reason": "Focuses on music research methods, no programming content."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "Covers basic programming and problem solving but not specifically for music."
+    },
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 1,
+      "reason": "Programming course for robotics, includes programming skills but not related to music."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Engineering drawing and CAD course, unrelated to music programming."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Engineering drawing course, no music or programming for music content."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Nutrition product innovation course, unrelated to music programming."
+    },
+    {
+      "subjectCode": "01386533-66",
+      "subjectName": "การอำนวยเพลงขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Advanced music conducting course, no programming content."
+    },
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 1,
+      "reason": "Includes use of digital technology for music creation but does not specify programming."
+    },
+    {
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "relevanceScore": 1,
+      "reason": "Covers computer tools and multimedia creation, some relevance to digital music creation but no explicit programming for music."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.46153846153846156,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 61.53846153846154,
+        "microAverageRate": 61.53846153846154,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.507,
+        "at10": 0.681,
+        "at15": 0.816,
+        "atAll": 0.816
+      },
+      "ideal": {
+        "at5": 0.226,
+        "at10": 0.197,
+        "at15": 0.183,
+        "atAll": 0.201
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.077,
+      "atAll": 0.077
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2435,
+  "outputTokens": 375
+}

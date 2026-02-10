@@ -1,0 +1,168 @@
+{
+  "testCaseId": "b3460fa2-c348-4748-b583-4b042886e0ca-ความปลอดภัยของข้อมูลและระบบ",
+  "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+  "skill": "ความปลอดภัยของข้อมูลและระบบ",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course mentions ethics and computer technology usage but does not focus on data and system security."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers data privacy and security as a learning outcome, directly related to data and system security."
+    },
+    {
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Course includes managing database security and administrator roles, covering security as part of database management."
+    },
+    {
+      "subjectCode": "04252534-67",
+      "subjectName": "การออกแบบและการบริหารเครือข่ายขั้นสูง",
+      "relevanceScore": 2,
+      "reason": "Course covers network management with emphasis on network stability, implying some security aspects."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course mentions ethics in IT but does not focus on data or system security."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on data warehousing and business intelligence without mention of security."
+    },
+    {
+      "subjectCode": "01005411-67",
+      "subjectName": "การบริหารจัดการฟาร์ม",
+      "relevanceScore": 0,
+      "reason": "Course relates to farm management and safety in agricultural technology, not data or system security."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course mentions ethics in IT but no direct focus on data or system security."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Course about art materials and chemistry, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Course about chemistry in daily life, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "04253181-65",
+      "subjectName": "การฝึกงานโรงงานทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course about engineering factory internship and physical safety, not data or system security."
+    },
+    {
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "relevanceScore": 0,
+      "reason": "Course about industrial safety, not related to data or system security."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Course on digital citizenship includes responsibility and digital technology use but lacks explicit focus on data/system security."
+    },
+    {
+      "subjectCode": "01058343-68",
+      "subjectName": "ปฏิบัติการวิเคราะห์คุณภาพทางกายภาพและเคมีในอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course about physical and chemical quality analysis in agriculture, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "01605523-67",
+      "subjectName": "พันธุวิศวกรรมทางเทคโนโลยีสุขภาพสัตว์",
+      "relevanceScore": 0,
+      "reason": "Course about biosecurity in lab work, not related to data or system security."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 1,
+      "reason": "Course mentions ethics in IT but no direct focus on data or system security."
+    },
+    {
+      "subjectCode": "03651441-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ II",
+      "relevanceScore": 1,
+      "reason": "Course focuses on statistical learning models with ethics mentioned but no direct data/system security content."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.7647058823529411,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 47.05882352941177,
+        "microAverageRate": 47.05882352941177,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 35.294117647058826,
+        "microAverageRate": 35.294117647058826,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 11.764705882352942,
+        "microAverageRate": 11.764705882352942,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.846,
+        "at10": 0.739,
+        "at15": 0.774,
+        "atAll": 0.84
+      },
+      "ideal": {
+        "at5": 0.581,
+        "at10": 0.4,
+        "at15": 0.325,
+        "atAll": 0.326
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.3,
+      "at15": 0.2,
+      "atAll": 0.176
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3399,
+  "outputTokens": 532
+}

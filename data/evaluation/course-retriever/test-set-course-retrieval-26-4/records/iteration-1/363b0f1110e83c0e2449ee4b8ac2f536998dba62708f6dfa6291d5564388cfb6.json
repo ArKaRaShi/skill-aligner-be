@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การใช้เทคโนโลยีในธุรกิจปศุสัตว์"
+  ],
+  "skill": "การใช้เทคโนโลยีในธุรกิจปศุสัตว์",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01004212-64",
+      "subjectName": "การจำแนกแมลงและความหลากหลาย",
+      "relevanceScore": 1,
+      "reason": "Course covers use of technology for biodiversity management but focuses on insects, not specifically livestock business technology."
+    },
+    {
+      "subjectCode": "01603356-65",
+      "subjectName": "เทคนิคปฏิบัติการทางการพยาบาลสัตว์เลี้ยง",
+      "relevanceScore": 2,
+      "reason": "Includes use of information technology for animal nursing tasks, relevant to technology use in animal care but not comprehensive for livestock business technology."
+    },
+    {
+      "subjectCode": "01603344-65",
+      "subjectName": "การพยาบาลสัตว์เฉพาะทาง",
+      "relevanceScore": 2,
+      "reason": "Covers use of information technology in specialized animal nursing, somewhat relevant to technology in livestock business but limited to clinical nursing context."
+    },
+    {
+      "subjectCode": "01023511-68",
+      "subjectName": "วิทยาศาสตร์โภชนศาสตร์สัตว์",
+      "relevanceScore": 2,
+      "reason": "Applies biotechnology related to animal nutrition, partially relevant to technology use in livestock business."
+    },
+    {
+      "subjectCode": "01605698-67",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Mentions use of advanced technology in animal health research, marginally relevant to livestock business technology."
+    },
+    {
+      "subjectCode": "01605699-67",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Focuses on advanced technology in animal health research, marginal relevance to livestock business technology."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Includes use of information technology for presenting animal nutrition research, marginal relevance to livestock business technology."
+    },
+    {
+      "subjectCode": "01603334-65",
+      "subjectName": "โรคสำคัญในสัตว์เลี้ยงเพื่อการพยาบาลสัตว์",
+      "relevanceScore": 2,
+      "reason": "Uses information technology to present data on important animal diseases, fairly relevant to technology in livestock business."
+    },
+    {
+      "subjectCode": "01002111-68",
+      "subjectName": "วิทยาศาสตร์และเทคโนโลยีด้านสัตว์",
+      "relevanceScore": 3,
+      "reason": "Directly covers technologies in animal production and future trends, highly relevant to use of technology in livestock business."
+    },
+    {
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "relevanceScore": 1,
+      "reason": "Mentions planning pet business but does not focus on technology use in livestock business."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 2,
+      "reason": "Covers AI technology for business problem solving, fairly relevant to technology use in livestock business though not specific to livestock."
+    },
+    {
+      "subjectCode": "01025333-64",
+      "subjectName": "ปฏิบัติการเกษตรเขตร้อน",
+      "relevanceScore": 2,
+      "reason": "Includes practical skills related to animal production and agricultural machinery, fairly relevant to technology use in livestock business."
+    },
+    {
+      "subjectCode": "01004331-64",
+      "subjectName": "แมลงที่มีโทษและแมลงที่มีประโยชน์",
+      "relevanceScore": 1,
+      "reason": "Focuses on insect management using modern technology, marginally relevant to livestock business technology."
+    },
+    {
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "relevanceScore": 3,
+      "reason": "Specifically applies AI technology to animal science and livestock industry production planning, highly relevant."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 1,
+      "reason": "Covers design of technology-based products generally, marginal relevance to livestock business technology."
+    },
+    {
+      "subjectCode": "01605523-67",
+      "subjectName": "พันธุวิศวกรรมทางเทคโนโลยีสุขภาพสัตว์",
+      "relevanceScore": 2,
+      "reason": "Focuses on genetic engineering technology related to animal health, fairly relevant to technology in livestock business."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.6875,
+    "totalRelevanceSum": 27,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 43.75,
+        "microAverageRate": 43.75,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 43.75,
+        "microAverageRate": 43.75,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.599,
+        "at10": 0.673,
+        "at15": 0.8,
+        "atAll": 0.825
+      },
+      "ideal": {
+        "at5": 0.51,
+        "at10": 0.515,
+        "at15": 0.535,
+        "atAll": 0.54
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.533,
+        "threshold3": 0.133
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.563,
+        "threshold3": 0.125
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3309,
+  "outputTokens": 555
+}

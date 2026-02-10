@@ -1,0 +1,152 @@
+import { Module } from '@nestjs/common';
+
+import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
+
+import { EmbeddingModule } from '../../shared/adapters/embedding/embedding.module';
+import {
+  I_LLM_ROUTER_SERVICE_TOKEN,
+  ILlmRouterService,
+} from '../../shared/adapters/llm/contracts/i-llm-router-service.contract';
+import { GptLlmModule } from '../../shared/adapters/llm/llm.module';
+import { SseModule } from '../../shared/adapters/sse/sse.module';
+import { CampusModule } from '../campus/campus.module';
+import { CourseModule } from '../course/course.module';
+import { FacultyModule } from '../faculty/faculty.module';
+import { QueryLoggingModule } from '../query-logging/query-logging.module';
+import { QuestionAnalysesModule } from '../question-analyses/question-analyses.module';
+import { QueryProcessorController } from './adapters/inbound/http/query-processor.controller';
+import { QuestionClassifierCache } from './cache/question-classifier.cache';
+import { QuestionSkillCache } from './cache/question-skill.cache';
+import { I_ANSWER_SYNTHESIS_SERVICE_TOKEN } from './contracts/i-answer-synthesis-service.contract';
+import { I_COURSE_AGGREGATION_SERVICE_TOKEN } from './contracts/i-course-aggregation-service.contract';
+import { I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN } from './contracts/i-course-relevance-filter-service.contract';
+import { I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN } from './contracts/i-query-profile-builder-service.contract';
+import { I_QUESTION_CLASSIFIER_SERVICE_TOKEN } from './contracts/i-question-classifier-service.contract';
+import { I_SKILL_EXPANDER_SERVICE_TOKEN } from './contracts/i-skill-expander-service.contract';
+import { AnswerSynthesisService } from './services/answer-synthesis/answer-synthesis.service';
+import { CourseAggregationService } from './services/course-aggregation/course-aggregation.service';
+import { CourseRelevanceFilterService } from './services/course-relevance-filter/course-relevance-filter.service';
+import { MockQueryProfileBuilderService } from './services/query-profile-builder/mock-query-profile-builder.service';
+import { QueryProfileBuilderService } from './services/query-profile-builder/query-profile-builder.service';
+import { MockQuestionClassifierService } from './services/question-classifier/mock-question-classifier.service';
+import { QuestionClassifierService } from './services/question-classifier/question-classifier.service';
+import { MockSkillExpanderService } from './services/skill-expander/mock-skill-expander.service';
+import { SkillExpanderService } from './services/skill-expander/skill-expander.service';
+import { QueryProcessorUseCases } from './use-cases';
+
+@Module({
+  imports: [
+    EmbeddingModule,
+    CampusModule,
+    FacultyModule,
+    CourseModule,
+    GptLlmModule,
+    QueryLoggingModule,
+    QuestionAnalysesModule,
+    SseModule,
+  ],
+  controllers: [QueryProcessorController],
+  providers: [
+    ...QueryProcessorUseCases,
+    QuestionClassifierCache,
+    QuestionSkillCache,
+    {
+      provide: I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
+      inject: [
+        AppConfigService,
+        I_LLM_ROUTER_SERVICE_TOKEN,
+        QuestionClassifierCache,
+      ],
+      useFactory: (
+        config: AppConfigService,
+        llmRouter: ILlmRouterService,
+        cache: QuestionClassifierCache,
+      ) => {
+        if (config.useMockQuestionClassifierService) {
+          return new MockQuestionClassifierService();
+        }
+        return new QuestionClassifierService(
+          llmRouter,
+          config.questionClassifierLlmModel,
+          cache,
+          config.useQuestionClassifierCache,
+        );
+      },
+    },
+    {
+      provide: I_SKILL_EXPANDER_SERVICE_TOKEN,
+      inject: [
+        AppConfigService,
+        I_LLM_ROUTER_SERVICE_TOKEN,
+        QuestionSkillCache,
+      ],
+      useFactory: (
+        config: AppConfigService,
+        llmRouter: ILlmRouterService,
+        cache: QuestionSkillCache,
+      ) => {
+        if (config.useMockSkillExpanderService) {
+          return new MockSkillExpanderService();
+        }
+        return new SkillExpanderService(
+          llmRouter,
+          config.skillExpanderLlmModel,
+          cache,
+          config.useSkillExpanderCache,
+        );
+      },
+    },
+    // BEGIN DEPRECATED PROVIDER
+    // The QueryProfileBuilderService provider is deprecated and kept only for backward compatibility.
+    // Query profiling functionality has been removed from the main query processing pipeline.
+    // This provider should not be used in new code and may be removed in future versions.
+    // If you need language detection or query profiling, consider implementing a separate service.
+    {
+      provide: I_QUERY_PROFILE_BUILDER_SERVICE_TOKEN,
+      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
+        if (config.useMockQueryProfileBuilderService) {
+          return new MockQueryProfileBuilderService();
+        }
+        return new QueryProfileBuilderService(
+          llmRouter,
+          config.queryProfileBuilderLlmModel,
+        );
+      },
+    },
+    // END DEPRECATED PROVIDER
+    {
+      provide: I_COURSE_RELEVANCE_FILTER_SERVICE_TOKEN,
+      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
+        // The CourseRelevanceFilterService is not mocked for now
+        // but this can be extended in future if needed
+        return new CourseRelevanceFilterService(
+          llmRouter,
+          config.courseRelevanceFilterLlmModel,
+        );
+      },
+    },
+    {
+      provide: I_ANSWER_SYNTHESIS_SERVICE_TOKEN,
+      inject: [AppConfigService, I_LLM_ROUTER_SERVICE_TOKEN],
+      useFactory: (config: AppConfigService, llmRouter: ILlmRouterService) => {
+        // The AnswerSynthesisService is not mocked for now
+        // but this can be extended in future if needed
+        return new AnswerSynthesisService(
+          llmRouter,
+          config.answerSynthesisLlmModel,
+        );
+      },
+    },
+    {
+      provide: I_COURSE_AGGREGATION_SERVICE_TOKEN,
+      useClass: CourseAggregationService,
+    },
+  ],
+  exports: [
+    I_QUESTION_CLASSIFIER_SERVICE_TOKEN,
+    I_SKILL_EXPANDER_SERVICE_TOKEN,
+  ],
+})
+export class QueryProcessorModule {}

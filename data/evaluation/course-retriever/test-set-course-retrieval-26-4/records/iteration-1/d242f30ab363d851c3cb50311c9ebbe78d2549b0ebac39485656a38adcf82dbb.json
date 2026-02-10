@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การพัฒนาเว็บแอปพลิเคชัน"
+  ],
+  "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 1,
+      "reason": "Course focuses on AI and creating simple AI applications, which may marginally relate to web app development but is not a primary focus."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "Course is about polymer chemistry with no relation to web application development."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes developing software in website form, directly covering web application development as a primary learning outcome."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "Course is about preparation for cooperative education, unrelated to web application development."
+    },
+    {
+      "subjectCode": "01018524-65",
+      "subjectName": "เครื่องจักรกลหลังการเก็บเกี่ยวขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course covers post-harvest machinery, unrelated to web application development."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 0,
+      "reason": "Course focuses on innovative technology product design, not specifically on web application development."
+    },
+    {
+      "subjectCode": "02201445-66",
+      "subjectName": "ไมโครคอนโทรลเลอร์สำหรับวิศวกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Course includes developing applications to control devices on smartphones, which relates fairly to web app development though focused on embedded and mobile control apps."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 1,
+      "reason": "Course covers technology for learning management and digital media, marginally related but not focused on web app development."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course is about beverage preparation, unrelated to web application development."
+    },
+    {
+      "subjectCode": "03752111-67",
+      "subjectName": "ทรัพยากรสารสนเทศเพื่อการค้นคว้า",
+      "relevanceScore": 0,
+      "reason": "Course is about information resources for research, unrelated to web application development."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 0,
+      "reason": "Course covers data warehousing and business intelligence, not web application development."
+    },
+    {
+      "subjectCode": "01001572-64",
+      "subjectName": "การสื่อสารเชิงสร้างสรรค์และสารสนเทศทางการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course is about creative communication in agriculture, unrelated to web application development."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Course is about pigments in art, unrelated to web application development."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Course is about chemistry in modern life, unrelated to web application development."
+    },
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Course is a thesis course focusing on research and product development, no direct mention of web app development."
+    },
+    {
+      "subjectCode": "02201323-66",
+      "subjectName": "สมบัติทางกายภาพของผลิตภัณฑ์เกษตร",
+      "relevanceScore": 0,
+      "reason": "Course covers physical properties of agricultural products, unrelated to web application development."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 0.4375,
+    "totalRelevanceSum": 7,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 12,
+        "macroAverageRate": 75,
+        "microAverageRate": 75,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 6.25,
+        "microAverageRate": 6.25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.25,
+        "microAverageRate": 6.25,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.481,
+        "at10": 0.671,
+        "at15": 0.671,
+        "atAll": 0.671
+      },
+      "ideal": {
+        "at5": 0.283,
+        "at10": 0.255,
+        "at15": 0.198,
+        "atAll": 0.19
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.267,
+        "threshold2": 0.133,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.25,
+        "threshold2": 0.125,
+        "threshold3": 0.063
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3013,
+  "outputTokens": 511
+}

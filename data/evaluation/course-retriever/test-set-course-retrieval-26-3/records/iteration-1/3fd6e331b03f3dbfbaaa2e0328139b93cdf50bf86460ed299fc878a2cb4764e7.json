@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "d70fb21b-c337-425b-8b11-3ee2018f3fc4-จิตวิทยาองค์กร"
+  ],
+  "skill": "จิตวิทยาองค์กร",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01475531-64",
+      "subjectName": "จิตวิทยาองค์การ",
+      "relevanceScore": 3,
+      "reason": "The course 'จิตวิทยาองค์การ' explicitly focuses on organizational psychology, covering theories, research, and applications related to psychological variables at individual, group, and organizational levels, making it highly relevant to the skill."
+    },
+    {
+      "subjectCode": "01475535-64",
+      "subjectName": "จิตวิทยาการเปลี่ยนแปลงและการพัฒนา",
+      "relevanceScore": 2,
+      "reason": "While the course discusses psychological concepts and theories related to organizational change and development, it is part of a broader topic and not solely focused on organizational psychology, making it fairly relevant."
+    },
+    {
+      "subjectCode": "01475533-64",
+      "subjectName": "จิตวิทยาการจูงใจในองค์การ",
+      "relevanceScore": 2,
+      "reason": "The course covers motivation theories and their application within organizations, which relates to organizational psychology but is not the primary focus, thus fairly relevant."
+    },
+    {
+      "subjectCode": "01475537-64",
+      "subjectName": "จิตวิทยาการทำงานเป็นทีม",
+      "relevanceScore": 2,
+      "reason": "Team psychology principles are discussed, which are related to organizational psychology, but the course emphasizes team dynamics more broadly, making it fairly relevant."
+    },
+    {
+      "subjectCode": "01475522-64",
+      "subjectName": "จิตวิทยาบุคลากร",
+      "relevanceScore": 3,
+      "reason": "Personnel psychology directly pertains to organizational psychology, covering concepts, theories, and practical applications, making it highly relevant."
+    },
+    {
+      "subjectCode": "01475536-64",
+      "subjectName": "จิตวิทยาการจัดการความขัดแย้งในองค์การ",
+      "relevanceScore": 2,
+      "reason": "Conflict management and negotiation in organizations are related to organizational psychology, but the focus is on specific skills rather than the broader field, making it fairly relevant."
+    },
+    {
+      "subjectCode": "01475597-64",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar courses involve research and discussion on industrial and organizational psychology topics but are not primarily focused on the skill itself, making it marginally relevant."
+    },
+    {
+      "subjectCode": "01475591-64",
+      "subjectName": "ระเบียบวิธีวิจัยทางจิตวิทยาอุตสาหกรรมและองค์การ",
+      "relevanceScore": 2,
+      "reason": "Research methodology in industrial and organizational psychology is related but more methodological than content-focused on the skill, making it fairly relevant."
+    },
+    {
+      "subjectCode": "01475529-64",
+      "subjectName": "จิตวิทยาการปรึกษาทางธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Business counseling psychology involves application of psychological principles in organizational contexts, related but not the core of organizational psychology, making it fairly relevant."
+    },
+    {
+      "subjectCode": "01475538-64",
+      "subjectName": "จิตวิทยาอุตสาหกรรมและองค์การข้ามวัฒนธรรม",
+      "relevanceScore": 2,
+      "reason": "Cross-cultural organizational psychology discusses behavior across cultures and management in diverse settings, related to organizational psychology but not the primary focus, making it fairly relevant."
+    },
+    {
+      "subjectCode": "01475532-64",
+      "subjectName": "จิตวิทยาสังคมประยุกต์ในการทำงาน",
+      "relevanceScore": 2,
+      "reason": "Social psychology applied to work involves understanding social behaviors in organizations, related but not the main focus, making it fairly relevant."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 2.090909090909091,
+    "totalRelevanceSum": 23,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 8,
+        "macroAverageRate": 72.72727272727273,
+        "microAverageRate": 72.72727272727273,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.968,
+        "at10": 0.946,
+        "at15": 0.973,
+        "atAll": 0.973
+      },
+      "ideal": {
+        "at5": 0.824,
+        "at10": 0.744,
+        "at15": 0.608,
+        "atAll": 0.739
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.9,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.909,
+        "threshold3": 0.182
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.909,
+        "threshold3": 0.182
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2045,
+  "outputTokens": 626
+}

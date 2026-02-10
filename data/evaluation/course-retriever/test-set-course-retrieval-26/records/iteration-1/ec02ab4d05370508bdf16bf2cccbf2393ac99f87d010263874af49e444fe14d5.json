@@ -1,0 +1,132 @@
+{
+  "testCaseId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การจัดการฐานข้อมูล",
+  "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+  "skill": "การจัดการฐานข้อมูล",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Course includes managing and designing databases and querying data, which relates to database management as a significant component but not comprehensive mastery."
+    },
+    {
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "relevanceScore": 3,
+      "reason": "Course fully covers database management including database structure, SQL queries, transaction management, security, and relational database concepts, making it highly relevant."
+    },
+    {
+      "subjectCode": "04256347-66",
+      "subjectName": "การประมวลผลข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Course mentions managing large data but focuses on big data processing rather than traditional database management."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course focuses on data analysis and visualization with minor mention of data management, not core database management."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course involves data import and management for visualization but does not focus on database management principles."
+    },
+    {
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "relevanceScore": 3,
+      "reason": "Course covers database systems and applications including analysis, design, and creation of relational databases, directly relevant to database management."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Course covers data warehouse and business intelligence systems, which are specialized database management topics but not general database management."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Course focuses on big data management tools and privacy, marginally related to database management."
+    },
+    {
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on data science basics for applied mathematics, no direct mention of database management."
+    },
+    {
+      "subjectCode": "01403291-65",
+      "subjectName": "วรรณกรรมและสารสนเทศทางเคมี",
+      "relevanceScore": 0,
+      "reason": "Course focuses on chemical literature and information retrieval, not database management."
+    },
+    {
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "relevanceScore": 0,
+      "reason": "Course is about organization and management principles, unrelated to database management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 1.2727272727272727,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 36.36363636363637,
+        "microAverageRate": 36.36363636363637,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.73,
+        "at10": 0.891,
+        "at15": 0.891,
+        "atAll": 0.891
+      },
+      "ideal": {
+        "at5": 0.589,
+        "at10": 0.533,
+        "at15": 0.413,
+        "atAll": 0.502
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.4,
+      "at15": 0.364,
+      "atAll": 0.364
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2400,
+  "outputTokens": 380
+}

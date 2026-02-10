@@ -1,0 +1,138 @@
+{
+  "testCaseId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การตลาดและการส่งเสริมการขาย",
+  "question": "อยากเปิดร้านเหล้า",
+  "skill": "การตลาดและการส่งเสริมการขาย",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 3,
+      "reason": "Course covers fundamental marketing principles including marketing mix and consumer behavior, directly addressing marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 1,
+      "reason": "Focuses on public relations, which is related but not central to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 3,
+      "reason": "Emphasizes marketing management, including creating and presenting marketing plans, highly relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "relevanceScore": 3,
+      "reason": "Covers marketing strategies, marketing mix, and marketing activities in agriculture and food business, directly relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 3,
+      "reason": "Focuses on targeted marketing and pricing strategies for beverage business, directly related to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "relevanceScore": 2,
+      "reason": "Covers content marketing media and technology, a specific aspect of marketing, providing useful but partial coverage."
+    },
+    {
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "relevanceScore": 2,
+      "reason": "Covers international marketing principles, relevant but more specialized and less comprehensive on general marketing and sales promotion."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 3,
+      "reason": "Focuses on marketing management in aviation business including marketing mix and consumer behavior, highly relevant."
+    },
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 3,
+      "reason": "Covers brand creation and management including marketing communication strategies, directly relevant to marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01136113-68",
+      "subjectName": "เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด",
+      "relevanceScore": 1,
+      "reason": "Focuses on applied economics for marketers, related but not directly about marketing and sales promotion."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 1,
+      "reason": "Includes use of technology for promotion and communication in food service, but marketing is a minor component."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "Focuses on profit planning and control, unrelated to marketing and sales promotion."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 2.0833333333333335,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 6,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.857,
+        "at10": 0.941,
+        "at15": 0.942,
+        "atAll": 0.942
+      },
+      "ideal": {
+        "at5": 0.857,
+        "at10": 0.814,
+        "at15": 0.647,
+        "atAll": 0.745
+      }
+    },
+    "precision": {
+      "at5": 0.8,
+      "at10": 0.8,
+      "at15": 0.667,
+      "atAll": 0.667
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2232,
+  "outputTokens": 419
+}

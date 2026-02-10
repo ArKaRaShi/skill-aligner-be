@@ -1,0 +1,150 @@
+{
+  "testCaseId": "75dd76dc-b23f-4728-b9a4-09621f52a26b-วิศวกรรมปิโตรเลียม",
+  "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+  "skill": "วิศวกรรมปิโตรเลียม",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Course is a general thesis course without specific mention of petroleum engineering."
+    },
+    {
+      "subjectCode": "01202525-66",
+      "subjectName": "การออกแบบและประเมินผลกระบวนการ",
+      "relevanceScore": 1,
+      "reason": "Covers chemical engineering process design and evaluation, marginally related to petroleum engineering processes."
+    },
+    {
+      "subjectCode": "01254461-65",
+      "subjectName": "หลักวิศวกรรมทางผลิตภัณฑ์ประมง",
+      "relevanceScore": 0,
+      "reason": "Focuses on fisheries engineering, unrelated to petroleum engineering."
+    },
+    {
+      "subjectCode": "03503321-65",
+      "subjectName": "โครงสร้างเรือและการทรงตัว",
+      "relevanceScore": 0,
+      "reason": "Focuses on ship structure and stability, unrelated to petroleum engineering."
+    },
+    {
+      "subjectCode": "02201598-66",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural engineering theory, no mention of petroleum engineering."
+    },
+    {
+      "subjectCode": "01202599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Thesis course with emphasis on chemical engineering research, marginally related to petroleum engineering."
+    },
+    {
+      "subjectCode": "03601596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมไฟฟ้าและอิเล็กทรอนิกส์",
+      "relevanceScore": 0,
+      "reason": "Focuses on electrical and electronics engineering, unrelated to petroleum engineering."
+    },
+    {
+      "subjectCode": "02232181-66",
+      "subjectName": "ความน่าจะเป็นและสถิติสำหรับวิศวกรรมโยธา",
+      "relevanceScore": 0,
+      "reason": "Focuses on probability and statistics for civil engineering, unrelated to petroleum engineering."
+    },
+    {
+      "subjectCode": "02034111-66",
+      "subjectName": "ปริทัศน์เทคโนโลยีชีวภาพทางการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on biotechnology in agriculture, unrelated to petroleum engineering."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Focuses on engineering drawing skills, unrelated to petroleum engineering."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on advanced agricultural product processing engineering, unrelated to petroleum engineering."
+    },
+    {
+      "subjectCode": "03652376-66",
+      "subjectName": "เคมีอินทรีย์อุตสาหกรรม",
+      "relevanceScore": 2,
+      "reason": "Covers industrial organic chemistry with specific content on petroleum and natural gas raw materials, fairly relevant to petroleum engineering."
+    },
+    {
+      "subjectCode": "01420452-66",
+      "subjectName": "ฟิสิกส์ของสภาวะแวดล้อม",
+      "relevanceScore": 0,
+      "reason": "Focuses on environmental physics, unrelated to petroleum engineering."
+    },
+    {
+      "subjectCode": "02232241-66",
+      "subjectName": "เศรษฐศาสตร์สำหรับวิศวกรรมโยธา",
+      "relevanceScore": 0,
+      "reason": "Focuses on economics for civil engineering, unrelated to petroleum engineering."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.2857142857142857,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 11,
+        "macroAverageRate": 78.57142857142857,
+        "microAverageRate": 78.57142857142857,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.202,
+        "at10": 0.315,
+        "at15": 0.488,
+        "atAll": 0.488
+      },
+      "ideal": {
+        "at5": 0.071,
+        "at10": 0.072,
+        "at15": 0.087,
+        "atAll": 0.091
+      }
+    },
+    "precision": {
+      "at5": 0,
+      "at10": 0,
+      "at15": 0.071,
+      "atAll": 0.071
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2730,
+  "outputTokens": 413
+}

@@ -1,0 +1,174 @@
+{
+  "testCaseId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม",
+  "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+  "skill": "พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม",
+  "retrievedCount": 18,
+  "evaluations": [
+    {
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "relevanceScore": 3,
+      "reason": "Course focuses on Chinese linguistics including theories and research, directly covering the linguistic foundations of Chinese language."
+    },
+    {
+      "subjectCode": "01362112-63",
+      "subjectName": "ภาษาจีนพื้นฐาน II",
+      "relevanceScore": 1,
+      "reason": "Basic Chinese language skills course; mentions language skills but no explicit focus on linguistic foundations."
+    },
+    {
+      "subjectCode": "01399101-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร I",
+      "relevanceScore": 1,
+      "reason": "Vietnamese communication skills course; focuses on language use, vocabulary, and grammar but not on linguistic foundations."
+    },
+    {
+      "subjectCode": "01399103-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร III",
+      "relevanceScore": 1,
+      "reason": "Similar to above, focuses on Vietnamese communication skills without explicit linguistic foundation content."
+    },
+    {
+      "subjectCode": "01399102-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร II",
+      "relevanceScore": 1,
+      "reason": "Same as above, focuses on Vietnamese communication skills, not linguistic foundations."
+    },
+    {
+      "subjectCode": "01362111-68",
+      "subjectName": "ภาษาจีนพื้นฐาน I",
+      "relevanceScore": 1,
+      "reason": "Basic Chinese language course with grammar explanation but no explicit focus on linguistic foundations."
+    },
+    {
+      "subjectCode": "01396141-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Business Chinese conversation course; no indication of linguistic foundations content."
+    },
+    {
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "relevanceScore": 1,
+      "reason": "Intermediate Chinese language skills focusing on pronunciation, writing, and usage but no explicit linguistic foundation content."
+    },
+    {
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "relevanceScore": 1,
+      "reason": "Basic Chinese language skills course; no explicit mention of linguistic foundations."
+    },
+    {
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "relevanceScore": 1,
+      "reason": "Basic Chinese language skills course; no explicit mention of linguistic foundations."
+    },
+    {
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "relevanceScore": 1,
+      "reason": "Advanced Chinese language skills course; no explicit mention of linguistic foundations."
+    },
+    {
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "relevanceScore": 1,
+      "reason": "Advanced Chinese language skills course; no explicit mention of linguistic foundations."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 1,
+      "reason": "Business Chinese course analyzing grammar and structure but focused on business context, not general linguistic foundations."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 1,
+      "reason": "Similar to above, business Chinese with grammar analysis but not general linguistic foundations."
+    },
+    {
+      "subjectCode": "01396281-67",
+      "subjectName": "ภาษาจีนเชิงสังคมและวัฒนธรรม",
+      "relevanceScore": 1,
+      "reason": "Chinese social and cultural language course; includes language skills but no explicit linguistic foundation content."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Business Chinese conversation course; no linguistic foundation content."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Business Chinese conversation course; no linguistic foundation content."
+    },
+    {
+      "subjectCode": "01396111-67",
+      "subjectName": "ภาษาจีนธุรกิจ I",
+      "relevanceScore": 1,
+      "reason": "Business Chinese course focusing on vocabulary and communication; no explicit linguistic foundation content."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 18,
+    "meanRelevanceScore": 0.9444444444444444,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 14,
+        "macroAverageRate": 77.77777777777777,
+        "microAverageRate": 77.77777777777777,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 5.555555555555555,
+        "microAverageRate": 5.555555555555555,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 0.949,
+        "at15": 0.958,
+        "atAll": 0.988
+      },
+      "ideal": {
+        "at5": 0.559,
+        "at10": 0.456,
+        "at15": 0.428,
+        "atAll": 0.393
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.067,
+      "atAll": 0.056
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2367,
+  "outputTokens": 547
+}

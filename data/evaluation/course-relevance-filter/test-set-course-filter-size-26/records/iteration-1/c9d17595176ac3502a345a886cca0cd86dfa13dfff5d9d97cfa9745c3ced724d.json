@@ -1,0 +1,1554 @@
+{
+  "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+  "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+  "courses": [
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "outcomes": [
+        "สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล",
+        "สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "0996ed39-5343-4551-afef-bd7c1cb19c17",
+              "name": "สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล"
+            },
+            {
+              "id": "a144a4cb-8876-4a48-98bd-4d5f86f59393",
+              "name": "สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "0996ed39-5343-4551-afef-bd7c1cb19c17",
+              "name": "สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "0996ed39-5343-4551-afef-bd7c1cb19c17",
+              "name": "สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล"
+            },
+            {
+              "id": "a144a4cb-8876-4a48-98bd-4d5f86f59393",
+              "name": "สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Directly teaches personal financial planning, matching the user's goal exactly."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Directly teaches personal financial management including planning and investment relevant to managing one's own money."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "04305211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "outcomes": [
+        "สามารถอธิบาย หลักการเบื้องต้นเกี่ยวกับการเงินธุรกิจ ได้",
+        "สามารถมูลค่าเงินตามเวลา การจัดทำงบประมาณลงทุน ความรู้พื้นฐานเกี่ยวกับโครงสร้างเงินทุน การจัดการเงินทุนหมุนเวียนสำหรับการวิเคราะห์บริษัท และหลักการพัฒนาอย่างยั่งยืนและธรรมมาภิบาลของบริษัทจดทะเบียน ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ba9876bb-1a45-4c50-849c-40955bce7721",
+              "name": "สามารถอธิบาย หลักการเบื้องต้นเกี่ยวกับการเงินธุรกิจ ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "ba9876bb-1a45-4c50-849c-40955bce7721",
+              "name": "สามารถอธิบาย หลักการเบื้องต้นเกี่ยวกับการเงินธุรกิจ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Covers fundamental financial management principles directly relevant to managing personal finances."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on business financial management, not personal finance."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03759211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "outcomes": [
+        "สามารถอธิบายวัตถุประสงค์และความสำคัญของการจัดการทางการเงิน จุดมุ่งหมาย บทบาทหน้าที่ของผู้บริหารการเงินได้",
+        "สามารถอธิบายแนวความคิดทางการเงิน ได้แก่ มูลค่าเงินตามเวลา ความเสี่ยงและผลตอบแทนได้",
+        "สามารถอธิบายการวิเคราะห์ทางการเงิน เพื่อนำไปใช้ประกอบการตัดสินใจทางการเงินได้",
+        "สามารถอธิบายการจัดหาเงินทุนของธุรกิจและการบริหารสินทรัพย์ของธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "7a033edb-f4f3-47bc-bb89-bf299a9e9d0f",
+              "name": "สามารถอธิบายวัตถุประสงค์และความสำคัญของการจัดการทางการเงิน จุดมุ่งหมาย บทบาทหน้าที่ของผู้บริหารการเงินได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Explicitly covers financial management principles directly relevant to personal finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers financial management for businesses, not personal money management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "outcomes": [
+        "สามารถบันทึกบัญชีและแสดงมูลค่าของหนี้สินในงบการเงินได้",
+        "สามารถบันทึกบัญชีและแสดงมูลค่าของส่วนของเจ้าของในงบการเงินได้",
+        "สามารถจัดทำและนำเสนองบกระแสเงินสดได้",
+        "มีความรับผิดชอบต่อหน้าที่ ซื่อสัตย์ และตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "6c4f3cde-bb5e-4112-8626-a648b61fbbcd",
+              "name": "สามารถบันทึกบัญชีและแสดงมูลค่าของหนี้สินในงบการเงินได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "866cb7f1-ccac-4bc7-8428-69b27cfc67d2",
+              "name": "สามารถจัดทำและนำเสนองบกระแสเงินสดได้"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "866cb7f1-ccac-4bc7-8428-69b27cfc67d2",
+              "name": "สามารถจัดทำและนำเสนองบกระแสเงินสดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers accounting for liabilities and financial statements, which are foundational for understanding debt, but not directly teaching personal debt management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Intermediate accounting focused on financial statements, not personal finance."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "outcomes": [
+        "สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้",
+        "สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้",
+        "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้",
+        "มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "5f29ab8a-8b9e-4173-a70b-5923bbe5937c",
+              "name": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "5f29ab8a-8b9e-4173-a70b-5923bbe5937c",
+              "name": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "5f29ab8a-8b9e-4173-a70b-5923bbe5937c",
+              "name": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "5f29ab8a-8b9e-4173-a70b-5923bbe5937c",
+              "name": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides knowledge on asset recognition and financial statements, relevant as foundational knowledge for managing debt but not specific to personal debt management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Accounting principles related to assets, irrelevant to personal money management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "outcomes": [
+        "อธิบายความเป็นมาของการเงินธุรกิจการบิน และการดำเนินงานของธุรกิจสายการบิน การขนส่งสินค้าทางอากาศ และหน่วยงานที่เกี่ยวข้อง",
+        "วิเคราะห์ประเด็นปัญหา และการแก้ปัญหาด้านการเงินธุรกิจเบื้องต้นตามสถานการณ์อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2b37d44d-f1a5-4f5b-9e1e-cc568b6d87e7",
+              "name": "วิเคราะห์ประเด็นปัญหา และการแก้ปัญหาด้านการเงินธุรกิจเบื้องต้นตามสถานการณ์อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers basic financial analysis for a specific industry, which can be foundational for understanding financial management, including debt, but not tailored to personal debt management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Finance for airline business, unrelated to personal financial management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "02802211-67",
+      "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+      "outcomes": [
+        "สามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้",
+        "สามารถนำเสนอข้อมูลทางการเงินที่กำหนดให้เพื่อสาธิตการตัดสินใจและวางแผนธุรกิจบริการได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "897fb101-a85f-40b7-b635-6ee3cce06bf0",
+              "name": "สามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "897fb101-a85f-40b7-b635-6ee3cce06bf0",
+              "name": "สามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "897fb101-a85f-40b7-b635-6ee3cce06bf0",
+              "name": "สามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers financial planning and decision-making in service businesses, which can be foundational for understanding personal financial management, including debt."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Financial management for service businesses, not personal finance."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01999041-67",
+      "subjectName": "เศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี",
+      "outcomes": [
+        "วิเคราะห์เหตุการณ์ที่เกี่ยวข้องกับเศรษฐกิจในปัจจุบันได้",
+        "วางแผนการเงินในปัจจุบันและอนาคตรวมถึงนำไปปฏิบัติเป็นกิจวัตรประจำวันได้",
+        "เชื่อมโยงองค์ประกอบที่สำคัญของแผนธุรกิจเพื่อเตรียมความพร้อมในการเป็นผู้ประกอบการได้",
+        ""
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "6bb601ec-9142-4578-b837-3d1efcaea585",
+              "name": "วางแผนการเงินในปัจจุบันและอนาคตรวมถึงนำไปปฏิบัติเป็นกิจวัตรประจำวันได้"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "6bb601ec-9142-4578-b837-3d1efcaea585",
+              "name": "วางแผนการเงินในปัจจุบันและอนาคตรวมถึงนำไปปฏิบัติเป็นกิจวัตรประจำวันได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes planning and analysis of personal finance, which is relevant to self-money management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers economics for good living including personal financial planning applicable to managing own money."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "outcomes": [
+        "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+        "จัดทำงบประมาณธุรกิจต่างๆ",
+        "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            },
+            {
+              "id": "22fa92fd-9ba3-4e53-a004-5f02381e8c82",
+              "name": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+            }
+          ]
+        },
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            },
+            {
+              "id": "22fa92fd-9ba3-4e53-a004-5f02381e8c82",
+              "name": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes budgeting and profit control, relevant to personal financial planning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on profit planning and control in business, not personal finance."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "outcomes": [
+        "วิเคราะห์ข้อมูลในรายงานทางการเงิน",
+        "นำเทคโนโลยีมาใช้ประกอบกับการวิเคราะห์ข้อมูลในรายงานทางการเงิน เพื่อสนับสนุนการตัดสินใจ สื่อสาร และให้คำแนะนำแก่ผู้ที่เกี่ยวข้องได้",
+        "ประเมินมูลค่ากิจการ ประเมินราคาหลักทรัพย์ และวิเคราะห์ความคุ้มค่าโครงการจากข้อมูลในรายงานทางการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "fddec55c-f2e9-4150-9d90-ff1b72c41952",
+              "name": "วิเคราะห์ข้อมูลในรายงานทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "fddec55c-f2e9-4150-9d90-ff1b72c41952",
+              "name": "วิเคราะห์ข้อมูลในรายงานทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Deals with financial statement analysis and valuation, useful foundational knowledge for personal finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Financial statement analysis and business valuation, not personal money management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03651431-65",
+      "subjectName": "คณิตศาสตร์การลงทุน",
+      "outcomes": [
+        "อธิบายหลักการและประเภทของการลงทุนได้",
+        "วิเคราะห์เหตุปัจจุบันสำหรับการตัดสินใจ ลงทุนได้",
+        "ใช้หลักการทางคณิตศาสตร์ในการวิเคราะห์ มูลค่าของการลงทุนแต่ละประเภทได้",
+        "แสดงออกถึงความซื่อสัตย์ทางวิชาการ และการเคารพกฎระเบียบและค่านิยมอันดีงามของสังคม และสามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "325a38d5-4f0c-4a8d-a1d1-9fecfad789a5",
+              "name": "อธิบายหลักการและประเภทของการลงทุนได้"
+            },
+            {
+              "id": "470ee5f0-02f1-4741-af26-f242a8eb1fbf",
+              "name": "วิเคราะห์เหตุปัจจุบันสำหรับการตัดสินใจ ลงทุนได้"
+            },
+            {
+              "id": "7a52ceda-ad0a-42f2-9fe3-f3becd365ab8",
+              "name": "ใช้หลักการทางคณิตศาสตร์ในการวิเคราะห์ มูลค่าของการลงทุนแต่ละประเภทได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches mathematical principles for analyzing investments, which is foundational for understanding personal investment management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course teaches investment mathematics, which is a key skill for managing personal finances effectively."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01999043-67",
+      "subjectName": "การคิดสร้างสรรค์เพื่อการจัดการคุณค่า",
+      "outcomes": [
+        "สามารถแก้ไขปัญหาได้อย่างสร้างสรรค์ โดยมีความรับผิดชอบต่อส่วนรวม",
+        "อธิบายหลักการป้องกันและแก้ปัญหาในธุรกิจและอุตสาหกรรมได้",
+        "สามารถวางแผนการลงทุน โดยนำปัจจัยที่เกี่ยวข้องมาใช้ใน การวิเคราะห์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2a544bd6-8f39-44f8-b157-8f4a9da8aa50",
+              "name": "สามารถวางแผนการลงทุน โดยนำปัจจัยที่เกี่ยวข้องมาใช้ใน การวิเคราะห์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes planning investments using relevant factors, which supports understanding of personal investment strategies."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers creative thinking for management and investment planning, useful for personal financial management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03651231-65",
+      "subjectName": "การคำนวณเชิงเศรษฐศาสตร์เบื้องต้น",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการทางคณิตศาสตร์สำหรับ การวิเคราะห์และตัดสินใจทางเศรษฐศาสตร์และธุรกิจได้",
+        "วิเคราะห์ดุลยภาพตลาดและระบบการเงินเบื้องต้นได้",
+        "อธิบายตัวแบบทางคณิตศาสตร์สำหรับบสภาวะทางเศรษฐศาสตร์และธุรกิจได้",
+        "วิเคราะห์นโยบายทางการเงินและ นโยบายการคลังกับวิกฤตเศรษฐกิจต่าง ๆ ได้",
+        "แสดงออกถึงความซื่อสัตย์ทางวิชาการ และการเคารพกฎระเบียบและค่านิยมอันดีงามของสังคม และจรรยาบรรณวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f8be3053-99de-4981-9eb9-edda89ee9323",
+              "name": "วิเคราะห์ดุลยภาพตลาดและระบบการเงินเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides mathematical analysis of economic systems, foundational for understanding economic aspects of personal finance."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course provides foundational economic and financial analysis skills relevant to personal money management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "04305443-67",
+      "subjectName": "จรรยาบรรณและมาตรฐานของการวิเคราะห์การลงทุน",
+      "outcomes": [
+        "สามารถอธิบายมาตรฐานและจรรยาบรรณการปฏิบัติวิชาชีพด้านการวิเคราะห์การลงทุนได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1d88cc72-1cc5-42ae-93da-4a4179c76d8d",
+              "name": "สามารถอธิบายมาตรฐานและจรรยาบรรณการปฏิบัติวิชาชีพด้านการวิเคราะห์การลงทุนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on ethical standards in investment analysis, supporting responsible investment practices."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on ethics and standards in investment analysis, which is too specialized and not directly about personal finance management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03760231-64",
+      "subjectName": "หลักการบัญชีต้นทุน I",
+      "outcomes": [
+        "สามารถจัดทำงานบัญชีต้นทุนตลอดวงจรปีงบประมาณขององค์การได้",
+        "สามารถประยุกต์โปรแกรมคอมพิวเตอร์วิเคราะห์ข้อมูลและจัดทำข้อมูลบัญชีต้นทุนและรายงานทางการเงินได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2c85bab1-7a41-41b4-8641-b67483e21ff9",
+              "name": "สามารถจัดทำงานบัญชีต้นทุนตลอดวงจรปีงบประมาณขององค์การได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides cost accounting principles, foundational knowledge useful for understanding budgeting but not specific to personal finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on cost accounting for organizations, not relevant to individual money management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "outcomes": [
+        "สามารถแสดงออกถึงการมีความซื่อสัตย์ สุจริต มีความรับผิดชอบต่องานที่ได้รับมอบหมาย และ สามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี",
+        "สามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์",
+        "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง",
+        "สามารถอธิบายหลักเบื้องต้นของภาษีมูลค่าเพิ่ม และ การควบคุมภายในเกี่ยวกับเงินสดได้",
+        "สามารถปฏิบัติงานภายใต้ระบบใบสำคัญ และ จัดทำกรณีศึกษาเสมือนจริงแบบกลุ่มได้",
+        "แสดงถึงความรับผิดชอบต่อหน้าที่โดยการตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7a0c48ec-7e72-4a60-81cd-98723f92beb4",
+              "name": "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7a0c48ec-7e72-4a60-81cd-98723f92beb4",
+              "name": "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Basic accounting principles, useful as foundational knowledge but not directly about personal budgeting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic accounting principles for business contexts, not directly related to personal financial management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "outcomes": [
+        "อธิบายหลักการบัญชีบริหาร",
+        "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์",
+        "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        },
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on strategic management accounting principles, not specifically on personal finance or debt management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Strategic managerial accounting is oriented towards business decision-making, not personal finance."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "outcomes": [
+        "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์",
+        "สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์",
+        "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์",
+        "ใช้ช้อมูลการบัญชีบริหารที่เป็นตัวเงินและไม่เป็นตัวเงินเพื่อประเมินผลการปฏิบัติงานเชิงกลยุทธ์ของกิจการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c70ceb7e-3d99-486b-8523-b7c72ae45b46",
+              "name": "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์"
+            },
+            {
+              "id": "335b4c5f-c29c-40cf-914e-871cfbcd900c",
+              "name": "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "335b4c5f-c29c-40cf-914e-871cfbcd900c",
+              "name": "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c70ceb7e-3d99-486b-8523-b7c72ae45b46",
+              "name": "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์"
+            },
+            {
+              "id": "335b4c5f-c29c-40cf-914e-871cfbcd900c",
+              "name": "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Similar to the first course, focuses on strategic management accounting, not on personal finance or debt management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Advanced managerial accounting for strategic business management, irrelevant to personal money management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "outcomes": [
+        "ปฏิบัติตนอย่างมีความมุ่งมั่นในการเรียน มีความซื่อสัตย์ และเคารพกฎระเบียบ ข้อบังคับของสังคม",
+        "เข้าใจ และสามารถอธิบายความรู้พื้นฐานทางการจัดการ",
+        "แสวงหาความรู้จากแหล่งข้อมูลหลากหลาย เพื่อให้เท่าทันต่อปัญหาหรือการเปลี่ยนแปลงของสภาพแวดล้อม",
+        "สามารถทำงานเป็นทีม อย่างมีความรับผิดชอบต่อตนเองและสังคม",
+        "สามารถใช้เทคโนโลยีในการแสวงหาความรู้และการสื่อสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "994854dc-8cf7-4b57-a975-afd245f632b6",
+              "name": "เข้าใจ และสามารถอธิบายความรู้พื้นฐานทางการจัดการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides general management knowledge, which can support understanding of financial responsibilities, but not specifically on personal debt management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "General management course without specific focus on personal financial management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "outcomes": [
+        "เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ",
+        "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น",
+        "ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b74f5511-f0fd-4d06-b42b-f2b44f366710",
+              "name": "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b74f5511-f0fd-4d06-b42b-f2b44f366710",
+              "name": "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b74f5511-f0fd-4d06-b42b-f2b44f366710",
+              "name": "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with marketing and pricing strategies for products, tangentially related but not directly about personal money management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Marketing and pricing strategies for beverage business, unrelated to personal money management. "
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานทางธุรกิจได้",
+        "วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้",
+        "ตัดสินใจทางธุรกิจ โดยโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "f2cca599-7844-44b3-9851-ba58b48c1f75",
+              "name": "อธิบายหลักการพื้นฐานทางธุรกิจได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on business decision-making simulations, tangentially related but not specific to personal money management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on business simulation and decision-making tools, not personal money management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "outcomes": [
+        "อธิบายลักษณะและกระบวนการทางการตลาด แนวความคิด บทบาท ความสำคัญ หน้าที่และปัจจัยทางการตลาด การแบ่งส่วนตลาด  การเลือกตลาดเป้าหมาย พฤติกรรมผู้บริโภค",
+        "อธิบายส่วนประสมการตลาด และการวิจัยการตลาดเบื้องต้น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c74978ea-5a9b-4633-b5fd-755e7295d7f9",
+              "name": "อธิบายส่วนประสมการตลาด และการวิจัยการตลาดเบื้องต้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers marketing principles, tangentially related to financial decision-making but not specific to personal finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Marketing principles are unrelated to personal financial management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "outcomes": [
+        "อธิบายความหมาย แนวคิด หลักการ และความสำคัญของการบัญชีเพื่อการจัดการ รูปแบบกระบวนการผลิต และประเภทต้นทุน",
+        "สามารถคำนวณต้นทุนผลิตภัณฑ์  จัดทำงบต้นทุนผลิต และงบกำไรขาดทุนเพื่อใช้ในการบริหารจัดการ",
+        "สามารถการจัดทำงบประมาณของธุรกิจผลิต",
+        "สามารถนำข้อมูลต้นทุนมาวิเคราะห์เพื่อใช้ในการวางแผน ควบคุม ประเมินผลปฏิบัติงาน และการตัดสินใจลงทุน",
+        "มีทักษะในการประสานงานกับผู้อื่น  การทำงานร่วมกับผู้อื่นได้อย่างมีความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0a406337-1db6-4e38-8873-d08b33c3ec69",
+              "name": "สามารถการจัดทำงบประมาณของธุรกิจผลิต"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers business management accounting, which can include budgeting, but not specifically focused on personal finance."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Management accounting teaches budgeting and cost control skills useful for personal financial management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "outcomes": [
+        "สามารถบอกความแตกต่างของการบัญชีระหว่างประเทศ",
+        "สามารถระบุความแตกต่างของนโยการบัญชีที่สำคัญ",
+        "สามารถวิเคราะห์รายงานทางการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "25d70ad9-8bb9-4f89-943d-92674f499c2d",
+              "name": "สามารถวิเคราะห์รายงานทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "25d70ad9-8bb9-4f89-943d-92674f499c2d",
+              "name": "สามารถวิเคราะห์รายงานทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "25d70ad9-8bb9-4f89-943d-92674f499c2d",
+              "name": "สามารถวิเคราะห์รายงานทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on international accounting differences, tangential to personal finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "International accounting focuses on corporate financial reporting, not personal finance."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "outcomes": [
+        "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน",
+        "สามารถสร้างระบบการรายงานข้อสนเทศทางการบัญชีและการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "96ec8f83-1892-441d-8012-c69d9470ffb0",
+              "name": "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "96ec8f83-1892-441d-8012-c69d9470ffb0",
+              "name": "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Specific to tourism industry finance, tangential to personal financial management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Finance and accounting for tourism industry is specialized and not directly relevant to personal money management."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03651332-65",
+      "subjectName": "คณิตศาสตร์ประกันวินาศภัย",
+      "outcomes": [
+        "ระบุความคุ้มครองของการประกันวินาศภัยแต่ละประเภทได้",
+        "คำนวณอัตราเบี้ยประกันภัย และอัตราเบี้ยประกันความเสี่ยงภัยเฉพาะราย ตามประเภทการเสี่ยงภัยได้",
+        "ประมาณการเงินสำรองค่าสินไหมทดแทนในอนาคตโดยใช้วิธีการทางด้านคณิตศาสตร์ประกันภัยได้",
+        "ประมาณค่าใช้จ่ายในการจัดการค่าสินไหมทดแทนได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9f1611f6-e423-469c-9629-798c2c4ede08",
+              "name": "ประมาณค่าใช้จ่ายในการจัดการค่าสินไหมทดแทนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on insurance mathematics, unrelated to personal debt management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematics of insurance is specialized and not directly related to managing personal finances."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน",
+        "เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้",
+        "คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง",
+        "วิเคราะห์งบการเงินเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารการเงินส่วนบุคคล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with agricultural industry operations, not relevant to personal debt management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Operations management in agriculture is unrelated to personal money management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03764426-64",
+      "subjectName": "การจัดการความเสี่ยงโซ่อุปทาน",
+      "outcomes": [
+        "สามารถวิเคราะห์เหตุการณ์ความเสี่ยงในโซ่อุปทานได้อย่างมีความรับผิดชอบต่อผู้มีส่วนได้ส่วนเสีย",
+        "สามารถอธิบายหลักการ และแนวคิดการจัดการความเสี่ยงได้อย่างถูกต้องตามหลักการ",
+        "สามารถตอบสนองต่อเหตุการณ์ความเสี่ยงในโซ่อุปทานได้อย่างถูกต้องตามหลักการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c524cb0c-d3e8-41a7-9b05-c05f75f018e9",
+              "name": "สามารถวิเคราะห์เหตุการณ์ความเสี่ยงในโซ่อุปทานได้อย่างมีความรับผิดชอบต่อผู้มีส่วนได้ส่วนเสีย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with supply chain risk management, unrelated to personal debt management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Supply chain risk management is a business topic, not personal finance."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "outcomes": [
+        "สามารถประเมินประสิทธิภาพการควบคุมภายในได้",
+        "สามารถประเมินและบริหารความเสี่ยงได้",
+        "สามารถวิเคราะห์หลักการกำกับดูแลได้",
+        "สามารถตรวจสอบภายในด้านต่างๆ ได้",
+        "มีความรับผิดชอบต่อหน้าที่ ซื่อสัตย์ ตรงต่อเวลา และสามารถทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการหนี้สิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7255f585-21e3-4b8a-b5e3-0eb7183ad1cc",
+              "name": "สามารถประเมินและบริหารความเสี่ยงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on internal audit and control, not directly related to personal debt management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Internal audit and control focus on organizational processes, not personal money management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "06901111-66",
+      "subjectName": "หลักการจัดการธุรกิจเบื้องต้นสำหรับอุตสาหกรรมการท่องเที่ยว",
+      "outcomes": [
+        "สามารถอธิบายความรู้เกี่ยวกับการจัดการธุรกิจเบื้องต้น",
+        "สามารถสรุปองค์ประกอบและโครงสร้างธุรกิจ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f16640c5-529a-4633-a225-a8b4a8aed52b",
+              "name": "สามารถอธิบายความรู้เกี่ยวกับการจัดการธุรกิจเบื้องต้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Provides basic business management knowledge unrelated to personal finance or money management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic business management for tourism industry is not relevant to personal financial management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "outcomes": [
+        "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์",
+        "อธิบายความสัมพันธ์ระหว่างโครงสร้าง น้ำหนักโมเลกุล และสมบัติของพอลิเมอร์",
+        "อธิบายปฏิกิริยาพอลิเมอไรเซชันและกลไก",
+        "อธิบายวิธีการสังเคราะห์และกลไกการเกิดพอลิเมอไรเซชันร่วม",
+        "อธิบายกระบวนการเตรียมและสมบัติของเทอร์โมพลาสติกและเทอร์โมเซต",
+        "เชื่อมโยงความสัมพันธ์ระหว่างสมบัติของพอลิเมอร์และกระบวนการขึ้นรูปพอลิเมอร์ให้เหมาะสมกับผลิตภัณฑ์",
+        "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ",
+        "แสดงออกถึงความรับผิดชอบ ความมีวินัย และตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การลงทุนเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ca6b5ff6-af33-45ca-8a2d-8676241cf1d1",
+              "name": "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to finance or money management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on polymer chemistry, unrelated to personal finance or money management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "outcomes": [
+        "อธิบายปรัชญา แนวคิด ทฤษฎีพื้นฐานของการจัดการศึกษาที่จำเป็นสำหรับครูได้",
+        "อธิบายความสำคัญของวิชาชีพครู มาตรฐานวิชาชีพครู องค์กรทางวิชาชีพ และกฎหมายที่เกี่ยวข้องกับวิชาชีพตามการเปลี่ยนแปลงได้อย่างเท่าทัน",
+        "ระบุบทบาทหน้าที่ และภาระงานของครูที่เป็นแบบอย่างที่ดีในวิชาชีพได้",
+        "แสดงออกถึงพฤติกรรมที่สะท้อนถึงการมีคุณธรรม จริยธรรม และจรรยาบรรณที่จำเป็นสำหรับการประกอบวิชาชีพครูได้",
+        "วางแผนแนวทางการพัฒนาวิชาชีพของตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c89b615f-344b-40d6-9363-918688607886",
+              "name": "วางแผนแนวทางการพัฒนาวิชาชีพของตนเองได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to teaching professionalism, unrelated to personal financial management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about professional teaching skills, not related to personal money management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03602351-65",
+      "subjectName": "การวิเคราะห์ต้นทุนทางอุตสาหกรรม",
+      "outcomes": [
+        "สามารถหาต้นทุนการผลิต จัดทำงบประมาณต้นทุนการผลิตและองค์ประกอบของต้นทุนการผลิต",
+        "สามารถจัดทำงบประมาณกรณีสายการผลิตมีลักษณะแบบงานสั่งผลิตและแบบกระบวนการ",
+        "สามารถวิเคราะห์และหาความสัมพันธ์ระหว่างต้นทุน ปริมาณและกำไรได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "03c2e22e-8f48-4cc6-ad9f-075a2b91531c",
+              "name": "สามารถจัดทำงบประมาณกรณีสายการผลิตมีลักษณะแบบงานสั่งผลิตและแบบกระบวนการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Industry cost analysis, not related to personal financial management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers industrial cost analysis, which is not relevant to personal financial management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "03602433-65",
+      "subjectName": "วิศวกรรมการซ่อมบำรุง",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานของการจัดการการบำรุงรักษา รวมถึงกลยุทธ์การบำรุงรักษาเชิงป้องกัน คาดการณ์ และแก้ไข การบำรุงรักษาที่เน้นความน่าเชื่อถือ (rcm) การบำรุงรักษาแบบทวีผลโดยทุกคนมีส่วนร่วม (tpm)",
+        "สามารถบอกแนวทางการใช้เทคโนโลยีการบำรุงรักษาที่ทันสมัย",
+        "สามารถวางแผนและจัดตารางกิจกรรมการบำรุงรักษา รวมถึงการจัดลำดับความสำคัญของงานบำรุงรักษา การจัดสรรทรัพยากร",
+        "สามารถวิเคราะห์ความน่าเชื่อถือของระบบและอุปกรณ์อุตสาหกรรมโดยใช้เทคนิคต่าง ๆ",
+        "สามารถอธิบายหลักการประยุกต์ระบบการจัดการการบำรุงรักษาด้วยคอมพิวเตอร์ (cmms) และเครื่องมือซอฟต์แวร์ที่เกี่ยวข้องกับการบำรุงรักษา",
+        "สามารถจำแนกประเภทการจัดทำงบประมาณ การประมาณต้นทุน และเทคนิคการควบคุมต้นทุนสำหรับกิจกรรมการบำรุงรักษา",
+        "มีทักษะการสื่อสารและความเป็นผู้นำที่มีประสิทธิภาพเพื่อทำงานร่วมกับทีมข้ามสายงาน สื่อสารแผนการบำรุงรักษาและลำดับความสำคัญ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3293f125-9f90-4cd3-a75d-c5a3da4ed543",
+              "name": "สามารถจำแนกประเภทการจัดทำงบประมาณ การประมาณต้นทุน และเทคนิคการควบคุมต้นทุนสำหรับกิจกรรมการบำรุงรักษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to maintenance engineering, unrelated to personal finance."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on maintenance engineering and related budgeting, not personal money management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "subjectCode": "01468597-65",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "ประยุกต์ความรู้ความเข้าใจในประเด็นการบริหารและพัฒนาสังคม",
+        "ออกแบบนโยบายสาธารณะ และยุทธศาสตร์การบริหารและพัฒนาสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดทำงบประมาณส่วนบุคคล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9b137df5-7cf9-4413-a0b4-520b704cf283",
+              "name": "ออกแบบนโยบายสาธารณะ และยุทธศาสตร์การบริหารและพัฒนาสังคม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Seminar on social management and policy, not related to personal financial planning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers social management and policy design, not personal financial management."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1817,
+      "outputTokens": 292
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1999,
+      "outputTokens": 318
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1740,
+      "outputTokens": 301
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1597,
+      "outputTokens": 156
+    }
+  ]
+}

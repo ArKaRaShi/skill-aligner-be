@@ -1,0 +1,150 @@
+{
+  "testCaseId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การตีความข้อมูลทางการเงิน",
+  "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+  "skill": "การตีความข้อมูลทางการเงิน",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on analyzing financial statements and valuation, directly covering financial data interpretation comprehensively."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 2,
+      "reason": "Includes analysis of financial reports as part of international accounting, relevant but not the main focus."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "Focuses on data analysis for accounting generally, but does not explicitly mention financial data interpretation."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Mentions basic financial statement analysis as a minor part, marginally relevant."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 2,
+      "reason": "Covers financial reporting and financial analysis methods, fairly relevant to financial data interpretation."
+    },
+    {
+      "subjectCode": "03759211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 2,
+      "reason": "Includes financial analysis for decision making, fairly relevant to interpreting financial data."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Focuses on managerial accounting and strategic management, financial data interpretation is not a primary outcome."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "No content related to financial data interpretation."
+    },
+    {
+      "subjectCode": "02802113-67",
+      "subjectName": "การบัญชีเฉพาะงานบริการ",
+      "relevanceScore": 1,
+      "reason": "Mentions financial accounting reports but not detailed interpretation of financial data."
+    },
+    {
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "relevanceScore": 0,
+      "reason": "Focuses on personal financial management, not on interpreting financial data in business context."
+    },
+    {
+      "subjectCode": "01007582-65",
+      "subjectName": "สรีรวิทยาหลังการเก็บเกี่ยวของผลไม้ ผักและดอกไม้",
+      "relevanceScore": 0,
+      "reason": "No relation to financial data interpretation; focuses on postharvest physiology."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Includes basic financial calculations and assessments, but limited to pricing and marketing context."
+    },
+    {
+      "subjectCode": "04305211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 2,
+      "reason": "Covers financial management basics including valuation and budgeting, fairly relevant to financial data interpretation."
+    },
+    {
+      "subjectCode": "02802211-67",
+      "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+      "relevanceScore": 1,
+      "reason": "Involves presenting financial data for decision making in service business, marginally relevant."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.2142857142857142,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 42.857142857142854,
+        "microAverageRate": 42.857142857142854,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.865,
+        "at10": 0.861,
+        "at15": 0.954,
+        "atAll": 0.954
+      },
+      "ideal": {
+        "at5": 0.675,
+        "at10": 0.536,
+        "at15": 0.476,
+        "atAll": 0.497
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.4,
+      "at15": 0.357,
+      "atAll": 0.357
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2316,
+  "outputTokens": 433
+}

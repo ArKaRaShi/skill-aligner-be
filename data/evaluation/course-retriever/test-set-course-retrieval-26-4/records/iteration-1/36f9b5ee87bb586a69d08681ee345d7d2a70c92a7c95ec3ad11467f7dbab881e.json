@@ -1,0 +1,204 @@
+{
+  "questionIds": [
+    "fa617f52-c86b-4b8c-976b-bfdb073f1070-การใช้พจนานุกรมภาษาบาลี"
+  ],
+  "skill": "การใช้พจนานุกรมภาษาบาลี",
+  "retrievedCount": 20,
+  "evaluations": [
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Course is about Business Chinese language skills; no mention of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "04351131-68",
+      "subjectName": "การเขียนย่อหน้าภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Focuses on English paragraph writing; no relation to Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01356115-68",
+      "subjectName": "ภาษาฝรั่งเศสพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "Basic French language course; no indication of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "English reading and writing skills; no mention of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01358102-67",
+      "subjectName": "ภาษาญี่ปุ่นเบื้องต้น II",
+      "relevanceScore": 0,
+      "reason": "Basic Japanese language course; no reference to Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01396231-67",
+      "subjectName": "การเขียนภาษาจีนเพื่อการสื่อสาร",
+      "relevanceScore": 0,
+      "reason": "Chinese writing for communication; no relation to Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01357115-68",
+      "subjectName": "ภาษาเยอรมันพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "Basic German language course; no mention of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "relevanceScore": 0,
+      "reason": "Chinese language course; no indication of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "relevanceScore": 0,
+      "reason": "Chinese language course; no mention of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "relevanceScore": 0,
+      "reason": "Chinese language course; no relation to Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "relevanceScore": 0,
+      "reason": "Chinese language course; no indication of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "relevanceScore": 0,
+      "reason": "Chinese language course; no mention of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "02747214-65",
+      "subjectName": "พฤติกรรมผู้บริโภคในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course on consumer behavior in aviation business; unrelated to Pali dictionary usage."
+    },
+    {
+      "subjectCode": "02747498-65",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Special problems in aviation business research; no connection to Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "relevanceScore": 0,
+      "reason": "Chinese linguistics course; no mention of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01150112-67",
+      "subjectName": "ภาษาและวัฒนธรรมสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Language and culture for teachers; no reference to Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01420475-66",
+      "subjectName": "ผลึกศาสตร์รังสีเอกซ์",
+      "relevanceScore": 0,
+      "reason": "X-ray crystallography; unrelated to Pali dictionary usage."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 0,
+      "reason": "Practical Thai writing; no mention of Pali dictionary usage."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Data science querying and database management; no relation to Pali dictionary usage."
+    },
+    {
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Language for communication for teachers; no indication of Pali dictionary usage."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 20,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 20,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2906,
+  "outputTokens": 575
+}

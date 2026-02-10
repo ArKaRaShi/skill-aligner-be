@@ -1,0 +1,150 @@
+{
+  "testCaseId": "b41c15f8-2249-4469-9981-71cc1c75b2b4-การจัดการความเสี่ยงและความปลอดภัย",
+  "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+  "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "relevanceScore": 2,
+      "reason": "Course includes risk management as a key learning outcome, specifically the ability to assess and manage risk, though within the context of internal audit and control."
+    },
+    {
+      "subjectCode": "03764426-64",
+      "subjectName": "การจัดการความเสี่ยงโซ่อุปทาน",
+      "relevanceScore": 3,
+      "reason": "Course is focused on risk management in supply chains, covering principles and analysis of risk events, directly addressing risk management comprehensively."
+    },
+    {
+      "subjectCode": "04401463-65",
+      "subjectName": "สวัสดิศึกษา",
+      "relevanceScore": 2,
+      "reason": "Course covers safety management including accident prevention and safety methods, relevant to safety management though not exclusively focused on risk management."
+    },
+    {
+      "subjectCode": "03651232-65",
+      "subjectName": "คณิตศาสตร์ประกันภัยและการบริหารความเสี่ยง",
+      "relevanceScore": 2,
+      "reason": "Course covers risk analysis in insurance and risk management concepts, relevant to risk management though specialized in insurance context."
+    },
+    {
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "relevanceScore": 3,
+      "reason": "Course focuses on industrial safety and risk assessment, covering risk evaluation and safety principles comprehensively."
+    },
+    {
+      "subjectCode": "01442515-68",
+      "subjectName": "ความปลอดภัยเชิงปฏิบัติการ",
+      "relevanceScore": 3,
+      "reason": "Course directly addresses risk management and safety in laboratory operations, including risk assessment and emergency management."
+    },
+    {
+      "subjectCode": "01456355-64",
+      "subjectName": "การจัดการด้านความปลอดภัย",
+      "relevanceScore": 3,
+      "reason": "Course is about safety management, covering security concepts and management comprehensively, directly relevant to safety management skill."
+    },
+    {
+      "subjectCode": "03651436-65",
+      "subjectName": "ตัวแบบคณิตศาสตร์ประกันภัย",
+      "relevanceScore": 1,
+      "reason": "Course involves mathematical modeling of insurance risk, relevant to risk in a specialized mathematical context but not general risk and safety management."
+    },
+    {
+      "subjectCode": "01420361-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น I",
+      "relevanceScore": 0,
+      "reason": "Course is about basic astronomy, unrelated to risk or safety management."
+    },
+    {
+      "subjectCode": "01420362-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น II",
+      "relevanceScore": 0,
+      "reason": "Course is about basic astronomy, unrelated to risk or safety management."
+    },
+    {
+      "subjectCode": "02193311-67",
+      "subjectName": "การจัดการความปลอดภัยในสถานศึกษาและชุมชน",
+      "relevanceScore": 3,
+      "reason": "Course covers safety management in schools and communities, including analysis and application of safety management principles."
+    },
+    {
+      "subjectCode": "04252534-67",
+      "subjectName": "การออกแบบและการบริหารเครือข่ายขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course includes network security management, marginally related to safety/security but in IT context, not general risk and safety management."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on profit planning and control, unrelated to risk or safety management."
+    },
+    {
+      "subjectCode": "03652143-66",
+      "subjectName": "ความปลอดภัยทางเคมีและการจัดการของเสียทางเคมี",
+      "relevanceScore": 3,
+      "reason": "Course covers chemical safety and hazardous waste management, including risk identification and risk reduction methods, directly relevant to risk and safety management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.8571428571428572,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 6,
+        "macroAverageRate": 42.857142857142854,
+        "microAverageRate": 42.857142857142854,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.782,
+        "at10": 0.768,
+        "at15": 0.902,
+        "atAll": 0.902
+      },
+      "ideal": {
+        "at5": 0.782,
+        "at10": 0.682,
+        "at15": 0.635,
+        "atAll": 0.664
+      }
+    },
+    "precision": {
+      "at5": 1,
+      "at10": 0.7,
+      "at15": 0.643,
+      "atAll": 0.643
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3107,
+  "outputTokens": 504
+}

@@ -1,0 +1,144 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การวางแผนเมนูอาหารไทย"
+  ],
+  "skill": "การวางแผนเมนูอาหารไทย",
+  "retrievedCount": 10,
+  "evaluations": [
+    {
+      "subjectCode": "01017322-66",
+      "subjectName": "โภชนศาสตร์ในวัฏจักรชีวิต",
+      "relevanceScore": 3,
+      "reason": "Learning outcome ระบุชัดเจนว่า 'วางแผนเมนูอาหารและประกอบอาหารที่เหมาะสมกับแต่ละกลุ่มอายุ' ทำให้การวางแผนเมนูเป็นวัตถุประสงค์หลักของรายวิชา"
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "มีผลลัพธ์การเรียนรู้เกี่ยวกับการประกอบอาหารและ 'จัดสำรับอาหาร' ซึ่งเกี่ยวข้องกับการจัดเมนูเป็นส่วนหนึ่งของเนื้อหา แต่ไม่ใช่ประเด็นหลักเฉพาะการวางแผนเมนู"
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "เนื้อหาเกี่ยวกับการตรวจวัดคุณภาพอาหาร (เคมี กายภาพ ประสาทสัมผัส) ไม่มีความเกี่ยวข้องกับการวางแผนเมนู"
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "มุ่งเน้นแหล่งผลิตอาหาร แนวทางการแปรรูป และการเลือกบริโภค ไม่ได้กล่าวถึงการวางแผนเมนู"
+    },
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 1,
+      "reason": "เกี่ยวกับการประกอบอาหารนานาชาติและการจัดเสิร์ฟ แต่ไม่ได้ระบุการวางแผนเมนูเป็นผลลัพธ์หลัก (ไม่เฉพาะเมนูไทย)"
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "เน้นการจัดเตรียมเครื่องดื่มและตำรับเครื่องดื่ม ไม่มีกล่าวถึงการวางแผนเมนู"
+    },
+    {
+      "subjectCode": "01017497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "สัมมนาเกี่ยวกับบทความด้านอาหาร โภชนาการ และการกำหนดอาหาร (เชิงทฤษฎี) อาจสัมผัสเรื่องการกำหนดอาหารแต่ไม่เน้นทักษะการวางแผนเมนูเชิงปฏิบัติ"
+    },
+    {
+      "subjectCode": "01017121-66",
+      "subjectName": "หลักการทางโภชนาการและการกำหนดอาหาร",
+      "relevanceScore": 2,
+      "reason": "ครอบคลุมหลักการโภชนาการและการกำหนดอาหาร (diet planning) ในสภาวะปกติและเจ็บป่วย ซึ่งเกี่ยวข้องกับการวางแผนเมนู แต่ไม่ระบุเชิงเมนูอาหารไทยโดยตรง"
+    },
+    {
+      "subjectCode": "01390428-64",
+      "subjectName": "การท่องเที่ยวเชิงอาหาร",
+      "relevanceScore": 1,
+      "reason": "เน้นการท่องเที่ยวเชิงอาหารและการนำเสนออาหารไทยเป็นภาพลักษณ์ ซึ่งเกี่ยวข้องกับอาหารไทยแต่ไม่ได้สอนการวางแผนเมนูโดยตรง"
+    },
+    {
+      "subjectCode": "04152324-64",
+      "subjectName": "โภชนบำบัด",
+      "relevanceScore": 2,
+      "reason": "มีผลลัพธ์ว่า 'วางแผนการให้โภชนบำบำบัดและจัดอาหารตามภาวะแต่ละบุคคลได้' ซึ่งเป็นการฝึกการวางแผนเมนูเชิงรักษา แต่ไม่ระบุความเชี่ยวชาญด้านเมนูอาหารไทยทั่วไป"
+    }
+  ],
+  "metrics": {
+    "totalCourses": 10,
+    "meanRelevanceScore": 1.2,
+    "totalRelevanceSum": 12,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 30,
+        "microAverageRate": 30,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 30,
+        "microAverageRate": 30,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 30,
+        "microAverageRate": 30,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 10,
+        "microAverageRate": 10,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.714,
+        "at10": 0.902,
+        "at15": 0.902,
+        "atAll": 0.902
+      },
+      "ideal": {
+        "at5": 0.526,
+        "at10": 0.476,
+        "at15": 0.369,
+        "atAll": 0.476
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.4,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.7,
+        "threshold2": 0.4,
+        "threshold3": 0.1
+      },
+      "atAll": {
+        "threshold1": 0.7,
+        "threshold2": 0.4,
+        "threshold3": 0.1
+      }
+    }
+  },
+  "llmModel": "openai/gpt-5-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2158,
+  "outputTokens": 2242
+}

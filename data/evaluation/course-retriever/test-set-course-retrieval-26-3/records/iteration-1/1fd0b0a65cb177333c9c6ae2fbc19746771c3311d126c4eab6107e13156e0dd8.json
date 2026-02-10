@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การตัดสินใจเชิงระบบ"
+  ],
+  "skill": "การตัดสินใจเชิงระบบ",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "03651321-65",
+      "subjectName": "การวิเคราะห์การตัดสินใจและการประยุกต์",
+      "relevanceScore": 2,
+      "reason": "The course focuses on decision analysis and modeling, which relates to systemic decision-making, but it is not explicitly centered on 'การตัดสินใจเชิงระบบ' as a primary theme."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "The course covers decision support systems and intelligent business systems, which involve decision-making processes, but it is part of broader topics rather than the main focus."
+    },
+    {
+      "subjectCode": "02738312-66",
+      "subjectName": "หลักการจัดระบบและอนุกรมวิธาน",
+      "relevanceScore": 1,
+      "reason": "The course discusses classification and systematics, which are related to systems in biology, but not directly about decision-making systems."
+    },
+    {
+      "subjectCode": "01101171-65",
+      "subjectName": "คณิตเศรษฐศาสตร์ I",
+      "relevanceScore": 1,
+      "reason": "Mathematical economics involves systems and models, but decision-making as a systemic skill is not a primary focus."
+    },
+    {
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Business scenario simulation involves decision-making processes, which relate to systemic decision-making, but it is not explicitly the main theme."
+    },
+    {
+      "subjectCode": "03602312-65",
+      "subjectName": "วิศวกรรมอุตสาหการและระบบเบื้องต้น",
+      "relevanceScore": 3,
+      "reason": "The course explicitly mentions using decision techniques to evaluate options and make decisions, directly aligning with 'การตัดสินใจเชิงระบบ' as a core component."
+    },
+    {
+      "subjectCode": "02802115-67",
+      "subjectName": "การวิเคราะห์เชิงปริมาณในธุรกิจบริการ",
+      "relevanceScore": 1,
+      "reason": "Quantitative analysis in service business involves decision-making, but it is not explicitly about systemic decision processes."
+    },
+    {
+      "subjectCode": "03610227-66",
+      "subjectName": "วิศวกรรมวัดคุมพื้นฐาน",
+      "relevanceScore": 2,
+      "reason": "Control systems understanding and design relate to systemic thinking, but decision-making is a secondary aspect."
+    },
+    {
+      "subjectCode": "01241332-66",
+      "subjectName": "การออกแบบก่อสร้างภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 2,
+      "reason": "Landscape architecture design involves decision processes, but it is not primarily about systemic decision-making skills."
+    },
+    {
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "relevanceScore": 1,
+      "reason": "Values and characteristics of teachers focus on ethics and professionalism, not decision-making systems."
+    },
+    {
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "relevanceScore": 2,
+      "reason": "Operations research and modeling involve decision-making, but it is part of a broader set of skills, not solely about systemic decision-making."
+    },
+    {
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "relevanceScore": 1,
+      "reason": "English language systems analysis is about language structure, not decision-making systems."
+    },
+    {
+      "subjectCode": "01651531-68",
+      "subjectName": "นโยบายสิ่งแวดล้อมเพื่อการพัฒนาที่ยั่งยืน",
+      "relevanceScore": 2,
+      "reason": "Environmental policy involves systemic analysis and decision-making, but it is not the primary focus of the course."
+    },
+    {
+      "subjectCode": "01951211-67",
+      "subjectName": "วิทยาศาสตร์ระบบสุขภาพ I",
+      "relevanceScore": 2,
+      "reason": "Health systems science includes decision-making components, but it is not explicitly centered on systemic decision skills."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.7142857142857142,
+    "totalRelevanceSum": 24,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 35.714285714285715,
+        "microAverageRate": 35.714285714285715,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 8,
+        "macroAverageRate": 57.142857142857146,
+        "microAverageRate": 57.142857142857146,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.72,
+        "at10": 0.805,
+        "at15": 0.898,
+        "atAll": 0.898
+      },
+      "ideal": {
+        "at5": 0.561,
+        "at10": 0.579,
+        "at15": 0.555,
+        "atAll": 0.58
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.643,
+        "threshold3": 0.071
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.643,
+        "threshold3": 0.071
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3090,
+  "outputTokens": 634
+}

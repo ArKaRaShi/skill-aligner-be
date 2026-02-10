@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)"
+  ],
+  "skill": "การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Designing digital work is mentioned, but not specifically related to digital creative tools like Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 1,
+      "reason": "Creating sound works and technology use are mentioned, but not specifically digital creative tools."
+    },
+    {
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "relevanceScore": 2,
+      "reason": "Includes creating multimedia works, which may involve digital creative tools, but not explicitly focused on them."
+    },
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 2,
+      "reason": "Using digital technology in music creation is mentioned, which could include creative tools, but not specifically Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "03600014-67",
+      "subjectName": "การแก้ปัญหาเชิงสร้างสรรค์และทักษะการคิดเชิงวิพากษ์",
+      "relevanceScore": 1,
+      "reason": "Creative problem solving and critical thinking are discussed, but not specifically digital creative tools."
+    },
+    {
+      "subjectCode": "01241412-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม VI",
+      "relevanceScore": 2,
+      "reason": "Designing landscapes and using digital media for presentation are mentioned, which may involve creative tools."
+    },
+    {
+      "subjectCode": "01241313-66",
+      "subjectName": "การออกแบบร่างองค์ประกอบงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 2,
+      "reason": "Design presentation using digital media is included, possibly involving creative tools."
+    },
+    {
+      "subjectCode": "01241312-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 2,
+      "reason": "Designing and presenting landscape architecture with digital media is mentioned, which may involve creative tools."
+    },
+    {
+      "subjectCode": "02182511-67",
+      "subjectName": "การออกแบบการเรียนรู้ขั้นสูงและการคิดสร้างสรรค์นวัตกรรม",
+      "relevanceScore": 1,
+      "reason": "Designing educational innovations and using tools for design are mentioned, but not specifically digital creative tools."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 2,
+      "reason": "Using design programs for 2D and 3D work is relevant, likely involving digital creative tools."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 2,
+      "reason": "Designing products with technology and prototypes may involve digital creative tools."
+    },
+    {
+      "subjectCode": "03610111-66",
+      "subjectName": "เปิดโลกวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Using AI and programming for automation could involve digital tools, but not specifically creative software."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 2,
+      "reason": "Creating digital media to tell stories with images may involve creative tools."
+    },
+    {
+      "subjectCode": "01058111-68",
+      "subjectName": "หลักนวัตกรรมอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Innovation in agriculture is discussed, but not related to digital creative tools."
+    },
+    {
+      "subjectCode": "03610226-66",
+      "subjectName": "การปฏิบัติงานทางวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ II",
+      "relevanceScore": 2,
+      "reason": "Using engineering tools and designing electronic systems may involve digital tools, but not specifically creative software."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1.6666666666666667,
+    "totalRelevanceSum": 25,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 10,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.658,
+        "at10": 0.745,
+        "at15": 0.879,
+        "atAll": 0.879
+      },
+      "ideal": {
+        "at5": 0.439,
+        "at10": 0.497,
+        "at15": 0.52,
+        "atAll": 0.52
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.667,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.667,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2793,
+  "outputTokens": 578
+}

@@ -1,0 +1,2118 @@
+{
+  "queryLogId": "b3460fa2-c348-4748-b583-4b042886e0ca",
+  "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+  "courses": [
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถอธิบายการออกแบบฮาร์ดแวร์ส่วนต่างๆ ให้มีความเหมาะสมและทำงานสอดคล้องกันกับระบบคอมพิวเตอร์ได้",
+        "สามารถวิเคราะห์การทำงานของระบบคอมพิวเตอร์ผ่านองค์ประกอบต่างๆ ในระบบคอมพิวเตอร์ได้",
+        "สามารถใช้สถาปัตยกรรมคอมพิวเตอร์วัดและประเมินประสิทธิภาพการทำงานของระบบคอมพิวเตอร์ได้",
+        "สามารถนำเสนอรูปแบบการทำงานของสถาปัตยกรรมแบบต่างๆ ของระบบคอมพิวเตอร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "7fa7de85-2d89-4e47-958d-56cbc50bda59",
+              "name": "สามารถวิเคราะห์การทำงานของระบบคอมพิวเตอร์ผ่านองค์ประกอบต่างๆ ในระบบคอมพิวเตอร์ได้"
+            },
+            {
+              "id": "874fcfc9-06d9-4372-bb49-580d53fd3076",
+              "name": "สามารถนำเสนอรูปแบบการทำงานของสถาปัตยกรรมแบบต่างๆ ของระบบคอมพิวเตอร์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "08063363-1849-4bdb-81c7-953b89e433de",
+              "name": "สามารถอธิบายการออกแบบฮาร์ดแวร์ส่วนต่างๆ ให้มีความเหมาะสมและทำงานสอดคล้องกันกับระบบคอมพิวเตอร์ได้"
+            },
+            {
+              "id": "7fa7de85-2d89-4e47-958d-56cbc50bda59",
+              "name": "สามารถวิเคราะห์การทำงานของระบบคอมพิวเตอร์ผ่านองค์ประกอบต่างๆ ในระบบคอมพิวเตอร์ได้"
+            },
+            {
+              "id": "460c1e78-e248-4955-82b0-750b4592dd5e",
+              "name": "สามารถใช้สถาปัตยกรรมคอมพิวเตอร์วัดและประเมินประสิทธิภาพการทำงานของระบบคอมพิวเตอร์ได้"
+            },
+            {
+              "id": "874fcfc9-06d9-4372-bb49-580d53fd3076",
+              "name": "สามารถนำเสนอรูปแบบการทำงานของสถาปัตยกรรมแบบต่างๆ ของระบบคอมพิวเตอร์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7fa7de85-2d89-4e47-958d-56cbc50bda59",
+              "name": "สามารถวิเคราะห์การทำงานของระบบคอมพิวเตอร์ผ่านองค์ประกอบต่างๆ ในระบบคอมพิวเตอร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Directly covers computer architecture, essential knowledge for understanding how to assemble a computer."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers computer hardware architecture, which is foundational knowledge for assembling a computer."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา",
+        "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม",
+        "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on programming and problem-solving skills directly applicable to diagnosing and fixing computer issues."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on programming and algorithms, not directly relevant to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม",
+        "สามารถเขียนแบบชิ้นส่วนเครื่องจักรกลเกษตรกลเกษตร",
+        "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้",
+        "สามารถใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            },
+            {
+              "id": "50bb24b5-78f9-4b4d-9f38-a5b863ca5d1b",
+              "name": "สามารถใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        },
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            },
+            {
+              "id": "50bb24b5-78f9-4b4d-9f38-a5b863ca5d1b",
+              "name": "สามารถใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches engineering drawing and basic CAD software use, which are foundational for assembling computers."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Engineering drawing skills are unrelated to assembling a computer."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02201211-66",
+      "subjectName": "การใช้คอมพิวเตอร์ช่วยในการออกแบบทางวิศวกรรมเกษตร",
+      "outcomes": [
+        "สามารถการใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้อย่างถูกต้องเหมาะสม",
+        "สามารถสร้างแบบจำลองทางกายภาพและการจำลองสถานการณ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f74ab7c1-cce5-41f2-bf54-31dc5ab33c49",
+              "name": "สามารถการใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้อย่างถูกต้องเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "f74ab7c1-cce5-41f2-bf54-31dc5ab33c49",
+              "name": "สามารถการใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้อย่างถูกต้องเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on computer-aided design in engineering, relevant as a prerequisite for understanding hardware assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Computer-aided design for agricultural engineering is not relevant to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03607251-67",
+      "subjectName": "งานวิศวกรรมและการผลิตใช้คอมพิวเตอร์ช่วยสำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "outcomes": [
+        "สามารถอธิบายขั้นตอนในการขึ้นรูปสามมิติและการตกแต่งที่เกี่ยวข้องในการขึ้นรูปชิ้นงานของแข็ง (solid modeling) ที่มีความซับซ้อน เพื่อใช้ในการสร้างแบบสามมิติของโครงสร้างทางกลของหุ่นยนต์และระบบอัตโนมัติที่กำหนดได้ด้วยการใช้โปรแกรมช่วยในการออกแบบ",
+        "สามารถเลือกใช้คำสั่งและกำหนดค่าพารามิเตอร์ที่เกี่ยวข้องในโปรแกรมคอมพิวเตอร์ช่วยในงานวิศวกรรมในการวิเคราะห์ความแข็งแรงของโครงสร้างทางกลที่กำหนดได้อย่างถูกต้อง",
+        "สามารถเลือกใช้คำสั่งในการสร้างโปรแกรมเพื่อใช้ในการควบคุมเครื่องจักรซีเอ็นซีจากแบบจำลองสามมิติในคอมพิวเตอร์ เพื่อสร้างชิ้นงานที่กำหนดได้อย่างถูกต้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e218065c-29f8-44d4-925e-227aef07dba7",
+              "name": "สามารถเลือกใช้คำสั่งในการสร้างโปรแกรมเพื่อใช้ในการควบคุมเครื่องจักรซีเอ็นซีจากแบบจำลองสามมิติในคอมพิวเตอร์ เพื่อสร้างชิ้นงานที่กำหนดได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers CAD and computer-aided design in robotics, relevant as foundational knowledge for understanding hardware components."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on robotics and CNC machining, unrelated to assembling a computer."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "outcomes": [
+        "จัดการข้อมูลขนาดใหญ่โดยคำนึงถึงความเป็นส่วนตัวและความปลอดภัยของข้อมูลได้",
+        "เลือกใช้เครื่องมือสำหรับจัดการข้อมูลขนาดใหญ่ ได้อย่างเหมาะสม",
+        "แสดงออกถึงความรับผิดชอบ ซื่อสัตย์  และเรียนรู้ด้วยตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d2444935-65f8-43e5-8648-847de57d088f",
+              "name": "จัดการข้อมูลขนาดใหญ่โดยคำนึงถึงความเป็นส่วนตัวและความปลอดภัยของข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes managing data security and privacy, which relates to data and system security, a component of information security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Big data management is not relevant to assembling a computer."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "outcomes": [
+        "สามารถอธิบายองค์ประกอบพื้นฐานของระบบการจัดการฐานข้อมูลเชิงสัมพันธ์ได้",
+        "สามารถอธิบายแนวคิดพื้นฐานของแบบจำลองข้อมูลเชิงสัมพันธ์ แบบจำลองความสัมพันธ์เอนทิตี, การออกแบบฐานข้อมูลเชิงสัมพันธ์, พีชคณิตเชิงความสัมพันธ์ และ ภาษาสอบถามเชิงโครงสร้างได้",
+        "สามารถออกแบบแบบจำลองความสัมพันธ์เอนทิตีเพื่อแสดงถึงความสัมพันธ์ของข้อมูลที่เป็นพื้นฐานได้",
+        "สามารถปรับปรุงโครงสร้างข้อมูลของฐานข้อมูลที่มีความซํ้าซ้อนให้อยู่ในรูปแบบที่เป็นบรรทัดฐานได้",
+        "สามารถสร้างชุดคำสั่งภาษาสอบถามเชิงโครงสร้างเพื่อใช้ในการจัดการฐานข้อมูลได้",
+        "สามารถอธิบายถึง วัฏจักรฐานข้อมูล ซึ่งประกอบด้วย กระบวนการของการสร้าง การบำรุงรักษา การเพิ่มประสิทธิภาพ ของระบบฐานข้อมูลได้",
+        "สามารถอธิบายถึงกระบวนการจัดการทรานแซคชันและการควบคุมภาวะพร้อมกันได้",
+        "สามารถอธิบายถึงเทคโนโลยีและรูปแบบการเชื่อมต่อฐานข้อมูลแบบต่างๆและสามารถเลือกใช้งานได้",
+        "สามารถอธิบายถึงบทบาทหน้าที่ของผู้ดูแลระบบฐานข้อมูลและการจัดการความปลอดภัยของฐานข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "9a909b14-222a-4e9a-bdc9-3249927e6b59",
+              "name": "สามารถอธิบายถึงบทบาทหน้าที่ของผู้ดูแลระบบฐานข้อมูลและการจัดการความปลอดภัยของฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers database security and management, relevant to system security aspects."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Database systems knowledge does not help with computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "04252534-67",
+      "subjectName": "การออกแบบและการบริหารเครือข่ายขั้นสูง",
+      "outcomes": [
+        "สามารถเดินสายและออกแบบทอพอโลยีเครือข่าย",
+        "สามารถบริหารและจัดการเครือข่ายให้มีความมั่นคง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "daa05001-e4c2-4352-98d5-d40132d629b5",
+              "name": "สามารถบริหารและจัดการเครือข่ายให้มีความมั่นคง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on network security and management, directly related to system security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Network design and management is not directly related to assembling a computer."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "จัดการและออกแบบฐานข้อมูลได้",
+        "วิเคราะห์ข้อมูลด้วยฟังก์ชันการคำนวณได้",
+        "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้",
+        "ประยุกต์การสอบถามข้อมูลในการทำงานด้านวิทยาการข้อมูลได้",
+        "สามารถแสดงออกถึงความซื่อสัตย์ และเคารพกฎระเบียบและจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes security and ethical use of data, relevant to information system security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Data querying and data science skills are unrelated to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "outcomes": [
+        "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล",
+        "ออกแบบและวิเคราะห์ข้อมูลด้วยโมเดลหลายมิติและ olap",
+        "เข้าใจแนวคิดและบทบาทของธุรกิจอัจฉริยะ",
+        "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ",
+        "บูรณาการธุรกิจอัจฉริยะในระดับองค์กร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "cf98039c-a1ec-4081-a108-7e579c4cd22d",
+              "name": "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers data warehouse security and system integration, related to data and system security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Data warehousing and business intelligence are not relevant to assembling a computer."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "outcomes": [
+        "สามารถอธิบายหลักการของความปลอดภัยในอุตสาหกรรมได้",
+        "สามารถอธิบายหลักการของสภาพแวดล้อมในการทำงานที่อาจก่อให้เกิดอันตรายได้",
+        "สามารถอธิบายหลักการป้องกันอัคคีภัยเบื้องต้นในอุตสาหกรรมได้",
+        "สามารถประเมินความเสี่ยงในการทำงานได้",
+        "สามารถเสนอแนวทางในการป้องกันการเกิดอุบัติเหตุในการทำงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "99dd87c1-7be5-4af7-ad97-84254034519b",
+              "name": "สามารถอธิบายหลักการของความปลอดภัยในอุตสาหกรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers safety principles in industry, including safety protocols which can relate to system safety."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on industrial safety, unrelated to computer assembly skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "outcomes": [
+        "สร้างตัวแบบการเรียนรู้เชิงสถิติได้",
+        "เลือกใช้ตัวแบบการเรียนรู้เชิงสถิติในการวิเคราะห์ข้อมูลได้อย่างเหมาะสม",
+        "วิเคราะห์ข้อมูลเพื่อสร้างโอกาสทางธุรกิจโดยใช้ตัวแบบการเรียนรู้เชิงสถิติได้",
+        "แสดงออกถึงความซื่อสัตย์ เคารพกฎระเบียบและมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d95b080b-33b6-4199-8144-2a283e9b5b2a",
+              "name": "แสดงออกถึงความซื่อสัตย์ เคารพกฎระเบียบและมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes data security and ethical considerations in statistical modeling, relevant to information security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Statistical learning for business is not relevant to assembling computers."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03651441-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ II",
+      "outcomes": [
+        "สร้างตัวแบบการเรียนรู้เชิงสถิติขั้นสูงสำหรับวิเคราะห์ข้อมูลที่มีความซับซ้อนได้",
+        "วิเคราะห์ข้อมูลเชิงธุรกิจโดยใช้ตัวแบบการเรียนรู้เชิงสถิติขั้นสูงได้",
+        "แสดงออกถึงความซื่อสัตย์ เคารพกฎระเบียบและมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "721a3216-0cc9-4df2-9352-545cda049c59",
+              "name": "แสดงออกถึงความซื่อสัตย์ เคารพกฎระเบียบและมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Advanced statistical modeling with security considerations, relevant to data/system security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Advanced statistical learning for business does not relate to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "04253371-65",
+      "subjectName": "การควบคุมแบบตรรกะและระบบอัตโนมัติ",
+      "outcomes": [
+        "อธิบาย (explain) หลักการทำงาน โครงสร้าง และส่วนประกอบสำคัญของพีแอลซี ตลอดจนระบุประเภทและหน้าที่ของอุปกรณ์อินพุตและเอาต์พุตที่ใช้ในงานอุตสาหกรรมได้อย่างถูกต้อง",
+        "เขียน (write) โปรแกรมควบคุมอัตโนมัติเบื้องต้นโดยใช้ภาษาแลดเดอร์บนซอฟต์แวร์สำหรับพีแอลซีแต่ละรุ่นได้อย่างมีประสิทธิภาพ เพื่อควบคุมการทำงานของระบบทางกลได้",
+        "เชื่อมต่อ (connect) และตั้งค่าพีแอลซีกับอุปกรณ์อินพุต/เอาต์พุตและคอมพิวเตอร์ เพื่อดาวน์โหลด/อัปโหลดโปรแกรม รวมถึงสามารถใช้ซอฟต์แวร์ hmi ในการออกแบบหน้าจอควบคุมและเชื่อมโยงกับพีแอลซีได้อย่างถูกต้อง",
+        "วิเคราะห์ (analyze) และ แก้ไขปัญหา (troubleshoot) การทำงานของโปรแกรมแลดเดอร์และการเชื่อมต่อของระบบควบคุมอัตโนมัติที่ใช้พีแอลซีได้อย่างเป็นระบบ เพื่อหาสาเหตุและแก้ไขข้อผิดพลาดที่เกิดขึ้น",
+        "ออกแบบ (design) และ ประยุกต์ใช้ (apply) พีแอลซีและ hmi เพื่อควบคุมและเฝ้าระวังกระบวนการทางกลหรือระบบอัตโนมัติขนาดเล็กได้อย่างบูรณาการ โดยคำนึงถึงความปลอดภัยและประสิทธิภาพการทำงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "8effff9b-d462-4814-a42c-c6053da6e0f7",
+              "name": "เชื่อมต่อ (connect) และตั้งค่าพีแอลซีกับอุปกรณ์อินพุต/เอาต์พุตและคอมพิวเตอร์ เพื่อดาวน์โหลด/อัปโหลดโปรแกรม รวมถึงสามารถใช้ซอฟต์แวร์ hmi ในการออกแบบหน้าจอควบคุมและเชื่อมโยงกับพีแอลซีได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e6de7482-3d2f-4975-a776-ad60d30ba73e",
+              "name": "วิเคราะห์ (analyze) และ แก้ไขปัญหา (troubleshoot) การทำงานของโปรแกรมแลดเดอร์และการเชื่อมต่อของระบบควบคุมอัตโนมัติที่ใช้พีแอลซีได้อย่างเป็นระบบ เพื่อหาสาเหตุและแก้ไขข้อผิดพลาดที่เกิดขึ้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes automation and control systems, relevant for understanding hardware and troubleshooting automation systems."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on PLC and automation systems is unrelated to personal computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01204526-66",
+      "subjectName": "โครงแบบเครือข่ายและการบำรุงรักษา",
+      "outcomes": [
+        "สามารถวิเคราะห์ และแก้ปัญหาเครือข่ายที่เกิดขึ้นได้",
+        "สามารถสืบค้น รวบรวม ข้อมูลเพื่อให้สามารถแก้ปัญหาที่เกิดขึ้น เพื่อให้สามารถทำงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "36625ca7-ec98-42b6-98c6-98b80cc27067",
+              "name": "สามารถวิเคราะห์ และแก้ปัญหาเครือข่ายที่เกิดขึ้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers analysis and troubleshooting of networks, which is relevant to diagnosing and fixing computer issues."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Network design and maintenance is not directly relevant to assembling a computer."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02204311-65",
+      "subjectName": "ความน่าจะเป็นและสถิติสำหรับวิศวกรคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถอธิบายตัวแปรสุ่มและฟังก์ชันการแจกแจงของตัวแปรสุ่มทั้งแบบไม่ต่อเนื่องและแบบต่อเนื่องได้",
+        "สามารถทำการประมาณค่าและทำการทดสอบสมมติฐานได้",
+        "สามารถใช้การวิเคราะห์การถดถอยและการวิเคราะห์ความแปรปรวนเพื่อแก้ปัญหาทางวิศวกรรมคอมพิวเตอร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "328f076e-7e4d-4e21-8712-88fb2e448525",
+              "name": "สามารถใช้การวิเคราะห์การถดถอยและการวิเคราะห์ความแปรปรวนเพื่อแก้ปัญหาทางวิศวกรรมคอมพิวเตอร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides statistical analysis skills that can aid in diagnosing computer problems, relevant but not directly about assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Probability and statistics for computer engineers does not cover hardware assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "outcomes": [
+        "สามารถอธิบายวิธีการใช้เครื่องมือทางคอมพิวเตอร์ได้อย่างถูกต้องและปลอดภัยไม่กระทำผิดกฎหมายและขัดหลักจริยธรรมทางคอมพิวเตอร์",
+        "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อแก้ไขปัญหาในงานด้านเอกสาร และวิเคราะห์ข้อมูลได้",
+        "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อสร้างสรรค์ผลงานทางด้านมัลติมีเดียได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "8758b86c-d2d0-42b3-927e-5a70559bbd90",
+              "name": "สามารถใช้โปรแกรมประยุกต์และเครื่องมือทางคอมพิวเตอร์เพื่อแก้ไขปัญหาในงานด้านเอกสาร และวิเคราะห์ข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches essential computer tools and skills that are foundational for troubleshooting and analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers essential computer tools and skills which can enable understanding and handling of computer hardware."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02201231-66",
+      "subjectName": "การประยุกต์คณิตศาสตร์ในวิศวกรรมเกษตร",
+      "outcomes": [
+        "สามารถนำกระบวนการวิธีเชิงตัวเลขไปใช้งานได้",
+        "สามารถนำคอมพิวเตอร์มาช่วยในงานวิเคราะห์และสังเคราะห์ทางวิศวกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b47630c4-2186-4d21-b1f1-6b28ea51eee1",
+              "name": "สามารถนำคอมพิวเตอร์มาช่วยในงานวิเคราะห์และสังเคราะห์ทางวิศวกรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides mathematical applications in engineering, which underpin understanding of hardware functions but not directly about assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematics in agricultural engineering is unrelated to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "outcomes": [
+        "อธิบายองค์ประกอบของพลเมืองดิจิทัลได้",
+        "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้",
+        "ออกแบบสร้างชิ้นงานดิจิทัลได้",
+        "มีความรับผิดชอบต่อตนเองและสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cecab1c3-8c28-487e-82bc-449dc9c1b00a",
+              "name": "ออกแบบสร้างชิ้นงานดิจิทัลได้"
+            }
+          ]
+        },
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cb239c78-2dd2-4dce-850a-f1bfa0cd7ae7",
+              "name": "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers digital citizenship and technology use, tangentially related but not specific to computer assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Digital citizenship focuses on digital responsibility, not hardware assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01241271-66",
+      "subjectName": "การประยุกต์คอมพิวเตอร์ในงานภูมิสถาปัตยกรรม",
+      "outcomes": [
+        "สามารถออกแบบงานภูมิสถาปัตยกรรมด้วยโปรแกรมคอมพิวเตอร์เบื้องต้นได้",
+        "สามารถเลือกใช้สื่อและสื่อดิจิทัลหรือเทคโนโลยีสารสนเทศในการนำเสนอผลงานออกแบบงานภูมิสถาปัตยกรรมได้อย่างเหมาะสม",
+        "สามารถนำเสนอแบบก่อสร้างด้วยโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้องตามมาตรฐาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1c40b189-de70-4172-8fa9-87a19746abb0",
+              "name": "สามารถนำเสนอแบบก่อสร้างด้วยโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้องตามมาตรฐาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Uses computer applications in architecture, but not specifically about hardware assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Application of computers in landscape architecture is not relevant to assembling computers."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03501461-65",
+      "subjectName": "การออกแบบเรือ",
+      "outcomes": [
+        "สามารถอธิบายกระบวนการในการออกแบบเรือเบื้องต้นตามหลักการของ design spiral ได้อย่างถูกต้อง",
+        "สามารถอธิบายปัจจัยที่เกี่ยวข้องในการออกแบบเรือจากความต้องการของผู้ใช้เรือได้",
+        "สามารถกำหนดรูปแบบและลักษณะของเรือ ตลอดจนอุปกรณ์ประกอบตัวเรือหรือเครื่องจักรที่ต้องใช้ติดตั้งตามภารกิจของเรือได้",
+        "สามารถคำนวณและระบุปัญหาในการคำนวณผลทางด้าน hydrostatics และ/หรือ hydrodynamics ของเรือได้",
+        "สามารถใช้โปรแกรมคอมพิวเตอร์เพื่อช่วยในการออกแบบเรือได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9104f2ff-619e-474e-bd01-8827a5079a1b",
+              "name": "สามารถใช้โปรแกรมคอมพิวเตอร์เพื่อช่วยในการออกแบบเรือได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Design principles for ships, not related to computer assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on ship design, unrelated to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01403345-65",
+      "subjectName": "การจำลองแบบด้วยคอมพิวเตอร์ในวิชาเคมีและวิศวกรรมเคมี",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของทฤษฎีการจำลองแบบทางเคมีด้วยคอมพิวเตอร์ได้",
+        "สามารถเลือกใช้ระเบียบวิธีการคำนวณทางเคมีคอมพิวเตอร์  ในการแก้ปัญหาทางเคมี",
+        "วิเคราะห์ผลลัพธ์ที่ได้จากการจำลองแบบทางเคมีด้วยคอมพิวเตอร์",
+        "นำเสนอผลการคำนวณจากวิธีการคำนวณทางเคมีคอมพิวเตอร์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "00371b74-2ef3-4df6-b903-d302d8bdba8b",
+              "name": "นำเสนอผลการคำนวณจากวิธีการคำนวณทางเคมีคอมพิวเตอร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on chemical modeling, not directly related to computer assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers computer simulation in chemistry, not relevant to assembling computers."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง",
+        "วิเคราะห์ปัญหาง่าย ๆ และออกแบบอัลกอริทึมเพื่อแก้ปัญหาด้วยแนวคิดเชิงตรรกะและโครงสร้างควบคุมในโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "8db17ee0-21b4-47c6-89fe-33fb1601548e",
+              "name": "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Programming fundamentals, useful but not directly about hardware assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches structured programming, not hardware assembly or computer building."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "04256132-66",
+      "subjectName": "การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "สามารถพัฒนาโปรแกรมเพื่อใช้สำหรับการเข้าถึงข้อมูลได้",
+        "สามารถเตรียมข้อมูล การประมวลผลข้อมูลได้",
+        "สามารถนำเสนอผลของข้อมูลได้อย่างเหมาะสมและมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3fedb577-6b15-4ecf-87ba-7e4db10b3b50",
+              "name": "สามารถเตรียมข้อมูล การประมวลผลข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "0863f859-9783-41a0-b15f-10c20935b78f",
+              "name": "สามารถพัฒนาโปรแกรมเพื่อใช้สำหรับการเข้าถึงข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Data programming skills, not specifically about assembling computers."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on programming for data science, unrelated to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "outcomes": [
+        "สามารถวาดภาพฉายออร์โธกราฟฟิก ภาพสามมิติ และมุมมองช่วยได้",
+        "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้",
+        "สามารถนำเสนอแบบวิศวกรรมและสื่อสารข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on engineering drawing and software for design, tangential to hardware assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about engineering drawing, not related to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "outcomes": [
+        "บอกขั้นตอนการสมัครงานและการจัดเตรียมข้อมูล สำหรับสมัครงานได้",
+        "จัดทำร่างข้อเสนอโครงงานสหกิจศึกษาได้",
+        "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม",
+        "ปฏิบัติงานร่วมกับผู้อื่นได้ด้วยความมุ่งมั่น สามัคคี และเคารพกฎระเบียบ",
+        "แสดงออกถึงการมีบุคลิกภาพที่ดี สื่อสารกับผู้อื่นได้อย่างชัดเจน ตรงประเด็น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1e397f8f-581a-4c1b-a06d-1f44ac9ad3d2",
+              "name": "บอกขั้นตอนการสมัครงานและการจัดเตรียมข้อมูล สำหรับสมัครงานได้"
+            },
+            {
+              "id": "2c00b903-7dd2-40aa-b16e-2a70f6489448",
+              "name": "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "2c00b903-7dd2-40aa-b16e-2a70f6489448",
+              "name": "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes soft skills and preparation for work, but not specific to OS installation or system setup."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course prepares for cooperative education, no direct relevance to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03610227-66",
+      "subjectName": "วิศวกรรมวัดคุมพื้นฐาน",
+      "outcomes": [
+        "สามารถเข้าใจและอธิบายองค์ประกอบของการวัดได้",
+        "สามารถวิเคราะห์ข้อมูล และอธิบายผลลัพธ์จากการวัดได้",
+        "สามารถอธิบายการทำงานของระบบควบคุมได้",
+        "สามารถเลือกใช้ และออกแบบระบบควบคุมพื้นฐานให้เหมาะสมกับงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3c257fe5-c1ef-421a-b63d-6a0d5f5ded37",
+              "name": "สามารถเลือกใช้ และออกแบบระบบควบคุมพื้นฐานให้เหมาะสมกับงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers measurement and control engineering principles, tangentially related but not directly about OS installation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers measurement and control engineering, not computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "outcomes": [
+        "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม",
+        "สร้างการคำนวณข้อมูล พารามิเตอร์ตารางและแผนภูมิ เพื่อนำเสนอภาพข้อมูลได้อย่่างเหมาะสม",
+        "วิเคราะห์ข้อมูลขั้นสูงได้",
+        "สร้างแดชบอร์ดและนำเสนอผ่านระบบสารสนเทศได้",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ซื่อสัตย์ ปฎิบัติงานร่วมกับผู้อื่นได้ และมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "607d6284-5f60-4f1d-b70f-20c41e69fa56",
+              "name": "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม"
+            },
+            {
+              "id": "b8eceb19-6e61-4aac-90e1-974bb162bc3d",
+              "name": "สร้างแดชบอร์ดและนำเสนอผ่านระบบสารสนเทศได้"
+            }
+          ]
+        },
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "607d6284-5f60-4f1d-b70f-20c41e69fa56",
+              "name": "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Data visualization and management skills, not directly related to system setup."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on data visualization for business, unrelated to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "outcomes": [
+        "วิเคราะห์ปัญหาและหาแนวทางแก้ไขโดยการวิจัย",
+        "ใช้องค์ความรู้ทางสถิติ คณิตศาสตร์ ในการศึกษาค้นคว้าและแก้ไขปัญหา",
+        "พัฒนานวัตกรรมผลิตภัณฑ์ และ/หรือบริการ จากการบูรณาการความรู้ที่ได้ศึกษา",
+        "นำเสนองานและสื่อสารได้อย่างเหมาะสมกับบุคคลที่แตกต่างกันโดยใช้เทคโนโลยีดิจิทัล",
+        "มีความรับผิดชอบต่อตนเองและสังคม และมีความซื่อสัตย์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "89c65828-e8dc-480d-b33c-36a31cee2f23",
+              "name": "วิเคราะห์ปัญหาและหาแนวทางแก้ไขโดยการวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes problem analysis and solution development, but not specifically about computer assembly or hardware troubleshooting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about product innovation projects, not computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "outcomes": [
+        "ออกแบบหัวข้อศึกษาค้นคว้าเชิงบูรณาการข้ามศาสตร์",
+        "วิเคราะห์และแก้ไขปัญหาด้วย องค์ความรู้เชิงบูรณาการ",
+        "เรียบเรียงเขียนเป็นรายงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "4afa56fc-6758-4ce1-9750-2c8e138bc75b",
+              "name": "วิเคราะห์และแก้ไขปัญหาด้วย องค์ความรู้เชิงบูรณาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on interdisciplinary problem solving, not specifically on computer hardware assembly or troubleshooting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is a special problems study, no direct relevance to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "outcomes": [
+        "อธิบายภาพรวมและหลักการพื้นฐานของวิทยาการข้อมูลได้",
+        "แก้ปัญหาด้านวิทยาการข้อมูลเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "ce183532-a06f-4117-a50c-98208bb1456e",
+              "name": "แก้ปัญหาด้านวิทยาการข้อมูลเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides data science fundamentals, useful for analysis but not specific to computer assembly or troubleshooting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on data science basics for applied mathematics, unrelated to computer assembly."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "outcomes": [
+        "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้ฟังก์ชันในการวิเคราะห์ข้อมูลได้อย่างเหมาะสมและถูกต้อง",
+        "เลือกรูปแบบการนำเสนอข้อมูลได้อย่างเหมาะสม",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ด้วยความรับผิดชอบ ซื่อสัตย์ และปฎิบัติงานร่วมกับผู้อื่นได้ มีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84b67e5d-9f9b-45fb-8a17-c60f5eb856df",
+              "name": "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        },
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "84b67e5d-9f9b-45fb-8a17-c60f5eb856df",
+              "name": "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on data analysis and visualization, not directly on computer assembly or troubleshooting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about data analysis and visualization, not relevant to assembling computers."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถเลือกใช้ข้อมูลสารสนเทศได้ตามหลัก พรบ. คอมพิวเตอร์",
+        "สามารถอธิบายลักษณะ อุปกรณ์ และการใช้โปรแกรมคอมพิวเตอร์ได้",
+        "สามารถแปลงโน้ตดนตรีขั้นพื้นฐานได้",
+        "สามารถดำเนินงานที่ได้รับมอบหมายตามระยะเวลาที่กำหนดได้",
+        "สามารถนำเสนอรายงานโดยใช้เทคโนโลยีสารสนเทศได้",
+        "สามารถดำเนินการประยุกต์โปรแกรมคอมพิวเตอร์กับงานทางด้ายดนตรีไทยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d9e2957a-b9a8-4864-9e94-ae93ac9c7c54",
+              "name": "สามารถอธิบายลักษณะ อุปกรณ์ และการใช้โปรแกรมคอมพิวเตอร์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d9e2957a-b9a8-4864-9e94-ae93ac9c7c54",
+              "name": "สามารถอธิบายลักษณะ อุปกรณ์ และการใช้โปรแกรมคอมพิวเตอร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to computer assembly; focuses on music and computer use in arts."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course combines Thai music and computers, not related to hardware assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "outcomes": [
+        "แสดงออกถึงการรับฟังและยอมรับความคิดเห็นของผู้อื่น",
+        "เลือกคำศัพท์ระดับ hsk 5 มาใช้ในบริบทที่แตกต่างกันได้",
+        "ตีความข้อความที่ฟังหรืออ่านได้",
+        "สร้างงานโดยใช้เทคโนโลยีสารสนเทศและอธิบายงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประกอบคอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "cbf61654-0445-4a32-bb73-d73b308e247e",
+              "name": "สร้างงานโดยใช้เทคโนโลยีสารสนเทศและอธิบายงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language learning unrelated to computer hardware or assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Chinese language course, no connection to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายความสำคัญในการนำเอาตัวแบบกระบวนการพัฒนาซอฟต์แวร์ไปใช้ในโครงงานทางซอฟต์แวร์ได้",
+        "สามารถระบุความต้องการที่ผู้มีส่วนเกี่ยวข้องต้องการให้เกิดขึ้นในซอฟต์แวร์ได้",
+        "สามารถวิเคราะห์สิ่งที่เกิดขึ้นภายในกระบวนการทางธุรกิจของผู้ว่าจ้างได้",
+        "สามารถออกแบบโครงสร้างซอฟต์แวร์เพื่อตอบสนองต่อความต้องการของผู้ว่าจ้างได้",
+        "สามารถนำต้นแบบกระบวนพัฒนาซอฟต์แวร์แบบร่วมสมัยมาใช้ในโครงการพัฒนาซอฟต์แวร์ได้",
+        "รับรู้ถึงความสำคัญในกระบวนการทวนสอบซอฟต์แวร์",
+        "สามารถพัฒนาซอฟต์แวร์ที่ตรงต่อความต้องการของผู้ว่าจ้างได้",
+        "สามารถอธิบายความแตกต่างในรูปแบบของการบำรุงรักษาซอฟต์แวร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "47726a31-c19d-442c-bc32-52a917fbe561",
+              "name": "สามารถอธิบายความแตกต่างในรูปแบบของการบำรุงรักษาซอฟต์แวร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on software engineering, not hardware assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Software engineering course focuses on software development, not hardware assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "04252459-65",
+      "subjectName": "ฮาร์มอนิกในระบบไฟฟ้ากำลัง",
+      "outcomes": [
+        "สามารถอธิบาย แหล่งกำเนิดฮาร์มอนิก ผลกระทบที่เกิดขึ้น การตรวจวัดปริมาณฮาร์มอนิก ค่ามาตรฐานระดับฮาร์มอนิก และการขจัดฮาร์มอนิก ในระบบไฟฟ้ากำลังได้อย่างถูกต้อง",
+        "สามารถคำนวณปริมาณฮาร์มอนิกในระบบไฟฟ้าได้อย่างถูกต้อง",
+        "อธิบายการแก้ปัญหาฮาร์มอนิกได้อย่างถูกต้อง",
+        "สามารถใช้เครื่องมือและอุปกรณ์ คอมพิวเตอร์ เทคโนโลยีดิจิทัลเพื่อการตรวจวัดและวิเคราะห์ปริมาณฮาร์มอนิกในระบบไฟฟ้ากำลังได้ถูกต้อง",
+        "มีมนุษยสัมพันธ์และสามารถทำงานร่วมกับผู้อื่นได้",
+        "มีวินัย เข้าเรียนตรงเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a50a4cc5-02e8-4fc7-adfe-5223bcd4950c",
+              "name": "อธิบายการแก้ปัญหาฮาร์มอนิกได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Specialized electrical engineering topic unrelated to computer hardware assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on harmonics in power systems, unrelated to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายทฤษฎีหลักการและกระบวนการ  วิศวกรรมซอฟต์แวร์ให้เหมาะสมกับผู้ใช้งานได",
+        "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้",
+        "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "5f6c1769-9a48-4aac-9307-a59955cc1a03",
+              "name": "สามารถอธิบายทฤษฎีหลักการและกระบวนการ  วิศวกรรมซอฟต์แวร์ให้เหมาะสมกับผู้ใช้งานได"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Software engineering, not hardware assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Another software engineering course, no relevance to hardware assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "outcomes": [
+        "สามารถวิเคราะห์ ออกแบบ และสร้างฐานข้อมูลเชิงสัมพันธ์ได้อย่างถูกต้องตามหลักการ ตรงกับความต้องการของผู้ใช้",
+        ".สามารถนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูลได้",
+        "สามารถแสดงออกถึงความมุ่งมั่น ในการปฏิบัติงานกลุ่มได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1e8d79c2-0fa6-41e4-a351-7a8a10793e63",
+              "name": ".สามารถนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Database systems, unrelated to hardware assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Database systems course, unrelated to assembling computers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01005411-67",
+      "subjectName": "การบริหารจัดการฟาร์ม",
+      "outcomes": [
+        "สามารถอธิบายหลักการบริหารจัดการฟาร์ม การวางแผนและการจัดการผลิตทางการเกษตรได้",
+        "สามารถวิเคราะห์ปัญหาและหาวิธีการแก้ปัญหาด้านการผลิตทางการเกษตรได้",
+        "อธิบายหลักความปลอดภัยในการปฏิบัติงานด้านเทคโนโลยีระบบเกษตรได้",
+        "สามารถกำหนดเป้าหมาย วางแผนการผลิต และดำเนินการในการปฏิบัติงานในฟาร์มได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "afe08a1b-4546-47c0-9ce1-e7416102b8d5",
+              "name": "อธิบายหลักความปลอดภัยในการปฏิบัติงานด้านเทคโนโลยีระบบเกษตรได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on farm management and agricultural production, unrelated to computer or system security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Farm management course, no connection to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "outcomes": [
+        "อธิบายเกี่ยวกับเคมีที่มีอิทธิพลต่องานศิลปะ",
+        "มีทักษะการคิดวิเคราะห์ วิพากษ์ บูรณาการองค์ความรู้ รวมถึงเชื่อมโยงข้อมูลที่ได้อย่างเหมาะสม",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to art and chemistry, unrelated to computer security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on pigments in art, irrelevant to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "outcomes": [
+        "อธิบายวิทยาศาสตร์/เคมีที่เกี่ยวข้องในชีวิตประจำวันได้",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม",
+        "เชื่อมโยงประเด็นที่เกี่ยวกับเคมีที่มีในสิ่งรอบ ๆ ตัว นำไปสู่การให้ความเห็นอย่างมีวิจารณญาณได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on chemistry in daily life, not on information or system security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on chemistry in daily life, unrelated to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "04253181-65",
+      "subjectName": "การฝึกงานโรงงานทางวิศวกรรม",
+      "outcomes": [
+        "สามารถอ่านค่าที่ได้จากเครื่องมือวัดได้",
+        "สามารถอธิบายขั้นตอนการขึ้นรูปชิ้นงานด้วยเครื่องมือกลได้",
+        "สามารถเขียนคำสั่งเพื่อสั่งงานเครื่องซีเอนซีขึ้นรูปชิ้นงานได้",
+        "สามารถเลือกเครื่องมือกลเพื่อขึ้นรูปชิ้นงานได้",
+        "สามารถอธิบายหลักความปลอดภัยในโรงงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "6a353cc6-421b-436a-9015-757dda788fd7",
+              "name": "สามารถอธิบายหลักความปลอดภัยในโรงงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Industrial engineering focus, not on computer or system security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about engineering factory internship and machining, not computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01058343-68",
+      "subjectName": "ปฏิบัติการวิเคราะห์คุณภาพทางกายภาพและเคมีในอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "ปฏิบัติการวิเคราะห์หาปริมาณขององค์ประกอบหลักในอาหาร และคำนวณร้อยละโดยน้ำหนักขององค์ประกอบแต่ละชนิด",
+        "อธิบายหลักการวิเคราะห์สมบัติทางกายภาพของวัสดุและผลิตภัณฑ์อาหาร",
+        "แปลความหมายผลการทดลองที่ได้จากการวิเคราะห์ทางกายภาพและเคมี",
+        "อธิบายข้อกำหนดด้านความปลอดภัยในห้องปฏิบัติการวิเคราะห์ทางกายภาพและเคมี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "02716d70-aeff-46ac-b933-65222c6b4c8f",
+              "name": "อธิบายข้อกำหนดด้านความปลอดภัยในห้องปฏิบัติการวิเคราะห์ทางกายภาพและเคมี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Analytical chemistry in agriculture, unrelated to system security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers physical and chemical analysis in agricultural industry, irrelevant to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01605523-67",
+      "subjectName": "พันธุวิศวกรรมทางเทคโนโลยีสุขภาพสัตว์",
+      "outcomes": [
+        "สามารถอธิบายองค์ความรู้เกี่ยวกับเทคโนโลยีทางพันธุวิศวกรรมที่เกี่ยวข้องกับสุขภาพสัตว์ได้",
+        "สามารถปฏิบัติงานในห้องปฏิบัติการทางด้านเทคโนโลยีพันธุวิศวกรรมได้อย่างถูกต้องและแม่นยำได้",
+        "สามารถค้นคว้าและเรียนรู้ด้วยตัวเองจากกิจกรรมการเรียนการสอนที่เน้นผู้เรียนเป็นสำคัญได้",
+        "คำนึงถึงความปลอดภัยทางชีวภาพทั้งต่อตนเองและผู้อื่นในการทำงานในห้อง ปฏิบัติการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ความปลอดภัยของข้อมูลและระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1f5d4a0e-4c6c-4e55-807a-0d1d5393da47",
+              "name": "คำนึงถึงความปลอดภัยทางชีวภาพทั้งต่อตนเองและผู้อื่นในการทำงานในห้อง ปฏิบัติการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Genetic engineering in health sciences, unrelated to data/system security."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on genetic engineering in animal health, unrelated to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01419213-65",
+      "subjectName": "จุลชีววิทยาทั่วไปภาคปฏิบัติการ",
+      "outcomes": [
+        "อธิบายหลักการและวิธีการปฏิบัติที่เป็นพื้นฐานทางด้านจุลชีววิทยา",
+        "บ่งชี้ลักษณะทางสัณฐานวิทยาของจุลินทรีย์ได้",
+        "เลือกวิธีการเพาะเลี้ยงและจัดการจุลินทรีย์ได้อย่างเหมาะสม",
+        "เลือกใช้วิธีการตรวจสอบกิจกรรมจากจุลินทรีย์ได้ถูกต้อง",
+        "ยกตัวอย่างประโยชน์และโทษของจุลินทรีย์ในชีวิตประจำวันได้",
+        "เขียนรายงานผลการทดลองและอภิปรายผลจากปฏิบัติการได้",
+        "รับผิดชอบต่อตนเองและทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "791b201d-e17d-4fd6-b81f-d4342f08d794",
+              "name": "เลือกวิธีการเพาะเลี้ยงและจัดการจุลินทรีย์ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to microbiology, not system installation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "General microbiology practical course, no connection to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01018553-65",
+      "subjectName": "เทคโนโลยีเรือนบรรจุ",
+      "outcomes": [
+        "อธิบายความสำคัญและการดำเนินงานของเรือนบรรจุได้",
+        "เลือกใช้เครื่องจักรและอุปกรณ์ที่เหมาะสมกับเรือนบรรจุได้",
+        "ออกแบบและวางผังเรือนบรรจุได้",
+        "จัดการดำเนินงานในเรือนบรรจุได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9d27f05f-8713-4e16-b56c-036ba1a79c06",
+              "name": "เลือกใช้เครื่องจักรและอุปกรณ์ที่เหมาะสมกับเรือนบรรจุได้"
+            },
+            {
+              "id": "a85df987-9a83-4b73-9523-c177722c9d78",
+              "name": "ออกแบบและวางผังเรือนบรรจุได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on packaging technology, unrelated to OS setup."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course about packing house technology, unrelated to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01402499-65",
+      "subjectName": "โครงงานวิจัยทางชีวเคมี",
+      "outcomes": [
+        "สามารสรุปความรู้ทางชีวเคมีและผลงานวิจัยได้",
+        "สามารถดำเนินการทำวิจัยทางชีวเคมีได้",
+        "สามารถนำเสนอผลการทดลองภายหลังการเสร็จสิ้นโครงงานวิจัย",
+        "สามารถดำเนินงานวิจัยและนำเสนอได้ตามจริยธรรมวิทยาศาสตร์",
+        "สามารถปฏิบัติตามข้อกำหนดในห้องปฏิบัติการและการใช้เครื่องมือส่วนกลางได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "902fc6d9-28c0-461b-8428-a42ba3e0f076",
+              "name": "สามารถปฏิบัติตามข้อกำหนดในห้องปฏิบัติการและการใช้เครื่องมือส่วนกลางได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Research project in biochemistry, not related to system configuration."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Biochemistry research project course, not relevant to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "outcomes": [
+        "อธิบายประเภทของเครื่องดื่ม หลัก และเทคนิคการเตรียมเครื่องดื่มได้",
+        "เลือกใช้อุปกรณ์และส่วนผสมต่างๆ ในการเตรียมเครื่องดื่มได้ถูกต้อง",
+        "ประยุกต์และพัฒนาตำรับเครื่องดื่มได้อย่างเหมาะสม",
+        "ปฏิบัติงานกลุ่มด้านการจัดเตรียมเครื่องดื่มร่วมกับผู้อื่นด้วยความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7bca9570-b21a-4bb4-a549-c15f45e86b6a",
+              "name": "เลือกใช้อุปกรณ์และส่วนผสมต่างๆ ในการเตรียมเครื่องดื่มได้ถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to computer systems or OS configuration."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on beverage preparation, unrelated to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01600451-65",
+      "subjectName": "การปฏิบัติงานเฉพาะทางเทคนิคการสัตวแพทย์",
+      "outcomes": [
+        "สามารถใช้อุปกรณ์และเครื่องมือสำหรับการตรวจวิเคราะห์ทางห้องปฏิบัติการด้านสุขภาพสัตว์",
+        "สามารถอธิบายผลการตรวจทางห้องปฏิบัติการกับเกิดโรคในสัตว์ได้ตามความเหมาะสม",
+        "สามารถบริหารจัดการห้องปฏิบัติการได้อย่างมีประสิทธิภาพและได้ตามมาตรฐาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "863754e7-e3ba-441a-bad5-e31ab435c81f",
+              "name": "สามารถบริหารจัดการห้องปฏิบัติการได้อย่างมีประสิทธิภาพและได้ตามมาตรฐาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to veterinary technical work, not system installation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Veterinary technical operations course, no relevance to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "ประยุกต์ทฤษฎีเพื่อสร้างงานวิจัย",
+        "ออกแบบและทดสอบอุปกรณ์หรือเทคนิคเพื่อสร้างงานวิจัย",
+        "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย",
+        "ปฏิบัติงานภาคสนามในการเก็บข้อมูลงานวิจัย",
+        "บริหารงานวิจัยเพื่อสร้างสรรค์ผลงานวิจัยให้บรรลุวัตถุประสงค์และเป็นไปตามหลักจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "19c55b39-65ae-4726-9dde-94d532e9f709",
+              "name": "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on research and theoretical analysis, not practical computer assembly or troubleshooting skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course focused on research methods, not specific to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "outcomes": [
+        "สามารถประมวลองค์ความรู้ในการวิเคราะห์และเลือกลงทุนโครงการได้อย่างเหมาะสม พร้อมทั้งแก้ไขปัญหาและพัฒนาให้เหมาะกับข้อจำกัดต่างๆ  โดยคำนึงถึงจรรยาบรรณวิชาชีพ",
+        "สามารถวิเคราะห์และประเมินปัญหาได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f8fea756-2581-4b40-90ad-16434e1d7e21",
+              "name": "สามารถวิเคราะห์และประเมินปัญหาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to investment analysis, not relevant to computer assembly or troubleshooting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on investment analysis, unrelated to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01204516-66",
+      "subjectName": "การคำนวณเชิงควอนตัมขั้นสูง",
+      "outcomes": [
+        "สามารถแยกแยะปัญหาที่สามารถแก้ไขได้ด้วยคอมพิวเตอร์ควอนตัมอย่างมีประสิทธิภาพ",
+        "สามารถวิเคราะห์ข้อจำกัดและผลกระทบที่เกิดขึ้นกับเทคโนโลยีการคำนวณในปัจจุบันเมื่อควอนตัมคอมพิวเตอร์สามารถนำมาใช้ได้อย่างเต็มรูปแบบ",
+        "สามารถให้ความเห็นเกี่ยวกับงานวิจัยด้านการคำนวณเชิงควอนตัมที่เป็นปัจจุบัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7096f7d0-aff1-41fa-96dd-27c6d8efd4da",
+              "name": "สามารถแยกแยะปัญหาที่สามารถแก้ไขได้ด้วยคอมพิวเตอร์ควอนตัมอย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to computer assembly or troubleshooting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers advanced quantum computing theory, not practical computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "outcomes": [
+        "อธิบายความเป็นมาของการเงินธุรกิจการบิน และการดำเนินงานของธุรกิจสายการบิน การขนส่งสินค้าทางอากาศ และหน่วยงานที่เกี่ยวข้อง",
+        "วิเคราะห์ประเด็นปัญหา และการแก้ปัญหาด้านการเงินธุรกิจเบื้องต้นตามสถานการณ์อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "2b37d44d-f1a5-4f5b-9e1e-cc568b6d87e7",
+              "name": "วิเคราะห์ประเด็นปัญหา และการแก้ปัญหาด้านการเงินธุรกิจเบื้องต้นตามสถานการณ์อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to computer hardware or troubleshooting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about airline business finance, irrelevant to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01204599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "สามารถแยกแยะและสรุปประเด็นปัญหาด้านวิศวกรรมคอมพิวเตอร์ในปัจจุบัน เพื่อพัฒนาความรู้โดยอาศัยกระบวนการวิจัยขั้นสูง",
+        "สามารถปฏิบัติตามขั้นตอนของการทำวิจัยได้อย่างถูกต้องด้วยเทคนิคและเครื่องมือที่เหมาะสม",
+        "สามารถผลิตผลงานวิจัยที่มีคุณภาพ และเผยแพร่งานวิจัยในรูปแบบบทความเพื่อเสนอในการประชุมวิชาการหรือตีพิมพ์ในวารสารวิชาการที่เป็นที่ยอมรับในสาขาวิศวกรรมคอมพิวเตอร์ได้",
+        "สามารถนำเสนองานวิจัยของตนเองสู่สาธารณะได้โดยแสดงถึงความเข้าใจอย่างถ่องแท้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ba803232-7347-4fec-a11e-d630d9461cbc",
+              "name": "สามารถแยกแยะและสรุปประเด็นปัญหาด้านวิศวกรรมคอมพิวเตอร์ในปัจจุบัน เพื่อพัฒนาความรู้โดยอาศัยกระบวนการวิจัยขั้นสูง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Research-focused, not practical or skills-based for computer assembly."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course on computer engineering research, not practical computer assembly skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01204699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "สามารถแยกแยะและสรุปประเด็นปัญหาด้านวิศวกรรมคอมพิวเตอร์ในปัจจุบัน เพื่อพัฒนาความรู้โดยอาศัยกระบวนการวิจัยขั้นสูง",
+        "สามารถปฏิบัติตามขั้นตอนของการทำวิจัยได้อย่างถูกต้องด้วยเทคนิคและเครื่องมือที่เหมาะสม",
+        "สามารถผลิตผลงานวิจัยที่มีคุณภาพ และเผยแพร่งานวิจัยในรูปแบบบทความเพื่อเสนอในการประชุมวิชาการหรือตีพิมพ์ในวารสารวิชาการที่เป็นที่ยอมรับในสาขาวิศวกรรมคอมพิวเตอร์ได้",
+        "สามารถนำเสนองานวิจัยของตนเองสู่สาธารณะได้โดยแสดงถึงความเข้าใจอย่างถ่องแท้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "10cdaa5b-05cb-4f62-8883-b88adf2fca3a",
+              "name": "สามารถแยกแยะและสรุปประเด็นปัญหาด้านวิศวกรรมคอมพิวเตอร์ในปัจจุบัน เพื่อพัฒนาความรู้โดยอาศัยกระบวนการวิจัยขั้นสูง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Same as above, research-oriented, not practical for assembling computers."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Duplicate thesis course focused on research, not relevant to assembling computers."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "subjectCode": "01018552-65",
+      "subjectName": "เทคโนโลยีการเก็บรักษาผลิตผลเกษตรด้วยความเย็น",
+      "outcomes": [
+        "อธิบายความสำคัญของระบบการทำความเย็นและห้องเย็นได้",
+        "เลือกใช้อุปกรณ์ในระบบทำความเย็นได้",
+        "เลือกวิธีการขนส่งในระบบลูกโซ่ความเย็นได้",
+        "เลือกวิธีการการยืดอายุผลิตผลเกษตรได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "015c96ff-0548-4f32-98dc-a1888ee4312e",
+              "name": "เลือกใช้อุปกรณ์ในระบบทำความเย็นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Not found in LLM response"
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on cold storage technology for agriculture, unrelated to computer assembly."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2171,
+      "outputTokens": 293
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2206,
+      "outputTokens": 293
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1990,
+      "outputTokens": 289
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2136,
+      "outputTokens": 284
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2098,
+      "outputTokens": 291
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1505,
+      "outputTokens": 177
+    }
+  ]
+}

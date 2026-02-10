@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "d70fb21b-c337-425b-8b11-3ee2018f3fc4-กฎหมายแรงงาน"
+  ],
+  "skill": "กฎหมายแรงงาน",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 0,
+      "reason": "หลักสูตรกล่าวถึงหลักพื้นฐานของกฎหมายและกฎหมายบุคคลเท่านั้น ไม่มีเนื้อหาเกี่ยวกับกฎหมายแรงงาน"
+    },
+    {
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 0,
+      "reason": "มุ่งเน้นหลักทั่วไปของกฎหมายแพ่งและกฎหมายบุคคล ไม่มีข้อกำหนดเกี่ยวกับกฎหมายแรงงาน"
+    },
+    {
+      "subjectCode": "04354131-68",
+      "subjectName": "หลักกฎหมายมหาชน",
+      "relevanceScore": 0,
+      "reason": "เป็นกฎหมายมหาชน ไม่มีการกล่าวถึงกฎหมายแรงงานในผลการเรียน"
+    },
+    {
+      "subjectCode": "01352212-66",
+      "subjectName": "วาทวิทยาเพื่องานนิเทศศาสตร์",
+      "relevanceScore": 0,
+      "reason": "เกี่ยวกับวาทวิทยาและการสื่อสาร ไม่เกี่ยวข้องกับกฎหมายแรงงาน"
+    },
+    {
+      "subjectCode": "01453113-68",
+      "subjectName": "ประวัติศาสตร์กฎหมาย",
+      "relevanceScore": 0,
+      "reason": "เน้นประวัติศาสตร์ของกฎหมายทั่วไป ไม่ได้ระบุหรือครอบคลุมกฎหมายแรงงานโดยตรง"
+    },
+    {
+      "subjectCode": "01456254-64",
+      "subjectName": "การป้องกันอาชญากรรม",
+      "relevanceScore": 0,
+      "reason": "เกี่ยวกับการป้องกันอาชญากรรมและกฎหมายที่เกี่ยวข้อง ไม่เกี่ยวกับกฎหมายแรงงาน"
+    },
+    {
+      "subjectCode": "01150341-67",
+      "subjectName": "การศึกษาสำหรับบุคคลที่มีความต้องการจำเป็นพิเศษ",
+      "relevanceScore": 0,
+      "reason": "ครอบคลุมกฎหมายที่เกี่ยวกับการศึกษาพิเศษ ไม่ได้กล่าวถึงกฎหมายแรงงาน"
+    },
+    {
+      "subjectCode": "02197531-68",
+      "subjectName": "กฎหมาย นโยบายและกลยุทธ์ทางการบริหารการศึกษา",
+      "relevanceScore": 0,
+      "reason": "เน้นกฎหมายและนโยบายด้านการบริหารการศึกษา ไม่ใช่กฎหมายแรงงาน"
+    },
+    {
+      "subjectCode": "02201598-66",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "หัวข้อเป็นปัญหาพิเศษด้านวิศวกรรมเกษตร ไม่มีเนื้อหาเกี่ยวกับกฎหมายแรงงาน"
+    },
+    {
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "relevanceScore": 0,
+      "reason": "กล่าวถึงกฎหมายที่เกี่ยวข้องกับวิชาชีพครู แต่ไม่ได้ระบุเรื่องกฎหมายแรงงาน"
+    },
+    {
+      "subjectCode": "01058371-68",
+      "subjectName": "มาตรฐานและกฎหมายสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "มุ่งเน้นมาตรฐานและกฎหมายสำหรับอุตสาหกรรมเกษตร ไม่ได้ครอบคลุมกฎหมายแรงงาน"
+    },
+    {
+      "subjectCode": "01017324-66",
+      "subjectName": "การวิเคราะห์อาหารและโภชนาการ",
+      "relevanceScore": 0,
+      "reason": "เกี่ยวกับการวิเคราะห์อาหารและโภชนาการ ไม่มีเนื้อหาเกี่ยวกับกฎหมายแรงงาน"
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 12,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-5-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2548,
+  "outputTokens": 1503
+}

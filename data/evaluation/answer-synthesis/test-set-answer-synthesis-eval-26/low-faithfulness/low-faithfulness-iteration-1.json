@@ -1,0 +1,57 @@
+{
+  "totalLowQuality": 1,
+  "totalSamples": 26,
+  "lowQualityRate": 0.038461538461538464,
+  "byFaithfulnessReason": {
+    "completelyFalse": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 1: Completely False (hallucinations or contradicts context)",
+      "examples": []
+    },
+    "mostlyFalse": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 2: Mostly False (major factual errors)",
+      "examples": []
+    },
+    "mixed": {
+      "count": 1,
+      "percentage": 1,
+      "description": "Score 3: Mixed (some supported facts, some hallucinations)",
+      "examples": [
+        {
+          "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+          "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+          "overallScore": 4,
+          "judgeReasoning": "Mostly based on the provided course contexts and correctly links many courses to the stated skills (e.g., programming courses → algorithm design; DB courses → relational design and SQL; ML courses → supervised/unsupervised methods). However, the answer includes several unsupported negative/qualifying claims not present in the context — e.g., statements that specific courses “do not cover” advanced software development, web/app integration, advanced network coding/security, large-model training or deployment, or that no course prepares for a complete end-to-end tech job. Those are interpretive assertions beyond the explicit learning outcomes and thus reduce faithfulness."
+        }
+      ]
+    }
+  },
+  "byCompletenessReason": {
+    "fail": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 1: Fail (just lists codes, or says none found when valid options exist)",
+      "examples": []
+    },
+    "weak": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 2: Weak (very little context or explanation)",
+      "examples": []
+    },
+    "descriptiveOnly": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 3: Descriptive Only (lists facts, doesn't explain value to user)",
+      "examples": []
+    }
+  },
+  "insights": {
+    "systemStrength": "High overall pass rate; No complete hallucinations; No major factual errors; All answers provide some explanation; Good explanatory bridging",
+    "systemWeakness": "Frequently mixes supported facts with hallucinations",
+    "recommendation": "Reduce partial hallucinations by requiring all claims to be context-supported."
+  }
+}

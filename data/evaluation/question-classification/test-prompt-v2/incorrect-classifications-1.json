@@ -1,0 +1,282 @@
+[
+  {
+    "question": "วิชาไพท่อนเรียนออนไลน์ได้ไหม",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question concerns the possibility of learning Python online, which relates directly to skills development and learning goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nวิชาไพท่อนเรียนออนไลน์ได้ไหม\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "เรียนแล้วจะได้อะไรจริงๆ",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "unclear",
+    "reasoning": "The question is vague and lacks specific context about what is being learned or the user's goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nเรียนแล้วจะได้อะไรจริงๆ\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "เรียนกี่วันถึงจะเก่ง",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question concerns the duration needed to become skilled, which relates to skills development and learning goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nเรียนกี่วันถึงจะเก่ง\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "อยากทราบว่าคณะวิศวะมีวิชาอะไรบ้าง",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question is about the courses offered in an engineering faculty, which is related to educational and career planning.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nอยากทราบว่าคณะวิศวะมีวิชาอะไรบ้าง\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "AI คืออะไร ใช้ทำอะไรได้บ้าง",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question asks about AI, which is a topic related to skills development, learning, and technological understanding relevant to career knowledge.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nAI คืออะไร ใช้ทำอะไรได้บ้าง\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "จบวิศวะหางานยากไหม",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question relates to career prospects after engineering studies, which falls under career-related learning goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nจบวิศวะหางานยากไหม\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "เงินเดือนแพทย์เท่าไหร่",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question pertains to career, specifically the salary of doctors, which relates to professional development and career planning.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nเงินเดือนแพทย์เท่าไหร่\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "ทำงานที่ Google ต้องเรียนอะไร",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question relates to career development and skills needed to work at Google, which is directly related to career and learning goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nทำงานที่ Google ต้องเรียนอะไร\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "อาชีพอนาคตดีไหม",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "unclear",
+    "reasoning": "The question is vague and does not specify which profession or field, making it difficult to determine its relevance to career or skills development.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nอาชีพอนาคตดีไหม\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "เรียนแพทย์หรือวิศวะดีกว่ากัน",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question compares career paths in medicine and engineering, which relates to career decisions and professional development.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nเรียนแพทย์หรือวิศวะดีกว่ากัน\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "คณะอะไรมีอนาคตดี",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question asks about which faculty or field of study has good future prospects, relating to career and educational goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nคณะอะไรมีอนาคตดี\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "React กับ Vue ต่างกันยังไง",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question compares two popular JavaScript frameworks, which relates to skills development and learning about web development technologies.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nReact กับ Vue ต่างกันยังไง\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "สนใจเรียนทำอาหารเพื่อความสุขในบ้าน",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question pertains to learning a skill (cooking) for personal happiness, which relates to skills development and learning goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nสนใจเรียนทำอาหารเพื่อความสุขในบ้าน\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "อยากเรียนดนตรีเพื่อความบันเทิง",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The user wants to learn music for entertainment, which relates to skills development and personal enrichment.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nอยากเรียนดนตรีเพื่อความบันเทิง\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "สนใจเรียนทำสวนเพื่อความสวยงาม",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question is about learning gardening skills, which relates to skills development and personal learning goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nสนใจเรียนทำสวนเพื่อความสวยงาม\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "มีวิชาที่เรียนง่ายๆ ไหม",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question asks about easy courses to learn, which relates to skills development and learning goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nมีวิชาที่เรียนง่ายๆ ไหม\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "สนใจวิชาที่เรียนแล้วหางานง่าย",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The question is about choosing a field of study that can lead to easier employment, which relates to career planning and skills development.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nสนใจวิชาที่เรียนแล้วหางานง่าย\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "อยากเรียนวิชาที่ไม่ต้องสอบปลายภาค",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The user is interested in learning topics that do not require final exams, which relates to learning strategies and preferences.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nอยากเรียนวิชาที่ไม่ต้องสอบปลายภาค\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "เป็นนักศึกษาปี 1 แต่รู้สึกไม่ใช่แนว ไม่รู้จะเลือกเรียนคณะอะไรดี สนใจทั้งคอมพิวเตอร์และธุรกิจ",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "The user is a student interested in exploring career and educational options related to computing and business, which are relevant to skills development and learning goals.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nเป็นนักศึกษาปี 1 แต่รู้สึกไม่ใช่แนว ไม่รู้จะเลือกเรียนคณะอะไรดี สนใจทั้งคอมพิวเตอร์และธุรกิจ\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.903Z"
+    }
+  },
+  {
+    "question": "อยากเรียนวิชาเลือกที่น่าสนใจ",
+    "expectedClassification": "unclear",
+    "actualClassification": "relevant",
+    "reasoning": "The question pertains to choosing interesting elective subjects, which relates to learning goals and educational development.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "d8273131e716dcf8007d8690d01942396b4966f8ecde16123cbd1bdc65477841",
+      "userPrompt": "\nUser Question:\nอยากเรียนวิชาเลือกที่น่าสนใจ\n",
+      "promptVersion": "v2",
+      "timestamp": "2025-12-12T06:00:46.904Z"
+    }
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "testSetName": "test-failed-skill",
+  "totalIterations": 1,
+  "totalSamples": 1,
+  "totalSkills": 3,
+  "totalTokens": 1582,
+  "totalCost": 0.00196525,
+  "averageCostPerSample": 0.00196525,
+  "averageCostPerSkill": 0.0006550833333333334,
+  "costByIteration": [
+    {
+      "iteration": 1,
+      "sampleCount": 1,
+      "skillCount": 3,
+      "totalTokens": 1582,
+      "totalCost": 0.00196525,
+      "averageCostPerSample": 0.00196525,
+      "averageCostPerSkill": 0.0006550833333333334,
+      "model": "gpt-5-mini",
+      "provider": "openrouter"
+    }
+  ],
+  "generatedAt": "2026-01-25T08:53:34.649Z"
+}

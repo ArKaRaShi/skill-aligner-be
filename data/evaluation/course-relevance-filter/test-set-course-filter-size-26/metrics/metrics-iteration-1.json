@@ -1,0 +1,449 @@
+{
+  "iteration": 1,
+  "timestamp": "2026-01-26T07:15:10.064Z",
+  "sampleCount": 26,
+  "totalCoursesEvaluated": 1628,
+  "overallAgreementRate": {
+    "value": 0.6240786240786241,
+    "numerator": 1016,
+    "denominator": 1628,
+    "description": "Total matches / Total samples (BOTH_DROP + BOTH_KEEP) / Total"
+  },
+  "noiseRemovalEfficiency": {
+    "value": 0.8890977443609023,
+    "numerator": 473,
+    "denominator": 532,
+    "description": "When System=DROP, Judge also FAIL (both agree course is noise)"
+  },
+  "exploratoryRecall": {
+    "value": 0.5045620437956204,
+    "numerator": 553,
+    "denominator": 1096,
+    "description": "System=KEEP but Judge=FAIL (system keeps courses judge would drop)"
+  },
+  "conservativeDropRate": {
+    "value": 0.11090225563909774,
+    "numerator": 59,
+    "denominator": 532,
+    "description": "System=DROP but Judge=PASS (system drops courses judge would keep)"
+  },
+  "systemScoreDistribution": {
+    "score0": 532,
+    "score1": 491,
+    "score2": 473,
+    "score3": 132
+  },
+  "confusionMatrix": {
+    "label": "Judge (rows) vs System Action (cols)",
+    "matrix": [
+      [
+        473,
+        553
+      ],
+      [
+        59,
+        543
+      ]
+    ],
+    "totals": {
+      "systemDrop": 532,
+      "systemKeep": 1096,
+      "judgeFail": 1026,
+      "judgePass": 602
+    }
+  },
+  "scoreVerdictBreakdown": {
+    "score0": {
+      "judgePass": 59,
+      "judgeFail": 473,
+      "total": 532,
+      "passRate": 0.11090225563909774
+    },
+    "score1": {
+      "judgePass": 164,
+      "judgeFail": 327,
+      "total": 491,
+      "passRate": 0.3340122199592668
+    },
+    "score2": {
+      "judgePass": 273,
+      "judgeFail": 200,
+      "total": 473,
+      "passRate": 0.5771670190274841
+    },
+    "score3": {
+      "judgePass": 106,
+      "judgeFail": 26,
+      "total": 132,
+      "passRate": 0.803030303030303
+    }
+  },
+  "perSampleMetrics": [
+    {
+      "sampleId": 1,
+      "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "coursesEvaluated": 35,
+      "agreementCount": 16,
+      "disagreementCount": 19,
+      "agreementRate": 0.45714285714285713,
+      "noiseRemovalEfficiency": 1,
+      "exploratoryRecall": 0.76,
+      "conservativeDropRate": 0
+    },
+    {
+      "sampleId": 2,
+      "queryLogId": "a7728000-0818-42b5-a49f-c89f4ee59ab5",
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "coursesEvaluated": 52,
+      "agreementCount": 34,
+      "disagreementCount": 18,
+      "agreementRate": 0.6538461538461539,
+      "noiseRemovalEfficiency": 1,
+      "exploratoryRecall": 0.5294117647058824,
+      "conservativeDropRate": 0
+    },
+    {
+      "sampleId": 3,
+      "queryLogId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf",
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "coursesEvaluated": 35,
+      "agreementCount": 25,
+      "disagreementCount": 10,
+      "agreementRate": 0.7142857142857143,
+      "noiseRemovalEfficiency": 0.6,
+      "exploratoryRecall": 0.26666666666666666,
+      "conservativeDropRate": 0.4
+    },
+    {
+      "sampleId": 4,
+      "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "coursesEvaluated": 69,
+      "agreementCount": 48,
+      "disagreementCount": 21,
+      "agreementRate": 0.6956521739130435,
+      "noiseRemovalEfficiency": 1,
+      "exploratoryRecall": 0.9130434782608695,
+      "conservativeDropRate": 0
+    },
+    {
+      "sampleId": 5,
+      "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "coursesEvaluated": 72,
+      "agreementCount": 25,
+      "disagreementCount": 47,
+      "agreementRate": 0.3472222222222222,
+      "noiseRemovalEfficiency": 0.5,
+      "exploratoryRecall": 0.6774193548387096,
+      "conservativeDropRate": 0.5
+    },
+    {
+      "sampleId": 6,
+      "queryLogId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b",
+      "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+      "coursesEvaluated": 28,
+      "agreementCount": 21,
+      "disagreementCount": 7,
+      "agreementRate": 0.75,
+      "noiseRemovalEfficiency": 0.8333333333333334,
+      "exploratoryRecall": 0.2727272727272727,
+      "conservativeDropRate": 0.16666666666666666
+    },
+    {
+      "sampleId": 7,
+      "queryLogId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4",
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "coursesEvaluated": 70,
+      "agreementCount": 45,
+      "disagreementCount": 25,
+      "agreementRate": 0.6428571428571429,
+      "noiseRemovalEfficiency": 0.8,
+      "exploratoryRecall": 0.42,
+      "conservativeDropRate": 0.2
+    },
+    {
+      "sampleId": 8,
+      "queryLogId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6",
+      "question": "tiktoker ต้องเรียนอะไรบ้าง",
+      "coursesEvaluated": 74,
+      "agreementCount": 43,
+      "disagreementCount": 31,
+      "agreementRate": 0.581081081081081,
+      "noiseRemovalEfficiency": 0.84,
+      "exploratoryRecall": 0.5510204081632653,
+      "conservativeDropRate": 0.16
+    },
+    {
+      "sampleId": 9,
+      "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "coursesEvaluated": 73,
+      "agreementCount": 53,
+      "disagreementCount": 20,
+      "agreementRate": 0.726027397260274,
+      "noiseRemovalEfficiency": 0.8235294117647058,
+      "exploratoryRecall": 0.30357142857142855,
+      "conservativeDropRate": 0.17647058823529413
+    },
+    {
+      "sampleId": 10,
+      "queryLogId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370",
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "coursesEvaluated": 58,
+      "agreementCount": 34,
+      "disagreementCount": 24,
+      "agreementRate": 0.5862068965517241,
+      "noiseRemovalEfficiency": 0.8333333333333334,
+      "exploratoryRecall": 0.4782608695652174,
+      "conservativeDropRate": 0.16666666666666666
+    },
+    {
+      "sampleId": 11,
+      "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "coursesEvaluated": 62,
+      "agreementCount": 40,
+      "disagreementCount": 22,
+      "agreementRate": 0.6451612903225806,
+      "noiseRemovalEfficiency": 0.967741935483871,
+      "exploratoryRecall": 0.6774193548387096,
+      "conservativeDropRate": 0.03225806451612903
+    },
+    {
+      "sampleId": 12,
+      "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "coursesEvaluated": 68,
+      "agreementCount": 50,
+      "disagreementCount": 18,
+      "agreementRate": 0.7352941176470589,
+      "noiseRemovalEfficiency": 0.8387096774193549,
+      "exploratoryRecall": 0.35135135135135137,
+      "conservativeDropRate": 0.16129032258064516
+    },
+    {
+      "sampleId": 13,
+      "queryLogId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746",
+      "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+      "coursesEvaluated": 42,
+      "agreementCount": 36,
+      "disagreementCount": 6,
+      "agreementRate": 0.8571428571428571,
+      "noiseRemovalEfficiency": 1,
+      "exploratoryRecall": 0.17142857142857143,
+      "conservativeDropRate": 0
+    },
+    {
+      "sampleId": 14,
+      "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "coursesEvaluated": 56,
+      "agreementCount": 34,
+      "disagreementCount": 22,
+      "agreementRate": 0.6071428571428571,
+      "noiseRemovalEfficiency": 0.9166666666666666,
+      "exploratoryRecall": 0.625,
+      "conservativeDropRate": 0.08333333333333333
+    },
+    {
+      "sampleId": 15,
+      "queryLogId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da",
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "coursesEvaluated": 70,
+      "agreementCount": 47,
+      "disagreementCount": 23,
+      "agreementRate": 0.6714285714285714,
+      "noiseRemovalEfficiency": 1,
+      "exploratoryRecall": 0.4423076923076923,
+      "conservativeDropRate": 0
+    },
+    {
+      "sampleId": 16,
+      "queryLogId": "654330a8-2559-4273-abb4-36db7f0b31e1",
+      "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+      "coursesEvaluated": 71,
+      "agreementCount": 42,
+      "disagreementCount": 29,
+      "agreementRate": 0.5915492957746479,
+      "noiseRemovalEfficiency": 0.7692307692307693,
+      "exploratoryRecall": 0.5111111111111111,
+      "conservativeDropRate": 0.23076923076923078
+    },
+    {
+      "sampleId": 17,
+      "queryLogId": "a945dd26-d7d4-49a4-ab23-57f3f954c8a0",
+      "question": "อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี",
+      "coursesEvaluated": 69,
+      "agreementCount": 33,
+      "disagreementCount": 36,
+      "agreementRate": 0.4782608695652174,
+      "noiseRemovalEfficiency": 0.75,
+      "exploratoryRecall": 0.5573770491803278,
+      "conservativeDropRate": 0.25
+    },
+    {
+      "sampleId": 18,
+      "queryLogId": "97b42158-60af-46d3-aa60-049d1243d2ee",
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "coursesEvaluated": 48,
+      "agreementCount": 34,
+      "disagreementCount": 14,
+      "agreementRate": 0.7083333333333334,
+      "noiseRemovalEfficiency": 0.8947368421052632,
+      "exploratoryRecall": 0.41379310344827586,
+      "conservativeDropRate": 0.10526315789473684
+    },
+    {
+      "sampleId": 19,
+      "queryLogId": "1e7e132d-31b7-49fe-91dc-c2e0358a1b24",
+      "question": "อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม",
+      "coursesEvaluated": 101,
+      "agreementCount": 61,
+      "disagreementCount": 40,
+      "agreementRate": 0.6039603960396039,
+      "noiseRemovalEfficiency": 0.6,
+      "exploratoryRecall": 0.39473684210526316,
+      "conservativeDropRate": 0.4
+    },
+    {
+      "sampleId": 20,
+      "queryLogId": "3ef3d308-ac42-453e-bce7-bb7376046c41",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "coursesEvaluated": 70,
+      "agreementCount": 47,
+      "disagreementCount": 23,
+      "agreementRate": 0.6714285714285714,
+      "noiseRemovalEfficiency": 0.9166666666666666,
+      "exploratoryRecall": 0.45652173913043476,
+      "conservativeDropRate": 0.08333333333333333
+    },
+    {
+      "sampleId": 21,
+      "queryLogId": "00e399aa-cf3c-472b-b5be-9a6e86e10637",
+      "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+      "coursesEvaluated": 90,
+      "agreementCount": 46,
+      "disagreementCount": 44,
+      "agreementRate": 0.5111111111111111,
+      "noiseRemovalEfficiency": 0.967741935483871,
+      "exploratoryRecall": 0.7288135593220338,
+      "conservativeDropRate": 0.03225806451612903
+    },
+    {
+      "sampleId": 22,
+      "queryLogId": "b3460fa2-c348-4748-b583-4b042886e0ca",
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "coursesEvaluated": 56,
+      "agreementCount": 26,
+      "disagreementCount": 30,
+      "agreementRate": 0.4642857142857143,
+      "noiseRemovalEfficiency": 1,
+      "exploratoryRecall": 0.9375,
+      "conservativeDropRate": 0
+    },
+    {
+      "sampleId": 23,
+      "queryLogId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a",
+      "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+      "coursesEvaluated": 51,
+      "agreementCount": 40,
+      "disagreementCount": 11,
+      "agreementRate": 0.7843137254901961,
+      "noiseRemovalEfficiency": 0.4,
+      "exploratoryRecall": 0.17391304347826086,
+      "conservativeDropRate": 0.6
+    },
+    {
+      "sampleId": 24,
+      "queryLogId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c",
+      "question": "อยากเปิดร้านเหล้า",
+      "coursesEvaluated": 65,
+      "agreementCount": 42,
+      "disagreementCount": 23,
+      "agreementRate": 0.6461538461538462,
+      "noiseRemovalEfficiency": 0.8823529411764706,
+      "exploratoryRecall": 0.4375,
+      "conservativeDropRate": 0.11764705882352941
+    },
+    {
+      "sampleId": 25,
+      "queryLogId": "75dd76dc-b23f-4728-b9a4-09621f52a26b",
+      "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+      "coursesEvaluated": 83,
+      "agreementCount": 45,
+      "disagreementCount": 38,
+      "agreementRate": 0.5421686746987951,
+      "noiseRemovalEfficiency": 0.9230769230769231,
+      "exploratoryRecall": 0.631578947368421,
+      "conservativeDropRate": 0.07692307692307693
+    },
+    {
+      "sampleId": 26,
+      "queryLogId": "fa617f52-c86b-4b8c-976b-bfdb073f1070",
+      "question": "อยากเรียนภาษาบาลี",
+      "coursesEvaluated": 60,
+      "agreementCount": 49,
+      "disagreementCount": 11,
+      "agreementRate": 0.8166666666666667,
+      "noiseRemovalEfficiency": 1,
+      "exploratoryRecall": 0.8461538461538461,
+      "conservativeDropRate": 0
+    }
+  ],
+  "thresholdSweep": [
+    {
+      "threshold": "keepAll",
+      "minScore": 0,
+      "coursesKept": 1628,
+      "coursesDropped": 0,
+      "truePositives": 602,
+      "falsePositives": 1026,
+      "trueNegatives": 0,
+      "falseNegatives": 0,
+      "precision": 0.36977886977886976,
+      "recall": 1,
+      "description": "Maximum exploration (keep all courses). High breadth, low signal-to-noise (37% of kept courses align with judge). Useful for comprehensive discovery but requires strong synthesis to contextualize results."
+    },
+    {
+      "threshold": "≥1",
+      "minScore": 1,
+      "coursesKept": 1096,
+      "coursesDropped": 532,
+      "truePositives": 543,
+      "falsePositives": 553,
+      "trueNegatives": 473,
+      "falseNegatives": 59,
+      "precision": 0.4954379562043796,
+      "recall": 0.9019933554817275,
+      "description": "Current production setting. Balanced exploration with 50% precision, 90% recall. Keeps scores 1-3 (weak to strong matches), providing broad context for synthesis. Suitable for exploratory search where breadth is valued over precision."
+    },
+    {
+      "threshold": "≥2",
+      "minScore": 2,
+      "coursesKept": 605,
+      "coursesDropped": 1023,
+      "truePositives": 379,
+      "falsePositives": 226,
+      "trueNegatives": 800,
+      "falseNegatives": 223,
+      "precision": 0.6264462809917355,
+      "recall": 0.6295681063122923,
+      "description": "Conservative filtering (medium+ relevance only). 63% precision, 63% recall. Higher quality results but misses 37% of judge-approved courses. Better for focused recommendations when users want direct relevance over exploratory breadth."
+    },
+    {
+      "threshold": "≥3",
+      "minScore": 3,
+      "coursesKept": 132,
+      "coursesDropped": 1496,
+      "truePositives": 106,
+      "falsePositives": 26,
+      "trueNegatives": 1000,
+      "falseNegatives": 496,
+      "precision": 0.803030303030303,
+      "recall": 0.1760797342192691,
+      "description": "Strict filtering (strong matches only). 80% precision, 18% recall. Highest quality but misses most (82%) of relevant courses. Use only when users want highly targeted results and minimal exploration."
+    }
+  ]
+}

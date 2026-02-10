@@ -1,0 +1,180 @@
+{
+  "testCaseId": "b41c15f8-2249-4469-9981-71cc1c75b2b4-การสื่อสารและการประสานงาน",
+  "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+  "skill": "การสื่อสารและการประสานงาน",
+  "retrievedCount": 19,
+  "evaluations": [
+    {
+      "subjectCode": "01401463-66",
+      "subjectName": "ชีววิทยาวิวัฒนาการของพืช",
+      "relevanceScore": 1,
+      "reason": "Course mentions communication and presentation as a learning outcome but focuses mainly on plant evolutionary biology, so communication is marginally relevant."
+    },
+    {
+      "subjectCode": "01401442-66",
+      "subjectName": "พรรณไม้น้ำ",
+      "relevanceScore": 2,
+      "reason": "Course includes communication, acceptance of others' opinions, and effective teamwork as distinct learning outcomes, indicating fairly relevant coverage of communication and coordination skills."
+    },
+    {
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Communication and presentation are explicitly stated as learning outcomes along with research skills, showing fairly relevant coverage of communication and coordination."
+    },
+    {
+      "subjectCode": "01401399-66",
+      "subjectName": "การฝึกงานทางพฤกษศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Communication, acceptance of others' opinions, and effective teamwork are learning outcomes, indicating fairly relevant coverage of communication and coordination skills."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 1,
+      "reason": "Course includes communication and information adaptation skills but focuses on art chemistry, so communication is marginally relevant."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 1,
+      "reason": "Communication and information adaptation are mentioned but the course focuses on chemistry in modern life, so communication is marginally relevant."
+    },
+    {
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "relevanceScore": 3,
+      "reason": "Course explicitly focuses on clear communication with coworkers and supervisors as a core learning outcome, making it highly relevant to communication and coordination skills."
+    },
+    {
+      "subjectCode": "04404222-67",
+      "subjectName": "หลักอนามัยสิ่งแวดล้อม",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes communication and teamwork as key learning outcomes, making it highly relevant to communication and coordination skills."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 3,
+      "reason": "Course focuses on communication principles, ethics, and theories in mass media, making it highly relevant to communication skills."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 2,
+      "reason": "Course includes communication and presentation of software work as learning outcomes, indicating fairly relevant coverage of communication skills."
+    },
+    {
+      "subjectCode": "02999042-67",
+      "subjectName": "การพัฒนานิสิต",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes coordination and teamwork as learning outcomes, making it highly relevant to communication and coordination skills."
+    },
+    {
+      "subjectCode": "03764322-64",
+      "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+      "relevanceScore": 3,
+      "reason": "Course focuses on negotiation, communication, and teamwork skills for logistics management, making it highly relevant to communication and coordination."
+    },
+    {
+      "subjectCode": "01420454-66",
+      "subjectName": "พลังงานแสงอาทิตย์",
+      "relevanceScore": 2,
+      "reason": "Course includes teamwork and academic presentation skills as learning outcomes, indicating fairly relevant coverage of communication skills."
+    },
+    {
+      "subjectCode": "01951211-67",
+      "subjectName": "วิทยาศาสตร์ระบบสุขภาพ I",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes communication, relationship building, and teamwork as learning outcomes, making it highly relevant to communication and coordination skills."
+    },
+    {
+      "subjectCode": "02738463-61",
+      "subjectName": "นิติวิทยาศาสตร์ทางชีววิทยา",
+      "relevanceScore": 2,
+      "reason": "Course includes communication and teamwork in forensic biology context, indicating fairly relevant coverage of communication and coordination skills."
+    },
+    {
+      "subjectCode": "04403697-67",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 3,
+      "reason": "Course focuses on communication and academic presentation skills as primary learning outcomes, making it highly relevant."
+    },
+    {
+      "subjectCode": "01661313-65",
+      "subjectName": "การสื่อสารเพื่อการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 3,
+      "reason": "Course focuses on communication analysis and its role in environmental management, making it highly relevant to communication skills."
+    },
+    {
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "relevanceScore": 2,
+      "reason": "Course includes communication skills in language and technology as learning outcomes, indicating fairly relevant coverage."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes coordination and teamwork skills as learning outcomes, making it highly relevant to communication and coordination skills."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 19,
+    "meanRelevanceScore": 2.3157894736842106,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 15.789473684210526,
+        "microAverageRate": 15.789473684210526,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 36.8421052631579,
+        "microAverageRate": 36.8421052631579,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 9,
+        "macroAverageRate": 47.36842105263158,
+        "microAverageRate": 47.36842105263158,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.51,
+        "at10": 0.622,
+        "at15": 0.734,
+        "atAll": 0.836
+      },
+      "ideal": {
+        "at5": 0.51,
+        "at10": 0.608,
+        "at15": 0.667,
+        "atAll": 0.702
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.7,
+      "at15": 0.8,
+      "atAll": 0.842
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3684,
+  "outputTokens": 706
+}

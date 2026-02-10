@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "01c601d2-5583-4413-a5c6-5f463efd897c-ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย"
+  ],
+  "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01204325-65",
+      "subjectName": "การสื่อสารข้อมูลและเครือข่ายคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "Course name and outcomes focus on computer communication and networks, directly related to knowledge of computer systems and networks."
+    },
+    {
+      "subjectCode": "01352219-66",
+      "subjectName": "เทคโนโลยีสารสนเทศและการสื่อสารกับสังคม",
+      "relevanceScore": 2,
+      "reason": "Discusses information technology and communication, which is related but not the primary focus on computer systems and networks."
+    },
+    {
+      "subjectCode": "02181333-64",
+      "subjectName": "การประยุกต์คอมพิวเตอร์ทางเกษตรและสิ่งแวดล้อมศึกษา",
+      "relevanceScore": 1,
+      "reason": "Covers computer applications in agriculture and environment, with some mention of data access and management, but not core to computer systems and networks."
+    },
+    {
+      "subjectCode": "04252534-67",
+      "subjectName": "การออกแบบและการบริหารเครือข่ายขั้นสูง",
+      "relevanceScore": 3,
+      "reason": "Focuses on network design and management, directly relevant to knowledge of computer systems and networks."
+    },
+    {
+      "subjectCode": "01352373-66",
+      "subjectName": "การรู้เท่าทันดิจิทัล",
+      "relevanceScore": 2,
+      "reason": "Covers digital literacy and communication principles, related but not central to computer systems and networks."
+    },
+    {
+      "subjectCode": "01204526-66",
+      "subjectName": "โครงแบบเครือข่ายและการบำรุงรักษา",
+      "relevanceScore": 2,
+      "reason": "Focuses on network topology and maintenance, relevant but not comprehensive about computer systems and networks."
+    },
+    {
+      "subjectCode": "02727421-65",
+      "subjectName": "พืชเส้นใยและการใช้ประโยชน์",
+      "relevanceScore": 1,
+      "reason": "Discusses plant fibers and information systems for knowledge communication, tangentially related."
+    },
+    {
+      "subjectCode": "01999111-67",
+      "subjectName": "ศาสตร์แห่งแผ่นดิน",
+      "relevanceScore": 1,
+      "reason": "Covers land sciences with some mention of information systems, but not about computer systems and networks."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 1,
+      "reason": "Focuses on art chemistry and information communication, not directly related."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 1,
+      "reason": "Covers modern chemistry and information communication, tangentially related."
+    },
+    {
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "relevanceScore": 3,
+      "reason": "Covers database systems, a core component of computer systems and networks."
+    },
+    {
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "Focuses on computer architecture, directly relevant to knowledge of computer systems."
+    },
+    {
+      "subjectCode": "01420244-66",
+      "subjectName": "อิเล็กทรอนิกส์เบื้องต้นภาคปฏิบัติการ",
+      "relevanceScore": 1,
+      "reason": "Covers electronics fundamentals, related but not central to computer systems and networks."
+    },
+    {
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "relevanceScore": 1,
+      "reason": "Discusses music and computers, not relevant to computer systems and networks."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Covers data warehouses and business intelligence, related to data systems but not core to computer systems and networks."
+    },
+    {
+      "subjectCode": "01418104-67",
+      "subjectName": "รู้ทันไอที",
+      "relevanceScore": 1,
+      "reason": "Focuses on IT awareness and intellectual property, tangentially related."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.75,
+    "totalRelevanceSum": 28,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 4,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.807,
+        "at10": 0.794,
+        "at15": 0.925,
+        "atAll": 0.926
+      },
+      "ideal": {
+        "at5": 0.772,
+        "at10": 0.644,
+        "at15": 0.651,
+        "atAll": 0.638
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.533,
+        "threshold3": 0.267
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0.25
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3130,
+  "outputTokens": 719
+}

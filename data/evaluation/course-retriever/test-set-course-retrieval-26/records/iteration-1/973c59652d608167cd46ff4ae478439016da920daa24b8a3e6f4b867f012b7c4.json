@@ -1,0 +1,132 @@
+{
+  "testCaseId": "fa617f52-c86b-4b8c-976b-bfdb073f1070-วรรณคดีและวัฒนธรรมบาลี",
+  "question": "อยากเรียนภาษาบาลี",
+  "skill": "วรรณคดีและวัฒนธรรมบาลี",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02708102-67",
+      "subjectName": "วรรณกรรมกับวิทยาศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on literature and science, no mention of Pali literature or culture."
+    },
+    {
+      "subjectCode": "01361481-64",
+      "subjectName": "ภาษาไทยในวัฒนธรรมการเกษตร",
+      "relevanceScore": 1,
+      "reason": "Covers Thai language and literature related to agricultural culture, but no direct mention of Pali literature or culture."
+    },
+    {
+      "subjectCode": "01388573-66",
+      "subjectName": "การวิเคราะห์ศาสนาเปรียบเทียบ",
+      "relevanceScore": 1,
+      "reason": "Discusses religion and culture broadly, but no specific focus on Pali literature or culture."
+    },
+    {
+      "subjectCode": "02163312-67",
+      "subjectName": "การสอนวรรณกรรมภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Focuses on teaching English literature, unrelated to Pali literature or culture."
+    },
+    {
+      "subjectCode": "01355131-63",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Focuses on English reading and writing skills, no relation to Pali literature or culture."
+    },
+    {
+      "subjectCode": "01355390-63",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "Preparation for cooperative education with emphasis on English skills, no relation to Pali literature or culture."
+    },
+    {
+      "subjectCode": "01361532-66",
+      "subjectName": "ภาษาในวรรณกรรมไทย",
+      "relevanceScore": 1,
+      "reason": "Focuses on Thai literature language and criticism, no explicit mention of Pali literature or culture."
+    },
+    {
+      "subjectCode": "02999042-67",
+      "subjectName": "การพัฒนานิสิต",
+      "relevanceScore": 0,
+      "reason": "General student development and cultural diversity, no specific focus on Pali literature or culture."
+    },
+    {
+      "subjectCode": "01387522-66",
+      "subjectName": "การวิเคราะห์ประวัติปรัชญาตะวันออกและตะวันตก",
+      "relevanceScore": 1,
+      "reason": "Analyzes Eastern and Western philosophy and religion, may touch on related cultures but no explicit Pali literature or culture focus."
+    },
+    {
+      "subjectCode": "01470113-65",
+      "subjectName": "เอเชียตะวันออกเฉียงใต้ศึกษาเบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Covers Southeast Asian social and cultural diversity, possibly including Pali culture but not explicitly stated."
+    },
+    {
+      "subjectCode": "01249542-68",
+      "subjectName": "ทฤษฎีทางมรดกวัฒนธรรมขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Advanced cultural heritage theory, may relate to cultural aspects but no explicit mention of Pali literature or culture."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.5454545454545454,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 45.45454545454545,
+        "microAverageRate": 45.45454545454545,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 54.54545454545455,
+        "microAverageRate": 54.54545454545455,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.384,
+        "at10": 0.621,
+        "at15": 0.706,
+        "atAll": 0.706
+      },
+      "ideal": {
+        "at5": 0.128,
+        "at10": 0.151,
+        "at15": 0.133,
+        "atAll": 0.161
+      }
+    },
+    "precision": {
+      "at5": 0,
+      "at10": 0,
+      "at15": 0,
+      "atAll": 0
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3604,
+  "outputTokens": 380
+}

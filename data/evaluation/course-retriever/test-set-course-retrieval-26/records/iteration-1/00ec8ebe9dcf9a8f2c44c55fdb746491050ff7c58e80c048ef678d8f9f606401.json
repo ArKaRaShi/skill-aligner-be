@@ -1,0 +1,156 @@
+{
+  "testCaseId": "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)",
+  "question": "อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี",
+  "skill": "การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 2,
+      "reason": "Course includes designing digital works and using digital technology, which relates to creative digital tools but does not specify tools like Adobe Creative Suite explicitly."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 1,
+      "reason": "Mentions creating works using technology but focuses on music composition, not general digital creative tools."
+    },
+    {
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "relevanceScore": 3,
+      "reason": "Explicitly states use of computer applications and tools to create multimedia works, directly covering creative digital tools usage."
+    },
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 1,
+      "reason": "Mentions using digital technology appropriately for music creation, but not focused on general digital creative tools."
+    },
+    {
+      "subjectCode": "03600014-67",
+      "subjectName": "การแก้ปัญหาเชิงสร้างสรรค์และทักษะการคิดเชิงวิพากษ์",
+      "relevanceScore": 1,
+      "reason": "Mentions selecting tools/processes for creative problem solving but does not specify digital creative tools."
+    },
+    {
+      "subjectCode": "01241412-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม VI",
+      "relevanceScore": 1,
+      "reason": "Mentions presenting design work using digital media appropriately, but no explicit focus on creative digital tools like Adobe Suite."
+    },
+    {
+      "subjectCode": "01241313-66",
+      "subjectName": "การออกแบบร่างองค์ประกอบงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 1,
+      "reason": "Mentions presenting design work using digital media appropriately, but no explicit focus on creative digital tools."
+    },
+    {
+      "subjectCode": "01241312-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 1,
+      "reason": "Mentions presenting design work using digital media appropriately, but no explicit focus on creative digital tools."
+    },
+    {
+      "subjectCode": "02182511-67",
+      "subjectName": "การออกแบบการเรียนรู้ขั้นสูงและการคิดสร้างสรรค์นวัตกรรม",
+      "relevanceScore": 1,
+      "reason": "Mentions using tools to help design and produce innovations, but no explicit mention of digital creative tools."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 2,
+      "reason": "Focuses on using 2D and 3D design programs, which relates to digital creative tools though not explicitly Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 1,
+      "reason": "Focuses on product design using technology but no explicit mention of digital creative tools."
+    },
+    {
+      "subjectCode": "03610111-66",
+      "subjectName": "เปิดโลกวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ",
+      "relevanceScore": 0,
+      "reason": "Focuses on digital engineering and AI tools, unrelated to creative digital tools like Adobe Creative Suite."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 2,
+      "reason": "Focuses on creating digital media works for storytelling, implying use of digital creative tools though not explicitly stated."
+    },
+    {
+      "subjectCode": "01058111-68",
+      "subjectName": "หลักนวัตกรรมอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural innovation and technology, no mention of digital creative tools."
+    },
+    {
+      "subjectCode": "03610226-66",
+      "subjectName": "การปฏิบัติงานทางวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ II",
+      "relevanceScore": 1,
+      "reason": "Mentions use of tools related to digital and electronic engineering, not creative digital tools."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1.2,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 13.333333333333334,
+        "microAverageRate": 13.333333333333334,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 9,
+        "macroAverageRate": 60,
+        "microAverageRate": 60,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 20,
+        "microAverageRate": 20,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.76,
+        "at10": 0.843,
+        "at15": 0.884,
+        "atAll": 0.884
+      },
+      "ideal": {
+        "at5": 0.559,
+        "at10": 0.501,
+        "at15": 0.449,
+        "atAll": 0.449
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.3,
+      "at15": 0.267,
+      "atAll": 0.267
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2793,
+  "outputTokens": 530
+}

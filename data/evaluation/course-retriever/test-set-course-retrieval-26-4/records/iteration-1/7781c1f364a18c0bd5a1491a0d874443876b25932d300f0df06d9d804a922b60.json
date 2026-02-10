@@ -1,0 +1,138 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การจัดการครัวและความปลอดภัยในการทำอาหาร"
+  ],
+  "skill": "การจัดการครัวและความปลอดภัยในการทำอาหาร",
+  "retrievedCount": 9,
+  "evaluations": [
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Course covers kitchen preparation and cooking processes including equipment use and food handling, which relates to kitchen management but does not explicitly cover safety comprehensively."
+    },
+    {
+      "subjectCode": "01017212-66",
+      "subjectName": "สุขาภิบาลอาหารและความปลอดภัยอาหาร",
+      "relevanceScore": 3,
+      "reason": "Course focuses on food sanitation and safety, including causes of unsafe food and standards for food safety, directly addressing food safety management."
+    },
+    {
+      "subjectCode": "04152111-64",
+      "subjectName": "ความปลอดภัยอาหารและโภชนาการเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers food safety and nutrition basics, including food safety management, providing relevant foundational knowledge."
+    },
+    {
+      "subjectCode": "02747341-65",
+      "subjectName": "การจัดการครัวการบิน",
+      "relevanceScore": 2,
+      "reason": "Course covers aviation kitchen management and safety standards, relevant to kitchen management and food safety in a specific context."
+    },
+    {
+      "subjectCode": "04151352-65",
+      "subjectName": "หลักการสุขาภิบาลโรงงานอาหาร",
+      "relevanceScore": 2,
+      "reason": "Course covers food factory sanitation principles and safety standards, relevant to food safety management though focused on factory settings."
+    },
+    {
+      "subjectCode": "04152231-64",
+      "subjectName": "สุขาภิบาลอาหาร",
+      "relevanceScore": 2,
+      "reason": "Similar to above, focuses on food sanitation and hygiene standards, relevant to food safety management."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 1,
+      "reason": "Course focuses on food service system management and food production for commerce, with limited direct mention of kitchen management or food safety."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course focuses on beverage preparation, unrelated to kitchen management or food safety in cooking."
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course covers advanced food quality measurement, which is marginally related to food safety but not kitchen management or safety practices."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 9,
+    "meanRelevanceScore": 1.6666666666666667,
+    "totalRelevanceSum": 15,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 22.22222222222222,
+        "microAverageRate": 22.22222222222222,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 55.55555555555556,
+        "microAverageRate": 55.55555555555556,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.946,
+        "at10": 0.954,
+        "at15": 0.954,
+        "atAll": 0.954
+      },
+      "ideal": {
+        "at5": 0.738,
+        "at10": 0.578,
+        "at15": 0.448,
+        "atAll": 0.617
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.889,
+        "threshold2": 0.667,
+        "threshold3": 0.111
+      },
+      "at15": {
+        "threshold1": 0.889,
+        "threshold2": 0.667,
+        "threshold3": 0.111
+      },
+      "atAll": {
+        "threshold1": 0.889,
+        "threshold2": 0.667,
+        "threshold3": 0.111
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1726,
+  "outputTokens": 336
+}

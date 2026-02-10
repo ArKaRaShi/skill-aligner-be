@@ -1,0 +1,132 @@
+{
+  "testCaseId": "654330a8-2559-4273-abb4-36db7f0b31e1-การจัดการธุรกิจอีคอมเมิร์ซ",
+  "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+  "skill": "การจัดการธุรกิจอีคอมเมิร์ซ",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "06901111-66",
+      "subjectName": "หลักการจัดการธุรกิจเบื้องต้นสำหรับอุตสาหกรรมการท่องเที่ยว",
+      "relevanceScore": 1,
+      "reason": "Course covers basic business management principles but does not specifically address e-commerce business management."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 1,
+      "reason": "Course discusses AI technology applications in business but does not focus on e-commerce business management."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 1,
+      "reason": "Course covers business intelligence and data systems which may support e-commerce but does not directly teach e-commerce business management."
+    },
+    {
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "relevanceScore": 1,
+      "reason": "Course covers general organization and management knowledge without specific focus on e-commerce business management."
+    },
+    {
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course involves business simulation and decision making but lacks specific content on e-commerce business management."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on strategic management accounting, not specifically on e-commerce business management."
+    },
+    {
+      "subjectCode": "02802241-67",
+      "subjectName": "หลักการวางแผนการจัดงานอีเวนต์",
+      "relevanceScore": 0,
+      "reason": "Course is about event planning, unrelated to e-commerce business management."
+    },
+    {
+      "subjectCode": "02802116-67",
+      "subjectName": "สถิติสำหรับธุรกิจบริการ",
+      "relevanceScore": 0,
+      "reason": "Course covers statistics for service business, no direct relation to e-commerce business management."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on finance for airline business, unrelated to e-commerce business management."
+    },
+    {
+      "subjectCode": "02999049-67",
+      "subjectName": "การออกแบบความคิดเชิงสร้างสรรค์สำหรับธุรกิจเพื่อสังคม",
+      "relevanceScore": 1,
+      "reason": "Course involves business design for social enterprises, which may include some business planning but not specifically e-commerce business management."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Course covers profit planning and control generally, without specific focus on e-commerce business management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.7272727272727273,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 72.72727272727273,
+        "microAverageRate": 72.72727272727273,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 0.909,
+        "at15": 0.98,
+        "atAll": 0.98
+      },
+      "ideal": {
+        "at5": 0.333,
+        "at10": 0.264,
+        "at15": 0.22,
+        "atAll": 0.268
+      }
+    },
+    "precision": {
+      "at5": 0,
+      "at10": 0,
+      "at15": 0,
+      "atAll": 0
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2104,
+  "outputTokens": 358
+}

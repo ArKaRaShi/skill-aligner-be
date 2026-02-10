@@ -1,0 +1,144 @@
+{
+  "testCaseId": "3ef3d308-ac42-453e-bce7-bb7376046c41-การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์",
+  "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+  "skill": "การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "02747498-65",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 2,
+      "reason": "Course includes analysis of data and trends specifically in the aviation business, covering data analysis and trend analysis as part of its learning outcomes."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 1,
+      "reason": "Course focuses on financial statement analysis and valuation, mentioning data analysis but not specifically online data or trend analysis."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Course covers advanced data analysis and data visualization for business, which relates to analyzing data and trends, though not explicitly online trends."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course involves research methods and use of digital technology for data collection, but does not explicitly focus on data and trend analysis online."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "Course focuses on data analysis for accounting, mentioning data analysis methods but not online data or trend analysis."
+    },
+    {
+      "subjectCode": "04256121-66",
+      "subjectName": "การวิเคราะห์ข้อมูลเชิงสถิติ",
+      "relevanceScore": 1,
+      "reason": "Course covers statistical data analysis and presentation but does not specify online data or trend analysis."
+    },
+    {
+      "subjectCode": "01058497-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Course focuses on presentation skills and information retrieval but does not cover data or trend analysis."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Course explicitly covers data management, analysis, and visualization, which aligns with analyzing data and trends, though online aspect is not explicit."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Course includes research data analysis and information retrieval but does not focus on online data or trend analysis."
+    },
+    {
+      "subjectCode": "01401351-66",
+      "subjectName": "สรีรวิทยาเบื้องต้นของพืช",
+      "relevanceScore": 0,
+      "reason": "Course is about plant physiology and related data analysis, unrelated to online data and trend analysis."
+    },
+    {
+      "subjectCode": "01600497-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Course involves academic data analysis and information retrieval but lacks focus on online data or trend analysis."
+    },
+    {
+      "subjectCode": "01401455-66",
+      "subjectName": "การตอบสนองทางสรีรวิทยาต่อฮอร์โมนพืช",
+      "relevanceScore": 0,
+      "reason": "Course focuses on plant hormone physiology, unrelated to online data and trend analysis."
+    },
+    {
+      "subjectCode": "03651232-65",
+      "subjectName": "คณิตศาสตร์ประกันภัยและการบริหารความเสี่ยง",
+      "relevanceScore": 1,
+      "reason": "Course includes analysis of risk and trends in insurance business but does not focus on online data or trend analysis."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 53.84615384615385,
+        "microAverageRate": 53.84615384615385,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.876,
+        "at10": 0.86,
+        "at15": 0.941,
+        "atAll": 0.941
+      },
+      "ideal": {
+        "at5": 0.503,
+        "at10": 0.421,
+        "at15": 0.357,
+        "atAll": 0.391
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.3,
+      "at15": 0.231,
+      "atAll": 0.231
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2583,
+  "outputTokens": 470
+}

@@ -1,0 +1,192 @@
+{
+  "questionIds": [
+    "fa617f52-c86b-4b8c-976b-bfdb073f1070-ไวยากรณ์ภาษาบาลี"
+  ],
+  "skill": "ไวยากรณ์ภาษาบาลี",
+  "retrievedCount": 18,
+  "evaluations": [
+    {
+      "subjectCode": "04351131-68",
+      "subjectName": "การเขียนย่อหน้าภาษาอังกฤษ",
+      "relevanceScore": 1,
+      "reason": "The course focuses on writing paragraphs in English, with some mention of grammar and vocabulary, but it is not specifically about Pali grammar."
+    },
+    {
+      "subjectCode": "01358103-67",
+      "subjectName": "ภาษาญี่ปุ่นเบื้องต้น III",
+      "relevanceScore": 0,
+      "reason": "The course is about beginner Japanese language skills, including grammar, but not related to Pali grammar."
+    },
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "The course is about Chinese business language, including vocabulary and grammar, but not about Pali grammar."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "The course covers Chinese business language and grammar analysis, but not Pali grammar."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Similar to above, focused on Chinese business language, not Pali grammar."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Focuses on Chinese business language and cultural context, not Pali grammar."
+    },
+    {
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "relevanceScore": 0,
+      "reason": "The course is about Chinese linguistics, not Pali grammar."
+    },
+    {
+      "subjectCode": "01356115-68",
+      "subjectName": "ภาษาฝรั่งเศสพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "French language course, unrelated to Pali grammar."
+    },
+    {
+      "subjectCode": "02702131-68",
+      "subjectName": "โครงสร้างภาษาอังกฤษ I",
+      "relevanceScore": 0,
+      "reason": "English syntax and sentence structure course, not about Pali grammar."
+    },
+    {
+      "subjectCode": "01399101-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร I",
+      "relevanceScore": 0,
+      "reason": "Vietnamese language course, not related to Pali grammar."
+    },
+    {
+      "subjectCode": "01399103-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร III",
+      "relevanceScore": 0,
+      "reason": "Vietnamese language course, not related to Pali grammar."
+    },
+    {
+      "subjectCode": "01399102-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร II",
+      "relevanceScore": 0,
+      "reason": "Vietnamese language course, not related to Pali grammar."
+    },
+    {
+      "subjectCode": "01362111-68",
+      "subjectName": "ภาษาจีนพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "Basic Chinese language course, not about Pali grammar."
+    },
+    {
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "English reading and writing skills course, not about Pali grammar."
+    },
+    {
+      "subjectCode": "01357115-68",
+      "subjectName": "ภาษาเยอรมันพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "German language course, unrelated to Pali grammar."
+    },
+    {
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Analytical chemistry course, not related to Pali grammar."
+    },
+    {
+      "subjectCode": "03652241-66",
+      "subjectName": "หลักการทางเคมีวิเคราะห์ด้วยเครื่องมือ",
+      "relevanceScore": 0,
+      "reason": "Instrumental analysis in chemistry, not related to Pali grammar."
+    },
+    {
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "relevanceScore": 0,
+      "reason": "Chinese language proficiency test course, not about Pali grammar."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 18,
+    "meanRelevanceScore": 0.05555555555555555,
+    "totalRelevanceSum": 1,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 17,
+        "macroAverageRate": 94.44444444444444,
+        "microAverageRate": 94.44444444444444,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 5.555555555555555,
+        "microAverageRate": 5.555555555555555,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 1,
+        "at15": 1,
+        "atAll": 1
+      },
+      "ideal": {
+        "at5": 0.113,
+        "at10": 0.073,
+        "at15": 0.057,
+        "atAll": 0.051
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.1,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.067,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.056,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2591,
+  "outputTokens": 753
+}

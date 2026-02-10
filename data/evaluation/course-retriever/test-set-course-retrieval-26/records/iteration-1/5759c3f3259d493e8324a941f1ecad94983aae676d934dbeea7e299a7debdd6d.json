@@ -1,0 +1,144 @@
+{
+  "testCaseId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การบริหารการเงินส่วนบุคคล",
+  "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+  "skill": "การบริหารการเงินส่วนบุคคล",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "relevanceScore": 3,
+      "reason": "Course name and learning outcomes explicitly focus on personal financial management, covering comprehensive topics such as liquidity management, investment, tax planning, insurance, retirement planning, and wealth transfer."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on strategic management accounting, not personal financial management."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course covers cost calculation and supply chain analysis in agricultural industry, unrelated to personal financial management."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 0,
+      "reason": "Course is about management accounting for strategic management, not personal financial management."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 0,
+      "reason": "Course covers intermediate accounting principles related to assets, not personal financial management."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on profit planning and control in business, not personal financial management."
+    },
+    {
+      "subjectCode": "02802211-67",
+      "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+      "relevanceScore": 1,
+      "reason": "Course involves financial management in service business, which may marginally relate to personal financial management but is primarily business-focused."
+    },
+    {
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course covers basic accounting principles and financial statements, not personal financial management."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 0,
+      "reason": "Course covers international accounting differences, unrelated to personal financial management."
+    },
+    {
+      "subjectCode": "03759211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 1,
+      "reason": "Course covers financial management principles for businesses, which marginally relates to personal financial management concepts but is business-oriented."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on financial statement analysis and business valuation, not personal financial management."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 0,
+      "reason": "Course covers finance and accounting for tourism industry, unrelated to personal financial management."
+    },
+    {
+      "subjectCode": "01999041-67",
+      "subjectName": "เศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี",
+      "relevanceScore": 2,
+      "reason": "Course includes planning personal finances for present and future as a learning outcome, indicating fairly relevant coverage of personal financial management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.5384615384615384,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 9,
+        "macroAverageRate": 69.23076923076923,
+        "microAverageRate": 69.23076923076923,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.578,
+        "at10": 0.697,
+        "at15": 0.799,
+        "atAll": 0.799
+      },
+      "ideal": {
+        "at5": 0.339,
+        "at10": 0.266,
+        "at15": 0.236,
+        "atAll": 0.258
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.154,
+      "atAll": 0.154
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2389,
+  "outputTokens": 433
+}

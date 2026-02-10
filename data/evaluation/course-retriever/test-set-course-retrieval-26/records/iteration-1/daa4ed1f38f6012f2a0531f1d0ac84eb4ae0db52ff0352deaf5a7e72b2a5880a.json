@@ -1,0 +1,162 @@
+{
+  "testCaseId": "97b42158-60af-46d3-aa60-049d1243d2ee-เทคโนโลยีดนตรี",
+  "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+  "skill": "เทคโนโลยีดนตรี",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes using digital technology for music creation as a primary learning outcome, directly covering music technology."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 2,
+      "reason": "Course involves creating music using technology but lacks detailed focus on music technology as a main theme."
+    },
+    {
+      "subjectCode": "01386533-66",
+      "subjectName": "การอำนวยเพลงขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course mentions creation and integration but does not specifically focus on music technology."
+    },
+    {
+      "subjectCode": "01386523-66",
+      "subjectName": "การประพันธ์เพลงในคริสต์ศตวรรษที่ 21",
+      "relevanceScore": 2,
+      "reason": "Course includes using technology to assist music composition, indicating a fair relevance to music technology."
+    },
+    {
+      "subjectCode": "01386512-66",
+      "subjectName": "การประพันธ์เพลง I",
+      "relevanceScore": 2,
+      "reason": "Course outcomes mention using technology to assist music composition, showing fair relevance."
+    },
+    {
+      "subjectCode": "01386513-66",
+      "subjectName": "การประพันธ์เพลง II",
+      "relevanceScore": 2,
+      "reason": "Similar to previous, technology use in music composition is included, indicating fair relevance."
+    },
+    {
+      "subjectCode": "02184131-67",
+      "subjectName": "ดนตรีไทย  II",
+      "relevanceScore": 0,
+      "reason": "Course focuses on Thai music performance and history without mention of music technology."
+    },
+    {
+      "subjectCode": "02184141-67",
+      "subjectName": "ดนตรีตะวันตก II",
+      "relevanceScore": 0,
+      "reason": "Course focuses on Western music performance and history without mention of music technology."
+    },
+    {
+      "subjectCode": "02184111-67",
+      "subjectName": "ดนตรีไทย I",
+      "relevanceScore": 0,
+      "reason": "Course covers Thai music theory and performance but no mention of music technology."
+    },
+    {
+      "subjectCode": "01386524-66",
+      "subjectName": "การอ่านและตีความบทประพันธ์ผ่านสกอร์",
+      "relevanceScore": 1,
+      "reason": "Course involves music analysis and interdisciplinary application but no explicit focus on music technology."
+    },
+    {
+      "subjectCode": "03654111-67",
+      "subjectName": "สุนทรียศาสตร์ทางการกีฬา",
+      "relevanceScore": 0,
+      "reason": "Course is about aesthetics in sports, with only general use of information technology, not music technology."
+    },
+    {
+      "subjectCode": "01386534-66",
+      "subjectName": "การบรรเลงเปียโนประกอบ",
+      "relevanceScore": 1,
+      "reason": "Course involves music performance and creation but no explicit mention of music technology."
+    },
+    {
+      "subjectCode": "01386541-66",
+      "subjectName": "วัฒนธรรมดนตรีของโลก: ดนตรีพื้นเมือง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on world folk music culture without mention of music technology."
+    },
+    {
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "Course specifically focuses on applying computer programs to Thai music, directly addressing music technology."
+    },
+    {
+      "subjectCode": "01386591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางดนตรี",
+      "relevanceScore": 0,
+      "reason": "Course is about music research methodology, no mention of music technology."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Course covers digital citizenship and general digital technology use, not specific to music technology."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.0625,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 7,
+        "macroAverageRate": 43.75,
+        "microAverageRate": 43.75,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 18.75,
+        "microAverageRate": 18.75,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.85,
+        "at10": 0.805,
+        "at15": 0.918,
+        "atAll": 0.918
+      },
+      "ideal": {
+        "at5": 0.723,
+        "at10": 0.543,
+        "at15": 0.48,
+        "atAll": 0.461
+      }
+    },
+    "precision": {
+      "at5": 0.8,
+      "at10": 0.5,
+      "at15": 0.4,
+      "atAll": 0.375
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2728,
+  "outputTokens": 494
+}

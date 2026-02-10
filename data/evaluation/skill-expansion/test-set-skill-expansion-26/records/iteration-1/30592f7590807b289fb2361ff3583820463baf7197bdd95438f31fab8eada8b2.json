@@ -1,0 +1,111 @@
+{
+  "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+  "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+  "comparison": {
+    "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+    "skills": [
+      {
+        "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+        "systemSkill": "การเขียนโปรแกรมขั้นสูง",
+        "systemReason": "เพื่อพัฒนาทักษะการเขียนโค้ดให้มีประสิทธิภาพและซับซ้อนมากขึ้น",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid advanced technical competency; typical university course topic, teachable and assessable; directly extends coding skills.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+        "systemSkill": "โครงสร้างข้อมูลและอัลกอริทึม",
+        "systemReason": "ช่วยให้เขียนโค้ดที่แก้ปัญหาได้อย่างมีประสิทธิภาพและรวดเร็ว",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Core computer science subject; clearly teachable and examinable; essential for progressing in coding and problem solving.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+        "systemSkill": "การพัฒนาเว็บและแอปพลิเคชัน",
+        "systemReason": "เพื่อขยายขอบเขตการเขียนโค้ดไปสู่การสร้างโปรเจกต์จริง",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Standard practical discipline in university curricula; teachable via projects/labs and relevant for applying coding skills.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+        "systemSkill": "การจัดการฐานข้อมูล",
+        "systemReason": "จำเป็นสำหรับการจัดเก็บและดึงข้อมูลในโปรแกรมที่ซับซ้อน",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Database management is a common university course and assessable through labs/projects; important for backend development.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+        "systemSkill": "การทดสอบและดีบักโปรแกรม",
+        "systemReason": "ช่วยให้โค้ดมีคุณภาพและลดข้อผิดพลาด",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Software testing and debugging are teachable topics with measurable outcomes (tests, assignments); crucial for producing reliable code.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+        "systemSkill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+        "systemReason": "เป็นทักษะที่กำลังได้รับความนิยมและช่วยต่อยอดการเขียนโค้ดในด้านใหม่ๆ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Applied AI/ML is a recognized university-level competency; teachable and assessable and offers advanced avenues for coding specialization.",
+        "agreementType": "AGREE"
+      }
+    ],
+    "overall": {
+      "conceptPreserved": true,
+      "agreementCount": 6,
+      "disagreementCount": 0,
+      "totalSkills": 6
+    }
+  },
+  "judgeResult": {
+    "result": {
+      "skills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "verdict": "PASS",
+          "note": "Valid advanced technical competency; typical university course topic, teachable and assessable; directly extends coding skills."
+        },
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "verdict": "PASS",
+          "note": "Core computer science subject; clearly teachable and examinable; essential for progressing in coding and problem solving."
+        },
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "verdict": "PASS",
+          "note": "Standard practical discipline in university curricula; teachable via projects/labs and relevant for applying coding skills."
+        },
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "verdict": "PASS",
+          "note": "Database management is a common university course and assessable through labs/projects; important for backend development."
+        },
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "verdict": "PASS",
+          "note": "Software testing and debugging are teachable topics with measurable outcomes (tests, assignments); crucial for producing reliable code."
+        },
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "verdict": "PASS",
+          "note": "Applied AI/ML is a recognized university-level competency; teachable and assessable and offers advanced avenues for coding specialization."
+        }
+      ],
+      "overall": {
+        "conceptPreserved": true,
+        "summary": "The skill list preserves the user's intent to advance coding ability by proposing relevant, university-level, teachable competencies across algorithms, software development, databases, testing, and AI."
+      }
+    },
+    "tokenUsage": [
+      {
+        "model": "openai/gpt-5-mini",
+        "inputTokens": 755,
+        "outputTokens": 911
+      }
+    ]
+  },
+  "evaluatedAt": "2026-01-26T08:11:21.686Z"
+}

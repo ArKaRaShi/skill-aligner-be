@@ -1,0 +1,162 @@
+{
+  "testCaseId": "654330a8-2559-4273-abb4-36db7f0b31e1-การพัฒนาเว็บไซต์",
+  "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+  "skill": "การพัฒนาเว็บไซต์",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 3,
+      "reason": "The course explicitly includes developing software in the form of websites as a primary learning outcome, making it highly relevant to website development."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "The course focuses on seminar skills such as accepting opinions and presenting information, with no mention of website development."
+    },
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "The course is about thesis research and knowledge development without any reference to website development."
+    },
+    {
+      "subjectCode": "04181591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีการอาหาร",
+      "relevanceScore": 0,
+      "reason": "The course covers research methodology in food technology, unrelated to website development."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "The course focuses on structured query and data science, not website development."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "The course includes designing digital works and using digital technology, which marginally relates to website development but is not focused on it."
+    },
+    {
+      "subjectCode": "03651499-65",
+      "subjectName": "โครงงานวิทยาการวิเคราะห์ข้อมูลและคณิตศาสตร์ประกันภัย",
+      "relevanceScore": 0,
+      "reason": "The course is about data analysis and actuarial mathematics projects, unrelated to website development."
+    },
+    {
+      "subjectCode": "03651497-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "The seminar focuses on data analysis and academic article presentation, not website development."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 0,
+      "reason": "The course is about data analysis and visualization, with no mention of website development."
+    },
+    {
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "relevanceScore": 0,
+      "reason": "The course is about professional teaching skills, unrelated to website development."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "The course focuses on data visualization for business, not website development."
+    },
+    {
+      "subjectCode": "01605698-67",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "The course covers special problems and advanced research technology in animal health, unrelated to website development."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "The course is about profit planning and control, unrelated to website development."
+    },
+    {
+      "subjectCode": "01055597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "The seminar focuses on research presentation skills in English, not website development."
+    },
+    {
+      "subjectCode": "01008553-65",
+      "subjectName": "ข้อมูลทางพันธุกรรมของเชื้อโรคพืชและชีวสารสนเทศศาสตร์",
+      "relevanceScore": 0,
+      "reason": "The course covers genetic data of plant pathogens and bioinformatics, unrelated to website development."
+    },
+    {
+      "subjectCode": "01058498-68",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "The course is about special problems and research reporting, unrelated to website development."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 0.25,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 14,
+        "macroAverageRate": 87.5,
+        "microAverageRate": 87.5,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 6.25,
+        "microAverageRate": 6.25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.25,
+        "microAverageRate": 6.25,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.826,
+        "at10": 0.924,
+        "at15": 0.924,
+        "atAll": 0.924
+      },
+      "ideal": {
+        "at5": 0.339,
+        "at10": 0.246,
+        "at15": 0.191,
+        "atAll": 0.183
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.067,
+      "atAll": 0.063
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2909,
+  "outputTokens": 514
+}

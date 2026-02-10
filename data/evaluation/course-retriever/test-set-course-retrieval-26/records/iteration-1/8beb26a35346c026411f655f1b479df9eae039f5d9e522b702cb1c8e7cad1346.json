@@ -1,0 +1,132 @@
+{
+  "testCaseId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การวางแผนการเงินและการลงทุน",
+  "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+  "skill": "การวางแผนการเงินและการลงทุน",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01999043-67",
+      "subjectName": "การคิดสร้างสรรค์เพื่อการจัดการคุณค่า",
+      "relevanceScore": 2,
+      "reason": "Course includes planning investment and analyzing related factors, which relates to financial planning and investment but is not comprehensive for the entire skill."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Focuses on profit planning and control, which is marginally related to financial planning but does not cover investment or personal financial planning."
+    },
+    {
+      "subjectCode": "03651431-65",
+      "subjectName": "คณิตศาสตร์การลงทุน",
+      "relevanceScore": 3,
+      "reason": "Covers investment mathematics, analysis for investment decisions, and principles of investment comprehensively, directly addressing financial planning and investment."
+    },
+    {
+      "subjectCode": "01999041-67",
+      "subjectName": "เศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี",
+      "relevanceScore": 3,
+      "reason": "Explicitly includes planning personal finances for present and future, directly relevant to financial planning and investment skill."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Includes basic financial feasibility and cost calculation but focuses on marketing and pricing strategy, marginally related."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Includes basic financial statement analysis and cost calculation but focuses on agricultural operations, marginally related."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 0,
+      "reason": "Focuses on accounting principles related to assets, no direct relation to financial planning and investment skill."
+    },
+    {
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "relevanceScore": 3,
+      "reason": "Directly covers personal financial management including planning liquidity, investment, tax, insurance, retirement, and wealth transfer, highly relevant."
+    },
+    {
+      "subjectCode": "01123444-64",
+      "subjectName": "ตราสารอนุพันธ์สำหรับธุรกิจเกษตรและอาหาร",
+      "relevanceScore": 2,
+      "reason": "Covers derivatives for agricultural business and investment strategy analysis, relevant to investment but specialized and partial."
+    },
+    {
+      "subjectCode": "01999112-67",
+      "subjectName": "แนวคิดเศรษฐกิจหมุนเวียนเพื่อความยั่งยืน",
+      "relevanceScore": 0,
+      "reason": "Focuses on circular economy and sustainability, unrelated to financial planning and investment skill."
+    },
+    {
+      "subjectCode": "01202525-66",
+      "subjectName": "การออกแบบและประเมินผลกระบวนการ",
+      "relevanceScore": 0,
+      "reason": "Focuses on process design and evaluation in chemical engineering, unrelated to financial planning and investment."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 1.4545454545454546,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.724,
+        "at10": 0.854,
+        "at15": 0.854,
+        "atAll": 0.854
+      },
+      "ideal": {
+        "at5": 0.657,
+        "at10": 0.566,
+        "at15": 0.439,
+        "atAll": 0.533
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.5,
+      "at15": 0.455,
+      "atAll": 0.455
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2095,
+  "outputTokens": 401
+}

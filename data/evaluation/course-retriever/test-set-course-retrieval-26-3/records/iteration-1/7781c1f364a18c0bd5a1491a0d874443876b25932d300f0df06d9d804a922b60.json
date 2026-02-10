@@ -1,0 +1,138 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การจัดการครัวและความปลอดภัยในการทำอาหาร"
+  ],
+  "skill": "การจัดการครัวและความปลอดภัยในการทำอาหาร",
+  "retrievedCount": 9,
+  "evaluations": [
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Includes some aspects of food preparation and safety, but not explicitly focused on kitchen management and safety."
+    },
+    {
+      "subjectCode": "01017212-66",
+      "subjectName": "สุขาภิบาลอาหารและความปลอดภัยอาหาร",
+      "relevanceScore": 3,
+      "reason": "Specifically addresses food safety and sanitation, directly related to kitchen safety management."
+    },
+    {
+      "subjectCode": "04152111-64",
+      "subjectName": "ความปลอดภัยอาหารและโภชนาการเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Covers food safety and nutrition, relevant but not the primary focus of kitchen management."
+    },
+    {
+      "subjectCode": "02747341-65",
+      "subjectName": "การจัดการครัวการบิน",
+      "relevanceScore": 2,
+      "reason": "Discusses kitchen operations in airline catering, related to kitchen management and safety."
+    },
+    {
+      "subjectCode": "04151352-65",
+      "subjectName": "หลักการสุขาภิบาลโรงงานอาหาร",
+      "relevanceScore": 2,
+      "reason": "Focuses on sanitation in food factories, relevant to safety but not specifically kitchen management."
+    },
+    {
+      "subjectCode": "04152231-64",
+      "subjectName": "สุขาภิบาลอาหาร",
+      "relevanceScore": 2,
+      "reason": "Deals with food sanitation standards and design, related to safety but not core kitchen management."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 2,
+      "reason": "Covers food service management and technology, somewhat related to kitchen safety management."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 2,
+      "reason": "Focuses on beverage preparation, tangentially related to kitchen activities and safety."
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Pertains to food quality analysis, not directly related to kitchen management or safety."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 9,
+    "meanRelevanceScore": 2,
+    "totalRelevanceSum": 18,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 77.77777777777777,
+        "microAverageRate": 77.77777777777777,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.946,
+        "at10": 0.96,
+        "at15": 0.96,
+        "atAll": 0.96
+      },
+      "ideal": {
+        "at5": 0.738,
+        "at10": 0.648,
+        "at15": 0.503,
+        "atAll": 0.693
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.889,
+        "threshold3": 0.111
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.889,
+        "threshold3": 0.111
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.889,
+        "threshold3": 0.111
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1726,
+  "outputTokens": 342
+}

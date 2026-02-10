@@ -1,0 +1,126 @@
+{
+  "testCaseId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การวางแผนเมนูอาหารไทย",
+  "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+  "skill": "การวางแผนเมนูอาหารไทย",
+  "retrievedCount": 10,
+  "evaluations": [
+    {
+      "subjectCode": "01017322-66",
+      "subjectName": "โภชนศาสตร์ในวัฏจักรชีวิต",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes planning menus appropriate for different age groups, which aligns closely with the skill of planning Thai food menus."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Course covers food preparation and assembling meals, including organizing food sets, which relates to menu planning but not specifically Thai food menus."
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on food quality measurement and analysis, no mention of menu planning or Thai food."
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "Course covers food processing and nutrition issues globally, no direct relation to menu planning or Thai food menus."
+    },
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 1,
+      "reason": "Course includes preparation of Eastern and Western foods, which may include some Thai food, but menu planning is not a primary focus."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course is about beverage preparation, unrelated to food menu planning."
+    },
+    {
+      "subjectCode": "01017497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course focused on academic research and discussion, no direct content on menu planning."
+    },
+    {
+      "subjectCode": "01017121-66",
+      "subjectName": "หลักการทางโภชนาการและการกำหนดอาหาร",
+      "relevanceScore": 1,
+      "reason": "Course covers nutrition principles and diet planning generally, but does not specifically address Thai menu planning."
+    },
+    {
+      "subjectCode": "01390428-64",
+      "subjectName": "การท่องเที่ยวเชิงอาหาร",
+      "relevanceScore": 1,
+      "reason": "Course discusses Thai food characteristics and food tourism, which relates marginally to Thai food menus but not menu planning itself."
+    },
+    {
+      "subjectCode": "04152324-64",
+      "subjectName": "โภชนบำบัด",
+      "relevanceScore": 0,
+      "reason": "Course focuses on therapeutic nutrition and diet planning for patients, not on general Thai menu planning."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 10,
+    "meanRelevanceScore": 0.8,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 30,
+        "microAverageRate": 30,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 10,
+        "microAverageRate": 10,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 10,
+        "microAverageRate": 10,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.833,
+        "at10": 0.944,
+        "at15": 0.944,
+        "atAll": 0.944
+      },
+      "ideal": {
+        "at5": 0.526,
+        "at10": 0.386,
+        "at15": 0.299,
+        "atAll": 0.386
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.2,
+      "at15": 0.2,
+      "atAll": 0.2
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2160,
+  "outputTokens": 356
+}

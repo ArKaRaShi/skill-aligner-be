@@ -1,0 +1,25 @@
+{
+  "queryLogId": "00e399aa-cf3c-472b-b5be-9a6e86e10637",
+  "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+  "systemAnswer": "การตัดสินใจเกี่ยวกับการเป็นทนายความอาจเกี่ยวข้องกับหลายมิติ เช่น **กฎหมายเบื้องต้น** **การวิเคราะห์และตีความกฎหมาย** **จริยธรรมและความรับผิดชอบทางกฎหมาย** รวมถึง **การสื่อสารและการเจรจาต่อรอง** หรือ **การเขียนและร่างเอกสารทางกฎหมาย** ซึ่งเป็นทักษะที่ปรากฏในผลลัพธ์การเรียนรู้ของรายวิชาบางส่วน **รายวิชา หลักพื้นฐานเกี่ยวกับกฎหมาย (01453111-68)** ครอบคลุมการอธิบายหลักพื้นฐานเกี่ยวกับกฎหมายและกฎหมายว่าด้วยบุคคล สามารถตีความและปรับใช้หลักทั่วไปของกฎหมายแพ่งและกฎหมายบุคคลตามกรณีศึกษาได้ รวมถึงแสดงความรับผิดชอบและความซื่อสัตย์ตามจรรยาบรรณวิชาชีพนักกฎหมายผ่านกิจกรรม แต่รายวิชานี้ไม่ครอบคลุมการฝึกปฏิบัติวิชาชีพทนายความแบบครบถ้วน **รายวิชา หลักพื้นฐานเกี่ยวกับกฎหมาย (04354111-68)** อาจช่วยให้อธิบายหลักพื้นฐานกฎหมายและกฎหมายเกี่ยวกับบุคคลได้เช่นกัน แต่เน้นการอธิบายมากกว่าการประยุกต์ใช้เชิงลึก\n\nในด้าน **การสื่อสารและการเจรจาต่อรอง** **รายวิชา การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์ (03764322-64)** สามารถอธิบายหลักการเจรจาต่อรองพื้นฐานและสื่อสารทำงานร่วมกับผู้อื่นได้ แต่เชื่อมโยงกับการจัดการโลจิสติกส์เป็นหลัก ไม่ใช่บริบททางกฎหมายโดยตรง **รายวิชา การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น (04351141-68)** ช่วยแสดงความคิดเห็นและแลกเปลี่ยนข้อมูลในสถานการณ์ที่กำหนดได้ แต่เป็นการสื่อสารภาษาอังกฤษทั่วไป สำหรับ **จริยธรรมและความรับผิดชอบทางกฎหมาย** **รายวิชา กฎหมายและจริยธรรมสื่อมวลชน (01352311-66)** อาจให้ตระหนักถึงจริยธรรม กฎหมาย และจรรยาบรรณวิชาชีพสื่อมวลชน รวมถึงวิเคราะห์ปัญหาด้วยความรู้ทางกฎหมาย แต่เน้นสื่อมวลชนมากกว่าวิชาชีพทนาย **รายวิชา การเขียนภาษาไทยเชิงปฏิบัติ (01361102-67)** ช่วยเขียนงานตามรูปแบบและมีรับผิดชอบต่อตนเองและผู้อื่น แต่ไม่ใช่เอกสารทางกฎหมายเฉพาะ\n\nรายวิชาเหล่านี้ให้มุมมองพื้นฐานหรือด้านที่เกี่ยวข้องทางอ้อม เช่น **ประวัติศาสตร์กฎหมาย (01453113-68)** ที่อธิบายวิวัฒนาการกฎหมายไทย แต่ไม่มีรายวิชาใดตรงกับการเตรียมเป็นทนายความแบบครบวงจรตามผลลัพธ์การเรียนรู้ที่ให้มา คอร์สเหล่านี้จึงอาจเป็นจุดเริ่มต้นสำรวจความสนใจในกฎหมายและทักษะสนับสนุนเท่านั้น โดยไม่รับประกันความพร้อมสำหรับวิชาชีพ",
+  "judgeVerdict": {
+    "faithfulness": {
+      "score": 5,
+      "reasoning": "All factual claims in the answer are supported by the provided course contexts. Skills the answer attributes to each course (e.g., basic law, legal analysis, ethics, communication, legal writing) match the mapped skills and learning outcomes shown. The statement that no single listed course provides full professional training for a lawyer is supported by the absence of outcomes describing comprehensive practical legal/professional training in the context. No unsupported claims or hallucinations detected; internal consistency is maintained."
+    },
+    "completeness": {
+      "score": 5,
+      "reasoning": "The answer links the user's dilemma to relevant skill areas (legal knowledge, analysis, ethics, communication, legal writing) and maps specific courses to those skills, explaining how each course is relevant or limited for becoming a lawyer. It clearly states that the courses are useful starting points but do not guarantee full professional readiness, which bridges the course information to the user's question about how to proceed."
+    }
+  },
+  "overallScore": 5,
+  "passed": true,
+  "courseCount": 59,
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 13745,
+      "outputTokens": 1055
+    }
+  ]
+}

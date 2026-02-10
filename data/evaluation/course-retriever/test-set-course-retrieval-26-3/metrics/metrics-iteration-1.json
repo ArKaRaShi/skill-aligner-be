@@ -1,0 +1,306 @@
+{
+  "iteration": 1,
+  "timestamp": "2026-01-28T13:21:07.689Z",
+  "sampleCount": 138,
+  "totalCoursesRetrieved": 1993,
+  "totalCoursesScored": 1993,
+  "coursesNotScored": 0,
+  "skillDeduplicationStats": {
+    "totalQuestions": 148,
+    "totalSkillsExtracted": 148,
+    "uniqueSkillsEvaluated": 140,
+    "deduplicationRate": 0.05405405405405406,
+    "skillFrequency": {
+      "การบริหารการเงินส่วนบุคคล": 1,
+      "การวางแผนการเงิน": 1,
+      "การจัดทำงบประมาณส่วนบุคคล": 1,
+      "การลงทุนเบื้องต้น": 1,
+      "การจัดการหนี้สิน": 1,
+      "การสร้างแบรนด์": 1,
+      "การตลาด": 1,
+      "การวางแผนกลยุทธ์ธุรกิจ": 1,
+      "การออกแบบกราฟิก": 1,
+      "การสื่อสารการตลาด": 1,
+      "การวิเคราะห์งบการเงิน": 1,
+      "การบัญชีเบื้องต้น": 1,
+      "การตีความข้อมูลทางการเงิน": 1,
+      "การวางแผนการเงินและงบประมาณ": 1,
+      "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน": 1,
+      "การเขียนโปรแกรมเชิงวัตถุ": 2,
+      "การออกแบบซอฟต์แวร์": 1,
+      "ภาษาโปรแกรมเชิงวัตถุ": 1,
+      "การวิเคราะห์และออกแบบระบบ": 1,
+      "การจัดการคลาสและอ็อบเจ็กต์": 1,
+      "หลักการสืบทอดและการห่อหุ้ม": 1,
+      "การวางแผนและการจัดการอีเว้นต์": 1,
+      "การตลาดและการประชาสัมพันธ์": 1,
+      "การบริหารงบประมาณ": 1,
+      "การสื่อสารและการประสานงาน": 1,
+      "การออกแบบและตกแต่งงานอีเว้นต์": 1,
+      "การจัดการความเสี่ยงและความปลอดภัย": 1,
+      "การทำอาหารไทย": 1,
+      "การใช้เครื่องปรุงและวัตถุดิบไทย": 1,
+      "เทคนิคการปรุงอาหารไทย": 1,
+      "ความรู้ด้านวัฒนธรรมอาหารไทย": 1,
+      "การจัดการครัวและความปลอดภัยในการทำอาหาร": 1,
+      "การวางแผนเมนูอาหารไทย": 1,
+      "การบริหารทรัพยากรมนุษย์": 1,
+      "จิตวิทยาองค์กร": 1,
+      "การสื่อสารและการเจรจาต่อรอง": 2,
+      "กฎหมายแรงงาน": 1,
+      "การวางแผนและพัฒนาบุคลากร": 1,
+      "การจัดการความขัดแย้ง": 1,
+      "การสร้างเนื้อหาดิจิทัล": 1,
+      "การตัดต่อวิดีโอ": 2,
+      "การตลาดดิจิทัล": 2,
+      "การสื่อสารและการนำเสนอ": 2,
+      "การวิเคราะห์ข้อมูลโซเชียลมีเดีย": 1,
+      "การสร้างแบรนด์ส่วนบุคคล": 1,
+      "พื้นฐานการเขียนโปรแกรม": 1,
+      "การวิเคราะห์และแก้ไขปัญหา": 1,
+      "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย": 1,
+      "การพัฒนาเว็บและแอปพลิเคชัน": 2,
+      "การจัดการฐานข้อมูล": 2,
+      "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง": 1,
+      "การวิเคราะห์ข้อมูล": 1,
+      "การตัดสินใจเชิงระบบ": 1,
+      "การใช้เครื่องมือสนับสนุนการตัดสินใจ": 1,
+      "จิตวิทยาการตัดสินใจ": 1,
+      "การจัดการความเสี่ยง": 1,
+      "การวิเคราะห์อัลกอริทึม": 1,
+      "โครงสร้างข้อมูล": 1,
+      "การแก้ปัญหาเชิงคำนวณ": 1,
+      "การเขียนโปรแกรมภาษา Python หรือ C++": 1,
+      "การวิเคราะห์ความซับซ้อนของอัลกอริทึม": 1,
+      "การเขียนโปรแกรมขั้นสูง": 1,
+      "โครงสร้างข้อมูลและอัลกอริทึม": 1,
+      "การทดสอบและดีบักโปรแกรม": 1,
+      "การประยุกต์ใช้ปัญญาประดิษฐ์": 2,
+      "ภาษาจีนเพื่อธุรกิจ": 1,
+      "ภาษาเวียดนามเพื่อธุรกิจ": 1,
+      "การเปรียบเทียบภาษาจีนและภาษาเวียดนาม": 1,
+      "วัฒนธรรมและธุรกิจในจีนและเวียดนาม": 1,
+      "ทักษะการสื่อสารทางธุรกิจ": 1,
+      "พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม": 1,
+      "การพัฒนาเว็บแอปพลิเคชัน": 1,
+      "การพัฒนาโมบายแอปพลิเคชัน": 1,
+      "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)": 1,
+      "การเขียนโปรแกรมด้วยภาษา JavaScript": 1,
+      "การใช้ฐานข้อมูลและการจัดการข้อมูล": 1,
+      "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter": 1,
+      "การวิเคราะห์ข้อมูลทางการเงิน": 1,
+      "การเรียนรู้ของเครื่อง (Machine Learning)": 1,
+      "การประมวลผลภาษาธรรมชาติ (NLP)": 1,
+      "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล": 1,
+      "การวิเคราะห์เชิงสถิติ": 1,
+      "การพัฒนาเว็บไซต์": 1,
+      "การจัดการธุรกิจอีคอมเมิร์ซ": 1,
+      "การออกแบบประสบการณ์ผู้ใช้ (UX/UI)": 1,
+      "การชำระเงินออนไลน์และความปลอดภัย": 1,
+      "การวิเคราะห์ข้อมูลและพฤติกรรมผู้บริโภค": 1,
+      "การออกแบบประสบการณ์ผู้ใช้ (UX Design)": 1,
+      "การออกแบบกราฟิกดิจิทัล": 1,
+      "การจัดการโครงการเทคโนโลยี": 1,
+      "การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)": 1,
+      "การสื่อสารและการนำเสนอเชิงเทคนิค": 1,
+      "เทคโนโลยีดนตรี": 1,
+      "การผลิตเสียงและดนตรีดิจิทัล": 1,
+      "การเขียนโปรแกรมสำหรับดนตรี": 1,
+      "การออกแบบเสียง": 1,
+      "ทฤษฎีดนตรี": 1,
+      "ทักษะความเป็นผู้นำ": 1,
+      "การสื่อสารเพื่อการนำทีม": 1,
+      "การจัดการทีมและการทำงานเป็นกลุ่ม": 1,
+      "การตัดสินใจและแก้ไขปัญหา": 1,
+      "การวางแผนและการบริหารเวลา": 1,
+      "การสร้างเนื้อหาวิดีโอ": 1,
+      "การใช้โซเชียลมีเดียเพื่อการตลาด": 1,
+      "การวางแผนและการจัดการคอนเทนต์": 1,
+      "การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์": 1,
+      "กฎหมายเบื้องต้น": 1,
+      "การวิเคราะห์และตีความกฎหมาย": 1,
+      "จริยธรรมและความรับผิดชอบทางกฎหมาย": 1,
+      "การเขียนและร่างเอกสารทางกฎหมาย": 1,
+      "การวางแผนและการจัดการเวลา": 1,
+      "การประกอบคอมพิวเตอร์": 1,
+      "ฮาร์ดแวร์คอมพิวเตอร์": 1,
+      "การติดตั้งและตั้งค่าระบบปฏิบัติการ": 1,
+      "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์": 1,
+      "ความปลอดภัยของข้อมูลและระบบ": 1,
+      "การจัดการธุรกิจปศุสัตว์": 1,
+      "ความรู้ด้านการเลี้ยงสัตว์": 1,
+      "การตลาดสำหรับธุรกิจปศุสัตว์": 1,
+      "การวางแผนการเงินและการลงทุน": 1,
+      "กฎหมายและข้อบังคับเกี่ยวกับปศุสัตว์": 1,
+      "การใช้เทคโนโลยีในธุรกิจปศุสัตว์": 1,
+      "การบริหารธุรกิจร้านอาหารและเครื่องดื่ม": 1,
+      "กฎหมายและข้อบังคับเกี่ยวกับการขายเครื่องดื่มแอลกอฮอล์": 1,
+      "การตลาดและการส่งเสริมการขาย": 1,
+      "การจัดการการเงินและบัญชีสำหรับธุรกิจขนาดเล็ก": 1,
+      "การบริการลูกค้าและการสื่อสาร": 1,
+      "การจัดการทรัพยากรมนุษย์": 1,
+      "วิศวกรรมปิโตรเลียม": 1,
+      "เทคโนโลยีการขุดเจาะน้ำมันและก๊าซ": 1,
+      "การวิเคราะห์และประเมินแหล่งพลังงาน": 1,
+      "ความรู้ด้านวิทยาศาสตร์พื้นฐาน เช่น ฟิสิกส์และเคมี": 1,
+      "ทักษะภาษาอังกฤษทางวิชาการ": 1,
+      "การจัดการโครงการและความปลอดภัยในงานวิศวกรรม": 1,
+      "ภาษาบาลี": 1,
+      "ไวยากรณ์ภาษาบาลี": 1,
+      "การอ่านและแปลภาษาบาลี": 1,
+      "วรรณคดีและวัฒนธรรมบาลี": 1,
+      "ภาษาสันสกฤตเบื้องต้น": 1,
+      "การใช้พจนานุกรมภาษาบาลี": 1
+    }
+  },
+  "meanRelevanceScore": {
+    "macroMean": 1.081,
+    "microMean": 1.077,
+    "totalRelevanceSum": 2146,
+    "totalCourses": 1993,
+    "sampleCount": 138,
+    "description": "Macro mean (TREC): 1.081/3 (avg of 138 samples) | Micro mean: 1.077/3 (2146/1993 courses)"
+  },
+  "perClassDistribution": {
+    "score0": {
+      "relevanceScore": 0,
+      "label": "irrelevant",
+      "count": 796,
+      "outOf": 1993,
+      "macroAverageRate": 39.716,
+      "microAverageRate": 39.94,
+      "description": "796 of 1993 courses are irrelevant - Macro: 39.7% (avg of sample rates), Micro: 39.9% (from total counts)"
+    },
+    "score1": {
+      "relevanceScore": 1,
+      "label": "slightly_relevant",
+      "count": 407,
+      "outOf": 1993,
+      "macroAverageRate": 20.694,
+      "microAverageRate": 20.421,
+      "description": "407 of 1993 courses are slightly relevant - Macro: 20.7% (avg of sample rates), Micro: 20.4% (from total counts)"
+    },
+    "score2": {
+      "relevanceScore": 2,
+      "label": "fairly_relevant",
+      "count": 631,
+      "outOf": 1993,
+      "macroAverageRate": 31.406,
+      "microAverageRate": 31.661,
+      "description": "631 of 1993 courses are fairly relevant - Macro: 31.4% (avg of sample rates), Micro: 31.7% (from total counts)"
+    },
+    "score3": {
+      "relevanceScore": 3,
+      "label": "highly_relevant",
+      "count": 159,
+      "outOf": 1993,
+      "macroAverageRate": 8.184,
+      "microAverageRate": 7.978,
+      "description": "159 of 1993 courses are highly relevant - Macro: 8.2% (avg of sample rates), Micro: 8.0% (from total counts)"
+    }
+  },
+  "ndcg": {
+    "at5": {
+      "proxyNdcg": 0.6528,
+      "idealNdcg": 0.4468,
+      "description": "Mean NDCG@5 - Proxy: 0.6528 (Fair), Ideal: 0.4468 (Very Poor) - Top-5 results (138 samples)"
+    },
+    "at10": {
+      "proxyNdcg": 0.7208,
+      "idealNdcg": 0.4035,
+      "description": "Mean NDCG@10 - Proxy: 0.7208 (Reasonable), Ideal: 0.4035 (Very Poor) - Top-10 results (138 samples)"
+    },
+    "at15": {
+      "proxyNdcg": 0.7738,
+      "idealNdcg": 0.3636,
+      "description": "Mean NDCG@15 - Proxy: 0.7738 (Reasonable), Ideal: 0.3636 (Very Poor) - Top-15 results (138 samples)"
+    },
+    "atAll": {
+      "proxyNdcg": 0.7853,
+      "idealNdcg": 0.3915,
+      "description": "Mean NDCG@All - Proxy: 0.7853 (Reasonable), Ideal: 0.3915 (Very Poor) - Overall ranking across 138 samples"
+    }
+  },
+  "precision": {
+    "at5": {
+      "threshold1": {
+        "meanPrecision": 0.6797,
+        "relevantCount": 469,
+        "totalCount": 690,
+        "description": "Mean Precision@5 (≥1): 68.0% - On average, 68.0% of top-5 courses are relevant (138 samples)"
+      },
+      "threshold2": {
+        "meanPrecision": 0.4449,
+        "relevantCount": 307,
+        "totalCount": 690,
+        "description": "Mean Precision@5 (≥2): 44.5% - On average, 44.5% of top-5 courses are relevant (138 samples)"
+      },
+      "threshold3": {
+        "meanPrecision": 0.1304,
+        "relevantCount": 90,
+        "totalCount": 690,
+        "description": "Mean Precision@5 (≥3): 13.0% - On average, 13.0% of top-5 courses are relevant (138 samples)"
+      }
+    },
+    "at10": {
+      "threshold1": {
+        "meanPrecision": 0.6194,
+        "relevantCount": 855,
+        "totalCount": 1380,
+        "description": "Mean Precision@10 (≥1): 61.9% - On average, 61.9% of top-10 courses are relevant (138 samples)"
+      },
+      "threshold2": {
+        "meanPrecision": 0.4043,
+        "relevantCount": 558,
+        "totalCount": 1380,
+        "description": "Mean Precision@10 (≥2): 40.4% - On average, 40.4% of top-10 courses are relevant (138 samples)"
+      },
+      "threshold3": {
+        "meanPrecision": 0.0936,
+        "relevantCount": 129,
+        "totalCount": 1380,
+        "description": "Mean Precision@10 (≥3): 9.4% - On average, 9.4% of top-10 courses are relevant (138 samples)"
+      }
+    },
+    "at15": {
+      "threshold1": {
+        "meanPrecision": 0.606,
+        "relevantCount": 1254,
+        "totalCount": 2070,
+        "description": "Mean Precision@15 (≥1): 60.6% - On average, 60.6% of top-15 courses are relevant (138 samples)"
+      },
+      "threshold2": {
+        "meanPrecision": 0.3949,
+        "relevantCount": 817,
+        "totalCount": 2070,
+        "description": "Mean Precision@15 (≥2): 39.5% - On average, 39.5% of top-15 courses are relevant (138 samples)"
+      },
+      "threshold3": {
+        "meanPrecision": 0.0823,
+        "relevantCount": 170,
+        "totalCount": 2070,
+        "description": "Mean Precision@15 (≥3): 8.2% - On average, 8.2% of top-15 courses are relevant (138 samples)"
+      }
+    },
+    "atAll": {
+      "threshold1": {
+        "meanPrecision": 0.6028,
+        "relevantCount": 1201,
+        "totalCount": 1993,
+        "description": "Mean precision (≥1): 60.3% across all retrieved courses"
+      },
+      "threshold2": {
+        "meanPrecision": 0.3959,
+        "relevantCount": 789,
+        "totalCount": 1993,
+        "description": "Mean precision (≥2): 39.6% across all retrieved courses"
+      },
+      "threshold3": {
+        "meanPrecision": 0.0818,
+        "relevantCount": 163,
+        "totalCount": 1993,
+        "description": "Mean precision (≥3): 8.2% across all retrieved courses"
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "questionIds": [
+    "adc6cdc0-e0f6-4006-849b-1d06dff5368c-กฎหมายและข้อบังคับเกี่ยวกับการขายเครื่องดื่มแอลกอฮอล์"
+  ],
+  "skill": "กฎหมายและข้อบังคับเกี่ยวกับการขายเครื่องดื่มแอลกอฮอล์",
+  "retrievedCount": 8,
+  "evaluations": [
+    {
+      "subjectCode": "01074521-68",
+      "subjectName": "เทคโนโลยีเครื่องดื่มไม่มีแอลกอฮอล์ขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "เน้นเทคโนโลยีและการผลิตเครื่องดื่มไม่มีแอลกอฮอล์ ไม่มีเนื้อหาเกี่ยวกับกฎหมายหรือข้อบังคับการขายเครื่องดื่มแอลกอฮอล์"
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "มุ่งเน้นการเตรียมและเทคนิคการทำเครื่องดื่ม ไม่มีการกล่าวถึงกฎหมายหรือการจำหน่ายเครื่องดื่มแอลกอฮอล์"
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "เกี่ยวกับการตลาดและการตั้งราคาในธุรกิจเครื่องดื่ม แต่ไม่มีเนื้อหาเกี่ยวกับกฎหมาย/ข้อบังคับการขายเครื่องดื่มแอลกอฮอล์"
+    },
+    {
+      "subjectCode": "01074511-68",
+      "subjectName": "เคมีและจุลชีววิทยาของเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "เน้นเคมีและจุลชีววิทยาของเครื่องดื่ม ไม่มีการกล่าวถึงกฎหมายหรือข้อบังคับการจำหน่ายเครื่องดื่มแอลกอฮอล์"
+    },
+    {
+      "subjectCode": "01134442-65",
+      "subjectName": "หลักการจัดการโลจิสติกส์",
+      "relevanceScore": 0,
+      "reason": "หลักการโลจิสติกส์ทั่วไป ไม่มีเนื้อหาเกี่ยวกับกฎหมายหรือข้อบังคับการขายเครื่องดื่มแอลกอฮอล์"
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 0,
+      "reason": "หลักการตลาดทั่วไป ไม่มีการระบุเนื้อหาเกี่ยวกับกฎหมาย/ข้อบังคับการขายเครื่องดื่มแอลกอฮอล์"
+    },
+    {
+      "subjectCode": "01074551-68",
+      "subjectName": "กฎหมายและข้อกำหนดอาหารสำหรับผลิตภัณฑ์เครื่องดื่ม",
+      "relevanceScore": 3,
+      "reason": "หลักสูตรเน้นกฎหมาย ข้อกำหนด และมาตรฐานสำหรับผลิตภัณฑ์เครื่องดื่ม รวมถึงการสืบค้นข้อมูลทางกฎหมาย จึงสอดคล้องโดยตรงกับทักษะด้านกฎหมาย/ข้อบังคับการขายเครื่องดื่ม"
+    },
+    {
+      "subjectCode": "01074597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "สัมมนาเกี่ยวกับการสืบค้น วิเคราะห์ และเชื่อมโยงความรู้ด้านธุรกิจเครื่องดื่ม แต่ไม่มีการระบุเนื้อหาเกี่ยวกับกฎหมายหรือข้อบังคับการขายเครื่องดื่มแอลกอฮอล์"
+    }
+  ],
+  "metrics": {
+    "totalCourses": 8,
+    "meanRelevanceScore": 0.375,
+    "totalRelevanceSum": 3,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 7,
+        "macroAverageRate": 87.5,
+        "microAverageRate": 87.5,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0.333,
+        "at15": 0.333,
+        "atAll": 0.333
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0.073,
+        "at15": 0.057,
+        "atAll": 0.084
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.125,
+        "threshold2": 0.125,
+        "threshold3": 0.125
+      },
+      "at15": {
+        "threshold1": 0.125,
+        "threshold2": 0.125,
+        "threshold3": 0.125
+      },
+      "atAll": {
+        "threshold1": 0.125,
+        "threshold2": 0.125,
+        "threshold3": 0.125
+      }
+    }
+  },
+  "llmModel": "openai/gpt-5-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1766,
+  "outputTokens": 2195
+}

@@ -1,0 +1,186 @@
+{
+  "questionIds": [
+    "00e399aa-cf3c-472b-b5be-9a6e86e10637-การวิเคราะห์และตีความกฎหมาย"
+  ],
+  "skill": "การวิเคราะห์และตีความกฎหมาย",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 1,
+      "reason": "The course covers basic legal principles and the legal aspects related to persons, but does not explicitly focus on analysis and interpretation of laws."
+    },
+    {
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 2,
+      "reason": "Includes interpretation and application of general civil law principles, which relates to law analysis and interpretation, but it is part of broader legal topics."
+    },
+    {
+      "subjectCode": "01603121-65",
+      "subjectName": "จรรยาบรรณและกฎหมายทางการพยาบาลสัตว์",
+      "relevanceScore": 0,
+      "reason": "Focuses on veterinary ethics and law, but does not mention law analysis or interpretation skills."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Language course on Chinese business language; unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Similar to above, language course with no focus on law analysis."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Language course on Chinese business language; unrelated to legal skills."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Research methodology course; while related to analysis, it does not specifically focus on legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01456498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Focuses on criminology and justice research, not on legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "04306141-64",
+      "subjectName": "หลักรัฐศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Political science course; unrelated to legal analysis and interpretation."
+    },
+    {
+      "subjectCode": "01453113-68",
+      "subjectName": "ประวัติศาสตร์กฎหมาย",
+      "relevanceScore": 1,
+      "reason": "Historical development of law; mentions explanation of legal history but not specifically about analyzing or interpreting laws."
+    },
+    {
+      "subjectCode": "03754231-67",
+      "subjectName": "การอ่านภาษาอังกฤษในชีวิตประจำวัน",
+      "relevanceScore": 0,
+      "reason": "English reading skills; not related to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "02804211-67",
+      "subjectName": "กฎหมายและจรรยาบรรณวิชาชีพในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course on aviation law and ethics; relevant to legal topics but not specifically on analysis and interpretation skills."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Product development and innovation course; unrelated to legal analysis."
+    },
+    {
+      "subjectCode": "06903496-66",
+      "subjectName": "เรื่องเฉพาะทางการท่องเที่ยวเชิงสุขภาพ",
+      "relevanceScore": 0,
+      "reason": "Tourism health research methods; not related to legal analysis."
+    },
+    {
+      "subjectCode": "06902491-66",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางการท่องเที่ยวเชิงวัฒนธรรม",
+      "relevanceScore": 0,
+      "reason": "Tourism research methods; unrelated to legal analysis."
+    },
+    {
+      "subjectCode": "06903491-66",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางการท่องเที่ยวเชิงสุขภาพ",
+      "relevanceScore": 0,
+      "reason": "Tourism research methods; unrelated to legal analysis."
+    },
+    {
+      "subjectCode": "01600391-65",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางเทคนิคการสัตวแพทย์",
+      "relevanceScore": 0,
+      "reason": "Veterinary research methods; unrelated to legal analysis."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.23529411764705882,
+    "totalRelevanceSum": 4,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 14,
+        "macroAverageRate": 82.3529411764706,
+        "microAverageRate": 82.3529411764706,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 11.764705882352942,
+        "microAverageRate": 11.764705882352942,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.722,
+        "at10": 0.815,
+        "at15": 0.815,
+        "atAll": 0.815
+      },
+      "ideal": {
+        "at5": 0.256,
+        "at10": 0.187,
+        "at15": 0.145,
+        "atAll": 0.134
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.3,
+        "threshold2": 0.1,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.2,
+        "threshold2": 0.067,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.176,
+        "threshold2": 0.059,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2674,
+  "outputTokens": 731
+}

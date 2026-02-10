@@ -1,0 +1,156 @@
+{
+  "testCaseId": "cd96176f-8e18-4270-9c76-8c6b1cf19594-หลักการสืบทอดและการห่อหุ้ม",
+  "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+  "skill": "หลักการสืบทอดและการห่อหุ้ม",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on food preparation and cooking, no mention of inheritance or encapsulation principles."
+    },
+    {
+      "subjectCode": "02034341-66",
+      "subjectName": "เทคโนโลยีชีวภาพทางการเพาะเลี้ยงเซลล์และเนื้อเยื่อ",
+      "relevanceScore": 0,
+      "reason": "Course covers cell and tissue culture biotechnology, no reference to inheritance or encapsulation principles."
+    },
+    {
+      "subjectCode": "01004211-64",
+      "subjectName": "วิทยาศาสตร์ด้านแมลง",
+      "relevanceScore": 0,
+      "reason": "Course about insect science with no indication of inheritance or encapsulation principles."
+    },
+    {
+      "subjectCode": "03764221-64",
+      "subjectName": "การจัดการสินค้าคงคลังและการวางแผนการผลิต",
+      "relevanceScore": 0,
+      "reason": "Course on inventory management and production planning, unrelated to inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "01600391-65",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางเทคนิคการสัตวแพทย์",
+      "relevanceScore": 0,
+      "reason": "Course on basic research methodology in veterinary techniques, no mention of inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "02804112-67",
+      "subjectName": "องค์การและการจัดการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course about organization and management in aviation business, unrelated to inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "02747442-65",
+      "subjectName": "การจัดการคุณภาพบริการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course on quality management in aviation business, no relation to inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "01018553-65",
+      "subjectName": "เทคโนโลยีเรือนบรรจุ",
+      "relevanceScore": 0,
+      "reason": "Course on packing house technology, unrelated to inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "01475533-64",
+      "subjectName": "จิตวิทยาการจูงใจในองค์การ",
+      "relevanceScore": 0,
+      "reason": "Course on motivation psychology in organizations, no connection to inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 0,
+      "reason": "Course on data warehouse and business intelligence systems, unrelated to inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "01419213-65",
+      "subjectName": "จุลชีววิทยาทั่วไปภาคปฏิบัติการ",
+      "relevanceScore": 0,
+      "reason": "Course on general microbiology lab practice, no mention of inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "01242231-67",
+      "subjectName": "ความยั่งยืนเพื่อการออกแบบ",
+      "relevanceScore": 0,
+      "reason": "Course on sustainability for design, unrelated to inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "01150381-67",
+      "subjectName": "การประกันคุณภาพการศึกษาสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Course on educational quality assurance for teachers, no relation to inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "01150221-67",
+      "subjectName": "การพัฒนาหลักสูตรและการสอน",
+      "relevanceScore": 0,
+      "reason": "Course on curriculum development and teaching, unrelated to inheritance or encapsulation."
+    },
+    {
+      "subjectCode": "04401463-65",
+      "subjectName": "สวัสดิศึกษา",
+      "relevanceScore": 0,
+      "reason": "Course on safety and health education, no mention of inheritance or encapsulation."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 15,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": 0,
+      "at10": 0,
+      "at15": 0,
+      "atAll": 0
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2745,
+  "outputTokens": 462
+}

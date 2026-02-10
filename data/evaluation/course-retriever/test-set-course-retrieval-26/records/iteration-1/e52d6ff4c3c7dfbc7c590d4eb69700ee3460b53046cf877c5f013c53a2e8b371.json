@@ -1,0 +1,168 @@
+{
+  "testCaseId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การวางแผนและพัฒนาบุคลากร",
+  "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+  "skill": "การวางแผนและพัฒนาบุคลากร",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "relevanceScore": 1,
+      "reason": "Course mentions planning for professional development of teachers but does not focus on personnel planning and development as a main theme."
+    },
+    {
+      "subjectCode": "01475523-64",
+      "subjectName": "การปฏิบัติงานของมนุษย์",
+      "relevanceScore": 1,
+      "reason": "Covers development of human work performance and behavior but only marginally related to personnel planning and development."
+    },
+    {
+      "subjectCode": "01132222-65",
+      "subjectName": "การจัดการทรัพยากรมนุษย์",
+      "relevanceScore": 3,
+      "reason": "Directly covers human resource management including analysis, planning, and development of HR, matching the skill comprehensively."
+    },
+    {
+      "subjectCode": "01475528-64",
+      "subjectName": "การฝึกอบรมและการพัฒนาในองค์การ",
+      "relevanceScore": 3,
+      "reason": "Focuses on training and development in organizations, including program development and relationship to organizational development, highly relevant to personnel planning and development."
+    },
+    {
+      "subjectCode": "06901112-66",
+      "subjectName": "การจัดการทรัพยากรมนุษย์เพื่ออุตสาหกรรมท่องเที่ยวเชิงวัฒนธรรมและสุขภาพ",
+      "relevanceScore": 3,
+      "reason": "Specifically addresses planning and development of human resources in tourism and health industries, directly relevant to the skill."
+    },
+    {
+      "subjectCode": "03601599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Focuses on thesis research skills, no content related to personnel planning and development."
+    },
+    {
+      "subjectCode": "03601597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course on research skills, no relevance to personnel planning and development."
+    },
+    {
+      "subjectCode": "03601596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมไฟฟ้าและอิเล็กทรอนิกส์",
+      "relevanceScore": 0,
+      "reason": "Special topics in electrical engineering, unrelated to personnel planning and development."
+    },
+    {
+      "subjectCode": "03601591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางด้านวิศวกรรมไฟฟ้าและอิเล็กทรอนิกส์",
+      "relevanceScore": 0,
+      "reason": "Research methods in electrical engineering, no connection to personnel planning and development."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 1,
+      "reason": "Covers planning in public relations which is a form of organizational planning but not focused on personnel development."
+    },
+    {
+      "subjectCode": "01475539-64",
+      "subjectName": "จิตวิทยาเพื่อจิตวิญญาณในสถานที่ทำงาน",
+      "relevanceScore": 1,
+      "reason": "Includes planning related to workplace spirituality development, marginally related to personnel development."
+    },
+    {
+      "subjectCode": "04181591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีการอาหาร",
+      "relevanceScore": 0,
+      "reason": "Research methods in food technology, no relevance to personnel planning and development."
+    },
+    {
+      "subjectCode": "03764424-64",
+      "subjectName": "การเป็นผู้ประกอบการในธุรกิจโลจิสติกส์",
+      "relevanceScore": 1,
+      "reason": "Includes team planning in business logistics but not focused on personnel planning and development."
+    },
+    {
+      "subjectCode": "02198113-67",
+      "subjectName": "จิตวิทยาเพื่อการเรียนรู้และการจัดการเรียนรู้",
+      "relevanceScore": 1,
+      "reason": "Covers learning and management psychology including planning learning management, marginally related to personnel development."
+    },
+    {
+      "subjectCode": "01475535-64",
+      "subjectName": "จิตวิทยาการเปลี่ยนแปลงและการพัฒนา",
+      "relevanceScore": 2,
+      "reason": "Applies psychology to organizational change and development, relevant as part of personnel development but not comprehensive."
+    },
+    {
+      "subjectCode": "01475536-64",
+      "subjectName": "จิตวิทยาการจัดการความขัดแย้งในองค์การ",
+      "relevanceScore": 1,
+      "reason": "Focuses on conflict management psychology in organizations, marginally related to personnel development."
+    },
+    {
+      "subjectCode": "01058362-68",
+      "subjectName": "การจัดการระบบบริการและผลิตสำหรับนวัตกรรมอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on production and service management in agricultural industry, unrelated to personnel planning and development."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 1.0588235294117647,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 35.294117647058826,
+        "microAverageRate": 35.294117647058826,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 41.1764705882353,
+        "microAverageRate": 41.1764705882353,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 17.647058823529413,
+        "microAverageRate": 17.647058823529413,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.731,
+        "at10": 0.636,
+        "at15": 0.754,
+        "atAll": 0.779
+      },
+      "ideal": {
+        "at5": 0.631,
+        "at10": 0.431,
+        "at15": 0.408,
+        "atAll": 0.39
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.3,
+      "at15": 0.267,
+      "atAll": 0.235
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3356,
+  "outputTokens": 566
+}

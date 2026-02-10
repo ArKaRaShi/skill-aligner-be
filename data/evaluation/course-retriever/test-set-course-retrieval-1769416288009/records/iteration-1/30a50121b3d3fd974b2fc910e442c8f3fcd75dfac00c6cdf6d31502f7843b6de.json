@@ -1,0 +1,144 @@
+{
+  "testCaseId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การลงทุนเบื้องต้น",
+  "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+  "skill": "การลงทุนเบื้องต้น",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "03651431-65",
+      "subjectName": "คณิตศาสตร์การลงทุน",
+      "relevanceScore": 3,
+      "reason": "Course name and outcomes focus directly on investment mathematics and principles, covering foundational investment skills comprehensively."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course includes basic financial statement analysis and cost calculation, marginally related to investment basics."
+    },
+    {
+      "subjectCode": "01999043-67",
+      "subjectName": "การคิดสร้างสรรค์เพื่อการจัดการคุณค่า",
+      "relevanceScore": 2,
+      "reason": "Course includes planning investments using relevant factors, indicating a distinct component on investment within a broader management context."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Course covers basic financial feasibility and cost calculation, marginally relevant to investment basics."
+    },
+    {
+      "subjectCode": "06901111-66",
+      "subjectName": "หลักการจัดการธุรกิจเบื้องต้นสำหรับอุตสาหกรรมการท่องเที่ยว",
+      "relevanceScore": 0,
+      "reason": "Course focuses on basic business management in tourism, no direct connection to investment basics."
+    },
+    {
+      "subjectCode": "04305211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 3,
+      "reason": "Course covers financial management fundamentals including investment budgeting and valuation, highly relevant to basic investment skills."
+    },
+    {
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course involves business decision making and analysis, but investment basics are not a primary focus."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "Course is about polymer chemistry, unrelated to investment."
+    },
+    {
+      "subjectCode": "03651231-65",
+      "subjectName": "การคำนวณเชิงเศรษฐศาสตร์เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers economic calculations and financial system analysis, providing useful background relevant to investment basics."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on managerial accounting and strategic management, only marginally related to investment basics."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 0,
+      "reason": "Course covers marketing principles, unrelated to investment basics."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Course involves profit planning and control, marginally related to investment through financial planning aspects."
+    },
+    {
+      "subjectCode": "04305443-67",
+      "subjectName": "จรรยาบรรณและมาตรฐานของการวิเคราะห์การลงทุน",
+      "relevanceScore": 2,
+      "reason": "Course covers ethics and standards in investment analysis, a distinct but limited component related to investment basics."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.3076923076923077,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 38.46153846153846,
+        "microAverageRate": 38.46153846153846,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.672,
+        "at10": 0.806,
+        "at15": 0.893,
+        "atAll": 0.893
+      },
+      "ideal": {
+        "at5": 0.572,
+        "at10": 0.54,
+        "at15": 0.463,
+        "atAll": 0.507
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.4,
+      "at15": 0.385,
+      "atAll": 0.385
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2331,
+  "outputTokens": 415
+}

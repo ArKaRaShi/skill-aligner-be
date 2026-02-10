@@ -1,0 +1,168 @@
+{
+  "testCaseId": "be573eca-6596-418a-888d-f4f0c0d5651d-การแก้ปัญหาเชิงคำนวณ",
+  "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+  "skill": "การแก้ปัญหาเชิงคำนวณ",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "02201596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course outcome mentions applying theory to solve studied problems, indicating marginal relevance to computational problem solving."
+    },
+    {
+      "subjectCode": "01680131-66",
+      "subjectName": "แนวคิดคณิตศาสตร์เพื่อศาสตร์แห่งแผ่นดิน",
+      "relevanceScore": 2,
+      "reason": "Course includes applying mathematical knowledge to integrated problem solving, which relates fairly to computational problem solving."
+    },
+    {
+      "subjectCode": "01420119-66",
+      "subjectName": "ฟิสิกส์อย่างสังเขป",
+      "relevanceScore": 2,
+      "reason": "Course outcomes include using calculations to solve basic physics problems, indicating some useful computational problem solving content."
+    },
+    {
+      "subjectCode": "01420117-66",
+      "subjectName": "ฟิสิกส์พื้นฐาน I",
+      "relevanceScore": 2,
+      "reason": "Similar to above, includes using calculations to solve basic physics problems, fairly relevant to computational problem solving."
+    },
+    {
+      "subjectCode": "01420118-66",
+      "subjectName": "ฟิสิกส์พื้นฐาน II",
+      "relevanceScore": 2,
+      "reason": "Includes use of calculations to solve basic physics problems, fairly relevant to computational problem solving."
+    },
+    {
+      "subjectCode": "02714101-67",
+      "subjectName": "การคิดเชิงวิพากษ์และการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "Focuses on critical thinking and problem solving using reasoning, but not specifically computational problem solving."
+    },
+    {
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "relevanceScore": 3,
+      "reason": "Course covers decision analysis, software use for decision making, and mathematical modeling to solve problems, directly addressing computational problem solving."
+    },
+    {
+      "subjectCode": "01202564-66",
+      "subjectName": "หลักการของวิศวกรรมเชื้อเพลิงชีวภาพ",
+      "relevanceScore": 2,
+      "reason": "Includes engineering calculations and problem solving for case studies, fairly relevant to computational problem solving."
+    },
+    {
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Mentions calculation and statistics but lacks clear focus on computational problem solving."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 3,
+      "reason": "Focuses on algorithm design, data structures, and programming for problem solving, highly relevant to computational problem solving."
+    },
+    {
+      "subjectCode": "01999111-67",
+      "subjectName": "ศาสตร์แห่งแผ่นดิน",
+      "relevanceScore": 1,
+      "reason": "Mentions problem solving with appropriate thinking skills but not specifically computational problem solving."
+    },
+    {
+      "subjectCode": "01420213-66",
+      "subjectName": "ฟิสิกส์เชิงคณิตศาสตร์ I",
+      "relevanceScore": 3,
+      "reason": "Course outcomes include solving physics problems using mathematical equations and computer calculations, highly relevant to computational problem solving."
+    },
+    {
+      "subjectCode": "01101171-65",
+      "subjectName": "คณิตเศรษฐศาสตร์ I",
+      "relevanceScore": 2,
+      "reason": "Covers solving linear equation systems and related mathematical methods, fairly relevant to computational problem solving."
+    },
+    {
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "relevanceScore": 2,
+      "reason": "Covers basic data science problem solving, fairly relevant to computational problem solving."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Includes problem solving via research process but not specifically computational problem solving."
+    },
+    {
+      "subjectCode": "01304523-66",
+      "subjectName": "กำหนดการเชิงคณิตศาสตร์สำหรับการจัดการทรัพยากรป่าไม้",
+      "relevanceScore": 3,
+      "reason": "Focuses on mathematical programming techniques like linear programming for problem analysis, highly relevant to computational problem solving."
+    },
+    {
+      "subjectCode": "01058498-68",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Mentions problem solving using reasoning in academic discipline, marginally relevant but not computationally focused."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 1.8823529411764706,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 35.294117647058826,
+        "microAverageRate": 35.294117647058826,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 41.1764705882353,
+        "microAverageRate": 41.1764705882353,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 4,
+        "macroAverageRate": 23.529411764705884,
+        "microAverageRate": 23.529411764705884,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.579,
+        "at10": 0.691,
+        "at15": 0.787,
+        "atAll": 0.831
+      },
+      "ideal": {
+        "at5": 0.554,
+        "at10": 0.591,
+        "at15": 0.593,
+        "atAll": 0.599
+      }
+    },
+    "precision": {
+      "at5": 0.8,
+      "at10": 0.7,
+      "at15": 0.667,
+      "atAll": 0.647
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2842,
+  "outputTokens": 569
+}

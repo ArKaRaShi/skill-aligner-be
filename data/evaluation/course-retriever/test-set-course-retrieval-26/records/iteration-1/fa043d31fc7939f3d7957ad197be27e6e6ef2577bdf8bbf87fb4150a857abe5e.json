@@ -1,0 +1,174 @@
+{
+  "testCaseId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4-การสื่อสารและการเจรจาต่อรอง",
+  "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+  "skill": "การสื่อสารและการเจรจาต่อรอง",
+  "retrievedCount": 18,
+  "evaluations": [
+    {
+      "subjectCode": "01475536-64",
+      "subjectName": "จิตวิทยาการจัดการความขัดแย้งในองค์การ",
+      "relevanceScore": 3,
+      "reason": "The course explicitly focuses on conflict management and negotiation skills in organizations, covering analysis of behaviors during negotiation and enhancing negotiation skills as a primary learning outcome."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 1,
+      "reason": "The course mentions communication in the context of information use but does not focus on communication or negotiation skills directly."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 1,
+      "reason": "Communication of information is mentioned but not related to negotiation or interpersonal communication skills."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 2,
+      "reason": "The course covers communication principles and theories, including media communication, which relates to communication skills but does not specifically address negotiation."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 1,
+      "reason": "Communication and presentation skills are mentioned but negotiation is not covered; communication is a minor component."
+    },
+    {
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Focuses on basic English listening and speaking for communication, relevant to communication skills but does not cover negotiation explicitly."
+    },
+    {
+      "subjectCode": "01401463-66",
+      "subjectName": "ชีววิทยาวิวัฒนาการของพืช",
+      "relevanceScore": 1,
+      "reason": "Communication and presentation are mentioned but not related to negotiation or interpersonal communication skills."
+    },
+    {
+      "subjectCode": "01401442-66",
+      "subjectName": "พรรณไม้น้ำ",
+      "relevanceScore": 1,
+      "reason": "Mentions accepting others' opinions and communication but negotiation is not addressed; communication is minor."
+    },
+    {
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Communication and presentation skills are included but negotiation is not a focus."
+    },
+    {
+      "subjectCode": "01401399-66",
+      "subjectName": "การฝึกงานทางพฤกษศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Communication and teamwork are mentioned but negotiation is not covered."
+    },
+    {
+      "subjectCode": "04404222-67",
+      "subjectName": "หลักอนามัยสิ่งแวดล้อม",
+      "relevanceScore": 1,
+      "reason": "Communication and teamwork are mentioned but negotiation is not a focus."
+    },
+    {
+      "subjectCode": "02738463-61",
+      "subjectName": "นิติวิทยาศาสตร์ทางชีววิทยา",
+      "relevanceScore": 1,
+      "reason": "Communication and teamwork are included but negotiation skills are not specifically addressed."
+    },
+    {
+      "subjectCode": "03764322-64",
+      "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+      "relevanceScore": 3,
+      "reason": "The course is specifically about negotiation for logistics management, covering negotiation principles and skills comprehensively."
+    },
+    {
+      "subjectCode": "01058223-68",
+      "subjectName": "เทคโนโลยีการแปรรูปที่ใช้ความร้อนทางอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Communication through presentation is mentioned but negotiation is not covered."
+    },
+    {
+      "subjectCode": "01203592-66",
+      "subjectName": "การฝึกงานด้านวิศวกรรมโยธา",
+      "relevanceScore": 1,
+      "reason": "Communication and expressing opinions are mentioned but negotiation is not a primary focus."
+    },
+    {
+      "subjectCode": "01420454-66",
+      "subjectName": "พลังงานแสงอาทิตย์",
+      "relevanceScore": 1,
+      "reason": "Communication and presentation skills are included but negotiation is not addressed."
+    },
+    {
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "relevanceScore": 1,
+      "reason": "The course focuses on educational psychology and counseling, with no direct mention of communication or negotiation skills."
+    },
+    {
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "relevanceScore": 1,
+      "reason": "Communication with coworkers and supervisors is mentioned but negotiation is not covered."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 18,
+    "meanRelevanceScore": 1.3333333333333333,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 14,
+        "macroAverageRate": 77.77777777777777,
+        "microAverageRate": 77.77777777777777,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.753,
+        "at10": 0.839,
+        "at15": 0.912,
+        "atAll": 0.918
+      },
+      "ideal": {
+        "at5": 0.608,
+        "at10": 0.538,
+        "at15": 0.522,
+        "atAll": 0.501
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.3,
+      "at15": 0.267,
+      "atAll": 0.222
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3605,
+  "outputTokens": 575
+}

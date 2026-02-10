@@ -1,0 +1,132 @@
+{
+  "questionIds": [
+    "adc6cdc0-e0f6-4006-849b-1d06dff5368c-กฎหมายและข้อบังคับเกี่ยวกับการขายเครื่องดื่มแอลกอฮอล์"
+  ],
+  "skill": "กฎหมายและข้อบังคับเกี่ยวกับการขายเครื่องดื่มแอลกอฮอล์",
+  "retrievedCount": 8,
+  "evaluations": [
+    {
+      "subjectCode": "01074521-68",
+      "subjectName": "เทคโนโลยีเครื่องดื่มไม่มีแอลกอฮอล์ขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on non-alcoholic beverage technology without mention of laws or regulations related to alcohol sales."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course covers beverage preparation techniques but does not address legal or regulatory aspects of alcohol sales."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Course includes marketing and pricing strategies for beverage businesses but does not specifically cover laws or regulations on alcohol sales; relevance is marginal."
+    },
+    {
+      "subjectCode": "01074511-68",
+      "subjectName": "เคมีและจุลชีววิทยาของเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course covers chemistry and microbiology of beverages without reference to legal or regulatory issues related to alcohol sales."
+    },
+    {
+      "subjectCode": "01134442-65",
+      "subjectName": "หลักการจัดการโลจิสติกส์",
+      "relevanceScore": 0,
+      "reason": "Course on logistics management with no indication of content related to alcohol sales laws or regulations."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 0,
+      "reason": "Course covers marketing principles generally, without specific focus on legal or regulatory aspects of alcohol sales."
+    },
+    {
+      "subjectCode": "01074551-68",
+      "subjectName": "กฎหมายและข้อกำหนดอาหารสำหรับผลิตภัณฑ์เครื่องดื่ม",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers laws, regulations, and standards related to beverage products, including legal requirements and standards relevant to business operations, directly matching the skill on alcohol sales laws and regulations."
+    },
+    {
+      "subjectCode": "01074597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course focuses on information retrieval and communication skills without specific mention of laws or regulations related to alcohol sales."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 8,
+    "meanRelevanceScore": 0.5,
+    "totalRelevanceSum": 4,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 75,
+        "microAverageRate": 75,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.138,
+        "at10": 0.413,
+        "at15": 0.413,
+        "atAll": 0.413
+      },
+      "ideal": {
+        "at5": 0.057,
+        "at10": 0.11,
+        "at15": 0.085,
+        "atAll": 0.126
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.25,
+        "threshold2": 0.125,
+        "threshold3": 0.125
+      },
+      "at15": {
+        "threshold1": 0.25,
+        "threshold2": 0.125,
+        "threshold3": 0.125
+      },
+      "atAll": {
+        "threshold1": 0.25,
+        "threshold2": 0.125,
+        "threshold3": 0.125
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1768,
+  "outputTokens": 301
+}

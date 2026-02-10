@@ -1,0 +1,138 @@
+{
+  "testCaseId": "a7728000-0818-42b5-a49f-c89f4ee59ab5-การวางแผนกลยุทธ์ธุรกิจ",
+  "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+  "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 3,
+      "reason": "Course focuses on strategic management accounting and using strategic management principles for business planning and decision making, directly covering business strategic planning comprehensively."
+    },
+    {
+      "subjectCode": "03764321-64",
+      "subjectName": "การจัดหาในห่วงโซ่อุปทาน",
+      "relevanceScore": 2,
+      "reason": "Course includes using procurement principles to develop business strategies, indicating strategic planning is a component but not the main focus."
+    },
+    {
+      "subjectCode": "01390429-64",
+      "subjectName": "การจัดนำเที่ยวนอกประเทศ",
+      "relevanceScore": 1,
+      "reason": "Course involves business planning for outbound tourism but does not emphasize strategic business planning as a main theme."
+    },
+    {
+      "subjectCode": "01681311-66",
+      "subjectName": "การประกอบกิจการยุคใหม่",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers business model planning and strategic thinking tools, including strategic approaches, making it highly relevant to business strategic planning."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Course covers planning and controlling profit but does not focus on overall business strategic planning."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 2,
+      "reason": "Course involves designing marketing and pricing strategies for beverage business, indicating some strategic planning content but limited to marketing and pricing."
+    },
+    {
+      "subjectCode": "02999049-67",
+      "subjectName": "การออกแบบความคิดเชิงสร้างสรรค์สำหรับธุรกิจเพื่อสังคม",
+      "relevanceScore": 2,
+      "reason": "Course includes systematic business planning for social enterprises and strategic competitive advantage, partially covering strategic business planning."
+    },
+    {
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "relevanceScore": 1,
+      "reason": "Course mentions basic business planning for pet business but strategic planning is not a main focus."
+    },
+    {
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course covers basic business principles and decision making but does not focus on strategic business planning."
+    },
+    {
+      "subjectCode": "01999112-67",
+      "subjectName": "แนวคิดเศรษฐกิจหมุนเวียนเพื่อความยั่งยืน",
+      "relevanceScore": 2,
+      "reason": "Course includes designing business and project plans under circular economy concept, partially relevant to strategic business planning."
+    },
+    {
+      "subjectCode": "02052581-68",
+      "subjectName": "การจัดการธุรกิจเกษตรเพื่อผู้ประกอบการสมัยใหม่",
+      "relevanceScore": 2,
+      "reason": "Course covers planning and writing agricultural business plans and management, indicating some relevance to strategic business planning."
+    },
+    {
+      "subjectCode": "02747441-65",
+      "subjectName": "การจัดการเชิงกลยุทธ์ในธุรกิจการบิน",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers strategic management in aviation business including strategic analysis, planning, and implementation, directly relevant to business strategic planning."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 1.9166666666666667,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 41.666666666666664,
+        "microAverageRate": 41.666666666666664,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.802,
+        "at10": 0.848,
+        "at15": 0.929,
+        "atAll": 0.929
+      },
+      "ideal": {
+        "at5": 0.728,
+        "at10": 0.661,
+        "at15": 0.59,
+        "atAll": 0.68
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.6,
+      "at15": 0.667,
+      "atAll": 0.667
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2370,
+  "outputTokens": 432
+}

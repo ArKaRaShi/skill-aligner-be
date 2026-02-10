@@ -1,0 +1,156 @@
+{
+  "testCaseId": "1e7e132d-31b7-49fe-91dc-c2e0358a1b24-การตัดสินใจและแก้ไขปัญหา",
+  "question": "อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม",
+  "skill": "การตัดสินใจและแก้ไขปัญหา",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "02741521-65",
+      "subjectName": "เทคโนโลยีการบำบัดสำหรับสิ่งแวดล้อม",
+      "relevanceScore": 2,
+      "reason": "Course includes evaluating situations and selecting appropriate treatment methods, which involves decision making and problem solving related to environmental treatment."
+    },
+    {
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes analyzing, deciding, and solving ethical problems as a primary learning outcome, directly matching the skill."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 3,
+      "reason": "Course focuses on analyzing and solving problems through research processes, which is comprehensive coverage of decision making and problem solving."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 3,
+      "reason": "Course outcomes include analyzing problems and finding solutions through research, directly addressing decision making and problem solving."
+    },
+    {
+      "subjectCode": "01357353-68",
+      "subjectName": "การล่ามภาษาเยอรมัน",
+      "relevanceScore": 2,
+      "reason": "Course mentions identifying and solving problems related to interpreting (translation), indicating some focus on problem solving."
+    },
+    {
+      "subjectCode": "01999111-67",
+      "subjectName": "ศาสตร์แห่งแผ่นดิน",
+      "relevanceScore": 2,
+      "reason": "Course includes proposing problem-solving approaches using appropriate thinking skills, indicating fair relevance."
+    },
+    {
+      "subjectCode": "02727104-67",
+      "subjectName": "สิ่งมีชีวิตกับภัยพิบัติทางธรรมชาติ",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes decision making and problem solving in natural disaster contexts as a main learning outcome."
+    },
+    {
+      "subjectCode": "01008211-64",
+      "subjectName": "โรคพืชวิทยาเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course includes selecting problem-solving approaches for plant diseases, indicating fair relevance."
+    },
+    {
+      "subjectCode": "02714101-67",
+      "subjectName": "การคิดเชิงวิพากษ์และการแก้ปัญหา",
+      "relevanceScore": 3,
+      "reason": "Course is focused on critical thinking and problem solving, directly matching the skill."
+    },
+    {
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 3,
+      "reason": "Course outcomes include analyzing and solving problems using integrated knowledge, directly relevant to the skill."
+    },
+    {
+      "subjectCode": "03651321-65",
+      "subjectName": "การวิเคราะห์การตัดสินใจและการประยุกต์",
+      "relevanceScore": 3,
+      "reason": "Course covers decision analysis and application comprehensively, including decision models and principles, highly relevant."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 2,
+      "reason": "Course includes analyzing and solving financial problems in airline business, indicating fair relevance."
+    },
+    {
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "relevanceScore": 3,
+      "reason": "Course includes analyzing, selecting investments, and solving problems appropriately, directly relevant."
+    },
+    {
+      "subjectCode": "01689492-66",
+      "subjectName": "การเรียนรู้ผ่านประสบการณ์ด้านการบูรณาการศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Course includes selecting theories to solve real problems, indicating some focus on problem solving."
+    },
+    {
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 3,
+      "reason": "Course includes planning, conducting research, and solving problems during research, comprehensively covering decision making and problem solving."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 2.6,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 40,
+        "microAverageRate": 40,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 9,
+        "macroAverageRate": 60,
+        "microAverageRate": 60,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.843,
+        "at10": 0.867,
+        "at15": 0.939,
+        "atAll": 0.939
+      },
+      "ideal": {
+        "at5": 0.843,
+        "at10": 0.849,
+        "at15": 0.853,
+        "atAll": 0.853
+      }
+    },
+    "precision": {
+      "at5": 1,
+      "at10": 1,
+      "at15": 1,
+      "atAll": 1
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3314,
+  "outputTokens": 501
+}

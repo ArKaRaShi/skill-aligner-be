@@ -1,0 +1,23 @@
+[
+  {
+    "iterationNumber": 1,
+    "totalIncorrectClassifications": 1,
+    "incorrectRecords": [
+      {
+        "question": "อยากเรียนอะไรซักอย่างที่มีประโยชน์ แต่ไม่รู้จะเริ่มยังไง",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Outcome/Goal-Oriented (Pattern B) - user expresses a desire to learn something useful but does not specify a concept, implying a general interest in acquiring new skills.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "091cc4c3e357f7ecd9e39a2a20a34bb4644cc63d947cb8bd7be8e6cc8966803b",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nอยากเรียนอะไรซักอย่างที่มีประโยชน์ แต่ไม่รู้จะเริ่มยังไง\n",
+          "promptVersion": "v17",
+          "timestamp": "2026-01-23T06:37:46.943Z"
+        }
+      }
+    ],
+    "timestamp": "2026-01-23T06:37:46.950Z"
+  }
+]

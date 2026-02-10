@@ -1,0 +1,114 @@
+{
+  "testCaseId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การประยุกต์ใช้ปัญญาประดิษฐ์",
+  "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+  "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+  "retrievedCount": 8,
+  "evaluations": [
+    {
+      "subjectCode": "03610111-66",
+      "subjectName": "เปิดโลกวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Course covers basic concepts and introductory use of AI tools, including AI systems and IoT, providing useful foundational knowledge but not comprehensive application."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 3,
+      "reason": "Course explicitly focuses on AI applications, including creating AI-based applications and using AI technologies in daily life and business, matching the skill of AI application."
+    },
+    {
+      "subjectCode": "01204561-66",
+      "subjectName": "ปัญญาประดิษฐ์ขั้นสูง",
+      "relevanceScore": 3,
+      "reason": "Course is advanced AI focusing on applying AI technologies to solve problems and design intelligent systems, directly aligned with AI application skill."
+    },
+    {
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Course applies AI principles specifically to animal science, covering AI-based forecasting and nutritional needs, thus fairly relevant as a domain-specific AI application."
+    },
+    {
+      "subjectCode": "04252522-67",
+      "subjectName": "ปัญญาประดิษฐ์และโครงข่ายประสาทเทียม",
+      "relevanceScore": 3,
+      "reason": "Course covers AI and neural networks with emphasis on applying AI models to real problems and developing AI techniques, highly relevant to AI application skill."
+    },
+    {
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "relevanceScore": 0,
+      "reason": "Course is about applied psychology in community with no mention or connection to AI application."
+    },
+    {
+      "subjectCode": "01023512-68",
+      "subjectName": "การคำนวณสูตรอาหารสัตว์อุตสาหกรรม",
+      "relevanceScore": 2,
+      "reason": "Course uses AI tools for animal feed formulation and data analysis, indicating a fair level of AI application in a specific domain."
+    },
+    {
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "relevanceScore": 0,
+      "reason": "Course focuses on rehabilitation science internship with no mention or connection to AI application."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 8,
+    "meanRelevanceScore": 1.875,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 37.5,
+        "microAverageRate": 37.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 37.5,
+        "microAverageRate": 37.5,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.924,
+        "at10": 0.925,
+        "at15": 0.925,
+        "atAll": 0.925
+      },
+      "ideal": {
+        "at5": 0.838,
+        "at10": 0.593,
+        "at15": 0.46,
+        "atAll": 0.681
+      }
+    },
+    "precision": {
+      "at5": 1,
+      "at10": 0.75,
+      "at15": 0.75,
+      "atAll": 0.75
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1820,
+  "outputTokens": 316
+}

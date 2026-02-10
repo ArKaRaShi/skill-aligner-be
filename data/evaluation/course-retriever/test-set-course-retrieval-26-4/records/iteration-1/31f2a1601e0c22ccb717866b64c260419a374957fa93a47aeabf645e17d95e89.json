@@ -1,0 +1,186 @@
+{
+  "questionIds": [
+    "00e399aa-cf3c-472b-b5be-9a6e86e10637-การวิเคราะห์และตีความกฎหมาย"
+  ],
+  "skill": "การวิเคราะห์และตีความกฎหมาย",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 1,
+      "reason": "Course covers basic principles of law but does not explicitly mention analysis or interpretation of law."
+    },
+    {
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes interpreting and applying general principles of civil and personal law, directly covering legal analysis and interpretation."
+    },
+    {
+      "subjectCode": "01603121-65",
+      "subjectName": "จรรยาบรรณและกฎหมายทางการพยาบาลสัตว์",
+      "relevanceScore": 1,
+      "reason": "Course covers understanding of ethics and related laws but does not focus on legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Course is about business Chinese language and culture, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Course is about business Chinese language and culture, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Course is about business Chinese language and culture, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on research methods and thesis work, no mention of legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01456498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 2,
+      "reason": "Course involves analyzing and summarizing criminology and justice system issues, which relates fairly to legal analysis and interpretation."
+    },
+    {
+      "subjectCode": "04306141-64",
+      "subjectName": "หลักรัฐศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course covers political science concepts, no direct relation to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01453113-68",
+      "subjectName": "ประวัติศาสตร์กฎหมาย",
+      "relevanceScore": 1,
+      "reason": "Course covers history and evolution of law but does not focus on analysis or interpretation of law."
+    },
+    {
+      "subjectCode": "03754231-67",
+      "subjectName": "การอ่านภาษาอังกฤษในชีวิตประจำวัน",
+      "relevanceScore": 0,
+      "reason": "Course is about English reading skills, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "02804211-67",
+      "subjectName": "กฎหมายและจรรยาบรรณวิชาชีพในธุรกิจการบิน",
+      "relevanceScore": 2,
+      "reason": "Course includes analysis of aviation law regulations, somewhat relevant to legal analysis and interpretation."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on innovation and product development, unrelated to legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "06903496-66",
+      "subjectName": "เรื่องเฉพาะทางการท่องเที่ยวเชิงสุขภาพ",
+      "relevanceScore": 0,
+      "reason": "Course covers research principles in health tourism, no mention of legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "06902491-66",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางการท่องเที่ยวเชิงวัฒนธรรม",
+      "relevanceScore": 0,
+      "reason": "Course covers research methods in cultural tourism, no mention of legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "06903491-66",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางการท่องเที่ยวเชิงสุขภาพ",
+      "relevanceScore": 0,
+      "reason": "Course covers research methods in health tourism, no mention of legal analysis or interpretation."
+    },
+    {
+      "subjectCode": "01600391-65",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางเทคนิคการสัตวแพทย์",
+      "relevanceScore": 0,
+      "reason": "Course covers research methods in veterinary techniques, no mention of legal analysis or interpretation."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.5882352941176471,
+    "totalRelevanceSum": 10,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 11,
+        "macroAverageRate": 64.70588235294117,
+        "microAverageRate": 64.70588235294117,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 17.647058823529413,
+        "microAverageRate": 17.647058823529413,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 11.764705882352942,
+        "microAverageRate": 11.764705882352942,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.558,
+        "at10": 0.67,
+        "at15": 0.754,
+        "atAll": 0.754
+      },
+      "ideal": {
+        "at5": 0.384,
+        "at10": 0.316,
+        "at15": 0.276,
+        "atAll": 0.255
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.2,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.5,
+        "threshold2": 0.2,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.353,
+        "threshold2": 0.176,
+        "threshold3": 0.059
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2674,
+  "outputTokens": 547
+}

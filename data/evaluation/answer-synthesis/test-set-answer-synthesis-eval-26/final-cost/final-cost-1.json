@@ -1,0 +1,165 @@
+{
+  "iterations": 1,
+  "timestamp": "2026-01-26T15:11:21.713Z",
+  "testSetName": "test-set-answer-synthesis-eval-26",
+  "judgeModel": "gpt-5-mini",
+  "judgeProvider": "openrouter",
+  "aggregateStats": {
+    "totalSamples": 26,
+    "totalTokens": {
+      "input": 293930,
+      "output": 30357,
+      "total": 324287
+    },
+    "totalCost": 0.1341965,
+    "averageCostPerSample": 0.005161403846153846
+  },
+  "perIterationCosts": [
+    {
+      "iteration": 1,
+      "timestamp": "2026-01-26T15:11:21.713Z",
+      "testSetName": "test-set-answer-synthesis-eval-26",
+      "judgeModel": "gpt-5-mini",
+      "judgeProvider": "openrouter",
+      "samples": 26,
+      "totalTokens": {
+        "input": 293930,
+        "output": 30357,
+        "total": 324287
+      },
+      "totalCost": 0.1341965,
+      "tokenUsage": [
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 7065,
+          "outputTokens": 1118
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 8405,
+          "outputTokens": 798
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 8632,
+          "outputTokens": 1047
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 6220,
+          "outputTokens": 1095
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 14939,
+          "outputTokens": 600
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 7959,
+          "outputTokens": 1148
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 13398,
+          "outputTokens": 1286
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 11950,
+          "outputTokens": 953
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 13804,
+          "outputTokens": 1265
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 11594,
+          "outputTokens": 958
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 8691,
+          "outputTokens": 767
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 10606,
+          "outputTokens": 1239
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 11165,
+          "outputTokens": 1829
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 9360,
+          "outputTokens": 1807
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 13595,
+          "outputTokens": 813
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 10867,
+          "outputTokens": 1099
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 15156,
+          "outputTokens": 1503
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 7653,
+          "outputTokens": 1617
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 23515,
+          "outputTokens": 996
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 10985,
+          "outputTokens": 846
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 13745,
+          "outputTokens": 1055
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 8850,
+          "outputTokens": 1268
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 12900,
+          "outputTokens": 1501
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 12202,
+          "outputTokens": 1235
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 16344,
+          "outputTokens": 1445
+        },
+        {
+          "model": "openai/gpt-5-mini",
+          "inputTokens": 4330,
+          "outputTokens": 1069
+        }
+      ]
+    }
+  ]
+}

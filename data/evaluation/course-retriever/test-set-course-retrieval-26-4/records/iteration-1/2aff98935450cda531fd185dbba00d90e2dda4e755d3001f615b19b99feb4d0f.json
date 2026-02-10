@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "01c601d2-5583-4413-a5c6-5f463efd897c-พื้นฐานการเขียนโปรแกรม"
+  ],
+  "skill": "พื้นฐานการเขียนโปรแกรม",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 3,
+      "reason": "Course name and outcomes focus on fundamental principles of structured programming and basic programming skills, directly covering the skill 'พื้นฐานการเขียนโปรแกรม' comprehensively."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about engineering drawing and use of CAD software, unrelated to programming basics."
+    },
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 2,
+      "reason": "Course covers object-oriented programming principles and programming for robotics applications, which includes programming but focuses on a specific paradigm and application, not general programming basics."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "Course content is about polymer chemistry, unrelated to programming."
+    },
+    {
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on English reading and writing skills, unrelated to programming."
+    },
+    {
+      "subjectCode": "04256131-66",
+      "subjectName": "โปรแกรมตารางทำการเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about spreadsheet software usage, not programming fundamentals."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 3,
+      "reason": "Course outcomes include writing application programs, understanding basic data structures and algorithms, and problem-solving with programming, directly covering programming basics."
+    },
+    {
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about basic English grammar, unrelated to programming."
+    },
+    {
+      "subjectCode": "01419499-65",
+      "subjectName": "โครงงานจุลชีววิทยา",
+      "relevanceScore": 0,
+      "reason": "Course is about microbiology project planning and reporting, unrelated to programming."
+    },
+    {
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "relevanceScore": 1,
+      "reason": "Course involves database design and application programming, which includes some programming but is focused on databases, not general programming basics."
+    },
+    {
+      "subjectCode": "01204325-65",
+      "subjectName": "การสื่อสารข้อมูลและเครือข่ายคอมพิวเตอร์",
+      "relevanceScore": 0,
+      "reason": "Course covers data communication and computer networks, not programming basics."
+    },
+    {
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course is about experimental design in engineering, not programming."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on practical Thai language writing skills, unrelated to programming."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.6923076923076923,
+    "totalRelevanceSum": 9,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 9,
+        "macroAverageRate": 69.23076923076923,
+        "microAverageRate": 69.23076923076923,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.633,
+        "at10": 0.836,
+        "at15": 0.836,
+        "atAll": 0.836
+      },
+      "ideal": {
+        "at5": 0.452,
+        "at10": 0.388,
+        "at15": 0.301,
+        "atAll": 0.329
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.3,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.308,
+        "threshold2": 0.231,
+        "threshold3": 0.154
+      },
+      "atAll": {
+        "threshold1": 0.308,
+        "threshold2": 0.231,
+        "threshold3": 0.154
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2386,
+  "outputTokens": 423
+}

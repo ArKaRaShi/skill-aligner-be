@@ -1,0 +1,144 @@
+{
+  "testCaseId": "a7728000-0818-42b5-a49f-c89f4ee59ab5-การสร้างแบรนด์",
+  "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+  "skill": "การสร้างแบรนด์",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 3,
+      "reason": "Course name and learning outcomes explicitly focus on brand creation and management, including brand strategy, identity design, and communication, directly covering the skill 'การสร้างแบรนด์' comprehensively."
+    },
+    {
+      "subjectCode": "01242141-67",
+      "subjectName": "พื้นฐานคณิตศาสตร์และกลศาสตร์เพื่อการออกแบบ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on mathematics and mechanics for product design, no mention or relation to branding."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 0,
+      "reason": "Course is about innovative technology product design, no indication of branding content."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course covers agricultural product development and market needs, no reference to branding."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Course covers marketing strategies and pricing but does not explicitly address brand creation; branding may be marginally implied."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 1,
+      "reason": "Course on advertising principles may touch on brand promotion but does not focus on brand creation explicitly."
+    },
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Thesis course focused on research skills without mention of branding."
+    },
+    {
+      "subjectCode": "01055571-66",
+      "subjectName": "การบริหารและจัดการสินค้าแฟชั่น",
+      "relevanceScore": 2,
+      "reason": "Course includes planning product groups according to brand concepts and managing fashion products, indicating a fair relevance to brand creation."
+    },
+    {
+      "subjectCode": "01305211-67",
+      "subjectName": "การใช้ประโยชน์วนผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course about product utilization from wood or forest products, no branding content."
+    },
+    {
+      "subjectCode": "01242121-67",
+      "subjectName": "ปฏิบัติการออกแบบภาพและวัตถุ",
+      "relevanceScore": 0,
+      "reason": "Course on design of images and objects, no mention of branding."
+    },
+    {
+      "subjectCode": "01025333-64",
+      "subjectName": "ปฏิบัติการเกษตรเขตร้อน",
+      "relevanceScore": 0,
+      "reason": "Course on tropical agriculture practices, unrelated to branding."
+    },
+    {
+      "subjectCode": "01058321-68",
+      "subjectName": "เทคโนโลยีการบรรจุและอายุการเก็บรักษา",
+      "relevanceScore": 0,
+      "reason": "Course on packaging technology and shelf life, no direct relation to brand creation."
+    },
+    {
+      "subjectCode": "01605698-67",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Special problems/research course unrelated to branding."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.5384615384615384,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 9,
+        "macroAverageRate": 69.23076923076923,
+        "microAverageRate": 69.23076923076923,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.652,
+        "at10": 0.842,
+        "at15": 0.842,
+        "atAll": 0.842
+      },
+      "ideal": {
+        "at5": 0.383,
+        "at10": 0.321,
+        "at15": 0.249,
+        "atAll": 0.272
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.2,
+      "at15": 0.154,
+      "atAll": 0.154
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2569,
+  "outputTokens": 418
+}
