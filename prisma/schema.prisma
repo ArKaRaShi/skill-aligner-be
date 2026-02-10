@@ -6,11 +6,12 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
 }
 
 model User {
-  id        String   @id @db.Uuid
+  id        String   @id @default(uuid()) @db.Uuid
   email     String   @unique
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -19,7 +20,7 @@ model User {
 }
 
 model Campus {
-  id        String    @id @db.Uuid
+  id        String    @id @default(uuid()) @db.Uuid
   code      String    @unique
   nameTh    String?   @map("name_th")
   nameEn    String?   @map("name_en")
@@ -33,7 +34,7 @@ model Campus {
 }
 
 model Faculty {
-  id        String   @id @db.Uuid
+  id        String   @id @default(uuid()) @db.Uuid
   code      String
   nameTh    String?  @map("name_th")
   nameEn    String?  @map("name_en")
@@ -49,7 +50,7 @@ model Faculty {
 }
 
 model Course {
-  id          String   @id @db.Uuid
+  id          String   @id @default(uuid()) @db.Uuid
   campusId    String   @map("campus_id") @db.Uuid
   campus      Campus   @relation(fields: [campusId], references: [id])
   facultyId   String   @map("faculty_id") @db.Uuid
@@ -70,7 +71,7 @@ model Course {
 }
 
 model CourseOffering {
-  id           String   @id @db.Uuid
+  id           String   @id @default(uuid()) @db.Uuid
   courseId     String   @map("course_id") @db.Uuid
   course       Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
   semester     Int
@@ -82,7 +83,7 @@ model CourseOffering {
 }
 
 model CourseLearningOutcome {
-  id               String                       @id @db.Uuid
+  id               String                       @id @default(uuid()) @db.Uuid
   cloNo            Int                          @map("clo_no")
   originalCloName  String                       @map("original_clo_name")
   cleanedCloName   String                       @map("cleaned_clo_name_th")
@@ -102,7 +103,7 @@ model CourseLearningOutcome {
 }
 
 model CourseLearningOutcomeVector {
-  id                     String                       @id @db.Uuid
+  id                     String                       @id @default(uuid()) @db.Uuid
   embeddedText           String                       @unique @map("embedded_text")
   embedding768           Unsupported("vector(768)")?  @map("embedding_768")
   embedding1536          Unsupported("vector(1536)")? @map("embedding_1536")
@@ -114,7 +115,7 @@ model CourseLearningOutcomeVector {
 }
 
 model CourseClickLog {
-  id         String      @id @db.Uuid
+  id         String      @id @default(uuid()) @db.Uuid
   questionId String      @map("question_id") @db.Uuid
   course     Course      @relation(fields: [courseId], references: [id])
   courseId   String      @map("course_id") @db.Uuid
@@ -137,7 +138,7 @@ enum QueryStatus {
 }
 
 model QueryProcessLog {
-  id       String      @id @db.Uuid
+  id       String      @id @default(uuid()) @db.Uuid
   status   QueryStatus @default(PENDING)
   question String
 
@@ -172,7 +173,7 @@ model QueryProcessLog {
 }
 
 model QueryProcessStep {
-  id         String          @id @db.Uuid
+  id         String          @id @default(uuid()) @db.Uuid
   queryLogId String          @map("query_log_id") @db.Uuid
   processLog QueryProcessLog @relation(fields: [queryLogId], references: [id], onDelete: Cascade)
 
@@ -202,7 +203,7 @@ model QueryProcessStep {
 }
 
 model QuestionLog {
-  id                  String                @id @db.Uuid
+  id                  String                @id @default(uuid()) @db.Uuid
   questionText        String                @map("question_text")
   role                String?
   metadata            Json?
@@ -217,7 +218,7 @@ model QuestionLog {
 }
 
 model QuestionLogAnalysis {
-  id            String      @id @db.Uuid
+  id            String      @id @default(uuid()) @db.Uuid
   questionLogId String      @map("question_log_id") @db.Uuid
   questionLog   QuestionLog @relation(fields: [questionLogId], references: [id], onDelete: Cascade)
 
@@ -247,7 +248,7 @@ model QuestionLogAnalysis {
 }
 
 model ExtractedEntity {
-  id         String              @id @db.Uuid
+  id         String              @id @default(uuid()) @db.Uuid
   analysisId String              @map("analysis_id") @db.Uuid
   analysis   QuestionLogAnalysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
 
