@@ -121,4 +121,4 @@ COPY --chown=bun:bun --from=builder-prod /app/node_modules/.prisma ./node_module
 
 
 EXPOSE 3001
-CMD ["bun", "./dist/main.js"]
+CMD ["bun", "./dist/src/main.js"]
