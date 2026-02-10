@@ -52,9 +52,9 @@ model Faculty {
 model Course {
   id          String   @id @default(uuid()) @db.Uuid
   campusId    String   @map("campus_id") @db.Uuid
-  campus      Campus   @relation(fields: [campusId], references: [id])
+  campus      Campus   @relation(fields: [campusId], references: [id], onDelete: Cascade)
   facultyId   String   @map("faculty_id") @db.Uuid
-  faculty     Faculty  @relation(fields: [facultyId], references: [id])
+  faculty     Faculty  @relation(fields: [facultyId], references: [id], onDelete: Cascade)
   // unique bcz
   subjectCode String   @unique @map("subject_code")
   subjectName String   @map("subject_name")

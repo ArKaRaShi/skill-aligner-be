@@ -26,6 +26,8 @@ export const FORBIDDEN_DATABASE_PATTERNS = [
   /localhost:5433\/appdb/, // Specific dev database
   /production/i, // Any URL containing "production"
   /prod/i, // Any URL containing "prod"
+  /pooler\.supabase\.com/i, // Supabase pooler connection (production traffic)
+
   // Add more patterns as needed:
   // /staging/i,
   // /:5432\//, // Block default PostgreSQL port in production

@@ -18,7 +18,9 @@ const EMBEDDING_CONFIG = {
   DIMENSION_1536: 1536,
   BATCH_SIZE: 50, // Texts per embedding batch
   CONCURRENT_BATCHES: 3, // Parallel batches (respect rate limits)
-  CONCURRENT_UPDATES: 10, // Parallel DB updates
+  CONCURRENT_UPDATES: 2, // Parallel DB updates (reduced to avoid connection pool exhaustion)
+  TRANSACTION_MAX_WAIT_MS: 15_000, // Wait for a DB connection/transaction slot
+  TRANSACTION_TIMEOUT_MS: 60_000, // Max time a transaction can run
   LOG_PREFIX_LENGTH: 50, // Characters to show in logs before truncating
 } as const;
 
@@ -67,11 +69,35 @@ export class EmbedPipelineV3 {
   /**
    * Main entry point: Embed all CLOs needing 1536-dimensional embeddings
    * with deduplication and batch processing.
+   * @param options - Optional configuration for batch processing and delete/skip
    */
-  async embedCourseLearningOutcomes(): Promise<void> {
+  async embedCourseLearningOutcomes(options?: {
+    batchSize?: number;
+    concurrentBatches?: number;
+    deleteExisting?: boolean;
+    embed?: boolean;
+  }): Promise<void> {
+    const {
+      batchSize,
+      concurrentBatches,
+      deleteExisting = false,
+      embed = true,
+    } = options || {};
+
     this.logger.log(
       `Starting embedding pipeline v3 for ${EMBEDDING_CONFIG.DIMENSION_1536} dimensions...`,
     );
+
+    // Phase 0: Delete existing embeddings if requested
+    if (deleteExisting) {
+      await this.deleteExisting1536Embeddings();
+    }
+
+    // Skip embedding if --no-embed flag is set
+    if (!embed) {
+      this.logger.log('Skipping embedding (--no-embed flag set).');
+      return;
+    }
 
     // Phase 1: Fetch CLOs needing embedding
     const clos = await this.fetchClosNeedingEmbedding();
@@ -103,16 +129,12 @@ export class EmbedPipelineV3 {
       );
     }
 
-    // Phase 4: Batch embed (only if there are texts to embed)
-    let embeddingResults: EmbeddingResult[] = [];
+    // Phase 4 & 5: Batch embed AND update (streaming: embed batch → update batch → next batch)
     if (textsToEmbed.length > 0) {
-      embeddingResults = await this.batchEmbedTexts(textsToEmbed);
-      this.logger.log(
-        `Successfully embedded ${embeddingResults.length} texts.`,
-      );
-
-      // Phase 5: Update vectors and link CLOs
-      await this.updateVectorsAndLinkCLOs(embeddingResults);
+      await this.batchEmbedAndUpdate(textsToEmbed, {
+        batchSize,
+        concurrentBatches,
+      });
     }
 
     this.logger.log('✅ Embedding pipeline v3 completed.');
@@ -221,146 +243,148 @@ export class EmbedPipelineV3 {
   }
 
   // ==========================================================================
-  // Phase 4: Batch embed texts
+  // Phase 4 & 5: Batch embed AND update (streaming)
   // ==========================================================================
 
   /**
-   * Embed texts in batches with controlled concurrency.
-   * @pure false (API calls)
-   * @testable Yes (can mock embedding client)
+   * Embed texts in batches AND immediately update each batch (streaming).
+   * This prevents overwhelming the database with thousands of concurrent updates.
+   * @pure false (API calls + DB writes)
+   * @testable Yes (can mock embedding client and prisma)
    */
-  private async batchEmbedTexts(
+  private async batchEmbedAndUpdate(
     requests: EmbeddingRequest[],
-  ): Promise<EmbeddingResult[]> {
+    options?: { batchSize?: number; concurrentBatches?: number },
+  ): Promise<void> {
     const embeddingClient = this.getEmbeddingClient();
 
+    // Use provided options or fall back to defaults
+    const batchSize = options?.batchSize ?? EMBEDDING_CONFIG.BATCH_SIZE;
+    const concurrentBatches =
+      options?.concurrentBatches ?? EMBEDDING_CONFIG.CONCURRENT_BATCHES;
+
     // Chunk into batches
-    const batches = ArrayHelper.chunk(requests, EMBEDDING_CONFIG.BATCH_SIZE);
+    const batches = ArrayHelper.chunk(requests, batchSize);
     this.logger.log(
-      `Processing ${batches.length} batches (${EMBEDDING_CONFIG.CONCURRENT_BATCHES} concurrent)...`,
+      `Processing ${batches.length} batches (${concurrentBatches} concurrent, batch size: ${batchSize})...`,
     );
 
-    // Process batches with concurrency limit
-    const limit = pLimit(EMBEDDING_CONFIG.CONCURRENT_BATCHES);
+    // Process batches with concurrency limit (streaming: embed → update per batch)
+    const limit = pLimit(concurrentBatches);
+    const updateLimit = pLimit(EMBEDDING_CONFIG.CONCURRENT_UPDATES);
 
     const batchResults = await Promise.allSettled(
       batches.map(({ batchNumber, totalBatches, items: batch }) =>
         limit(async () =>
-          this.embedBatch(batch, batchNumber, totalBatches, embeddingClient),
+          this.embedBatchAndUpdate(
+            batch,
+            batchNumber,
+            totalBatches,
+            embeddingClient,
+            updateLimit,
+          ),
         ),
       ),
     );
 
-    // Flatten results and handle failures
-    const results: EmbeddingResult[] = [];
+    // Handle failures
+    let successCount = 0;
     let failedCount = 0;
 
     for (const batchResult of batchResults) {
       if (batchResult.status === 'fulfilled') {
-        results.push(...batchResult.value);
+        successCount += batchResult.value;
       } else {
         failedCount++;
         this.logger.error(`Batch failed:`, batchResult.reason);
       }
     }
 
-    if (failedCount > 0) {
-      this.logger.warn(
-        `${failedCount} batches failed, ${results.length} texts embedded successfully.`,
-      );
-    }
-
-    return results;
+    this.logger.log(
+      `✅ Batch processing complete: ${successCount} texts embedded and updated, ${failedCount} batches failed.`,
+    );
   }
 
   /**
-   * Embed a single batch of texts in parallel.
+   * Embed a single batch AND immediately update all vectors in that batch.
+   * Returns the number of texts successfully processed.
    */
-  private async embedBatch(
+  private async embedBatchAndUpdate(
     batch: EmbeddingRequest[],
     batchNumber: number,
     totalBatches: number,
     embeddingClient: OpenRouterEmbeddingProvider,
-  ): Promise<EmbeddingResult[]> {
+    updateLimit: ReturnType<typeof pLimit>,
+  ): Promise<number> {
     this.logger.log(
-      `Embedding batch ${batchNumber}/${totalBatches} (${batch.length} texts)...`,
+      `Embedding batch ${batchNumber}/${totalBatches} (${batch.length} texts via embedMany)...`,
     );
 
-    // Embed all texts in this batch in parallel
-    const embedResults = await Promise.allSettled(
-      batch.map(async ({ text }) => {
-        const embedResult = await embeddingClient.embedOne({
-          text,
-          role: 'passage',
-        });
+    // Extract texts for embedMany
+    const texts = batch.map((b) => b.text);
 
-        // Validate dimension
-        if (embedResult.vector.length !== EMBEDDING_CONFIG.DIMENSION_1536) {
-          throw new Error(
-            `Expected ${EMBEDDING_CONFIG.DIMENSION_1536} dimensions, got ${embedResult.vector.length}`,
-          );
-        }
+    // Single API call for all texts in batch
+    const embedResults = await embeddingClient.embedMany({
+      texts,
+      role: 'passage',
+    });
 
-        // Build metadata
-        const vectorMetadata: EmbeddingMetadataJson = {
-          model: embedResult.metadata.model,
-          provider: embedResult.metadata.provider,
-          dimension: embedResult.metadata.dimension,
-          original_text: text,
-          embed_text: embedResult.metadata.embeddedText,
-          generated_at: embedResult.metadata.generatedAt,
-        };
-
-        return { text, embedResult, vectorMetadata };
-      }),
-    );
-
-    // Match results back to their CLOs
+    // Match results back to their CLOs, validate, and build EmbeddingResult[]
     const results: EmbeddingResult[] = [];
 
     for (let i = 0; i < embedResults.length; i++) {
-      const result = embedResults[i];
+      const embedResult = embedResults[i];
+      const request = batch[i];
 
-      if (result.status === 'fulfilled') {
-        results.push({
-          ...result.value,
-          cloIds: batch[i].cloIds,
-        });
-      } else {
-        this.logger.error(
-          `Failed to embed text "${batch[i].text}":`,
-          result.reason,
+      // Validate dimension
+      if (embedResult.vector.length !== EMBEDDING_CONFIG.DIMENSION_1536) {
+        throw new Error(
+          `Expected ${EMBEDDING_CONFIG.DIMENSION_1536} dimensions, got ${embedResult.vector.length}`,
         );
+      }
+
+      // Build metadata
+      const vectorMetadata: EmbeddingMetadataJson = {
+        model: embedResult.metadata.model,
+        provider: embedResult.metadata.provider,
+        dimension: embedResult.metadata.dimension,
+        original_text: request.text,
+        embed_text: embedResult.metadata.embeddedText,
+        generated_at: embedResult.metadata.generatedAt,
+      };
+
+      results.push({
+        text: request.text,
+        cloIds: request.cloIds,
+        embedResult,
+        vectorMetadata,
+      });
+    }
+
+    // IMMEDIATELY update this batch to database (streaming!)
+    this.logger.log(
+      `Updating batch ${batchNumber}/${totalBatches} (${results.length} vectors)...`,
+    );
+
+    const updateResults = await Promise.allSettled(
+      results.map((result) =>
+        updateLimit(() => this.updateVectorAndLinkCLOs(result)),
+      ),
+    );
+
+    let successCount = 0;
+    for (const updateResult of updateResults) {
+      if (updateResult.status === 'fulfilled') {
+        successCount += 1;
       }
     }
 
-    return results;
+    return successCount;
   }
 
   // ==========================================================================
-  // Phase 5: Update vectors and link CLOs
+  // Phase 3.5: Link CLOs to existing vectors
   // ==========================================================================
-
-  /**
-   * Update vector records with embeddings and link all CLOs.
-   * @pure false (DB writes)
-   * @testable Yes (can mock prisma)
-   */
-  private async updateVectorsAndLinkCLOs(
-    results: EmbeddingResult[],
-  ): Promise<void> {
-    this.logger.log(
-      `Updating ${results.length} vector records and linking CLOs...`,
-    );
-
-    const limit = pLimit(EMBEDDING_CONFIG.CONCURRENT_UPDATES);
-
-    await Promise.allSettled(
-      results.map((result) =>
-        limit(() => this.updateVectorAndLinkCLOs(result)),
-      ),
-    );
-  }
 
   /**
    * Link CLOs to existing vectors (when vectors already have 1536 embeddings).
@@ -417,32 +441,38 @@ export class EmbedPipelineV3 {
     const { text, cloIds, embedResult, vectorMetadata } = result;
 
     try {
-      await this.prisma.$transaction(async (tx) => {
-        // Upsert vector record
-        const vectorId = await this.upsertVectorRecord1536(
-          {
-            embeddedText: text,
-            vectorMetadata,
-            embedResult,
-          },
-          tx,
-        );
+      await this.prisma.$transaction(
+        async (tx) => {
+          // Upsert vector record
+          const vectorId = await this.upsertVectorRecord1536(
+            {
+              embeddedText: text,
+              vectorMetadata,
+              embedResult,
+            },
+            tx,
+          );
 
-        // Link ALL CLOs with this text to the vector
-        const updateResult = await tx.courseLearningOutcome.updateMany({
-          where: {
-            id: { in: cloIds },
-          },
-          data: {
-            hasEmbedding1536: true,
-            vectorId,
-          },
-        });
+          // Link ALL CLOs with this text to the vector
+          const updateResult = await tx.courseLearningOutcome.updateMany({
+            where: {
+              id: { in: cloIds },
+            },
+            data: {
+              hasEmbedding1536: true,
+              vectorId,
+            },
+          });
 
-        this.logger.log(
-          `Linked ${updateResult.count} CLO(s) to vector for text: "${text.substring(0, EMBEDDING_CONFIG.LOG_PREFIX_LENGTH)}..."`,
-        );
-      });
+          this.logger.log(
+            `Linked ${updateResult.count} CLO(s) to vector for text: "${text.substring(0, EMBEDDING_CONFIG.LOG_PREFIX_LENGTH)}..."`,
+          );
+        },
+        {
+          maxWait: EMBEDDING_CONFIG.TRANSACTION_MAX_WAIT_MS,
+          timeout: EMBEDDING_CONFIG.TRANSACTION_TIMEOUT_MS,
+        },
+      );
     } catch (error) {
       this.logger.error(
         `Failed to update vector and link CLOs for text "${text}":`,
@@ -528,6 +558,29 @@ export class EmbedPipelineV3 {
   // ==========================================================================
   // Helpers
   // ==========================================================================
+
+  /**
+   * Delete all existing 1536-dimensional embeddings.
+   * This resets hasEmbedding1536 to false and clears vectorId for all CLOs.
+   */
+  private async deleteExisting1536Embeddings(): Promise<void> {
+    this.logger.log('Deleting existing 1536 embeddings...');
+
+    // Reset all CLOs that have 1536 embeddings
+    const result = await this.prisma.courseLearningOutcome.updateMany({
+      where: {
+        hasEmbedding1536: true,
+      },
+      data: {
+        hasEmbedding1536: false,
+        vectorId: null,
+      },
+    });
+
+    this.logger.log(
+      `✅ Reset ${result.count} CLOs (hasEmbedding1536: false, vectorId: null).`,
+    );
+  }
 
   private getEmbeddingClient(): OpenRouterEmbeddingProvider {
     return new OpenRouterEmbeddingProvider({

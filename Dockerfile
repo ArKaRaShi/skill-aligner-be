@@ -36,7 +36,7 @@ COPY --chown=bun:bun test/ test/
 # ============================
 # STAGE: deps-prod  (install prod deps only)
 # Purpose: produce a lean node_modules with ONLY runtime dependencies.
-# Used later by runtime-prod so you don’t ship dev tools to production.
+# Used later by runtime-prod so you don't ship dev tools to production.
 # ============================
 FROM bun-base AS deps-prod
 WORKDIR /app
@@ -71,15 +71,38 @@ COPY --chown=bun:bun --from=deps-dev /app/node_modules ./node_modules
 # Bring source (allowlisted) from base
 COPY --chown=bun:bun --from=base /app ./
 
-# Build your app 
+# Build your app
 RUN bun run build && bunx prisma generate
 
 # ============================
-# STAGE: runtime-prod  (final production image)  ← used when you target runtime-prod
+# STAGE: runtime-dev  (development convenience image)
+# Purpose: includes full deps + sources for watch mode (nest start:dev).
+# Not used in prod; great for local Docker dev loops.
+# Build with: docker build --target runtime-dev -t career-skill-aligner-be:dev .
+# ============================
+FROM bun-base AS runtime-dev
+WORKDIR /app
+
+# Full deps for dev
+COPY --chown=bun:bun --from=deps-dev /app/node_modules ./node_modules
+# Keep sources + tsconfigs for watch mode
+COPY --chown=bun:bun --from=base /app ./
+
+# Generate Prisma client
+RUN bunx prisma generate
+EXPOSE 3001
+CMD ["bun", "run", "start:dev"]
+
+# ============================
+# STAGE: runtime-prod  (final production image - DEFAULT TARGET)
 # Purpose: smallest, safest image:
 #  - prod-only node_modules from deps-prod
 #  - compiled JS from builder-prod
 #  - NO TS sources, NO dev tools
+#
+# This is the LAST stage, so it's the DEFAULT target when running:
+#   docker build -t career-skill-aligner-be:prod .
+#
 # Notes:
 #  - You can add USER non-root for extra hardening if desired.
 #  - Keep Prisma migrations/client copy lines commented/controlled as needed.
@@ -99,21 +122,3 @@ COPY --chown=bun:bun --from=builder-prod /app/node_modules/.prisma ./node_module
 
 EXPOSE 3001
 CMD ["bun", "./dist/main.js"]
-
-# ============================
-# STAGE: runtime-dev  (development convenience image)
-# Purpose: includes full deps + sources for watch mode (nodemon/nest start:dev).
-# Not used in prod; great for local Docker dev loops.
-# ============================
-FROM bun-base AS runtime-dev
-WORKDIR /app
-
-# Full deps for dev (nodemon, etc)
-COPY --chown=bun:bun --from=deps-dev /app/node_modules ./node_modules
-# Keep sources + tsconfigs for watch mode
-COPY --chown=bun:bun --from=base /app ./
-
-# Generate Prisma client
-RUN bunx prisma generate
-EXPOSE 3001
-CMD ["bun", "run", "start:dev"]

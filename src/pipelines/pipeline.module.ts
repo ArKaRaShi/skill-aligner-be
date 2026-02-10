@@ -9,6 +9,7 @@ import { SeedCampusAndFacultyPipeline } from './seed-campus-and-faculty.pipeline
 import { SeedCourseAndLoPipeline } from './seed-course-and-lo.pipeline';
 import { SeedCourseAndLoPipelineV2 } from './seed-course-and-lo.pipeline.v2';
 import { UpdateGenEdCodesPipeline } from './update-gened-codes.pipeline';
+import { UpdateGenEdCodesPipelineV2 } from './update-gened-codes.pipeline.v2';
 
 @Module({
   imports: [EmbeddingModule],
@@ -21,6 +22,7 @@ import { UpdateGenEdCodesPipeline } from './update-gened-codes.pipeline';
     SeedCourseAndLoPipeline,
     SeedCourseAndLoPipelineV2,
     UpdateGenEdCodesPipeline,
+    UpdateGenEdCodesPipelineV2,
   ],
   exports: [PipelineModule],
 })

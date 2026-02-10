@@ -152,19 +152,21 @@ describe('EmbedPipelineV3 (Integration)', () => {
       },
     });
 
-    // Mock embedding client
+    // Mock embedding client to use embedMany
     const mockEmbedding = {
-      embedOne: jest.fn().mockResolvedValue({
-        vector: Array(1536).fill(0.1),
-        metadata: {
-          model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-          provider: EmbeddingProviders.OPENROUTER,
-          dimension: 1536,
-          embeddedText: duplicateText,
-          generatedAt: new Date().toISOString(),
+      embedMany: jest.fn().mockResolvedValue([
+        {
+          vector: Array(1536).fill(0.1),
+          metadata: {
+            model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+            provider: EmbeddingProviders.OPENROUTER,
+            dimension: 1536,
+            embeddedText: duplicateText,
+            generatedAt: new Date().toISOString(),
+          },
         },
-      }),
-      embedMany: jest.fn(),
+      ]),
+      embedOne: jest.fn(),
     };
 
     const getEmbeddingClientSpy = jest
@@ -198,10 +200,10 @@ describe('EmbedPipelineV3 (Integration)', () => {
     expect(updatedClo2?.vectorId).toBe(vectorId);
     expect(updatedClo3?.vectorId).toBe(vectorId);
 
-    // embedOne should only be called ONCE (deduplication!)
-    expect(mockEmbedding.embedOne).toHaveBeenCalledTimes(1);
-    expect(mockEmbedding.embedOne).toHaveBeenCalledWith({
-      text: duplicateText,
+    // embedMany should only be called ONCE with single text (deduplication!)
+    expect(mockEmbedding.embedMany).toHaveBeenCalledTimes(1);
+    expect(mockEmbedding.embedMany).toHaveBeenCalledWith({
+      texts: [duplicateText],
       role: 'passage',
     });
 
@@ -298,17 +300,19 @@ describe('EmbedPipelineV3 (Integration)', () => {
     });
 
     const mockEmbedding = {
-      embedOne: jest.fn().mockResolvedValue({
-        vector: Array(1536).fill(0.2),
-        metadata: {
-          model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-          provider: EmbeddingProviders.OPENROUTER,
-          dimension: 1536,
-          embeddedText: newText,
-          generatedAt: new Date().toISOString(),
+      embedMany: jest.fn().mockResolvedValue([
+        {
+          vector: Array(1536).fill(0.2),
+          metadata: {
+            model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+            provider: EmbeddingProviders.OPENROUTER,
+            dimension: 1536,
+            embeddedText: newText,
+            generatedAt: new Date().toISOString(),
+          },
         },
-      }),
-      embedMany: jest.fn(),
+      ]),
+      embedOne: jest.fn(),
     };
 
     const getEmbeddingClientSpy = jest
@@ -336,10 +340,10 @@ describe('EmbedPipelineV3 (Integration)', () => {
     expect(updatedClo2?.hasEmbedding1536).toBe(true);
     expect(updatedClo2?.vectorId).not.toBeNull();
 
-    // embedOne should only be called for the new text (once)
-    expect(mockEmbedding.embedOne).toHaveBeenCalledTimes(1);
-    expect(mockEmbedding.embedOne).toHaveBeenCalledWith({
-      text: newText,
+    // embedMany should only be called for the new text (once)
+    expect(mockEmbedding.embedMany).toHaveBeenCalledTimes(1);
+    expect(mockEmbedding.embedMany).toHaveBeenCalledWith({
+      texts: [newText],
       role: 'passage',
     });
   });
@@ -389,17 +393,19 @@ describe('EmbedPipelineV3 (Integration)', () => {
     });
 
     const mockEmbedding = {
-      embedOne: jest.fn().mockResolvedValue({
-        vector: Array(1536).fill(0.3),
-        metadata: {
-          model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-          provider: EmbeddingProviders.OPENROUTER,
-          dimension: 1536,
-          embeddedText: 'Understand machine learning',
-          generatedAt: new Date().toISOString(),
+      embedMany: jest.fn().mockResolvedValue([
+        {
+          vector: Array(1536).fill(0.3),
+          metadata: {
+            model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+            provider: EmbeddingProviders.OPENROUTER,
+            dimension: 1536,
+            embeddedText: 'Understand machine learning',
+            generatedAt: new Date().toISOString(),
+          },
         },
-      }),
-      embedMany: jest.fn(),
+      ]),
+      embedOne: jest.fn(),
     };
 
     const getEmbeddingClientSpy = jest
@@ -420,8 +426,8 @@ describe('EmbedPipelineV3 (Integration)', () => {
     expect(updatedClo?.hasEmbedding1536).toBe(true);
     expect(updatedClo?.vectorId).not.toBeNull();
 
-    expect(mockEmbedding.embedOne).toHaveBeenCalledWith({
-      text: 'Understand machine learning',
+    expect(mockEmbedding.embedMany).toHaveBeenCalledWith({
+      texts: ['Understand machine learning'],
       role: 'passage',
     });
 
@@ -505,17 +511,19 @@ describe('EmbedPipelineV3 (Integration)', () => {
     `;
 
     const mockEmbedding = {
-      embedOne: jest.fn().mockResolvedValue({
-        vector: Array(1536).fill(0.4),
-        metadata: {
-          model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-          provider: EmbeddingProviders.OPENROUTER,
-          dimension: 1536,
-          embeddedText: 'Design database systems',
-          generatedAt: new Date().toISOString(),
+      embedMany: jest.fn().mockResolvedValue([
+        {
+          vector: Array(1536).fill(0.4),
+          metadata: {
+            model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+            provider: EmbeddingProviders.OPENROUTER,
+            dimension: 1536,
+            embeddedText: 'Design database systems',
+            generatedAt: new Date().toISOString(),
+          },
         },
-      }),
-      embedMany: jest.fn(),
+      ]),
+      embedOne: jest.fn(),
     };
 
     const getEmbeddingClientSpy = jest
@@ -603,17 +611,19 @@ describe('EmbedPipelineV3 (Integration)', () => {
     });
 
     const mockEmbedding = {
-      embedOne: jest.fn().mockResolvedValue({
-        vector: Array(1536).fill(0.5),
-        metadata: {
-          model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-          provider: EmbeddingProviders.OPENROUTER,
-          dimension: 1536,
-          embeddedText: 'Skipped outcome',
-          generatedAt: new Date().toISOString(),
+      embedMany: jest.fn().mockResolvedValue([
+        {
+          vector: Array(1536).fill(0.5),
+          metadata: {
+            model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+            provider: EmbeddingProviders.OPENROUTER,
+            dimension: 1536,
+            embeddedText: 'Skipped outcome',
+            generatedAt: new Date().toISOString(),
+          },
         },
-      }),
-      embedMany: jest.fn(),
+      ]),
+      embedOne: jest.fn(),
     };
 
     const getEmbeddingClientSpy = jest
@@ -633,7 +643,7 @@ describe('EmbedPipelineV3 (Integration)', () => {
     });
     expect(updatedClo?.hasEmbedding1536).toBe(false);
     expect(updatedClo?.vectorId).toBeNull();
-    expect(mockEmbedding.embedOne).not.toHaveBeenCalled();
+    expect(mockEmbedding.embedMany).not.toHaveBeenCalled();
   });
 
   // ==========================================================================
@@ -697,17 +707,20 @@ describe('EmbedPipelineV3 (Integration)', () => {
     }
 
     const mockEmbedding = {
-      embedOne: jest.fn().mockImplementation(({ text }) => ({
-        vector: Array(1536).fill(0.6),
-        metadata: {
-          model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-          provider: EmbeddingProviders.OPENROUTER,
-          dimension: 1536,
-          embeddedText: text as string,
-          generatedAt: new Date().toISOString(),
-        },
-      })),
-      embedMany: jest.fn(),
+      embedMany: jest.fn().mockImplementation(({ texts }) => {
+        // Return one result per unique text
+        return (texts as string[]).map((text) => ({
+          vector: Array(1536).fill(0.6),
+          metadata: {
+            model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+            provider: EmbeddingProviders.OPENROUTER,
+            dimension: 1536,
+            embeddedText: text,
+            generatedAt: new Date().toISOString(),
+          },
+        }));
+      }),
+      embedOne: jest.fn(),
     };
 
     const getEmbeddingClientSpy = jest
@@ -730,8 +743,8 @@ describe('EmbedPipelineV3 (Integration)', () => {
       expect(updatedClo?.hasEmbedding1536).toBe(true);
     }
 
-    // embedOne should only be called for UNIQUE texts (5 unique: A, B, C, D, E)
-    expect(mockEmbedding.embedOne).toHaveBeenCalledTimes(5);
+    // embedMany should only be called for each batch of unique texts
+    expect(mockEmbedding.embedMany).toHaveBeenCalled();
 
     // Verify we only have 5 vector records (one per unique text)
     const vectors = await prisma.courseLearningOutcomeVector.findMany();
@@ -748,17 +761,19 @@ describe('EmbedPipelineV3 (Integration)', () => {
   it('handles empty dataset gracefully', async () => {
     // Arrange - No CLOs in database
     const mockEmbedding = {
-      embedOne: jest.fn().mockResolvedValue({
-        vector: Array(1536).fill(0.7),
-        metadata: {
-          model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-          provider: EmbeddingProviders.OPENROUTER,
-          dimension: 1536,
-          embeddedText: 'test',
-          generatedAt: new Date().toISOString(),
+      embedMany: jest.fn().mockResolvedValue([
+        {
+          vector: Array(1536).fill(0.7),
+          metadata: {
+            model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+            provider: EmbeddingProviders.OPENROUTER,
+            dimension: 1536,
+            embeddedText: 'test',
+            generatedAt: new Date().toISOString(),
+          },
         },
-      }),
-      embedMany: jest.fn(),
+      ]),
+      embedOne: jest.fn(),
     };
 
     const getEmbeddingClientSpy = jest
@@ -773,7 +788,7 @@ describe('EmbedPipelineV3 (Integration)', () => {
     }
 
     // Assert - Should complete without error
-    expect(mockEmbedding.embedOne).not.toHaveBeenCalled();
+    expect(mockEmbedding.embedMany).not.toHaveBeenCalled();
   });
 
   it('handles dataset where all texts already have embeddings', async () => {
@@ -833,17 +848,19 @@ describe('EmbedPipelineV3 (Integration)', () => {
     });
 
     const mockEmbedding = {
-      embedOne: jest.fn().mockResolvedValue({
-        vector: Array(1536).fill(0.9),
-        metadata: {
-          model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
-          provider: EmbeddingProviders.OPENROUTER,
-          dimension: 1536,
-          embeddedText: existingText,
-          generatedAt: new Date().toISOString(),
+      embedMany: jest.fn().mockResolvedValue([
+        {
+          vector: Array(1536).fill(0.9),
+          metadata: {
+            model: EmbeddingModels.OPENROUTER_OPENAI_3_SMALL,
+            provider: EmbeddingProviders.OPENROUTER,
+            dimension: 1536,
+            embeddedText: existingText,
+            generatedAt: new Date().toISOString(),
+          },
         },
-      }),
-      embedMany: jest.fn(),
+      ]),
+      embedOne: jest.fn(),
     };
 
     const getEmbeddingClientSpy = jest
@@ -858,7 +875,7 @@ describe('EmbedPipelineV3 (Integration)', () => {
     }
 
     // Assert - No new embeddings should be created
-    expect(mockEmbedding.embedOne).not.toHaveBeenCalled();
+    expect(mockEmbedding.embedMany).not.toHaveBeenCalled();
 
     const clos = await prisma.courseLearningOutcome.findMany();
     expect(clos).toHaveLength(1);
