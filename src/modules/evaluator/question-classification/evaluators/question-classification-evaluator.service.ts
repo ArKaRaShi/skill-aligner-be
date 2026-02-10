@@ -28,6 +28,7 @@ import {
 } from '../test-sets/question-set-v6.constant';
 import { QUESTION_SET_V8 as _QUESTION_SET_V8 } from '../test-sets/question-set-v8.constant';
 import { QUESTION_SET_V9 as _QUESTION_SET_V9 } from '../test-sets/question-set-v9.constant';
+import { QUESTION_SET_V10 as _QUESTION_SET_V10 } from '../test-sets/question-set-v10.constant';
 
 @Injectable()
 export class QuestionClassificationEvaluatorService {
