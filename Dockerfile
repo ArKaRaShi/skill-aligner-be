@@ -25,10 +25,11 @@ WORKDIR /app
 # Only package files first -> best cache hits for bun install
 COPY --chown=bun:bun package.json ./
 COPY --chown=bun:bun bun.lock ./
-# Build inputs (no .env, no docs, no tests)
+# Build inputs (no .env, no docs, but tests for type-checking)
 COPY --chown=bun:bun tsconfig*.json ./
 COPY --chown=bun:bun src/ src/
 COPY --chown=bun:bun prisma/ prisma/
+COPY --chown=bun:bun test/ test/
 
 
 
@@ -42,7 +43,7 @@ WORKDIR /app
 COPY --chown=bun:bun --from=base /app/package.json ./package.json
 COPY --chown=bun:bun --from=base /app/bun.lock ./bun.lock
 COPY --chown=bun:bun --from=base /app/prisma ./prisma
-RUN bun install --production --frozen-lockfile
+RUN bun install --production --frozen-lockfile --ignore-scripts
 
 # ============================
 # STAGE: deps-dev  (install full deps)

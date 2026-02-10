@@ -10,7 +10,6 @@ import { EmbeddingMetadataJson } from 'src/shared/contracts/types/stored-embeddi
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { ArrayHelper } from 'src/shared/utils/array.helper';
-import { v4 as uuidv4 } from 'uuid';
 
 // Define combined metadata structure that supports both embedding dimensions
 type CombinedVectorMetadata = {
@@ -112,10 +111,10 @@ export class EmbedPipelineV2 {
         }
 
         // Prepare for embedding - create vector record if it doesn't exist
-        const vectorId = existingVector?.id || uuidv4();
+        let vectorId = existingVector?.id ?? null;
 
-        if (!existingVector) {
-          await this.prisma.$executeRaw`
+        if (!vectorId) {
+          const insertedRows = await this.prisma.$queryRaw<{ id: string }[]>`
             INSERT INTO course_learning_outcome_vectors (
               id,
               embedded_text,
@@ -125,7 +124,7 @@ export class EmbedPipelineV2 {
               created_at
             )
             VALUES (
-              ${vectorId}::uuid,
+              gen_random_uuid(),
               ${combinedText},
               NULL,
               NULL,
@@ -133,7 +132,23 @@ export class EmbedPipelineV2 {
               NOW()
             )
             ON CONFLICT (embedded_text) DO NOTHING
+            RETURNING id
           `;
+
+          vectorId = insertedRows[0]?.id ?? null;
+
+          if (!vectorId) {
+            const existingAfterInsert =
+              await this.findExistingVectorRecord(combinedText);
+            vectorId = existingAfterInsert?.id ?? null;
+          }
+        }
+
+        if (!vectorId) {
+          this.logger.error(
+            `Failed to resolve vector ID for CLO ID ${clo.id} (text: ${combinedText}).`,
+          );
+          continue;
         }
 
         cloVectorMappings.push({
@@ -302,8 +317,6 @@ export class EmbedPipelineV2 {
     }
 
     const vectorSql = this.buildVectorSql(embedResult.vector, dimension);
-    const vectorId = existingVectorId ?? uuidv4();
-
     if (existingVectorId) {
       // Get existing metadata to merge with new metadata
       const existingVector = await tx.$queryRaw<
@@ -348,7 +361,7 @@ export class EmbedPipelineV2 {
     const embedding1536Value =
       vectorColumn === 'embedding_1536' ? vectorSql : Prisma.sql`NULL`;
 
-    await tx.$executeRaw`
+    const insertedRows = await tx.$queryRaw<{ id: string }[]>`
       INSERT INTO course_learning_outcome_vectors (
         id,
         embedded_text,
@@ -358,16 +371,24 @@ export class EmbedPipelineV2 {
         created_at
       )
       VALUES (
-        ${vectorId}::uuid,
+        gen_random_uuid(),
         ${embeddedText},
         ${embedding768Value},
         ${embedding1536Value},
         ${metadataJson}::jsonb,
         NOW()
       )
+      RETURNING id
     `;
 
-    return vectorId;
+    const insertedId = insertedRows[0]?.id ?? null;
+    if (!insertedId) {
+      throw new Error(
+        `Failed to insert vector record for embedded text: ${embeddedText}`,
+      );
+    }
+
+    return insertedId;
   }
 
   private buildVectorSql(vector: number[], dimension: number): Prisma.Sql {
