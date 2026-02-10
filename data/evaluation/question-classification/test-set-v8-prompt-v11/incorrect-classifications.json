@@ -1,0 +1,23 @@
+[
+  {
+    "iterationNumber": 1,
+    "totalIncorrectClassifications": 1,
+    "incorrectRecords": [
+      {
+        "question": "คณะวิศวกรรมศาสตร์ มีวิชาเกี่ยวกับ AI เปิดสอนปีหน้ารึป่าว",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Explicitly asking if the faculty offers AI-related courses next year, which is a direct request for a course related to AI.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "fcea50ee40e6fa27a95ee8a7f6cab8710279aa7f896f58a88a3599eedb660bd7",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nคณะวิศวกรรมศาสตร์ มีวิชาเกี่ยวกับ AI เปิดสอนปีหน้ารึป่าว\n",
+          "promptVersion": "v11",
+          "timestamp": "2025-12-24T07:16:46.339Z"
+        }
+      }
+    ],
+    "timestamp": "2025-12-24T07:16:46.346Z"
+  }
+]

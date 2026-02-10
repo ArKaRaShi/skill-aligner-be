@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การตีความข้อมูลทางการเงิน"
+  ],
+  "skill": "การตีความข้อมูลทางการเงิน",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 3,
+      "reason": "The course focuses on financial statement analysis and valuation, which directly relates to interpreting financial data, making it highly relevant."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 2,
+      "reason": "The course covers analyzing financial reports as part of international accounting, providing some relevant skills but not primarily focused on interpretation."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 2,
+      "reason": "Data analysis for accounting includes analyzing data, which is related, but interpretation of financial data is only a part of broader data analysis skills."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Financial statement analysis is mentioned as a basic skill, but interpretation is not a primary focus."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 2,
+      "reason": "The course includes basic financial statement analysis, which is relevant, but interpretation is not the main theme."
+    },
+    {
+      "subjectCode": "03759211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 1,
+      "reason": "The course discusses financial analysis as part of financial management, but interpretation of financial data is only briefly mentioned."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 2,
+      "reason": "Strategic management accounting involves analyzing financial data for decision-making, relevant but not solely focused on interpretation."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "The seminar focuses on presentation and communication skills, not on interpreting financial data."
+    },
+    {
+      "subjectCode": "02802113-67",
+      "subjectName": "การบัญชีเฉพาะงานบริการ",
+      "relevanceScore": 1,
+      "reason": "Accounting for service-specific tasks involves recording and reporting, with limited emphasis on interpreting financial data."
+    },
+    {
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "relevanceScore": 1,
+      "reason": "Personal financial management includes planning and explanation, but interpretation of financial data is not a primary focus."
+    },
+    {
+      "subjectCode": "01007582-65",
+      "subjectName": "สรีรวิทยาหลังการเก็บเกี่ยวของผลไม้ ผักและดอกไม้",
+      "relevanceScore": 0,
+      "reason": "Physiology of post-harvest is unrelated to financial data interpretation."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Marketing and pricing strategies involve financial considerations, but interpretation of financial data is not the main theme."
+    },
+    {
+      "subjectCode": "04305211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 2,
+      "reason": "Basic financial principles and analysis are covered, including valuation, which relates to interpreting financial data."
+    },
+    {
+      "subjectCode": "02802211-67",
+      "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+      "relevanceScore": 2,
+      "reason": "Financial planning and control in service businesses involve interpreting financial data for decision-making."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.4285714285714286,
+    "totalRelevanceSum": 20,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 35.714285714285715,
+        "microAverageRate": 35.714285714285715,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 42.857142857142854,
+        "microAverageRate": 42.857142857142854,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.938,
+        "at10": 0.88,
+        "at15": 0.965,
+        "atAll": 0.965
+      },
+      "ideal": {
+        "at5": 0.731,
+        "at10": 0.593,
+        "at15": 0.534,
+        "atAll": 0.558
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.9,
+        "threshold2": 0.5,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.857,
+        "threshold2": 0.5,
+        "threshold3": 0.071
+      },
+      "atAll": {
+        "threshold1": 0.857,
+        "threshold2": 0.5,
+        "threshold3": 0.071
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2316,
+  "outputTokens": 659
+}

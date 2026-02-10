@@ -1,0 +1,120 @@
+{
+  "testCaseId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การจัดการครัวและความปลอดภัยในการทำอาหาร",
+  "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+  "skill": "การจัดการครัวและความปลอดภัยในการทำอาหาร",
+  "retrievedCount": 9,
+  "evaluations": [
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Course covers kitchen management aspects such as ingredient selection, preparation, and equipment care, which relate to kitchen management, but does not explicitly cover food safety comprehensively."
+    },
+    {
+      "subjectCode": "01017212-66",
+      "subjectName": "สุขาภิบาลอาหารและความปลอดภัยอาหาร",
+      "relevanceScore": 3,
+      "reason": "Course focuses on food sanitation and safety standards, causes of unsafe food, and management methods to ensure food safety, directly addressing food safety in food preparation."
+    },
+    {
+      "subjectCode": "04152111-64",
+      "subjectName": "ความปลอดภัยอาหารและโภชนาการเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course includes food safety and nutrition basics and food safety management, providing foundational knowledge relevant to food safety but less on kitchen management."
+    },
+    {
+      "subjectCode": "02747341-65",
+      "subjectName": "การจัดการครัวการบิน",
+      "relevanceScore": 2,
+      "reason": "Course covers kitchen management specifically for airline catering and safety standards, relevant to kitchen management and food safety in a specialized context."
+    },
+    {
+      "subjectCode": "04151352-65",
+      "subjectName": "หลักการสุขาภิบาลโรงงานอาหาร",
+      "relevanceScore": 2,
+      "reason": "Course covers food hazards, sanitation principles, and standards for food production facilities, relevant to food safety but less on kitchen management."
+    },
+    {
+      "subjectCode": "04152231-64",
+      "subjectName": "สุขาภิบาลอาหาร",
+      "relevanceScore": 2,
+      "reason": "Similar to previous sanitation course, focuses on food hazards, sanitation standards, and facility hygiene, relevant to food safety but not kitchen management."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 1,
+      "reason": "Course focuses on food service management and large-scale food production and sales, marginally related to kitchen management but not focused on food safety."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course is about beverage preparation, unrelated to kitchen management or food safety in food preparation."
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on advanced food quality measurement and analysis, not on kitchen management or food safety in food preparation."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 9,
+    "meanRelevanceScore": 1.5555555555555556,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 22.22222222222222,
+        "microAverageRate": 22.22222222222222,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 55.55555555555556,
+        "microAverageRate": 55.55555555555556,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.946,
+        "at10": 0.954,
+        "at15": 0.954,
+        "atAll": 0.954
+      },
+      "ideal": {
+        "at5": 0.738,
+        "at10": 0.556,
+        "at15": 0.431,
+        "atAll": 0.593
+      }
+    },
+    "precision": {
+      "at5": 1,
+      "at10": 0.667,
+      "at15": 0.667,
+      "atAll": 0.667
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1726,
+  "outputTokens": 370
+}

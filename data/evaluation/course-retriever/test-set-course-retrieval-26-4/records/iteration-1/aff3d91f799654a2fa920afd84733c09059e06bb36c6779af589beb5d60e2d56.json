@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "b41c15f8-2249-4469-9981-71cc1c75b2b4-การตลาดและการประชาสัมพันธ์"
+  ],
+  "skill": "การตลาดและการประชาสัมพันธ์",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 3,
+      "reason": "Course focuses directly on principles and objectives of public relations, covering the skill comprehensively as a main theme."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 3,
+      "reason": "Course covers fundamental marketing principles and processes, directly addressing the marketing aspect of the skill as a primary learning objective."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 3,
+      "reason": "Course is centered on marketing management, including analysis and planning, making it highly relevant to marketing skill."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 2,
+      "reason": "Course includes use of technology for publicity related to food sales, covering public relations as part of a larger module."
+    },
+    {
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "relevanceScore": 3,
+      "reason": "Course covers media and technology for content marketing, directly addressing marketing and publicity concepts comprehensively."
+    },
+    {
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on international marketing principles, directly relevant to marketing skill."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 3,
+      "reason": "Course covers marketing management in aviation business, including marketing mix and consumer behavior, highly relevant to marketing skill."
+    },
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 3,
+      "reason": "Course focuses on brand creation and management, including marketing communication strategies, highly relevant to marketing skill."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 3,
+      "reason": "Course covers targeted marketing and pricing strategies for beverage business, directly relevant to marketing skill."
+    },
+    {
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "relevanceScore": 3,
+      "reason": "Course covers marketing principles and strategies in agricultural and food business, directly relevant to marketing skill."
+    },
+    {
+      "subjectCode": "01136113-68",
+      "subjectName": "เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด",
+      "relevanceScore": 2,
+      "reason": "Course applies economics to marketing, providing useful but partial coverage of marketing skill."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 0,
+      "reason": "Course is about software engineering with no connection to marketing or public relations."
+    },
+    {
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course focuses on basic English communication skills, unrelated to marketing or public relations."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 2.3846153846153846,
+    "totalRelevanceSum": 31,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 9,
+        "macroAverageRate": 69.23076923076923,
+        "microAverageRate": 69.23076923076923,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.951,
+        "at10": 0.989,
+        "at15": 0.99,
+        "atAll": 0.99
+      },
+      "ideal": {
+        "at5": 0.951,
+        "at10": 0.968,
+        "at15": 0.782,
+        "atAll": 0.856
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.8
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.9
+      },
+      "at15": {
+        "threshold1": 0.846,
+        "threshold2": 0.846,
+        "threshold3": 0.692
+      },
+      "atAll": {
+        "threshold1": 0.846,
+        "threshold2": 0.846,
+        "threshold3": 0.692
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2369,
+  "outputTokens": 437
+}

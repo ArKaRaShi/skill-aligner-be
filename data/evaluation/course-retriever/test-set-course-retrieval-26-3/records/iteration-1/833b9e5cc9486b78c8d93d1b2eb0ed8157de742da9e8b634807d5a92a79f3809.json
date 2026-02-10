@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การจัดทำงบประมาณส่วนบุคคล"
+  ],
+  "skill": "การจัดทำงบประมาณส่วนบุคคล",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "relevanceScore": 2,
+      "reason": "Includes some aspects of personal financial planning such as wealth transfer and retirement planning, but not the primary focus."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Mentions budgeting in the context of business profit planning, but not specifically personal budgeting."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Covers budgeting for production, which is related but not specifically personal budgeting."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 0,
+      "reason": "Focuses on managerial accounting and strategic management, not personal budgeting."
+    },
+    {
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "relevanceScore": 0,
+      "reason": "Centered on managerial accounting principles, not personal financial planning."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 0,
+      "reason": "Deals with intermediate accounting, not personal budgeting."
+    },
+    {
+      "subjectCode": "03602351-65",
+      "subjectName": "การวิเคราะห์ต้นทุนทางอุตสาหกรรม",
+      "relevanceScore": 0,
+      "reason": "Focuses on industrial cost analysis, not personal budgeting."
+    },
+    {
+      "subjectCode": "03602433-65",
+      "subjectName": "วิศวกรรมการซ่อมบำรุง",
+      "relevanceScore": 0,
+      "reason": "Related to maintenance engineering, not personal budgeting."
+    },
+    {
+      "subjectCode": "01468597-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar on social development policies, unrelated to personal budgeting."
+    },
+    {
+      "subjectCode": "03760231-64",
+      "subjectName": "หลักการบัญชีต้นทุน I",
+      "relevanceScore": 1,
+      "reason": "Covers cost accounting which can relate to personal finance but not directly focused on personal budgeting."
+    },
+    {
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Basic accounting principles are foundational but not specifically about personal budgeting."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural industry operations, not personal budgeting."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 0,
+      "reason": "Strategic management in business, not personal financial planning."
+    },
+    {
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "relevanceScore": 0,
+      "reason": "Professional teaching standards, unrelated to personal budgeting."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 0,
+      "reason": "Strategic management accounting, not personal budgeting."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0.4,
+    "totalRelevanceSum": 6,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 10,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 26.666666666666668,
+        "microAverageRate": 26.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.793,
+        "at10": 0.866,
+        "at15": 0.937,
+        "atAll": 0.937
+      },
+      "ideal": {
+        "at5": 0.354,
+        "at10": 0.251,
+        "at15": 0.21,
+        "atAll": 0.21
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.1,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.333,
+        "threshold2": 0.067,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.333,
+        "threshold2": 0.067,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3029,
+  "outputTokens": 523
+}

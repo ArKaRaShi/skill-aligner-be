@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "cd96176f-8e18-4270-9c76-8c6b1cf19594-การจัดการคลาสและอ็อบเจ็กต์"
+  ],
+  "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01420473-66",
+      "subjectName": "ฟิสิกส์ของของแข็ง I",
+      "relevanceScore": 0,
+      "reason": "Course on solid state physics with no mention of class or object management."
+    },
+    {
+      "subjectCode": "02198221-67",
+      "subjectName": "การพัฒนาหลักสูตร",
+      "relevanceScore": 0,
+      "reason": "Course on curriculum development without reference to class or object management."
+    },
+    {
+      "subjectCode": "01420213-66",
+      "subjectName": "ฟิสิกส์เชิงคณิตศาสตร์ I",
+      "relevanceScore": 0,
+      "reason": "Mathematical physics course with no content related to class or object management."
+    },
+    {
+      "subjectCode": "02747442-65",
+      "subjectName": "การจัดการคุณภาพบริการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course on service quality management in aviation business, unrelated to class or object management."
+    },
+    {
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "relevanceScore": 0,
+      "reason": "Course on organization and management without mention of class or object management."
+    },
+    {
+      "subjectCode": "02804112-67",
+      "subjectName": "องค์การและการจัดการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course on organization and management in aviation business, no relation to class or object management."
+    },
+    {
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "relevanceScore": 0,
+      "reason": "Course on teacher values and ethics, no mention of class or object management."
+    },
+    {
+      "subjectCode": "01150221-67",
+      "subjectName": "การพัฒนาหลักสูตรและการสอน",
+      "relevanceScore": 0,
+      "reason": "Course on curriculum development and teaching, no reference to class or object management."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "Course on profit planning and control, unrelated to class or object management."
+    },
+    {
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "English reading and writing skills course, no relation to class or object management."
+    },
+    {
+      "subjectCode": "02198113-67",
+      "subjectName": "จิตวิทยาเพื่อการเรียนรู้และการจัดการเรียนรู้",
+      "relevanceScore": 0,
+      "reason": "Psychology for learning and teaching course, no mention of class or object management."
+    },
+    {
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Course on communication for teachers, no reference to class or object management."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 0,
+      "reason": "Course on technology for learning management, no mention of class or object management."
+    },
+    {
+      "subjectCode": "01172172-67",
+      "subjectName": "หลักและวิธีสอนกรีฑาลู่",
+      "relevanceScore": 0,
+      "reason": "Course on athletics teaching methods, unrelated to class or object management."
+    },
+    {
+      "subjectCode": "01058223-68",
+      "subjectName": "เทคโนโลยีการแปรรูปที่ใช้ความร้อนทางอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course on thermal processing technology in agricultural industry, no relation to class or object management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 15,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2949,
+  "outputTokens": 453
+}

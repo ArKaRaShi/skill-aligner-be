@@ -1,0 +1,138 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-เทคนิคการปรุงอาหารไทย"
+  ],
+  "skill": "เทคนิคการปรุงอาหารไทย",
+  "retrievedCount": 9,
+  "evaluations": [
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 1,
+      "reason": "Course covers international cuisine including Eastern and Western food, but Thai cooking techniques are not specifically mentioned; Thai food may be marginally included under Eastern food."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Course focuses on principles of food preparation and cooking, including selecting ingredients and cooking various foods correctly, which likely includes Thai cooking techniques as part of broader food preparation skills."
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "Course focuses on global food sources, nutrition, and food processing, with no mention of Thai cooking techniques."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course is about advanced agricultural product processing engineering, unrelated to Thai cooking techniques."
+    },
+    {
+      "subjectCode": "01017412-66",
+      "subjectName": "การผลิตขนมไทย",
+      "relevanceScore": 1,
+      "reason": "Course is about Thai dessert production, which is related to Thai cuisine but focuses on desserts only, not general Thai cooking techniques."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course covers agricultural product industrial development, not related to Thai cooking techniques."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course focuses on beverage preparation techniques, unrelated to Thai cooking techniques."
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course is about advanced food quality measurement, not related to Thai cooking techniques."
+    },
+    {
+      "subjectCode": "04181525-65",
+      "subjectName": "เทคโนโลยีการอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course covers advanced food technology research techniques, not specifically Thai cooking techniques."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 9,
+    "meanRelevanceScore": 0.4444444444444444,
+    "totalRelevanceSum": 4,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 22.22222222222222,
+        "microAverageRate": 22.22222222222222,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.846,
+        "at10": 0.846,
+        "at15": 0.846,
+        "atAll": 0.846
+      },
+      "ideal": {
+        "at5": 0.299,
+        "at10": 0.194,
+        "at15": 0.151,
+        "atAll": 0.208
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.333,
+        "threshold2": 0.111,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.333,
+        "threshold2": 0.111,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.333,
+        "threshold2": 0.111,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1816,
+  "outputTokens": 322
+}

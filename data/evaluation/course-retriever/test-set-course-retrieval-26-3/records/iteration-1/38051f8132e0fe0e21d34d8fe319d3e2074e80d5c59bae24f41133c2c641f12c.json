@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "75dd76dc-b23f-4728-b9a4-09621f52a26b-การวิเคราะห์และประเมินแหล่งพลังงาน"
+  ],
+  "skill": "การวิเคราะห์และประเมินแหล่งพลังงาน",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "04252556-67",
+      "subjectName": "การประเมินผลกระทบสิ่งแวดล้อมของการจัดการพลังงาน",
+      "relevanceScore": 2,
+      "reason": "The course focuses on environmental impact assessment related to energy management, which is relevant to analyzing energy sources, but it is not solely dedicated to the analysis and evaluation of energy sources."
+    },
+    {
+      "subjectCode": "02741526-65",
+      "subjectName": "เทคโนโลยีพลังงานและการใช้พลังงานอย่างยั่ง",
+      "relevanceScore": 3,
+      "reason": "The course covers energy management principles, including analyzing and applying sustainable energy practices, directly aligning with analyzing and evaluating energy sources."
+    },
+    {
+      "subjectCode": "01420453-66",
+      "subjectName": "ทรัพยากรพลังงาน",
+      "relevanceScore": 2,
+      "reason": "The course discusses different energy types and their management, which is related but not primarily focused on analyzing and evaluating energy sources."
+    },
+    {
+      "subjectCode": "03604331-65",
+      "subjectName": "เครื่องยนต์เผาไหม้ภายใน",
+      "relevanceScore": 1,
+      "reason": "The course is about internal combustion engines, which involves energy but is more focused on engine operation than on analyzing energy sources."
+    },
+    {
+      "subjectCode": "04252542-67",
+      "subjectName": "เทคนิคการหาค่าเหมาะที่สุดในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 2,
+      "reason": "The course involves optimization in power systems, which may include energy source evaluation but is not solely dedicated to it."
+    },
+    {
+      "subjectCode": "04252553-67",
+      "subjectName": "เทคโนโลยีพลังงานลมขั้นสูง",
+      "relevanceScore": 2,
+      "reason": "The course on wind energy technology involves analysis and design related to wind power, relevant but not comprehensive for energy source evaluation."
+    },
+    {
+      "subjectCode": "03601555-66",
+      "subjectName": "เทคโนโลยีเซลล์แสงอาทิตย์",
+      "relevanceScore": 2,
+      "reason": "The course on solar cell technology involves analysis of solar energy systems, relevant but not primarily focused on energy source analysis and evaluation."
+    },
+    {
+      "subjectCode": "03601524-66",
+      "subjectName": "ระเบียบวิธีใช้คอมพิวเตอร์ในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 2,
+      "reason": "The course on power system computer applications involves analysis and problem-solving in power systems, which may include energy sources but is not specifically about analyzing and evaluating energy sources."
+    },
+    {
+      "subjectCode": "03604341-65",
+      "subjectName": "อุณหพลศาสตร์ II",
+      "relevanceScore": 2,
+      "reason": "The thermodynamics course covers energy cycles and processes, which are related to energy analysis but not specifically focused on evaluating energy sources."
+    },
+    {
+      "subjectCode": "03600012-67",
+      "subjectName": "เทคโนโลยีสีเขียว",
+      "relevanceScore": 1,
+      "reason": "The green technology course discusses environmental issues and energy management broadly, but not specifically about analyzing and evaluating energy sources."
+    },
+    {
+      "subjectCode": "03604331-65",
+      "subjectName": "เครื่องยนต์เผาไหม้ภายใน",
+      "relevanceScore": 1,
+      "reason": "The engine course is more about engine operation than about analyzing energy sources."
+    },
+    {
+      "subjectCode": "03601521-66",
+      "subjectName": "เสถียรภาพของระบบไฟฟ้ากำลัง",
+      "relevanceScore": 2,
+      "reason": "The stability of power systems course involves analysis related to power systems, which may include energy sources but is not solely focused on that."
+    },
+    {
+      "subjectCode": "03601555-66",
+      "subjectName": "เทคโนโลยีเซลล์แสงอาทิตย์",
+      "relevanceScore": 2,
+      "reason": "The solar technology course involves analysis of solar energy systems, relevant but not comprehensive for energy source analysis."
+    },
+    {
+      "subjectCode": "03604341-65",
+      "subjectName": "อุณหพลศาสตร์ II",
+      "relevanceScore": 2,
+      "reason": "The thermodynamics course covers energy cycles and processes, related to energy analysis but not specifically about evaluating energy sources."
+    },
+    {
+      "subjectCode": "03600012-67",
+      "subjectName": "เทคโนโลยีสีเขียว",
+      "relevanceScore": 1,
+      "reason": "The green technology course broadly discusses energy and environmental issues but does not focus specifically on analyzing and evaluating energy sources."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1.8,
+    "totalRelevanceSum": 27,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 26.666666666666668,
+        "microAverageRate": 26.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 10,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.884,
+        "at10": 0.892,
+        "at15": 0.95,
+        "atAll": 0.95
+      },
+      "ideal": {
+        "at5": 0.689,
+        "at10": 0.66,
+        "at15": 0.632,
+        "atAll": 0.632
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.733,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.733,
+        "threshold3": 0.067
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2889,
+  "outputTokens": 690
+}

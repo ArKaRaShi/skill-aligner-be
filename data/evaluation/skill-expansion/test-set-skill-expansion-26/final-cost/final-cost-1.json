@@ -1,0 +1,24 @@
+{
+  "testSetName": "test-set-skill-expansion-26",
+  "totalIterations": 1,
+  "totalSamples": 26,
+  "totalSkills": 148,
+  "totalTokens": 44664,
+  "totalCost": 0.055689499999999996,
+  "averageCostPerSample": 0.002141903846153846,
+  "averageCostPerSkill": 0.00037628040540540537,
+  "costByIteration": [
+    {
+      "iteration": 1,
+      "sampleCount": 26,
+      "skillCount": 148,
+      "totalTokens": 44664,
+      "totalCost": 0.055689499999999996,
+      "averageCostPerSample": 0.002141903846153846,
+      "averageCostPerSkill": 0.00037628040540540537,
+      "model": "gpt-5-mini",
+      "provider": "openrouter"
+    }
+  ],
+  "generatedAt": "2026-01-26T08:14:59.055Z"
+}

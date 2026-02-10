@@ -1,0 +1,111 @@
+{
+  "queryLogId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6",
+  "question": "tiktoker ต้องเรียนอะไรบ้าง",
+  "comparison": {
+    "question": "tiktoker ต้องเรียนอะไรบ้าง",
+    "skills": [
+      {
+        "question": "tiktoker ต้องเรียนอะไรบ้าง",
+        "systemSkill": "การสร้างเนื้อหาดิจิทัล",
+        "systemReason": "ทักษะสำคัญสำหรับการผลิตวิดีโอบนแพลตฟอร์ม TikTok",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid conceptual/technical competency (content strategy and production); teachable and assessable via projects and portfolios; directly relevant to being a TikToker.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "tiktoker ต้องเรียนอะไรบ้าง",
+        "systemSkill": "การตัดต่อวิดีโอ",
+        "systemReason": "จำเป็นสำหรับการทำวิดีโอที่น่าสนใจและมีคุณภาพ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Clear technical skill (video editing software and techniques); standard university module or lab course component; directly applicable to short-form video creation.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "tiktoker ต้องเรียนอะไรบ้าง",
+        "systemSkill": "การตลาดดิจิทัล",
+        "systemReason": "ช่วยให้เข้าใจวิธีโปรโมทและเพิ่มผู้ติดตามบนโซเชียลมีเดีย",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Established academic subject (digital marketing, social media advertising); teachable and assessable via campaigns and case studies; relevant for audience growth and monetization.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "tiktoker ต้องเรียนอะไรบ้าง",
+        "systemSkill": "การสื่อสารและการนำเสนอ",
+        "systemReason": "ช่วยให้สามารถสื่อสารเนื้อหาได้อย่างชัดเจนและน่าสนใจ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Academic competency (oral/visual communication, presentation skills); teachable and assessable through assignments and performances; supports on-camera presence and messaging.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "tiktoker ต้องเรียนอะไรบ้าง",
+        "systemSkill": "การวิเคราะห์ข้อมูลโซเชียลมีเดีย",
+        "systemReason": "เพื่อวัดผลและปรับปรุงเนื้อหาให้ตรงกับกลุ่มเป้าหมาย",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Technical/analytical skill (social analytics, metrics interpretation); teachable in courses using tools and datasets; relevant for optimizing content strategy.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "tiktoker ต้องเรียนอะไรบ้าง",
+        "systemSkill": "การสร้างแบรนด์ส่วนบุคคล",
+        "systemReason": "ช่วยสร้างภาพลักษณ์และความน่าเชื่อถือในฐานะ tiktoker",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Conceptual skill (personal branding, identity design); found in university curricula (marketing/communications); assessable via brand strategy projects and portfolios.",
+        "agreementType": "AGREE"
+      }
+    ],
+    "overall": {
+      "conceptPreserved": true,
+      "agreementCount": 6,
+      "disagreementCount": 0,
+      "totalSkills": 6
+    }
+  },
+  "judgeResult": {
+    "result": {
+      "skills": [
+        {
+          "skill": "การสร้างเนื้อหาดิจิทัล",
+          "verdict": "PASS",
+          "note": "Valid conceptual/technical competency (content strategy and production); teachable and assessable via projects and portfolios; directly relevant to being a TikToker."
+        },
+        {
+          "skill": "การตัดต่อวิดีโอ",
+          "verdict": "PASS",
+          "note": "Clear technical skill (video editing software and techniques); standard university module or lab course component; directly applicable to short-form video creation."
+        },
+        {
+          "skill": "การตลาดดิจิทัล",
+          "verdict": "PASS",
+          "note": "Established academic subject (digital marketing, social media advertising); teachable and assessable via campaigns and case studies; relevant for audience growth and monetization."
+        },
+        {
+          "skill": "การสื่อสารและการนำเสนอ",
+          "verdict": "PASS",
+          "note": "Academic competency (oral/visual communication, presentation skills); teachable and assessable through assignments and performances; supports on-camera presence and messaging."
+        },
+        {
+          "skill": "การวิเคราะห์ข้อมูลโซเชียลมีเดีย",
+          "verdict": "PASS",
+          "note": "Technical/analytical skill (social analytics, metrics interpretation); teachable in courses using tools and datasets; relevant for optimizing content strategy."
+        },
+        {
+          "skill": "การสร้างแบรนด์ส่วนบุคคล",
+          "verdict": "PASS",
+          "note": "Conceptual skill (personal branding, identity design); found in university curricula (marketing/communications); assessable via brand strategy projects and portfolios."
+        }
+      ],
+      "overall": {
+        "conceptPreserved": true,
+        "summary": "The list presents appropriate, teachable university-level competencies that directly map to skills a TikToker needs (content creation, production, marketing, analytics, communication, and personal branding)."
+      }
+    },
+    "tokenUsage": [
+      {
+        "model": "openai/gpt-5-mini",
+        "inputTokens": 727,
+        "outputTokens": 692
+      }
+    ]
+  },
+  "evaluatedAt": "2026-01-26T08:10:17.169Z"
+}

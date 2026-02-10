@@ -1,0 +1,2562 @@
+{
+  "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+  "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+  "courses": [
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้",
+        "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้",
+        "สามารถเขียนโปรแกรมแบบขับเคลื่อนด้วยเหตุการณ์ที่มีส่วนต่อประสานกราฟิกกับผู้ใช้ตามที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "90f6a86a-dd0e-421e-9699-1d91b4b14109",
+              "name": "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้"
+            },
+            {
+              "id": "ef13bdc3-24c4-42fd-84aa-f9edfe5f1610",
+              "name": "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "90f6a86a-dd0e-421e-9699-1d91b4b14109",
+              "name": "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้"
+            },
+            {
+              "id": "ef13bdc3-24c4-42fd-84aa-f9edfe5f1610",
+              "name": "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches object-oriented programming principles and how to write object-oriented programs, directly matching the user's goal."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course explicitly teaches object-oriented programming principles and programming using OOP concepts."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายความสำคัญในการนำเอาตัวแบบกระบวนการพัฒนาซอฟต์แวร์ไปใช้ในโครงงานทางซอฟต์แวร์ได้",
+        "สามารถระบุความต้องการที่ผู้มีส่วนเกี่ยวข้องต้องการให้เกิดขึ้นในซอฟต์แวร์ได้",
+        "สามารถวิเคราะห์สิ่งที่เกิดขึ้นภายในกระบวนการทางธุรกิจของผู้ว่าจ้างได้",
+        "สามารถออกแบบโครงสร้างซอฟต์แวร์เพื่อตอบสนองต่อความต้องการของผู้ว่าจ้างได้",
+        "สามารถนำต้นแบบกระบวนพัฒนาซอฟต์แวร์แบบร่วมสมัยมาใช้ในโครงการพัฒนาซอฟต์แวร์ได้",
+        "รับรู้ถึงความสำคัญในกระบวนการทวนสอบซอฟต์แวร์",
+        "สามารถพัฒนาซอฟต์แวร์ที่ตรงต่อความต้องการของผู้ว่าจ้างได้",
+        "สามารถอธิบายความแตกต่างในรูปแบบของการบำรุงรักษาซอฟต์แวร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "6997d630-9f0d-4295-b5cd-fda804bee704",
+              "name": "สามารถอธิบายความสำคัญในการนำเอาตัวแบบกระบวนการพัฒนาซอฟต์แวร์ไปใช้ในโครงงานทางซอฟต์แวร์ได้"
+            },
+            {
+              "id": "fd3d96fc-ccb5-4498-9681-d63914a5a193",
+              "name": "สามารถระบุความต้องการที่ผู้มีส่วนเกี่ยวข้องต้องการให้เกิดขึ้นในซอฟต์แวร์ได้"
+            },
+            {
+              "id": "b2a3653f-4473-4766-9a2d-67879e1d9399",
+              "name": "สามารถออกแบบโครงสร้างซอฟต์แวร์เพื่อตอบสนองต่อความต้องการของผู้ว่าจ้างได้"
+            },
+            {
+              "id": "4fb2b0a3-4fe6-4dac-b492-c60d6673ad13",
+              "name": "รับรู้ถึงความสำคัญในกระบวนการทวนสอบซอฟต์แวร์"
+            },
+            {
+              "id": "b2bc0200-84a2-4dcd-a0d0-aa6203841b2f",
+              "name": "สามารถพัฒนาซอฟต์แวร์ที่ตรงต่อความต้องการของผู้ว่าจ้างได้"
+            },
+            {
+              "id": "47726a31-c19d-442c-bc32-52a917fbe561",
+              "name": "สามารถอธิบายความแตกต่างในรูปแบบของการบำรุงรักษาซอฟต์แวร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches software engineering principles including design, which is foundational for OOP and software design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on software engineering processes and requirements, no direct mention of OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายทฤษฎีหลักการและกระบวนการ  วิศวกรรมซอฟต์แวร์ให้เหมาะสมกับผู้ใช้งานได",
+        "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้",
+        "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "5f6c1769-9a48-4aac-9307-a59955cc1a03",
+              "name": "สามารถอธิบายทฤษฎีหลักการและกระบวนการ  วิศวกรรมซอฟต์แวร์ให้เหมาะสมกับผู้ใช้งานได"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers software engineering theories and processes, including software development, which may include OOP concepts."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers software engineering theory and website development but no explicit OOP content."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา",
+        "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม",
+        "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers programming for problem solving and basic data structures, foundational for OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on problem solving, data structures, and algorithms without OOP focus."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง",
+        "วิเคราะห์ปัญหาง่าย ๆ และออกแบบอัลกอริทึมเพื่อแก้ปัญหาด้วยแนวคิดเชิงตรรกะและโครงสร้างควบคุมในโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "8db17ee0-21b4-47c6-89fe-33fb1601548e",
+              "name": "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "8db17ee0-21b4-47c6-89fe-33fb1601548e",
+              "name": "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches structured programming concepts, which are prerequisites for understanding OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Teaches structured programming, which is different from object-oriented programming."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "04256111-66",
+      "subjectName": "คณิตศาสตร์สำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "ประยุกต์บทนิยามและทฤษฎีบท เกี่ยวกับ เซต ฟังก์ชัน  กราฟ การแปลงเชิงเส้น  ระบบสมการเชิงเส้น กับข้อมูลได้อย่างถูกต้อง",
+        "ประยุกต์ใช้โปรแกรมคอมพิวเตอร์ให้เหมาะสมกับ การแก้ปัญหาเกี่ยวกับระบบสมการเชิงเส้น",
+        "สามารถแสดงถึงการตั้งใจและเรียนรู้พัฒนาตนเอง ในการแก้โจทย์แบบฝึกหัดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "e6d7f489-aa80-4040-b36b-6a7f284dc998",
+              "name": "ประยุกต์ใช้โปรแกรมคอมพิวเตอร์ให้เหมาะสมกับ การแก้ปัญหาเกี่ยวกับระบบสมการเชิงเส้น"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e6d7f489-aa80-4040-b36b-6a7f284dc998",
+              "name": "ประยุกต์ใช้โปรแกรมคอมพิวเตอร์ให้เหมาะสมกับ การแก้ปัญหาเกี่ยวกับระบบสมการเชิงเส้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides mathematical foundations relevant to programming logic and algorithms, prerequisites for OOP, but not directly about OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematics for data science unrelated to OOP concepts."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03607151-67",
+      "subjectName": "เปิดโลกวิทยาการหุ่นยนต์",
+      "outcomes": [
+        "สามารถจำแนกประเภทของหุ่นยนต์และยกตัวอย่างการใช้งานในอุตสาหกรรมได้",
+        "สามารถจำแนกส่วนประกอบพื้นฐานของหุ่นยนต์ตามหน้าที่ได้",
+        "สามารถเลือกใช้กลไกทางกลในการสร้างชิ้นงานอย่างง่ายได้",
+        "สามารถสร้างและเขียนโปรแกรมหุ่นยนต์อย่างง่ายให้ทำงานตามที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "0fc6c159-db67-4f2d-afd0-73b88ee13029",
+              "name": "สามารถสร้างและเขียนโปรแกรมหุ่นยนต์อย่างง่ายให้ทำงานตามที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers programming robots, which may involve programming concepts, but not specifically object-oriented programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Robotics basics and simple programming but no explicit OOP teaching."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "ประยุกต์ทฤษฎีเพื่อสร้างงานวิจัย",
+        "ออกแบบและทดสอบอุปกรณ์หรือเทคนิคเพื่อสร้างงานวิจัย",
+        "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย",
+        "ปฏิบัติงานภาคสนามในการเก็บข้อมูลงานวิจัย",
+        "บริหารงานวิจัยเพื่อสร้างสรรค์ผลงานวิจัยให้บรรลุวัตถุประสงค์และเป็นไปตามหลักจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "19c55b39-65ae-4726-9dde-94d532e9f709",
+              "name": "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "It involves applying theories and designing research, which can include system analysis, but not specifically focused on OOP or system design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course focused on research skills, not programming or OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "กำหนดปัญหา ออกแบบงาน วิจัยอย่างเป็นระบบ",
+        "มีทักษะในการทำวิจัยการวิจัยและดำเนินการทำวิจัยอย่างเป็นระบบตามจรรยาบรรณนักวิจัย",
+        "เลือกใช้วิธีการทางสถิติในการวิเคราะห์ และแปลผลการทดลองทางสถิติได้",
+        "ใช้เทคโนโลยีสารสนเทศในการสืบค้นข้อมูลและนำเสนอข้อมูลสารสนเทศได้",
+        "สื่อสารด้วยภาษาเขียนโดยเรียบเรียงเป็นรายงานเพื่อนำเสนองานวิจัยได้มีแบบแผน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "6a395c64-d767-4438-982b-229359565140",
+              "name": "กำหนดปัญหา ออกแบบงาน วิจัยอย่างเป็นระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves systematic research design and analysis, which can underpin understanding of system analysis and design, but not specifically about OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course focused on research methodology and statistics, no OOP content."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการของการออกแบบการทดลอง",
+        "ใช้วิธีการทางสถิติและการจัดการข้อมูลเพื่อบูรณาการกับการวิจัยที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อวิเคราะห์ความแปรปรวนและการเปรียบเทียบค่าเฉลี่ย",
+        "ทำงานเป็นทีม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "af36ae52-fbc3-45d8-bb26-c5e005cee559",
+              "name": "อธิบายแนวคิดและหลักการของการออกแบบการทดลอง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers experimental design and statistical analysis, foundational for understanding system analysis concepts."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Experimental design and statistical analysis unrelated to OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "outcomes": [
+        "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ",
+        "ใช้เครื่องมือการวิเคราะห์ข้อมูลประเภทต่างๆ ได้ สอดคล้องกับประเภทของข้อมูล",
+        "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี",
+        "จัดทำรายงานที่ได้จากการวิเคราะห์ข้อมูลเพื่อนำเสนอผู้บริหารและผู้ที่เกี่ยวข้องได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "aca105f6-01ae-4a0f-9872-1ba7240d4ce1",
+              "name": "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on data analysis techniques, relevant as foundational knowledge for system analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on data analysis for accounting, unrelated to OOP concepts."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "outcomes": [
+        "สามารถประมวลองค์ความรู้ในการวิเคราะห์และเลือกลงทุนโครงการได้อย่างเหมาะสม พร้อมทั้งแก้ไขปัญหาและพัฒนาให้เหมาะกับข้อจำกัดต่างๆ  โดยคำนึงถึงจรรยาบรรณวิชาชีพ",
+        "สามารถวิเคราะห์และประเมินปัญหาได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f8fea756-2581-4b40-90ad-16434e1d7e21",
+              "name": "สามารถวิเคราะห์และประเมินปัญหาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves analysis and evaluation skills that are foundational for system analysis and design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers investment project analysis, no connection to OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "outcomes": [
+        "วิเคราะห์ปัญหาและหาแนวทางแก้ไขโดยการวิจัย",
+        "ใช้องค์ความรู้ทางสถิติ คณิตศาสตร์ ในการศึกษาค้นคว้าและแก้ไขปัญหา",
+        "พัฒนานวัตกรรมผลิตภัณฑ์ และ/หรือบริการ จากการบูรณาการความรู้ที่ได้ศึกษา",
+        "นำเสนองานและสื่อสารได้อย่างเหมาะสมกับบุคคลที่แตกต่างกันโดยใช้เทคโนโลยีดิจิทัล",
+        "มีความรับผิดชอบต่อตนเองและสังคม และมีความซื่อสัตย์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "89c65828-e8dc-480d-b33c-36a31cee2f23",
+              "name": "วิเคราะห์ปัญหาและหาแนวทางแก้ไขโดยการวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves research, problem-solving, and innovation development, which can include system analysis and design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on product innovation and research, not programming or OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถอธิบายการออกแบบฮาร์ดแวร์ส่วนต่างๆ ให้มีความเหมาะสมและทำงานสอดคล้องกันกับระบบคอมพิวเตอร์ได้",
+        "สามารถวิเคราะห์การทำงานของระบบคอมพิวเตอร์ผ่านองค์ประกอบต่างๆ ในระบบคอมพิวเตอร์ได้",
+        "สามารถใช้สถาปัตยกรรมคอมพิวเตอร์วัดและประเมินประสิทธิภาพการทำงานของระบบคอมพิวเตอร์ได้",
+        "สามารถนำเสนอรูปแบบการทำงานของสถาปัตยกรรมแบบต่างๆ ของระบบคอมพิวเตอร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "08063363-1849-4bdb-81c7-953b89e433de",
+              "name": "สามารถอธิบายการออกแบบฮาร์ดแวร์ส่วนต่างๆ ให้มีความเหมาะสมและทำงานสอดคล้องกันกับระบบคอมพิวเตอร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides understanding of computer architecture, which is useful background but not directly about OOP or software design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers computer architecture, not programming or OOP principles."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02201131-66",
+      "subjectName": "การเขียนโปรแกรมและระบบ IoT ทางการเกษตร",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมคอมพิวเตอร์ด้วยภาษาระดับสูง รวมถึงการเขียนใช้งานตัวแปรและฟังก์ชันเงื่อนไขต่าง ๆ",
+        "สามารถประยุกต์ใช้งานระบบ iot และระบบคลาวด์คอมพิวติ้งสำหรับใช้ทางด้านการเกษตรและอุตสาหกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a3e59fb9-83fa-454b-90a9-feacc9f730ab",
+              "name": "สามารถเขียนโปรแกรมคอมพิวเตอร์ด้วยภาษาระดับสูง รวมถึงการเขียนใช้งานตัวแปรและฟังก์ชันเงื่อนไขต่าง ๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes programming with high-level languages but not specifically focused on OOP."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches programming with high-level languages, likely includes OOP concepts as an enabling tool."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "04252612-67",
+      "subjectName": "วิทยาการข้อมูลขั้นสูง",
+      "outcomes": [
+        "สามารถจำแนกความหมายและกระบวนการของวิทยาการข้อมูล",
+        "สามารถสร้างกรอบแนวคิด สร้างมโนภาพของข้อมูลและใช้ภาษาโปรแกรมในการวินิจฉัยข้อมูลได้",
+        "สามารถใช้เครื่องมือในการวิเคราะห์ข้อมูลด้วยวิธีการทางสถิติ และวิเคราะห์ข้อมูลด้วยการเรียนรู้ของเครื่อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a9c7b69d-bf8a-4a25-96d8-88492786d564",
+              "name": "สามารถสร้างกรอบแนวคิด สร้างมโนภาพของข้อมูลและใช้ภาษาโปรแกรมในการวินิจฉัยข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Advanced data science topics, not specifically about programming paradigms like OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on data science and statistical analysis, not OOP programming."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02738312-66",
+      "subjectName": "หลักการจัดระบบและอนุกรมวิธาน",
+      "outcomes": [
+        "สามารถอธิบายหลักของอนุกรมวิธาน และวิธีการจำแนกสิ่งมีชีวิต",
+        "สามารถเชื่อมโยงอนุกรมวิธานกับความหลากหลายทางชีวภาพ",
+        "สามารถนำความรู้ด้านอนุกรมวิธานมาใช้ในการศึกษาทางวิทยาศาสตร์ชีวภาพ",
+        "สามารถอธิบายหลักของการจัดระบบ",
+        "สามารถเชื่อมโยงความรู้ด้านอนุกรมวิธานกับการใช้ประโยชน์ความหลากหลายทางชีวภาพอย่างยั่งยืน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9e6ea8d0-ddbe-4538-9810-c5ba9a2ebfed",
+              "name": "สามารถอธิบายหลักของการจัดระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "While it covers system organization, it is about biological classification, not software system analysis or design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers taxonomy and biological classification, unrelated to OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "อธิบายความรู้เกี่ยวกับโภชนศาสตร์สัตว์ในระดับอุตสาหกรรม",
+        "วิเคราะห์ข้อมูลงานวิจัย เพื่อนำเสนออย่างเป็นระบบ",
+        "สืบค้นข้อมูลและเลือกใช้เทคโนโลยีสารสนเทศในการนำเสนอผลงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "ba2b6ef3-32e1-4d92-be9b-c01c357675db",
+              "name": "วิเคราะห์ข้อมูลงานวิจัย เพื่อนำเสนออย่างเป็นระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes research data analysis and presentation, related to analytical skills but not directly about system analysis or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on animal nutrition and research presentation, no OOP content."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02804112-67",
+      "subjectName": "องค์การและการจัดการในธุรกิจการบิน",
+      "outcomes": [
+        "อธิบายแนวคิดและทฤษฎีองค์การและการจัดการ",
+        "อธิบายหน้าที่ทางการจัดการขององค์การธุรกิจการบิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6836f75c-8b5e-4b0b-a97a-bf3ea090112b",
+              "name": "อธิบายแนวคิดและทฤษฎีองค์การและการจัดการ"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "6836f75c-8b5e-4b0b-a97a-bf3ea090112b",
+              "name": "อธิบายแนวคิดและทฤษฎีองค์การและการจัดการ"
+            }
+          ]
+        },
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "6836f75c-8b5e-4b0b-a97a-bf3ea090112b",
+              "name": "อธิบายแนวคิดและทฤษฎีองค์การและการจัดการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with organizational management, tangentially related but not directly about system analysis or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on organization and management in aviation business, unrelated to OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02747442-65",
+      "subjectName": "การจัดการคุณภาพบริการในธุรกิจการบิน",
+      "outcomes": [
+        "อธิบายแนวคิดและทฤษฎีองค์การและ       การจัดการ",
+        "อธิบายหน้าที่ทางการจัดการขององค์การธุรกิจการบิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "4971b2eb-dca4-4781-adef-01a8a1bb4993",
+              "name": "อธิบายแนวคิดและทฤษฎีองค์การและ       การจัดการ"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "4971b2eb-dca4-4781-adef-01a8a1bb4993",
+              "name": "อธิบายแนวคิดและทฤษฎีองค์การและ       การจัดการ"
+            }
+          ]
+        },
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "4971b2eb-dca4-4781-adef-01a8a1bb4993",
+              "name": "อธิบายแนวคิดและทฤษฎีองค์การและ       การจัดการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to service quality management, not directly relevant to system analysis or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers quality management in aviation business, no relation to OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02232271-66",
+      "subjectName": "วิศวกรรมขนส่ง และโลจิสติกส์",
+      "outcomes": [
+        "วิเคราะห์ปัญหา และประเมินคุณภาพของระบบขนส่ง ในงานวิศวกรรมขนส่ง และโลจิสติกส์ได้",
+        "สามารถใช้เครื่องมือในการวางแผน แก้ปัญหา งานขนส่งและโลจิสติกส์ รวมถึงบูรณาการกับงานอื่นๆ ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "32f8a998-c0b6-4557-a7c2-5853b4622175",
+              "name": "วิเคราะห์ปัญหา และประเมินคุณภาพของระบบขนส่ง ในงานวิศวกรรมขนส่ง และโลจิสติกส์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with logistics and transportation system analysis, tangentially related but not specifically about OOP or system design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on transportation engineering and logistics, unrelated to OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎีที่เกี่ยวข้องกับสื่อ นวัตกรรม และเทคโนโลยีสารสนเทศเพื่อการเรียนรู้",
+        "ใช้เทคโนโลยีเพื่อประโยชน์ทางด้านการพัฒนาคุณภาพการจัดเรียนรู้",
+        "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า",
+        "รวบรวมและใช้เทคโนโลยีดิจิทัลเพื่อการเรียนรู้ในรูปแบบออนไลน์ ออนไซด์ และผสมผสาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d86b7675-633d-4720-bb4d-bf623b1bf64e",
+              "name": "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "The outcomes involve technology in learning, but not specifically about object-oriented programming or class/object management."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers educational technology, not programming or OOP concepts."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01600391-65",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางเทคนิคการสัตวแพทย์",
+      "outcomes": [
+        "รู้หลักการและระเบียบวิธีวิจัย",
+        "เขียนโครงร่างวิจัยโดยมีอาจารย์เป็นผู้ควบคุมได้ถูกต้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d72418fc-6dd5-4076-8c5d-2c8a29028e06",
+              "name": "รู้หลักการและระเบียบวิธีวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers research methods which are foundational for understanding programming concepts, but not directly about OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about veterinary research methods, no connection to OOP."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "outcomes": [
+        "สามารถวาดภาพฉายออร์โธกราฟฟิก ภาพสามมิติ และมุมมองช่วยได้",
+        "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้",
+        "สามารถนำเสนอแบบวิศวกรรมและสื่อสารข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on engineering drawing and software for technical drawing, not on software design or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches engineering drawing, not programming or OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "outcomes": [
+        "บอกขั้นตอนการสมัครงานและการจัดเตรียมข้อมูล สำหรับสมัครงานได้",
+        "จัดทำร่างข้อเสนอโครงงานสหกิจศึกษาได้",
+        "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม",
+        "ปฏิบัติงานร่วมกับผู้อื่นได้ด้วยความมุ่งมั่น สามัคคี และเคารพกฎระเบียบ",
+        "แสดงออกถึงการมีบุคลิกภาพที่ดี สื่อสารกับผู้อื่นได้อย่างชัดเจน ตรงประเด็น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "2c00b903-7dd2-40aa-b16e-2a70f6489448",
+              "name": "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on internship preparation and soft skills, not on software design or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course prepares for cooperative education, no OOP content."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม",
+        "สามารถเขียนแบบชิ้นส่วนเครื่องจักรกลเกษตรกลเกษตร",
+        "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้",
+        "สามารถใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f2095218-79fa-4742-86d4-60a015890714",
+              "name": "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม"
+            },
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on engineering drawing and basic CAD software, unrelated to software design or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers engineering drawing and CAD software, not OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03760332-64",
+      "subjectName": "การบริหารต้นทุน",
+      "outcomes": [
+        "สามารถระบุความสูญเสียของต้นทุนและออกแบบระบบการบริหารต้นทุนของอุตสาหกรรมต่างๆ ได้",
+        "สามารถคำนวณและวิเคราะห์ต้นทุน ตลอดจนข้อมูลที่ไม่ใช่ตัวเงินได้",
+        "สามารถประยุกต์โปรแกรมซอฟแวร์ในการวิเคราะห์ต้นทุนได้",
+        "สามารถออกแบบโครงการลดต้นทุนของกิจการได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "2f863ee4-5297-4628-a993-2339012d026f",
+              "name": "สามารถประยุกต์โปรแกรมซอฟแวร์ในการวิเคราะห์ต้นทุนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with cost management and analysis, not related to software design or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about cost management, unrelated to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "outcomes": [
+        "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ",
+        "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on product design software, not on software development principles like OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on computer-aided product design, no OOP content."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02201323-66",
+      "subjectName": "สมบัติทางกายภาพของผลิตภัณฑ์เกษตร",
+      "outcomes": [
+        "สามารถอธิบาย หลักการพื้นฐาน เกี่ยวกับสมบัติทาง กายภาพผลิตผลเกษตร",
+        "สามารถประยุกต์ ความรู้สำหรับการ คำนวณสมบัติทางกายภาพผลิตผลเกษตร",
+        "มีทักษะในการใช้ ซอฟต์แวร์ที่เกี่ยวข้องใน การคำนวณ แสดงผล และแปลผล"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การออกแบบซอฟต์แวร์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "6ca6177d-5a25-45b2-81e7-289b92545bb1",
+              "name": "มีทักษะในการใช้ ซอฟต์แวร์ที่เกี่ยวข้องใน การคำนวณ แสดงผล และแปลผล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to physical properties of agricultural products, unrelated to software design or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers physical properties of agricultural products, not OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "จัดการและออกแบบฐานข้อมูลได้",
+        "วิเคราะห์ข้อมูลด้วยฟังก์ชันการคำนวณได้",
+        "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้",
+        "ประยุกต์การสอบถามข้อมูลในการทำงานด้านวิทยาการข้อมูลได้",
+        "สามารถแสดงออกถึงความซื่อสัตย์ และเคารพกฎระเบียบและจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9420d61d-b1b5-448b-9170-2bba3a5d45a6",
+              "name": "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on database querying and data analysis, not on programming paradigms like OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches database querying and data science basics, but not OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "outcomes": [
+        "สามารถจำแนกและวิเคราะห์องค์ประกอบศิลป์",
+        "สามารถอธิบายสุนทรียศาสตร์และการจัดองค์ประกอบศิลป์และวัตถุ",
+        "สามารถอธิบายการสื่อสารด้วยภาษาภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3e8ca0d3-80be-4cac-8ccd-09fbd26bf55b",
+              "name": "สามารถอธิบายการสื่อสารด้วยภาษาภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on visual design and art, unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on art and design, unrelated to OOP concepts."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายแนวคิดนวัตกรรมผลิตภัณฑ์ทางโภชนาการ",
+        "ระบุชนิดของวัตถุดิบและกระบวนการสำหรับการผลิตผลิตภัณฑ์ทางโภชนาการและสุขภาพ",
+        "ออกแบบผลิตภัณฑ์ทางโภชนาการด้วยความรู้พื้นฐานที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7795086e-5fdc-45b2-a7c6-998a1a38686b",
+              "name": "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7795086e-5fdc-45b2-a7c6-998a1a38686b",
+              "name": "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on product innovation and nutrition, not programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about nutritional product innovation, no connection to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9c249d3a-208d-4877-8cb5-69086c683776",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language learning unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Chinese language course, irrelevant to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "052d3bde-3e1d-4ae6-b49d-d3271cf6c060",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language course unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Chinese language course, irrelevant to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "183285e3-f516-4253-9211-b907fedbe721",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language course unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Chinese language course, irrelevant to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ac2529a1-e962-4c92-bbbd-3786e9c9ca75",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language course unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Chinese language course, irrelevant to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "85ecafd7-1f6a-43b0-aff9-98290ea4e60a",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language course unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Chinese language course, irrelevant to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01420242-66",
+      "subjectName": "ปฏิบัติงานอุปกรณ์ II",
+      "outcomes": [
+        "เขียนแบบเชิงกลพื้นฐานได้ เพื่อใช้ออกแบบชิ้นงานที่เป็นวัสดุโลหะ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f9ae58b8-d609-45fc-8371-9155a19335fd",
+              "name": "เขียนแบบเชิงกลพื้นฐานได้ เพื่อใช้ออกแบบชิ้นงานที่เป็นวัสดุโลหะ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on mechanical design with materials, unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mechanical drawing course unrelated to OOP programming concepts."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01420241-66",
+      "subjectName": "ปฏิบัติงานอุปกรณ์ I",
+      "outcomes": [
+        "เขียนแบบเชิงกลพื้นฐานได้ เพื่อใช้ออกแบบชิ้นงานที่เป็นวัสดุ ไม้ และ พลาสติก"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b9cabafa-bd04-4847-87ff-c2055e7236d0",
+              "name": "เขียนแบบเชิงกลพื้นฐานได้ เพื่อใช้ออกแบบชิ้นงานที่เป็นวัสดุ ไม้ และ พลาสติก"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Similar to the above, outcomes are about mechanical design, not programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mechanical drawing course unrelated to OOP programming concepts."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02738490-61",
+      "subjectName": "สหกิจศึกษา",
+      "outcomes": [
+        "นำความรู้พื้นฐานทางวิทยาศาสตร์ชีวภาพไปใช้ทำโครงงานเดี่ยวได้",
+        "ใช้เครื่องมือที่เกี่ยวข้องกับการทำโครงงานเดี่ยวได้อย่างถูกต้อง",
+        "ประยุกต์ความรู้และทฤษฎีด้านวิทยาศาสตร์ชีวภาพเพื่อการวิจัยและการแก้ปัญหาในการทำโครงงานเดี่ยวได้",
+        "ทำโครงงานเดี่ยวโดยคำนึงถึงหลักจริยธรรม จรรยาบรรณ และความปลอดภัย",
+        "ค้นคว้าหาข้อมูลทางวิชาการที่เกี่ยวข้องกับโครงงานวิจัยได้อย่างเหมาะสม บันทึกผลการ อภิปราย ทดลอง วิเคราะห์ สรุปผลการวิจัยเพื่อนำเสนองานวิจัยเดี่ยว  และเขียนรายงานทางวิชาการได้อย่างถูกต้องตามหลักวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "cf30b3bd-86b5-4e81-8b03-d02411e9fdf1",
+              "name": "ใช้เครื่องมือที่เกี่ยวข้องกับการทำโครงงานเดี่ยวได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "General cooperative education, not specifically related to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "General cooperative education course, no direct relation to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "outcomes": [
+        "วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ",
+        "วิเคราะห์ความสัมพันธ์ของส่วนประกอบของภาษาอังกฤษเพื่ออธิบายความกำกวมของภาษา",
+        "ค้นคว้าหาความรู้เพิ่มเติมจากแหล่งข้อมูลทางอินเทอร์เนตมาใช้วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ",
+        "แสดงความรับผิดชอบต่อการเรียนและเคารพระเบียบและจริยธรรมทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "aa38db0f-6727-4b25-b5f9-e065b1adca66",
+              "name": "วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on analyzing language systems, not object-oriented programming or system analysis and design."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on English language structure, unrelated to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษษจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a8dea453-a577-4e79-8a70-5ba525edd086",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on language structure and business communication in Chinese, unrelated to system analysis or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language course, no connection to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a77f7390-8e4c-4f29-b8f8-8a664ad0d959",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Same as above, unrelated to the target skill."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language course, no connection to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "bdcf0b76-0d4d-4326-91ae-e36c4540ea7f",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Same as above, unrelated to the target skill."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language course, no connection to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01241232-66",
+      "subjectName": "การออกแบบก่อสร้างภูมิสถาปัตยกรรม II",
+      "outcomes": [
+        "สามารถอธิบายวิธีการและกระบวนการออกแบบก่อสร้างงานระบบในงานภูมิสถาปัตยกรรม",
+        "สามารถอธิบายและเปรียบเทียบลักษณะวัสดุ ประเภทโครงสร้าง กระบวนการก่อสร้างและงานระบบ เพื่อสามารถเลือกใช้ให้เหมาะสมกับสภาพกายภาพพื้นที่ และแนวคิดในการออกแบบงานภูมิทัศน์",
+        "สามารถอธิบายถึงประเภท ลักษณะ และแนวทางในการเลือกใช้เทคโนโลยีการก่อสร้างงานระบบที่ทันสมัยและเป็นมิตรต่อสิ่งแวดล้อม",
+        "สามารถนำเสนอแบบก่อสร้างได้ถูกต้องตามมาตรฐานและสามารถสื่อสารกับวิชาชีพอื่นที่เกี่ยวข้องได้",
+        "สามารถเลือกใช้สื่อและสื่อดิจิทัลหรือเทคโนโลยีสารสนเทศในการนำเสนอผลงานออกแบบก่อสร้างงานภูมิสถาปัตยกรรมได้อย่างเหมาะสมกับบุคคลที่แตกต่างกัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "39eb7fbb-89c8-4dab-85b7-b1a51000845f",
+              "name": "สามารถอธิบายวิธีการและกระบวนการออกแบบก่อสร้างงานระบบในงานภูมิสถาปัตยกรรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on architectural design and construction, unrelated to software system analysis or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on landscape architecture construction, unrelated to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01448214-68",
+      "subjectName": "ปฏิบัติการทางวัสดุ I",
+      "outcomes": [
+        "ดำเนินการทดลองศึกษาโครงสร้าง สมบัติทางกายภาพและเคมีของวัสดุด้วยเทคนิคต่าง ๆ ได้",
+        "วิเคราะห์ข้อมูลและทำรายงานสรุปผลการทดลองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์และออกแบบระบบ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d47a3c52-12d6-4b81-95a3-052db5f1ecba",
+              "name": "วิเคราะห์ข้อมูลและทำรายงานสรุปผลการทดลองได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on material testing and analysis, unrelated to system analysis or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Materials science lab course, no relevance to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01420473-66",
+      "subjectName": "ฟิสิกส์ของของแข็ง I",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของฟิสิกส์ในของแข็งได้",
+        "นำความรู้ที่ได้ไปใช้วิเคราะห์และแก้ปัญหาที่เกี่ยวข้องกับของแข็งและวัสดุศาสตร์ได้",
+        "ปฏิบัติตามระเบียบและข้อกำหนดในการเรียนของรายวิชา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a8bbcc80-65e4-4d0e-823e-667be78dc895",
+              "name": "ปฏิบัติตามระเบียบและข้อกำหนดในการเรียนของรายวิชา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on physics of solids, not programming or OOP concepts."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Solid state physics course, unrelated to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02198221-67",
+      "subjectName": "การพัฒนาหลักสูตร",
+      "outcomes": [
+        "อธิบายทฤษฎีหลักสูตรและการออกแบบหลักสูตร โดยยึดฐานคิดของการเรียนรู้ตลอดชีวิต",
+        "ออกแบบและพัฒนาหลักสูตรในสถานศึกษา ที่ทันต่อการเปลี่ยนแปลงของบริบทชุมชน สังคมและโลก",
+        "ออกแบบการจัดการเรียนรู้ที่สอดคล้องเป้าหมายหลักสูตรที่กำหนด",
+        "ปฏิบัติการประเมินหลักสูตรและใช้ผลการประเมินเพื่อการพัฒนาหลักสูตร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f3f076f5-1f69-48c8-b098-0926acee8bb9",
+              "name": "ออกแบบการจัดการเรียนรู้ที่สอดคล้องเป้าหมายหลักสูตรที่กำหนด"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes relate to curriculum development, not programming or object-oriented programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Curriculum development course, no direct or enabling relation to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01420213-66",
+      "subjectName": "ฟิสิกส์เชิงคณิตศาสตร์ I",
+      "outcomes": [
+        "แก้ปัญหาทางฟิสิกส์โดยใช้สมการทางคณิตศาสตร์ได้",
+        "ใช้การคำนวณเชิงคอมพิวเตอร์มาช่วยในการแก้สมการคณิตศาสตร์ที่เกี่ยวข้องกับโจทย์ปัญหาฟิสิกส์ได้",
+        "ปฏิบัติการข้อกำหนด และข้อบังคับของรายวิชา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3057e47e-2f56-45bf-9f15-e6ee044eb092",
+              "name": "ปฏิบัติการข้อกำหนด และข้อบังคับของรายวิชา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes are about solving physics problems with math, not programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematical physics course, no direct relation to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "outcomes": [
+        "ปฏิบัติตนอย่างมีความมุ่งมั่นในการเรียน มีความซื่อสัตย์ และเคารพกฎระเบียบ ข้อบังคับของสังคม",
+        "เข้าใจ และสามารถอธิบายความรู้พื้นฐานทางการจัดการ",
+        "แสวงหาความรู้จากแหล่งข้อมูลหลากหลาย เพื่อให้เท่าทันต่อปัญหาหรือการเปลี่ยนแปลงของสภาพแวดล้อม",
+        "สามารถทำงานเป็นทีม อย่างมีความรับผิดชอบต่อตนเองและสังคม",
+        "สามารถใช้เทคโนโลยีในการแสวงหาความรู้และการสื่อสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "994854dc-8cf7-4b57-a975-afd245f632b6",
+              "name": "เข้าใจ และสามารถอธิบายความรู้พื้นฐานทางการจัดการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on management principles, not programming or object-oriented concepts."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Organizational management course, no direct or enabling relation to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "outcomes": [
+        "อธิบายความสำคัญความจำเป็นของคุณธรรมและจริยธรรมที่มีต่อวิชาชีพครู จิตวิญญาณความเป็นครูต่อการประกอบวิชาชีพและการพัฒนาผู้เรียนได้",
+        "วิเคราะห์ ตัดสินใจ และแก้ไขปัญหาเชิงจริยธรรมอย่างมีเหตุผลในสถานการณ์ต่างๆ",
+        "อธิบายแนวทางการจัดการเรียนรู้สำหรับผู้เรียนที่มีความแตกต่างและหลากหลายทางวัฒนธรรม",
+        "ระบุแนวทางกระตุ้นการเรียนรู้และความคิดสร้างสรรค์ของผู้เรียน เพื่อส่งเสริมให้เกิดการพัฒนานวัตกร",
+        "วิเคราะห์สภาพบริบทและสถานการณ์ในโรงเรียนร่วมกับการประเมินตนเอง เพื่อเสนอแนวทางพัฒนาวิชาชีพและการเรียนรู้ตลอดชีวิต"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "feb4d80a-47ae-4c77-8415-322cc5a77db3",
+              "name": "อธิบายแนวทางการจัดการเรียนรู้สำหรับผู้เรียนที่มีความแตกต่างและหลากหลายทางวัฒนธรรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes are about ethics and teaching qualities, not programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on teacher ethics and values, unrelated to OOP or programming."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01150221-67",
+      "subjectName": "การพัฒนาหลักสูตรและการสอน",
+      "outcomes": [
+        "อธิบายหลักการ แนวคิด และทฤษฎี                ที่เกี่ยวข้องกับการพัฒนาหลักสูตร",
+        "ออกแบบหลักสูตรระดับสถานศึกษา และรายวิชาโดยการศึกษาวิเคราะห์ข้อมูลพื้นฐาน แนวคิด ทฤษฎีที่เกี่ยวข้องและเทคโนโลยีสารสนเทศในการพัฒนาหลักสูตร",
+        "ระบุรูปแบบการประเมินหลักสูตรและการประเมินการเรียนรู้ และการนำผลการประเมินไปใช้ในการออกแบบหลักสูตรและการสอน",
+        "ประเมินและอธิบายปัญหาและแนวโน้ม ในการพัฒนาหลักสูตรและการสอน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "50a75883-69d7-47f1-ad12-e199c29216ae",
+              "name": "ประเมินและอธิบายปัญหาและแนวโน้ม ในการพัฒนาหลักสูตรและการสอน"
+            }
+          ]
+        },
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e4e2c18c-6593-4b7e-8214-19909566af08",
+              "name": "อธิบายหลักการ แนวคิด และทฤษฎี                ที่เกี่ยวข้องกับการพัฒนาหลักสูตร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on curriculum development and teaching, not programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers curriculum development, not related to OOP or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "outcomes": [
+        "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+        "จัดทำงบประมาณธุรกิจต่างๆ",
+        "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "22fa92fd-9ba3-4e53-a004-5f02381e8c82",
+              "name": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes are about financial planning and profit control, unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about profit planning and control, irrelevant to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "outcomes": [
+        "บอกความหมายคำศัพท์โดยอาศัยบริบท",
+        "อ่านจับใจความสำคัญของบทอ่านที่มีเนื้อหาไม่ซับซ้อน",
+        "เขียนประโยคความเดียว ความรวม ความซ้อนได้",
+        "เขียนย่อหน้าในระดับพื้นฐานได้อย่างครบถ้วนตามองค์ประกอบ",
+        "แสดงออกถึงความรับผิดชอบและความมุ่งมั่นผ่านการเข้าชั้น เรียนและการมีส่วนร่วมในชั้นเรียน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "39dbe0bb-427d-4eb2-88fa-f0f469a35fcb",
+              "name": "แสดงออกถึงความรับผิดชอบและความมุ่งมั่นผ่านการเข้าชั้น เรียนและการมีส่วนร่วมในชั้นเรียน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes are about language skills, not programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches English reading and writing skills, not related to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02198113-67",
+      "subjectName": "จิตวิทยาเพื่อการเรียนรู้และการจัดการเรียนรู้",
+      "outcomes": [
+        "อธิบายทฤษฎีจิตวิทยาพื้นฐาน จิตวิทยาพัฒนาการ จิตวิทยาการศึกษา จิตวิทยาการเรียนรู้ และจิตวิทยาการให้คำปรึกษา",
+        "เขียนแผนการจัดการเรียนรู้ที่ส่งเสริมการเรียนรู้ของผู้เรียนที่หลากหลาย",
+        "ออกแบบและบริหารจัดการเรียนรู้บริบทในชีวิตจริง บูรณาการแนวคิดปรัชญาเศรษฐกิจพอเพียง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d51aed2c-2121-4b01-9a6b-6c7568b72fec",
+              "name": "เขียนแผนการจัดการเรียนรู้ที่ส่งเสริมการเรียนรู้ของผู้เรียนที่หลากหลาย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes relate to psychology and learning management, not programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers psychology for learning, no connection to OOP or programming."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "outcomes": [
+        "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ",
+        "ใช้กลวิธีการสื่อสารที่หลากหลาย โดยคำนึงถึงความแตกต่างของผู้รับสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "8030a54d-bb13-4833-a100-4eb23d6d0482",
+              "name": "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on communication skills, not programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on communication for teachers, unrelated to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01172172-67",
+      "subjectName": "หลักและวิธีสอนกรีฑาลู่",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎีและองค์ความรู้ที่เกี่ยวข้องกับหลักและวิธีสอนกรีฑาลู่ได้",
+        "บริหารจัดการชั้นเรียนที่ผู้เรียนมีความหลากหลายและผู้เรียนที่มีความต้องการจำเป็นพิเศษ โดยใช้แนวคิดทฤษฎีที่เกี่ยวข้องกับหลักและวิธีสอนกรีฑาลู่อย่างมีวิจารณญาณ",
+        "แสดงออกถึงภาวะผู้นำ ผู้มีจิตอาสา ปฏิบัติตามกฎ กติกาของกีฬากรีฑาลู่ได้อย่างถูกต้อง และมีจรรยาบรรณของวิชาชีพครู",
+        "ออกแบบกิจกรรมการเรียนรู้ทักษะกรีฑาลู่ที่ส่งเสริมความฉลาดรู้ทางกายโดยบูรณาการทักษะการเคลื่อนไหวพื้นฐาน กิจกรรมทางกายและสมรรถภาพทางกาย",
+        "ปฏิบัติการเป็นเจ้าหน้าที่และผู้ตัดสินกรีฑาลู่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a512ece4-90fe-4baf-9802-7d81ebbd2dbc",
+              "name": "บริหารจัดการชั้นเรียนที่ผู้เรียนมีความหลากหลายและผู้เรียนที่มีความต้องการจำเป็นพิเศษ โดยใช้แนวคิดทฤษฎีที่เกี่ยวข้องกับหลักและวิธีสอนกรีฑาลู่อย่างมีวิจารณญาณ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes are about teaching track and field, unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about teaching athletics, no relevance to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01058223-68",
+      "subjectName": "เทคโนโลยีการแปรรูปที่ใช้ความร้อนทางอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายหลักการของเทคโนโลยีการแปรรูปที่ใช้ความร้อนที่สำคัญในอุตสาหกรรมเกษตร",
+        "อธิบายนวัตกรรมเทคโนโลยีการแปรรูปที่ใช้ความร้อนในอุตสาหกรรมเกษตร",
+        "คำนวณค่าพารามิเตอร์ที่สำคัญในการฆ่าเชื้อด้วยกระบวนการให้ความร้อน",
+        "สื่อสารผ่านการนำเสนอหน้าชั้นเรียน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a4f23303-adf8-47df-9355-095421874d02",
+              "name": "สื่อสารผ่านการนำเสนอหน้าชั้นเรียน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes are about thermal processing technology, not programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers heat processing technology in agriculture, unrelated to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "outcomes": [
+        "เลือกใช้และดูแลรักษาอุปกรณ์เครื่องใช้ในครัวได้ถูกต้อง",
+        "เลือกซื้อวัตถุดิบเตรียมวัตถุดิบและเก็บรักษาวัตถุดิบอาหารประเภทต่างๆได้ถูกต้อง",
+        "ประกอบอาหารและจัดสำรับอาหารคาวหวานได้ถูกต้อง",
+        "ตกแต่งจานอาหารด้วยความคิดสร้างสรรค์",
+        "ทำงานกลุ่มด้านการจัดเตรียมและการประกอบอาหารด้วยความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ac1d98f8-3dc8-47f0-8980-521626cf4e88",
+              "name": "เลือกซื้อวัตถุดิบเตรียมวัตถุดิบและเก็บรักษาวัตถุดิบอาหารประเภทต่างๆได้ถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on cooking skills, not programming or OOP principles."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about food preparation and cooking, no connection to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02034341-66",
+      "subjectName": "เทคโนโลยีชีวภาพทางการเพาะเลี้ยงเซลล์และเนื้อเยื่อ",
+      "outcomes": [
+        "อธิบายหลักการที่เกี่ยวข้องกับการเพาะเลี้ยงเซลล์และเนื้อเยื่อได้อย่างถูกต้อง",
+        "อธิบายวิธีการที่ใช้ในการเพาะเลี้ยงเซลล์และเนื้อเยื่อได้อย่างถูกต้อง ตลอดจนสามารถสรุปสาระสำคัญเทคนิคที่เกี่ยวข้องกับการเพาะเลี้ยงเซลล์และเนื้อเยื่อได้อย่างถูกต้อง",
+        "ประยุกต์ใช้ความรู้ที่เกี่ยวข้องกับการเพาะเลี้ยงเซลล์และเนื้อเยื่อเพื่อเลือกนำเทคโนโลยีการเพาะเลี้ยงเซลล์และเนื้อเยื่อไปใช้ในทางอุตสาหกรรมได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fccb35ab-f5e4-4355-89d6-9630524f5fbc",
+              "name": "อธิบายหลักการที่เกี่ยวข้องกับการเพาะเลี้ยงเซลล์และเนื้อเยื่อได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes relate to cell culture technology, unrelated to OOP or programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on biotechnology and cell culture, unrelated to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01004211-64",
+      "subjectName": "วิทยาศาสตร์ด้านแมลง",
+      "outcomes": [
+        "อธิบายความรู้พื้นฐานทางชีววิทยาของแมลง",
+        "จำแนกกลุ่มของแมลงที่สำคัญทางการเกษตร เศรษฐกิจ และสิ่งแวดล้อม",
+        "วิเคราะห์ปัญหาอันเกิดจากแมลงที่มีผลกระทบต่อมนุษย์ สัตว์ และสิ่งแวดล้อม",
+        "เลือกใช้วิธีการเก็บรักษาตัวอย่างแมลงได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e18761c5-3d1d-45aa-9e64-0068e5817c47",
+              "name": "เลือกใช้วิธีการเก็บรักษาตัวอย่างแมลงได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes are about entomology, not programming or OOP concepts."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on entomology with no relation to OOP or programming."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "03764221-64",
+      "subjectName": "การจัดการสินค้าคงคลังและการวางแผนการผลิต",
+      "outcomes": [
+        "สามารถอธิบายหลักการและความสำคัญของการจัดการสินค้าคงคลัง",
+        "สามารถนำแนวคิดด้านการจัดการสินค้าคงคลังมาวางแผนการผลิตได้",
+        "สามารถสื่อสาร และนำเสนอผลการศึกษาจากกรณีศึกษาได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "22fa131c-ded5-4dfc-94a5-186b48049b06",
+              "name": "สามารถอธิบายหลักการและความสำคัญของการจัดการสินค้าคงคลัง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on inventory management and production planning, not programming principles."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers inventory and production management, unrelated to OOP concepts or programming."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01018553-65",
+      "subjectName": "เทคโนโลยีเรือนบรรจุ",
+      "outcomes": [
+        "อธิบายความสำคัญและการดำเนินงานของเรือนบรรจุได้",
+        "เลือกใช้เครื่องจักรและอุปกรณ์ที่เหมาะสมกับเรือนบรรจุได้",
+        "ออกแบบและวางผังเรือนบรรจุได้",
+        "จัดการดำเนินงานในเรือนบรรจุได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "5e0d3182-ee26-4e87-adec-9df779a97fc7",
+              "name": "อธิบายความสำคัญและการดำเนินงานของเรือนบรรจุได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to packaging technology, not programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course about greenhouse technology and operations, no connection to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01475533-64",
+      "subjectName": "จิตวิทยาการจูงใจในองค์การ",
+      "outcomes": [
+        "อธิบายแนวคิดและทฤษฎีเกี่ยวกับการจูงใจ",
+        "สาธิตการนำความรู้ด้านจิตวิทยาไปใช้ในการจูงใจในองค์การ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b91bb58d-c4f6-4edb-adb6-3961533e4983",
+              "name": "อธิบายแนวคิดและทฤษฎีเกี่ยวกับการจูงใจ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on motivation psychology, not programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on organizational psychology motivation theories, unrelated to OOP or programming."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "outcomes": [
+        "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล",
+        "ออกแบบและวิเคราะห์ข้อมูลด้วยโมเดลหลายมิติและ olap",
+        "เข้าใจแนวคิดและบทบาทของธุรกิจอัจฉริยะ",
+        "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ",
+        "บูรณาการธุรกิจอัจฉริยะในระดับองค์กร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "cf98039c-a1ec-4081-a108-7e579c4cd22d",
+              "name": "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with data warehouses and business intelligence, not directly about OOP principles."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on data warehousing and business intelligence, does not teach OOP or related programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01419213-65",
+      "subjectName": "จุลชีววิทยาทั่วไปภาคปฏิบัติการ",
+      "outcomes": [
+        "อธิบายหลักการและวิธีการปฏิบัติที่เป็นพื้นฐานทางด้านจุลชีววิทยา",
+        "บ่งชี้ลักษณะทางสัณฐานวิทยาของจุลินทรีย์ได้",
+        "เลือกวิธีการเพาะเลี้ยงและจัดการจุลินทรีย์ได้อย่างเหมาะสม",
+        "เลือกใช้วิธีการตรวจสอบกิจกรรมจากจุลินทรีย์ได้ถูกต้อง",
+        "ยกตัวอย่างประโยชน์และโทษของจุลินทรีย์ในชีวิตประจำวันได้",
+        "เขียนรายงานผลการทดลองและอภิปรายผลจากปฏิบัติการได้",
+        "รับผิดชอบต่อตนเองและทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "791b201d-e17d-4fd6-b81f-d4342f08d794",
+              "name": "เลือกวิธีการเพาะเลี้ยงและจัดการจุลินทรีย์ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Practical microbiology, unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on general microbiology lab practices, no relevance to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01242231-67",
+      "subjectName": "ความยั่งยืนเพื่อการออกแบบ",
+      "outcomes": [
+        "สามารถอธิบายหลักการทางด้านความยั่งยืน",
+        "สามารถวิเคราะห์ผลกระทบของงานออกแบบต่อความยั่งยืนได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "25b063f9-7005-424e-af04-3598e5298792",
+              "name": "สามารถอธิบายหลักการทางด้านความยั่งยืน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Sustainability in design, not related to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on sustainability in design, unrelated to OOP or programming."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "01150381-67",
+      "subjectName": "การประกันคุณภาพการศึกษาสำหรับครู",
+      "outcomes": [
+        "อธิบายหลักการ แนวคิด และแนวปฏิบัติของการประกันคุณภาพการศึกษาได้",
+        "วิเคราะห์วงจรคุณภาพในการประกันคุณภาพการศึกษาของสถานศึกษาได้",
+        "ออกแบบการจัดกิจกรรมการเรียนรู้และการประเมินคุณภาพเพื่อพัฒนาผู้เรียนได้ตามหลักการการประกันคุณภาพการศึกษา",
+        "แสดงออกถึงความสำคัญและยึดมั่นในข้อกำหนดของจริยธรรมการประกันคุณภาพการศึกษา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "27810587-1675-492e-a617-2398f93fd6bc",
+              "name": "อธิบายหลักการ แนวคิด และแนวปฏิบัติของการประกันคุณภาพการศึกษาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Educational quality assurance, unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on educational quality assurance for teachers, no connection to OOP."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "subjectCode": "04401463-65",
+      "subjectName": "สวัสดิศึกษา",
+      "outcomes": [
+        "อธิบายแนวคิดหลักเกี่ยวกับสวัสดิศึกษา อุบัติเหตุ การบาดเจ็บ และการใช้ชีวิตอย่างปลอดภัยได้อย่างถูกต้อง",
+        "วิเคราะห์สาเหตุของอุบัติเหตุและภัยต่างๆ พร้อมทั้งออกแบบแผนการป้องกันในระดับบ้าน โรงเรียน ชุมชน และสถานประกอบการได้",
+        "ประเมินและเลือกใช้วิธีการในการจัดการความปลอดภัย เช่น การใช้ยาอย่างปลอดภัย การป้องกันอัคคีภัย และการบรรเทาสาธารณภัยได้อย่างเหมาะสม",
+        "สื่อสารและส่งเสริมแนวทางการใช้ชีวิตอย่างมีสุขภาพดีในบริบทของสวัสดิศึกษาได้อย่างสร้างสรรค์และมีจริยธรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "หลักการสืบทอดและการห่อหุ้ม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "58e1fc2e-5077-4e6d-a3b9-3818a866edca",
+              "name": "อธิบายแนวคิดหลักเกี่ยวกับสวัสดิศึกษา อุบัติเหตุ การบาดเจ็บ และการใช้ชีวิตอย่างปลอดภัยได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Welfare studies, unrelated to programming or OOP."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on safety and welfare concepts, unrelated to OOP or programming."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2058,
+      "outputTokens": 304
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1789,
+      "outputTokens": 305
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1831,
+      "outputTokens": 289
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1583,
+      "outputTokens": 269
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1894,
+      "outputTokens": 285
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2271,
+      "outputTokens": 300
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1804,
+      "outputTokens": 281
+    }
+  ]
+}

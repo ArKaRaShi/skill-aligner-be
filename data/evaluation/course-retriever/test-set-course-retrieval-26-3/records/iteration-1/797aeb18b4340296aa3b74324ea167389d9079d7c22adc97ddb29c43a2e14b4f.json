@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "01c601d2-5583-4413-a5c6-5f463efd897c-การวิเคราะห์และแก้ไขปัญหา"
+  ],
+  "skill": "การวิเคราะห์และแก้ไขปัญหา",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 2,
+      "reason": "The course includes analyzing problems and finding solutions through research, which relates to the skill, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "The course involves analyzing and solving problems through research, but it is part of broader research activities."
+    },
+    {
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "relevanceScore": 2,
+      "reason": "The course covers analyzing and evaluating problems as part of investment analysis, but not as the main theme."
+    },
+    {
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 2,
+      "reason": "The course involves analyzing and solving problems through interdisciplinary research, but it is a component of the curriculum."
+    },
+    {
+      "subjectCode": "01357353-68",
+      "subjectName": "การล่ามภาษาเยอรมัน",
+      "relevanceScore": 1,
+      "reason": "The course mentions identifying and solving problems in interpreting translation issues, but it is not a primary learning outcome."
+    },
+    {
+      "subjectCode": "01204691-66",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงทางวิศวกรรมคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "The course explicitly focuses on analyzing and designing research processes to solve problems, making it highly relevant."
+    },
+    {
+      "subjectCode": "01204591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางวิศวกรรมคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "The course emphasizes analyzing and designing research to solve problems, directly aligning with the skill."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 2,
+      "reason": "The course involves analyzing financial issues and solving problems in a business context, but it is not the main focus."
+    },
+    {
+      "subjectCode": "02201596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "The course discusses applying theories to solve problems, but it is part of a broader subject."
+    },
+    {
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 3,
+      "reason": "The course explicitly involves analyzing, planning, and solving research problems in materials science, highly relevant."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 2,
+      "reason": "The course covers analyzing and planning communication strategies, which involves problem-solving but is not the primary focus."
+    },
+    {
+      "subjectCode": "02714101-67",
+      "subjectName": "การคิดเชิงวิพากษ์และการแก้ปัญหา",
+      "relevanceScore": 2,
+      "reason": "The course involves analyzing facts and proposing solutions, but it is not solely focused on problem analysis."
+    },
+    {
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "relevanceScore": 1,
+      "reason": "The course discusses ethical decision-making and analysis, but it is not explicitly about problem analysis and solving."
+    },
+    {
+      "subjectCode": "01150221-67",
+      "subjectName": "การพัฒนาหลักสูตรและการสอน",
+      "relevanceScore": 2,
+      "reason": "The course involves designing curricula and analyzing educational needs, which includes problem analysis but is broader."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "The course involves planning and controlling profits, which includes problem-solving but is not the main theme."
+    },
+    {
+      "subjectCode": "01203512-66",
+      "subjectName": "การวางแผน การทำกำหนดเวลา และการควบคุมในงานบริหารการก่อสร้าง",
+      "relevanceScore": 2,
+      "reason": "The course covers analyzing and managing construction projects, including problem analysis, but it is part of project management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 2.0625,
+    "totalRelevanceSum": 33,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 11,
+        "macroAverageRate": 68.75,
+        "microAverageRate": 68.75,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 18.75,
+        "microAverageRate": 18.75,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.686,
+        "at10": 0.863,
+        "at15": 0.886,
+        "atAll": 0.906
+      },
+      "ideal": {
+        "at5": 0.623,
+        "at10": 0.71,
+        "at15": 0.685,
+        "atAll": 0.685
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.9,
+        "threshold3": 0.3
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.867,
+        "threshold3": 0.2
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.875,
+        "threshold3": 0.188
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3252,
+  "outputTokens": 659
+}

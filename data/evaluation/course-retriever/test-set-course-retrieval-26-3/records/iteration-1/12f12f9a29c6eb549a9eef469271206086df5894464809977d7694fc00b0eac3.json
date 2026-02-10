@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "97b42158-60af-46d3-aa60-049d1243d2ee-การเขียนโปรแกรมสำหรับดนตรี"
+  ],
+  "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "relevanceScore": 2,
+      "reason": "Includes a learning outcome related to applying computer programs to Thai music, which is relevant but not the primary focus of the course."
+    },
+    {
+      "subjectCode": "02184111-67",
+      "subjectName": "ดนตรีไทย I",
+      "relevanceScore": 1,
+      "reason": "Mentions understanding music notation and theory, but not specifically programming for music; relevance is minimal."
+    },
+    {
+      "subjectCode": "01386534-66",
+      "subjectName": "การบรรเลงเปียโนประกอบ",
+      "relevanceScore": 0,
+      "reason": "Focuses on piano performance, not programming for music."
+    },
+    {
+      "subjectCode": "01386524-66",
+      "subjectName": "การอ่านและตีความบทประพันธ์ผ่านสกอร์",
+      "relevanceScore": 0,
+      "reason": "Centered on music score interpretation, not programming."
+    },
+    {
+      "subjectCode": "01386591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางดนตรี",
+      "relevanceScore": 0,
+      "reason": "Research methodology in music, not programming for music."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "Covers programming for problem-solving, but not specifically for music; relevance is marginal."
+    },
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 0,
+      "reason": "Focuses on robotics programming, unrelated to music programming."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Engineering drawing and CAD, not related to music programming."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Engineering drawing, unrelated to music programming."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Nutrition product innovation, unrelated to music programming."
+    },
+    {
+      "subjectCode": "01386533-66",
+      "subjectName": "การอำนวยเพลงขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Advanced music performance, not programming."
+    },
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 0,
+      "reason": "Music integration and creation, not programming."
+    },
+    {
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "relevanceScore": 0,
+      "reason": "Computer tools and skills, not specifically programming for music."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.3076923076923077,
+    "totalRelevanceSum": 4,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 10,
+        "macroAverageRate": 76.92307692307692,
+        "microAverageRate": 76.92307692307692,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.84,
+        "at10": 0.954,
+        "at15": 0.954,
+        "atAll": 0.954
+      },
+      "ideal": {
+        "at5": 0.297,
+        "at10": 0.219,
+        "at15": 0.17,
+        "atAll": 0.186
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.3,
+        "threshold2": 0.1,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.231,
+        "threshold2": 0.077,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.231,
+        "threshold2": 0.077,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2435,
+  "outputTokens": 518
+}

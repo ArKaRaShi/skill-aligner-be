@@ -1,0 +1,150 @@
+{
+  "testCaseId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+  "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+  "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 1,
+      "reason": "Course involves creating simple AI applications but does not mention development with frameworks like React or Flutter."
+    },
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 2,
+      "reason": "Covers event-driven programming with graphical user interfaces, which relates to app development concepts, but no explicit mention of React or Flutter frameworks."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "Course is about polymer chemistry, unrelated to app development or frameworks."
+    },
+    {
+      "subjectCode": "02201445-66",
+      "subjectName": "ไมโครคอนโทรลเลอร์สำหรับวิศวกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Includes developing smartphone applications to control devices, indicating some app development skills, but no explicit mention of React or Flutter frameworks."
+    },
+    {
+      "subjectCode": "04252459-65",
+      "subjectName": "ฮาร์มอนิกในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Focuses on electrical power harmonics, unrelated to app development."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 1,
+      "reason": "Mentions software development and website creation but does not specify frameworks like React or Flutter."
+    },
+    {
+      "subjectCode": "02201211-66",
+      "subjectName": "การใช้คอมพิวเตอร์ช่วยในการออกแบบทางวิศวกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on computer-aided design for agricultural engineering, unrelated to app development frameworks."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "About engineering drawing and software for drafting, unrelated to app development frameworks."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Focuses on engineering drawing and basic CAD software, unrelated to app development frameworks."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "About computer-aided product design in 2D and 3D, unrelated to app development frameworks."
+    },
+    {
+      "subjectCode": "02731322-65",
+      "subjectName": "พีชคณิตนามธรรม",
+      "relevanceScore": 0,
+      "reason": "Abstract algebra course, unrelated to app development frameworks."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 0,
+      "reason": "Computer programs for music composition, unrelated to app development frameworks."
+    },
+    {
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 1,
+      "reason": "Software engineering course covering software development processes but no explicit mention of app development frameworks like React or Flutter."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Covers digital citizenship and digital technology use, including digital content creation, but no specific mention of app development frameworks."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.5714285714285714,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 57.142857142857146,
+        "microAverageRate": 57.142857142857146,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.682,
+        "at10": 0.705,
+        "at15": 0.81,
+        "atAll": 0.81
+      },
+      "ideal": {
+        "at5": 0.353,
+        "at10": 0.255,
+        "at15": 0.227,
+        "atAll": 0.237
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.2,
+      "at15": 0.143,
+      "atAll": 0.143
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2766,
+  "outputTokens": 462
+}

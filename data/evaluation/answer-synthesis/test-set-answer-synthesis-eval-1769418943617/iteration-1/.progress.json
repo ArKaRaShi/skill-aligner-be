@@ -1,0 +1,35 @@
+{
+  "testSetName": "test-set-answer-synthesis-eval-1769418943617",
+  "iterationNumber": 1,
+  "entries": [
+    {
+      "hash": "e767a72bdcf64a49f18da5a1d6d306f9ea1fe7283a9d58aedc4618fda640dbd7",
+      "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "completedAt": "2026-01-26T10:15:18.219Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "944930a46db3daa893f439b142cce6e3ecbe4f31f0fa3fc5148885ffa287e410",
+      "queryLogId": "a7728000-0818-42b5-a49f-c89f4ee59ab5",
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "completedAt": "2026-01-26T10:15:39.329Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    }
+  ],
+  "lastUpdated": "2026-01-26T10:15:39.329Z",
+  "statistics": {
+    "totalQuestions": 2,
+    "completedQuestions": 2,
+    "pendingQuestions": 0,
+    "completionPercentage": 100
+  }
+}

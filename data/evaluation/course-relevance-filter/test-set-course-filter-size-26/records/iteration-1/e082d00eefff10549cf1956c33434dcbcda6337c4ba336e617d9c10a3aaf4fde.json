@@ -1,0 +1,1557 @@
+{
+  "queryLogId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf",
+  "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+  "courses": [
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "outcomes": [
+        "อธิบายความหมาย แนวคิด หลักการ และความสำคัญของการบัญชีเพื่อการจัดการ รูปแบบกระบวนการผลิต และประเภทต้นทุน",
+        "สามารถคำนวณต้นทุนผลิตภัณฑ์  จัดทำงบต้นทุนผลิต และงบกำไรขาดทุนเพื่อใช้ในการบริหารจัดการ",
+        "สามารถการจัดทำงบประมาณของธุรกิจผลิต",
+        "สามารถนำข้อมูลต้นทุนมาวิเคราะห์เพื่อใช้ในการวางแผน ควบคุม ประเมินผลปฏิบัติงาน และการตัดสินใจลงทุน",
+        "มีทักษะในการประสานงานกับผู้อื่น  การทำงานร่วมกับผู้อื่นได้อย่างมีความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "d161b49c-e9d4-442c-b808-7cecf5af5556",
+              "name": "อธิบายความหมาย แนวคิด หลักการ และความสำคัญของการบัญชีเพื่อการจัดการ รูปแบบกระบวนการผลิต และประเภทต้นทุน"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "0a406337-1db6-4e38-8873-d08b33c3ec69",
+              "name": "สามารถการจัดทำงบประมาณของธุรกิจผลิต"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on cost calculation, financial statement preparation, and analysis for management, directly related to financial analysis skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers cost accounting and financial statement preparation useful for financial analysis skills development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "outcomes": [
+        "สามารถแสดงออกถึงการมีความซื่อสัตย์ สุจริต มีความรับผิดชอบต่องานที่ได้รับมอบหมาย และ สามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี",
+        "สามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์",
+        "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง",
+        "สามารถอธิบายหลักเบื้องต้นของภาษีมูลค่าเพิ่ม และ การควบคุมภายในเกี่ยวกับเงินสดได้",
+        "สามารถปฏิบัติงานภายใต้ระบบใบสำคัญ และ จัดทำกรณีศึกษาเสมือนจริงแบบกลุ่มได้",
+        "แสดงถึงความรับผิดชอบต่อหน้าที่โดยการตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "05a8c88a-8cc8-464c-878f-eba1a97cbf53",
+              "name": "สามารถอธิบายถึงหลักเบื้องต้นของแม่บทการบัญชี สามารถปฏิบัติงานตามวงจรบัญชีได้อย่างสมบูรณ์"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7a0c48ec-7e72-4a60-81cd-98723f92beb4",
+              "name": "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7a0c48ec-7e72-4a60-81cd-98723f92beb4",
+              "name": "สามารถจัดทำงบการเงินสำหรับกิจการให้บริการและกิจการซื้อมาขายไป ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Covers fundamental accounting principles and financial statement preparation, directly supporting financial analysis skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches basic accounting principles and financial statement preparation, foundational for analyzing financial statements."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "outcomes": [
+        "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ",
+        "ใช้เครื่องมือการวิเคราะห์ข้อมูลประเภทต่างๆ ได้ สอดคล้องกับประเภทของข้อมูล",
+        "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี",
+        "จัดทำรายงานที่ได้จากการวิเคราะห์ข้อมูลเพื่อนำเสนอผู้บริหารและผู้ที่เกี่ยวข้องได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "aca105f6-01ae-4a0f-9872-1ba7240d4ce1",
+              "name": "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "aca105f6-01ae-4a0f-9872-1ba7240d4ce1",
+              "name": "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี"
+            }
+          ]
+        },
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "aca105f6-01ae-4a0f-9872-1ba7240d4ce1",
+              "name": "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "aca105f6-01ae-4a0f-9872-1ba7240d4ce1",
+              "name": "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on data analysis and reporting for accounting, essential for analyzing financial statements."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on data analysis methods applicable to accounting data, enabling improved financial analysis skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "outcomes": [
+        "วิเคราะห์ข้อมูลในรายงานทางการเงิน",
+        "นำเทคโนโลยีมาใช้ประกอบกับการวิเคราะห์ข้อมูลในรายงานทางการเงิน เพื่อสนับสนุนการตัดสินใจ สื่อสาร และให้คำแนะนำแก่ผู้ที่เกี่ยวข้องได้",
+        "ประเมินมูลค่ากิจการ ประเมินราคาหลักทรัพย์ และวิเคราะห์ความคุ้มค่าโครงการจากข้อมูลในรายงานทางการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "fddec55c-f2e9-4150-9d90-ff1b72c41952",
+              "name": "วิเคราะห์ข้อมูลในรายงานทางการเงิน"
+            },
+            {
+              "id": "b23356bd-1f8e-4b76-8c5d-df5b04fdc92b",
+              "name": "ประเมินมูลค่ากิจการ ประเมินราคาหลักทรัพย์ และวิเคราะห์ความคุ้มค่าโครงการจากข้อมูลในรายงานทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "fddec55c-f2e9-4150-9d90-ff1b72c41952",
+              "name": "วิเคราะห์ข้อมูลในรายงานทางการเงิน"
+            },
+            {
+              "id": "16702777-e364-4140-899d-a4e93bc5ba4f",
+              "name": "นำเทคโนโลยีมาใช้ประกอบกับการวิเคราะห์ข้อมูลในรายงานทางการเงิน เพื่อสนับสนุนการตัดสินใจ สื่อสาร และให้คำแนะนำแก่ผู้ที่เกี่ยวข้องได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "fddec55c-f2e9-4150-9d90-ff1b72c41952",
+              "name": "วิเคราะห์ข้อมูลในรายงานทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Directly teaches financial statement analysis and valuation, which aligns exactly with user’s goal."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Directly teaches financial statement analysis and valuation, matching the user's goal precisely."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "outcomes": [
+        "อธิบายหลักการบัญชีบริหาร",
+        "ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์",
+        "เสนอแนะแนวทางการจัดการธุรกิจ โดยอาศัยหลักการการบริหารเชิงกลยุทธ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        },
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "492724cc-aa4c-42fc-a51b-5f406ec51ba7",
+              "name": "อธิบายหลักการบัญชีบริหาร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches management accounting principles and strategic decision-making, which are foundational for analyzing financial statements."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers managerial accounting and strategic decision-making, providing contextual foundation for financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "วิเคราะห์กระบวนการในโซ่อุปทานจากแผนภาพโซ่อุปทาน",
+        "เสนอแนะแนวทางการแก้ปัญหาในโซ่อุปทานที่เหมาะสมกับธุรกิจได้",
+        "คำนวณต้นทุนจากจำแนกต้นทุนได้อย่างถูกต้อง",
+        "วิเคราะห์งบการเงินเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84ee6ef1-e8e4-4070-845a-be9edd0779ed",
+              "name": "วิเคราะห์งบการเงินเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes basic financial statement analysis and cost calculation, relevant for understanding financial analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Includes basic financial statement analysis and cost calculation, relevant for developing financial analysis skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "outcomes": [
+        "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน",
+        "สามารถสร้างระบบการรายงานข้อสนเทศทางการบัญชีและการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "96ec8f83-1892-441d-8012-c69d9470ffb0",
+              "name": "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "96ec8f83-1892-441d-8012-c69d9470ffb0",
+              "name": "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "96ec8f83-1892-441d-8012-c69d9470ffb0",
+              "name": "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "96ec8f83-1892-441d-8012-c69d9470ffb0",
+              "name": "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "96ec8f83-1892-441d-8012-c69d9470ffb0",
+              "name": "สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน และวิธีการวิเคราะห์ทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers financial reporting and analysis methods, foundational for financial statement analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches financial recording, statement preparation, and financial analysis, relevant to user's interest."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "outcomes": [
+        "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์",
+        "สามารถคำนวณต้นทุนที่เกี่ยวข้องกับการบริหารเชิงกลยุทธ์",
+        "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์",
+        "ใช้ช้อมูลการบัญชีบริหารที่เป็นตัวเงินและไม่เป็นตัวเงินเพื่อประเมินผลการปฏิบัติงานเชิงกลยุทธ์ของกิจการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c70ceb7e-3d99-486b-8523-b7c72ae45b46",
+              "name": "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์"
+            },
+            {
+              "id": "335b4c5f-c29c-40cf-914e-871cfbcd900c",
+              "name": "จัดทำรายงานทางการบัญชีบริหารเพื่อใช้ในการบริหารเชิงกลยุทธ์"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c70ceb7e-3d99-486b-8523-b7c72ae45b46",
+              "name": "อธิบายความสำคัญของการบัญชีบริหารกับการบริหารเชิงกลยุทธ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides strategic management accounting and cost calculation, relevant for financial analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on managerial accounting for strategic management, useful for understanding financial analysis in business context."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "04305211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "outcomes": [
+        "สามารถอธิบาย หลักการเบื้องต้นเกี่ยวกับการเงินธุรกิจ ได้",
+        "สามารถมูลค่าเงินตามเวลา การจัดทำงบประมาณลงทุน ความรู้พื้นฐานเกี่ยวกับโครงสร้างเงินทุน การจัดการเงินทุนหมุนเวียนสำหรับการวิเคราะห์บริษัท และหลักการพัฒนาอย่างยั่งยืนและธรรมมาภิบาลของบริษัทจดทะเบียน ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ba9876bb-1a45-4c50-849c-40955bce7721",
+              "name": "สามารถอธิบาย หลักการเบื้องต้นเกี่ยวกับการเงินธุรกิจ ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ba9876bb-1a45-4c50-849c-40955bce7721",
+              "name": "สามารถอธิบาย หลักการเบื้องต้นเกี่ยวกับการเงินธุรกิจ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes basic financial principles, valuation, and budgeting, which underpin financial statement analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers fundamental financial management principles and investment budgeting, enabling better financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01681312-66",
+      "subjectName": "เศรษฐศาสตร์การจัดการ",
+      "outcomes": [
+        "อธิบายแนวคิดพื้นฐานของเศรษฐศาสตร์จุลภาคและมหภาคที่เกี่ยวข้องกับการดำเนินกิจการธุรกิจได้",
+        "วิเคราะห์ต้นทุน อุปสงค์ กำไร ราคา และโครงสร้างตลาด เพื่อใช้ในการตัดสินใจทางธุรกิจได้",
+        "ประยุกต์เครื่องมือเชิงปริมาณในการจัดทำแผนการเงินเบื้องต้น และการคำนวณด้านต้นทุนการผลิต",
+        "สังเคราะห์ข้อมูลเศรษฐกิจมหภาคและนโยบายรัฐเพื่อวิเคราะห์ผลกระทบต่อการดำเนินธุรกิจ",
+        "ออกแบบแนวคิดธุรกิจและแผนเบื้องต้นโดยประยุกต์ความรู้เศรษฐศาสตร์ เทคโนโลยี และทักษะผู้ประกอบการร่วมสมัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "cfe92d68-710f-44a7-be36-4ef8d1f4c1c9",
+              "name": "ประยุกต์เครื่องมือเชิงปริมาณในการจัดทำแผนการเงินเบื้องต้น และการคำนวณด้านต้นทุนการผลิต"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "cfe92d68-710f-44a7-be36-4ef8d1f4c1c9",
+              "name": "ประยุกต์เครื่องมือเชิงปริมาณในการจัดทำแผนการเงินเบื้องต้น และการคำนวณด้านต้นทุนการผลิต"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides economic analysis and cost understanding, useful as foundational knowledge for financial analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches economic and quantitative tools relevant for business financial decision-making and analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760322-64",
+      "subjectName": "การบัญชีสำหรับเครื่องมือทางการเงินและการป้องกันความเสี่ยง",
+      "outcomes": [
+        "สามารถอธิบายถึงการบัญชีสำหรับเครื่องมือทางการเงินและการป้องกันความเสี่ยงได้",
+        "สามารถบันทึกและวัดมูลค่าเกี่ยวกับเครื่องมือทางการเงินและการป้องกันความเสี่ยงในงบการเงินได้",
+        "สามารถทำงานร่วมกับผู้อื่นได้ มีความรับผิดชอบ และซื่อสัตย์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "34081f8f-ac57-4d41-b1e2-65784829f6a2",
+              "name": "สามารถอธิบายถึงการบัญชีสำหรับเครื่องมือทางการเงินและการป้องกันความเสี่ยงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers financial instruments and risk management accounting, relevant as advanced foundational knowledge."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on accounting for financial instruments and risk hedging, not general financial statement analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "outcomes": [
+        "สามารถบอกความแตกต่างของการบัญชีระหว่างประเทศ",
+        "สามารถระบุความแตกต่างของนโยการบัญชีที่สำคัญ",
+        "สามารถวิเคราะห์รายงานทางการเงิน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1222d250-fb90-43e3-adb7-a14b552c6997",
+              "name": "สามารถบอกความแตกต่างของการบัญชีระหว่างประเทศ"
+            },
+            {
+              "id": "a9d61682-68a3-4117-88d8-ad9e8ed7dd77",
+              "name": "สามารถระบุความแตกต่างของนโยการบัญชีที่สำคัญ"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "25d70ad9-8bb9-4f89-943d-92674f499c2d",
+              "name": "สามารถวิเคราะห์รายงานทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "25d70ad9-8bb9-4f89-943d-92674f499c2d",
+              "name": "สามารถวิเคราะห์รายงานทางการเงิน"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "25d70ad9-8bb9-4f89-943d-92674f499c2d",
+              "name": "สามารถวิเคราะห์รายงานทางการเงิน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Deals with international accounting differences and financial reporting, relevant for understanding financial statements."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Includes ability to analyze financial reports, directly relevant to financial statement analysis skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760442-64",
+      "subjectName": "การบัญชีนิติวิทยาเบื้องต้น",
+      "outcomes": [
+        "สามารถตรวจสอบความทุจริตที่เกิดขึ้นจากรายงานทางการเงินได้",
+        "สามารถวิเคราะห์งบการเงินเพื่อสืบสวนหาข้อเท็จจริงเกี่ยวกับประเด็นที่ต้องการทราบจากงบการเงินได้",
+        "สามารถนำเทคโนโลยีมีช่วยในการสืบสวนและวิเคราะห์รายงานทางการเงินได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "47aed286-d38b-4170-87d7-0b2f198daf77",
+              "name": "สามารถวิเคราะห์งบการเงินเพื่อสืบสวนหาข้อเท็จจริงเกี่ยวกับประเด็นที่ต้องการทราบจากงบการเงินได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes analysis of financial statements for investigation, relevant as advanced understanding of financial report analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches analysis of financial statements for forensic purposes, enhancing financial statement analysis skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "outcomes": [
+        "สามารถอธิบายการรับรู้รายการและการวัดมูลค่าของสินทรัพย์ได้",
+        "สามารถบันทึกบัญชีเกี่ยวกับสินทรัพย์ได้",
+        "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้",
+        "มีความรับผิดชอบต่อหน้าที่ มีความซื่อสัตย์ และมีความตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "5f29ab8a-8b9e-4173-a70b-5923bbe5937c",
+              "name": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "5f29ab8a-8b9e-4173-a70b-5923bbe5937c",
+              "name": "สามารถจัดทำงบการเงินที่เกี่ยวข้องกับสินทรัพย์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides understanding of asset recognition and financial statements, foundational for financial analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers preparation of financial statements related to assets, foundational for financial statement analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03759211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "outcomes": [
+        "สามารถอธิบายวัตถุประสงค์และความสำคัญของการจัดการทางการเงิน จุดมุ่งหมาย บทบาทหน้าที่ของผู้บริหารการเงินได้",
+        "สามารถอธิบายแนวความคิดทางการเงิน ได้แก่ มูลค่าเงินตามเวลา ความเสี่ยงและผลตอบแทนได้",
+        "สามารถอธิบายการวิเคราะห์ทางการเงิน เพื่อนำไปใช้ประกอบการตัดสินใจทางการเงินได้",
+        "สามารถอธิบายการจัดหาเงินทุนของธุรกิจและการบริหารสินทรัพย์ของธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "823e478e-1172-4b5a-8e88-3e6194c415dd",
+              "name": "สามารถอธิบายการวิเคราะห์ทางการเงิน เพื่อนำไปใช้ประกอบการตัดสินใจทางการเงินได้"
+            }
+          ]
+        },
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "823e478e-1172-4b5a-8e88-3e6194c415dd",
+              "name": "สามารถอธิบายการวิเคราะห์ทางการเงิน เพื่อนำไปใช้ประกอบการตัดสินใจทางการเงินได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "823e478e-1172-4b5a-8e88-3e6194c415dd",
+              "name": "สามารถอธิบายการวิเคราะห์ทางการเงิน เพื่อนำไปใช้ประกอบการตัดสินใจทางการเงินได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers financial management principles and analysis, relevant as prerequisite knowledge."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches financial management and financial analysis for decision making, relevant to financial statement analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "outcomes": [
+        "ระบุข้อดี ข้อเสียการวางแผนและควบคุมกำไร",
+        "จัดทำงบประมาณธุรกิจต่างๆ",
+        "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "dcdd1f1a-32c5-43bb-9e50-46248f181405",
+              "name": "จัดทำงบประมาณธุรกิจต่างๆ"
+            },
+            {
+              "id": "22fa92fd-9ba3-4e53-a004-5f02381e8c82",
+              "name": "วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches planning and budgeting, including analysis and control, which are relevant to financial planning and budgeting skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on profit planning and control including analysis, useful for understanding financial statements."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "04305212-67",
+      "subjectName": "การบริหารการเงินส่วนบุคคล",
+      "outcomes": [
+        "สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล",
+        "สามารถวางแผนการเงินส่วนบุคคล เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การวางแผนการประกันภัย การวางแผนการลงทุน การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่งได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0996ed39-5343-4551-afef-bd7c1cb19c17",
+              "name": "สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "0996ed39-5343-4551-afef-bd7c1cb19c17",
+              "name": "สามารถอธิบายองค์ประกอบและกระบวนการการวางแผนการเงินส่วนบุคคล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers personal financial planning, which is related but not specifically about analyzing corporate financial statements."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on personal financial management, not on analyzing financial statements of organizations."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "02802211-67",
+      "subjectName": "การจัดการการเงินเฉพาะงานบริการ",
+      "outcomes": [
+        "สามารถสาธิตการวางแผนและควบคุมทางการเงินที่กำหนดให้เพื่อบริหารธุรกิจงานบริการได้",
+        "สามารถนำเสนอข้อมูลทางการเงินที่กำหนดให้เพื่อสาธิตการตัดสินใจและวางแผนธุรกิจบริการได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "9b994c22-bb24-49ba-a575-85f240d626ac",
+              "name": "สามารถนำเสนอข้อมูลทางการเงินที่กำหนดให้เพื่อสาธิตการตัดสินใจและวางแผนธุรกิจบริการได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers financial planning and decision-making in service businesses, supporting understanding of financial data."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Specialized in financial management for service businesses, too narrow and assumes a specific sector."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01999041-67",
+      "subjectName": "เศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี",
+      "outcomes": [
+        "วิเคราะห์เหตุการณ์ที่เกี่ยวข้องกับเศรษฐกิจในปัจจุบันได้",
+        "วางแผนการเงินในปัจจุบันและอนาคตรวมถึงนำไปปฏิบัติเป็นกิจวัตรประจำวันได้",
+        "เชื่อมโยงองค์ประกอบที่สำคัญของแผนธุรกิจเพื่อเตรียมความพร้อมในการเป็นผู้ประกอบการได้",
+        ""
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "6bb601ec-9142-4578-b837-3d1efcaea585",
+              "name": "วางแผนการเงินในปัจจุบันและอนาคตรวมถึงนำไปปฏิบัติเป็นกิจวัตรประจำวันได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes financial planning and analysis in daily life, relevant to understanding financial decision-making."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "General economics and personal finance planning, not focused on financial statement analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760211-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง ll",
+      "outcomes": [
+        "สามารถบันทึกบัญชีและแสดงมูลค่าของหนี้สินในงบการเงินได้",
+        "สามารถบันทึกบัญชีและแสดงมูลค่าของส่วนของเจ้าของในงบการเงินได้",
+        "สามารถจัดทำและนำเสนองบกระแสเงินสดได้",
+        "มีความรับผิดชอบต่อหน้าที่ ซื่อสัตย์ และตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "866cb7f1-ccac-4bc7-8428-69b27cfc67d2",
+              "name": "สามารถจัดทำและนำเสนองบกระแสเงินสดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers liabilities, equity, and cash flow statements, essential for financial analysis skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers liabilities, equity, and cash flow statements, essential components of financial statement analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760231-64",
+      "subjectName": "หลักการบัญชีต้นทุน I",
+      "outcomes": [
+        "สามารถจัดทำงานบัญชีต้นทุนตลอดวงจรปีงบประมาณขององค์การได้",
+        "สามารถประยุกต์โปรแกรมคอมพิวเตอร์วิเคราะห์ข้อมูลและจัดทำข้อมูลบัญชีต้นทุนและรายงานทางการเงินได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e48deffd-d4e0-4a77-b56b-5da7f136f4fd",
+              "name": "สามารถประยุกต์โปรแกรมคอมพิวเตอร์วิเคราะห์ข้อมูลและจัดทำข้อมูลบัญชีต้นทุนและรายงานทางการเงินได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers cost accounting and analysis with computer programs, relevant for financial data analysis skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course teaches cost accounting principles and financial report analysis, which supports financial statement analysis skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760331-64",
+      "subjectName": "หลักการบัญชีต้นทุน II",
+      "outcomes": [
+        "สามารถจัดข้อมูลบัญชีต้นทุนเพื่อการทำงานของผู้บริหาร สำหรับการตัดสินใจ วางแผน สั่งการและจูงใจ ควบคุมและประเมินผล",
+        "สามารถใช้โปรแกรมคอมพิวเตอร์วิเคราะห์และจัดทำข้อมูลบัญชีต้นทุนตามวัตถุประสงค์ทางการบริหารได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1385db67-6605-47fb-869c-8c3ac5797aa8",
+              "name": "สามารถใช้โปรแกรมคอมพิวเตอร์วิเคราะห์และจัดทำข้อมูลบัญชีต้นทุนตามวัตถุประสงค์ทางการบริหารได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on cost data analysis for management decisions using computer programs, relevant to financial analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on cost accounting for managerial decision-making and data analysis, relevant for financial analysis skill development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "04256231-66",
+      "subjectName": "การวิเคราะห์ข้อมูลด้วยโปรแกรมตารางทำการสำหรับนักวิทยาการข้อมูล",
+      "outcomes": [
+        "สามารถใช้โปรแกรมตารางทำการเพื่อการนำเข้า คัดกรอง จัดการข้อมูลจากแหล่งข้อมูลที่แตกต่างกัน",
+        "สามารถใช้้โปรแกรมตารางทำการเพื่อทำการคำนวณ วิเคราะห์ สรุป และนำเสนอข้อมูล"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "28de3296-011b-4923-b408-64c2ab72c5f2",
+              "name": "สามารถใช้้โปรแกรมตารางทำการเพื่อทำการคำนวณ วิเคราะห์ สรุป และนำเสนอข้อมูล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches data management and analysis with spreadsheets, useful for financial data analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches data analysis using spreadsheet software, an enabling tool for analyzing financial statements."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "02212572-65",
+      "subjectName": "สถิติประยุกต์สำหรับวิศวกรรมอาหาร",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการวางแผนการทดลอง การรวบรวมข้อมูล การวิเคราะห์ข้อมูลที่ได้ทั้งในเชิงคุณภาพคือ การวิเคราะห์ความแปรปรวน และเชิงปริมาณคือการวิเคราะห์การถดถอย หรือรีเกรชัน",
+        "สามารถใช้โปรแกรมสำเร็จรูปทางสถิติช่วยในการวิเคราะห์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "0d34bc62-c295-46df-bfda-da5ae12845e4",
+              "name": "สามารถใช้โปรแกรมสำเร็จรูปทางสถิติช่วยในการวิเคราะห์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers statistical analysis and software use, relevant for analyzing financial data."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Statistics course tailored for food engineering, not directly relevant to financial statement analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03760433-64",
+      "subjectName": "การบัญชีเพื่อการจัดการสิ่งแวดล้อม",
+      "outcomes": [
+        "สามารถจัดทำบัญชีสิ่งแวดล้อมและรายงานที่เกี่ยวข้อง เพื่อใช้เป็นเครื่องมือเชิงบูรณาการ ในการจัดการให้เกิดการพัฒนาอย่างยั่งยืนได้",
+        "สามารถประยุกต์โปรแกรมคอมพิวเตอร์วิเคราะห์ข้อมูลและจัดทำข้อมูลบัญชีบริหารสิ่งแวดล้อมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7580c7cd-10fb-4852-b74b-9af170bd02a2",
+              "name": "สามารถประยุกต์โปรแกรมคอมพิวเตอร์วิเคราะห์ข้อมูลและจัดทำข้อมูลบัญชีบริหารสิ่งแวดล้อมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes analysis and reporting tools, applicable to financial data analysis in environmental contexts."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Environmental management accounting is a niche area not directly related to general financial statement analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01420413-66",
+      "subjectName": "วิทยาศาสตร์ข้อมูลและการเรียนรู้ของเครื่องสำหรับนักฟิสิกส์",
+      "outcomes": [
+        "สามารถอธิบายหลักการเบื้องต้นเกี่ยวกับวิทยาศาสตร์ข้อมูล การเรียนรู้ของเครื่อง พร้อมยกตัวอย่างการประยุกต์ใช้ในงานวิจัยทางฟิสิกส์",
+        "สามารถใช้โปรแกรมเกี่ยวกับการจัดการข้อมูล และการสร้างกราฟสำหรับการหาความสัมพันธ์และวิเคราะห์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "8b08c863-c20f-440c-b23b-768d789d5999",
+              "name": "สามารถใช้โปรแกรมเกี่ยวกับการจัดการข้อมูล และการสร้างกราฟสำหรับการหาความสัมพันธ์และวิเคราะห์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers data management and analysis with software, relevant for financial data analysis skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Data science and machine learning for physicists is too specialized and not directly relevant to financial statement analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "outcomes": [
+        "เขียนโมเดลธุรกิจได้สอดคล้องกับเป้าหมายทางธุรกิจ",
+        "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น",
+        "ออกแบบกลยุทธ์การตั้งราคาและการตลาดที่เหมาะสมสำหรับผลิตภัณฑ์เครื่องดื่ม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b74f5511-f0fd-4d06-b42b-f2b44f366710",
+              "name": "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b74f5511-f0fd-4d06-b42b-f2b44f366710",
+              "name": "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น"
+            }
+          ]
+        },
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b74f5511-f0fd-4d06-b42b-f2b44f366710",
+              "name": "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b74f5511-f0fd-4d06-b42b-f2b44f366710",
+              "name": "คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงินเบื้องต้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to marketing and pricing strategies, but not directly about financial statement analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Marketing and pricing strategy for beverage business is industry-specific and not focused on financial statement analysis."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03651231-65",
+      "subjectName": "การคำนวณเชิงเศรษฐศาสตร์เบื้องต้น",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการทางคณิตศาสตร์สำหรับ การวิเคราะห์และตัดสินใจทางเศรษฐศาสตร์และธุรกิจได้",
+        "วิเคราะห์ดุลยภาพตลาดและระบบการเงินเบื้องต้นได้",
+        "อธิบายตัวแบบทางคณิตศาสตร์สำหรับบสภาวะทางเศรษฐศาสตร์และธุรกิจได้",
+        "วิเคราะห์นโยบายทางการเงินและ นโยบายการคลังกับวิกฤตเศรษฐกิจต่าง ๆ ได้",
+        "แสดงออกถึงความซื่อสัตย์ทางวิชาการ และการเคารพกฎระเบียบและค่านิยมอันดีงามของสังคม และจรรยาบรรณวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์งบการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "f8be3053-99de-4981-9eb9-edda89ee9323",
+              "name": "วิเคราะห์ดุลยภาพตลาดและระบบการเงินเบื้องต้นได้"
+            },
+            {
+              "id": "ab493134-d52f-4aae-bd3f-6533d826c1c0",
+              "name": "วิเคราะห์นโยบายทางการเงินและ นโยบายการคลังกับวิกฤตเศรษฐกิจต่าง ๆ ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนการเงินและงบประมาณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "ab493134-d52f-4aae-bd3f-6533d826c1c0",
+              "name": "วิเคราะห์นโยบายทางการเงินและ นโยบายการคลังกับวิกฤตเศรษฐกิจต่าง ๆ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with economic calculations and models, not directly related to financial statement analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Basic economic calculations and financial system analysis provide foundational knowledge useful for financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "02802113-67",
+      "subjectName": "การบัญชีเฉพาะงานบริการ",
+      "outcomes": [
+        "สามารถจำแนกหมวดหมู่บัญชีและบันทึกบัญชีเฉพาะการบริการตามหลักการบัญชีได้",
+        "สามารถสาธิตการทำรายงานทางการบัญชีการเงินได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b0eafe6e-5aa7-471d-b71f-bf8caa2154da",
+              "name": "สามารถสาธิตการทำรายงานทางการบัญชีการเงินได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers service-specific accounting and reporting, but not focused on interpreting financial data."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Accounting for service businesses includes financial reporting skills relevant to financial statement analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01140131-68",
+      "subjectName": "การจำลองสถานการณ์ทางธุรกิจ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานทางธุรกิจได้",
+        "วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้",
+        "ตัดสินใจทางธุรกิจ โดยโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "77b8fc58-3ede-4448-8dba-b9655fd2a672",
+              "name": "วิเคราะห์ข้อมูลทางธุรกิจ โดยโปรแกรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on business simulation and decision-making with programs, but not specifically on financial analysis tools."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Business simulation with data analysis and decision-making tools supports development of financial analysis skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "outcomes": [
+        "อธิบาย",
+        "ประยุกย์ใช้",
+        "ใช้สถิติ",
+        "คำนวณ",
+        "รับผิกชอบ",
+        "ทำงานร่วมกุน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบัญชีเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "cb0471bd-cb90-4747-affb-9972f60b3059",
+              "name": "คำนวณ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to financial analysis or accounting."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on analytical chemistry, unrelated to financial statement analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "เรียบเรียงข้อมูลเพื่อนำเสนอ",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้รูปแบบการนำเสนอที่เหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b32b2452-8d75-44b5-aa7f-7ec018f8c0c4",
+              "name": "เรียบเรียงข้อมูลเพื่อนำเสนอ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "This course is about presentation and communication skills, unrelated to financial data interpretation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar course on presentation and teamwork skills, not related to financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "01007582-65",
+      "subjectName": "สรีรวิทยาหลังการเก็บเกี่ยวของผลไม้ ผักและดอกไม้",
+      "outcomes": [
+        "สามารถให้ข้อมูลองค์ความรู้เกี่ยวกับสรีรวิทยาหลังการเก็บเกี่ยว",
+        "สามารถบูรณาการองค์ความรู้และเทคโนโลยีที่เกี่ยวข้องกับสรีรวิทยาหลังการเก็บเกี่ยวผลิตผลพืชสวน",
+        "สามารถสังเคราะห์ข้อมูลที่เกี่ยวข้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การตีความข้อมูลทางการเงิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "30a71254-ebbb-4059-9356-6760ce47e3ce",
+              "name": "สามารถสังเคราะห์ข้อมูลที่เกี่ยวข้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to financial data or analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course about postharvest physiology of fruits and vegetables, irrelevant to financial analysis."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการออกแบบการทดลองได้อย่างถูกต้อง",
+        "เลือกแผนการทดลองได้อย่างเหมาะสมกับปัญหาและวัตถุประสค์ของการทดลอง",
+        "วิเคราะห์ข้อมูลและนำเสนอผลการวิเคราะห์การทดลองได้อย่างถูกต้อง",
+        "ประยุกต์ใช้โปรแกรมสำเร็จรูปในการวิเคราะห์ข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "4655c30a-7740-48b1-8f80-b2abf45c50ab",
+              "name": "ประยุกต์ใช้โปรแกรมสำเร็จรูปในการวิเคราะห์ข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on experimental design in engineering, unrelated to financial data analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches experimental design and data analysis skills, which can enable analytical thinking useful for financial statement analysis."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการของการออกแบบการทดลอง",
+        "ใช้วิธีการทางสถิติและการจัดการข้อมูลเพื่อบูรณาการกับการวิจัยที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อวิเคราะห์ความแปรปรวนและการเปรียบเทียบค่าเฉลี่ย",
+        "ทำงานเป็นทีม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1fcf781e-8de5-4bbd-bb4c-a0a08502ec3d",
+              "name": "ใช้โปรแกรมเพื่อวิเคราะห์ความแปรปรวนและการเปรียบเทียบค่าเฉลี่ย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on experimental design and statistical analysis in research, not financial data analysis."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers statistical methods and data analysis, providing enabling tools relevant to analyzing financial data."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2101,
+      "outputTokens": 326
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1768,
+      "outputTokens": 328
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1711,
+      "outputTokens": 333
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1073,
+      "outputTokens": 166
+    }
+  ]
+}

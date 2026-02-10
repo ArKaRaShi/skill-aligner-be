@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "b3460fa2-c348-4748-b583-4b042886e0ca-การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์"
+  ],
+  "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on research and problem solving via research process, but not specifically on computer problem analysis and fixing."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 1,
+      "reason": "Course involves problem analysis and solution via research, but not specifically computer problems."
+    },
+    {
+      "subjectCode": "01203513-66",
+      "subjectName": "การวิเคราะห์การลงทุนโครงการ",
+      "relevanceScore": 0,
+      "reason": "Course is about investment project analysis, unrelated to computer problem analysis."
+    },
+    {
+      "subjectCode": "01204526-66",
+      "subjectName": "โครงแบบเครือข่ายและการบำรุงรักษา",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers analysis and troubleshooting of network problems, directly related to computer problem analysis and fixing."
+    },
+    {
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Course covers problem analysis and solving with integrated knowledge, but not specifically computer problems."
+    },
+    {
+      "subjectCode": "02204311-65",
+      "subjectName": "ความน่าจะเป็นและสถิติสำหรับวิศวกรคอมพิวเตอร์",
+      "relevanceScore": 1,
+      "reason": "Course covers statistical methods to solve engineering problems including computer engineering, but not direct computer problem analysis."
+    },
+    {
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "relevanceScore": 2,
+      "reason": "Course teaches use of computer tools to solve problems in document and data analysis, relevant but not comprehensive on computer problem analysis."
+    },
+    {
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "relevanceScore": 2,
+      "reason": "Course covers computer architecture and analysis of computer system operation, relevant to understanding computer problems but not direct problem solving."
+    },
+    {
+      "subjectCode": "01204516-66",
+      "subjectName": "การคำนวณเชิงควอนตัมขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course covers quantum computing problem analysis, but this is a specialized area not general computer problem solving."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 3,
+      "reason": "Course focuses on programming, data structures, and algorithm design for problem solving, directly relevant to computer problem analysis and fixing."
+    },
+    {
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "relevanceScore": 0,
+      "reason": "Course is about airline business finance, unrelated to computer problem analysis."
+    },
+    {
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "relevanceScore": 1,
+      "reason": "Course covers basic data science problem solving, somewhat related but not focused on computer problem analysis."
+    },
+    {
+      "subjectCode": "04253371-65",
+      "subjectName": "การควบคุมแบบตรรกะและระบบอัตโนมัติ",
+      "relevanceScore": 3,
+      "reason": "Course covers logic control and automation systems including analysis and troubleshooting of PLC programs, directly relevant to computer problem analysis and fixing."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course covers data analysis and visualization, marginally related to computer problem analysis."
+    },
+    {
+      "subjectCode": "01204599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Course is a thesis on computer engineering research, involving problem analysis but not focused on practical computer problem fixing."
+    },
+    {
+      "subjectCode": "01204699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Same as above, thesis course with research focus, marginally relevant."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.375,
+    "totalRelevanceSum": 22,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 9,
+        "macroAverageRate": 56.25,
+        "microAverageRate": 56.25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 18.75,
+        "microAverageRate": 18.75,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.412,
+        "at10": 0.637,
+        "at15": 0.72,
+        "atAll": 0.743
+      },
+      "ideal": {
+        "at5": 0.374,
+        "at10": 0.45,
+        "at15": 0.438,
+        "atAll": 0.434
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.2,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.9,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.867,
+        "threshold2": 0.333,
+        "threshold3": 0.2
+      },
+      "atAll": {
+        "threshold1": 0.875,
+        "threshold2": 0.313,
+        "threshold3": 0.188
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3338,
+  "outputTokens": 544
+}

@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "acd5b76f-8185-4b10-bb37-bde0ac14c51a-กฎหมายและข้อบังคับเกี่ยวกับปศุสัตว์"
+  ],
+  "skill": "กฎหมายและข้อบังคับเกี่ยวกับปศุสัตว์",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01603358-65",
+      "subjectName": "วิสัญญีและศัลยกรรมทางการพยาบาลสัตว์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on veterinary anesthesia and surgery, not legal regulations related to livestock."
+    },
+    {
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "relevanceScore": 2,
+      "reason": "Includes a module on laws related to animal keeping, which is relevant but not the main focus."
+    },
+    {
+      "subjectCode": "01603325-65",
+      "subjectName": "สุขอนามัยเนื้อสัตว์จากฟาร์มถึงผู้บริโภค",
+      "relevanceScore": 0,
+      "reason": "Course is about meat hygiene and safety, not legal regulations about livestock."
+    },
+    {
+      "subjectCode": "02033391-64",
+      "subjectName": "การวิจัยทางสัตว์",
+      "relevanceScore": 0,
+      "reason": "Research methods in animal science, no direct focus on legal regulations."
+    },
+    {
+      "subjectCode": "01420213-66",
+      "subjectName": "ฟิสิกส์เชิงคณิตศาสตร์ I",
+      "relevanceScore": 0,
+      "reason": "Physics course, unrelated to legal regulations about livestock."
+    },
+    {
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 2,
+      "reason": "Basic law course that covers general legal principles, including laws about persons, which may include livestock regulations, but not specifically focused."
+    },
+    {
+      "subjectCode": "01023522-68",
+      "subjectName": "อุตสาหกรรมอาหารสัตว์เลี้ยง",
+      "relevanceScore": 0,
+      "reason": "Food industry course, not about legal regulations concerning livestock."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar on animal nutrition, not related to legal regulations."
+    },
+    {
+      "subjectCode": "01603111-65",
+      "subjectName": "แนวคิดและทฤษฎีทางการพยาบาลสัตว์",
+      "relevanceScore": 0,
+      "reason": "Nursing theory for animals, not about legal regulations."
+    },
+    {
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 0,
+      "reason": "Basic law course, similar to previous, not specific to livestock regulations."
+    },
+    {
+      "subjectCode": "02804211-67",
+      "subjectName": "กฎหมายและจรรยาบรรณวิชาชีพในธุรกิจการบิน",
+      "relevanceScore": 2,
+      "reason": "Law and ethics in aviation, not related to livestock regulations, but includes legal analysis."
+    },
+    {
+      "subjectCode": "01456254-64",
+      "subjectName": "การป้องกันอาชญากรรม",
+      "relevanceScore": 0,
+      "reason": "Crime prevention course, unrelated to livestock legal regulations."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.5,
+    "totalRelevanceSum": 6,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 9,
+        "macroAverageRate": 75,
+        "microAverageRate": 75,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.296,
+        "at10": 0.463,
+        "at15": 0.594,
+        "atAll": 0.594
+      },
+      "ideal": {
+        "at5": 0.143,
+        "at10": 0.145,
+        "at15": 0.144,
+        "atAll": 0.166
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.2,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.2,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.25,
+        "threshold2": 0.25,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.25,
+        "threshold2": 0.25,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2238,
+  "outputTokens": 429
+}

@@ -1,0 +1,2486 @@
+{
+  "queryLogId": "fa617f52-c86b-4b8c-976b-bfdb073f1070",
+  "question": "อยากเรียนภาษาบาลี",
+  "courses": [
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "outcomes": [
+        "เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน",
+        "สามารถนำเสนอประเด็นศึกษาด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้",
+        "สามารถเขียนบทความวิจัยด้านภาษาศาสตร์ภาษาจีนที่ตนสนใจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "f5081553-b9a9-4c3d-8f28-4587a47670d0",
+              "name": "เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน"
+            }
+          ]
+        },
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "f5081553-b9a9-4c3d-8f28-4587a47670d0",
+              "name": "เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน"
+            }
+          ]
+        },
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f5081553-b9a9-4c3d-8f28-4587a47670d0",
+              "name": "เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f5081553-b9a9-4c3d-8f28-4587a47670d0",
+              "name": "เข้าใจทฤษฎีภาษาศาสตร์ภาษาจีน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "The course focuses on Chinese linguistics theory, not on learning Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on Chinese linguistics, unrelated to Pali language study."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "04351131-68",
+      "subjectName": "การเขียนย่อหน้าภาษาอังกฤษ",
+      "outcomes": [
+        "เขียนย่อหน้าที่มีประโยคหลัก (topic sentence) และประโยคสนับสนุน (supporting sentences) ได้ถูกต้องตามโครงสร้าง",
+        "ใช้ไวยากรณ์และเลือกใช้คำศัพท์ได้อย่างถูกต้อง",
+        "เชื่อมโยงความคิดระหว่างประโยคในย่อหน้าได้อย่างมีระเบียบแบบแผน",
+        "ตรวจสอบและแก้ไขข้อผิดพลาดในการเขียนย่อหน้าได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9ed5d343-ece9-4583-bd74-a4eae2d13193",
+              "name": "ใช้ไวยากรณ์และเลือกใช้คำศัพท์ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9ed5d343-ece9-4583-bd74-a4eae2d13193",
+              "name": "ใช้ไวยากรณ์และเลือกใช้คำศัพท์ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9ed5d343-ece9-4583-bd74-a4eae2d13193",
+              "name": "ใช้ไวยากรณ์และเลือกใช้คำศัพท์ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9ed5d343-ece9-4583-bd74-a4eae2d13193",
+              "name": "ใช้ไวยากรณ์และเลือกใช้คำศัพท์ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on writing skills and grammar in English, not related to Pali grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches English paragraph writing, not relevant to learning Pali."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "02702131-68",
+      "subjectName": "โครงสร้างภาษาอังกฤษ I",
+      "outcomes": [
+        "วิเคราะห์และอธิบายประเภททางไวยากรณ์ของคำ วลี และอนุประโยค หน้าที่ของส่วนประกอบของประโยค",
+        "บอกความแตกต่างของโครงสร้างประโยคพื้นฐานที่แตกต่างกันได้",
+        "แบ่งกลุ่มประเภทของประโยคที่มีความหลากหลายได้",
+        "สร้างสรรค์ประโยคที่สื่อความหมายได้อย่างเหมาะสมและถูกต้องตามหลักไวยากรณ์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "f7965a16-6ba1-4615-bd94-76fc37c92f0e",
+              "name": "สร้างสรรค์ประโยคที่สื่อความหมายได้อย่างเหมาะสมและถูกต้องตามหลักไวยากรณ์"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c34664eb-02e8-481e-934c-9e37c4539ce7",
+              "name": "บอกความแตกต่างของโครงสร้างประโยคพื้นฐานที่แตกต่างกันได้"
+            },
+            {
+              "id": "f7965a16-6ba1-4615-bd94-76fc37c92f0e",
+              "name": "สร้างสรรค์ประโยคที่สื่อความหมายได้อย่างเหมาะสมและถูกต้องตามหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers English grammatical structures, which are foundational to understanding language grammar, but not specific to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers English grammar structure, no connection to Pali language."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "outcomes": [
+        "บอกความหมายคำศัพท์โดยอาศัยบริบท",
+        "อ่านจับใจความสำคัญของบทอ่านที่มีเนื้อหาไม่ซับซ้อน",
+        "เขียนประโยคความเดียว ความรวม ความซ้อนได้",
+        "เขียนย่อหน้าในระดับพื้นฐานได้อย่างครบถ้วนตามองค์ประกอบ",
+        "แสดงออกถึงความรับผิดชอบและความมุ่งมั่นผ่านการเข้าชั้น เรียนและการมีส่วนร่วมในชั้นเรียน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b1768011-f622-4707-b268-15349acc3b61",
+              "name": "บอกความหมายคำศัพท์โดยอาศัยบริบท"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b1768011-f622-4707-b268-15349acc3b61",
+              "name": "บอกความหมายคำศัพท์โดยอาศัยบริบท"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b1768011-f622-4707-b268-15349acc3b61",
+              "name": "บอกความหมายคำศัพท์โดยอาศัยบริบท"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes grammar and writing skills in English, which are foundational language skills but not specific to Pali grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on English reading and writing skills, irrelevant to Pali."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01362573-66",
+      "subjectName": "สัทวิทยาภาษาจีนโบราณ",
+      "outcomes": [
+        "อธิบายระบบเสียงภาษาจีนยุคโบราณและวิวัฒนาการของระบบเสียง อิทธิพลของภาษาสันสกฤตที่มีต่อระบบเสียงจีน และอิทธิพลของระบบเสียงภาษาจีนที่มีต่อภาษากลุ่มเอเชียตะวันออกและตะวันออกเฉียงใต้ได้",
+        "สามารถสังเคราะห์และบูรณาการองค์ความรู้เพื่ออ่านบทความวิชาการและบทความวิจัยที่เกี่ยวข้องกับสัทวิทยาภาษาจีนโบราณได้",
+        "มีความรับผิดชอบ มุ่งมั่นพัฒนาตนเองโดยมีกระบวนการทำงานตามแนวทางการวิจัยและสามารถนำเสนอรายงานที่เกี่ยวข้องกับสัทวิทยาจีนโบราณและอิทธิพลของภาษาจีนต่อภาษาอื่นๆ ตามที่ได้รับมอบหมายได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d25df2a4-cea9-41bb-b4b4-4f8d14244613",
+              "name": "อธิบายระบบเสียงภาษาจีนยุคโบราณและวิวัฒนาการของระบบเสียง อิทธิพลของภาษาสันสกฤตที่มีต่อระบบเสียงจีน และอิทธิพลของระบบเสียงภาษาจีนที่มีต่อภาษากลุ่มเอเชียตะวันออกและตะวันออกเฉียงใต้ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with historical phonetics of Chinese and influences of Sanskrit, relevant as foundational knowledge for understanding Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about ancient Chinese phonetics, not related to Pali language."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "outcomes": [
+        "แสดงออกถึงการรับฟังและยอมรับความคิดเห็นของผู้อื่น",
+        "เลือกคำศัพท์ระดับ hsk 5 มาใช้ในบริบทที่แตกต่างกันได้",
+        "ตีความข้อความที่ฟังหรืออ่านได้",
+        "สร้างงานโดยใช้เทคโนโลยีสารสนเทศและอธิบายงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "fa57585a-8ad8-495c-8f95-57cf115d371a",
+              "name": "ตีความข้อความที่ฟังหรืออ่านได้"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fa57585a-8ad8-495c-8f95-57cf115d371a",
+              "name": "ตีความข้อความที่ฟังหรืออ่านได้"
+            }
+          ]
+        },
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fa57585a-8ad8-495c-8f95-57cf115d371a",
+              "name": "ตีความข้อความที่ฟังหรืออ่านได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on Chinese language skills, not Pali; shares language learning category but is a different language and goal."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about Chinese language proficiency test preparation, unrelated to Pali."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "03754231-67",
+      "subjectName": "การอ่านภาษาอังกฤษในชีวิตประจำวัน",
+      "outcomes": [
+        "อธิบายความสำคัญและหลักการอ่านได้",
+        "บอกข้อมูลเฉพาะของเรื่องที่อ่านได้ในเวลาที่จำกัดได้",
+        "แปลความหมายของคำศัพท์และสำนวนต่างๆ จากบริบทแวดล้อมของเรื่องที่อ่านได้",
+        "อ่านออกเสียงภาษาอังกฤษขั้นพื้นฐานได้",
+        "สรุปประเด็นจากเรื่องที่อ่านได้",
+        "แสดงความคิดเห็นจากเรื่องที่อ่านผ่านกิจกรรมหรือการนำเสนอผลงานในรูปแบบต่างๆ ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "4c53dd0e-10da-4bf1-a26f-c62398a714b2",
+              "name": "อธิบายความสำคัญและหลักการอ่านได้"
+            },
+            {
+              "id": "4292d0ea-9bc6-4d96-88f3-72ccd9d44094",
+              "name": "แปลความหมายของคำศัพท์และสำนวนต่างๆ จากบริบทแวดล้อมของเรื่องที่อ่านได้"
+            },
+            {
+              "id": "085d56a4-c391-487b-b878-cac733194806",
+              "name": "อ่านออกเสียงภาษาอังกฤษขั้นพื้นฐานได้"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "085d56a4-c391-487b-b878-cac733194806",
+              "name": "อ่านออกเสียงภาษาอังกฤษขั้นพื้นฐานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Centers on English reading skills, not Pali; shares language and reading skills but is a different language and purpose."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches English reading for daily life, no relevance to Pali language."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "outcomes": [
+        "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ",
+        "ใช้กลวิธีการสื่อสารที่หลากหลาย โดยคำนึงถึงความแตกต่างของผู้รับสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "8030a54d-bb13-4833-a100-4eb23d6d0482",
+              "name": "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "8030a54d-bb13-4833-a100-4eb23d6d0482",
+              "name": "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "8030a54d-bb13-4833-a100-4eb23d6d0482",
+              "name": "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "8030a54d-bb13-4833-a100-4eb23d6d0482",
+              "name": "ใช้ภาษาเพื่อสื่อสารและการจัดการเรียนรู้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on communication skills in general, not specific to Pali or language translation; shares communication category but different goal."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on communication skills for teachers, not related to Pali language."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "outcomes": [
+        "อธิบายคำศัพท์และไวยากรณ์ได้",
+        "เลือกใช้คำศัพท์และรูปประโยคได้ถูกต้องตามหลักภาษา",
+        "สื่อสารภาษาจีนธุรกิจได้ถูกต้องตามบริบท"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c3204fdf-ab70-458b-8b2f-6ec5929316a7",
+              "name": "เลือกใช้คำศัพท์และรูปประโยคได้ถูกต้องตามหลักภาษา"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c3204fdf-ab70-458b-8b2f-6ec5929316a7",
+              "name": "เลือกใช้คำศัพท์และรูปประโยคได้ถูกต้องตามหลักภาษา"
+            }
+          ]
+        },
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "5955e4be-f8a3-458a-ba31-c72745739ba8",
+              "name": "อธิบายคำศัพท์และไวยากรณ์ได้"
+            },
+            {
+              "id": "c3204fdf-ab70-458b-8b2f-6ec5929316a7",
+              "name": "เลือกใช้คำศัพท์และรูปประโยคได้ถูกต้องตามหลักภาษา"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c3204fdf-ab70-458b-8b2f-6ec5929316a7",
+              "name": "เลือกใช้คำศัพท์และรูปประโยคได้ถูกต้องตามหลักภาษา"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c3204fdf-ab70-458b-8b2f-6ec5929316a7",
+              "name": "เลือกใช้คำศัพท์และรูปประโยคได้ถูกต้องตามหลักภาษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with Chinese business language, not Pali; shares language category but different language and goal."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers business Chinese language, unrelated to Pali."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "outcomes": [
+        "ใช้คำศัพท์และโครงสร้างประโยคพื้นฐานเพื่อสร้างประโยคที่ถูกต้องและเข้าใจได้",
+        "แสดงความคิดเห็นและแลกเปลี่ยนข้อมูลในสถานการณ์ที่กำหนดได้",
+        "สื่อสารเนื้อหาได้อย่างชัดเจนและถูกต้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0a0ca954-73d7-4612-9105-56733f4ec65e",
+              "name": "สื่อสารเนื้อหาได้อย่างชัดเจนและถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "23e0fe9c-7587-4ef0-80f7-b92dd072398f",
+              "name": "ใช้คำศัพท์และโครงสร้างประโยคพื้นฐานเพื่อสร้างประโยคที่ถูกต้องและเข้าใจได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "English communication skills, not Pali; shares language skills but different language and purpose."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches basic English listening and speaking, no connection to Pali language."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "outcomes": [
+        "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง",
+        "สร้างประโยคได้ถูกต้องตามแบบแผน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a8ebfc0f-c584-47e5-b93c-928c2f909b67",
+              "name": "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a8ebfc0f-c584-47e5-b93c-928c2f909b67",
+              "name": "อธิบายและใช้โครงสร้างประโยคพื้นฐานได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "English grammar, not Pali; shares language structure focus but is a different language."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches basic English grammar, unrelated to learning Pali language."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01388573-66",
+      "subjectName": "การวิเคราะห์ศาสนาเปรียบเทียบ",
+      "outcomes": [
+        "เปรียบเทียบศาสนาต่าง ๆ ในหัวข้อสำคัญได้",
+        "วิเคราะห์ความสัมพันธ์ระหว่างศาสนาได้",
+        "ประเมินอิทธิพลศาสนาต่อวัฒนธรรม อุดมการณ์ และความเชื่อในโลกสมัยใหม่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "bf038cd8-b874-4aea-8963-f58063e124cf",
+              "name": "เปรียบเทียบศาสนาต่าง ๆ ในหัวข้อสำคัญได้"
+            },
+            {
+              "id": "034fad72-f06e-4ab8-b446-02f538ad1277",
+              "name": "วิเคราะห์ความสัมพันธ์ระหว่างศาสนาได้"
+            },
+            {
+              "id": "ba52c05b-8446-46a7-9c92-5119fd7f4356",
+              "name": "ประเมินอิทธิพลศาสนาต่อวัฒนธรรม อุดมการณ์ และความเชื่อในโลกสมัยใหม่ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes analysis of religion and culture, which may touch on Pali texts, but not specifically focused on Pali language or literature."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on comparative religion provides contextual foundation relevant to Pali, often used in Buddhist texts."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01387522-66",
+      "subjectName": "การวิเคราะห์ประวัติปรัชญาตะวันออกและตะวันตก",
+      "outcomes": [
+        "จำแนกประวัติแนวความคิดของนักปรัชญาตะวันออกและตะวันตกที่สำคัญได้",
+        "วิเคราะห์ลักษณะและอิทธิพลของนักปรัชญาตะวันออกและตะวันตกที่มีต่อปรัชญาและศาสนาได้",
+        "สังเคราะห์แนวความคิดของนักปรัชญาตะวันออกและตะวันตกเพื่อเขียนงานและนำเสนอได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a5b10833-350a-4616-b11e-83fcfea9634b",
+              "name": "วิเคราะห์ลักษณะและอิทธิพลของนักปรัชญาตะวันออกและตะวันตกที่มีต่อปรัชญาและศาสนาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes analysis of Eastern philosophies, which may involve Pali texts, but not specifically focused on Pali language or literature."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on Eastern and Western philosophy history offers contextual foundation related to Pali's cultural and philosophical background."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01357115-68",
+      "subjectName": "ภาษาเยอรมันพื้นฐาน I",
+      "outcomes": [
+        "สื่อสารภาษาเยอรมันในระดับกลาง (b1.1) โดยใช้ทักษะการฟัง การพูด การอ่านและการเขียนได้",
+        "เลือกใช้ศัพท์ สำนวนภาษาและ โครงสร้างภาษาเยอรมันระดับกลาง ได้ (b1.1)",
+        "เปรียบเทียบความแตกต่างทาง วัฒนธรรมเยอรมันและวัฒนธรรม ไทยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ea8e349b-6ceb-4a87-8865-aec6e970cc2d",
+              "name": "เลือกใช้ศัพท์ สำนวนภาษาและ โครงสร้างภาษาเยอรมันระดับกลาง ได้ (b1.1)"
+            }
+          ]
+        },
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ea8e349b-6ceb-4a87-8865-aec6e970cc2d",
+              "name": "เลือกใช้ศัพท์ สำนวนภาษาและ โครงสร้างภาษาเยอรมันระดับกลาง ได้ (b1.1)"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ea8e349b-6ceb-4a87-8865-aec6e970cc2d",
+              "name": "เลือกใช้ศัพท์ สำนวนภาษาและ โครงสร้างภาษาเยอรมันระดับกลาง ได้ (b1.1)"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "German language course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic German language course is unrelated to learning Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "outcomes": [
+        "อธิบาย",
+        "ประยุกย์ใช้",
+        "ใช้สถิติ",
+        "คำนวณ",
+        "รับผิกชอบ",
+        "ทำงานร่วมกุน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e67446c4-7917-4ca4-8e1e-0ce919170b15",
+              "name": "อธิบาย"
+            }
+          ]
+        },
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e67446c4-7917-4ca4-8e1e-0ce919170b15",
+              "name": "อธิบาย"
+            },
+            {
+              "id": "f095440f-3fe3-44cb-ba18-3530c7bb2829",
+              "name": "ประยุกย์ใช้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chemistry analysis course, unrelated to language learning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic analytical chemistry course is irrelevant to learning Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "03652241-66",
+      "subjectName": "หลักการทางเคมีวิเคราะห์ด้วยเครื่องมือ",
+      "outcomes": [
+        "อธิบาย",
+        "ใช้ได้",
+        "เข้าใจ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "be2b692b-a3e1-4aed-aff6-253987b8cc83",
+              "name": "อธิบาย"
+            }
+          ]
+        },
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "be2b692b-a3e1-4aed-aff6-253987b8cc83",
+              "name": "อธิบาย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chemistry principles course, unrelated to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Principles of analytical chemistry with instruments is unrelated to Pali language study."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "03754221-67",
+      "subjectName": "การออกเสียงภาษาอังกฤษขั้นพื้นฐาน",
+      "outcomes": [
+        "ออกเสียงสระ พยัญชนะขั้นพื้นฐานใน ภาษาอังกฤษได้",
+        "อ่านสัญลักษณ์ทางสัทศาสตร์ภาษาอังกฤษ ได้",
+        "ถอดเสียงภาษาอังกฤษเพื่อใช้ในการเรียนรู้ การออกเสียงคำในภาษาอังกฤษได้",
+        "ออกเสียงภาษาอังกฤษระดับคำ วลี และ ประโยคได้",
+        "จำแนกภาษาอังกฤษระดับคำ วลี และ ประโยคทั้งในรูปแบบ british engish และ american english ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "cc5d20d4-dd58-4940-baaf-c678d1a5ae41",
+              "name": "ออกเสียงภาษาอังกฤษระดับคำ วลี และ ประโยคได้"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "cc5d20d4-dd58-4940-baaf-c678d1a5ae41",
+              "name": "ออกเสียงภาษาอังกฤษระดับคำ วลี และ ประโยคได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "English pronunciation course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic English pronunciation course does not relate to learning Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01356115-68",
+      "subjectName": "ภาษาฝรั่งเศสพื้นฐาน I",
+      "outcomes": [
+        "สื่อสารภาษาฝรั่งเศสในระดับกลาง(ฺb.1.1) โดยเชื่อมโยงความสัมพันธ์ทักษะฟัง พูด อ่าน เขียนเพื่อการสื่อสาร",
+        "เลือกใช้คำศัพท์ สำนวนภาษาฝรั่งเศสระดับกลาง (b.1.1) ได้",
+        "สืบค้นข้อมูลและนำเสนอผลงานผ่านเทคโนโลยีสารสนเทศได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "881853f6-cc46-4ccf-a50d-1ef748c0adab",
+              "name": "เลือกใช้คำศัพท์ สำนวนภาษาฝรั่งเศสระดับกลาง (b.1.1) ได้"
+            }
+          ]
+        },
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "881853f6-cc46-4ccf-a50d-1ef748c0adab",
+              "name": "เลือกใช้คำศัพท์ สำนวนภาษาฝรั่งเศสระดับกลาง (b.1.1) ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "881853f6-cc46-4ccf-a50d-1ef748c0adab",
+              "name": "เลือกใช้คำศัพท์ สำนวนภาษาฝรั่งเศสระดับกลาง (b.1.1) ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "French language course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic French language course is unrelated to Pali language learning."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01362112-63",
+      "subjectName": "ภาษาจีนพื้นฐาน II",
+      "outcomes": [
+        "สามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้",
+        "มีทักษะฟังพูดอ่านเขียนประโยคภาษาจีนพื้นฐานในระดับที่สูงขึ้น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ae3fa185-5ae4-4158-8f5f-b52708f728fa",
+              "name": "สามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ae3fa185-5ae4-4158-8f5f-b52708f728fa",
+              "name": "สามารถสื่อสารเป็นภาษาจีนพื้นฐานในระดับที่สูงขึ้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chinese language course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic Chinese language course is unrelated to Pali language learning."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "outcomes": [
+        "สามารถจำแนกและวิเคราะห์องค์ประกอบศิลป์",
+        "สามารถอธิบายสุนทรียศาสตร์และการจัดองค์ประกอบศิลป์และวัตถุ",
+        "สามารถอธิบายการสื่อสารด้วยภาษาภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3e8ca0d3-80be-4cac-8ccd-09fbd26bf55b",
+              "name": "สามารถอธิบายการสื่อสารด้วยภาษาภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Design course, unrelated to language learning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic design and art course is irrelevant to learning Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "607e9929-673e-406f-8427-8932c6f098d3",
+              "name": "สามารถเขียนอักษรจีนได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9c249d3a-208d-4877-8cb5-69086c683776",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chinese language course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches Chinese language, not Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "31aaf588-dbd4-449d-9ea9-1dbe342a1919",
+              "name": "สามารถเขียนอักษรจีนได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "052d3bde-3e1d-4ae6-b49d-d3271cf6c060",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chinese language course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches Chinese language, not Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3a12d00e-7e92-4edb-9447-4e25ebe9e504",
+              "name": "สามารถเขียนอักษรจีนได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "183285e3-f516-4253-9211-b907fedbe721",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chinese language course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches Chinese language, not Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1b02f233-d9fc-4763-bb31-b5792f2d0488",
+              "name": "สามารถเขียนอักษรจีนได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ac2529a1-e962-4c92-bbbd-3786e9c9ca75",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chinese language course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches Chinese language, not Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "outcomes": [
+        "สามารถอ่านออกเสียงคำศัพท์และข้อความที่กำหนดให้ได้อย่างถูกต้อง",
+        "สามารถเขียนอักษรจีนได้",
+        "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "721918c3-ca56-4eb6-b467-6232c2bd7508",
+              "name": "สามารถเขียนอักษรจีนได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "85ecafd7-1f6a-43b0-aff9-98290ea4e60a",
+              "name": "สามารถใช้คำศัพท์และโครงสร้างภาษาจีนในบริบทที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chinese language course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches Chinese language, not Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01357353-68",
+      "subjectName": "การล่ามภาษาเยอรมัน",
+      "outcomes": [
+        "อธิบายประเภทต่าง ๆ ของ การล่าม ได้",
+        "ถ่ายทอดข้อความขนาดสั้นและ ขนาดกลางจากภาษาไทยเป็นภาษา เยอรมันได้",
+        "ถ่ายทอดข้อความขนาดยาวจาก ภาษาไทยเป็นภาษาเยอรมันได้",
+        "ระบุปัญหาและแก้ไขปัญหาจาก การล่ามได้",
+        "ใช้เทคนิคในการจดบันทึกย่อ ข้อความสำหรับการล่ามได้",
+        "ใช้เครื่องมืออิเล็กทรอนิกส์ประเภท ต่าง ๆ ในการล่ามได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "521fafe3-e008-43c7-89a9-9ca45213400b",
+              "name": "ถ่ายทอดข้อความขนาดยาวจาก ภาษาไทยเป็นภาษาเยอรมันได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "German interpreting course, not related to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on German interpreting, unrelated to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "03654111-67",
+      "subjectName": "สุนทรียศาสตร์ทางการกีฬา",
+      "outcomes": [
+        "สามารถอธิบายความหมายความ เป็นมาและคุณค่า ของสุนทรียศาสตร์ทางการกีฬา",
+        "สามารถยกตัวอย่างพัฒนาการกิจกรรมสุนทรียศาสตร์ทางการกีฬารวมถึงมิติสุนทรียความงาม คุณค่า และค่านิยมทางการกีฬา",
+        "สามารถประยุกต์ความรู้ด้านสุนทรียศาสตร์ทางการกีฬาที่เหมาะสมกับสภาวะการณ์ต่างๆ",
+        "สามารถประยุกต์ใช้ภาษาสื่อสารรวมทั้งเลือกใช้รูปแบบการสื่อสารได้อย่างเหมาะสม",
+        "สามารถประยุกต์ใช้เทคโนโลยีสารสนเทศเพื่อการนำเสนอผลงานในรูปแบบต่างๆ",
+        "แสดงออกถึงความซื่อสัตย์ เคารพกฎระเบียนและเข้าใจบริบทของการอยู่ร่วมกับผู้อื่น",
+        "สามารถเรียนรู้และใฝ่เรียนรู้สิ่งใหม่ในการพัฒนาตัวเอง",
+        "แสดงออกถึงความรับผิดชอบ รับฟังความคิดเห็นและสามารถทำงานร่วมกันเป็นระบบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ed188d35-5fb0-46fc-81c3-d46ffbd5f140",
+              "name": "สามารถประยุกต์ใช้ภาษาสื่อสารรวมทั้งเลือกใช้รูปแบบการสื่อสารได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Aesthetics in sports, unrelated to language learning."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on sports aesthetics is unrelated to learning Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01150112-67",
+      "subjectName": "ภาษาและวัฒนธรรมสำหรับครู",
+      "outcomes": [
+        "ใช้ภาษาเพื่อสื่อสารกับผู้เรียนและผู้ที่เกี่ยวข้องได้อย่างเหมาะสมกับบทบาทครู",
+        "ปฏิบัติต่อผู้เรียนและผู้ที่เกี่ยวข้องทุกคนอย่างเท่าเทียมด้วยการยอมรับนับถือความแตกต่างทางวัฒนธรรม",
+        "ใช้ภาษาเป็นเครื่องมือสำหรับการแสวงหาความรู้เพื่อพัฒนาความเป็นครูที่รู้เท่าทันสภาวการณ์เปลี่ยนแปลง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "72b5f2a5-8759-465b-8c32-533e3cc7d85b",
+              "name": "ใช้ภาษาเพื่อสื่อสารกับผู้เรียนและผู้ที่เกี่ยวข้องได้อย่างเหมาะสมกับบทบาทครู"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "aea7579a-138d-4d8d-b767-440e34ac69c6",
+              "name": "ใช้ภาษาเป็นเครื่องมือสำหรับการแสวงหาความรู้เพื่อพัฒนาความเป็นครูที่รู้เท่าทันสภาวการณ์เปลี่ยนแปลง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language and culture for teachers, not about Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on language and culture for teachers does not cover Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01358103-67",
+      "subjectName": "ภาษาญี่ปุ่นเบื้องต้น III",
+      "outcomes": [
+        "ใช้คำศัพท์และไวยากรณ์ภาษาญี่ปุ่นขั้นต้นได้",
+        "อธิบายความแตกต่างของไวยากรณ์ที่มีความหมายใกล้เคียงกันได้",
+        "แสดงความรับผิดชอบต่องานที่ได้รับมอบหมาย และมีความตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "67b2d79f-910e-4fc2-906c-f93c6f75e817",
+              "name": "อธิบายความแตกต่างของไวยากรณ์ที่มีความหมายใกล้เคียงกันได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Covers Japanese grammar, unrelated to Pali or its grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches basic Japanese, not Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษษจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a8dea453-a577-4e79-8a70-5ba525edd086",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on Chinese grammar analysis, not applicable to Pali grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on business Chinese, unrelated to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a77f7390-8e4c-4f29-b8f8-8a664ad0d959",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to Chinese grammar, not relevant to Pali grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on business Chinese, unrelated to Pali language study."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "bdcf0b76-0d4d-4326-91ae-e36c4540ea7f",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with Chinese grammar and usage, unrelated to Pali grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on advanced business Chinese, not relevant to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01399101-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร I",
+      "outcomes": [
+        "สามารถจดจำคำศัพท์และใช้ไวยากรณ์ได้อย่างถูกต้อง",
+        "สามารถ ฟัง พูด อ่าน เขียน ภาษาเวียดนามได้อย่างถูกต้อง",
+        "แสดงออกซึ่งความรับผิดชอบ ตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c529da5e-98be-4f9d-9d26-5a5eceb39483",
+              "name": "สามารถจดจำคำศัพท์และใช้ไวยากรณ์ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to Vietnamese language skills, not Pali grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches Vietnamese communication, unrelated to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01399103-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร III",
+      "outcomes": [
+        "สามารถจดจำคำศัพท์และใช้ไวยากรณ์ได้อย่างถูกต้อง",
+        "สามารถ ฟัง พูด อ่าน เขียน ภาษาเวียดนามได้อย่างถูกต้อง",
+        "แสดงออกซึ่งความรับผิดชอบ ตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ed9d896a-6026-4608-b747-4481530cdac6",
+              "name": "สามารถจดจำคำศัพท์และใช้ไวยากรณ์ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on Vietnamese language, not relevant to Pali grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches advanced Vietnamese communication, not relevant to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01399102-67",
+      "subjectName": "ภาษาเวียดนามเพื่อการสื่อสาร II",
+      "outcomes": [
+        "สามารถจดจำคำศัพท์และใช้ไวยากรณ์ได้อย่างถูกต้อง",
+        "สามารถ ฟัง พูด อ่าน เขียน ภาษาเวียดนามได้อย่างถูกต้อง",
+        "แสดงออกซึ่งความรับผิดชอบ ตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "27aaa6dd-2418-4148-9c5e-3a009f45fe7c",
+              "name": "สามารถจดจำคำศัพท์และใช้ไวยากรณ์ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on Vietnamese language skills, unrelated to Pali grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches intermediate Vietnamese communication, unrelated to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01362111-68",
+      "subjectName": "ภาษาจีนพื้นฐาน I",
+      "outcomes": [
+        "อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้",
+        "ใช้ภาษาจีนใน การสื่อสารในชีวิตประจำวันได้",
+        "แปลประโยคภาษาจีนพื้นฐานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ไวยากรณ์ภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "56727093-fbbd-4b7e-9afe-9a92343e2961",
+              "name": "อธิบายไวยากรณ์จีนขั้นพื้นฐานและนำคำเหล่านี้ไปใช้ในการแต่งประโยคได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with basic Chinese language skills, not Pali grammar."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches basic Chinese language, not related to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01396141-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ I",
+      "outcomes": [
+        "ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ",
+        "เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "aef56f52-f3c6-481d-8f36-a8730786b780",
+              "name": "ออกเสียงคำศัพท์และประโยคภาษาจีนได้อย่างถูกต้องตามหลักการ"
+            },
+            {
+              "id": "01d61c01-5713-4467-9f0d-4ce79769ec91",
+              "name": "เลือกใช้ประโยคในสื่อสารให้เหมาะสมกับสถานการณ์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on Chinese language and business communication, unrelated to Pali or Sanskrit."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on business Chinese conversation, irrelevant to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01420463-66",
+      "subjectName": "ฟิสิกส์ของดาว",
+      "outcomes": [
+        "อธิบายวิวัฒนาการของดาว ระบบดาวต่างๆในเอกภพได้",
+        "อธิบายทฤษฏีสัมพัทธภาพทั่วไปได้",
+        "มีความซื่อสัตย์ มีวินัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "4b271432-4f1f-4244-8562-7be1b1dd670a",
+              "name": "อธิบายทฤษฏีสัมพัทธภาพทั่วไปได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Astronomy physics, unrelated to Pali or Sanskrit language skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on astrophysics has no connection to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01396222-67",
+      "subjectName": "การอ่านภาษาจีนเพื่องานอาชีพ II",
+      "outcomes": [
+        "อธิบายและสรุปจับใจความสาคัญได้",
+        "อธิบายและเชื่อมโยงแนวคิดด้านสังคม เศรษฐกิจและวัฒนธรรมจีนที่เกี่ยวข้องกับการทาธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "ภาษาสันสกฤตเบื้องต้น",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "489529bf-65e4-435c-9677-4a4b2d166383",
+              "name": "อธิบายและสรุปจับใจความสาคัญได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chinese language for professional purposes, not relevant to Pali or Sanskrit."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on reading Chinese for professional use, unrelated to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "02738497-61",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "ค้นคว้า คัดกรองข้อมูลจากฐานข้อมูลบทความวิจัย เพื่อเลือกบทความวิจัยที่ต้องการนำเสนอได้อย่างถูกต้อง",
+        "อ่านและแปลบทความวิจัยภาษาอังกฤษ และสรุปใจความสำคัญได้อย่างถูกต้อง",
+        "อธิบายหลักการและเหตุผลในคำถามวิจัยของบทความวิจัยที่เลือกด้วยความรู้พื้นฐานในด้านวิทยาศาสตร์ชีวภาพได้",
+        "อธิบายความรู้พื้นฐานในด้านวิทยาศาสตร์ชีวภาพที่เกี่ยวข้องกับบทความวิจัยที่เลือกได้",
+        "อธิบายหลักการและเหตุผลในการออกแบบทดลองในของบทความวิจัยที่เลือกได้",
+        "อธิบายหลักการและเหตุผลของการใช้เครื่องมือในของบทความวิจัยที่เลือกได้",
+        "อภิปรายวิธีการทดลอง ผลการทดลอง ของบทความวิจัยที่เลือก ด้วยหลักการทางวิทยาศาสตร์ชีวภาพและหลักสถิติพื้นฐานได้ และตอบคำถามที่ต้องอาศัยกระบวนการคิดวิเคราะห์ได้อย่างมีเหตุผล",
+        "สร้างสื่อเพื่อนำเสนอข้อมูลของบทความวิจัยที่เลือกได้อย่างถูกต้อง และเหมาะสม",
+        "อ้างอิงแหล่งข้อมูลที่นำมานำเสนอได้อย่างถูกต้อง และไม่นำเสนอข้อมูลของผู้อื่นเป็นข้อมูลของตนเอง",
+        "สื่อสารและนำเสนอความรู้ และความคิดเห็น ในระดับทั่วไปและระดับวิชาการได้อย่างถูกต้อง และมีบุคลิกภาพเพื่อการสื่อสารที่เหมาะสม",
+        "มีส่วนร่วมในการเป็นผู้ฟังและผู้จัดสถานที่เพื่อการนำเสนอ   ตั้งคำถาม และ/หรือเสนอความคิดเห็นแก่ผู้นำเสนอโดยอ้างอิงจากความรู้ในด้านวิทยาศาสตร์ชีวภาพได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "eb0659b3-2f85-4953-a4ab-8fafd82ef866",
+              "name": "อ่านและแปลบทความวิจัยภาษาอังกฤษ และสรุปใจความสำคัญได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on research, scientific analysis, and presentation skills, which are unrelated to reading and translating Pali language."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar course on scientific research skills unrelated to Pali language study."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "02738497-66",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "ค้นคว้า คัดกรองข้อมูลจากฐานข้อมูลบทความวิจัย เพื่อเลือกบทความวิจัยที่ต้องการนำเสนอได้อย่างถูกต้อง",
+        "อ่านและแปลบทความวิจัยภาษาอังกฤษ และสรุปใจความสำคัญได้อย่างถูกต้อง",
+        "อธิบายหลักการและเหตุผลในคำถามวิจัยของบทความวิจัยที่เลือกด้วยความรู้พื้นฐานในด้านวิทยาศาสตร์ชีวภาพได้",
+        "อธิบายความรู้พื้นฐานในด้านวิทยาศาสตร์ชีวภาพที่เกี่ยวข้องกับบทความวิจัยที่เลือกได้",
+        "อธิบายหลักการและเหตุผลในการออกแบบทดลองในของบทความวิจัยที่เลือกได้",
+        "อธิบายหลักการและเหตุผลของการใช้เครื่องมือในของบทความวิจัยที่เลือกได้",
+        "อภิปรายวิธีการทดลอง ผลการทดลอง ของบทความวิจัยที่เลือก ด้วยหลักการทางวิทยาศาสตร์ชีวภาพและหลักสถิติพื้นฐานได้ และตอบคำถามที่ต้องอาศัยกระบวนการคิดวิเคราะห์ได้อย่างมีเหตุผล",
+        "สร้างสื่อเพื่อนำเสนอข้อมูลของบทความวิจัยที่เลือกได้อย่างถูกต้อง และเหมาะสม",
+        "อ้างอิงแหล่งข้อมูลที่นำมานำเสนอได้อย่างถูกต้อง และไม่นำเสนอข้อมูลของผู้อื่นเป็นข้อมูลของตนเอง",
+        "สื่อสารและนำเสนอความรู้ และความคิดเห็น ในระดับทั่วไปและระดับวิชาการได้อย่างถูกต้อง และมีบุคลิกภาพเพื่อการสื่อสารที่เหมาะสม",
+        "มีส่วนร่วมในการเป็นผู้ฟังและผู้จัดสถานที่เพื่อการนำเสนอ   ตั้งคำถาม และ/หรือเสนอความคิดเห็นแก่ผู้นำเสนอโดยอ้างอิงจากความรู้ในด้านวิทยาศาสตร์ชีวภาพได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "91330feb-6ac8-4132-9437-a7ac92709314",
+              "name": "อ่านและแปลบทความวิจัยภาษาอังกฤษ และสรุปใจความสำคัญได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Same as above, the outcomes are centered on research and scientific communication, not language learning or translation skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on scientific research skills and biology, unrelated to learning Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01150352-67",
+      "subjectName": "การวัดและประเมินผลการเรียนรู้",
+      "outcomes": [
+        "อธิบายหลักการ แนวคิด และแนวปฏิบัติในการวัดและประเมินผลการเรียนรู้ การออกแบบการประเมินในชั้นเรียน การประเมินตามสภาพจริง และการประเมินภาคปฏิบัติ",
+        "สร้างและใช้เครื่องมือได้เหมาะสมกับคุณลักษณะที่ต้องการวัด",
+        "ตรวจสอบคุณภาพเครื่องมือวัดผลการเรียนรู้",
+        "แปลความหมายคะแนนและรายงานผลการประเมินเพื่อนำไปใช้ในการพัฒนาผู้เรียน",
+        "แสดงออกถึงการมีจรรยาบรรณในการวัดและประเมินผลผู้เรียนให้ถูกต้องและยุติธรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "23510ae8-54ad-4b4e-935d-cf9fa2ba59d8",
+              "name": "แปลความหมายคะแนนและรายงานผลการประเมินเพื่อนำไปใช้ในการพัฒนาผู้เรียน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on assessment methods, unrelated to language reading or translation skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about educational assessment methods, not related to Pali language learning."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01402512-65",
+      "subjectName": "โครงสร้างและการทำหน้าที่ของชีวโมเลกุล",
+      "outcomes": [
+        "ระบุและอธิบายโครงสร้างและหน้าที่ของสารชีวโมเลกุล",
+        "เชื่อมโยงความสัมพันธ์ระหว่างโครงสร้างและหน้าที่ของสารชีวโมเลกุล",
+        "อธิบายกระบวนการการสร้างและสลายสารชีวโมเลกุล",
+        "วิเคราะห์และแปลผลการทดลองและงานวิจัยที่เกี่ยวข้องกับสารชีวโมเลกุลได้",
+        "ใช้เทคโนโลยีสื่อสารสนเทศเพื่อการสื่อสารได้",
+        "นำเสนอรายงานหรือโครงการค้นคว้าแบบปากเปล่าได้",
+        "รับผิดชอบ เข้าเรียนและส่งงานในเวลาที่กำหนด",
+        "ร่วมมือกับผู้อื่นในการทำงานร่วมกัน เป็นผู้นำหรือผู้ตามที่ดี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b40dd1d1-d343-4348-ad95-002e31145caf",
+              "name": "วิเคราะห์และแปลผลการทดลองและงานวิจัยที่เกี่ยวข้องกับสารชีวโมเลกุลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on biochemistry, unrelated to language learning or translation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers biomolecules and biology, no connection to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "04102497-64",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "ศึกษา ค้นคว้า รวบรวม แปล และเรียบเรียงบทความทางวิชาการระดับนานาชาติได้",
+        "ติดตามประเด็นทางวิชาการที่เกี่ยวข้องกับทรัพยากรเกษตรและการจัดการการผลิตในช่วง 5 ปีย้อนหลัง",
+        "แปลและประมวลการศึกษาค้นคว้าในรูปแบบรายงานได้",
+        "นำเสนอผลงานปากเปล่าต่อที่สาธารณะได้",
+        "มีจรรยาบรรณในการนำเสนอข้อมูลที่ถูกต้องมีตามหลักวิทยาศาสตร์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "4cb8b3cd-aafe-40f1-9d67-95c1c6d7b3bf",
+              "name": "แปลและประมวลการศึกษาค้นคว้าในรูปแบบรายงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Research and academic presentation skills, not related to Pali language reading or translation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on agricultural resources and scientific seminar skills, unrelated to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "จัดการและออกแบบฐานข้อมูลได้",
+        "วิเคราะห์ข้อมูลด้วยฟังก์ชันการคำนวณได้",
+        "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้",
+        "ประยุกต์การสอบถามข้อมูลในการทำงานด้านวิทยาการข้อมูลได้",
+        "สามารถแสดงออกถึงความซื่อสัตย์ และเคารพกฎระเบียบและจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การอ่านและแปลภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9420d61d-b1b5-448b-9170-2bba3a5d45a6",
+              "name": "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9420d61d-b1b5-448b-9170-2bba3a5d45a6",
+              "name": "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Data querying and database management, unrelated to language reading or translation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about data science and database querying, irrelevant to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "02708102-67",
+      "subjectName": "วรรณกรรมกับวิทยาศาสตร์",
+      "outcomes": [
+        "อธิบายความเชื่อมโยงระหว่างงานวรรณกรรมกับองค์ความรู้ทางวิทยาศาสตร์และเทคโนโลยี",
+        "วิเคราะห์วรรณกรรมทางวิทยาศาสตร์ที่สนใจได้",
+        "วิเคราะห์ความสัมพันธ์ระหว่างวรรณกรรมกับวิทยาศาสตร์และเทคโนโลยีที่ส่งผลกระทบต่อสังคมและนำไปสู่ความเปลี่ยนแปลงทางสังคมผ่านวรรณกรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ec4cb939-0c5c-4658-a49e-503773959301",
+              "name": "อธิบายความเชื่อมโยงระหว่างงานวรรณกรรมกับองค์ความรู้ทางวิทยาศาสตร์และเทคโนโลยี"
+            },
+            {
+              "id": "f9dadb80-a250-49aa-8ff2-e99e72e52259",
+              "name": "วิเคราะห์วรรณกรรมทางวิทยาศาสตร์ที่สนใจได้"
+            },
+            {
+              "id": "4876cdd5-7782-44bc-b104-1ed7facbf8a3",
+              "name": "วิเคราะห์ความสัมพันธ์ระหว่างวรรณกรรมกับวิทยาศาสตร์และเทคโนโลยีที่ส่งผลกระทบต่อสังคมและนำไปสู่ความเปลี่ยนแปลงทางสังคมผ่านวรรณกรรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on science and literature connection, not Pali language or literature."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course links literature and science, but does not cover Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01361481-64",
+      "subjectName": "ภาษาไทยในวัฒนธรรมการเกษตร",
+      "outcomes": [
+        "เคารพข้อตกลงของรายวิชาและกฎระเบียบของมหาวิทยาลัยเกษตรศาสตร์",
+        "วิเคราะห์ภาษาไทยและวรรณกรรมไทยที่สัมพันธ์กับวัฒนธรรมการเกษตรได้",
+        "ประเมินค่าภาษาไทย วรรณกรรมไทย และผลงานสร้างสรรค์ที่สัมพันธ์กับวัฒนธรรมการเกษตรไทยได้",
+        "ผลิตผลงานสร้างสรรค์เกี่ยวกับวัฒนธรรมการเกษตรไทยด้วยสื่อสมัยใหม่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c3c9cbc9-27d9-44e9-87b3-73bbc3138adf",
+              "name": "วิเคราะห์ภาษาไทยและวรรณกรรมไทยที่สัมพันธ์กับวัฒนธรรมการเกษตรได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes relate to Thai language and culture, not Pali language or literature."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on Thai language and agricultural culture, not Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "02163312-67",
+      "subjectName": "การสอนวรรณกรรมภาษาอังกฤษ",
+      "outcomes": [
+        "สามารถคัดเลือกวรรณกรรมให้เหมาะสมกับผู้เรียนได้",
+        "สามารถเลือกใช้วิธีการสอนที่ส่งเสริมการพัฒนาทักษะภาษาอังกฤษและทักษะการคิดวิเคราะห์อย่างเหมาะสมกับระดับผู้เรียนได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7a6c4370-04ff-4b05-a923-7618f3deac5f",
+              "name": "สามารถคัดเลือกวรรณกรรมให้เหมาะสมกับผู้เรียนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on English literature teaching methods, unrelated to Pali."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about teaching English literature, unrelated to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01355131-63",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษเบื้องต้น",
+      "outcomes": [
+        "สามารถทำงานที่ได้รับมอบหมายได้อย่างถูกต้องและลุล่วงตามเวลาที่กำหนด",
+        "สามารถทำงานที่ได้รับมอบหมายโดยไม่ละเมิดจรรยาบรรณทางวิชาการ",
+        "สามารถนำองค์ความรู้ทางด้านภาษาอังกฤษมาประยุกต์ใช้เพื่อให้เกิดประโยชน์แก่ตนเองและสังคม",
+        "สามารถฟังและพูดโต้ตอบด้วยภาษาอังกฤษในหัวข้อด้านวิชาการ สังคมและวิชาชีพได้ สรุปใจความและประเด็นสำคัญจากสิ่งที่ฟังได้ถูกต้อง สามารถแยกแยะประเภทของข้อมูลที่อ่านในสื่อสิ่งพิมพ์และสื่อออนไลน์ และสามารถนำเสนอรายงานทั้งในรูปแบบปากเปล่าและการเขียนอย่างถูกต้องครบถ้วน ทั้งนี้เทียบเท่าระดับ c1 (proficient user) ตามมาตรฐานสากล common european framework of reference for languages: learning, teaching, assessment (cefr)",
+        "สามารถประยุกต์ใช้องค์ความรู้ภาษาศาสตร์ ภาษาอังกฤษด้านต่างๆ เช่น การออกเสียงภาษาอังกฤษอย่างถูกต้องตามหลักสัทศาสตร์และสัทวิทยาภาษาอังกฤษ สามารถวิเคราะห์ความหมายและที่มาของคำตามหลักวิทยาหน่วยคำภาษาอังกฤษ สามารถวิเคราะห์โครงสร้างและความหมายของวลีและประโยคตามหลักวากยสัมพันธ์ภาษาอังกฤษ ตลอดจนสามารถวิเคราะห์วิวัฒนาการและการเปลี่ยนแปลงของภาษาอังกฤษ รวมถึงนานาภาษาอังกฤษโลก (world englishes)",
+        "สามารถอ่าน ตีความ วิเคราะห์และวิจารณ์วรรณกรรมประเภทร้อยแก้ว ร้อยกรอง และบทละครอังกฤษและอเมริกันและที่ประพันธ์หรือแปลเป็นภาษาอังกฤษ โดยการอิงทฤษฎีวรรรกรรมที่เกี่ยวข้อง เพื่อเข้าใจความสำคัญของปัจเจกชน สังคมและวัฒนธรรม อันจะนำไปสู่การอยู่ร่วมกันอย่างสันติ",
+        "สามารถแปลข้อความและตัวบทประเภทต่างๆ จากภาษาอังกฤษเป็นภาษาไทยและภาษาไทยเป็นภาษาอังกฤษ เช่น ตัวบทประเภทให้ข้อมูล (ข่าวและสารคดี) แสดงความรู้สึก (นวนิยาย) โน้มน้าว (สุนทรพจน์และคำปราศรัย) ตลอดจนการแปลตัวบทที่ใช้คำศัพท์เฉพาะสาขาวิชาให้ถูกต้อง ครบถ้วนและสละสลวย อันเป็นผลมาจากความเข้าใจภาษาและโครงสร้างของทั้งภาษาไทยและภาษาอังกฤษ",
+        "สามารถใช้ภาษาอังกฤษที่ได้จากการประมวลผลการเรียนรู้ทั้งหมดเพื่อใช้งานได้อย่างมีประสิทธิภาพ",
+        "สามารถประยุกต์ใช้องค์ความรู้ภาษาอังกฤษในการคิดวิเคราะห์ วิจารณ์อย่างมีเหตุผลและสามารถแก้ปัญหาอย่างเป็นระบบ",
+        "สามารถประยุกต์ใช้องค์ความรู้ด้านภาษาอังกฤษในการทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ มีภาวะผู้นำ เข้าใจบทบาทของตนเองและรับฟังความคิดเห็นของผู้อื่น ปรับตัวให้เข้ากับความหลากหลายในสถานที่ทำงานและสังคม",
+        "สามารถประมวลทักษะและองค์ความรู้ด้านภาษาอังกฤษเพื่อนำมาใช้ในการทำงานของตนเองอย่างมีประสิทธิภาพ",
+        "สามารถแยกแยะประเภทของข้อมูลภาษาอังกฤษที่ใช้ในสื่อสิ่งพิมพ์และสื่อออนไลน์ สามารถนำเสนอรายงานในที่ประชุมโดยใช้สื่อเทคโนโลยี",
+        "สามารถใช้เทคโนโลยีดิจิทัลที่มีอยู่ในปัจจุบันมาใช้เพื่อพัฒนากระบวนการทำงานด้านภาษาอังกฤษเพื่อเพิ่มประสิทธิภาพในการทำงาน (digital literacy)"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1d6fca7e-8bcf-4199-af98-cbd58ba40ec7",
+              "name": "สามารถอ่าน ตีความ วิเคราะห์และวิจารณ์วรรณกรรมประเภทร้อยแก้ว ร้อยกรอง และบทละครอังกฤษและอเมริกันและที่ประพันธ์หรือแปลเป็นภาษาอังกฤษ โดยการอิงทฤษฎีวรรรกรรมที่เกี่ยวข้อง เพื่อเข้าใจความสำคัญของปัจเจกชน สังคมและวัฒนธรรม อันจะนำไปสู่การอยู่ร่วมกันอย่างสันติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "English language skills, not related to Pali language or literature."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches English reading and writing skills, no relevance to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01355390-63",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "outcomes": [
+        "สามารถทำงานที่ได้รับมอบหมายได้อย่างถูกต้องและลุล่วงตามเวลาที่กำหนด",
+        "สามารถทำงานที่ได้รับมอบหมายโดยไม่ละเมิดจรรยาบรรณทางวิชาการ",
+        "สามารถนำองค์ความรู้ทางด้านภาษาอังกฤษมาประยุกต์ใช้เพื่อให้เกิดประโยชน์แก่ตนเองและสังคม",
+        "สามารถฟังและพูดโต้ตอบด้วยภาษาอังกฤษในหัวข้อด้านวิชาการ สังคมและวิชาชีพได้ สรุปใจความและประเด็นสำคัญจากสิ่งที่ฟังได้ถูกต้อง สามารถแยกแยะประเภทของข้อมูลที่อ่านในสื่อสิ่งพิมพ์และสื่อออนไลน์ และสามารถนำเสนอรายงานทั้งในรูปแบบปากเปล่าและการเขียนอย่างถูกต้องครบถ้วน ทั้งนี้เทียบเท่าระดับ c1 (proficient user) ตามมาตรฐานสากล common european framework of reference for languages: learning, teaching, assessment (cefr)",
+        "สามารถประยุกต์ใช้องค์ความรู้ภาษาศาสตร์ ภาษาอังกฤษด้านต่างๆ เช่น การออกเสียงภาษาอังกฤษอย่างถูกต้องตามหลักสัทศาสตร์และสัทวิทยาภาษาอังกฤษ สามารถวิเคราะห์ความหมายและที่มาของคำตามหลักวิทยาหน่วยคำภาษาอังกฤษ สามารถวิเคราะห์โครงสร้างและความหมายของวลีและประโยคตามหลักวากยสัมพันธ์ภาษาอังกฤษ ตลอดจนสามารถวิเคราะห์วิวัฒนาการและการเปลี่ยนแปลงของภาษาอังกฤษ รวมถึงนานาภาษาอังกฤษโลก (world englishes)",
+        "สามารถอ่าน ตีความ วิเคราะห์และวิจารณ์วรรณกรรมประเภทร้อยแก้ว ร้อยกรอง และบทละครอังกฤษและอเมริกันและที่ประพันธ์หรือแปลเป็นภาษาอังกฤษ โดยการอิงทฤษฎีวรรรกรรมที่เกี่ยวข้อง เพื่อเข้าใจความสำคัญของปัจเจกชน สังคมและวัฒนธรรม อันจะนำไปสู่การอยู่ร่วมกันอย่างสันติ",
+        "สามารถแปลข้อความและตัวบทประเภทต่างๆ จากภาษาอังกฤษเป็นภาษาไทยและภาษาไทยเป็นภาษาอังกฤษ เช่น ตัวบทประเภทให้ข้อมูล (ข่าวและสารคดี) แสดงความรู้สึก (นวนิยาย) โน้มน้าว (สุนทรพจน์และคำปราศรัย) ตลอดจนการแปลตัวบทที่ใช้คำศัพท์เฉพาะสาขาวิชาให้ถูกต้อง ครบถ้วนและสละสลวย อันเป็นผลมาจากความเข้าใจภาษาและโครงสร้างของทั้งภาษาไทยและภาษาอังกฤษ",
+        "สามารถใช้ภาษาอังกฤษที่ได้จากการประมวลผลการเรียนรู้ทั้งหมดเพื่อใช้งานได้อย่างมีประสิทธิภาพ",
+        "สามารถประยุกต์ใช้องค์ความรู้ภาษาอังกฤษในการคิดวิเคราะห์ วิจารณ์อย่างมีเหตุผลและสามารถแก้ปัญหาอย่างเป็นระบบ",
+        "สามารถประยุกต์ใช้องค์ความรู้ด้านภาษาอังกฤษในการทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ มีภาวะผู้นำ เข้าใจบทบาทของตนเองและรับฟังความคิดเห็นของผู้อื่น ปรับตัวให้เข้ากับความหลากหลายในสถานที่ทำงานและสังคม",
+        "สามารถประมวลทักษะและองค์ความรู้ด้านภาษาอังกฤษเพื่อนำมาใช้ในการทำงานของตนเองอย่างมีประสิทธิภาพ",
+        "สามารถแยกแยะประเภทของข้อมูลภาษาอังกฤษที่ใช้ในสื่อสิ่งพิมพ์และสื่อออนไลน์ สามารถนำเสนอรายงานในที่ประชุมโดยใช้สื่อเทคโนโลยี",
+        "สามารถใช้เทคโนโลยีดิจิทัลที่มีอยู่ในปัจจุบันมาใช้เพื่อพัฒนากระบวนการทำงานด้านภาษาอังกฤษเพื่อเพิ่มประสิทธิภาพในการทำงาน (digital literacy)"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "8563cd58-ed10-422c-96ad-78cce13142b5",
+              "name": "สามารถอ่าน ตีความ วิเคราะห์และวิจารณ์วรรณกรรมประเภทร้อยแก้ว ร้อยกรอง และบทละครอังกฤษและอเมริกันและที่ประพันธ์หรือแปลเป็นภาษาอังกฤษ โดยการอิงทฤษฎีวรรรกรรมที่เกี่ยวข้อง เพื่อเข้าใจความสำคัญของปัจเจกชน สังคมและวัฒนธรรม อันจะนำไปสู่การอยู่ร่วมกันอย่างสันติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "General skills course, unrelated to Pali language or literature."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course prepares for cooperative education with English focus, unrelated to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01470113-65",
+      "subjectName": "เอเชียตะวันออกเฉียงใต้ศึกษาเบื้องต้น",
+      "outcomes": [
+        "อธิบายและระบุความสำคัญของเอเชียตะวันออกเฉียงใต้ศึกษาได้",
+        "อธิบายความหลากหลายทางสังคมและวัฒนธรรมในภูมิภาคเอเชียตะวันออกเฉียงใต้ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "eb2989bc-1cd7-4c22-b0f4-fcf51efe52cb",
+              "name": "อธิบายความหลากหลายทางสังคมและวัฒนธรรมในภูมิภาคเอเชียตะวันออกเฉียงใต้ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Regional studies, not specifically about Pali language or literature."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers Southeast Asian studies broadly but does not focus on Pali language learning."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01249542-68",
+      "subjectName": "ทฤษฎีทางมรดกวัฒนธรรมขั้นสูง",
+      "outcomes": [
+        "สามารถอธิบายทฤษฎีมรดกทางวัฒนธรรมได้",
+        "สามารถแก้ปัญหาด้านการออกแบบที่เกี่ยวข้องกับทฤษฎีมรดกทางวัฒนธรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "415e1183-5028-4347-90bd-ea9da7bff347",
+              "name": "สามารถอธิบายทฤษฎีมรดกทางวัฒนธรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Cultural heritage theories, unrelated to Pali language or literature."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on cultural heritage theory, not on learning Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01358102-67",
+      "subjectName": "ภาษาญี่ปุ่นเบื้องต้น II",
+      "outcomes": [
+        "เข้าใจไวยากรณ์ และคำศัพท์ภาษาญี่ปุ่นพื้นฐานได้อย่างถูกต้อง และสามารถนำไปใช้งานได้",
+        "ใช้ความรู้เรื่องคำศัพท์ ไวยากรณ์ และสำนวนที่จำเป็นต่าง ๆ ไปประยุกต์ใช้ได้อย่างถูกต้อง",
+        "แสดงความรับผิดชอบต่องานที่ได้รับมอบหมาย ทั้งส่วนบุคคลและส่วนรวมมีความตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e3b2523d-75d2-467b-b520-5817cc69ed83",
+              "name": "ใช้ความรู้เรื่องคำศัพท์ ไวยากรณ์ และสำนวนที่จำเป็นต่าง ๆ ไปประยุกต์ใช้ได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Japanese language course, unrelated to Pali or Pali dictionaries."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Teaches basic Japanese language, unrelated to Pali language study."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01396231-67",
+      "subjectName": "การเขียนภาษาจีนเพื่อการสื่อสาร",
+      "outcomes": [
+        "เลือกคำศัพท์ วลี และรูปประโยคที่เหมาะกับในงานเขียนหัวข้อต่าง ๆ ได้",
+        "สรุปหรือให้ความเห็นจากเนื้อหาที่กำหนดให้ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "75eab61c-1608-494f-8b34-4ab1f3d99ff7",
+              "name": "เลือกคำศัพท์ วลี และรูปประโยคที่เหมาะกับในงานเขียนหัวข้อต่าง ๆ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chinese communication writing, not relevant to Pali language or dictionary skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on Chinese writing for communication, not relevant to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "02747214-65",
+      "subjectName": "พฤติกรรมผู้บริโภคในธุรกิจการบิน",
+      "outcomes": [
+        "อธิบายแนวคิดและทฤษฎีพฤติกรรมผู้บริโภคในธุรกิจการบิน",
+        "จัดทำวิจัยขนาดเล็กด้านธุรกิจการบินโดยประยุกต์ใช้ทฤษฎีพฤติกรรมผู้บริโภค",
+        "แสดงออกถึงการเคารพในจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b2618f04-00c8-4072-a17f-758234fa6133",
+              "name": "แสดงออกถึงการเคารพในจรรยาบรรณทางวิชาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Business behavior in aviation, unrelated to Pali language or dictionary use."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers consumer behavior in aviation business, unrelated to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "02747498-65",
+      "subjectName": "ปัญหาพิเศษ",
+      "outcomes": [
+        "ประมวลความรู้และจัดทำวิจัยด้านธุรกิจการบิน",
+        "ใช้สถิติเพื่อวิเคราะห์ข้อมูลประเด็นแนวโน้มในธุรกิจการบิน",
+        "นำเสนอรายงานวิเคราะห์หัวข้อที่เลือกโดยใช้ระบบสารสนเทศที่ทันสมัย",
+        "แสดงออกถึงการเคารพในจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "5357725c-ec0b-4d87-b911-2b2bd8769d8a",
+              "name": "แสดงออกถึงการเคารพในจรรยาบรรณทางวิชาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Special topics in aviation business, not related to Pali language or dictionaries."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Special problems in aviation business, no connection to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01420475-66",
+      "subjectName": "ผลึกศาสตร์รังสีเอกซ์",
+      "outcomes": [
+        "สามารถวิเคราะห์ผลที่ได้จากการทดลอง",
+        "นำความรู้ที่ได้ไปใช้ในชีวิตประจำวัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "4d314c30-3c86-4266-98aa-8f2eb0628c93",
+              "name": "นำความรู้ที่ได้ไปใช้ในชีวิตประจำวัน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Radiation science, unrelated to Pali language or dictionary skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on X-ray crystallography, unrelated to language studies."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "outcomes": [
+        "เขียนงานเขียนภาษาไทยที่กำหนดตามรูปแบบและหลักการเขียนได้",
+        "สืบค้นข้อมูลและอ้างอิงแหล่งข้อมูลที่ใช้ประกอบการเขียนได้อย่างถูกต้องเหมาะสม",
+        "มีความรับผิดชอบต่อตนเองและผู้อื่น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การใช้พจนานุกรมภาษาบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "70b4c6c9-fb86-466a-8e94-f7851282c5cc",
+              "name": "สืบค้นข้อมูลและอ้างอิงแหล่งข้อมูลที่ใช้ประกอบการเขียนได้อย่างถูกต้องเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Thai language writing course, not related to Pali language or dictionary use."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Teaches practical Thai writing skills, not Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "01361532-66",
+      "subjectName": "ภาษาในวรรณกรรมไทย",
+      "outcomes": [
+        "สามารถอธิบายและวิเคราะห์ภาษาในวรรณกรรมไทยได้",
+        "สามารถใช้แนวคิดและทฤษฎีเกี่ยวกับการศึกษาวรรณกรรม หลักการวิจารณ์และภาพสะท้อนทางสังคมเพื่อวิเคราะห์วรรณกรรมไทยสมัยต่าง ๆ ได้",
+        "สามารถวิจารณ์และประเมินค่าการใช้ภาษาไทยในวรรณกรรมไทยสมัยต่าง ๆ ได้",
+        "สามารถเขียนบทความวิจัยที่เกี่ยวข้องกับการศึกษาวรรณกรรม หลักการวิจารณ์ และภาพสะท้อนทางสังคมและวัฒนธรรมในวรรณกรรมไทยสมัยต่าง ๆ ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "5d67dbfa-e87d-4e5b-a9fb-c988ca2008a0",
+              "name": "สามารถอธิบายและวิเคราะห์ภาษาในวรรณกรรมไทยได้"
+            },
+            {
+              "id": "e0e4d634-232e-4f8a-b0d9-6abfd612b486",
+              "name": "สามารถใช้แนวคิดและทฤษฎีเกี่ยวกับการศึกษาวรรณกรรม หลักการวิจารณ์และภาพสะท้อนทางสังคมเพื่อวิเคราะห์วรรณกรรมไทยสมัยต่าง ๆ ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Not found in LLM response"
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on Thai literature language analysis, not Pali language learning."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากเรียนภาษาบาลี",
+      "subjectCode": "02999042-67",
+      "subjectName": "การพัฒนานิสิต",
+      "outcomes": [
+        "สามารถอธิบายหลักนิติธรรม และจริยธรรม ในการใช้ชีวิตได้",
+        "สามารถอธิบายความแตกต่างหลากหลายทางวัฒนธรรมของสังคม",
+        "สามารถประสานงานและทำงานร่วมกับผู้อื่นได้",
+        "สามารถดำเนินโครงการตามหลัก pdca ได้",
+        "สามารถใช้สื่อสารสนเทศในการเรียนรู้ตลอดชีวิตและพัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "วรรณคดีและวัฒนธรรมบาลี",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a3b4c7cf-5f96-4b3b-8a66-1c41fd19c8ed",
+              "name": "สามารถอธิบายความแตกต่างหลากหลายทางวัฒนธรรมของสังคม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Not found in LLM response"
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers student development and ethics, no direct relevance to Pali language."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1866,
+      "outputTokens": 305
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1582,
+      "outputTokens": 306
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1749,
+      "outputTokens": 276
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1810,
+      "outputTokens": 295
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 3901,
+      "outputTokens": 313
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1691,
+      "outputTokens": 305
+    }
+  ]
+}

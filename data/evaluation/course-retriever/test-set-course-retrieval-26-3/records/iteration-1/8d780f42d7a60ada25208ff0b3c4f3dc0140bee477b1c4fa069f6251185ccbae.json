@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การเขียนโปรแกรมขั้นสูง"
+  ],
+  "skill": "การเขียนโปรแกรมขั้นสูง",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02201131-66",
+      "subjectName": "การเขียนโปรแกรมและระบบ IoT ทางการเกษตร",
+      "relevanceScore": 2,
+      "reason": "Course covers high-level programming in the context of IoT, which relates to advanced programming skills, but it is specific to IoT applications rather than general advanced programming."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Focuses on data visualization and analysis, with some mention of data processing, but does not emphasize advanced programming techniques."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Includes basic programming and engineering design, with some programming components, but not specifically advanced programming skills."
+    },
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 3,
+      "reason": "Explicitly covers programming for robotics, including object-oriented programming and event-driven programming, which are advanced programming topics."
+    },
+    {
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "relevanceScore": 1,
+      "reason": "Focuses on reading and writing in English, with no direct relation to programming skills."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 2,
+      "reason": "Covers structured programming principles, which are foundational but not necessarily advanced programming techniques."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 2,
+      "reason": "Includes programming for problem-solving, with some focus on algorithms and data structures, but not explicitly advanced programming."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 2,
+      "reason": "Covers engineering drawing and software use, not programming."
+    },
+    {
+      "subjectCode": "04253371-65",
+      "subjectName": "การควบคุมแบบตรรกะและระบบอัตโนมัติ",
+      "relevanceScore": 3,
+      "reason": "Covers PLC programming and automation control, which involves advanced programming concepts in industrial automation."
+    },
+    {
+      "subjectCode": "03601524-66",
+      "subjectName": "ระเบียบวิธีใช้คอมพิวเตอร์ในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 1,
+      "reason": "Focuses on power system analysis using computers, not programming skills per se."
+    },
+    {
+      "subjectCode": "03601523-66",
+      "subjectName": "การป้องกันระบบไฟฟ้ากำลังขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Focuses on high-level power system protection, not programming."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 1,
+      "reason": "Focuses on Thai language writing skills, unrelated to programming."
+    },
+    {
+      "subjectCode": "04252535-67",
+      "subjectName": "วิศวกรรมข้อมูลขนาดใหญ่",
+      "relevanceScore": 2,
+      "reason": "Covers big data engineering, which involves data processing and analysis, but not necessarily advanced programming techniques."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Focuses on nutritional product innovation, not programming."
+    },
+    {
+      "subjectCode": "01605698-67",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Focuses on research and advanced knowledge in animal health, not programming."
+    },
+    {
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Focuses on interdisciplinary research design and report writing, not programming."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.625,
+    "totalRelevanceSum": 26,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 37.5,
+        "microAverageRate": 37.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.705,
+        "at10": 0.84,
+        "at15": 0.882,
+        "atAll": 0.884
+      },
+      "ideal": {
+        "at5": 0.6,
+        "at10": 0.624,
+        "at15": 0.574,
+        "atAll": 0.564
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.7,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.533,
+        "threshold3": 0.133
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0.125
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3070,
+  "outputTokens": 718
+}

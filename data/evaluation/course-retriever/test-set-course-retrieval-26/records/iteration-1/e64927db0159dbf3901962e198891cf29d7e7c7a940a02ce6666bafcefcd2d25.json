@@ -1,0 +1,150 @@
+{
+  "testCaseId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การจัดการธุรกิจปศุสัตว์",
+  "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+  "skill": "การจัดการธุรกิจปศุสัตว์",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "relevanceScore": 2,
+      "reason": "Course includes basic business planning for pet animals, which relates to livestock business management but focuses on pets, providing some useful learning on business aspects."
+    },
+    {
+      "subjectCode": "01603446-65",
+      "subjectName": "การบริหารธุรกิจสัตว์เลี้ยงและโรงพยาบาลสัตว์",
+      "relevanceScore": 3,
+      "reason": "Course is directly about managing pet business and animal hospital, covering systematic business management and operational efficiency, highly relevant to livestock business management."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Course is a seminar with focus on research presentation and animal nutrition knowledge, no direct coverage of livestock business management."
+    },
+    {
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Course covers AI applications for livestock industry production planning, relevant to business management aspects but focused on technology application rather than full business management."
+    },
+    {
+      "subjectCode": "06901111-66",
+      "subjectName": "หลักการจัดการธุรกิจเบื้องต้นสำหรับอุตสาหกรรมการท่องเที่ยว",
+      "relevanceScore": 1,
+      "reason": "Course covers basic business management principles but for tourism industry, only marginally relevant to livestock business management."
+    },
+    {
+      "subjectCode": "01025333-64",
+      "subjectName": "ปฏิบัติการเกษตรเขตร้อน",
+      "relevanceScore": 1,
+      "reason": "Course involves practical skills in tropical agriculture including some animal production, but business management is not a focus."
+    },
+    {
+      "subjectCode": "01004332-64",
+      "subjectName": "ชีววิทยาของปลวกและการควบคุม",
+      "relevanceScore": 0,
+      "reason": "Course about termite biology and control, unrelated to livestock business management."
+    },
+    {
+      "subjectCode": "01314496-67",
+      "subjectName": "เรื่องเฉพาะทางการจัดการสัตว์ป่า",
+      "relevanceScore": 1,
+      "reason": "Course on wildlife management, which is related to animal management but not specifically livestock business management."
+    },
+    {
+      "subjectCode": "01600131-65",
+      "subjectName": "มาตรฐานฟาร์มและการจัดการฟาร์ม",
+      "relevanceScore": 2,
+      "reason": "Course covers farm standards and waste management for animals, relevant to livestock farm management, a component of livestock business management."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Course on profit planning and control in business generally, marginally relevant as it covers business financial management but not specific to livestock."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 1,
+      "reason": "Course on business intelligence systems, marginally relevant as it supports business decision making but not specific to livestock business management."
+    },
+    {
+      "subjectCode": "01002111-68",
+      "subjectName": "วิทยาศาสตร์และเทคโนโลยีด้านสัตว์",
+      "relevanceScore": 1,
+      "reason": "Course covers animal science and technology, including production trends, but does not focus on business management."
+    },
+    {
+      "subjectCode": "01023522-68",
+      "subjectName": "อุตสาหกรรมอาหารสัตว์เลี้ยง",
+      "relevanceScore": 2,
+      "reason": "Course on pet food industry covering production, regulations, and nutrition, relevant to livestock business management in the pet food sector."
+    },
+    {
+      "subjectCode": "01387105-67",
+      "subjectName": "พุทธจริยศาสตร์ในการดำเนินธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course on Buddhist ethics in business, marginally relevant as it relates to business ethics but not specific to livestock business management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.2857142857142858,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.745,
+        "at10": 0.789,
+        "at15": 0.889,
+        "atAll": 0.889
+      },
+      "ideal": {
+        "at5": 0.581,
+        "at10": 0.492,
+        "at15": 0.457,
+        "atAll": 0.477
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.4,
+      "at15": 0.357,
+      "atAll": 0.357
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2632,
+  "outputTokens": 528
+}

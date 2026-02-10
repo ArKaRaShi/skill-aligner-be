@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "be573eca-6596-418a-888d-f4f0c0d5651d-การเขียนโปรแกรมภาษา Python หรือ C++"
+  ],
+  "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "Course outcome mentions ability to write application programs for problem solving but does not specify Python or C++ or detailed programming skills."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course focuses on engineering drawing and CAD software, no programming content."
+    },
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 2,
+      "reason": "Course covers object-oriented programming and event-driven programming with graphical user interfaces, indicating programming skills likely in some language, but no explicit mention of Python or C++."
+    },
+    {
+      "subjectCode": "02201131-66",
+      "subjectName": "การเขียนโปรแกรมและระบบ IoT ทางการเกษตร",
+      "relevanceScore": 3,
+      "reason": "Course explicitly states ability to write computer programs in high-level languages, including use of variables and functions, which aligns well with Python or C++ programming skill."
+    },
+    {
+      "subjectCode": "03607151-67",
+      "subjectName": "เปิดโลกวิทยาการหุ่นยนต์",
+      "relevanceScore": 2,
+      "reason": "Course includes creating and programming simple robots, implying programming skills, but no explicit mention of Python or C++."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 1,
+      "reason": "Course covers structured programming principles and algorithm design but does not specify Python or C++ or detailed programming language use."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on nutritional product innovation and use of software for formulation, no programming language content."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course is about engineering drawing and presentation, no programming content."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 1,
+      "reason": "Course involves AI applications and creating simple AI apps but does not explicitly mention Python or C++ programming skills."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on computer-aided design software for product design, no programming content."
+    },
+    {
+      "subjectCode": "01475528-64",
+      "subjectName": "การฝึกอบรมและการพัฒนาในองค์การ",
+      "relevanceScore": 0,
+      "reason": "Course is about training and development in organizations, no programming content."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Course focuses on structured query language and data querying, not programming in Python or C++."
+    },
+    {
+      "subjectCode": "04252459-65",
+      "subjectName": "ฮาร์มอนิกในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course covers harmonics in power systems, no programming content."
+    },
+    {
+      "subjectCode": "01005372-67",
+      "subjectName": "พื้นฐานการโปรแกรมไมโครคอนโทรลเลอร์เพื่อการเกษตรและไอโอที",
+      "relevanceScore": 2,
+      "reason": "Course involves programming microcontrollers for agriculture and IoT, including writing commands and control programs, likely involving embedded C or similar, relevant to C++ programming skill."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.8571428571428571,
+    "totalRelevanceSum": 12,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 7,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.625,
+        "at10": 0.656,
+        "at15": 0.727,
+        "atAll": 0.727
+      },
+      "ideal": {
+        "at5": 0.46,
+        "at10": 0.346,
+        "at15": 0.298,
+        "atAll": 0.311
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.6,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.5,
+        "threshold2": 0.286,
+        "threshold3": 0.071
+      },
+      "atAll": {
+        "threshold1": 0.5,
+        "threshold2": 0.286,
+        "threshold3": 0.071
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2704,
+  "outputTokens": 503
+}

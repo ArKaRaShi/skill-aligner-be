@@ -1,0 +1,174 @@
+{
+  "testCaseId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การบริการลูกค้าและการสื่อสาร",
+  "question": "อยากเปิดร้านเหล้า",
+  "skill": "การบริการลูกค้าและการสื่อสาร",
+  "retrievedCount": 18,
+  "evaluations": [
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 1,
+      "reason": "Course mentions communication skills but focuses on art materials and chemistry, so only marginally relevant to customer service and communication."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 1,
+      "reason": "Course includes communication and information use but in the context of chemistry in daily life, not focused on customer service communication."
+    },
+    {
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "relevanceScore": 2,
+      "reason": "Course includes clear communication with coworkers and supervisors, relevant to communication skills and teamwork, partially covering customer service communication."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Course covers communication principles and media communication ethics, relevant to communication skills but not specifically customer service."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 1,
+      "reason": "Course includes communication and presentation skills but in software engineering context, marginally relevant to customer service communication."
+    },
+    {
+      "subjectCode": "02747351-65",
+      "subjectName": "ภาษาอังกฤษเพื่อการสื่อสารสำหรับการบริการภาคพื้น",
+      "relevanceScore": 3,
+      "reason": "Course specifically focuses on English communication for ground service, directly covering customer service and communication skills."
+    },
+    {
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course focuses on basic English listening and speaking for communication, useful for customer service communication but not comprehensive."
+    },
+    {
+      "subjectCode": "01661313-65",
+      "subjectName": "การสื่อสารเพื่อการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 2,
+      "reason": "Course covers communication for environmental management, relevant to communication skills but not specifically customer service."
+    },
+    {
+      "subjectCode": "04404222-67",
+      "subjectName": "หลักอนามัยสิ่งแวดล้อม",
+      "relevanceScore": 1,
+      "reason": "Course mentions communication and teamwork but focuses on environmental health, so only marginally relevant."
+    },
+    {
+      "subjectCode": "03764322-64",
+      "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+      "relevanceScore": 3,
+      "reason": "Course focuses on negotiation and communication skills for logistics management, highly relevant to communication and customer service skills."
+    },
+    {
+      "subjectCode": "03757223-65",
+      "subjectName": "การวิเคราะห์เชิงปริมาณและสถิติธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Course involves communication of quantitative analysis results in service industry context, but focus is on statistics, so marginally relevant."
+    },
+    {
+      "subjectCode": "01401463-66",
+      "subjectName": "ชีววิทยาวิวัฒนาการของพืช",
+      "relevanceScore": 1,
+      "reason": "Course includes communication and presentation but in evolutionary biology context, marginally relevant."
+    },
+    {
+      "subjectCode": "01401442-66",
+      "subjectName": "พรรณไม้น้ำ",
+      "relevanceScore": 1,
+      "reason": "Course mentions communication and teamwork but focuses on aquatic plants, marginally relevant."
+    },
+    {
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Course includes communication and presentation in botanical research context, marginally relevant."
+    },
+    {
+      "subjectCode": "01401399-66",
+      "subjectName": "การฝึกงานทางพฤกษศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Course mentions communication and teamwork in botanical internship context, marginally relevant."
+    },
+    {
+      "subjectCode": "01352219-66",
+      "subjectName": "เทคโนโลยีสารสนเทศและการสื่อสารกับสังคม",
+      "relevanceScore": 2,
+      "reason": "Course covers information technology and communication with society, relevant to communication skills but not specifically customer service."
+    },
+    {
+      "subjectCode": "03763321-64",
+      "subjectName": "การสื่อสารในธุรกิจโรงแรม",
+      "relevanceScore": 3,
+      "reason": "Course focuses on communication in hotel business including communication with coworkers and customers, highly relevant to customer service and communication skills."
+    },
+    {
+      "subjectCode": "03610122-66",
+      "subjectName": "ระบบการสื่อสารทางสายและไร้สายพื้นฐาน",
+      "relevanceScore": 1,
+      "reason": "Course covers basic communication systems principles, but technical and not related to customer service communication."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 18,
+    "meanRelevanceScore": 1.6111111111111112,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 10,
+        "macroAverageRate": 55.55555555555556,
+        "microAverageRate": 55.55555555555556,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 27.77777777777778,
+        "microAverageRate": 27.77777777777778,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.483,
+        "at10": 0.698,
+        "at15": 0.731,
+        "atAll": 0.803
+      },
+      "ideal": {
+        "at5": 0.439,
+        "at10": 0.544,
+        "at15": 0.497,
+        "atAll": 0.515
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.6,
+      "at15": 0.4,
+      "atAll": 0.444
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3323,
+  "outputTokens": 616
+}

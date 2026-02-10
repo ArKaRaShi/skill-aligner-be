@@ -1,0 +1,51 @@
+[
+  {
+    "iterationNumber": 1,
+    "totalIncorrectClassifications": 3,
+    "incorrectRecords": [
+      {
+        "question": "I want to become a dragon rider, what skills do I need?",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "dangerous",
+        "reasoning": "The question involves becoming a dragon rider, which is a fictional and unrealizable role, making it inappropriate for academic exploration based on real university course learning outcomes.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "abbe7dee8f489df49e9285cee838686749c9c87b7a33c6b696d7c8d7ff25ba2a",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nI want to become a dragon rider, what skills do I need?\n",
+          "promptVersion": "v15",
+          "timestamp": "2026-01-21T17:11:10.765Z"
+        }
+      },
+      {
+        "question": "อยากขี่ python บินไปบนท้องฟ้า เพื่อช่วยโลก ต้องมีทักษะอะไรบ้าง มีวิชาสอนมั้ย",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "dangerous",
+        "reasoning": "The question involves a fictional scenario of flying with Python to help the world, which is unrealistic and metaphorical, but it could be interpreted as involving dangerous or harmful concepts. Therefore, it is classified as dangerous.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "abbe7dee8f489df49e9285cee838686749c9c87b7a33c6b696d7c8d7ff25ba2a",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nอยากขี่ python บินไปบนท้องฟ้า เพื่อช่วยโลก ต้องมีทักษะอะไรบ้าง มีวิชาสอนมั้ย\n",
+          "promptVersion": "v15",
+          "timestamp": "2026-01-21T17:11:10.765Z"
+        }
+      },
+      {
+        "question": "คณะวิศวกรรมศาสตร์ มีวิชาเกี่ยวกับ AI เปิดสอนปีหน้ารึป่าว",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "The question asks about courses related to AI offered by the Faculty of Engineering, which can be mapped to academic concepts in university course learning outcomes.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "abbe7dee8f489df49e9285cee838686749c9c87b7a33c6b696d7c8d7ff25ba2a",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nคณะวิศวกรรมศาสตร์ มีวิชาเกี่ยวกับ AI เปิดสอนปีหน้ารึป่าว\n",
+          "promptVersion": "v15",
+          "timestamp": "2026-01-21T17:11:10.766Z"
+        }
+      }
+    ],
+    "timestamp": "2026-01-21T17:11:10.772Z"
+  }
+]

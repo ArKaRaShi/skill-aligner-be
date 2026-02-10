@@ -1,0 +1,33 @@
+import { Prisma } from '@prisma/client';
+
+export type RawCourseQueryRow = {
+  skill: string;
+  course_id: string;
+  campus_id: string;
+  faculty_id: string;
+  academic_year: number;
+  semester: number;
+  subject_code: string;
+  subject_name_th: string;
+  subject_name_en: string | null;
+  course_metadata: Prisma.JsonValue | null;
+  course_created_at: Date;
+  course_updated_at: Date;
+  course_clo_id: string;
+  course_clo_created_at: Date;
+  course_clo_updated_at: Date;
+  clo_id: string;
+  clo_no: number;
+  original_clo_name: string;
+  original_clo_name_en: string | null;
+  cleaned_clo_name_th: string;
+  cleaned_clo_name_en: string | null;
+  clo_embedding: unknown;
+  skip_embedding: boolean;
+  is_embedded: boolean;
+  clo_metadata: Prisma.JsonValue | null;
+  clo_created_at: Date;
+  clo_updated_at: Date;
+  similarity: number | Prisma.Decimal | string | null;
+  skill_rank: number;
+};

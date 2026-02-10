@@ -1,0 +1,23 @@
+[
+  {
+    "iterationNumber": 1,
+    "totalIncorrectClassifications": 1,
+    "incorrectRecords": [
+      {
+        "question": "ไม่เคยทำการเกษตรมาก่อน อยากเริ่มเรียนที่ไหนดี",
+        "expectedClassification": "relevant",
+        "actualClassification": "irrelevant",
+        "reasoning": "The question is about starting agriculture as a hobby or activity, but it lacks explicit learning intent or specific skills or courses being asked for.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "e9bfa7b9adf2e781da07a9cfad6a7fb02720ee732a751a16baae7e9cf880e1e0",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nไม่เคยทำการเกษตรมาก่อน อยากเริ่มเรียนที่ไหนดี\n",
+          "promptVersion": "v16",
+          "timestamp": "2026-01-21T18:06:05.898Z"
+        }
+      }
+    ],
+    "timestamp": "2026-01-21T18:06:05.907Z"
+  }
+]

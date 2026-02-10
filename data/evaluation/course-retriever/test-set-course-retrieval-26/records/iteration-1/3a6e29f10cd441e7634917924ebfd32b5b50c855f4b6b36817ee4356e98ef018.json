@@ -1,0 +1,156 @@
+{
+  "testCaseId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+  "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+  "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "02747443-65",
+      "subjectName": "นวัตกรรมและการออกแบบบริการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on innovation and service design in aviation business, no mention of UI/UX design."
+    },
+    {
+      "subjectCode": "03610122-66",
+      "subjectName": "ระบบการสื่อสารทางสายและไร้สายพื้นฐาน",
+      "relevanceScore": 0,
+      "reason": "Course covers basic wired and wireless communication systems, unrelated to UI/UX design."
+    },
+    {
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "relevanceScore": 0,
+      "reason": "Internship course with general work skills, no reference to UI/UX design."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course includes data visualization and presentation, which marginally relates to UI aspects but not core UI/UX design."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 0,
+      "reason": "Focus on experimental design and statistical analysis, no UI/UX content."
+    },
+    {
+      "subjectCode": "01352212-66",
+      "subjectName": "วาทวิทยาเพื่องานนิเทศศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course on rhetoric for communication, unrelated to UI/UX design."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course about presenting information, no UI/UX design content."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 1,
+      "reason": "Course on computer-aided product design in 2D and 3D, which may marginally relate to interface design but not explicitly UI/UX."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 2,
+      "reason": "Course includes designing learning media that are easy to use, which relates fairly to UI/UX design principles."
+    },
+    {
+      "subjectCode": "01352219-66",
+      "subjectName": "เทคโนโลยีสารสนเทศและการสื่อสารกับสังคม",
+      "relevanceScore": 0,
+      "reason": "Course about ICT and society, no direct UI/UX design content."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Course on structured data querying for data science, unrelated to UI/UX design."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Course on pigments in art, no UI/UX design content."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Course on modern life chemistry, unrelated to UI/UX design."
+    },
+    {
+      "subjectCode": "04252111-65",
+      "subjectName": "ดิจิทัลอิเล็กทรอนิกส์พื้นฐาน",
+      "relevanceScore": 0,
+      "reason": "Basic digital electronics course, no UI/UX design content."
+    },
+    {
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "relevanceScore": 0,
+      "reason": "Course on landscape architecture design, unrelated to UI/UX design."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0.26666666666666666,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 12,
+        "macroAverageRate": 80,
+        "microAverageRate": 80,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 13.333333333333334,
+        "microAverageRate": 13.333333333333334,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.138,
+        "at10": 0.431,
+        "at15": 0.431,
+        "atAll": 0.431
+      },
+      "ideal": {
+        "at5": 0.049,
+        "at10": 0.099,
+        "at15": 0.077,
+        "atAll": 0.077
+      }
+    },
+    "precision": {
+      "at5": 0,
+      "at10": 0.1,
+      "at15": 0.067,
+      "atAll": 0.067
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2807,
+  "outputTokens": 479
+}

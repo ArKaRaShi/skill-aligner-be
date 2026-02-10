@@ -1,0 +1,111 @@
+{
+  "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+  "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+  "comparison": {
+    "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+    "skills": [
+      {
+        "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+        "systemSkill": "การวางแผนและการจัดการอีเว้นต์",
+        "systemReason": "เป็นทักษะหลักที่เกี่ยวข้องกับการจัดงานอีเว้นต์อย่างมีประสิทธิภาพ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Direct match to event planning/management; academic, teachable, and assessable.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+        "systemSkill": "การตลาดและการประชาสัมพันธ์",
+        "systemReason": "ช่วยในการโปรโมตงานและดึงดูดผู้เข้าร่วมงาน",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Relevant academic competency (marketing/PR); can be taught and evaluated in courses.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+        "systemSkill": "การบริหารงบประมาณ",
+        "systemReason": "จำเป็นสำหรับการจัดการค่าใช้จ่ายในงานอีเว้นต์",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Financial/budget management is a teachable skill applicable to event courses and projects.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+        "systemSkill": "การสื่อสารและการประสานงาน",
+        "systemReason": "สำคัญในการติดต่อประสานงานกับทีมงานและผู้เกี่ยวข้อง",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Communication and coordination are university-level competencies and assessable in assignments.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+        "systemSkill": "การออกแบบและตกแต่งงานอีเว้นต์",
+        "systemReason": "ช่วยสร้างบรรยากาศและความน่าสนใจให้กับงาน",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Event design/production is a valid creative/technical course topic; teachable and assessable.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+        "systemSkill": "การจัดการความเสี่ยงและความปลอดภัย",
+        "systemReason": "เพื่อให้การจัดงานเป็นไปอย่างราบรื่นและปลอดภัย",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Risk management and safety are appropriate academic topics for event management curricula.",
+        "agreementType": "AGREE"
+      }
+    ],
+    "overall": {
+      "conceptPreserved": true,
+      "agreementCount": 6,
+      "disagreementCount": 0,
+      "totalSkills": 6
+    }
+  },
+  "judgeResult": {
+    "result": {
+      "skills": [
+        {
+          "skill": "การวางแผนและการจัดการอีเว้นต์",
+          "verdict": "PASS",
+          "note": "Direct match to event planning/management; academic, teachable, and assessable."
+        },
+        {
+          "skill": "การตลาดและการประชาสัมพันธ์",
+          "verdict": "PASS",
+          "note": "Relevant academic competency (marketing/PR); can be taught and evaluated in courses."
+        },
+        {
+          "skill": "การบริหารงบประมาณ",
+          "verdict": "PASS",
+          "note": "Financial/budget management is a teachable skill applicable to event courses and projects."
+        },
+        {
+          "skill": "การสื่อสารและการประสานงาน",
+          "verdict": "PASS",
+          "note": "Communication and coordination are university-level competencies and assessable in assignments."
+        },
+        {
+          "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+          "verdict": "PASS",
+          "note": "Event design/production is a valid creative/technical course topic; teachable and assessable."
+        },
+        {
+          "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+          "verdict": "PASS",
+          "note": "Risk management and safety are appropriate academic topics for event management curricula."
+        }
+      ],
+      "overall": {
+        "conceptPreserved": true,
+        "summary": "All six items are appropriate university-level competencies related to event organization and together preserve the core intent of the user's question."
+      }
+    },
+    "tokenUsage": [
+      {
+        "model": "openai/gpt-5-mini",
+        "inputTokens": 742,
+        "outputTokens": 869
+      }
+    ]
+  },
+  "evaluatedAt": "2026-01-26T08:09:36.664Z"
+}

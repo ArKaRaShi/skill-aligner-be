@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การบัญชีเบื้องต้น"
+  ],
+  "skill": "การบัญชีเบื้องต้น",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on managerial accounting and strategic management, not basic accounting; basic accounting is not a primary learning outcome."
+    },
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Includes basic financial statement analysis and cost calculation but mainly focused on operations management in agriculture; basic accounting is marginally mentioned."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Covers accounting for business management including cost calculation and financial statements preparation, which relates to basic accounting but with a managerial focus."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 2,
+      "reason": "Covers recording accounting entries, financial statements, and financial analysis, relevant to basic accounting but specialized for tourism industry."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Focuses on managerial accounting for strategic management; basic accounting is not a main theme but related concepts appear."
+    },
+    {
+      "subjectCode": "04305211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 0,
+      "reason": "Focuses on financial management principles, not accounting; no direct coverage of basic accounting."
+    },
+    {
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "relevanceScore": 3,
+      "reason": "Explicitly titled 'Principles of Basic Accounting' with learning outcomes covering fundamental accounting principles, complete accounting cycle, and financial statement preparation."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "Focuses on data analysis for accounting, which is related but does not cover basic accounting principles or processes."
+    },
+    {
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about basic analytical chemistry, unrelated to accounting."
+    },
+    {
+      "subjectCode": "01681312-66",
+      "subjectName": "เศรษฐศาสตร์การจัดการ",
+      "relevanceScore": 0,
+      "reason": "Focuses on economics and management, not accounting."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Includes cost calculation and basic financial feasibility but mainly marketing focused; basic accounting is marginally relevant."
+    },
+    {
+      "subjectCode": "03760322-64",
+      "subjectName": "การบัญชีสำหรับเครื่องมือทางการเงินและการป้องกันความเสี่ยง",
+      "relevanceScore": 1,
+      "reason": "Covers accounting for financial instruments and risk management, specialized accounting area, not basic accounting."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 1,
+      "reason": "Focuses on international accounting differences and financial report analysis, not basic accounting principles."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.0769230769230769,
+    "totalRelevanceSum": 14,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 53.84615384615385,
+        "microAverageRate": 53.84615384615385,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.638,
+        "at10": 0.677,
+        "at15": 0.783,
+        "atAll": 0.783
+      },
+      "ideal": {
+        "at5": 0.439,
+        "at10": 0.381,
+        "at15": 0.342,
+        "atAll": 0.374
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.769,
+        "threshold2": 0.231,
+        "threshold3": 0.077
+      },
+      "atAll": {
+        "threshold1": 0.769,
+        "threshold2": 0.231,
+        "threshold3": 0.077
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2486,
+  "outputTokens": 456
+}

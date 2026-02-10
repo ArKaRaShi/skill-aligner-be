@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "1fe15613-3060-4d9e-94dc-bd9a63e9911f-การทดสอบและดีบักโปรแกรม"
+  ],
+  "skill": "การทดสอบและดีบักโปรแกรม",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 1,
+      "reason": "The course focuses on experimental design and statistical analysis, with no explicit mention of testing or debugging programs."
+    },
+    {
+      "subjectCode": "01419499-65",
+      "subjectName": "โครงงานจุลชีววิทยา",
+      "relevanceScore": 1,
+      "reason": "The course emphasizes microbiology project planning and reporting, not programming testing or debugging."
+    },
+    {
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "relevanceScore": 2,
+      "reason": "Includes analysis and data presentation, which may involve debugging, but not explicitly focused on testing and debugging programs."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 2,
+      "reason": "Covers designing and analyzing experiments, possibly involving debugging, but not explicitly the main focus."
+    },
+    {
+      "subjectCode": "01600141-65",
+      "subjectName": "ชีวเคมีทางสุขภาพสัตว์",
+      "relevanceScore": 1,
+      "reason": "Biochemistry course with no direct mention of programming testing or debugging."
+    },
+    {
+      "subjectCode": "01448214-68",
+      "subjectName": "ปฏิบัติการทางวัสดุ I",
+      "relevanceScore": 2,
+      "reason": "Involves conducting experiments and analyzing data, which may include debugging, but not explicitly emphasized."
+    },
+    {
+      "subjectCode": "01008591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางโรคพืช",
+      "relevanceScore": 2,
+      "reason": "Research methodology in plant pathology may involve testing and debugging in research processes, but not explicitly stated."
+    },
+    {
+      "subjectCode": "02537591-68",
+      "subjectName": "ระเบียบวิธีวิจัยทางด้านวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 2,
+      "reason": "Research methods in agriculture include data analysis which could involve debugging, but not explicitly focused on programming debugging."
+    },
+    {
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "Thesis work involves designing and testing research, which may include debugging, but not explicitly the main theme."
+    },
+    {
+      "subjectCode": "04256355-66",
+      "subjectName": "โปรแกรมประยุกต์การเรียนรู้ของเครื่อง",
+      "relevanceScore": 3,
+      "reason": "Machine learning application course explicitly involves testing and debugging machine learning models."
+    },
+    {
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 3,
+      "reason": "Software engineering course explicitly covers testing and debugging as core components."
+    },
+    {
+      "subjectCode": "03601543-66",
+      "subjectName": "อินเวอร์เตอร์กำลัง",
+      "relevanceScore": 2,
+      "reason": "Power inverter course involves analysis which may include debugging, but not explicitly the main focus."
+    },
+    {
+      "subjectCode": "03760441-64",
+      "subjectName": "การให้บริการความเชื่อมั่นเชิงวิชาชีพ",
+      "relevanceScore": 1,
+      "reason": "Auditing course with no direct mention of testing or debugging programs."
+    },
+    {
+      "subjectCode": "01419487-65",
+      "subjectName": "จุลชีววิทยาเพื่อการเกษตร",
+      "relevanceScore": 1,
+      "reason": "Microbiology for agriculture focuses on biological experiments, not programming testing or debugging."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.7857142857142858,
+    "totalRelevanceSum": 25,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 35.714285714285715,
+        "microAverageRate": 35.714285714285715,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.515,
+        "at10": 0.706,
+        "at15": 0.805,
+        "atAll": 0.805
+      },
+      "ideal": {
+        "at5": 0.439,
+        "at10": 0.54,
+        "at15": 0.526,
+        "atAll": 0.55
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.7,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.643,
+        "threshold3": 0.143
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.643,
+        "threshold3": 0.143
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2856,
+  "outputTokens": 537
+}

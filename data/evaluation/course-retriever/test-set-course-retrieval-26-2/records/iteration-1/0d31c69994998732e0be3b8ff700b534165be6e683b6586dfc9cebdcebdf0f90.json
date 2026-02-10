@@ -1,0 +1,138 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-เทคนิคการปรุงอาหารไทย"
+  ],
+  "skill": "เทคนิคการปรุงอาหารไทย",
+  "retrievedCount": 9,
+  "evaluations": [
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 2,
+      "reason": "หลักสูตรครอบคลุมเทคนิคการประกอบอาหารของตะวันออกและตะวันตก โดยระบุการใช้ทักษะและเทคนิคในการประกอบอาหาร (รวมถึงอาหารตะวันออกซึ่งอาจรวมอาหารไทย) แต่ไม่เน้นเฉพาะเทคนิคการปรุงอาหารไทย"
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "เป็นหลักการจัดเตรียมและประกอบอาหารทั่วไป ครอบคลุมทักษะการประกอบอาหาร วัตถุดิบและการตกแต่งจาน ซึ่งมีประโยชน์ต่อเทคนิคการปรุงอาหารไทยแต่ไม่เฉพาะเจาะจง"
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "เน้นความสัมพันธ์แหล่งผลิตอาหาร โภชนาการ และการแปรรูป ไม่กล่าวถึงทักษะหรือเทคนิคการปรุงอาหารไทย"
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "เน้นวิศวกรรมการแปรสภาพผลิตผลเกษตรและการคำนวณด้านการถ่ายเทความร้อน/มวลสาร ไม่เกี่ยวกับเทคนิคการปรุงอาหารไทย"
+    },
+    {
+      "subjectCode": "01017412-66",
+      "subjectName": "การผลิตขนมไทย",
+      "relevanceScore": 3,
+      "reason": "มุ่งเน้นการผลิตขนมไทยโดยตรง สามารถผลิตและออกแบบขนมไทยตามหลักทฤษฎีและการปฏิบัติ จึงสอดคล้องสูงกับเทคนิคการปรุงอาหารไทย (ด้านขนม)"
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "เน้นการพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตรและการออกแบบผลิตภัณฑ์ ไม่กล่าวถึงเทคนิคการปรุงอาหารไทย"
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "เกี่ยวกับเทคนิคการเตรียมเครื่องดื่ม ซึ่งอาจมีความสัมพันธ์กับเครื่องดื่มไทยบ้าง แต่ไม่เน้นเทคนิคการปรุงอาหารไทยโดยตรง"
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "มุ่งการวิเคราะห์และตรวจวัดคุณภาพอาหารเชิงเคมี กายภาพ และประสาทสัมผัส ไม่ได้กล่าวถึงทักษะการปรุงอาหารไทย"
+    },
+    {
+      "subjectCode": "04181525-65",
+      "subjectName": "เทคโนโลยีการอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "เน้นเทคนิคก้าวหน้าทางเทคโนโลยีการอาหารสำหรับงานวิจัย ไม่กล่าวถึงเทคนิคการปรุงอาหารไทย"
+    }
+  ],
+  "metrics": {
+    "totalCourses": 9,
+    "meanRelevanceScore": 0.8888888888888888,
+    "totalRelevanceSum": 8,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 55.55555555555556,
+        "microAverageRate": 55.55555555555556,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 22.22222222222222,
+        "microAverageRate": 22.22222222222222,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.777,
+        "at10": 0.835,
+        "at15": 0.835,
+        "atAll": 0.835
+      },
+      "ideal": {
+        "at5": 0.5,
+        "at10": 0.349,
+        "at15": 0.27,
+        "atAll": 0.373
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.444,
+        "threshold2": 0.333,
+        "threshold3": 0.111
+      },
+      "at15": {
+        "threshold1": 0.444,
+        "threshold2": 0.333,
+        "threshold3": 0.111
+      },
+      "atAll": {
+        "threshold1": 0.444,
+        "threshold2": 0.333,
+        "threshold3": 0.111
+      }
+    }
+  },
+  "llmModel": "openai/gpt-5-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1814,
+  "outputTokens": 1405
+}

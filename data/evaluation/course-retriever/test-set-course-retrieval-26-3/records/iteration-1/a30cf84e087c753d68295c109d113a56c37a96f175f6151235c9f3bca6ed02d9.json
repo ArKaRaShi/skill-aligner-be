@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "b41c15f8-2249-4469-9981-71cc1c75b2b4-การออกแบบและตกแต่งงานอีเว้นต์"
+  ],
+  "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02802242-67",
+      "subjectName": "อุตสาหกรรมอีเวนต์",
+      "relevanceScore": 1,
+      "reason": "The course focuses on the importance and process of event management, which may include some aspects of event design and decoration, but it is not a primary or detailed focus."
+    },
+    {
+      "subjectCode": "02802241-67",
+      "subjectName": "หลักการวางแผนการจัดงานอีเวนต์",
+      "relevanceScore": 1,
+      "reason": "This course covers planning and execution of events, which might touch on design and decoration as part of event management, but it is not specifically centered on event design and decoration."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 0,
+      "reason": "The course is about food preparation and presentation, with only a minor mention of creative food decoration, not related to event design and decoration."
+    },
+    {
+      "subjectCode": "01242121-67",
+      "subjectName": "ปฏิบัติการออกแบบภาพและวัตถุ",
+      "relevanceScore": 0,
+      "reason": "This course is about visual and object design, not specifically about event design and decoration."
+    },
+    {
+      "subjectCode": "01242141-67",
+      "subjectName": "พื้นฐานคณิตศาสตร์และกลศาสตร์เพื่อการออกแบบ",
+      "relevanceScore": 0,
+      "reason": "Focuses on mathematical and mechanical principles for design, not on event design or decoration."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar skills are not directly related to event design and decoration."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Designing products with computer software is unrelated to event design and decoration."
+    },
+    {
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "relevanceScore": 0,
+      "reason": "Landscape architecture design is not related to event design and decoration."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 0,
+      "reason": "Advertising principles are not directly related to event design and decoration."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Digital citizenship is unrelated to event design and decoration."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Preparation of beverages is not related to event design and decoration."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.18181818181818182,
+    "totalRelevanceSum": 2,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 9,
+        "macroAverageRate": 81.81818181818181,
+        "microAverageRate": 81.81818181818181,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 1,
+        "at15": 1,
+        "atAll": 1
+      },
+      "ideal": {
+        "at5": 0.184,
+        "at10": 0.12,
+        "at15": 0.093,
+        "atAll": 0.113
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.2,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.182,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.182,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1844,
+  "outputTokens": 509
+}

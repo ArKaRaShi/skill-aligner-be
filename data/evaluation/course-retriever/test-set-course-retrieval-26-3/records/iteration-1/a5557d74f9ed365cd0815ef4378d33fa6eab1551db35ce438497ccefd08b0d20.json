@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "654330a8-2559-4273-abb4-36db7f0b31e1-การวิเคราะห์ข้อมูลและพฤติกรรมผู้บริโภค"
+  ],
+  "skill": "การวิเคราะห์ข้อมูลและพฤติกรรมผู้บริโภค",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01681311-66",
+      "subjectName": "การประกอบกิจการยุคใหม่",
+      "relevanceScore": 2,
+      "reason": "Includes 'วิเคราะห์และประเมินสภาพแวดล้อมทางธุรกิจ พฤติกรรมผู้บริโภค' as a learning outcome, indicating some coverage of consumer behavior analysis, but it is part of a broader course on entrepreneurship."
+    },
+    {
+      "subjectCode": "02747214-65",
+      "subjectName": "พฤติกรรมผู้บริโภคในธุรกิจการบิน",
+      "relevanceScore": 2,
+      "reason": "Mentions 'แนวคิดและทฤษฎีพฤติกรรมผู้บริโภค' as a key topic, showing some focus on consumer behavior, but within a specialized context of airline business."
+    },
+    {
+      "subjectCode": "01206452-65",
+      "subjectName": "บัญชีการเงินและการวิเคราะห์ต้นทุนทางอุตสาหกรรม",
+      "relevanceScore": 0,
+      "reason": "Focuses on accounting and cost analysis; no mention of consumer behavior or data analysis related to consumer behavior."
+    },
+    {
+      "subjectCode": "01352217-66",
+      "subjectName": "พฤติกรรมผู้รับสาร",
+      "relevanceScore": 1,
+      "reason": "Mentions 'วิเคราะห์พฤติกรรมผู้รับสาร' and related skills, but pertains to message receivers rather than consumer behavior analysis."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 1,
+      "reason": "Focuses on advertising analysis and research ethics, not directly on consumer data analysis."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 3,
+      "reason": "Includes 'พฤติกรรมผู้บริโภค' as a fundamental concept in marketing, indicating comprehensive coverage of consumer behavior analysis."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 2,
+      "reason": "Mentions 'พฤติกรรมผู้บริโภค' in the context of airline marketing, providing some focus on consumer behavior."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 2,
+      "reason": "Includes 'วิเคราะห์ข้อมูลในรายงานทางการเงิน' and 'สนับสนุนการตัดสินใจ' which may involve data analysis related to consumers, but not explicitly focused on consumer behavior."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 2,
+      "reason": "Mentions 'วิเคราะห์ข้อมูลสำหรับการบัญชี' and 'ออกแบบแนวทางการวิเคราะห์ข้อมูล' which could include consumer data analysis, but not explicitly specified."
+    },
+    {
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "relevanceScore": 3,
+      "reason": "Includes 'วิเคราะห์ปัจจัยที่มีอิทธิพลต่อการกำหนดส่วนประสมการตลาด' and 'วางกลยุทธ์ในธุรกิจเกษตรและอาหาร' which directly relate to consumer behavior analysis within marketing strategies."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Mentions 'วิเคราะห์และการสร้างภาพข้อมูล' with some focus on data analysis, which can include consumer data, but not explicitly centered on consumer behavior."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 1.8181818181818181,
+    "totalRelevanceSum": 20,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 6,
+        "macroAverageRate": 54.54545454545455,
+        "microAverageRate": 54.54545454545455,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.542,
+        "at10": 0.781,
+        "at15": 0.837,
+        "atAll": 0.837
+      },
+      "ideal": {
+        "at5": 0.461,
+        "at10": 0.581,
+        "at15": 0.482,
+        "atAll": 0.586
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.9,
+        "threshold2": 0.7,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.909,
+        "threshold2": 0.727,
+        "threshold3": 0.182
+      },
+      "atAll": {
+        "threshold1": 0.909,
+        "threshold2": 0.727,
+        "threshold3": 0.182
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2233,
+  "outputTokens": 675
+}

@@ -1,0 +1,98 @@
+{
+  "iterations": 1,
+  "timestamp": "2026-01-23T15:47:07.757Z",
+  "testSetName": "test-set-course-filter-1769179209628",
+  "judgeModel": "gpt-4o-mini",
+  "judgeProvider": "openrouter",
+  "aggregateStats": {
+    "totalSamples": 2,
+    "totalCourses": 107,
+    "totalTokens": {
+      "input": 29831,
+      "output": 3425,
+      "total": 33256
+    },
+    "totalCost": 0.0174124,
+    "averageCostPerSample": 0.0087062,
+    "averageCostPerCourse": 0.00016273271028037384
+  },
+  "perIterationCosts": [
+    {
+      "iteration": 1,
+      "timestamp": "2026-01-23T15:47:07.753Z",
+      "testSetName": "test-set-course-filter-1769179209628",
+      "judgeModel": "gpt-4o-mini",
+      "judgeProvider": "openrouter",
+      "samples": 2,
+      "courses": 107,
+      "totalTokens": {
+        "input": 29831,
+        "output": 3425,
+        "total": 33256
+      },
+      "totalCost": 0.0174124,
+      "tokenUsage": [
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 2202,
+          "outputTokens": 350
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 2100,
+          "outputTokens": 311
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 2864,
+          "outputTokens": 313
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 3781,
+          "outputTokens": 314
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 4157,
+          "outputTokens": 316
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 2782,
+          "outputTokens": 310
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 3114,
+          "outputTokens": 323
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 2390,
+          "outputTokens": 302
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 1153,
+          "outputTokens": 76
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 2008,
+          "outputTokens": 355
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 2042,
+          "outputTokens": 305
+        },
+        {
+          "model": "openai/gpt-4.1-mini",
+          "inputTokens": 1238,
+          "outputTokens": 150
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การสร้างแบรนด์ส่วนบุคคล"
+  ],
+  "skill": "การสร้างแบรนด์ส่วนบุคคล",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 2,
+      "reason": "The course focuses on brand creation and management, which is related to personal branding but primarily targets business branding strategies."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 0,
+      "reason": "The course is about innovation technology design, unrelated to personal branding."
+    },
+    {
+      "subjectCode": "01242141-67",
+      "subjectName": "พื้นฐานคณิตศาสตร์และกลศาสตร์เพื่อการออกแบบ",
+      "relevanceScore": 0,
+      "reason": "Mathematics and mechanics for design are not related to personal branding."
+    },
+    {
+      "subjectCode": "01999036-67",
+      "subjectName": "ความสุขในพลวัตของชีวิต",
+      "relevanceScore": 0,
+      "reason": "Happiness and life dynamics do not directly relate to personal branding."
+    },
+    {
+      "subjectCode": "01352212-66",
+      "subjectName": "วาทวิทยาเพื่องานนิเทศศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Communication and rhetoric are tangentially related to personal branding but are not primary focus."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 0,
+      "reason": "Advertising principles are not directly about personal branding."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Business strategy for beverages is unrelated to personal branding."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Product development in agriculture is not related to personal branding."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 0,
+      "reason": "Thai writing skills are not related to personal branding."
+    },
+    {
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "relevanceScore": 0,
+      "reason": "Professional teaching standards do not relate to personal branding."
+    },
+    {
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "relevanceScore": 0,
+      "reason": "Landscape architecture design is unrelated to personal branding."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Digital citizenship is not directly about personal branding."
+    },
+    {
+      "subjectCode": "02999038-67",
+      "subjectName": "ความสุขในศตวรรษที่ 21",
+      "relevanceScore": 0,
+      "reason": "Happiness in the 21st century is not directly related to personal branding."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.23076923076923078,
+    "totalRelevanceSum": 3,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 11,
+        "macroAverageRate": 84.61538461538461,
+        "microAverageRate": 84.61538461538461,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.907,
+        "at10": 0.907,
+        "at15": 0.907,
+        "atAll": 0.907
+      },
+      "ideal": {
+        "at5": 0.27,
+        "at10": 0.175,
+        "at15": 0.136,
+        "atAll": 0.149
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.2,
+        "threshold2": 0.1,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.154,
+        "threshold2": 0.077,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.154,
+        "threshold2": 0.077,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2514,
+  "outputTokens": 454
+}

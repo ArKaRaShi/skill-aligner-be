@@ -1,0 +1,120 @@
+{
+  "testCaseId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-เทคนิคการปรุงอาหารไทย",
+  "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+  "skill": "เทคนิคการปรุงอาหารไทย",
+  "retrievedCount": 9,
+  "evaluations": [
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 1,
+      "reason": "Course covers international cuisine including Eastern food but does not specifically focus on Thai cooking techniques."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Covers principles of food preparation and cooking techniques, likely including Thai food as part of broader cooking skills."
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "Focuses on food processing and nutrition, no mention of cooking techniques or Thai cuisine."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on engineering and processing of agricultural products, unrelated to cooking techniques."
+    },
+    {
+      "subjectCode": "01017412-66",
+      "subjectName": "การผลิตขนมไทย",
+      "relevanceScore": 2,
+      "reason": "Focuses on Thai desserts production, which is a part of Thai cooking techniques but limited to desserts."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural product development, not cooking techniques."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Focuses on beverage preparation, not Thai cooking techniques."
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on food quality measurement, not cooking techniques."
+    },
+    {
+      "subjectCode": "04181525-65",
+      "subjectName": "เทคโนโลยีการอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on advanced food technology research techniques, not cooking techniques."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 9,
+    "meanRelevanceScore": 0.5555555555555556,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 22.22222222222222,
+        "microAverageRate": 22.22222222222222,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.807,
+        "at10": 0.807,
+        "at15": 0.807,
+        "atAll": 0.807
+      },
+      "ideal": {
+        "at5": 0.343,
+        "at10": 0.223,
+        "at15": 0.173,
+        "atAll": 0.238
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.222,
+      "at15": 0.222,
+      "atAll": 0.222
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1816,
+  "outputTokens": 278
+}

@@ -1,0 +1,138 @@
+{
+  "testCaseId": "3ef3d308-ac42-453e-bce7-bb7376046c41-การตัดต่อวิดีโอ",
+  "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+  "skill": "การตัดต่อวิดีโอ",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on music composition and sound creation, no mention of video editing."
+    },
+    {
+      "subjectCode": "01006246-64",
+      "subjectName": "หลักการตัดเย็บ",
+      "relevanceScore": 0,
+      "reason": "Course is about sewing and tailoring, unrelated to video editing."
+    },
+    {
+      "subjectCode": "01352362-66",
+      "subjectName": "การผลิตภาพยนตร์ดิจิทัล",
+      "relevanceScore": 2,
+      "reason": "Course covers digital film production which may include some video editing as part of the process, but not explicitly stated as a main learning outcome."
+    },
+    {
+      "subjectCode": "01352261-66",
+      "subjectName": "การภาพยนตร์เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Course covers basic film concepts and production methods, video editing may be mentioned but not a primary focus."
+    },
+    {
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "relevanceScore": 0,
+      "reason": "Course is about design and art elements, no indication of video editing content."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 1,
+      "reason": "Course involves storytelling with images and digital media, possibly touching on video editing marginally but not explicitly."
+    },
+    {
+      "subjectCode": "01401431-66",
+      "subjectName": "ไมโครเทคนิคทางพืช",
+      "relevanceScore": 0,
+      "reason": "Course is about plant microtechniques and microscopy, unrelated to video editing."
+    },
+    {
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about basic analytical chemistry, no relation to video editing."
+    },
+    {
+      "subjectCode": "03652241-66",
+      "subjectName": "หลักการทางเคมีวิเคราะห์ด้วยเครื่องมือ",
+      "relevanceScore": 0,
+      "reason": "Course covers principles of analytical chemistry with instruments, no video editing content."
+    },
+    {
+      "subjectCode": "01357353-68",
+      "subjectName": "การล่ามภาษาเยอรมัน",
+      "relevanceScore": 0,
+      "reason": "Course is about German interpreting, unrelated to video editing."
+    },
+    {
+      "subjectCode": "01352242-66",
+      "subjectName": "การถ่ายภาพดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Course focuses on digital photography, which is related to image capture but does not cover video editing explicitly."
+    },
+    {
+      "subjectCode": "01018524-65",
+      "subjectName": "เครื่องจักรกลหลังการเก็บเกี่ยวขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course is about agricultural machinery post-harvest, unrelated to video editing."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.4166666666666667,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.402,
+        "at10": 0.502,
+        "at15": 0.58,
+        "atAll": 0.58
+      },
+      "ideal": {
+        "at5": 0.162,
+        "at10": 0.131,
+        "at15": 0.117,
+        "atAll": 0.135
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.083,
+      "atAll": 0.083
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2000,
+  "outputTokens": 384
+}

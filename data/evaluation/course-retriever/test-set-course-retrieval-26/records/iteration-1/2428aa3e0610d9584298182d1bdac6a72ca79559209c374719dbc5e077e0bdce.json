@@ -1,0 +1,162 @@
+{
+  "testCaseId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+  "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+  "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 3,
+      "reason": "Course explicitly includes applying decision support systems for business as a primary learning outcome, directly covering the skill of using decision support tools."
+    },
+    {
+      "subjectCode": "03602312-65",
+      "subjectName": "วิศวกรรมอุตสาหการและระบบเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers decision-making techniques and tools as part of broader industrial engineering and systems topics, providing useful but not comprehensive coverage of decision support tools."
+    },
+    {
+      "subjectCode": "03752111-67",
+      "subjectName": "ทรัพยากรสารสนเทศเพื่อการค้นคว้า",
+      "relevanceScore": 1,
+      "reason": "Course mentions using tools for information retrieval effectively, which is marginally related to decision support tools but not focused on decision support systems."
+    },
+    {
+      "subjectCode": "01137556-68",
+      "subjectName": "ประเด็นร่วมสมัยทางการบัญชีและเทคโนโลยีสารสนเทศ",
+      "relevanceScore": 2,
+      "reason": "Course includes using accounting and IT data to support organizational decision-making, indicating a fair relevance to decision support tools."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 1,
+      "reason": "Course mentions selecting software for information retrieval and presentation, which is marginally related but not focused on decision support tools."
+    },
+    {
+      "subjectCode": "01451356-65",
+      "subjectName": "ภูมิสารสนเทศศาสตร์เพื่อการจัดการภัยพิบัติ",
+      "relevanceScore": 1,
+      "reason": "Course involves using IT tools for disaster management decision-making, showing marginal relevance to decision support tools."
+    },
+    {
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "relevanceScore": 1,
+      "reason": "Course includes using IT in counseling, which is marginally related but not focused on decision support tools."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Course covers selecting tools for big data management, marginally related to decision support tools but not focused on them."
+    },
+    {
+      "subjectCode": "02721121-67",
+      "subjectName": "การจัดการธุรกิจเพื่อสังคมที่ยั่งยืน",
+      "relevanceScore": 1,
+      "reason": "Course mentions selecting appropriate tools for organizational problem-solving, marginally related to decision support tools."
+    },
+    {
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on decision analysis, software for decision-making, and modeling, directly covering the use of decision support tools comprehensively."
+    },
+    {
+      "subjectCode": "02738497-61",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Course focuses on research seminar skills and scientific communication, no relevant content on decision support tools."
+    },
+    {
+      "subjectCode": "02738497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Same as above, no relevant content on decision support tools."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course covers data analysis and visualization, which is marginally related but does not focus on decision support tools."
+    },
+    {
+      "subjectCode": "01420472-66",
+      "subjectName": "วัสดุศาสตร์ II",
+      "relevanceScore": 0,
+      "reason": "Course is about materials science, unrelated to decision support tools."
+    },
+    {
+      "subjectCode": "01074523-68",
+      "subjectName": "ปฏิบัติการในอุตสาหกรรมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course focuses on beverage industry operations and tools, unrelated to decision support tools."
+    },
+    {
+      "subjectCode": "01448213-68",
+      "subjectName": "การวิเคราะห์ลักษณะเฉพาะของวัสดุ",
+      "relevanceScore": 0,
+      "reason": "Course covers material analysis tools, unrelated to decision support tools."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.0625,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 31.25,
+        "microAverageRate": 31.25,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 43.75,
+        "microAverageRate": 43.75,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.842,
+        "at10": 0.937,
+        "at15": 0.937,
+        "atAll": 0.937
+      },
+      "ideal": {
+        "at5": 0.679,
+        "at10": 0.6,
+        "at15": 0.48,
+        "atAll": 0.461
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.4,
+      "at15": 0.267,
+      "atAll": 0.25
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3883,
+  "outputTokens": 565
+}

@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "b41c15f8-2249-4469-9981-71cc1c75b2b4-การวางแผนและการจัดการอีเว้นต์"
+  ],
+  "skill": "การวางแผนและการจัดการอีเว้นต์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02802241-67",
+      "subjectName": "หลักการวางแผนการจัดงานอีเวนต์",
+      "relevanceScore": 3,
+      "reason": "The course name and outcomes explicitly focus on planning and managing events, making it highly relevant to the skill."
+    },
+    {
+      "subjectCode": "02802242-67",
+      "subjectName": "อุตสาหกรรมอีเวนต์",
+      "relevanceScore": 2,
+      "reason": "The course discusses the event industry and processes, which relates to event planning and management but is not solely focused on it."
+    },
+    {
+      "subjectCode": "01386597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Planning and conducting seminars is mentioned, but it is a specific type of event and not a comprehensive course on event planning and management."
+    },
+    {
+      "subjectCode": "01390429-64",
+      "subjectName": "การจัดนำเที่ยวนอกประเทศ",
+      "relevanceScore": 0,
+      "reason": "The course is about travel management abroad, which is unrelated to event planning and management."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "The focus is on profit planning and control, not on event planning or management."
+    },
+    {
+      "subjectCode": "02184284-67",
+      "subjectName": "การจัดการวงดนตรีสำหรับครูดนตรี",
+      "relevanceScore": 0,
+      "reason": "Managing a music band is unrelated to event planning and management."
+    },
+    {
+      "subjectCode": "03763376-64",
+      "subjectName": "การท่องเที่ยวเชิงผจญภัย",
+      "relevanceScore": 0,
+      "reason": "Adventure tourism planning is unrelated to event planning and management."
+    },
+    {
+      "subjectCode": "01603359-65",
+      "subjectName": "การพยาบาลสัตว์ฉุกเฉินและวิกฤต",
+      "relevanceScore": 0,
+      "reason": "Emergency animal care is unrelated to event planning and management."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 0,
+      "reason": "Public relations principles are not directly related to event planning and management."
+    },
+    {
+      "subjectCode": "06904222-66",
+      "subjectName": "การจัดการที่พักเพื่อการท่องเที่ยว",
+      "relevanceScore": 0,
+      "reason": "Tourism accommodation management is unrelated to event planning and management."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Airline marketing management is unrelated to event planning and management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.5454545454545454,
+    "totalRelevanceSum": 6,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 72.72727272727273,
+        "microAverageRate": 72.72727272727273,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 1,
+        "at15": 1,
+        "atAll": 1
+      },
+      "ideal": {
+        "at5": 0.538,
+        "at10": 0.349,
+        "at15": 0.271,
+        "atAll": 0.329
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.3,
+        "threshold2": 0.2,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.273,
+        "threshold2": 0.182,
+        "threshold3": 0.091
+      },
+      "atAll": {
+        "threshold1": 0.273,
+        "threshold2": 0.182,
+        "threshold3": 0.091
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1840,
+  "outputTokens": 483
+}

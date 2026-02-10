@@ -1,0 +1,156 @@
+{
+  "testCaseId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การวิเคราะห์เชิงสถิติ",
+  "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+  "skill": "การวิเคราะห์เชิงสถิติ",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "04256121-66",
+      "subjectName": "การวิเคราะห์ข้อมูลเชิงสถิติ",
+      "relevanceScore": 3,
+      "reason": "Course name and outcomes focus directly on statistical data analysis, covering the skill comprehensively."
+    },
+    {
+      "subjectCode": "01051511-64",
+      "subjectName": "การวิเคราะห์ข้อมูลประยุกต์ในการวิจัยเทคโนโลยีชีวภาพ",
+      "relevanceScore": 2,
+      "reason": "Statistical methods are part of research analysis but not the main focus; skill is a distinct component."
+    },
+    {
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "Statistical analysis is included as a method in research but within a broader thesis context."
+    },
+    {
+      "subjectCode": "02537699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 2,
+      "reason": "Statistical methods are used for planning and analysis in research, but the course covers broader research skills."
+    },
+    {
+      "subjectCode": "02212572-65",
+      "subjectName": "สถิติประยุกต์สำหรับวิศวกรรมอาหาร",
+      "relevanceScore": 3,
+      "reason": "Course focuses on applied statistics including experimental design and data analysis, directly relevant to the skill."
+    },
+    {
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Mentions use of statistics briefly without detailed learning outcomes related to statistical analysis."
+    },
+    {
+      "subjectCode": "01008591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางโรคพืช",
+      "relevanceScore": 2,
+      "reason": "Statistical methods are used for analyzing experimental results, part of research methodology but not sole focus."
+    },
+    {
+      "subjectCode": "04181591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีการอาหาร",
+      "relevanceScore": 2,
+      "reason": "Includes planning research and selecting statistical analysis methods, but within broader research methodology."
+    },
+    {
+      "subjectCode": "03602221-65",
+      "subjectName": "ความน่าจะเป็นและสถิติประยุกต์สำหรับวิศวกร",
+      "relevanceScore": 2,
+      "reason": "Covers basic engineering statistics and application of statistical information, relevant but not comprehensive."
+    },
+    {
+      "subjectCode": "02738491-61",
+      "subjectName": "ระเบียบวิธีวิจัยพื้นฐานทางวิทยาศาสตร์ชีวภาพ",
+      "relevanceScore": 2,
+      "reason": "Statistical analysis is part of scientific biological research methods, a component but not the main theme."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 2,
+      "reason": "Focuses on statistical learning models for business data analysis, relevant but specialized application."
+    },
+    {
+      "subjectCode": "02207251-66",
+      "subjectName": "สถิติทางวิศวกรรม",
+      "relevanceScore": 3,
+      "reason": "Course covers planning experiments and statistical analysis in engineering, directly relevant and comprehensive."
+    },
+    {
+      "subjectCode": "02162592-67",
+      "subjectName": "สถิติเพื่อการวิจัยทางด้านคณิตศาสตร์ศึกษา",
+      "relevanceScore": 3,
+      "reason": "Focuses on statistical analysis for educational research, covering the skill comprehensively."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 2,
+      "reason": "Includes selecting appropriate statistical methods for experimental design and analysis within advanced research."
+    },
+    {
+      "subjectCode": "04252612-67",
+      "subjectName": "วิทยาการข้อมูลขั้นสูง",
+      "relevanceScore": 2,
+      "reason": "Uses statistical methods for data analysis and machine learning, relevant but within data science context."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 2.2,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 10,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 4,
+        "macroAverageRate": 26.666666666666668,
+        "microAverageRate": 26.666666666666668,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.861,
+        "at10": 0.869,
+        "at15": 0.947,
+        "atAll": 0.947
+      },
+      "ideal": {
+        "at5": 0.824,
+        "at10": 0.742,
+        "at15": 0.756,
+        "atAll": 0.756
+      }
+    },
+    "precision": {
+      "at5": 1,
+      "at10": 0.9,
+      "at15": 0.933,
+      "atAll": 0.933
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2679,
+  "outputTokens": 485
+}

@@ -1,0 +1,150 @@
+{
+  "testCaseId": "be573eca-6596-418a-888d-f4f0c0d5651d-การเขียนโปรแกรมภาษา Python หรือ C++",
+  "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+  "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "Course mentions ability to write application programs for problem solving but does not specify Python or C++ or detailed programming skills."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course focuses on engineering drawing and CAD software, no programming content."
+    },
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 2,
+      "reason": "Course covers object-oriented programming and event-driven programming, indicating programming skills though language not specified; fairly relevant to programming skill."
+    },
+    {
+      "subjectCode": "02201131-66",
+      "subjectName": "การเขียนโปรแกรมและระบบ IoT ทางการเกษตร",
+      "relevanceScore": 2,
+      "reason": "Course includes programming with high-level languages and use of variables and functions, relevant to programming skill though specific languages not mentioned."
+    },
+    {
+      "subjectCode": "03607151-67",
+      "subjectName": "เปิดโลกวิทยาการหุ่นยนต์",
+      "relevanceScore": 1,
+      "reason": "Course includes simple robot programming but no mention of Python or C++ or detailed programming language skills."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 2,
+      "reason": "Course on structured programming with algorithm design and programming principles, relevant to programming skill though language not specified."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on nutrition product innovation and use of software for formulation, no programming content."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course on engineering drawing and communication, no programming content."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 1,
+      "reason": "Course involves AI applications and basic data analysis but no explicit mention of Python or C++ programming skills."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course on computer-aided design for product design, no programming content."
+    },
+    {
+      "subjectCode": "01475528-64",
+      "subjectName": "การฝึกอบรมและการพัฒนาในองค์การ",
+      "relevanceScore": 0,
+      "reason": "Course on training and development in organizations, no programming content."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course covers structured query language and data querying, related to programming but not Python or C++ programming."
+    },
+    {
+      "subjectCode": "04252459-65",
+      "subjectName": "ฮาร์มอนิกในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course on harmonics in electrical power systems, no programming content."
+    },
+    {
+      "subjectCode": "01005372-67",
+      "subjectName": "พื้นฐานการโปรแกรมไมโครคอนโทรลเลอร์เพื่อการเกษตรและไอโอที",
+      "relevanceScore": 2,
+      "reason": "Course includes writing commands and programming microcontrollers for agriculture and IoT, relevant to programming skill though specific languages not stated."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.8571428571428571,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 42.857142857142854,
+        "microAverageRate": 42.857142857142854,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.589,
+        "at10": 0.654,
+        "at15": 0.774,
+        "atAll": 0.774
+      },
+      "ideal": {
+        "at5": 0.367,
+        "at10": 0.313,
+        "at15": 0.287,
+        "atAll": 0.3
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.3,
+      "at15": 0.286,
+      "atAll": 0.286
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2704,
+  "outputTokens": 471
+}

@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "acd5b76f-8185-4b10-bb37-bde0ac14c51a-ความรู้ด้านการเลี้ยงสัตว์"
+  ],
+  "skill": "ความรู้ด้านการเลี้ยงสัตว์",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01025333-64",
+      "subjectName": "ปฏิบัติการเกษตรเขตร้อน",
+      "relevanceScore": 2,
+      "reason": "Course includes practical skills related to animal production, indicating some useful learning about animal husbandry but not comprehensive coverage."
+    },
+    {
+      "subjectCode": "01600131-65",
+      "subjectName": "มาตรฐานฟาร์มและการจัดการฟาร์ม",
+      "relevanceScore": 2,
+      "reason": "Focuses on farm standards and waste management from animals, relevant to animal husbandry management but not covering full knowledge of animal care."
+    },
+    {
+      "subjectCode": "01600323-65",
+      "subjectName": "สุขศาสตร์เนื้อสัตว์และการตรวจเนื้อ",
+      "relevanceScore": 1,
+      "reason": "Covers meat hygiene and animal welfare in slaughterhouses, which is related but only marginally relevant to general animal husbandry knowledge."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Includes knowledge about animal nutrition at industrial level, a minor aspect of animal husbandry."
+    },
+    {
+      "subjectCode": "01023522-68",
+      "subjectName": "อุตสาหกรรมอาหารสัตว์เลี้ยง",
+      "relevanceScore": 1,
+      "reason": "Focuses on pet food industry and nutrition, related to animal care but narrowly focused on feed production."
+    },
+    {
+      "subjectCode": "01002111-68",
+      "subjectName": "วิทยาศาสตร์และเทคโนโลยีด้านสัตว์",
+      "relevanceScore": 3,
+      "reason": "Directly covers animal science and technology including importance and technology of animal production, highly relevant to animal husbandry knowledge."
+    },
+    {
+      "subjectCode": "01603111-65",
+      "subjectName": "แนวคิดและทฤษฎีทางการพยาบาลสัตว์",
+      "relevanceScore": 2,
+      "reason": "Covers principles and theories of animal nursing, a distinct component of animal care but not comprehensive husbandry knowledge."
+    },
+    {
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "relevanceScore": 3,
+      "reason": "Covers natural behavior, needs, diseases, laws, and social issues of pet animals, highly relevant to knowledge of animal husbandry."
+    },
+    {
+      "subjectCode": "02033391-64",
+      "subjectName": "การวิจัยทางสัตว์",
+      "relevanceScore": 1,
+      "reason": "Focuses on research methods in animal science, only marginally relevant to practical animal husbandry knowledge."
+    },
+    {
+      "subjectCode": "01600233-65",
+      "subjectName": "เภสัชวิทยาสำหรับเทคนิคการสัตวแพทย์",
+      "relevanceScore": 2,
+      "reason": "Covers pharmacology for veterinary technicians including drugs used in animals, relevant to animal health care but not full husbandry knowledge."
+    },
+    {
+      "subjectCode": "01023511-68",
+      "subjectName": "วิทยาศาสตร์โภชนศาสตร์สัตว์",
+      "relevanceScore": 3,
+      "reason": "Covers animal nutrition science and management, a core aspect of animal husbandry knowledge."
+    },
+    {
+      "subjectCode": "01603325-65",
+      "subjectName": "สุขอนามัยเนื้อสัตว์จากฟาร์มถึงผู้บริโภค",
+      "relevanceScore": 2,
+      "reason": "Covers meat hygiene and animal health care according to farm standards, relevant but partial coverage of animal husbandry."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 1.9166666666666667,
+    "totalRelevanceSum": 23,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 41.666666666666664,
+        "microAverageRate": 41.666666666666664,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.57,
+        "at10": 0.766,
+        "at15": 0.852,
+        "atAll": 0.852
+      },
+      "ideal": {
+        "at5": 0.518,
+        "at10": 0.597,
+        "at15": 0.541,
+        "atAll": 0.623
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.667,
+        "threshold3": 0.25
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.667,
+        "threshold3": 0.25
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2271,
+  "outputTokens": 454
+}

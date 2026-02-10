@@ -1,0 +1,150 @@
+{
+  "testCaseId": "be573eca-6596-418a-888d-f4f0c0d5651d-การวิเคราะห์อัลกอริทึม",
+  "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+  "skill": "การวิเคราะห์อัลกอริทึม",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "01204512-66",
+      "subjectName": "การออกแบบและการวิเคราะห์ขั้นตอนวิธีคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "Course name and outcomes explicitly focus on algorithm design and analysis, including complexity and correctness, matching the skill comprehensively."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 3,
+      "reason": "Course outcomes include analyzing and designing basic algorithms and explaining fundamental algorithm concepts, directly covering the skill."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 2,
+      "reason": "Course covers analyzing problems and designing algorithms for simple problems, but as part of structured programming, so fairly relevant."
+    },
+    {
+      "subjectCode": "01420323-66",
+      "subjectName": "การวัดเชิงควอนตัม",
+      "relevanceScore": 0,
+      "reason": "Course on quantum measurement unrelated to algorithm analysis; no semantic connection."
+    },
+    {
+      "subjectCode": "02212572-65",
+      "subjectName": "สถิติประยุกต์สำหรับวิศวกรรมอาหาร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on applied statistics for food engineering, no mention of algorithms or their analysis."
+    },
+    {
+      "subjectCode": "01051511-64",
+      "subjectName": "การวิเคราะห์ข้อมูลประยุกต์ในการวิจัยเทคโนโลยีชีวภาพ",
+      "relevanceScore": 0,
+      "reason": "Course about applied data analysis in biotechnology research, no mention of algorithm analysis."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Business Chinese course focusing on language and culture, no relation to algorithm analysis."
+    },
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Business Chinese course focusing on language and culture, no relation to algorithm analysis."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Business Chinese course focusing on language and culture, no relation to algorithm analysis."
+    },
+    {
+      "subjectCode": "01419499-65",
+      "subjectName": "โครงงานจุลชีววิทยา",
+      "relevanceScore": 0,
+      "reason": "Microbiology project course with no mention of algorithms or their analysis."
+    },
+    {
+      "subjectCode": "02204433-65",
+      "subjectName": "การรู้จำรูปแบบ",
+      "relevanceScore": 2,
+      "reason": "Course includes explanation of pattern recognition algorithms and related concepts, so fairly relevant to algorithm analysis."
+    },
+    {
+      "subjectCode": "01442697-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course focused on research presentation and data analysis in nanomaterials, no direct mention of algorithm analysis."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "Course on data visualization for business, no mention of algorithm analysis."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 0,
+      "reason": "Course on experimental design and statistical analysis, no mention of algorithm analysis."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.7142857142857143,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 10,
+        "macroAverageRate": 71.42857142857143,
+        "microAverageRate": 71.42857142857143,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.873,
+        "at10": 0.873,
+        "at15": 0.955,
+        "atAll": 0.955
+      },
+      "ideal": {
+        "at5": 0.666,
+        "at10": 0.432,
+        "at15": 0.367,
+        "atAll": 0.383
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.3,
+      "at15": 0.286,
+      "atAll": 0.286
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2478,
+  "outputTokens": 451
+}

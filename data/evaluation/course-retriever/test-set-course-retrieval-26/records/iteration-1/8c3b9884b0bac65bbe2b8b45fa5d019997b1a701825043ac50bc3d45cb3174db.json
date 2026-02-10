@@ -1,0 +1,156 @@
+{
+  "testCaseId": "75dd76dc-b23f-4728-b9a4-09621f52a26b-การวิเคราะห์และประเมินแหล่งพลังงาน",
+  "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+  "skill": "การวิเคราะห์และประเมินแหล่งพลังงาน",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "02741542-65",
+      "subjectName": "หลักการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 1,
+      "reason": "Course focuses on environmental management broadly; analysis and evaluation are about environmental management, not specifically energy sources."
+    },
+    {
+      "subjectCode": "04252556-67",
+      "subjectName": "การประเมินผลกระทบสิ่งแวดล้อมของการจัดการพลังงาน",
+      "relevanceScore": 2,
+      "reason": "Course covers environmental impact assessment of energy management, including analysis and evaluation tools, partially relevant to energy source evaluation."
+    },
+    {
+      "subjectCode": "03604442-65",
+      "subjectName": "วิศวกรรมโรงผลิตกำลัง",
+      "relevanceScore": 2,
+      "reason": "Course includes analysis of energy cycles and power plant components, relevant to energy source analysis but focused on power plants."
+    },
+    {
+      "subjectCode": "03601521-66",
+      "subjectName": "เสถียรภาพของระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on electrical power system stability, unrelated to analysis and evaluation of energy sources."
+    },
+    {
+      "subjectCode": "04252555-67",
+      "subjectName": "การออกแบบอาคารเพื่อการอนุรักษ์พลังงานขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course covers energy-efficient building design analysis, marginally related to energy use but not energy source evaluation."
+    },
+    {
+      "subjectCode": "02741526-65",
+      "subjectName": "เทคโนโลยีพลังงานและการใช้พลังงานอย่างยั่ง",
+      "relevanceScore": 2,
+      "reason": "Course covers energy technology and sustainable use, including environmental impacts and energy management, somewhat relevant to energy source analysis and evaluation."
+    },
+    {
+      "subjectCode": "01420453-66",
+      "subjectName": "ทรัพยากรพลังงาน",
+      "relevanceScore": 2,
+      "reason": "Course covers energy resources, their use, benefits, and management, relevant to understanding and evaluating energy sources."
+    },
+    {
+      "subjectCode": "03601555-66",
+      "subjectName": "เทคโนโลยีเซลล์แสงอาทิตย์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on solar cell technology analysis, relevant to a specific energy source but limited in scope."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course is about marketing and pricing for beverage business, unrelated to energy source analysis."
+    },
+    {
+      "subjectCode": "03600012-67",
+      "subjectName": "เทคโนโลยีสีเขียว",
+      "relevanceScore": 1,
+      "reason": "Course discusses green technology and energy management approaches, marginally related to energy source evaluation."
+    },
+    {
+      "subjectCode": "03604331-65",
+      "subjectName": "เครื่องยนต์เผาไหม้ภายใน",
+      "relevanceScore": 1,
+      "reason": "Course covers internal combustion engine analysis and fuel combustion, marginally related to energy source analysis."
+    },
+    {
+      "subjectCode": "04252542-67",
+      "subjectName": "เทคนิคการหาค่าเหมาะที่สุดในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on optimization in electrical power systems, unrelated to energy source analysis."
+    },
+    {
+      "subjectCode": "04252553-67",
+      "subjectName": "เทคโนโลยีพลังงานลมขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course covers wind energy technology analysis and design, marginally relevant to energy source evaluation."
+    },
+    {
+      "subjectCode": "03601524-66",
+      "subjectName": "ระเบียบวิธีใช้คอมพิวเตอร์ในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course focuses on computer methods in power systems, unrelated to energy source analysis."
+    },
+    {
+      "subjectCode": "03604341-65",
+      "subjectName": "อุณหพลศาสตร์ II",
+      "relevanceScore": 1,
+      "reason": "Course covers thermodynamics and combustion analysis, marginally related to energy source evaluation."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 4,
+        "macroAverageRate": 26.666666666666668,
+        "microAverageRate": 26.666666666666668,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 46.666666666666664,
+        "microAverageRate": 46.666666666666664,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 26.666666666666668,
+        "microAverageRate": 26.666666666666668,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.662,
+        "at10": 0.793,
+        "at15": 0.87,
+        "atAll": 0.87
+      },
+      "ideal": {
+        "at5": 0.413,
+        "at10": 0.413,
+        "at15": 0.365,
+        "atAll": 0.365
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.4,
+      "at15": 0.267,
+      "atAll": 0.267
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2889,
+  "outputTokens": 511
+}

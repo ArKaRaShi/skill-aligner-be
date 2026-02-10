@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "3ef3d308-ac42-453e-bce7-bb7376046c41-การวางแผนและการจัดการคอนเทนต์"
+  ],
+  "skill": "การวางแผนและการจัดการคอนเทนต์",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 0,
+      "reason": "The course is about profit planning and control, not content planning and management."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 0,
+      "reason": "The course focuses on public relations principles, not content planning and management."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "The course is about structured data inquiry in data science, not content planning and management."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "The course is about targeted marketing and pricing strategies for beverages, not content planning and management."
+    },
+    {
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "relevanceScore": 0,
+      "reason": "The course covers organization and management, but not specifically content planning and management."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "The course is about marketing management in the airline industry, not content planning and management."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 0,
+      "reason": "The course is about technology for learning management, not content planning and management."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "The course is about colors in art and chemistry, not content planning and management."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "The course is about chemistry in daily life, not content planning and management."
+    },
+    {
+      "subjectCode": "04403597-67",
+      "subjectName": "สัมนา",
+      "relevanceScore": 0,
+      "reason": "The course is about seminars in health sciences, not content planning and management."
+    },
+    {
+      "subjectCode": "03760434-64",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 0,
+      "reason": "The course is about strategic management accounting, not content planning and management."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "The course is about seminars and presentation skills, not content planning and management."
+    },
+    {
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "The course is about thesis research in materials science, not content planning and management."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 0,
+      "reason": "The course is about principles of marketing, not content planning and management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 14,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2558,
+  "outputTokens": 516
+}

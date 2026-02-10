@@ -1,0 +1,156 @@
+{
+  "testCaseId": "75dd76dc-b23f-4728-b9a4-09621f52a26b-ทักษะภาษาอังกฤษทางวิชาการ",
+  "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+  "skill": "ทักษะภาษาอังกฤษทางวิชาการ",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01355111-68",
+      "subjectName": "ทักษะการฟังและการพูดภาษาอังกฤษ",
+      "relevanceScore": 1,
+      "reason": "Course focuses on English listening and speaking skills mainly for daily life, with some academic communication mentioned but not comprehensive for academic English skill."
+    },
+    {
+      "subjectCode": "02741597-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Course includes presenting academic work in English and researching academic articles, relevant to academic English skills but as part of a broader seminar on science and technology."
+    },
+    {
+      "subjectCode": "04403697-67",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Course emphasizes communication and presentation of academic work, indicating fairly relevant academic English skills."
+    },
+    {
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "relevanceScore": 1,
+      "reason": "Mentions communication skills including language but not specifically academic English skills."
+    },
+    {
+      "subjectCode": "01420454-66",
+      "subjectName": "พลังงานแสงอาทิตย์",
+      "relevanceScore": 1,
+      "reason": "Includes ability to present academic work in English but focus is on solar energy content, so academic English is marginally relevant."
+    },
+    {
+      "subjectCode": "01355131-63",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษเบื้องต้น",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers comprehensive English skills including reading, writing, listening, speaking at academic level, with detailed learning outcomes aligned to academic English skills."
+    },
+    {
+      "subjectCode": "01355390-63",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 3,
+      "reason": "Similar to previous course, covers extensive English skills including academic English reading, writing, listening, speaking, and application in professional contexts."
+    },
+    {
+      "subjectCode": "01442697-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Focuses on presenting research in English and analyzing research data, relevant to academic English but as part of a seminar in nanomaterials."
+    },
+    {
+      "subjectCode": "01055597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Includes presenting academic research and preparing manuscripts in English, relevant to academic English skills in research context."
+    },
+    {
+      "subjectCode": "02163322-67",
+      "subjectName": "ภาษาศาสตร์ประยุกต์สำหรับครู",
+      "relevanceScore": 1,
+      "reason": "Focuses on applied linguistics for teachers, including linguistic knowledge for teaching English, marginally relevant to academic English skills."
+    },
+    {
+      "subjectCode": "01055591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีอุตสาหกรรมและการจัดการสินค้าสิ่งทอ",
+      "relevanceScore": 1,
+      "reason": "Includes writing and presenting research projects, but focus is on research methodology and management, academic English is a minor component."
+    },
+    {
+      "subjectCode": "03754271-67",
+      "subjectName": "ภาษาอังกฤษเพื่องานอาชีพ",
+      "relevanceScore": 1,
+      "reason": "Focuses on English vocabulary and phrases for professional work, marginally relevant to academic English skills."
+    },
+    {
+      "subjectCode": "01306313-67",
+      "subjectName": "วนวัฒนวิทยาใกล้ธรรมชาติ",
+      "relevanceScore": 1,
+      "reason": "Includes presenting in English related to forestry, but academic English skill is a minor part of the course."
+    },
+    {
+      "subjectCode": "06903391-66",
+      "subjectName": "ทักษะภาษาอังกฤษทางการท่องเที่ยวเชิงสุขภาพ",
+      "relevanceScore": 1,
+      "reason": "Focuses on English skills for health tourism, including academic report writing, but limited to specific domain, marginally relevant."
+    },
+    {
+      "subjectCode": "01605697-67",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Includes presenting academic work and discussing research information, fairly relevant to academic English skills."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1.6,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 53.333333333333336,
+        "microAverageRate": 53.333333333333336,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 13.333333333333334,
+        "microAverageRate": 13.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.542,
+        "at10": 0.782,
+        "at15": 0.83,
+        "atAll": 0.83
+      },
+      "ideal": {
+        "at5": 0.461,
+        "at10": 0.563,
+        "at15": 0.525,
+        "atAll": 0.525
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.6,
+      "at15": 0.467,
+      "atAll": 0.467
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 4361,
+  "outputTokens": 566
+}

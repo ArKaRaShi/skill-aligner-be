@@ -1,0 +1,67 @@
+{
+  "iteration": 1,
+  "timestamp": "2026-01-26T14:31:53.850Z",
+  "testSetName": "test-set-course-retrieval-1769416288009",
+  "judgeModel": "openai/gpt-4.1-mini",
+  "judgeProvider": "OpenRouter",
+  "samples": 10,
+  "evaluations": 128,
+  "totalTokens": {
+    "input": 23892,
+    "output": 4285,
+    "total": 28177
+  },
+  "totalCost": 0.0164128,
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2389,
+      "outputTokens": 428
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2198,
+      "outputTokens": 466
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 3029,
+      "outputTokens": 423
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2331,
+      "outputTokens": 415
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2310,
+      "outputTokens": 421
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2569,
+      "outputTokens": 418
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2012,
+      "outputTokens": 506
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2370,
+      "outputTokens": 432
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2215,
+      "outputTokens": 372
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2469,
+      "outputTokens": 404
+    }
+  ]
+}

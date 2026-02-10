@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การเรียนรู้ของเครื่อง (Machine Learning)"
+  ],
+  "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "04256355-66",
+      "subjectName": "โปรแกรมประยุกต์การเรียนรู้ของเครื่อง",
+      "relevanceScore": 3,
+      "reason": "The course name and learning outcomes explicitly focus on machine learning algorithms and model development, covering both supervised and unsupervised learning comprehensively."
+    },
+    {
+      "subjectCode": "01204569-66",
+      "subjectName": "การเรียนรู้ของเครื่องจักรสำหรับการประยุกต์ทางวิศวกรรม",
+      "relevanceScore": 3,
+      "reason": "The course centers on machine learning for engineering applications, including planning, executing, and reporting machine learning projects, indicating comprehensive coverage of the skill."
+    },
+    {
+      "subjectCode": "01420211-66",
+      "subjectName": "กลศาสตร์ I",
+      "relevanceScore": 0,
+      "reason": "The course is about mechanics with no mention or connection to machine learning."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 2,
+      "reason": "The course covers statistical learning models and their application in business, which relates to machine learning but focuses on statistical learning as a component."
+    },
+    {
+      "subjectCode": "01420243-66",
+      "subjectName": "อิเล็กทรอนิกส์เบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "The course is about basic electronics without any mention of machine learning."
+    },
+    {
+      "subjectCode": "01420445-66",
+      "subjectName": "การประยุกต์ไมโครโพรเซสเซอร์ทางฟิสิกส์ภาคปฏิบัติการ",
+      "relevanceScore": 0,
+      "reason": "The course focuses on microprocessor applications in physics labs, no mention of machine learning."
+    },
+    {
+      "subjectCode": "01403441-65",
+      "subjectName": "วัสดุนาโน",
+      "relevanceScore": 0,
+      "reason": "The course is about nanotechnology materials, unrelated to machine learning."
+    },
+    {
+      "subjectCode": "01420413-66",
+      "subjectName": "วิทยาศาสตร์ข้อมูลและการเรียนรู้ของเครื่องสำหรับนักฟิสิกส์",
+      "relevanceScore": 3,
+      "reason": "The course explicitly covers data science and machine learning principles with applications in physics research, indicating comprehensive coverage."
+    },
+    {
+      "subjectCode": "04255221-67",
+      "subjectName": "ระบบไฟฟ้ากำลังเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "The course covers basic electrical power systems, unrelated to machine learning."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 0,
+      "reason": "The course focuses on technology for learning management, no mention of machine learning."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 1,
+      "reason": "The course covers AI basics and applications but does not explicitly focus on machine learning; it is marginally relevant."
+    },
+    {
+      "subjectCode": "01420441-66",
+      "subjectName": "อิเล็กทรอนิกส์กายภาพ",
+      "relevanceScore": 0,
+      "reason": "The course is about physical electronics and semiconductor properties, unrelated to machine learning."
+    },
+    {
+      "subjectCode": "03603323-65",
+      "subjectName": "ระบบฝังตัวเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "The course is about embedded systems design and analysis, no mention of machine learning."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0.9230769230769231,
+    "totalRelevanceSum": 12,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 8,
+        "macroAverageRate": 61.53846153846154,
+        "microAverageRate": 61.53846153846154,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.753,
+        "at10": 0.877,
+        "at15": 0.913,
+        "atAll": 0.913
+      },
+      "ideal": {
+        "at5": 0.651,
+        "at10": 0.492,
+        "at15": 0.397,
+        "atAll": 0.434
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.6,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.4,
+        "threshold3": 0.3
+      },
+      "at15": {
+        "threshold1": 0.385,
+        "threshold2": 0.308,
+        "threshold3": 0.231
+      },
+      "atAll": {
+        "threshold1": 0.385,
+        "threshold2": 0.308,
+        "threshold3": 0.231
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2631,
+  "outputTokens": 441
+}

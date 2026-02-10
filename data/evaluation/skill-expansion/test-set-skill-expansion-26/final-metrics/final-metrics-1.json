@@ -1,0 +1,48 @@
+{
+  "testSetName": "test-set-skill-expansion-26",
+  "totalIterations": 1,
+  "totalSamples": 26,
+  "totalSkills": 148,
+  "metrics": {
+    "totalSkills": 148,
+    "passedSkills": 148,
+    "passRate": 1,
+    "totalQuestions": 26,
+    "conceptPreservedQuestions": 26,
+    "conceptPreservationRate": 1,
+    "agreedSkills": 148,
+    "totalEvaluatedSkills": 148,
+    "overallAgreementRate": 1,
+    "skillCountDistribution": {
+      "5": 8,
+      "6": 18
+    },
+    "truePositives": 148,
+    "falsePositives": 0
+  },
+  "metricsByIteration": [
+    {
+      "iteration": 1,
+      "metrics": {
+        "iteration": 1,
+        "timestamp": "2026-01-26T08:14:59.049Z",
+        "totalSkills": 148,
+        "passedSkills": 148,
+        "passRate": 1,
+        "totalQuestions": 26,
+        "conceptPreservedQuestions": 26,
+        "conceptPreservationRate": 1,
+        "agreedSkills": 148,
+        "totalEvaluatedSkills": 148,
+        "overallAgreementRate": 1,
+        "skillCountDistribution": {
+          "5": 8,
+          "6": 18
+        },
+        "truePositives": 148,
+        "falsePositives": 0
+      }
+    }
+  ],
+  "generatedAt": "2026-01-26T08:14:59.053Z"
+}

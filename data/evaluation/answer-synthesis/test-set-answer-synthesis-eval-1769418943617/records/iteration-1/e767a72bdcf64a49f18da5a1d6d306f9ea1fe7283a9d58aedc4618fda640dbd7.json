@@ -1,0 +1,25 @@
+{
+  "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+  "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+  "systemAnswer": "การบริหารเงินตัวเองอาจเกี่ยวข้องกับหลายมิติ เช่น **การวางแผนการเงิน** **การบริหารสภาพคล่องส่วนบุคคล** หรือ **การลงทุน** ซึ่งสามารถสำรวจได้จากผลลัพธ์การเรียนรู้ของรายวิชาต่างๆ ในฐานข้อมูลนี้ **รายวิชาการบริหารการเงินส่วนบุคคล (04305212-67)** ครอบคลุมการอธิบายองค์ประกอบและกระบวนการวางแผนการเงินส่วนบุคคล รวมถึงการวางแผนจริง เช่น การบริหารสภาพคล่องส่วนบุคคล การลงทุน การวางแผนภาษี การประกันภัย การวางแผนเกษียณอายุ และการส่งต่อความมั่งคั่ง ซึ่งตรงกับการจัดการเงินส่วนตัวโดยตรง\n\nในด้าน **การวางแผนการเงิน** **รายวิชาเศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี (01999041-67)** กล่าวถึงการวางแผนการเงินในปัจจุบันและอนาคต รวมถึงนำไปปฏิบัติเป็นกิจวัตรประจำวัน ซึ่งอาจช่วยเสริมมุมมองชีวิตประจำวัน แต่ไม่เจาะลึกกระบวนการเฉพาะเจาะจงเท่ารายวิชาก่อนหน้า นอกจากนี้ รายวิชาอย่าง **การจัดการทางการเงิน I (03759211-67)** หรือ **การจัดการทางการเงิน I (04305211-67)** มุ่งเน้นการอธิบายวัตถุประสงค์การจัดการทางการเงิน แนวคิดมูลค่าเงินตามเวลา ความเสี่ยงและผลตอบแทน รวมถึงการวิเคราะห์ทางการเงินสำหรับธุรกิจ ซึ่งเป็นมุมมองเชิงธุรกิจมากกว่าส่วนบุคคล และไม่ครอบคลุมการวางแผนภาษีหรือประกันภัยส่วนตัวโดยตรง\n\nรายวิชาอื่นๆ เช่น **หลักการบัญชีชั้นกลาง I (03760112-64)** หรือ **การวางแผนและการควบคุมกำไร (03760431-64)** ให้พื้นฐานเกี่ยวกับการจัดทำงบการเงินหรืองบประมาณ แต่เน้นบริบทธุรกิจหรือองค์กร เช่น การบันทึกสินทรัพย์ การจัดทำงบประมาณธุรกิจต่างๆ ซึ่งอาจใช้เป็นเครื่องมือเสริมได้ แต่ไม่ใช่การบริหารเงินตัวเองโดยเฉพาะ และขาดส่วนของการลงทุนส่วนบุคคลหรือการเกษียณ รายวิชาเหล่านี้ในฐานข้อมูลส่วนใหญ่ให้มุมมอง foundational จากบัญชีหรือการเงินธุรกิจ ซึ่งอาจช่วยเข้าใจหลักการเบื้องต้น แต่ไม่มีรายวิชาใดครอบคลุมทุกมิติของการบริหารเงินตัวเองอย่างสมบูรณ์แบบ และ **รายวิชาการบริหารการเงินส่วนบุคคล (04305212-67)** เป็นตัวอย่างที่ตรงที่สุดตามผลลัพธ์การเรียนรู้ที่มี",
+  "judgeVerdict": {
+    "faithfulness": {
+      "score": 5,
+      "reasoning": "All claims are supported by the provided context. The answer correctly identifies การบริหารการเงินส่วนบุคคล (04305212-67) and quotes its learning outcomes (liquidity, investment, tax, insurance, retirement, wealth transfer). It accurately characterizes เศรษฐศาสตร์เพื่อการดำเนินชีวิตที่ดี (01999041-67) as covering personal financial planning for present and future, and correctly distinguishes การจัดการทางการเงิน I (03759211-67 / 04305211-67) and accounting courses as more business-focused. No unsupported skills or hallucinated details were introduced; internal attributions align with the mapped skills and learning outcomes."
+    },
+    "completeness": {
+      "score": 5,
+      "reasoning": "The answer directly answers the user question by naming the most relevant course and explains why it fits (lists specific topics taught that match 'การบริหารเงินตัวเอง'). It also bridges to complementary courses, explaining how they differ (business vs. personal focus) and why they may be supplementary, providing clear reasoning rather than just listing courses."
+    }
+  },
+  "overallScore": 5,
+  "passed": true,
+  "courseCount": 25,
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 7065,
+      "outputTokens": 836
+    }
+  ]
+}

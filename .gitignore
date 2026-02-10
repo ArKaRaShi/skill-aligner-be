@@ -58,3 +58,13 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 node_modules
 
 /generated/prisma
+
+data/*.json
+data/courses.csv
+data/evaluation/test-sets/*.json
+
+src/modules/**/*.json
+
+.claude/
+docs/
+CLAUDE.md

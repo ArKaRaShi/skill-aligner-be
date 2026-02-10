@@ -1,0 +1,142 @@
+[
+  {
+    "question": "มีวิชาที่เอา AI มาประยุกต์ใช้ไหม",
+    "expectedClassification": "relevant",
+    "actualClassification": "irrelevant",
+    "reasoning": "The question asks if there are courses or subjects applying AI, but does not specify a skill or learning goal.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nมีวิชาที่เอา AI มาประยุกต์ใช้ไหม\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.198Z"
+    }
+  },
+  {
+    "question": "อยากเรียนวิชาคณิตศาสตร์เบื้องต้น",
+    "expectedClassification": "relevant",
+    "actualClassification": "irrelevant",
+    "reasoning": "Asks for basic mathematics knowledge but does not specify skills or courses for a particular learning goal.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nอยากเรียนวิชาคณิตศาสตร์เบื้องต้น\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.199Z"
+    }
+  },
+  {
+    "question": "เรียนแล้วจะได้อะไรจริงๆ",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "unclear",
+    "reasoning": "The question lacks specific context, domain, or learning goals, making it impossible to determine relevant skills or courses.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nเรียนแล้วจะได้อะไรจริงๆ\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.199Z"
+    }
+  },
+  {
+    "question": "เรียนกี่วันถึงจะเก่ง",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "unclear",
+    "reasoning": "Vague question about time to become skilled; lacks specific domain or skill focus.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nเรียนกี่วันถึงจะเก่ง\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.199Z"
+    }
+  },
+  {
+    "question": "ทำงานที่ Google ต้องเรียนอะไร",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "relevant",
+    "reasoning": "Asks about skills or knowledge needed to work at Google, which implies a need for relevant skills and courses.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nทำงานที่ Google ต้องเรียนอะไร\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.199Z"
+    }
+  },
+  {
+    "question": "อยากปลูกต้นไม้เป็นงานอดิเรก ต้องมีทักษะอะไรบ้าง",
+    "expectedClassification": "relevant",
+    "actualClassification": "irrelevant",
+    "reasoning": "The question is about hobbies and skills for gardening, which does not match the criteria for skill or course recommendations related to a specific professional or educational domain.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nอยากปลูกต้นไม้เป็นงานอดิเรก ต้องมีทักษะอะไรบ้าง\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.199Z"
+    }
+  },
+  {
+    "question": "มีวิชาที่เรียนง่ายๆ ไหม",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "unclear",
+    "reasoning": "The question is too vague; it does not specify a domain or area of interest to recommend relevant skills or courses.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nมีวิชาที่เรียนง่ายๆ ไหม\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.199Z"
+    }
+  },
+  {
+    "question": "อยากเรียนวิชาที่ไม่ยาก",
+    "expectedClassification": "irrelevant",
+    "actualClassification": "unclear",
+    "reasoning": "The question is too vague and does not specify a domain or skill area, nor does it clearly indicate a learning goal related to courses or skills.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nอยากเรียนวิชาที่ไม่ยาก\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.199Z"
+    }
+  },
+  {
+    "question": "อยากเรียนวิธีทำเครื่องดื่มแอลกอฮอล์ในบ้าน",
+    "expectedClassification": "dangerous",
+    "actualClassification": "irrelevant",
+    "reasoning": "The question seeks information on making alcoholic beverages at home, which can be unsafe or illegal depending on the jurisdiction. It does not focus on learning skills or courses.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nอยากเรียนวิธีทำเครื่องดื่มแอลกอฮอล์ในบ้าน\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.199Z"
+    }
+  },
+  {
+    "question": "อยากเรียนวิชาเลือกที่น่าสนใจ",
+    "expectedClassification": "unclear",
+    "actualClassification": "irrelevant",
+    "reasoning": "The question is vague and does not specify which skills or courses are desired, or a particular area of interest.",
+    "isCorrect": false,
+    "metadata": {
+      "model": "openai/gpt-4.1-nano",
+      "hashedSystemPrompt": "344a61aee8c8a71dd3a36f3e17299667e2dcf6e2e3d0419b625f2846599b74cd",
+      "userPrompt": "\nUser Question:\nอยากเรียนวิชาเลือกที่น่าสนใจ\n",
+      "promptVersion": "v5",
+      "timestamp": "2025-12-12T06:14:50.199Z"
+    }
+  }
+]

@@ -1,0 +1,186 @@
+{
+  "testCaseId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-ภาษาจีนเพื่อธุรกิจ",
+  "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+  "skill": "ภาษาจีนเพื่อธุรกิจ",
+  "retrievedCount": 20,
+  "evaluations": [
+    {
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "relevanceScore": 3,
+      "reason": "Course name and learning outcomes explicitly focus on business Chinese communication and related culture, matching the skill 'ภาษาจีนเพื่อธุรกิจ' as a main theme."
+    },
+    {
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "relevanceScore": 3,
+      "reason": "Same as above; course clearly centers on business Chinese language and culture, fully covering the skill."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 3,
+      "reason": "Course content directly addresses business Chinese communication and culture, fully relevant to the skill."
+    },
+    {
+      "subjectCode": "01396111-67",
+      "subjectName": "ภาษาจีนธุรกิจ I",
+      "relevanceScore": 3,
+      "reason": "Course focuses on foundational business Chinese communication skills, directly relevant to the skill."
+    },
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 3,
+      "reason": "Course outcomes emphasize correct business Chinese communication and grammar, highly relevant to the skill."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 3,
+      "reason": "Course on business Chinese conversation with focus on communication and culture, directly relevant to the skill."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 3,
+      "reason": "Same as above; focuses on business Chinese conversational skills and culture, highly relevant."
+    },
+    {
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "relevanceScore": 3,
+      "reason": "Course covers business Chinese conversation and cultural aspects, fully relevant to the skill."
+    },
+    {
+      "subjectCode": "01396382-67",
+      "subjectName": "ภาษาและวัฒนธรรมในองค์กรจีน",
+      "relevanceScore": 2,
+      "reason": "Focuses on Chinese language and culture in organizations related to business, useful but less language skill focus, fairly relevant."
+    },
+    {
+      "subjectCode": "01396322-67",
+      "subjectName": "งานประพันธ์จีน II",
+      "relevanceScore": 1,
+      "reason": "Mentions Chinese literature and culture linked to business ethics, but business Chinese language is not a primary focus."
+    },
+    {
+      "subjectCode": "01362111-68",
+      "subjectName": "ภาษาจีนพื้นฐาน I",
+      "relevanceScore": 1,
+      "reason": "Basic Chinese language skills for daily communication, business context not emphasized, marginally relevant."
+    },
+    {
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "relevanceScore": 0,
+      "reason": "General Chinese language skills without business context, irrelevant to business Chinese skill."
+    },
+    {
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "relevanceScore": 0,
+      "reason": "General Chinese language course without business focus, irrelevant."
+    },
+    {
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "relevanceScore": 0,
+      "reason": "General Chinese language course without business context, irrelevant."
+    },
+    {
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "relevanceScore": 0,
+      "reason": "General Chinese language skills without business application, irrelevant."
+    },
+    {
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "relevanceScore": 0,
+      "reason": "General Chinese language course without business focus, irrelevant."
+    },
+    {
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "relevanceScore": 0,
+      "reason": "Focus on Chinese linguistics theory and research, no business Chinese content, irrelevant."
+    },
+    {
+      "subjectCode": "01362112-63",
+      "subjectName": "ภาษาจีนพื้นฐาน II",
+      "relevanceScore": 1,
+      "reason": "Basic Chinese communication skills at higher level, no specific business focus, marginally relevant."
+    },
+    {
+      "subjectCode": "01396141-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ I",
+      "relevanceScore": 2,
+      "reason": "Business Chinese conversation course focusing on pronunciation and situational usage, fairly relevant to business Chinese skill."
+    },
+    {
+      "subjectCode": "01396221-67",
+      "subjectName": "การอ่านภาษาจีนเพื่องานอาชีพ I",
+      "relevanceScore": 2,
+      "reason": "Course on reading Chinese for professional purposes with some business culture content, fairly relevant but not comprehensive business Chinese language."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 20,
+    "meanRelevanceScore": 1.65,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 30,
+        "microAverageRate": 30,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 15,
+        "microAverageRate": 15,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 15,
+        "microAverageRate": 15,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 8,
+        "macroAverageRate": 40,
+        "microAverageRate": 40,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 0.978,
+        "at15": 0.906,
+        "atAll": 0.986
+      },
+      "ideal": {
+        "at5": 1,
+        "at10": 0.936,
+        "at15": 0.741,
+        "atAll": 0.672
+      }
+    },
+    "precision": {
+      "at5": 1,
+      "at10": 0.9,
+      "at15": 0.6,
+      "atAll": 0.55
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2550,
+  "outputTokens": 643
+}

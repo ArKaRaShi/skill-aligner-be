@@ -1,0 +1,195 @@
+{
+  "totalDisagreements": 612,
+  "totalSamples": 26,
+  "disagreementRate": 0.3759213759213759,
+  "byType": {
+    "EXPLORATORY_DELTA": {
+      "count": 553,
+      "percentage": 1,
+      "description": "System keeps courses that judge would drop (system is too exploratory)",
+      "bySystemScore": {
+        "score1": 327,
+        "score2": 200,
+        "score3": 26
+      },
+      "commonPatterns": [
+        {
+          "pattern": "FOUNDATIONAL_OVERKEEP",
+          "count": 1,
+          "description": "System keeps foundational/prerequisite courses that judge considers too basic",
+          "example": {
+            "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+            "subjectCode": "03651442-65",
+            "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+            "systemScore": 2,
+            "judgeReason": "Focuses on big data management, which is not directly relevant to beginner web or mobile app development."
+          }
+        },
+        {
+          "pattern": "SIBLING_MISCLASSIFICATION",
+          "count": 124,
+          "description": "System keeps adjacent/sibling topics that judge considers distinct",
+          "example": {
+            "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+            "subjectCode": "04305443-67",
+            "subjectName": "จรรยาบรรณและมาตรฐานของการวิเคราะห์การลงทุน",
+            "systemScore": 2,
+            "judgeReason": "Focuses on ethics and standards in investment analysis, which is too specialized and not directly about personal finance management."
+          }
+        },
+        {
+          "pattern": "CONTEXTUAL_OVERALIGNMENT",
+          "count": 1,
+          "description": "System keeps courses due to context keywords that judge considers tangential",
+          "example": {
+            "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+            "subjectCode": "03603341-65",
+            "subjectName": "วิศวกรรมซอฟต์แวร์",
+            "systemScore": 2,
+            "judgeReason": "Focuses on software engineering processes and requirements, no direct mention of OOP."
+          }
+        }
+      ],
+      "examples": [
+        {
+          "queryLogId": "04305211-67",
+          "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+          "subjectCode": "04305211-67",
+          "subjectName": "การจัดการทางการเงิน I",
+          "systemScore": 3,
+          "systemReason": "Covers fundamental financial management principles directly relevant to managing personal finances.",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Focuses on business financial management, not personal finance."
+        },
+        {
+          "queryLogId": "03759211-67",
+          "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+          "subjectCode": "03759211-67",
+          "subjectName": "การจัดการทางการเงิน I",
+          "systemScore": 3,
+          "systemReason": "Explicitly covers financial management principles directly relevant to personal finance.",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Covers financial management for businesses, not personal money management."
+        },
+        {
+          "queryLogId": "03760211-64",
+          "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+          "subjectCode": "03760211-64",
+          "subjectName": "หลักการบัญชีชั้นกลาง ll",
+          "systemScore": 2,
+          "systemReason": "Covers accounting for liabilities and financial statements, which are foundational for understanding debt, but not directly teaching personal debt management skills.",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Intermediate accounting focused on financial statements, not personal finance."
+        },
+        {
+          "queryLogId": "03760112-64",
+          "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+          "subjectCode": "03760112-64",
+          "subjectName": "หลักการบัญชีชั้นกลาง I",
+          "systemScore": 2,
+          "systemReason": "Provides knowledge on asset recognition and financial statements, relevant as foundational knowledge for managing debt but not specific to personal debt management.",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Accounting principles related to assets, irrelevant to personal money management."
+        },
+        {
+          "queryLogId": "02804215-67",
+          "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+          "subjectCode": "02804215-67",
+          "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+          "systemScore": 2,
+          "systemReason": "Covers basic financial analysis for a specific industry, which can be foundational for understanding financial management, including debt, but not tailored to personal debt management.",
+          "judgeVerdict": "FAIL",
+          "judgeReason": "Finance for airline business, unrelated to personal financial management."
+        }
+      ]
+    },
+    "CONSERVATIVE_DROP": {
+      "count": 59,
+      "percentage": 1,
+      "description": "System drops courses that judge would keep (system is too strict)",
+      "commonPatterns": [
+        {
+          "pattern": "ENABLING_TOOL_UNDERDROP",
+          "count": 4,
+          "description": "System drops enabling tools (e.g., Python for Biologist) that judge considers valuable",
+          "example": {
+            "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+            "subjectCode": "02201568-66",
+            "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+            "systemScore": 0,
+            "judgeReason": "Covers statistical methods and data analysis, providing enabling tools relevant to analyzing financial data."
+          }
+        },
+        {
+          "pattern": "VALID_PIVOT_REJECTION",
+          "count": 1,
+          "description": "System drops valid career pivots that judge considers logical",
+          "example": {
+            "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+            "subjectCode": "03757112-65",
+            "subjectName": "องค์การและการจัดการ",
+            "systemScore": 0,
+            "judgeReason": "Course on organization and management includes teamwork and technology use, useful for career expansion beyond coding."
+          }
+        }
+      ],
+      "examples": [
+        {
+          "queryLogId": "03602222-65",
+          "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+          "subjectCode": "03602222-65",
+          "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+          "systemScore": 0,
+          "systemReason": "Centered on experimental design in engineering, unrelated to financial data analysis.",
+          "judgeVerdict": "PASS",
+          "judgeReason": "Teaches experimental design and data analysis skills, which can enable analytical thinking useful for financial statement analysis."
+        },
+        {
+          "queryLogId": "02201568-66",
+          "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+          "subjectCode": "02201568-66",
+          "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+          "systemScore": 0,
+          "systemReason": "Focuses on experimental design and statistical analysis in research, not financial data analysis.",
+          "judgeVerdict": "PASS",
+          "judgeReason": "Covers statistical methods and data analysis, providing enabling tools relevant to analyzing financial data."
+        },
+        {
+          "queryLogId": "01390429-64",
+          "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+          "subjectCode": "01390429-64",
+          "subjectName": "การจัดนำเที่ยวนอกประเทศ",
+          "systemScore": 0,
+          "systemReason": "Focuses on travel abroad business management, unrelated to event planning.",
+          "judgeVerdict": "PASS",
+          "judgeReason": "Course on organizing outbound tours relates to event planning and management skills applicable to event organization."
+        },
+        {
+          "queryLogId": "02184284-67",
+          "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+          "subjectCode": "02184284-67",
+          "subjectName": "การจัดการวงดนตรีสำหรับครูดนตรี",
+          "systemScore": 0,
+          "systemReason": "Specific to managing musical bands, not related to event planning.",
+          "judgeVerdict": "PASS",
+          "judgeReason": "Course on managing music bands for events is relevant to organizing entertainment aspects of events."
+        },
+        {
+          "queryLogId": "06904222-66",
+          "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+          "subjectCode": "06904222-66",
+          "subjectName": "การจัดการที่พักเพื่อการท่องเที่ยว",
+          "systemScore": 0,
+          "systemReason": "Focuses on accommodation management, not event planning.",
+          "judgeVerdict": "PASS",
+          "judgeReason": "Course on accommodation management supports event planning by managing lodging for attendees."
+        }
+      ]
+    }
+  },
+  "insights": {
+    "systemCharacter": "Too exploratory (keeps marginal courses)",
+    "judgeCharacter": "Binary utility assessment",
+    "recommendation": "Consider tightening the filtering criteria to reduce exploratory delta cases"
+  }
+}

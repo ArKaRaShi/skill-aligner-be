@@ -1,0 +1,79 @@
+[
+  {
+    "iterationNumber": 1,
+    "totalIncorrectClassifications": 1,
+    "incorrectRecords": [
+      {
+        "question": "อยากเก่งเรื่องเทคโนโลยี ควรเริ่มจากอะไร",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Outcome/Goal-Oriented (Pattern B) - expresses a desire to improve in technology, a broad field that can be associated with learnable skills or topics.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "d4f2cf95d88b408c1655e829164d97de6d86b19a9a044d4d800e70f0bba6654a",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nอยากเก่งเรื่องเทคโนโลยี ควรเริ่มจากอะไร\n",
+          "promptVersion": "v10",
+          "timestamp": "2025-12-16T06:36:12.205Z"
+        }
+      }
+    ],
+    "timestamp": "2025-12-16T06:36:12.210Z"
+  },
+  {
+    "iterationNumber": 2,
+    "totalIncorrectClassifications": 1,
+    "incorrectRecords": [
+      {
+        "question": "อยากเก่งเรื่องเทคโนโลยี ควรเริ่มจากอะไร",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Outcome/Goal-Oriented (Pattern B) - expresses a desire to improve in technology, which is a broad, teachable subject area. The question indicates an intent to learn skills within the technology domain.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "d4f2cf95d88b408c1655e829164d97de6d86b19a9a044d4d800e70f0bba6654a",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nอยากเก่งเรื่องเทคโนโลยี ควรเริ่มจากอะไร\n",
+          "promptVersion": "v10",
+          "timestamp": "2025-12-16T06:38:40.897Z"
+        }
+      }
+    ],
+    "timestamp": "2025-12-16T06:38:40.900Z"
+  },
+  {
+    "iterationNumber": 3,
+    "totalIncorrectClassifications": 2,
+    "incorrectRecords": [
+      {
+        "question": "อยากเป็นนักเวท ต้องเรียนวิชาอะไร",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Direct/Explicit Concept Request (Pattern A) - 'นักเวท' (wizard/mage) is a learnable role involving magical or mystical skills. The question asks about the subjects to study for this role, which can be mapped to teachable skills.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "d4f2cf95d88b408c1655e829164d97de6d86b19a9a044d4d800e70f0bba6654a",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nอยากเป็นนักเวท ต้องเรียนวิชาอะไร\n",
+          "promptVersion": "v10",
+          "timestamp": "2025-12-16T06:38:47.808Z"
+        }
+      },
+      {
+        "question": "อยากเก่งเรื่องเทคโนโลยี ควรเริ่มจากอะไร",
+        "expectedClassification": "irrelevant",
+        "actualClassification": "relevant",
+        "reasoning": "Outcome/Goal-Oriented (Pattern B) - expresses a desire to improve in technology, which can be mapped to learning specific tech skills or foundational courses.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "d4f2cf95d88b408c1655e829164d97de6d86b19a9a044d4d800e70f0bba6654a",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nอยากเก่งเรื่องเทคโนโลยี ควรเริ่มจากอะไร\n",
+          "promptVersion": "v10",
+          "timestamp": "2025-12-16T06:38:47.808Z"
+        }
+      }
+    ],
+    "timestamp": "2025-12-16T06:38:47.811Z"
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "iterationNumber": 1,
+  "overallMetrics": {
+    "totalQuestions": 145,
+    "totalCorrectClassifications": 139,
+    "totalIncorrectClassifications": 6,
+    "overallPrecision": 0.966988727858293,
+    "overallRecall": 0.9497354497354498,
+    "macroPrecision": 0.966988727858293,
+    "macroRecall": 0.9497354497354498,
+    "timestamp": "2025-12-12T12:03:25.801Z"
+  },
+  "classMetrics": [
+    {
+      "classLabel": "relevant",
+      "totalQuestions": 45,
+      "correctClassifications": 44,
+      "incorrectClassifications": 1,
+      "precision": 0.9565217391304348,
+      "recall": 0.9777777777777777,
+      "macroPrecision": 0.9565217391304348,
+      "macroRecall": 0.9777777777777777,
+      "timestamp": "2025-12-12T12:03:25.800Z"
+    },
+    {
+      "classLabel": "irrelevant",
+      "totalQuestions": 70,
+      "correctClassifications": 68,
+      "incorrectClassifications": 2,
+      "precision": 0.9444444444444444,
+      "recall": 0.9714285714285714,
+      "macroPrecision": 0.9444444444444444,
+      "macroRecall": 0.9714285714285714,
+      "timestamp": "2025-12-12T12:03:25.800Z"
+    },
+    {
+      "classLabel": "dangerous",
+      "totalQuestions": 30,
+      "correctClassifications": 27,
+      "incorrectClassifications": 3,
+      "precision": 1,
+      "recall": 0.9,
+      "macroPrecision": 1,
+      "macroRecall": 0.9,
+      "timestamp": "2025-12-12T12:03:25.800Z"
+    }
+  ],
+  "macroMetrics": [
+    {
+      "iteration": 1,
+      "macroPrecision": 0.966988727858293,
+      "macroRecall": 0.9497354497354498,
+      "timestamp": "2025-12-12T12:03:25.801Z",
+      "classBreakdown": [
+        {
+          "className": "relevant",
+          "precision": 0.9565217391304348,
+          "recall": 0.9777777777777777
+        },
+        {
+          "className": "irrelevant",
+          "precision": 0.9444444444444444,
+          "recall": 0.9714285714285714
+        },
+        {
+          "className": "dangerous",
+          "precision": 1,
+          "recall": 0.9
+        }
+      ]
+    }
+  ]
+}

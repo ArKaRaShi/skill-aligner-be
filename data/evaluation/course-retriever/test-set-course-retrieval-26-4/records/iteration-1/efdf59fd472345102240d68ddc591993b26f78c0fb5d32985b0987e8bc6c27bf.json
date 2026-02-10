@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "01c601d2-5583-4413-a5c6-5f463efd897c-การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง"
+  ],
+  "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on AI principles, applications, and building simple AI applications, directly covering AI and machine learning applications comprehensively."
+    },
+    {
+      "subjectCode": "03610111-66",
+      "subjectName": "เปิดโลกวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Covers basic AI concepts and use of AI tools as part of a broader digital engineering course, providing useful but not comprehensive AI/ML application content."
+    },
+    {
+      "subjectCode": "04256355-66",
+      "subjectName": "โปรแกรมประยุกต์การเรียนรู้ของเครื่อง",
+      "relevanceScore": 3,
+      "reason": "Dedicated to machine learning applications including supervised and unsupervised learning algorithms and model development, highly relevant to the skill."
+    },
+    {
+      "subjectCode": "01420243-66",
+      "subjectName": "อิเล็กทรอนิกส์เบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about basic electronics without mention of AI or machine learning applications."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 1,
+      "reason": "Focuses on technology for learning management with no direct mention of AI or machine learning applications, only marginally relevant."
+    },
+    {
+      "subjectCode": "01204561-66",
+      "subjectName": "ปัญญาประดิษฐ์ขั้นสูง",
+      "relevanceScore": 3,
+      "reason": "Advanced AI course focusing on applying AI technology to solve problems and design intelligent systems, highly relevant."
+    },
+    {
+      "subjectCode": "01420445-66",
+      "subjectName": "การประยุกต์ไมโครโพรเซสเซอร์ทางฟิสิกส์ภาคปฏิบัติการ",
+      "relevanceScore": 0,
+      "reason": "Focuses on microprocessor practical applications without mention of AI or machine learning."
+    },
+    {
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "relevanceScore": 3,
+      "reason": "Specifically about applying AI in animal science, directly relevant to AI application skill."
+    },
+    {
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "relevanceScore": 0,
+      "reason": "Course on applied psychology with no connection to AI or machine learning."
+    },
+    {
+      "subjectCode": "03604271-65",
+      "subjectName": "เทคโนโลยีดิจิทัลทางวิศวกรรมเครื่องกล",
+      "relevanceScore": 1,
+      "reason": "Applies math and science with computers in mechanical engineering, but no direct AI or machine learning application mentioned."
+    },
+    {
+      "subjectCode": "02162611-67",
+      "subjectName": "คณิตศาสตร์ขั้นสูงในการจัดการเรียนรู้",
+      "relevanceScore": 1,
+      "reason": "Focuses on advanced math in learning management with technology use, but no direct AI or machine learning application."
+    },
+    {
+      "subjectCode": "01420211-66",
+      "subjectName": "กลศาสตร์ I",
+      "relevanceScore": 0,
+      "reason": "Course on mechanics with no mention of AI or machine learning applications."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 1.4166666666666667,
+    "totalRelevanceSum": 17,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 4,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 4,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.727,
+        "at10": 0.893,
+        "at15": 0.923,
+        "atAll": 0.923
+      },
+      "ideal": {
+        "at5": 0.695,
+        "at10": 0.62,
+        "at15": 0.497,
+        "atAll": 0.572
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.6,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 0.7,
+        "threshold2": 0.5,
+        "threshold3": 0.4
+      },
+      "at15": {
+        "threshold1": 0.667,
+        "threshold2": 0.417,
+        "threshold3": 0.333
+      },
+      "atAll": {
+        "threshold1": 0.667,
+        "threshold2": 0.417,
+        "threshold3": 0.333
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2311,
+  "outputTokens": 419
+}

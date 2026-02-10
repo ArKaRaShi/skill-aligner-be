@@ -1,0 +1,168 @@
+{
+  "testCaseId": "cd96176f-8e18-4270-9c76-8c6b1cf19594-ภาษาโปรแกรมเชิงวัตถุ",
+  "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+  "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers object-oriented programming principles and programming using object-oriented concepts as main learning outcomes."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course focuses on engineering drawing and software for drafting, no mention of programming or object-oriented concepts."
+    },
+    {
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "relevanceScore": 1,
+      "reason": "Course covers basic algorithms and programming applications but does not specifically mention object-oriented programming."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Course focuses on structured query language and data querying, unrelated to object-oriented programming."
+    },
+    {
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "relevanceScore": 0,
+      "reason": "Course is about structured programming, not object-oriented programming."
+    },
+    {
+      "subjectCode": "02201131-66",
+      "subjectName": "การเขียนโปรแกรมและระบบ IoT ทางการเกษตร",
+      "relevanceScore": 1,
+      "reason": "Course involves programming with high-level languages but does not explicitly mention object-oriented programming."
+    },
+    {
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "relevanceScore": 0,
+      "reason": "Course is about design and art elements, unrelated to programming."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course focuses on nutrition product innovation and related software, no programming content."
+    },
+    {
+      "subjectCode": "04256111-66",
+      "subjectName": "คณิตศาสตร์สำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Course covers mathematics for data science, no mention of programming or object-oriented concepts."
+    },
+    {
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "relevanceScore": 0,
+      "reason": "Course is a Chinese language course, unrelated to programming."
+    },
+    {
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "relevanceScore": 0,
+      "reason": "Course is a Chinese language course, unrelated to programming."
+    },
+    {
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "relevanceScore": 0,
+      "reason": "Course is a Chinese language course, unrelated to programming."
+    },
+    {
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "relevanceScore": 0,
+      "reason": "Course is a Chinese language course, unrelated to programming."
+    },
+    {
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "relevanceScore": 0,
+      "reason": "Course is a Chinese language course, unrelated to programming."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course focuses on engineering drawing and CAD software, no programming content."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course is about computer-aided product design, no programming content."
+    },
+    {
+      "subjectCode": "04252612-67",
+      "subjectName": "วิทยาการข้อมูลขั้นสูง",
+      "relevanceScore": 1,
+      "reason": "Course mentions use of programming languages for data diagnosis but does not specify object-oriented programming."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.35294117647058826,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 13,
+        "macroAverageRate": 76.47058823529412,
+        "microAverageRate": 76.47058823529412,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 17.647058823529413,
+        "microAverageRate": 17.647058823529413,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.767,
+        "at10": 0.845,
+        "at15": 0.845,
+        "atAll": 0.898
+      },
+      "ideal": {
+        "at5": 0.396,
+        "at10": 0.283,
+        "at15": 0.219,
+        "atAll": 0.215
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.067,
+      "atAll": 0.059
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2619,
+  "outputTokens": 498
+}

@@ -1,0 +1,149 @@
+{
+  "testSetName": "test-set-course-retrieval-1769416288009",
+  "iterationNumber": 1,
+  "entries": [
+    {
+      "hash": "4ae712d56352130fa02fe9106332b8b596381eebfa7a9969b2e1806fc603111c",
+      "dedupeKey": "การบริหารการเงินส่วนบุคคล-4ae712d56352130fa02fe9106332b8b596381eebfa7a9969b2e1806fc603111c",
+      "skill": "การบริหารการเงินส่วนบุคคล",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การบริหารการเงินส่วนบุคคล"
+      ],
+      "completedAt": "2026-01-26T14:31:28.608Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.46153846153846156
+      }
+    },
+    {
+      "hash": "c4e5315b946237aa06bd4387f2bc8b618e29bcdc3a8a44e0b482678ced819198",
+      "dedupeKey": "การวางแผนการเงิน-c4e5315b946237aa06bd4387f2bc8b618e29bcdc3a8a44e0b482678ced819198",
+      "skill": "การวางแผนการเงิน",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การวางแผนการเงิน"
+      ],
+      "completedAt": "2026-01-26T14:31:29.478Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.3076923076923077
+      }
+    },
+    {
+      "hash": "6b66026b475075945cdb06d4f3cdc291f0f78c707d711b524454a99baa989972",
+      "dedupeKey": "การจัดทำงบประมาณส่วนบุคคล-6b66026b475075945cdb06d4f3cdc291f0f78c707d711b524454a99baa989972",
+      "skill": "การจัดทำงบประมาณส่วนบุคคล",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การจัดทำงบประมาณส่วนบุคคล"
+      ],
+      "completedAt": "2026-01-26T14:31:28.797Z",
+      "result": {
+        "retrievedCount": 15,
+        "meanRelevanceScore": 0.3333333333333333
+      }
+    },
+    {
+      "hash": "ec4ce6df45809577af25ba86e6392bc0c3ab771227b1c740b82574872a864dcb",
+      "dedupeKey": "การลงทุนเบื้องต้น-ec4ce6df45809577af25ba86e6392bc0c3ab771227b1c740b82574872a864dcb",
+      "skill": "การลงทุนเบื้องต้น",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การลงทุนเบื้องต้น"
+      ],
+      "completedAt": "2026-01-26T14:31:36.873Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 1.3076923076923077
+      }
+    },
+    {
+      "hash": "6e17a3a1fcd4ce3374510dabd8ddce90a3acb6381630c46f1b451bdba9f69b00",
+      "dedupeKey": "การจัดการหนี้สิน-6e17a3a1fcd4ce3374510dabd8ddce90a3acb6381630c46f1b451bdba9f69b00",
+      "skill": "การจัดการหนี้สิน",
+      "testCases": [
+        "27553284-019f-4c31-8dbe-b1bfbb5cb4d5-การจัดการหนี้สิน"
+      ],
+      "completedAt": "2026-01-26T14:31:36.874Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.5384615384615384
+      }
+    },
+    {
+      "hash": "2a29027614753891202b7962a3d81e8f6edad47eac42bbf7571f2e9f9fde229f",
+      "dedupeKey": "การสร้างแบรนด์-2a29027614753891202b7962a3d81e8f6edad47eac42bbf7571f2e9f9fde229f",
+      "skill": "การสร้างแบรนด์",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การสร้างแบรนด์"
+      ],
+      "completedAt": "2026-01-26T14:31:36.874Z",
+      "result": {
+        "retrievedCount": 13,
+        "meanRelevanceScore": 0.5384615384615384
+      }
+    },
+    {
+      "hash": "b4e56ac597a7290e92b2e67cbe703a64a9510af0c862b94a344b5bfaf4c08a2b",
+      "dedupeKey": "การตลาด-b4e56ac597a7290e92b2e67cbe703a64a9510af0c862b94a344b5bfaf4c08a2b",
+      "skill": "การตลาด",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การตลาด"
+      ],
+      "completedAt": "2026-01-26T14:31:44.589Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 2.5833333333333335
+      }
+    },
+    {
+      "hash": "85946bd64abec2f76d45065ed0c0ce26e6f2a6d1b80f48bdb2f770459503c948",
+      "dedupeKey": "การวางแผนกลยุทธ์ธุรกิจ-85946bd64abec2f76d45065ed0c0ce26e6f2a6d1b80f48bdb2f770459503c948",
+      "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การวางแผนกลยุทธ์ธุรกิจ"
+      ],
+      "completedAt": "2026-01-26T14:31:44.010Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 1.9166666666666667
+      }
+    },
+    {
+      "hash": "864d2e0385afeab868bad4e996effe5df01f49b2eda209f63397fad91cb87a98",
+      "dedupeKey": "การออกแบบกราฟิก-864d2e0385afeab868bad4e996effe5df01f49b2eda209f63397fad91cb87a98",
+      "skill": "การออกแบบกราฟิก",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การออกแบบกราฟิก"
+      ],
+      "completedAt": "2026-01-26T14:31:42.692Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 0.9166666666666666
+      }
+    },
+    {
+      "hash": "4109f9d6d66502a63bdfef5640deceefd27621fab816b6bf1d107f65629f8a89",
+      "dedupeKey": "การสื่อสารการตลาด-4109f9d6d66502a63bdfef5640deceefd27621fab816b6bf1d107f65629f8a89",
+      "skill": "การสื่อสารการตลาด",
+      "testCases": [
+        "a7728000-0818-42b5-a49f-c89f4ee59ab5-การสื่อสารการตลาด"
+      ],
+      "completedAt": "2026-01-26T14:31:53.846Z",
+      "result": {
+        "retrievedCount": 12,
+        "meanRelevanceScore": 0.8333333333333334
+      }
+    }
+  ],
+  "lastUpdated": "2026-01-26T14:31:53.846Z",
+  "statistics": {
+    "totalItems": 10,
+    "completedItems": 10,
+    "pendingItems": 0,
+    "completionPercentage": 100
+  },
+  "deduplicationStats": {
+    "totalTestCases": 10,
+    "uniqueGroups": 10,
+    "duplicateCount": 0,
+    "deduplicationRate": 0
+  }
+}

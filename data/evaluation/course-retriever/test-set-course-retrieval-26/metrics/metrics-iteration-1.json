@@ -1,0 +1,154 @@
+{
+  "iteration": 1,
+  "timestamp": "2026-01-26T16:46:11.184Z",
+  "sampleCount": 148,
+  "totalCoursesEvaluated": 2132,
+  "meanRelevanceScore": {
+    "meanRelevanceScore": 1.036,
+    "totalRelevanceSum": 2207.779,
+    "totalCourses": 2132,
+    "description": "Mean relevance: 1.036/3 across 2132 courses"
+  },
+  "perClassDistribution": {
+    "score0": {
+      "relevanceScore": 0,
+      "label": "irrelevant",
+      "count": 844,
+      "totalCount": 2132,
+      "macroAverageRate": 40.418,
+      "microAverageRate": 39.587,
+      "description": "844 of 2132 courses are irrelevant - Macro: 40.4% (avg of sample rates), Micro: 39.6% (from total counts)"
+    },
+    "score1": {
+      "relevanceScore": 1,
+      "label": "slightly_relevant",
+      "count": 617,
+      "totalCount": 2132,
+      "macroAverageRate": 28.402,
+      "microAverageRate": 28.94,
+      "description": "617 of 2132 courses are slightly relevant - Macro: 28.4% (avg of sample rates), Micro: 28.9% (from total counts)"
+    },
+    "score2": {
+      "relevanceScore": 2,
+      "label": "fairly_relevant",
+      "count": 388,
+      "totalCount": 2132,
+      "macroAverageRate": 18.386,
+      "microAverageRate": 18.199,
+      "description": "388 of 2132 courses are fairly relevant - Macro: 18.4% (avg of sample rates), Micro: 18.2% (from total counts)"
+    },
+    "score3": {
+      "relevanceScore": 3,
+      "label": "highly_relevant",
+      "count": 283,
+      "totalCount": 2132,
+      "macroAverageRate": 12.793,
+      "microAverageRate": 13.274,
+      "description": "283 of 2132 courses are highly relevant - Macro: 12.8% (avg of sample rates), Micro: 13.3% (from total counts)"
+    }
+  },
+  "ndcg": {
+    "at5": {
+      "proxyNdcg": 0.6341,
+      "idealNdcg": 0.4572,
+      "description": "Mean NDCG@5 - Proxy: 0.6341 (Fair), Ideal: 0.4572 (Very Poor) - Top-5 results (148 samples)"
+    },
+    "at10": {
+      "proxyNdcg": 0.7276,
+      "idealNdcg": 0.4079,
+      "description": "Mean NDCG@10 - Proxy: 0.7276 (Reasonable), Ideal: 0.4079 (Very Poor) - Top-10 results (148 samples)"
+    },
+    "at15": {
+      "proxyNdcg": 0.7779,
+      "idealNdcg": 0.358,
+      "description": "Mean NDCG@15 - Proxy: 0.7779 (Reasonable), Ideal: 0.358 (Very Poor) - Top-15 results (148 samples)"
+    },
+    "atAll": {
+      "proxyNdcg": 0.7887,
+      "idealNdcg": 0.3859,
+      "description": "Mean NDCG@All - Proxy: 0.7887 (Reasonable), Ideal: 0.3859 (Very Poor) - Overall ranking across 148 samples"
+    }
+  },
+  "precision": {
+    "at5": {
+      "threshold1": {
+        "meanPrecision": 0.6797,
+        "relevantCount": 503,
+        "totalCount": 740,
+        "description": "Mean Precision@5 (≥1): 68.0% - On average, 68.0% of top-5 courses are relevant (148 samples)"
+      },
+      "threshold2": {
+        "meanPrecision": 0.4135,
+        "relevantCount": 306,
+        "totalCount": 740,
+        "description": "Mean Precision@5 (≥2): 41.4% - On average, 41.4% of top-5 courses are relevant (148 samples)"
+      },
+      "threshold3": {
+        "meanPrecision": 0.1892,
+        "relevantCount": 140,
+        "totalCount": 740,
+        "description": "Mean Precision@5 (≥3): 18.9% - On average, 18.9% of top-5 courses are relevant (148 samples)"
+      }
+    },
+    "at10": {
+      "threshold1": {
+        "meanPrecision": 0.6294,
+        "relevantCount": 932,
+        "totalCount": 1480,
+        "description": "Mean Precision@10 (≥1): 62.9% - On average, 62.9% of top-10 courses are relevant (148 samples)"
+      },
+      "threshold2": {
+        "meanPrecision": 0.3448,
+        "relevantCount": 510,
+        "totalCount": 1480,
+        "description": "Mean Precision@10 (≥2): 34.5% - On average, 34.5% of top-10 courses are relevant (148 samples)"
+      },
+      "threshold3": {
+        "meanPrecision": 0.1458,
+        "relevantCount": 216,
+        "totalCount": 1480,
+        "description": "Mean Precision@10 (≥3): 14.6% - On average, 14.6% of top-10 courses are relevant (148 samples)"
+      }
+    },
+    "at15": {
+      "threshold1": {
+        "meanPrecision": 0.5978,
+        "relevantCount": 1327,
+        "totalCount": 2220,
+        "description": "Mean Precision@15 (≥1): 59.8% - On average, 59.8% of top-15 courses are relevant (148 samples)"
+      },
+      "threshold2": {
+        "meanPrecision": 0.3146,
+        "relevantCount": 698,
+        "totalCount": 2220,
+        "description": "Mean Precision@15 (≥2): 31.5% - On average, 31.5% of top-15 courses are relevant (148 samples)"
+      },
+      "threshold3": {
+        "meanPrecision": 0.1304,
+        "relevantCount": 290,
+        "totalCount": 2220,
+        "description": "Mean Precision@15 (≥3): 13.0% - On average, 13.0% of top-15 courses are relevant (148 samples)"
+      }
+    },
+    "atAll": {
+      "threshold1": {
+        "meanPrecision": 0.5958,
+        "relevantCount": 1270,
+        "totalCount": 2132,
+        "description": "Mean precision (≥1): 59.6% across all retrieved courses"
+      },
+      "threshold2": {
+        "meanPrecision": 0.3118,
+        "relevantCount": 665,
+        "totalCount": 2132,
+        "description": "Mean precision (≥2): 31.2% across all retrieved courses"
+      },
+      "threshold3": {
+        "meanPrecision": 0.128,
+        "relevantCount": 273,
+        "totalCount": 2132,
+        "description": "Mean precision (≥3): 12.8% across all retrieved courses"
+      }
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "a5b1ad24-9995-4257-a50d-0d8e7931fbbf-การวิเคราะห์งบการเงิน"
+  ],
+  "skill": "การวิเคราะห์งบการเงิน",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01057533-64",
+      "subjectName": "การจัดการการดำเนินงานในอุตสาหกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Includes 'วิเคราะห์งบการเงินเบื้องต้นได้' as a learning outcome, indicating some coverage of financial statement analysis, but it is not the primary focus of the course."
+    },
+    {
+      "subjectCode": "03760324-64",
+      "subjectName": "การบัญชีระหว่างประเทศ",
+      "relevanceScore": 2,
+      "reason": "Mentions 'วิเคราะห์รายงานทางการเงิน' as a learning outcome, suggesting some discussion of financial analysis within international accounting, but not as the main theme."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 3,
+      "reason": "Specifically includes 'วิเคราะห์ข้อมูลในรายงานทางการเงิน' and 'ประเมินมูลค่ากิจการจากข้อมูลในรายงานทางการเงิน' as outcomes, clearly focusing on financial statement analysis."
+    },
+    {
+      "subjectCode": "03760442-64",
+      "subjectName": "การบัญชีนิติวิทยาเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Mentions 'สามารถวิเคราะห์งบการเงินเพื่อสืบสวน' as a learning outcome, indicating some coverage of financial analysis, but not as the main focus."
+    },
+    {
+      "subjectCode": "06901231-66",
+      "subjectName": "การเงินและการบัญชีสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 1,
+      "reason": "Includes 'สามารถอธิบายวิธีการบันทึกบัญชี การจัดทำงบการเงิน' and 'สามารถวิเคราะห์ทางการเงิน' as outcomes, but the primary focus is broader accounting and finance topics."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Mentions 'คำนวณต้นทุน และประเมินความเป็นไปได้ทางการเงิน' as part of broader marketing and financial planning topics, not a primary focus."
+    },
+    {
+      "subjectCode": "03760112-64",
+      "subjectName": "หลักการบัญชีชั้นกลาง I",
+      "relevanceScore": 1,
+      "reason": "Includes 'สามารถจัดทำงบการเงิน' but the main focus is on accounting principles and asset recognition, not financial statement analysis."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "Mentions 'ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี' but it is part of data analysis for accounting, not specifically financial statement analysis."
+    },
+    {
+      "subjectCode": "03759211-67",
+      "subjectName": "การจัดการทางการเงิน I",
+      "relevanceScore": 1,
+      "reason": "Includes 'สามารถอธิบายการวิเคราะห์ทางการเงิน' but the primary focus is on financial management and decision-making, not detailed financial statement analysis."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Mentions 'วิเคราะห์และเสนอแนะการวางแผนและควบคุมกำไร' but not specifically on financial statement analysis."
+    },
+    {
+      "subjectCode": "03651231-65",
+      "subjectName": "การคำนวณเชิงเศรษฐศาสตร์เบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Includes 'วิเคราะห์นโยบายทางการเงิน' but the focus is broader macroeconomic and financial policies, not specific financial statement analysis."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Mentions 'ใช้ข้อมูลต้นทุนและเทคโนโลยีสารสนเทศเพื่อการวางแผน ควบคุม และตัดสินใจเชิงกลยุทธ์' but not specifically on financial statement analysis."
+    },
+    {
+      "subjectCode": "03760111-64",
+      "subjectName": "หลักการบัญชีเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Includes 'สามารถจัดทำงบการเงิน' and 'สามารถอธิบายหลักเบื้องต้นของแม่บทการบัญชี' which relate to financial reporting, but analysis is not the main focus."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.4615384615384615,
+    "totalRelevanceSum": 19,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 61.53846153846154,
+        "microAverageRate": 61.53846153846154,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.871,
+        "at10": 0.896,
+        "at15": 0.933,
+        "atAll": 0.933
+      },
+      "ideal": {
+        "at5": 0.679,
+        "at10": 0.558,
+        "at15": 0.494,
+        "atAll": 0.54
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.385,
+        "threshold3": 0.077
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.385,
+        "threshold3": 0.077
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2436,
+  "outputTokens": 836
+}

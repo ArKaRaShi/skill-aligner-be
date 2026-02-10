@@ -1,0 +1,186 @@
+{
+  "questionIds": [
+    "b3460fa2-c348-4748-b583-4b042886e0ca-ความปลอดภัยของข้อมูลและระบบ"
+  ],
+  "skill": "ความปลอดภัยของข้อมูลและระบบ",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Includes managing data security and privacy as part of handling large datasets, which relates to data and system security."
+    },
+    {
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "relevanceScore": 3,
+      "reason": "Covers comprehensive understanding of database management systems, including security aspects of databases, directly related to data and system security."
+    },
+    {
+      "subjectCode": "04252534-67",
+      "subjectName": "การออกแบบและการบริหารเครือข่ายขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on network design and management, not specifically on data or system security."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Includes security and ethical considerations in data management, relevant but not the primary focus."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Discusses data warehouse structures and decision support systems, with some mention of security roles, but not a primary focus."
+    },
+    {
+      "subjectCode": "01005411-67",
+      "subjectName": "การบริหารจัดการฟาร์ม",
+      "relevanceScore": 1,
+      "reason": "Related to farm management and safety, not directly about data or system security."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Covers data analysis and presentation, with emphasis on ethics and responsibility, tangentially related to data security."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Focuses on art materials chemistry, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Covers chemistry in daily life, not related to data or system security."
+    },
+    {
+      "subjectCode": "04253181-65",
+      "subjectName": "การฝึกงานโรงงานทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Pertains to industrial safety procedures, not data or system security."
+    },
+    {
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "relevanceScore": 1,
+      "reason": "Discusses safety in industry, including safety principles, but not specifically about data or system security."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Covers digital citizenship and responsible use of technology, which relates to security awareness but not technical security skills."
+    },
+    {
+      "subjectCode": "01058343-68",
+      "subjectName": "ปฏิบัติการวิเคราะห์คุณภาพทางกายภาพและเคมีในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Focuses on physical and chemical analysis in agriculture, not related to data or system security."
+    },
+    {
+      "subjectCode": "01605523-67",
+      "subjectName": "พันธุวิศวกรรมทางเทคโนโลยีสุขภาพสัตว์",
+      "relevanceScore": 0,
+      "reason": "Pertains to genetic engineering in animal health, unrelated to data or system security."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 2,
+      "reason": "Includes statistical learning and data analysis, with some emphasis on ethical use, tangentially related to data security."
+    },
+    {
+      "subjectCode": "03651441-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ II",
+      "relevanceScore": 2,
+      "reason": "Focuses on statistical analysis for business, including ethical considerations, somewhat related to data security."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Includes managing data security and privacy as part of handling large datasets, which relates to data and system security."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 1.2352941176470589,
+    "totalRelevanceSum": 21,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 29.41176470588235,
+        "microAverageRate": 29.41176470588235,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 23.529411764705884,
+        "microAverageRate": 23.529411764705884,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 41.1764705882353,
+        "microAverageRate": 41.1764705882353,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.802,
+        "at10": 0.69,
+        "at15": 0.783,
+        "atAll": 0.879
+      },
+      "ideal": {
+        "at5": 0.625,
+        "at10": 0.481,
+        "at15": 0.447,
+        "atAll": 0.464
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.8,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.6,
+        "threshold2": 0.5,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.667,
+        "threshold2": 0.4,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.706,
+        "threshold2": 0.471,
+        "threshold3": 0.059
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3399,
+  "outputTokens": 679
+}

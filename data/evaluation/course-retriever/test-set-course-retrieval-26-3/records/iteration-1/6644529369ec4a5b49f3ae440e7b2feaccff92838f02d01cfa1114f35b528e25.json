@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "b3460fa2-c348-4748-b583-4b042886e0ca-การติดตั้งและตั้งค่าระบบปฏิบัติการ"
+  ],
+  "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "The course focuses on structured query language and data management, not on installing or configuring operating systems."
+    },
+    {
+      "subjectCode": "04253371-65",
+      "subjectName": "การควบคุมแบบตรรกะและระบบอัตโนมัติ",
+      "relevanceScore": 0,
+      "reason": "The course is about PLC control and automation systems, not about operating system installation or configuration."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "The course is about art pigments and chemistry in art, unrelated to operating system setup."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "The course covers chemistry in daily life, not operating system installation or configuration."
+    },
+    {
+      "subjectCode": "01018552-65",
+      "subjectName": "เทคโนโลยีการเก็บรักษาผลิตผลเกษตรด้วยความเย็น",
+      "relevanceScore": 0,
+      "reason": "The course is about cold storage technology for agriculture, not about operating system setup."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "The course is about internship preparation, not about operating system installation or configuration."
+    },
+    {
+      "subjectCode": "01419213-65",
+      "subjectName": "จุลชีววิทยาทั่วไปภาคปฏิบัติการ",
+      "relevanceScore": 0,
+      "reason": "The course is about microbiology laboratory practices, unrelated to operating system setup."
+    },
+    {
+      "subjectCode": "01018553-65",
+      "subjectName": "เทคโนโลยีเรือนบรรจุ",
+      "relevanceScore": 0,
+      "reason": "The course is about packaging technology, not about operating system installation or configuration."
+    },
+    {
+      "subjectCode": "01402499-65",
+      "subjectName": "โครงงานวิจัยทางชีวเคมี",
+      "relevanceScore": 0,
+      "reason": "The course is about biochemical research projects, not about operating system setup."
+    },
+    {
+      "subjectCode": "03610227-66",
+      "subjectName": "วิศวกรรมวัดคุมพื้นฐาน",
+      "relevanceScore": 0,
+      "reason": "The course is about basic measurement and control engineering, not about installing or configuring operating systems."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "The course is about data visualization for business, not about operating system installation or configuration."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "The course is about beverage preparation, unrelated to operating system setup."
+    },
+    {
+      "subjectCode": "01600451-65",
+      "subjectName": "การปฏิบัติงานเฉพาะทางเทคนิคการสัตวแพทย์",
+      "relevanceScore": 0,
+      "reason": "The course is about veterinary technical work, not about operating system installation or configuration."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 13,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2877,
+  "outputTokens": 487
+}

@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "d70fb21b-c337-425b-8b11-3ee2018f3fc4-จิตวิทยาองค์กร"
+  ],
+  "skill": "จิตวิทยาองค์กร",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01475531-64",
+      "subjectName": "จิตวิทยาองค์การ",
+      "relevanceScore": 3,
+      "reason": "ชื่อและผลการเรียนรู้ตรงกับจิตวิทยาองค์การ ครอบคลุมทฤษฎี งานวิจัย และการประยุกต์ในระดับบุคคล กลุ่ม และองค์การ"
+    },
+    {
+      "subjectCode": "01475535-64",
+      "subjectName": "จิตวิทยาการเปลี่ยนแปลงและการพัฒนา",
+      "relevanceScore": 3,
+      "reason": "มุ่งประยุกต์จิตวิทยาในการเปลี่ยนแปลงและพัฒนาองค์การ ซึ่งเป็นหัวข้อหลักของจิตวิทยาองค์การ"
+    },
+    {
+      "subjectCode": "01475533-64",
+      "subjectName": "จิตวิทยาการจูงใจในองค์การ",
+      "relevanceScore": 3,
+      "reason": "เน้นการจูงใจในองค์การ เป็นหัวข้อสำคัญภายในสาขาจิตวิทยาองค์การ"
+    },
+    {
+      "subjectCode": "01475537-64",
+      "subjectName": "จิตวิทยาการทำงานเป็นทีม",
+      "relevanceScore": 3,
+      "reason": "ครอบคลุมจิตวิทยาการทำงานเป็นทีมและการประยุกต์เพื่อเพิ่มประสิทธิผลของทีมในองค์การ"
+    },
+    {
+      "subjectCode": "01475522-64",
+      "subjectName": "จิตวิทยาบุคลากร",
+      "relevanceScore": 3,
+      "reason": "จิตวิทยาบุคลากร (personnel) เป็นส่วนหลักของจิตวิทยาองค์การ และผลการเรียนรู้เน้นการประยุกต์ใช้ในที่ทำงาน"
+    },
+    {
+      "subjectCode": "01475536-64",
+      "subjectName": "จิตวิทยาการจัดการความขัดแย้งในองค์การ",
+      "relevanceScore": 3,
+      "reason": "มุ่งเน้นการจัดการความขัดแย้งและเจรจาต่อรองในองค์การ ซึ่งเป็นประเด็นสำคัญของจิตวิทยาองค์การ"
+    },
+    {
+      "subjectCode": "01475597-64",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 3,
+      "reason": "สัมมนาเกี่ยวกับหัวข้อจิตวิทยาอุตสาหกรรมและองค์การ เป็นกิจกรรมหลักของสาขานี้"
+    },
+    {
+      "subjectCode": "01475591-64",
+      "subjectName": "ระเบียบวิธีวิจัยทางจิตวิทยาอุตสาหกรรมและองค์การ",
+      "relevanceScore": 3,
+      "reason": "ระเบียบวิธีวิจัยเฉพาะด้านจิตวิทยาอุตสาหกรรมและองค์การ เป็นองค์ความรู้สำคัญในสาขา"
+    },
+    {
+      "subjectCode": "01475529-64",
+      "subjectName": "จิตวิทยาการปรึกษาทางธุรกิจ",
+      "relevanceScore": 3,
+      "reason": "จิตวิทยาการปรึกษาทางธุรกิจเน้นการนำความรู้จิตวิทยาไปใช้ในองค์การ เป็นหัวข้อตรงกับทักษะ"
+    },
+    {
+      "subjectCode": "01475538-64",
+      "subjectName": "จิตวิทยาอุตสาหกรรมและองค์การข้ามวัฒนธรรม",
+      "relevanceScore": 3,
+      "reason": "จิตวิทยาอุตสาหกรรมและองค์การข้ามวัฒนธรรม เป็นส่วนขยายของจิตวิทยาองค์การและครอบคลุมการประยุกต์ในบริบทข้ามวัฒนธรรม"
+    },
+    {
+      "subjectCode": "01475532-64",
+      "subjectName": "จิตวิทยาสังคมประยุกต์ในการทำงาน",
+      "relevanceScore": 3,
+      "reason": "จิตวิทยาสังคมประยุกต์ในการทำงาน ครอบคลุมพฤติกรรมบุคคล ระหว่างบุคคล และกลุ่มในองค์การ"
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 3,
+    "totalRelevanceSum": 33,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 11,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 1,
+        "at15": 1,
+        "atAll": 1
+      },
+      "ideal": {
+        "at5": 1,
+        "at10": 1,
+        "at15": 0.823,
+        "atAll": 1
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 1
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 1
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 1
+      }
+    }
+  },
+  "llmModel": "openai/gpt-5-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2043,
+  "outputTokens": 1617
+}

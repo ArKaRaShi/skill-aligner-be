@@ -1,0 +1,156 @@
+{
+  "testCaseId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การพัฒนาโมบายแอปพลิเคชัน",
+  "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+  "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 1,
+      "reason": "Course includes creating simple AI applications, which may involve app development, but mobile app development is not a main focus."
+    },
+    {
+      "subjectCode": "02201445-66",
+      "subjectName": "ไมโครคอนโทรลเลอร์สำหรับวิศวกรรมเกษตร",
+      "relevanceScore": 2,
+      "reason": "Course outcome explicitly states ability to develop applications controlling devices on smartphones, indicating a distinct component of mobile app development."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "Course focuses on polymer chemistry with no relation to mobile app development."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 1,
+      "reason": "Course involves designing technology-based prototypes but does not specifically cover mobile app development."
+    },
+    {
+      "subjectCode": "01058111-68",
+      "subjectName": "หลักนวัตกรรมอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course covers agricultural industrial innovation without mention of mobile app development."
+    },
+    {
+      "subjectCode": "02747443-65",
+      "subjectName": "นวัตกรรมและการออกแบบบริการในธุรกิจการบิน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on innovation and service design in aviation business, unrelated to mobile app development."
+    },
+    {
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course about nutritional product innovation in agriculture, no connection to mobile app development."
+    },
+    {
+      "subjectCode": "01018524-65",
+      "subjectName": "เครื่องจักรกลหลังการเก็บเกี่ยวขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Course about postharvest machinery, no relevance to mobile app development."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Course about beverage preparation, unrelated to mobile app development."
+    },
+    {
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "relevanceScore": 1,
+      "reason": "Course covers computer tools and multimedia applications, which may marginally relate to app development but not specifically mobile apps."
+    },
+    {
+      "subjectCode": "04256132-66",
+      "subjectName": "การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course on programming for data science includes program development but does not specifically address mobile app development."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 0,
+      "reason": "Course on product innovation project without specific mention of mobile app development."
+    },
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Thesis course focused on research and product development generally, no specific mention of mobile app development."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 0,
+      "reason": "Course about technology for learning management, no direct relation to mobile app development."
+    },
+    {
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course on botanical research project, unrelated to mobile app development."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0.4,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 10,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 26.666666666666668,
+        "microAverageRate": 26.666666666666668,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.682,
+        "at10": 0.755,
+        "at15": 0.826,
+        "atAll": 0.826
+      },
+      "ideal": {
+        "at5": 0.304,
+        "at10": 0.219,
+        "at15": 0.185,
+        "atAll": 0.185
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.067,
+      "atAll": 0.067
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3029,
+  "outputTokens": 473
+}

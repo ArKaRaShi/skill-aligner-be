@@ -1,0 +1,132 @@
+{
+  "testCaseId": "654330a8-2559-4273-abb4-36db7f0b31e1-การวิเคราะห์ข้อมูลและพฤติกรรมผู้บริโภค",
+  "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+  "skill": "การวิเคราะห์ข้อมูลและพฤติกรรมผู้บริโภค",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01681311-66",
+      "subjectName": "การประกอบกิจการยุคใหม่",
+      "relevanceScore": 3,
+      "reason": "The course explicitly includes analyzing consumer behavior as a key learning outcome, covering the skill comprehensively as part of business environment and value creation."
+    },
+    {
+      "subjectCode": "02747214-65",
+      "subjectName": "พฤติกรรมผู้บริโภคในธุรกิจการบิน",
+      "relevanceScore": 3,
+      "reason": "The course focuses on consumer behavior in aviation business, including research and theory application, directly addressing the skill as a main theme."
+    },
+    {
+      "subjectCode": "01206452-65",
+      "subjectName": "บัญชีการเงินและการวิเคราะห์ต้นทุนทางอุตสาหกรรม",
+      "relevanceScore": 0,
+      "reason": "The course focuses on financial accounting and cost analysis with no mention of consumer behavior or data analysis related to consumer behavior."
+    },
+    {
+      "subjectCode": "01352217-66",
+      "subjectName": "พฤติกรรมผู้รับสาร",
+      "relevanceScore": 2,
+      "reason": "The course covers analysis of receiver behavior and research ethics, which is related but focuses on communication recipients rather than consumer behavior broadly."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 2,
+      "reason": "The course includes analyzing data for advertising planning, which involves data analysis related to consumer behavior but is narrower in scope."
+    },
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 3,
+      "reason": "The course covers consumer behavior as a key topic within marketing principles, directly relevant to the skill."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 3,
+      "reason": "The course includes analysis of consumer behavior in aviation marketing, directly addressing the skill in a specific business context."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 1,
+      "reason": "The course involves financial data analysis but does not mention consumer behavior; relevance is marginal due to data analysis aspect only."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 1,
+      "reason": "The course focuses on data analysis for accounting, with no direct mention of consumer behavior; marginal relevance due to data analysis skills."
+    },
+    {
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "relevanceScore": 3,
+      "reason": "The course covers marketing principles including consumer buying behavior in agricultural and food business, directly relevant to the skill."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "The course focuses on data analysis and visualization skills, which are useful for consumer behavior analysis but do not cover consumer behavior specifically."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 2.090909090909091,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 18.181818181818183,
+        "microAverageRate": 18.181818181818183,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 5,
+        "macroAverageRate": 45.45454545454545,
+        "microAverageRate": 45.45454545454545,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.738,
+        "at10": 0.881,
+        "at15": 0.929,
+        "atAll": 0.929
+      },
+      "ideal": {
+        "at5": 0.738,
+        "at10": 0.739,
+        "at15": 0.605,
+        "atAll": 0.735
+      }
+    },
+    "precision": {
+      "at5": 0.8,
+      "at10": 0.7,
+      "at15": 0.727,
+      "atAll": 0.727
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2233,
+  "outputTokens": 429
+}

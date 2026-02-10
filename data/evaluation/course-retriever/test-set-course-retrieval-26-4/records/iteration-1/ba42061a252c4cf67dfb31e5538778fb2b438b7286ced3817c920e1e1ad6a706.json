@@ -1,0 +1,186 @@
+{
+  "questionIds": [
+    "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da-การประมวลผลภาษาธรรมชาติ (NLP)"
+  ],
+  "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "relevanceScore": 0,
+      "reason": "Course focuses on basic English grammar structure without mention of natural language processing or computational language processing."
+    },
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Course is about business Chinese language skills, no indication of NLP or language processing technology."
+    },
+    {
+      "subjectCode": "01355131-63",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษเบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "Course covers English language skills and mentions 'processing' language knowledge but only in a general linguistic and educational context, not NLP specifically."
+    },
+    {
+      "subjectCode": "01355390-63",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 1,
+      "reason": "Similar to previous English language course with general language skills and digital literacy, but no explicit NLP content."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Course involves structured data querying and data science, which relates to data processing and could include some aspects relevant to NLP as part of data handling, but NLP is not explicitly stated."
+    },
+    {
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Course focuses on communication skills for teachers, no NLP content."
+    },
+    {
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Basic English listening and speaking skills, no NLP content."
+    },
+    {
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "relevanceScore": 0,
+      "reason": "Course about visual design and aesthetics, unrelated to NLP."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 0,
+      "reason": "Business Chinese conversation course, no NLP content."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 0,
+      "reason": "Business Chinese conversation course, no NLP content."
+    },
+    {
+      "subjectCode": "01396142-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Business Chinese conversation course, no NLP content."
+    },
+    {
+      "subjectCode": "02702131-68",
+      "subjectName": "โครงสร้างภาษาอังกฤษ I",
+      "relevanceScore": 1,
+      "reason": "Course covers English grammar structure analysis which is a linguistic foundation that could be relevant to NLP, but NLP itself is not covered."
+    },
+    {
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "relevanceScore": 0,
+      "reason": "Business Chinese conversation course, no NLP content."
+    },
+    {
+      "subjectCode": "01448324-68",
+      "subjectName": "พอลิเมอร์ทางชีวภาพที่ยั่งยืน",
+      "relevanceScore": 0,
+      "reason": "Course about sustainable biopolymers, unrelated to NLP."
+    },
+    {
+      "subjectCode": "03654111-67",
+      "subjectName": "สุนทรียศาสตร์ทางการกีฬา",
+      "relevanceScore": 0,
+      "reason": "Course about aesthetics in sports, unrelated to NLP."
+    },
+    {
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "relevanceScore": 0,
+      "reason": "Course about polymer chemistry, unrelated to NLP."
+    },
+    {
+      "subjectCode": "03754231-67",
+      "subjectName": "การอ่านภาษาอังกฤษในชีวิตประจำวัน",
+      "relevanceScore": 0,
+      "reason": "Course about English reading skills, no NLP content."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.29411764705882354,
+    "totalRelevanceSum": 5,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 13,
+        "macroAverageRate": 76.47058823529412,
+        "microAverageRate": 76.47058823529412,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 17.647058823529413,
+        "microAverageRate": 17.647058823529413,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.478,
+        "at10": 0.478,
+        "at15": 0.554,
+        "atAll": 0.554
+      },
+      "ideal": {
+        "at5": 0.193,
+        "at10": 0.125,
+        "at15": 0.112,
+        "atAll": 0.104
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.3,
+        "threshold2": 0.1,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.267,
+        "threshold2": 0.067,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.235,
+        "threshold2": 0.059,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 4388,
+  "outputTokens": 514
+}

@@ -1,0 +1,73 @@
+{
+  "iterationNumber": 1,
+  "overallMetrics": {
+    "totalQuestions": 200,
+    "totalCorrectClassifications": 167,
+    "totalIncorrectClassifications": 33,
+    "overallPrecision": 0.8377504848093084,
+    "overallRecall": 0.8592592592592592,
+    "macroPrecision": 0.8377504848093084,
+    "macroRecall": 0.8592592592592592,
+    "timestamp": "2025-12-13T06:00:49.305Z"
+  },
+  "classMetrics": [
+    {
+      "classLabel": "relevant",
+      "totalQuestions": 144,
+      "correctClassifications": 116,
+      "incorrectClassifications": 28,
+      "precision": 0.9747899159663865,
+      "recall": 0.8055555555555556,
+      "macroPrecision": 0.9747899159663865,
+      "macroRecall": 0.8055555555555556,
+      "timestamp": "2025-12-13T06:00:49.305Z"
+    },
+    {
+      "classLabel": "irrelevant",
+      "totalQuestions": 36,
+      "correctClassifications": 35,
+      "incorrectClassifications": 1,
+      "precision": 0.5384615384615384,
+      "recall": 0.9722222222222222,
+      "macroPrecision": 0.5384615384615384,
+      "macroRecall": 0.9722222222222222,
+      "timestamp": "2025-12-13T06:00:49.305Z"
+    },
+    {
+      "classLabel": "dangerous",
+      "totalQuestions": 20,
+      "correctClassifications": 16,
+      "incorrectClassifications": 4,
+      "precision": 1,
+      "recall": 0.8,
+      "macroPrecision": 1,
+      "macroRecall": 0.8,
+      "timestamp": "2025-12-13T06:00:49.305Z"
+    }
+  ],
+  "macroMetrics": [
+    {
+      "iteration": 1,
+      "macroPrecision": 0.8377504848093084,
+      "macroRecall": 0.8592592592592592,
+      "timestamp": "2025-12-13T06:00:49.305Z",
+      "classBreakdown": [
+        {
+          "className": "relevant",
+          "precision": 0.9747899159663865,
+          "recall": 0.8055555555555556
+        },
+        {
+          "className": "irrelevant",
+          "precision": 0.5384615384615384,
+          "recall": 0.9722222222222222
+        },
+        {
+          "className": "dangerous",
+          "precision": 1,
+          "recall": 0.8
+        }
+      ]
+    }
+  ]
+}

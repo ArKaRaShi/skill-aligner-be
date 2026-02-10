@@ -1,0 +1,157 @@
+{
+  "iteration": 1,
+  "timestamp": "2026-01-23T15:47:07.748Z",
+  "sampleCount": 2,
+  "totalCoursesEvaluated": 107,
+  "overallAgreementRate": {
+    "value": 0.48598130841121495,
+    "numerator": 52,
+    "denominator": 107,
+    "description": "Total matches / Total samples (BOTH_DROP + BOTH_KEEP) / Total"
+  },
+  "noiseRemovalEfficiency": {
+    "value": 0.8333333333333334,
+    "numerator": 20,
+    "denominator": 24,
+    "description": "When System=DROP, Judge also FAIL (both agree course is noise)"
+  },
+  "exploratoryRecall": {
+    "value": 0.6144578313253012,
+    "numerator": 51,
+    "denominator": 83,
+    "description": "System=KEEP but Judge=FAIL (system keeps courses judge would drop)"
+  },
+  "conservativeDropRate": {
+    "value": 0.16666666666666666,
+    "numerator": 4,
+    "denominator": 24,
+    "description": "System=DROP but Judge=PASS (system drops courses judge would keep)"
+  },
+  "systemScoreDistribution": {
+    "score0": 24,
+    "score1": 50,
+    "score2": 26,
+    "score3": 7
+  },
+  "confusionMatrix": {
+    "label": "Judge (rows) vs System Action (cols)",
+    "matrix": [
+      [
+        20,
+        51
+      ],
+      [
+        4,
+        32
+      ]
+    ],
+    "totals": {
+      "systemDrop": 24,
+      "systemKeep": 83,
+      "judgeFail": 71,
+      "judgePass": 36
+    }
+  },
+  "scoreVerdictBreakdown": {
+    "score0": {
+      "judgePass": 4,
+      "judgeFail": 20,
+      "total": 24,
+      "passRate": 0.16666666666666666
+    },
+    "score1": {
+      "judgePass": 9,
+      "judgeFail": 41,
+      "total": 50,
+      "passRate": 0.18
+    },
+    "score2": {
+      "judgePass": 17,
+      "judgeFail": 9,
+      "total": 26,
+      "passRate": 0.6538461538461539
+    },
+    "score3": {
+      "judgePass": 6,
+      "judgeFail": 1,
+      "total": 7,
+      "passRate": 0.8571428571428571
+    }
+  },
+  "perSampleMetrics": [
+    {
+      "sampleId": 1,
+      "queryLogId": "4e19d7da-ea20-407c-b85c-683c8328c4e1",
+      "question": "อยากเป็นนายก",
+      "coursesEvaluated": 82,
+      "agreementCount": 37,
+      "disagreementCount": 45,
+      "agreementRate": 0.45121951219512196,
+      "noiseRemovalEfficiency": 0.7333333333333333,
+      "exploratoryRecall": 0.6119402985074627,
+      "conservativeDropRate": 0.26666666666666666
+    },
+    {
+      "sampleId": 2,
+      "queryLogId": "a88cc51c-b275-4b56-b03e-90c1d7982b19",
+      "question": "อยากใช้ AI ในชีวิตประจำวันได้",
+      "coursesEvaluated": 25,
+      "agreementCount": 15,
+      "disagreementCount": 10,
+      "agreementRate": 0.6,
+      "noiseRemovalEfficiency": 1,
+      "exploratoryRecall": 0.625,
+      "conservativeDropRate": 0
+    }
+  ],
+  "thresholdSweep": [
+    {
+      "threshold": "keepAll",
+      "minScore": 0,
+      "coursesKept": 107,
+      "coursesDropped": 0,
+      "truePositives": 36,
+      "falsePositives": 71,
+      "trueNegatives": 0,
+      "falseNegatives": 0,
+      "precision": 0.3364485981308411,
+      "recall": 1
+    },
+    {
+      "threshold": "≥1",
+      "minScore": 1,
+      "coursesKept": 83,
+      "coursesDropped": 24,
+      "truePositives": 32,
+      "falsePositives": 51,
+      "trueNegatives": 20,
+      "falseNegatives": 4,
+      "precision": 0.3855421686746988,
+      "recall": 0.8888888888888888
+    },
+    {
+      "threshold": "≥2",
+      "minScore": 2,
+      "coursesKept": 33,
+      "coursesDropped": 74,
+      "truePositives": 23,
+      "falsePositives": 10,
+      "trueNegatives": 61,
+      "falseNegatives": 13,
+      "precision": 0.696969696969697,
+      "recall": 0.6388888888888888
+    },
+    {
+      "threshold": "≥3",
+      "minScore": 3,
+      "coursesKept": 7,
+      "coursesDropped": 100,
+      "truePositives": 6,
+      "falsePositives": 1,
+      "trueNegatives": 70,
+      "falseNegatives": 30,
+      "precision": 0.8571428571428571,
+      "recall": 0.16666666666666666
+    }
+  ]
+}

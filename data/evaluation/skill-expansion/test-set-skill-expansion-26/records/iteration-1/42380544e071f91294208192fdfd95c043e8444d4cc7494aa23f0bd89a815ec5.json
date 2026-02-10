@@ -1,0 +1,111 @@
+{
+  "queryLogId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746",
+  "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+  "comparison": {
+    "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+    "skills": [
+      {
+        "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+        "systemSkill": "ภาษาจีนเพื่อธุรกิจ",
+        "systemReason": "ผู้ใช้ต้องการเรียนภาษาจีนที่สามารถนำไปใช้ในธุรกิจได้",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid university-level course competency (Business Chinese): teachable, assessable, directly matches user's intent.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+        "systemSkill": "ภาษาเวียดนามเพื่อธุรกิจ",
+        "systemReason": "ผู้ใช้ต้องการเรียนภาษาเวียดนามที่สามารถนำไปใช้ในธุรกิจได้",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid university-level course competency (Business Vietnamese): teachable, assessable, directly matches user's intent.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+        "systemSkill": "การเปรียบเทียบภาษาจีนและภาษาเวียดนาม",
+        "systemReason": "ผู้ใช้สนใจวิชาที่ช่วยเปรียบเทียบภาษาจีนและภาษาเวียดนามเพื่อเลือกเรียน",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Appropriate comparative/contrastive course or module; conceptually academic and assessable.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+        "systemSkill": "วัฒนธรรมและธุรกิจในจีนและเวียดนาม",
+        "systemReason": "ความเข้าใจวัฒนธรรมช่วยในการใช้ภาษาทำธุรกิจได้อย่างมีประสิทธิภาพ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Interdisciplinary course (culture and business practices) suitable for university curricula and practical for business use.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+        "systemSkill": "ทักษะการสื่อสารทางธุรกิจ",
+        "systemReason": "จำเป็นสำหรับการใช้ภาษาต่างประเทศในบริบทธุรกิจ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "General business communication competency; teachable and widely offered as course learning outcomes, useful bridge to language use.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+        "systemSkill": "พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม",
+        "systemReason": "ช่วยปูพื้นฐานความเข้าใจภาษาทั้งสองเพื่อการเรียนรู้ที่มีประสิทธิภาพ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Foundational linguistics/phonology course for both languages; academically rigorous and helps build language fundamentals for business contexts.",
+        "agreementType": "AGREE"
+      }
+    ],
+    "overall": {
+      "conceptPreserved": true,
+      "agreementCount": 6,
+      "disagreementCount": 0,
+      "totalSkills": 6
+    }
+  },
+  "judgeResult": {
+    "result": {
+      "skills": [
+        {
+          "skill": "ภาษาจีนเพื่อธุรกิจ",
+          "verdict": "PASS",
+          "note": "Valid university-level course competency (Business Chinese): teachable, assessable, directly matches user's intent."
+        },
+        {
+          "skill": "ภาษาเวียดนามเพื่อธุรกิจ",
+          "verdict": "PASS",
+          "note": "Valid university-level course competency (Business Vietnamese): teachable, assessable, directly matches user's intent."
+        },
+        {
+          "skill": "การเปรียบเทียบภาษาจีนและภาษาเวียดนาม",
+          "verdict": "PASS",
+          "note": "Appropriate comparative/contrastive course or module; conceptually academic and assessable."
+        },
+        {
+          "skill": "วัฒนธรรมและธุรกิจในจีนและเวียดนาม",
+          "verdict": "PASS",
+          "note": "Interdisciplinary course (culture and business practices) suitable for university curricula and practical for business use."
+        },
+        {
+          "skill": "ทักษะการสื่อสารทางธุรกิจ",
+          "verdict": "PASS",
+          "note": "General business communication competency; teachable and widely offered as course learning outcomes, useful bridge to language use."
+        },
+        {
+          "skill": "พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม",
+          "verdict": "PASS",
+          "note": "Foundational linguistics/phonology course for both languages; academically rigorous and helps build language fundamentals for business contexts."
+        }
+      ],
+      "overall": {
+        "conceptPreserved": true,
+        "summary": "All proposed skills are university-level, teachable, and relevant to the user's goal of learning Chinese or Vietnamese for business, offering direct language, comparative, cultural, and foundational options."
+      }
+    },
+    "tokenUsage": [
+      {
+        "model": "openai/gpt-5-mini",
+        "inputTokens": 778,
+        "outputTokens": 789
+      }
+    ]
+  },
+  "evaluatedAt": "2026-01-26T08:11:33.826Z"
+}

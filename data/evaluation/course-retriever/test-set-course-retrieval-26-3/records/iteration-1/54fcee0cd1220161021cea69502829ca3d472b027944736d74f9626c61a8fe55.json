@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การใช้เครื่องมือสนับสนุนการตัดสินใจ"
+  ],
+  "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "The course discusses supporting decision systems as part of business intelligence, which is related but not the primary focus."
+    },
+    {
+      "subjectCode": "03602312-65",
+      "subjectName": "วิศวกรรมอุตสาหการและระบบเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Includes decision-making techniques as part of engineering and system analysis, providing some relevant content."
+    },
+    {
+      "subjectCode": "03752111-67",
+      "subjectName": "ทรัพยากรสารสนเทศเพื่อการค้นคว้า",
+      "relevanceScore": 1,
+      "reason": "Mentions using tools for information search, but not specifically for decision support tools."
+    },
+    {
+      "subjectCode": "01137556-68",
+      "subjectName": "ประเด็นร่วมสมัยทางการบัญชีและเทคโนโลยีสารสนเทศ",
+      "relevanceScore": 1,
+      "reason": "Includes using software for information search, not explicitly decision support tools."
+    },
+    {
+      "subjectCode": "01451356-65",
+      "subjectName": "ภูมิสารสนเทศศาสตร์เพื่อการจัดการภัยพิบัติ",
+      "relevanceScore": 2,
+      "reason": "Covers using tools and technology for disaster management, which can include decision support tools."
+    },
+    {
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "relevanceScore": 2,
+      "reason": "Mentions using information technology for counseling, which may involve decision-making tools."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Includes managing big data with considerations for security, which can involve decision support systems."
+    },
+    {
+      "subjectCode": "02721121-67",
+      "subjectName": "การจัดการธุรกิจเพื่อสังคมที่ยั่งยืน",
+      "relevanceScore": 1,
+      "reason": "Focuses on social enterprise management, with some mention of tools for problem-solving, but not explicitly decision support tools."
+    },
+    {
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "relevanceScore": 2,
+      "reason": "Includes decision-making software in research methods, relevant to decision support tools."
+    },
+    {
+      "subjectCode": "02738497-61",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Primarily research and analysis skills, with some use of decision-making software, but not the main focus."
+    },
+    {
+      "subjectCode": "02738497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Similar to the above, mainly research skills with some use of decision tools."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Includes data analysis and visualization, which can support decision-making."
+    },
+    {
+      "subjectCode": "01420472-66",
+      "subjectName": "วัสดุศาสตร์ II",
+      "relevanceScore": 1,
+      "reason": "Focuses on material properties and analysis, not on decision support tools."
+    },
+    {
+      "subjectCode": "01074523-68",
+      "subjectName": "ปฏิบัติการในอุตสาหกรรมเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Operational skills in industry, not specifically decision support tools."
+    },
+    {
+      "subjectCode": "01448213-68",
+      "subjectName": "การวิเคราะห์ลักษณะเฉพาะของวัสดุ",
+      "relevanceScore": 1,
+      "reason": "Material analysis techniques, not related to decision support tools."
+    },
+    {
+      "subjectCode": "03602312-65",
+      "subjectName": "วิศวกรรมอุตสาหการและระบบเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Includes decision-making techniques as part of engineering and system analysis, providing some relevant content."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.5,
+    "totalRelevanceSum": 24,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 8,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.842,
+        "at10": 0.889,
+        "at15": 0.931,
+        "atAll": 0.957
+      },
+      "ideal": {
+        "at5": 0.561,
+        "at10": 0.554,
+        "at15": 0.52,
+        "atAll": 0.526
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.467,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.5,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3883,
+  "outputTokens": 598
+}

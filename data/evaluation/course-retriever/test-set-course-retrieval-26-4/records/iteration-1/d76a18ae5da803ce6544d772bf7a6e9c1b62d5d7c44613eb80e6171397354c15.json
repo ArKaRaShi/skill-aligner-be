@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "75dd76dc-b23f-4728-b9a4-09621f52a26b-ความรู้ด้านวิทยาศาสตร์พื้นฐาน เช่น ฟิสิกส์และเคมี"
+  ],
+  "skill": "ความรู้ด้านวิทยาศาสตร์พื้นฐาน เช่น ฟิสิกส์และเคมี",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01680111-66",
+      "subjectName": "เคมีเพื่อชีวิตที่ยั่งยืน I",
+      "relevanceScore": 3,
+      "reason": "Course focuses on fundamental chemistry knowledge and its application, directly covering basic chemistry as a main theme."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 3,
+      "reason": "Course covers chemistry related to daily life comprehensively, making chemistry a primary learning objective."
+    },
+    {
+      "subjectCode": "01420119-66",
+      "subjectName": "ฟิสิกส์อย่างสังเขป",
+      "relevanceScore": 3,
+      "reason": "Course covers fundamental physics concepts and problem solving, directly addressing basic physics knowledge."
+    },
+    {
+      "subjectCode": "02738451-66",
+      "subjectName": "ชีวเคมีประยุกต์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on biochemistry and biological sciences, only marginally related to basic physics and chemistry."
+    },
+    {
+      "subjectCode": "01403242-65",
+      "subjectName": "เคมีเชิงฟิสิกส์ I",
+      "relevanceScore": 3,
+      "reason": "Course covers physical chemistry fundamentals including thermodynamics and chemical equilibria comprehensively."
+    },
+    {
+      "subjectCode": "01402499-65",
+      "subjectName": "โครงงานวิจัยทางชีวเคมี",
+      "relevanceScore": 1,
+      "reason": "Course is about biochemistry research projects, only marginally related to basic physics and chemistry."
+    },
+    {
+      "subjectCode": "01420322-66",
+      "subjectName": "ฟิสิกส์ของโมเลกุล",
+      "relevanceScore": 2,
+      "reason": "Course provides basic understanding of molecular physics, covering physics as a distinct component but not comprehensive."
+    },
+    {
+      "subjectCode": "01420473-66",
+      "subjectName": "ฟิสิกส์ของของแข็ง I",
+      "relevanceScore": 3,
+      "reason": "Course covers fundamental solid state physics principles and applications, directly relevant to basic physics knowledge."
+    },
+    {
+      "subjectCode": "01202597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar course involves using chemical engineering knowledge but does not focus on basic physics or chemistry."
+    },
+    {
+      "subjectCode": "01420425-66",
+      "subjectName": "ฟิสิกส์อนุภาค",
+      "relevanceScore": 3,
+      "reason": "Course covers fundamental particle physics principles and problem solving, directly relevant to physics knowledge."
+    },
+    {
+      "subjectCode": "01402313-65",
+      "subjectName": "ชีวเคมี II",
+      "relevanceScore": 1,
+      "reason": "Course focuses on biochemistry II, only marginally related to basic physics and chemistry."
+    },
+    {
+      "subjectCode": "01420424-66",
+      "subjectName": "ฟิสิกส์หลายอนุภาค",
+      "relevanceScore": 3,
+      "reason": "Course covers principles and problem solving in many-particle physics, directly relevant to physics knowledge."
+    },
+    {
+      "subjectCode": "01600233-65",
+      "subjectName": "เภสัชวิทยาสำหรับเทคนิคการสัตวแพทย์",
+      "relevanceScore": 1,
+      "reason": "Course focuses on pharmacology for veterinary techniques, only marginally related to basic physics and chemistry."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 2.1538461538461537,
+    "totalRelevanceSum": 28,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 38.46153846153846,
+        "microAverageRate": 38.46153846153846,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 7,
+        "macroAverageRate": 53.84615384615385,
+        "microAverageRate": 53.84615384615385,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.903,
+        "at10": 0.917,
+        "at15": 0.963,
+        "atAll": 0.963
+      },
+      "ideal": {
+        "at5": 0.903,
+        "at10": 0.816,
+        "at15": 0.709,
+        "atAll": 0.776
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.8
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.7,
+        "threshold3": 0.6
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.615,
+        "threshold3": 0.538
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.615,
+        "threshold3": 0.538
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2478,
+  "outputTokens": 428
+}

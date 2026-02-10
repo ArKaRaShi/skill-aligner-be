@@ -1,0 +1,132 @@
+{
+  "testCaseId": "b3460fa2-c348-4748-b583-4b042886e0ca-ฮาร์ดแวร์คอมพิวเตอร์",
+  "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+  "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "Course focuses on computer architecture including hardware design and components, directly covering computer hardware comprehensively."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course is about engineering drawing and software, no mention of computer hardware."
+    },
+    {
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "relevanceScore": 0,
+      "reason": "Course relates to Thai music and computer applications, no hardware content."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course covers engineering drawing and software use, no hardware content."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "Course is about co-op preparation and soft skills, no hardware content."
+    },
+    {
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 0,
+      "reason": "Course is about software engineering, no hardware content."
+    },
+    {
+      "subjectCode": "04252459-65",
+      "subjectName": "ฮาร์มอนิกในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course is about harmonics in power electrical systems, unrelated to computer hardware."
+    },
+    {
+      "subjectCode": "04256132-66",
+      "subjectName": "การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Course is about programming for data science, no hardware content."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 0,
+      "reason": "Course is about software engineering, no hardware content."
+    },
+    {
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "relevanceScore": 0,
+      "reason": "Course is about database systems and applications, no hardware content."
+    },
+    {
+      "subjectCode": "02201211-66",
+      "subjectName": "การใช้คอมพิวเตอร์ช่วยในการออกแบบทางวิศวกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course is about computer-aided design in agricultural engineering, no hardware content."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.2727272727272727,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 10,
+        "macroAverageRate": 90.9090909090909,
+        "microAverageRate": 90.9090909090909,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 1,
+        "at10": 1,
+        "at15": 1,
+        "atAll": 1
+      },
+      "ideal": {
+        "at5": 0.339,
+        "at10": 0.22,
+        "at15": 0.171,
+        "atAll": 0.207
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.1,
+      "at15": 0.091,
+      "atAll": 0.091
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2366,
+  "outputTokens": 317
+}

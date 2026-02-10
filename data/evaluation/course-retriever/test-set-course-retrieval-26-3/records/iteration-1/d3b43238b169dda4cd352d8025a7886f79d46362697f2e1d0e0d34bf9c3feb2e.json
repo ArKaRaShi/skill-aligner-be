@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "75dd76dc-b23f-4728-b9a4-09621f52a26b-การจัดการโครงการและความปลอดภัยในงานวิศวกรรม"
+  ],
+  "skill": "การจัดการโครงการและความปลอดภัยในงานวิศวกรรม",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "02201598-66",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "The course focuses on problem-solving and ethical practices in engineering, but does not explicitly cover project management or safety in engineering."
+    },
+    {
+      "subjectCode": "03604262-65",
+      "subjectName": "อาชีวอนามัย ความปลอดภัย และสิ่งแวดล้อม",
+      "relevanceScore": 2,
+      "reason": "Includes designing systems with safety, occupational health, and environmental standards, which relates to safety management in engineering."
+    },
+    {
+      "subjectCode": "03604361-65",
+      "subjectName": "การออกแบบเครื่องจักรกล I",
+      "relevanceScore": 1,
+      "reason": "Covers mechanical design with safety considerations but does not explicitly address project management or safety management."
+    },
+    {
+      "subjectCode": "01203521-66",
+      "subjectName": "กฎหมายและการจัดการสัญญาก่อสร้าง",
+      "relevanceScore": 1,
+      "reason": "Focuses on construction law and contract management, with some relevance to project management but limited on safety aspects."
+    },
+    {
+      "subjectCode": "01203511-66",
+      "subjectName": "วิศวกรรมก่อสร้างและการบริหารโครงการ",
+      "relevanceScore": 3,
+      "reason": "Covers project management and safety in construction, aligning directly with the target skill."
+    },
+    {
+      "subjectCode": "01058343-68",
+      "subjectName": "ปฏิบัติการวิเคราะห์คุณภาพทางกายภาพและเคมีในอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Analytical chemistry in agriculture, with safety in labs, but not related to project management or engineering safety."
+    },
+    {
+      "subjectCode": "02738490-61",
+      "subjectName": "สหกิจศึกษา",
+      "relevanceScore": 1,
+      "reason": "Focuses on scientific research and ethics, with minimal relevance to project management or safety in engineering."
+    },
+    {
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Research thesis skills, not specifically related to project management or safety."
+    },
+    {
+      "subjectCode": "01203512-66",
+      "subjectName": "การวางแผน การทำกำหนดเวลา และการควบคุมในงานบริหารการก่อสร้าง",
+      "relevanceScore": 3,
+      "reason": "Includes planning, scheduling, and control in construction projects, directly relevant to project management and safety."
+    },
+    {
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "relevanceScore": 2,
+      "reason": "Covers resource management and team conflict resolution, which are components of project management, with some safety considerations."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 1,
+      "reason": "Engineering drawing skills, not directly related to project management or safety."
+    },
+    {
+      "subjectCode": "03652143-66",
+      "subjectName": "ความปลอดภัยทางเคมีและการจัดการของเสียทางเคมี",
+      "relevanceScore": 3,
+      "reason": "Focuses on chemical safety and hazardous waste management, directly relevant to safety management in engineering."
+    },
+    {
+      "subjectCode": "03602211-65",
+      "subjectName": "วัสดุศาสตร์สำหรับวิศวกร",
+      "relevanceScore": 1,
+      "reason": "Materials science fundamentals, not specifically related to project management or safety."
+    },
+    {
+      "subjectCode": "03610226-66",
+      "subjectName": "การปฏิบัติงานทางวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ II",
+      "relevanceScore": 1,
+      "reason": "Digital and electronic engineering practices, not directly related to project management or safety."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.5714285714285714,
+    "totalRelevanceSum": 22,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 9,
+        "macroAverageRate": 64.28571428571429,
+        "microAverageRate": 64.28571428571429,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.542,
+        "at10": 0.711,
+        "at15": 0.79,
+        "atAll": 0.79
+      },
+      "ideal": {
+        "at5": 0.492,
+        "at10": 0.502,
+        "at15": 0.48,
+        "atAll": 0.502
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.357,
+        "threshold3": 0.214
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.357,
+        "threshold3": 0.214
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3307,
+  "outputTokens": 552
+}

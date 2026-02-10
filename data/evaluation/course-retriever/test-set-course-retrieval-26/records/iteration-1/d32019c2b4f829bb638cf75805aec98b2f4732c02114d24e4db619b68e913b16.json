@@ -1,0 +1,144 @@
+{
+  "testCaseId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การสร้างเนื้อหาดิจิทัล",
+  "question": "tiktoker ต้องเรียนอะไรบ้าง",
+  "skill": "การสร้างเนื้อหาดิจิทัล",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 3,
+      "reason": "Course includes 'ออกแบบสร้างชิ้นงานดิจิทัลได้' (design and create digital works) as a primary learning outcome, directly covering digital content creation."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 3,
+      "reason": "Course focuses on creating digital media works for storytelling, which is a core aspect of digital content creation."
+    },
+    {
+      "subjectCode": "03609161-65",
+      "subjectName": "เปิดโลกวิศวกรรมระบบการผลิตดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Course focuses on digital production systems engineering, not on digital content creation."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 1,
+      "reason": "Mentions using digital technology for research data retrieval and presentation, but digital content creation is not a main focus."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 2,
+      "reason": "Includes creating works using technology and sound creation, partially relevant to digital content creation but focused on music."
+    },
+    {
+      "subjectCode": "01241412-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม VI",
+      "relevanceScore": 1,
+      "reason": "Mentions presenting design work using digital media appropriately, but digital content creation is not a main learning outcome."
+    },
+    {
+      "subjectCode": "01241313-66",
+      "subjectName": "การออกแบบร่างองค์ประกอบงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 1,
+      "reason": "Includes presenting design work with digital media, but digital content creation is a minor component."
+    },
+    {
+      "subjectCode": "01241312-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 1,
+      "reason": "Mentions presenting design work using digital media, but digital content creation is not a primary focus."
+    },
+    {
+      "subjectCode": "01352373-66",
+      "subjectName": "การรู้เท่าทันดิจิทัล",
+      "relevanceScore": 2,
+      "reason": "Covers ability to produce media in digital communication systems, relevant to digital content creation but as part of communication skills."
+    },
+    {
+      "subjectCode": "06901121-66",
+      "subjectName": "การตลาดดิจิทัลสำหรับอุตสาหกรรมท่องเที่ยว",
+      "relevanceScore": 0,
+      "reason": "Focuses on digital marketing for tourism industry, not on digital content creation."
+    },
+    {
+      "subjectCode": "01004497-64",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Includes designing and presenting research data using creative media and digital technology, partially relevant to digital content creation."
+    },
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 2,
+      "reason": "Focuses on creating music works using digital technology, relevant to digital content creation in music domain."
+    },
+    {
+      "subjectCode": "01150231-67",
+      "subjectName": "นวัตกรรมและเทคโนโลยีดิจิทัลเพื่อการศึกษา",
+      "relevanceScore": 3,
+      "reason": "Includes designing digital media, innovations, and technology for learning and communication, directly covering digital content creation."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.6153846153846154,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 15.384615384615385,
+        "microAverageRate": 15.384615384615385,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 30.76923076923077,
+        "microAverageRate": 30.76923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.759,
+        "at10": 0.747,
+        "at15": 0.906,
+        "atAll": 0.906
+      },
+      "ideal": {
+        "at5": 0.689,
+        "at10": 0.565,
+        "at15": 0.545,
+        "atAll": 0.597
+      }
+    },
+    "precision": {
+      "at5": 0.6,
+      "at10": 0.4,
+      "at15": 0.538,
+      "atAll": 0.538
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2699,
+  "outputTokens": 468
+}

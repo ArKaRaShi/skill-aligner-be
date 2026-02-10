@@ -1,0 +1,46 @@
+{
+  "testSetName": "test-failed-skill",
+  "totalIterations": 1,
+  "totalSamples": 1,
+  "totalSkills": 3,
+  "metrics": {
+    "totalSkills": 3,
+    "passedSkills": 1,
+    "passRate": 0.3333,
+    "totalQuestions": 1,
+    "conceptPreservedQuestions": 1,
+    "conceptPreservationRate": 1,
+    "agreedSkills": 1,
+    "totalEvaluatedSkills": 3,
+    "overallAgreementRate": 0.3333,
+    "skillCountDistribution": {
+      "3": 1
+    },
+    "truePositives": 1,
+    "falsePositives": 2
+  },
+  "metricsByIteration": [
+    {
+      "iteration": 1,
+      "metrics": {
+        "iteration": 1,
+        "timestamp": "2026-01-25T08:53:34.642Z",
+        "totalSkills": 3,
+        "passedSkills": 1,
+        "passRate": 0.3333333333333333,
+        "totalQuestions": 1,
+        "conceptPreservedQuestions": 1,
+        "conceptPreservationRate": 1,
+        "agreedSkills": 1,
+        "totalEvaluatedSkills": 3,
+        "overallAgreementRate": 0.3333333333333333,
+        "skillCountDistribution": {
+          "3": 1
+        },
+        "truePositives": 1,
+        "falsePositives": 2
+      }
+    }
+  ],
+  "generatedAt": "2026-01-25T08:53:34.648Z"
+}

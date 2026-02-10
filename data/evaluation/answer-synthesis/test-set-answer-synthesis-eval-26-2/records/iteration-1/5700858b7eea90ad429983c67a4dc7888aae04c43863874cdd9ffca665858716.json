@@ -1,0 +1,25 @@
+{
+  "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+  "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+  "systemAnswer": "การแก้โจทย์ Leetcode ระดับยากมักเกี่ยวข้องกับหลายมิติ เช่น **การวิเคราะห์อัลกอริทึม** **การวิเคราะห์ความซับซ้อนของอัลกอริทึม** **โครงสร้างข้อมูล** และ **การแก้ปัญหาเชิงคำนวณ** ซึ่งเป็นทักษะที่ช่วยในการออกแบบและประเมินวิธีแก้ปัญหาให้มีประสิทธิภาพ ในการสำรวจคอร์สที่มี ด้าน **การวิเคราะห์อัลกอริทึม** และ **การวิเคราะห์ความซับซ้อนของอัลกอริทึม** นั้น **รายวิชาการออกแบบและการวิเคราะห์ขั้นตอนวิธีคอมพิวเตอร์ (01204512-66)** ครอบคลุมการวิเคราะห์อัลกอริทึมพื้นฐานทั้งในด้านความซับซ้อนเชิงเวลา ความถูกต้อง การออกแบบอัลกอริทึมที่มีประสิทธิภาพที่เหมาะสม และการประยุกต์ใช้งานกับปัญหาในชีวิตจริงหรืองานวิจัยทางวิศวกรรมคอมพิวเตอร์ ซึ่งอาจช่วยสร้างฐานคิดเชิงวิเคราะห์สำหรับโจทย์ที่ซับซ้อนได้ ในขณะที่ **รายวิชาปฏิบัติการการแก้ปัญหา (01204214-65)** ครอบคลุมการอธิบายแนวคิดพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม การวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา รวมถึงการเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหาด้วยภาษาเช่น Python หรือ C++ แต่เน้นที่ระดับพื้นฐานและไม่ครอบคลุมการวิเคราะห์ความซับซ้อนขั้นสูงโดยตรง\n\nด้าน **โครงสร้างข้อมูล** และ **การแก้ปัญหาเชิงคำนวณ** อีกทางเลือกหนึ่งคือ **รายวิชาการเขียนโปรแกรมเชิงโครงสร้าง (02204171-65)** ซึ่งครอบคลุมการวิเคราะห์ปัญหาง่ายๆ และออกแบบอัลกอริทึมเพื่อแก้ปัญหาด้วยแนวคิดเชิงตรรกะและโครงสร้างควบคุมในโปรแกรม แต่จำกัดอยู่ที่ปัญหาง่ายๆ และไม่กล่าวถึงโครงสร้างข้อมูลขั้นสูงหรือโจทย์ยาก คอร์สอื่นๆ เช่น **รายวิชาวิศวกรรมข้อมูลขนาดใหญ่ (04252535-67)** ครอบคลุมการเลือกใช้โครงสร้างข้อมูลขนาดใหญ่ แต่เน้นการประมวลผลข้อมูลขนาดใหญ่และเครื่องมือวิเคราะห์ ซึ่งอาจไม่ตรงกับโจทย์ algorithmic แบบ Leetcode ที่ต้องการการออกแบบอัลกอริทึมเฉพาะเจาะจง\n\nคอร์สเหล่านี้ส่วนใหญ่ให้มุมมองพื้นฐานหรือเชิงปฏิบัติใน **การวิเคราะห์อัลกอริทึม** **โครงสร้างข้อมูล** และ **การแก้ปัญหาเชิงคำนวณ** ที่อาจสนับสนุนการสำรวจทักษะดังกล่าวได้ แต่ไม่มีรายวิชาใดที่ครอบคลุมการแก้โจทย์ Leetcode ระดับยากโดยตรงหรือกล่าวถึงปัญหาโหดๆ เฉพาะเจาะจง จึงเป็นเพียงแนวทาง foundational หรือ adjacent ที่พบในชุดข้อมูลนี้สำหรับการเริ่มต้นคิดเชิงอัลกอริทึม",
+  "judgeVerdict": {
+    "faithfulness": {
+      "score": 5,
+      "reasoning": "All claims are supported by the provided context. Each course attributed to specific skills (algorithm analysis, complexity, data structures, programming) matches the SECTION 1/SECTION 2 learning outcomes in the context. The answer does not introduce unsupported facts or misattribute skills; course names and codes are cited in the required format."
+    },
+    "completeness": {
+      "score": 5,
+      "reasoning": "The answer follows an exploratory framing, cites concrete course evidence, and summarizes applicability. It explicitly explains why each recommended course is relevant to solving hard LeetCode problems (which require algorithms, complexity analysis, data structures, and computational problem solving) and notes the limitations (most courses are foundational/adjacent rather than directly covering hard LeetCode problems). This provides a clear bridge from the user's goal to the listed courses."
+    }
+  },
+  "overallScore": 5,
+  "passed": true,
+  "courseCount": 31,
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-5-mini",
+      "inputTokens": 8955,
+      "outputTokens": 842
+    }
+  ]
+}

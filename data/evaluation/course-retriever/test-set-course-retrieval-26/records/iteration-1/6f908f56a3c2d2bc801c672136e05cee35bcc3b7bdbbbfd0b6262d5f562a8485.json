@@ -1,0 +1,156 @@
+{
+  "testCaseId": "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การออกแบบประสบการณ์ผู้ใช้ (UX Design)",
+  "question": "อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี",
+  "skill": "การออกแบบประสบการณ์ผู้ใช้ (UX Design)",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "02747443-65",
+      "subjectName": "นวัตกรรมและการออกแบบบริการในธุรกิจการบิน",
+      "relevanceScore": 1,
+      "reason": "Course focuses on innovation and service design in aviation business, which may marginally relate to UX design as part of service design but does not explicitly cover UX design."
+    },
+    {
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "relevanceScore": 0,
+      "reason": "Course is about landscape architecture design, unrelated to user experience design in digital or product contexts."
+    },
+    {
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "relevanceScore": 0,
+      "reason": "Course covers advanced research methods in agricultural research, no connection to UX design."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Course focuses on statistical learning for business, unrelated to UX design."
+    },
+    {
+      "subjectCode": "01387105-67",
+      "subjectName": "พุทธจริยศาสตร์ในการดำเนินธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "Course covers Buddhist ethics in business, no relation to UX design."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 0,
+      "reason": "Course is about experimental design and analysis, no mention of UX design."
+    },
+    {
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "relevanceScore": 2,
+      "reason": "Course includes designing learning media that are easy to use and cost-effective, which relates to UX design principles in educational technology, but UX design is not the main focus."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course focused on presentation skills, no mention of UX design."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course on data analysis and visualization may marginally relate to UX design in terms of presenting data effectively, but UX design is not a primary focus."
+    },
+    {
+      "subjectCode": "01999036-67",
+      "subjectName": "ความสุขในพลวัตของชีวิต",
+      "relevanceScore": 0,
+      "reason": "Course about happiness and life dynamics, unrelated to UX design."
+    },
+    {
+      "subjectCode": "01475523-64",
+      "subjectName": "การปฏิบัติงานของมนุษย์",
+      "relevanceScore": 0,
+      "reason": "Course on human performance and behavior, no connection to UX design."
+    },
+    {
+      "subjectCode": "04256355-66",
+      "subjectName": "โปรแกรมประยุกต์การเรียนรู้ของเครื่อง",
+      "relevanceScore": 0,
+      "reason": "Course on machine learning applications, unrelated to UX design."
+    },
+    {
+      "subjectCode": "01352212-66",
+      "subjectName": "วาทวิทยาเพื่องานนิเทศศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course on rhetoric and communication skills, no relation to UX design."
+    },
+    {
+      "subjectCode": "04403597-67",
+      "subjectName": "สัมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course on health science topics, no mention of UX design."
+    },
+    {
+      "subjectCode": "01475521-64",
+      "subjectName": "จิตวิทยาอุตสาหกรรมและองค์การ",
+      "relevanceScore": 0,
+      "reason": "Course on industrial and organizational psychology, unrelated to UX design."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 0.26666666666666666,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 12,
+        "macroAverageRate": 80,
+        "microAverageRate": 80,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 13.333333333333334,
+        "microAverageRate": 13.333333333333334,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 6.666666666666667,
+        "microAverageRate": 6.666666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.319,
+        "at10": 0.629,
+        "at15": 0.629,
+        "atAll": 0.629
+      },
+      "ideal": {
+        "at5": 0.113,
+        "at10": 0.144,
+        "at15": 0.112,
+        "atAll": 0.112
+      }
+    },
+    "precision": {
+      "at5": 0,
+      "at10": 0.1,
+      "at15": 0.067,
+      "atAll": 0.067
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2855,
+  "outputTokens": 488
+}

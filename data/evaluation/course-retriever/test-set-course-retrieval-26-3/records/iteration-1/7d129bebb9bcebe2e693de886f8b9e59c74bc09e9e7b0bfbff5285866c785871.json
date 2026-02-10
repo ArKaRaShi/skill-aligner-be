@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "fa617f52-c86b-4b8c-976b-bfdb073f1070-การอ่านและแปลภาษาบาลี"
+  ],
+  "skill": "การอ่านและแปลภาษาบาลี",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "02738497-61",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "The course outcomes focus on research, reading, and translating research articles in English, not specifically on reading and translating Pali."
+    },
+    {
+      "subjectCode": "02738497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Similar to the previous course, it emphasizes research article analysis and translation in English, not Pali language skills."
+    },
+    {
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "relevanceScore": 0,
+      "reason": "The course is about Chinese language testing and does not mention Pali language reading or translation."
+    },
+    {
+      "subjectCode": "03754231-67",
+      "subjectName": "การอ่านภาษาอังกฤษในชีวิตประจำวัน",
+      "relevanceScore": 2,
+      "reason": "The course involves reading and understanding English in daily life, which may include translation skills, but it is not specifically about Pali."
+    },
+    {
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "relevanceScore": 0,
+      "reason": "Focuses on Chinese linguistics, not Pali language reading or translation."
+    },
+    {
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "The course is about communication skills for teachers, not about Pali language."
+    },
+    {
+      "subjectCode": "04351131-68",
+      "subjectName": "การเขียนย่อหน้าภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "English paragraph writing course, unrelated to Pali language reading or translation."
+    },
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Chinese business language course, not related to Pali."
+    },
+    {
+      "subjectCode": "01150352-67",
+      "subjectName": "การวัดและประเมินผลการเรียนรู้",
+      "relevanceScore": 0,
+      "reason": "Course on educational measurement and evaluation, not related to Pali language."
+    },
+    {
+      "subjectCode": "01402512-65",
+      "subjectName": "โครงสร้างและการทำหน้าที่ของชีวโมเลกุล",
+      "relevanceScore": 0,
+      "reason": "Biomolecular structure course, unrelated to Pali language."
+    },
+    {
+      "subjectCode": "04102497-64",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Research seminar involving academic articles, not specifically about Pali language reading or translation."
+    },
+    {
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "English communication course, not related to Pali."
+    },
+    {
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "relevanceScore": 0,
+      "reason": "English grammar course, not related to Pali."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Data science query language course, unrelated to Pali language."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.35714285714285715,
+    "totalRelevanceSum": 5,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 10,
+        "macroAverageRate": 71.42857142857143,
+        "microAverageRate": 71.42857142857143,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.7,
+        "at10": 0.7,
+        "at15": 0.778,
+        "atAll": 0.778
+      },
+      "ideal": {
+        "at5": 0.282,
+        "at10": 0.183,
+        "at15": 0.158,
+        "atAll": 0.165
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.3,
+        "threshold2": 0.1,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.286,
+        "threshold2": 0.071,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.286,
+        "threshold2": 0.071,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3164,
+  "outputTokens": 520
+}

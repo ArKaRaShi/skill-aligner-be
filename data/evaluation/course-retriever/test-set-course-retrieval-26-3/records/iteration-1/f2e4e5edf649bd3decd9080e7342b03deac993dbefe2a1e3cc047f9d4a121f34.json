@@ -1,0 +1,156 @@
+{
+  "questionIds": [
+    "adc6cdc0-e0f6-4006-849b-1d06dff5368c-การตลาดและการส่งเสริมการขาย"
+  ],
+  "skill": "การตลาดและการส่งเสริมการขาย",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01134111-65",
+      "subjectName": "หลักการตลาด",
+      "relevanceScore": 3,
+      "reason": "The course 'หลักการตลาด' covers fundamental marketing concepts, processes, and the marketing mix, which are core to marketing and promotion skills."
+    },
+    {
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "relevanceScore": 2,
+      "reason": "The course 'หลักการประชาสัมพันธ์' discusses public relations principles and planning, relevant but only a part of marketing and promotion."
+    },
+    {
+      "subjectCode": "01134411-65",
+      "subjectName": "การจัดการการตลาด",
+      "relevanceScore": 3,
+      "reason": "The course 'การจัดการการตลาด' focuses on marketing management, including analysis and planning, directly related to marketing and promotion."
+    },
+    {
+      "subjectCode": "04102272-64",
+      "subjectName": "การตลาดธุรกิจการเกษตรและอาหาร",
+      "relevanceScore": 3,
+      "reason": "The course 'การตลาดธุรกิจการเกษตรและอาหาร' emphasizes marketing strategies and behaviors in agriculture and food, relevant to marketing and promotion."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 2,
+      "reason": "The course 'การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม' covers targeted marketing and pricing strategies, relevant but narrower in scope."
+    },
+    {
+      "subjectCode": "01352275-66",
+      "subjectName": "สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา",
+      "relevanceScore": 2,
+      "reason": "The course 'สื่อและเทคโนโลยีเพื่อการตลาดเชิงเนื้อหา' discusses media and technology in content marketing, relevant but not a primary focus."
+    },
+    {
+      "subjectCode": "01134321-65",
+      "subjectName": "การตลาดระหว่างประเทศ",
+      "relevanceScore": 2,
+      "reason": "The course 'การตลาดระหว่างประเทศ' covers international marketing principles, relevant but only a part of marketing and promotion."
+    },
+    {
+      "subjectCode": "02804141-67",
+      "subjectName": "การจัดการการตลาดในธุรกิจการบิน",
+      "relevanceScore": 2,
+      "reason": "The course 'การจัดการการตลาดในธุรกิจการบิน' discusses marketing in the airline industry, relevant but specific to a sector."
+    },
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 3,
+      "reason": "The course 'การสร้างและการจัดการแบรนด์' focuses on branding, a key component of marketing and promotion."
+    },
+    {
+      "subjectCode": "01136113-68",
+      "subjectName": "เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด",
+      "relevanceScore": 2,
+      "reason": "The course 'เศรษฐศาสตร์ประยุกต์สำหรับนักการตลาด' relates to economic principles affecting marketing, relevant but not core."
+    },
+    {
+      "subjectCode": "01017411-66",
+      "subjectName": "การจัดการระบบบริการอาหาร",
+      "relevanceScore": 2,
+      "reason": "The course 'การจัดการระบบบริการอาหาร' involves service management, relevant but more operational than promotional."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "The course 'การวางแผนและการควบคุมกำไร' covers financial planning and control, indirectly related to marketing and promotion."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 2.3333333333333335,
+    "totalRelevanceSum": 28,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 8,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 4,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.925,
+        "at10": 0.972,
+        "at15": 0.974,
+        "atAll": 0.974
+      },
+      "ideal": {
+        "at5": 0.885,
+        "at10": 0.83,
+        "at15": 0.706,
+        "atAll": 0.813
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.6
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.4
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.333
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 1,
+        "threshold3": 0.333
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2232,
+  "outputTokens": 602
+}

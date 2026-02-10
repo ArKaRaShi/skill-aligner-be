@@ -1,0 +1,138 @@
+{
+  "testCaseId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-จิตวิทยาการตัดสินใจ",
+  "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+  "skill": "จิตวิทยาการตัดสินใจ",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01475521-64",
+      "subjectName": "จิตวิทยาอุตสาหกรรมและองค์การ",
+      "relevanceScore": 1,
+      "reason": "Course covers general industrial and organizational psychology but does not specifically mention decision psychology as a main topic."
+    },
+    {
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "relevanceScore": 1,
+      "reason": "Course mentions applying psychological knowledge but does not specifically focus on decision psychology."
+    },
+    {
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "relevanceScore": 3,
+      "reason": "Course explicitly focuses on decision making analysis, evaluating choices, and decision software, directly covering decision psychology comprehensively."
+    },
+    {
+      "subjectCode": "02198113-67",
+      "subjectName": "จิตวิทยาเพื่อการเรียนรู้และการจัดการเรียนรู้",
+      "relevanceScore": 1,
+      "reason": "Course covers general learning and educational psychology without specific focus on decision psychology."
+    },
+    {
+      "subjectCode": "03651321-65",
+      "subjectName": "การวิเคราะห์การตัดสินใจและการประยุกต์",
+      "relevanceScore": 3,
+      "reason": "Course is about decision analysis and applications, including decision trees and models under uncertainty, directly relevant to decision psychology."
+    },
+    {
+      "subjectCode": "03602312-65",
+      "subjectName": "วิศวกรรมอุตสาหการและระบบเบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course includes decision techniques and rational decision making as part of industrial engineering and systems, covering decision psychology as a distinct component."
+    },
+    {
+      "subjectCode": "01475539-64",
+      "subjectName": "จิตวิทยาเพื่อจิตวิญญาณในสถานที่ทำงาน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on psychology related to spirituality at work, unrelated to decision psychology."
+    },
+    {
+      "subjectCode": "01475532-64",
+      "subjectName": "จิตวิทยาสังคมประยุกต์ในการทำงาน",
+      "relevanceScore": 1,
+      "reason": "Course covers applied social psychology in work but does not specifically address decision psychology."
+    },
+    {
+      "subjectCode": "01475537-64",
+      "subjectName": "จิตวิทยาการทำงานเป็นทีม",
+      "relevanceScore": 1,
+      "reason": "Course focuses on team psychology and development, with no specific mention of decision psychology."
+    },
+    {
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "relevanceScore": 1,
+      "reason": "Course covers educational and counseling psychology, not specifically decision psychology."
+    },
+    {
+      "subjectCode": "01475535-64",
+      "subjectName": "จิตวิทยาการเปลี่ยนแปลงและการพัฒนา",
+      "relevanceScore": 1,
+      "reason": "Course covers psychology of change and development in organizations, but decision psychology is not a main focus."
+    },
+    {
+      "subjectCode": "01475522-64",
+      "subjectName": "จิตวิทยาบุคลากร",
+      "relevanceScore": 1,
+      "reason": "Course covers personnel psychology generally, without specific focus on decision psychology."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 1.3333333333333333,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 66.66666666666667,
+        "microAverageRate": 66.66666666666667,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.704,
+        "at10": 0.763,
+        "at15": 0.803,
+        "atAll": 0.803
+      },
+      "ideal": {
+        "at5": 0.534,
+        "at10": 0.465,
+        "at15": 0.392,
+        "atAll": 0.451
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.3,
+      "at15": 0.25,
+      "atAll": 0.25
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2360,
+  "outputTokens": 392
+}

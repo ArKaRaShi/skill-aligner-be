@@ -1,0 +1,162 @@
+{
+  "testCaseId": "97b42158-60af-46d3-aa60-049d1243d2ee-การผลิตเสียงและดนตรีดิจิทัล",
+  "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+  "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 2,
+      "reason": "Course includes use of digital technology for music creation, relevant to digital music production but not comprehensive on sound production itself."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 3,
+      "reason": "Course focuses on computer programs for music composition and sound creation, directly covering digital sound and music production."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Covers digital technology use generally but not specifically related to sound or music production."
+    },
+    {
+      "subjectCode": "01004497-64",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Focuses on entomology research presentation using digital tech, unrelated to sound or music production."
+    },
+    {
+      "subjectCode": "03609161-65",
+      "subjectName": "เปิดโลกวิศวกรรมระบบการผลิตดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Focuses on digital production systems in engineering, unrelated to sound or music production."
+    },
+    {
+      "subjectCode": "01386534-66",
+      "subjectName": "การบรรเลงเปียโนประกอบ",
+      "relevanceScore": 1,
+      "reason": "Focuses on piano performance and collaboration, no direct mention of digital sound or music production."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 1,
+      "reason": "Mentions digital technology for communication and innovation but not specifically sound or music production."
+    },
+    {
+      "subjectCode": "03600013-67",
+      "subjectName": "เครื่องมือและทักษะทางคอมพิวเตอร์ที่จำเป็น",
+      "relevanceScore": 2,
+      "reason": "Covers use of computer tools for multimedia creation, which includes sound production tools, relevant but not fully focused on music production."
+    },
+    {
+      "subjectCode": "01386523-66",
+      "subjectName": "การประพันธ์เพลงในคริสต์ศตวรรษที่ 21",
+      "relevanceScore": 2,
+      "reason": "Music composition course mentioning use of technology for music creation, relevant but not explicitly detailed on digital sound production."
+    },
+    {
+      "subjectCode": "01386512-66",
+      "subjectName": "การประพันธ์เพลง I",
+      "relevanceScore": 2,
+      "reason": "Similar to above, music composition with technology use, fairly relevant to digital music production."
+    },
+    {
+      "subjectCode": "01386513-66",
+      "subjectName": "การประพันธ์เพลง II",
+      "relevanceScore": 2,
+      "reason": "Same as above, music composition with technology use, fairly relevant."
+    },
+    {
+      "subjectCode": "01241313-66",
+      "subjectName": "การออกแบบร่างองค์ประกอบงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 0,
+      "reason": "Focus on landscape architecture design using digital media, unrelated to sound or music production."
+    },
+    {
+      "subjectCode": "01241312-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 0,
+      "reason": "Focus on landscape architecture design with digital media, unrelated to sound or music production."
+    },
+    {
+      "subjectCode": "01352373-66",
+      "subjectName": "การรู้เท่าทันดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Covers digital media production in communication context, marginally relevant to digital music production."
+    },
+    {
+      "subjectCode": "01241412-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม VI",
+      "relevanceScore": 0,
+      "reason": "Focus on landscape architecture design using digital media, unrelated to sound or music production."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 1,
+      "reason": "Focus on digital storytelling with images, marginally relevant to digital media but not sound or music production."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.125,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 31.25,
+        "microAverageRate": 31.25,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 31.25,
+        "microAverageRate": 31.25,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 31.25,
+        "microAverageRate": 31.25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 6.25,
+        "microAverageRate": 6.25,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.637,
+        "at10": 0.779,
+        "at15": 0.844,
+        "atAll": 0.871
+      },
+      "ideal": {
+        "at5": 0.497,
+        "at10": 0.506,
+        "at15": 0.438,
+        "atAll": 0.434
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.5,
+      "at15": 0.4,
+      "atAll": 0.375
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2882,
+  "outputTokens": 536
+}

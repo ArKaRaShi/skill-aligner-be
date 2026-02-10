@@ -1,0 +1,1641 @@
+{
+  "testSetName": "test-set-skill-expansion-26",
+  "iterationNumber": 1,
+  "entries": [
+    {
+      "hash": "f328b9117c9bf087bdef5d2021af8162025cbae76b6b6283bc892e1f5a3f25de",
+      "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "skill": "การบริหารการเงินส่วนบุคคล",
+      "completedAt": "2026-01-26T08:08:45.688Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ตรงกับคำถามเป็นแนวคิดระดับมหาวิทยาลัยเกี่ยวกับการจัดการการเงินของบุคคล สามารถสอนและประเมินได้"
+      }
+    },
+    {
+      "hash": "ac27a75349b0dc90111e84996bec33fb8fdc46d0a429b6ea7a39a0269d40a2fb",
+      "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "skill": "การวางแผนการเงิน",
+      "completedAt": "2026-01-26T08:08:45.688Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถเชิงแนวคิด/เชิงเทคนิคที่พบในคำอธิบายวิชาหลักสูตรและประเมินได้ (การวางแผนทางการเงินระยะสั้น/ยาว)"
+      }
+    },
+    {
+      "hash": "802c7ce59c4bfcf1d9aab72126219ec82214d838ace742ef724648002e93cbd4",
+      "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "skill": "การจัดทำงบประมาณส่วนบุคคล",
+      "completedAt": "2026-01-26T08:08:45.688Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะปฏิบัติที่มีเนื้อหาเชิงวิชาการและสามารถประเมินผ่านโครงการหรืองานจริง ไม่ใช่ขั้นตอนทริวเวล"
+      }
+    },
+    {
+      "hash": "936eeb4dbd0bfd9a361038a11ebd7bf9665d859678c91de1c82a2b3939b4ecb3",
+      "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "skill": "การลงทุนเบื้องต้น",
+      "completedAt": "2026-01-26T08:08:45.688Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถเชิงเทคนิคที่ปกติสอนในหลักสูตรการเงินและประเมินได้ (หลักการลงทุนเบื้องต้น, ความเสี่ยง/ผลตอบแทน)"
+      }
+    },
+    {
+      "hash": "4a0982cae8216272330bcb1857d689ac6468efa16796c06aada9764a53255ead",
+      "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "skill": "การจัดการหนี้สิน",
+      "completedAt": "2026-01-26T08:08:45.688Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "หัวข้อที่มีขอบข่ายวิชาการและปฏิบัติ เหมาะเป็นส่วนหนึ่งของหลักสูตรการเงินส่วนบุคคล"
+      }
+    },
+    {
+      "hash": "201b8f5d8663147a4d8ae1480684d2ab30e9fa7e4802a4e0dc7736d7ee4a2647",
+      "queryLogId": "a7728000-0818-42b5-a49f-c89f4ee59ab5",
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "skill": "การสร้างแบรนด์",
+      "completedAt": "2026-01-26T08:08:57.637Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ตรงกับคำถามและเป็นขอบข่ายวิชาระดับมหาวิทยาลัยที่ชัดเจน สามารถสอนและประเมินได้ (หลักการแบรนดิ้ง, การวางตำแหน่ง ฯลฯ)"
+      }
+    },
+    {
+      "hash": "93e9cf6b33879fcd39cb8d2b934918c8280cfd74f1121936b9046d189cb9af8c",
+      "queryLogId": "a7728000-0818-42b5-a49f-c89f4ee59ab5",
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "skill": "การตลาด",
+      "completedAt": "2026-01-26T08:08:57.637Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะวิชาการระดับมหาวิทยาลัย กว้างแต่เป็นพื้นฐานที่สอดคล้องกับการสร้างแบรนด์และสามารถประเมินด้วยงาน/ข้อสอบ"
+      }
+    },
+    {
+      "hash": "8b8e826e701268fb0005e2cedcfd7f02031c3039351d2e79a23f6670845d8b09",
+      "queryLogId": "a7728000-0818-42b5-a49f-c89f4ee59ab5",
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "skill": "การวางแผนกลยุทธ์ธุรกิจ",
+      "completedAt": "2026-01-26T08:08:57.637Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความชำนาญเชิงกลยุทธ์ที่สอนในมหาวิทยาลัย เหมาะเป็นสะพานเชื่อมระหว่างเป้าหมายธุรกิจกับการกำหนดแบรนด์"
+      }
+    },
+    {
+      "hash": "2787911206ff67dc4233673f694d7fea12ebbb3ba37a10394a1013e37baee189",
+      "queryLogId": "a7728000-0818-42b5-a49f-c89f4ee59ab5",
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "skill": "การออกแบบกราฟิก",
+      "completedAt": "2026-01-26T08:08:57.637Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงเทคนิค/สร้างสรรค์ที่สอนในคณะศิลปะหรือการออกแบบ มีบทบาทสำคัญในการสร้างอัตลักษณ์แบรนด์ (โลโก้ โทนสี ฯลฯ)"
+      }
+    },
+    {
+      "hash": "69f7195064bf1a8f2eccdb4e6400b03f998a55e77a2956076155abcd6bd6acff",
+      "queryLogId": "a7728000-0818-42b5-a49f-c89f4ee59ab5",
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "skill": "การสื่อสารการตลาด",
+      "completedAt": "2026-01-26T08:08:57.637Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "วิชาในหลักสูตรการตลาดที่เน้นการสื่อสารและโปรโมชั่น ตรงกับการนำแบรนด์สู่ผู้บริโภคและสามารถประเมินได้"
+      }
+    },
+    {
+      "hash": "4d4a6d52c32ae26d6b477f4117a15aa6a0e554c9d09b7a79b41210578fd7503d",
+      "queryLogId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf",
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "skill": "การวิเคราะห์งบการเงิน",
+      "completedAt": "2026-01-26T08:09:10.686Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ตรงตามคำถามเป็นทักษะหลักระดับมหาวิทยาลัย สามารถสอนและประเมินได้ (สอบ โครงการ กรณีศึกษา)"
+      }
+    },
+    {
+      "hash": "b2795ee651fadbd34f68fd11c3e0ddbe75c271c0f9a64fd045a5033d54ba84c9",
+      "queryLogId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf",
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "skill": "การบัญชีเบื้องต้น",
+      "completedAt": "2026-01-26T08:09:10.686Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "พื้นฐานทางวิชาการที่จำเป็นต่อการวิเคราะห์งบการเงิน เหมาะสมกับหลักสูตรและการประเมิน"
+      }
+    },
+    {
+      "hash": "20113436aae46bd6145b62d100e04b50b407a027297a54e36ca09fdc28047fd0",
+      "queryLogId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf",
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "skill": "การตีความข้อมูลทางการเงิน",
+      "completedAt": "2026-01-26T08:09:10.686Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงวิเคราะห์/เชิงแนวคิดที่สอดคล้องและสามารถประเมินได้ในบริบทของการวิเคราะห์งบการเงิน"
+      }
+    },
+    {
+      "hash": "8262ddf40c09953529c7da2e564a1cda0cea8942c9cdb57405b251e2b73a3dc1",
+      "queryLogId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf",
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "skill": "การวางแผนการเงินและงบประมาณ",
+      "completedAt": "2026-01-26T08:09:10.686Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะประยุกต์ที่เชื่อมโยงกับการนำผลการวิเคราะห์งบการเงินไปใช้ เหมาะสมกับหลักสูตรระดับมหาวิทยาลัย"
+      }
+    },
+    {
+      "hash": "69375f3c34668379f3d97f5db17834931ca1ffb080683506490b01301fcfd451",
+      "queryLogId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf",
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "skill": "การใช้โปรแกรมวิเคราะห์ข้อมูลทางการเงิน",
+      "completedAt": "2026-01-26T08:09:10.686Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะการใช้เครื่องมือ/เทคนิค (เช่น Excel, BI) ที่สอนและประเมินได้ เหมาะเป็นส่วนขยายเชิงปฏิบัติของการวิเคราะห์งบการเงิน"
+      }
+    },
+    {
+      "hash": "3f198b06dba4df6b074d8e069fd85c1a3e06b336c4c529ef14b4d9d1d522dcb5",
+      "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+      "completedAt": "2026-01-26T08:09:22.910Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Direct match to OOP; clear university-level course outcome and assessable."
+      }
+    },
+    {
+      "hash": "e3609458992e1edf5f4479f45b2a9255eb8425533efa36a39b1e23c9d1350c65",
+      "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "skill": "การออกแบบซอฟต์แวร์",
+      "completedAt": "2026-01-26T08:09:22.910Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid academic competency (software design); relevant bridge to OOP-focused course content."
+      }
+    },
+    {
+      "hash": "213cd10cfeda17fb05f04b170d8e989022db8ccada32915b4b3cfdc3070395dc",
+      "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "skill": "ภาษาโปรแกรมเชิงวัตถุ",
+      "completedAt": "2026-01-26T08:09:22.910Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Technical competency (OOP languages); teachable and assessable in courses."
+      }
+    },
+    {
+      "hash": "5708eeb565fbd3ac24514a73c28b4f328f9bec86abc193def83f60f0b607499e",
+      "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "skill": "การวิเคราะห์และออกแบบระบบ",
+      "completedAt": "2026-01-26T08:09:22.910Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Standard university course topic (systems analysis & design); relevant though broader than OOP."
+      }
+    },
+    {
+      "hash": "b0361ae46af8db9f7bb347cda0d25f2e6a0ae2af894d95757c6d53f20562a9d6",
+      "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "skill": "การจัดการคลาสและอ็อบเจ็กต์",
+      "completedAt": "2026-01-26T08:09:22.910Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Conceptual OOP skill (classes/objects); somewhat specific but appropriate as a learning outcome."
+      }
+    },
+    {
+      "hash": "abfdb0eec1442050a5262e4d37378d330fe804b6cf73fbfa76c44e60e9a3bf41",
+      "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "skill": "หลักการสืบทอดและการห่อหุ้ม",
+      "completedAt": "2026-01-26T08:09:22.910Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Core OOP principles (inheritance, encapsulation); clearly teachable and assessable."
+      }
+    },
+    {
+      "hash": "f479ac1443afce73d45e6348074f00be511cfcd8a4b962b9a54da72292174b81",
+      "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "skill": "การวางแผนและการจัดการอีเว้นต์",
+      "completedAt": "2026-01-26T08:09:36.663Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Direct match to event planning/management; academic, teachable, and assessable."
+      }
+    },
+    {
+      "hash": "7fe21efe915c1a3c79e6fb23480da4afab7d6866e3e36948ecabf561fc308810",
+      "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "skill": "การตลาดและการประชาสัมพันธ์",
+      "completedAt": "2026-01-26T08:09:36.663Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Relevant academic competency (marketing/PR); can be taught and evaluated in courses."
+      }
+    },
+    {
+      "hash": "7b8efbc719074e124722e10b60303142e48e7bccbcb64d6618d630749b1217e8",
+      "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "skill": "การบริหารงบประมาณ",
+      "completedAt": "2026-01-26T08:09:36.663Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Financial/budget management is a teachable skill applicable to event courses and projects."
+      }
+    },
+    {
+      "hash": "8ded4de363f4241f3b557262e4c29420b7badc7ccbe6b9bd48f9b5e818488594",
+      "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "skill": "การสื่อสารและการประสานงาน",
+      "completedAt": "2026-01-26T08:09:36.663Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Communication and coordination are university-level competencies and assessable in assignments."
+      }
+    },
+    {
+      "hash": "613ab7998c7c13ab8a79b4df995f129a744b01c30508334d164056dfdc4d1c03",
+      "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "skill": "การออกแบบและตกแต่งงานอีเว้นต์",
+      "completedAt": "2026-01-26T08:09:36.663Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Event design/production is a valid creative/technical course topic; teachable and assessable."
+      }
+    },
+    {
+      "hash": "f11167c7ea1f5dedfdd484eb669351c23071f4a5c830aa9fefd5e5b977e4d700",
+      "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+      "completedAt": "2026-01-26T08:09:36.663Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Risk management and safety are appropriate academic topics for event management curricula."
+      }
+    },
+    {
+      "hash": "91c84a9f0cc56d6825384d0bb6b093c94de88df92a7d18d68e48dfd87064741d",
+      "queryLogId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b",
+      "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+      "skill": "การทำอาหารไทย",
+      "completedAt": "2026-01-26T08:09:51.463Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ตรงกับแก่นของคำถาม เป็นทักษะเชิงเทคนิค/วิชาการที่สามารถสอนและประเมินได้ (ตรงตัว)"
+      }
+    },
+    {
+      "hash": "01baa0a83547b2c81ddbaffbdc4d207cbbf70f0e059acc091d886a1e60840c35",
+      "queryLogId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b",
+      "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+      "skill": "การใช้เครื่องปรุงและวัตถุดิบไทย",
+      "completedAt": "2026-01-26T08:09:51.463Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความเชี่ยวชาญด้านวัตถุดิบและการปรุงเป็นองค์ประกอบทางวิชาการและปฏิบัติที่สอนได้และประเมินได้"
+      }
+    },
+    {
+      "hash": "1bc77ca6128cfe3c27cdaebe175dec2360067adee9b68867c47f60cea2931eda",
+      "queryLogId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b",
+      "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+      "skill": "เทคนิคการปรุงอาหารไทย",
+      "completedAt": "2026-01-26T08:09:51.463Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงเทคนิคที่เป็นเนื้อหาหลักของหลักสูตรการประกอบอาหาร สามารถประเมินด้วยปฏิบัติ/การทำโปรเจกต์"
+      }
+    },
+    {
+      "hash": "5a070d85d83175c2a744495411d7d516fe6c017e383f69db62f89571fc4feb2d",
+      "queryLogId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b",
+      "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+      "skill": "ความรู้ด้านวัฒนธรรมอาหารไทย",
+      "completedAt": "2026-01-26T08:09:51.463Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความรู้เชิงทฤษฎีที่มักเป็นส่วนหนึ่งของหลักสูตรอาหาร/มรดกวัฒนธรรม สามารถสอนและประเมินได้"
+      }
+    },
+    {
+      "hash": "cb386e0e5fcdd605266c2035522efe192d9f494b2df031194d1748d7c944b5bb",
+      "queryLogId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b",
+      "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+      "skill": "การจัดการครัวและความปลอดภัยในการทำอาหาร",
+      "completedAt": "2026-01-26T08:09:51.463Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะการจัดการและความปลอดภัยเป็นความสามารถวิชาชีพที่สอนในหลักสูตรการบริการ/อุตสาหกรรมอาหารและประเมินได้"
+      }
+    },
+    {
+      "hash": "aff3772da45d1f4740499d6718a98a84bccc240eb97230e75f91e7535f299e3a",
+      "queryLogId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b",
+      "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+      "skill": "การวางแผนเมนูอาหารไทย",
+      "completedAt": "2026-01-26T08:09:51.463Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะการออกแบบเมนูเป็นความสามารถเชิงวิชาชีพที่สอนในหลักสูตรโภชนาการ/การจัดการอาหารและสามารถประเมินได้"
+      }
+    },
+    {
+      "hash": "32a69c0805f5f46507df1230b0c62da79cd4ca053293135a3357c6ff0a68760a",
+      "queryLogId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4",
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "skill": "การบริหารทรัพยากรมนุษย์",
+      "completedAt": "2026-01-26T08:10:05.512Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะ/วิชาหลักของงาน HR เป็นหัวข้อเชิงบริหารที่สอนในหลักสูตรมหาวิทยาลัยและสามารถประเมินได้"
+      }
+    },
+    {
+      "hash": "279866e56ab88012453cdaf4c17ae86683d9059de2e9257c72a80392b1ed1736",
+      "queryLogId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4",
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "skill": "จิตวิทยาองค์กร",
+      "completedAt": "2026-01-26T08:10:05.512Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "แนวคิดเชิงทฤษฎีเกี่ยวกับพฤติกรรมองค์กร (Organizational Psychology/Behavior) ที่สอนได้และวัดผลผ่านงานหรือข้อสอบ"
+      }
+    },
+    {
+      "hash": "630fb3a8269a6b89c3e514f896e9e7384232f1d52e12da1081452352120cadbb",
+      "queryLogId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4",
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "skill": "การสื่อสารและการเจรจาต่อรอง",
+      "completedAt": "2026-01-26T08:10:05.512Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงปฏิบัติที่เป็นส่วนหนึ่งของหลักสูตร HR/การบริหาร และสามารถประเมินผ่านโปรเจกต์หรือการจำลองสถานการณ์"
+      }
+    },
+    {
+      "hash": "19d0cd77a150b686925d76b1b419f2d2678a355e8c2a097b91465e020a4b5ecb",
+      "queryLogId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4",
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "skill": "กฎหมายแรงงาน",
+      "completedAt": "2026-01-26T08:10:05.512Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความรู้เชิงกฎหมายที่จำเป็นต่อ HR ซึ่งเป็นวิชาที่สอนในมหาวิทยาลัยและประเมินได้"
+      }
+    },
+    {
+      "hash": "f596c6ea4f568872fc818255b3d226c296edc398f94359119c40908d3a8d020e",
+      "queryLogId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4",
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "skill": "การวางแผนและพัฒนาบุคลากร",
+      "completedAt": "2026-01-26T08:10:05.512Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "หัวข้อ Training & Development / HR Planning เป็นวิชาที่สอนได้และมีองค์ประกอบเชิงเทคนิคและเชิงนโยบาย"
+      }
+    },
+    {
+      "hash": "e6eb4dd04ff719837152f6d0fe69c81900d250d6aeff1b7825ac9947dce25034",
+      "queryLogId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4",
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "skill": "การจัดการความขัดแย้ง",
+      "completedAt": "2026-01-26T08:10:05.512Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงสังคมและการจัดการที่สามารถสอนผ่านการฝึกปฏิบัติ การจำลอง และประเมินผลได้"
+      }
+    },
+    {
+      "hash": "f6e28343df6c48bbc2850ddfa7b96a1289eba7ab9267c335dd90e0d4f697fb4f",
+      "queryLogId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6",
+      "question": "tiktoker ต้องเรียนอะไรบ้าง",
+      "skill": "การสร้างเนื้อหาดิจิทัล",
+      "completedAt": "2026-01-26T08:10:17.167Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid conceptual/technical competency (content strategy and production); teachable and assessable via projects and portfolios; directly relevant to being a TikToker."
+      }
+    },
+    {
+      "hash": "e65360f4a6bad6032dc8b3c82551c037d812d3b1fc8ccc4488314ee3507aa923",
+      "queryLogId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6",
+      "question": "tiktoker ต้องเรียนอะไรบ้าง",
+      "skill": "การตัดต่อวิดีโอ",
+      "completedAt": "2026-01-26T08:10:17.167Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Clear technical skill (video editing software and techniques); standard university module or lab course component; directly applicable to short-form video creation."
+      }
+    },
+    {
+      "hash": "acdc07fda47e479a9bf28825afba87f094e735c453feb2039f861727f747f328",
+      "queryLogId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6",
+      "question": "tiktoker ต้องเรียนอะไรบ้าง",
+      "skill": "การตลาดดิจิทัล",
+      "completedAt": "2026-01-26T08:10:17.167Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Established academic subject (digital marketing, social media advertising); teachable and assessable via campaigns and case studies; relevant for audience growth and monetization."
+      }
+    },
+    {
+      "hash": "37c5a88df99b6bc21a012e3d3fec7bd6f0bd378ca00c9bfab637a9baa80622e6",
+      "queryLogId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6",
+      "question": "tiktoker ต้องเรียนอะไรบ้าง",
+      "skill": "การสื่อสารและการนำเสนอ",
+      "completedAt": "2026-01-26T08:10:17.167Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Academic competency (oral/visual communication, presentation skills); teachable and assessable through assignments and performances; supports on-camera presence and messaging."
+      }
+    },
+    {
+      "hash": "be3f2063c97626dd44b7eee7b37a4be9213b97838399674b04a415667da2f2ee",
+      "queryLogId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6",
+      "question": "tiktoker ต้องเรียนอะไรบ้าง",
+      "skill": "การวิเคราะห์ข้อมูลโซเชียลมีเดีย",
+      "completedAt": "2026-01-26T08:10:17.167Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Technical/analytical skill (social analytics, metrics interpretation); teachable in courses using tools and datasets; relevant for optimizing content strategy."
+      }
+    },
+    {
+      "hash": "56709fc43f63278539f3f6569fc4b1cb0b8af2e268dd0a78076841be0bc118ff",
+      "queryLogId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6",
+      "question": "tiktoker ต้องเรียนอะไรบ้าง",
+      "skill": "การสร้างแบรนด์ส่วนบุคคล",
+      "completedAt": "2026-01-26T08:10:17.167Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Conceptual skill (personal branding, identity design); found in university curricula (marketing/communications); assessable via brand strategy projects and portfolios."
+      }
+    },
+    {
+      "hash": "7e1ed00a225767007bc1e44b26af18fece2014cf7b25bffbd396fda0817e85d8",
+      "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "skill": "พื้นฐานการเขียนโปรแกรม",
+      "completedAt": "2026-01-26T08:10:32.701Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงเทคนิคระดับมหาวิทยาลัย/คอร์สพื้นฐานการเขียนโปรแกรม — สอนได้และประเมินผลได้ เหมาะกับเป้าหมายเข้าทำงานสายเทคโนโลยี"
+      }
+    },
+    {
+      "hash": "cff80eff067f4344c7621cc5c4162c165aeee36fdc6e0d7725681d5985261b6f",
+      "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "skill": "การวิเคราะห์และแก้ไขปัญหา",
+      "completedAt": "2026-01-26T08:10:32.701Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถเชิงตรรกะและเชิงวิเคราะห์ที่เป็นผลลัพธ์การเรียนรู้ทางวิชาการ — สอนได้และประเมินได้ ผ่านแบบฝึกหัดหรือโปรเจกต์"
+      }
+    },
+    {
+      "hash": "289682778bd95f99f6a42e9ab6ada7db1b9026ac4acb079815788df72cb94fb1",
+      "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "skill": "ความรู้เกี่ยวกับระบบคอมพิวเตอร์และเครือข่าย",
+      "completedAt": "2026-01-26T08:10:32.701Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ขอบข่ายวิชาการชัดเจน (ระบบปฏิบัติการ เครือข่าย) — สอนได้เป็นรายวิชาและสอดคล้องกับงานเทคโนโลยี"
+      }
+    },
+    {
+      "hash": "7c3d82b8201db5126233f9623b98954664def714438f7c99d2fe1347e1ae9e0e",
+      "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+      "completedAt": "2026-01-26T08:10:32.701Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะทางเทคนิคที่เป็นหลักสูตร (Front-end/Back-end/Mobile) — สอนได้ผ่านโปรเจกต์และประเมินผลได้"
+      }
+    },
+    {
+      "hash": "b54161b0a3c015cf8f0d0016cd50aa3e38b739a4123741bddade1bf50787f618",
+      "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "skill": "การจัดการฐานข้อมูล",
+      "completedAt": "2026-01-26T08:10:32.701Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความเชี่ยวชาญทางเทคนิค (การออกแบบ SQL/NoSQL) — เหมาะสมกับหลักสูตรและการประเมินเชิงปฏิบัติ"
+      }
+    },
+    {
+      "hash": "2251fce74f1b58ceddd8486717eb8b4590d686cc06aef7e5db9d9bb5208c228b",
+      "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+      "completedAt": "2026-01-26T08:10:32.701Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "สาขาวิชาระดับมหาวิทยาลัยที่ชัดเจน (AI/ML) — สอนได้เป็นหลักสูตรและเชื่อมโยงกับงานเทคโนโลยีสมัยใหม่"
+      }
+    },
+    {
+      "hash": "70ef401ecc477e882ff4368309732a27db9a22c58753339c61a2bd29fd657ac0",
+      "queryLogId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370",
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "skill": "การวิเคราะห์ข้อมูล",
+      "completedAt": "2026-01-26T08:10:46.318Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงวิชาการ/เทคนิคที่สอนได้และประเมินได้ เหมาะเป็นฐานสำหรับใช้เครื่องมือช่วยตัดสินใจ"
+      }
+    },
+    {
+      "hash": "ed763b463cbb4c85b6e0f12d08795cb6a2d625c99a75318f2ef575c35c252aa8",
+      "queryLogId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370",
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "skill": "การตัดสินใจเชิงระบบ",
+      "completedAt": "2026-01-26T08:10:46.318Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "แนวคิดเชิงทฤษฎีและปฏิบัติที่พบในหลักสูตร มุ่งสอนกระบวนการตัดสินใจอย่างเป็นระบบ"
+      }
+    },
+    {
+      "hash": "f2929ff0fc586b0f616a6d10740bab7f0b051d8065cdf8350b72202515859cd1",
+      "queryLogId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370",
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "skill": "การใช้เครื่องมือสนับสนุนการตัดสินใจ",
+      "completedAt": "2026-01-26T08:10:46.318Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะด้านเครื่องมือ/ซอฟต์แวร์ที่สอนได้ชัดเจนและตรงกับความต้องการผู้ใช้ในการช่วยตัดสินใจ"
+      }
+    },
+    {
+      "hash": "e9ef6c34472ae782b64e3b9cfb802889e7218d1ddb99712d2836d84637910bfa",
+      "queryLogId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370",
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "skill": "จิตวิทยาการตัดสินใจ",
+      "completedAt": "2026-01-26T08:10:46.318Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความรู้เชิงพฤติกรรมซึ่งเป็นวิชามหาวิทยาลัย ได้รับการประเมินผ่านงานหรือแบบทดสอบ เหมาะสำหรับเข้าใจอคติในการตัดสินใจ"
+      }
+    },
+    {
+      "hash": "c6f6b7854c38c6997869d2d411cc3109d33bc74a83b09563417e070c6145d5b6",
+      "queryLogId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370",
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "skill": "การจัดการความเสี่ยง",
+      "completedAt": "2026-01-26T08:10:46.318Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงสหวิชาการที่สอนได้และใช้ประเมินตัวเลือก/ผลกระทบในการตัดสินใจประจำวัน"
+      }
+    },
+    {
+      "hash": "4f0271dbb244514db97e543163664bb40123edf30847955c10e8b1560f9ffc53",
+      "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "skill": "การวิเคราะห์อัลกอริทึม",
+      "completedAt": "2026-01-26T08:11:02.766Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถเชิงทฤษฎี/เทคนิคที่มหาวิทยาลัยสอนได้และตรงกับการแก้โจทย์ LeetCode (ประเมินความถูกต้อง พิสูจน์ความถูกต้องของอัลกอริทึม)."
+      }
+    },
+    {
+      "hash": "b59e0ea6e25d7d4c97da66518ac3b7371ff85001155135aeed1ee690f79333cb",
+      "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "skill": "โครงสร้างข้อมูล",
+      "completedAt": "2026-01-26T08:11:02.766Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "หัวข้อหลักในหลักสูตรคอมพิวเตอร์ สำคัญและตรงประเด็นสำหรับการแก้ปัญหาใน LeetCode (เชิงทฤษฎีและปฏิบัติ)."
+      }
+    },
+    {
+      "hash": "ec7c2a526dc424fbee5f1555cc2f37b6269461cf67000660a4f54c258dc8bc69",
+      "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+      "completedAt": "2026-01-26T08:11:02.766Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะโปรแกรมมิ่งระดับมหาวิทยาลัยที่สอนได้และประเมินได้; มีประโยชน์แม้จะไม่ใช่หัวข้อเดียวที่จำเป็นสำหรับทุกโจทย์ LeetCode."
+      }
+    },
+    {
+      "hash": "3fabf1f49ab4bf360b6d1c4e4235618cbed183e6c279e8f482cc77a0d4de3610",
+      "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "skill": "การแก้ปัญหาเชิงคำนวณ",
+      "completedAt": "2026-01-26T08:11:02.766Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงแนวคิด/กระบวนการที่สอนและประเมินได้ (การวางแผน, การแตกปัญหา) และตรงกับเป้าหมายการฝึก LeetCode."
+      }
+    },
+    {
+      "hash": "a916e046199272b6db5d05b967f585891d3554132ef3c74652d9f821895783a4",
+      "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+      "completedAt": "2026-01-26T08:11:02.766Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความชำนาญด้านภาษาโปรแกรมเป็นทักษะทางเทคนิคที่สอนและประเมินได้และจำเป็นสำหรับการลงมือแก้โจทย์จริงบน LeetCode."
+      }
+    },
+    {
+      "hash": "48f8989754f05a74017fae235ea3aceccdf9ca6918eb8e033a9091fbf379cf1d",
+      "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+      "completedAt": "2026-01-26T08:11:02.766Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "หัวข้อเฉพาะที่เป็นส่วนย่อยของการวิเคราะห์อัลกอริทึม — สอนได้และสำคัญต่อการประเมินประสิทธิภาพของคำตอบใน LeetCode (แต่ซ้ำทับกับรายการแรก)."
+      }
+    },
+    {
+      "hash": "03b956e2a0b8c12049e4f9c1122891035b2128156eb3f8aea78502d48cebc256",
+      "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "skill": "การเขียนโปรแกรมขั้นสูง",
+      "completedAt": "2026-01-26T08:11:21.683Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid advanced technical competency; typical university course topic, teachable and assessable; directly extends coding skills."
+      }
+    },
+    {
+      "hash": "1f9f2aca00ef62d4d317a3f1370eacc98cab47324332af9ffc95d776d49af1b8",
+      "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+      "completedAt": "2026-01-26T08:11:21.683Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Core computer science subject; clearly teachable and examinable; essential for progressing in coding and problem solving."
+      }
+    },
+    {
+      "hash": "9b4611e0b4da7fc3a4f01553d015ce1107294c198ffc9670c68f90f0a27f2544",
+      "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+      "completedAt": "2026-01-26T08:11:21.683Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Standard practical discipline in university curricula; teachable via projects/labs and relevant for applying coding skills."
+      }
+    },
+    {
+      "hash": "869f30f0e835ca1eaef810db775f2b5e48afaaa4d41c6edab1e39d36719af9df",
+      "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "skill": "การจัดการฐานข้อมูล",
+      "completedAt": "2026-01-26T08:11:21.683Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Database management is a common university course and assessable through labs/projects; important for backend development."
+      }
+    },
+    {
+      "hash": "9dd969cced75bce601ff8422267bda4d9310f7b0bd0768cd7bfda4eea320c717",
+      "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "skill": "การทดสอบและดีบักโปรแกรม",
+      "completedAt": "2026-01-26T08:11:21.683Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Software testing and debugging are teachable topics with measurable outcomes (tests, assignments); crucial for producing reliable code."
+      }
+    },
+    {
+      "hash": "8a728b510b105db1f4936473e08c41b64d1a5aea4dfd6ca87ebab23f60109863",
+      "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+      "completedAt": "2026-01-26T08:11:21.683Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Applied AI/ML is a recognized university-level competency; teachable and assessable and offers advanced avenues for coding specialization."
+      }
+    },
+    {
+      "hash": "695fb56b479706149d901852cace7bd6edba1576773893e4ab791032d765f708",
+      "queryLogId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746",
+      "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+      "skill": "ภาษาจีนเพื่อธุรกิจ",
+      "completedAt": "2026-01-26T08:11:33.824Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid university-level course competency (Business Chinese): teachable, assessable, directly matches user's intent."
+      }
+    },
+    {
+      "hash": "8b60727deacc1d5c183953fcdfa52b39dff4931d6334f64f5d8c92cf47c7e43e",
+      "queryLogId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746",
+      "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+      "skill": "ภาษาเวียดนามเพื่อธุรกิจ",
+      "completedAt": "2026-01-26T08:11:33.824Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid university-level course competency (Business Vietnamese): teachable, assessable, directly matches user's intent."
+      }
+    },
+    {
+      "hash": "3b749d2375c120076cc466423855f5658cc7ceee33b435449703e85d8c5e1b5b",
+      "queryLogId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746",
+      "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+      "skill": "การเปรียบเทียบภาษาจีนและภาษาเวียดนาม",
+      "completedAt": "2026-01-26T08:11:33.824Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Appropriate comparative/contrastive course or module; conceptually academic and assessable."
+      }
+    },
+    {
+      "hash": "7bb55d76e9a35a672eb4423fd15d2736a772c989824148aba3731238d746f055",
+      "queryLogId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746",
+      "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+      "skill": "วัฒนธรรมและธุรกิจในจีนและเวียดนาม",
+      "completedAt": "2026-01-26T08:11:33.824Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Interdisciplinary course (culture and business practices) suitable for university curricula and practical for business use."
+      }
+    },
+    {
+      "hash": "4777ccc0a177309d827258e651f20967322cc4461a1b5bb348a2f2d5ff079deb",
+      "queryLogId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746",
+      "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+      "skill": "ทักษะการสื่อสารทางธุรกิจ",
+      "completedAt": "2026-01-26T08:11:33.824Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "General business communication competency; teachable and widely offered as course learning outcomes, useful bridge to language use."
+      }
+    },
+    {
+      "hash": "7b51704843e5286854be001127fa2347a25f683fbeca907df3f2d6f2a8f11b53",
+      "queryLogId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746",
+      "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+      "skill": "พื้นฐานภาษาศาสตร์ของภาษาจีนและภาษาเวียดนาม",
+      "completedAt": "2026-01-26T08:11:33.824Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Foundational linguistics/phonology course for both languages; academically rigorous and helps build language fundamentals for business contexts."
+      }
+    },
+    {
+      "hash": "b1827278dc1c0e9efe7469a06f59b485b76515fbd2d8716bb3cfb95528a03cec",
+      "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "skill": "การพัฒนาเว็บแอปพลิเคชัน",
+      "completedAt": "2026-01-26T08:11:45.114Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ชัดเจนเป็นทักษะเชิงเทคนิค/แนวคิดระดับมหาวิทยาลัย สอนเป็นรายวิชาและประเมินได้ด้วยโปรเจกต์หรือข้อสอบ"
+      }
+    },
+    {
+      "hash": "ebce8b0a853a082b8b0081dcfdbf1cfac56b7b7421c402f3288cfeb8c8b27f55",
+      "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "skill": "การพัฒนาโมบายแอปพลิเคชัน",
+      "completedAt": "2026-01-26T08:11:45.114Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงเทคนิคที่เป็นผลลัพธ์ของหลักสูตรมือถือ/แอป สามารถสอนและประเมินด้วยโครงการจริง"
+      }
+    },
+    {
+      "hash": "0229d6d4c0237de4dcec32467fe7e318cc3afaed82649b0d758aba394ed9597a",
+      "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "skill": "การออกแบบส่วนติดต่อผู้ใช้ (UI) และประสบการณ์ผู้ใช้ (UX)",
+      "completedAt": "2026-01-26T08:11:45.114Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "แนวคิดเชิงออกแบบที่เป็นวิชามาตรฐาน สอนเป็น CLO และประเมินได้ด้วยแบบฝึก/portfolio"
+      }
+    },
+    {
+      "hash": "4de3200189aa4e3c8640ce6e8fb6dea35e69d07d6c9fdc6090bb3aea5ab6bf89",
+      "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "skill": "การเขียนโปรแกรมด้วยภาษา JavaScript",
+      "completedAt": "2026-01-26T08:11:45.114Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความชำนาญทางเทคนิคที่เหมาะสมกับหลักสูตรการเขียนโปรแกรมและสามารถประเมินได้"
+      }
+    },
+    {
+      "hash": "83b5223490e92a6999d3d43dec49fc0ba3bd015ecd88c8b8c8976aa2497cf41c",
+      "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+      "completedAt": "2026-01-26T08:11:45.114Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงเทคนิค/แนวคิดที่เป็นหลักสูตรมาตรฐาน (ฐานข้อมูล) และประเมินได้ด้วยแบบฝึกปฏิบัติ"
+      }
+    },
+    {
+      "hash": "d07e5a5b954e2451ea448ea4ece2829822c2132c225a778ae322689537bc7555",
+      "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "skill": "การพัฒนาแอปด้วยเฟรมเวิร์กเช่น React หรือ Flutter",
+      "completedAt": "2026-01-26T08:11:45.114Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "การฝึกใช้เครื่องมือ/เฟรมเวิร์กเป็นทักษะระดับมหาวิทยาลัยที่สอนเป็นรายวิชาและประเมินได้ (ไม่ใช่ขั้นตอนลวกๆ)"
+      }
+    },
+    {
+      "hash": "1adc6ae1c2ee100bc618c04fa991310c3bf442886f282040c41ad76d9b46a429",
+      "queryLogId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da",
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+      "completedAt": "2026-01-26T08:12:02.536Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ตรงกับความหมายหลักของคำถาม — ทักษะเชิงแนวคิด/เทคนิคที่สอนและประเมินได้ในหลักสูตรมหาวิทยาลัย"
+      }
+    },
+    {
+      "hash": "35b4f9af6a1eb41d7c0a5ea3fd7f05f715ec0bddcd3adab444519f228c984eea",
+      "queryLogId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da",
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "skill": "การวิเคราะห์ข้อมูลทางการเงิน",
+      "completedAt": "2026-01-26T08:12:02.536Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "เป็นทักษะเฉพาะด้านที่สอดคล้องกับการวิเคราะห์รายงานทางการเงินและเหมาะสมสำหรับหลักสูตร/ผลการเรียนรู้"
+      }
+    },
+    {
+      "hash": "79bd17505b44ed95bb9d6ed700df496444b5c4961de817e7b62f976b7c5a322d",
+      "queryLogId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da",
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "skill": "การเรียนรู้ของเครื่อง (Machine Learning)",
+      "completedAt": "2026-01-26T08:12:02.536Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถทางเทคนิคสำคัญในการประยุกต์ AI ที่สอนและประเมินได้ (เช่น โครงการหรือข้อสอบ)"
+      }
+    },
+    {
+      "hash": "ccdb9ad6b1288560a60379293ceb5aaf646e202f2f0f74da6993aec38ba4c9db",
+      "queryLogId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da",
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "skill": "การประมวลผลภาษาธรรมชาติ (NLP)",
+      "completedAt": "2026-01-26T08:12:02.536Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "เกี่ยวข้องโดยตรงเมื่อวิเคราะห์ข้อความในรายงานทางการเงิน — เป็นทักษะมหาวิทยาลัยที่สอนเป็นรายวิชาได้"
+      }
+    },
+    {
+      "hash": "2d79215ec7033f241e0a0721bb77167ab3ed046413f53c0e5044846f31967395",
+      "queryLogId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da",
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "skill": "การเขียนโปรแกรมสำหรับวิเคราะห์ข้อมูล",
+      "completedAt": "2026-01-26T08:12:02.536Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเครื่องมือ/ปฏิบัติการที่สอนเป็นรายวิชา (เช่น Python/R) และสามารถประเมินด้วยโปรเจกต์หรืองานปฏิบัติได้"
+      }
+    },
+    {
+      "hash": "bb6032d1cef01896e155709d0ae50d9de0732d043f83bf33ae7d9929b97691d9",
+      "queryLogId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da",
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "skill": "การวิเคราะห์เชิงสถิติ",
+      "completedAt": "2026-01-26T08:12:02.536Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "พื้นฐานเชิงวิเคราะห์ที่จำเป็นสำหรับการตีความผลของโมเดลและข้อมูลทางการเงิน — สอนและประเมินได้"
+      }
+    },
+    {
+      "hash": "fd52ca9cd2cd2892c6ce7ea883658ac33a4254386bbb64c5e91cf08baeb08fb3",
+      "queryLogId": "654330a8-2559-4273-abb4-36db7f0b31e1",
+      "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+      "skill": "การพัฒนาเว็บไซต์",
+      "completedAt": "2026-01-26T08:12:19.276Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงเทคนิคระดับมหาวิทยาลัย (Web development) ที่สอนได้และประเมินผลได้ ตรงกับการสร้างเว็บไซต์ e-commerce"
+      }
+    },
+    {
+      "hash": "6e2ab8671223242ef5a2169b1e00f7609290f805970d1a09c3746ad130ab0a99",
+      "queryLogId": "654330a8-2559-4273-abb4-36db7f0b31e1",
+      "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+      "skill": "การตลาดดิจิทัล",
+      "completedAt": "2026-01-26T08:12:19.276Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความชำนาญเชิงแนวคิด/เครื่องมือที่สอนได้ (SEO, SEM, โซเชียล) และสำคัญต่อการขายออนไลน์"
+      }
+    },
+    {
+      "hash": "747be3e3ef51d23338264df43591617eeaffe71e0af2497ba1b826c5ed361741",
+      "queryLogId": "654330a8-2559-4273-abb4-36db7f0b31e1",
+      "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+      "skill": "การจัดการธุรกิจอีคอมเมิร์ซ",
+      "completedAt": "2026-01-26T08:12:19.276Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ชัดเจนเป็นผลการเรียนที่สอนได้ ครอบคลุมการบริหารร้านค้าออนไลน์และโมเดลธุรกิจ"
+      }
+    },
+    {
+      "hash": "7fe62f30cd6abcfdfc149df909f24a0e7168c4e3ad399b8914a297b8ad4df5a5",
+      "queryLogId": "654330a8-2559-4273-abb4-36db7f0b31e1",
+      "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+      "skill": "การออกแบบประสบการณ์ผู้ใช้ (UX/UI)",
+      "completedAt": "2026-01-26T08:12:19.276Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะออกแบบเชิงวิชาการที่สอนได้และประเมินผลได้ มีผลโดยตรงต่ออัตราแปลงผู้ใช้ใน e-commerce"
+      }
+    },
+    {
+      "hash": "c802593edff3232187f0bb6b69a08c8fedd556075ff08e9d9efe0de3493035bb",
+      "queryLogId": "654330a8-2559-4273-abb4-36db7f0b31e1",
+      "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+      "skill": "การชำระเงินออนไลน์และความปลอดภัย",
+      "completedAt": "2026-01-26T08:12:19.276Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "หัวข้อเชิงเทคนิค/นโยบายที่สอนได้ (เกตเวย์การชำระ เงิน, ความปลอดภัยข้อมูล, PCI-DSS) สำคัญต่อร้านค้าออนไลน์"
+      }
+    },
+    {
+      "hash": "815a13c69d577f12afd98be86749aa04755c3ee4abbe683c5c9c441012ddcd74",
+      "queryLogId": "654330a8-2559-4273-abb4-36db7f0b31e1",
+      "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+      "skill": "การวิเคราะห์ข้อมูลและพฤติกรรมผู้บริโภค",
+      "completedAt": "2026-01-26T08:12:19.276Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถเชิงวิเคราะห์ที่สอนได้ (analytics, consumer behavior) และช่วยตัดสินใจเชิงธุรกิจ"
+      }
+    },
+    {
+      "hash": "bab72848814f894853b3735412a1dfe2e4237feb3298ee755566c4f3f55a73d0",
+      "queryLogId": "a945dd26-d7d4-49a4-ab23-57f3f954c8a0",
+      "question": "อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี",
+      "skill": "การออกแบบประสบการณ์ผู้ใช้ (UX Design)",
+      "completedAt": "2026-01-26T08:12:33.851Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถเชิงแนวคิด/เทคนิคที่เป็นหลักสูตรมหาวิทยาลัยได้ ชัดเจนว่าผสมเทคโนโลยีกับความสร้างสรรค์และไม่จำเป็นต้องโค้ดมาก"
+      }
+    },
+    {
+      "hash": "8aa7fdadbdae366904865f83350bb03cf9ab7ba54c3541919be446ce70058564",
+      "queryLogId": "a945dd26-d7d4-49a4-ab23-57f3f954c8a0",
+      "question": "อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี",
+      "skill": "การออกแบบกราฟิกดิจิทัล",
+      "completedAt": "2026-01-26T08:12:33.851Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงศิลป์และเทคนิคที่สอนได้และประเมินผลได้ เหมาะกับงานผสมเทคโนโลยี-ความสร้างสรรค์"
+      }
+    },
+    {
+      "hash": "f975927aad3447c89258edb05ca174d88f0eef488b6a490d2dd2a96276860171",
+      "queryLogId": "a945dd26-d7d4-49a4-ab23-57f3f954c8a0",
+      "question": "อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี",
+      "skill": "การจัดการโครงการเทคโนโลยี",
+      "completedAt": "2026-01-26T08:12:33.851Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะระดับบริหาร/ปฏิบัติที่สอนเป็นรายวิชา มักไม่ต้องโค้ดหนักและเชื่อมโยงกับการทำงานด้านเทคโนโลยี"
+      }
+    },
+    {
+      "hash": "a06d121fdf4445b9481cd3581cae0f297cd3c0028e9aac290ae61384c5579a70",
+      "queryLogId": "a945dd26-d7d4-49a4-ab23-57f3f954c8a0",
+      "question": "อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี",
+      "skill": "การใช้เครื่องมือสร้างสรรค์ดิจิทัล (เช่น Adobe Creative Suite)",
+      "completedAt": "2026-01-26T08:12:33.851Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความชำนาญเครื่องมือเฉพาะซึ่งเป็นความสามารถทางเทคนิคที่เหมาะกับหลักสูตรปฏิบัติและงานสร้างสรรค์ดิจิทัล"
+      }
+    },
+    {
+      "hash": "3d07df7452b12dda8360b63741745b781af2be2af30792b7b7cd0a95b22aa686",
+      "queryLogId": "a945dd26-d7d4-49a4-ab23-57f3f954c8a0",
+      "question": "อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี",
+      "skill": "การสื่อสารและการนำเสนอเชิงเทคนิค",
+      "completedAt": "2026-01-26T08:12:33.851Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะที่สอนได้ ประเมินผลได้ และสำคัญเมื่อต้องทำงานร่วมกับทีมเทคโนโลยีโดยไม่เน้นการเขียนโค้ด"
+      }
+    },
+    {
+      "hash": "6bc473a6ea2a2f0ee4e0891dc100e650387851bcec10e13bbe61176bca73fa54",
+      "queryLogId": "97b42158-60af-46d3-aa60-049d1243d2ee",
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "skill": "เทคโนโลยีดนตรี",
+      "completedAt": "2026-01-26T08:12:53.627Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Direct match for 'music technology'—an academic, teachable competency combining music and tech."
+      }
+    },
+    {
+      "hash": "ad49ac5c16f69016bd41bfd87a9248ade0ea542f4a79cf8c5bbf0c40c7e21522",
+      "queryLogId": "97b42158-60af-46d3-aa60-049d1243d2ee",
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+      "completedAt": "2026-01-26T08:12:53.627Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid university-level skill (sound production / digital music); technical and assessable via projects/labs."
+      }
+    },
+    {
+      "hash": "5867070f3d525cc60abf525417cd8283fb69ed256ca3950cc1636d6c1e48d7b5",
+      "queryLogId": "97b42158-60af-46d3-aa60-049d1243d2ee",
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+      "completedAt": "2026-01-26T08:12:53.627Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Clear technical competency (audio/programming for music); teachable and directly bridges tech + music."
+      }
+    },
+    {
+      "hash": "ebe7f219549f7e6744726f83ab9e57a5cd48ca159afb9e7802f5705f285b87f5",
+      "queryLogId": "97b42158-60af-46d3-aa60-049d1243d2ee",
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "skill": "การออกแบบเสียง",
+      "completedAt": "2026-01-26T08:12:53.627Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Recognized technical/creative discipline in audio production; suitable for university coursework and assessment."
+      }
+    },
+    {
+      "hash": "3d8dbcbab8ef915d3cc073eaa1c188e6824c6eac948cfae408da911ddb9de42b",
+      "queryLogId": "97b42158-60af-46d3-aa60-049d1243d2ee",
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "skill": "ทฤษฎีดนตรี",
+      "completedAt": "2026-01-26T08:12:53.628Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Fundamental musical competency (music theory); teachable and often included in tech+music curricula though less technical."
+      }
+    },
+    {
+      "hash": "5d81016fc5cd5ee1d1e71112157869aa03c2451cfa08face5f303309a5821032",
+      "queryLogId": "1e7e132d-31b7-49fe-91dc-c2e0358a1b24",
+      "question": "อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม",
+      "skill": "ทักษะความเป็นผู้นำ",
+      "completedAt": "2026-01-26T08:13:08.617Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ตรงประเด็นและเป็นทักษะระดับมหาวิทยาลัยที่สอนและประเมินได้ (ผู้นำ, Leadership)"
+      }
+    },
+    {
+      "hash": "c4624b23f6eb0e87457001be5238f848405a4f5902319b32257d9ee8bf3cf68a",
+      "queryLogId": "1e7e132d-31b7-49fe-91dc-c2e0358a1b24",
+      "question": "อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม",
+      "skill": "การสื่อสารเพื่อการนำทีม",
+      "completedAt": "2026-01-26T08:13:08.617Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงแนวคิด/ปฏิบัติที่สอนในรายวิชา เช่น การสื่อสารเชิงความเป็นผู้นำ และประเมินผ่านงานกลุ่ม/การนำเสนอ"
+      }
+    },
+    {
+      "hash": "62bdb9ffc87cfe9ee7c6b5c9cbe06ad44defff4593768911aa7ca1f6df1d68ca",
+      "queryLogId": "1e7e132d-31b7-49fe-91dc-c2e0358a1b24",
+      "question": "อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม",
+      "skill": "การจัดการทีมและการทำงานเป็นกลุ่ม",
+      "completedAt": "2026-01-26T08:13:08.617Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "เป็นความสามารถเชิงบริหารที่สอนเป็นรายวิชา (team management, group dynamics) และสามารถประเมินได้"
+      }
+    },
+    {
+      "hash": "62c6dea9634c9aa7b017c112803361e19dd7207dba598a1674efeeb21da8794a",
+      "queryLogId": "1e7e132d-31b7-49fe-91dc-c2e0358a1b24",
+      "question": "อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม",
+      "skill": "การตัดสินใจและแก้ไขปัญหา",
+      "completedAt": "2026-01-26T08:13:08.617Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะสากลในหลักสูตรบริหารและวิศวกรรมที่เน้นการตัดสินใจเชิงวิเคราะห์และการแก้ปัญหา"
+      }
+    },
+    {
+      "hash": "75deed170acb8ed708700d4791691cb57c2846e9294bf33682633ed349c82a34",
+      "queryLogId": "1e7e132d-31b7-49fe-91dc-c2e0358a1b24",
+      "question": "อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม",
+      "skill": "การวางแผนและการบริหารเวลา",
+      "completedAt": "2026-01-26T08:13:08.617Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะที่สอนในบริบทของการจัดการโครงการและการพัฒนาตนเองในระดับมหาวิทยาลัย และประเมินได้ผ่านโครงการ/ผลงาน"
+      }
+    },
+    {
+      "hash": "a20a2aaec51c16e4d4173d3643d9e66f4cf317fe01f6b746e6218e1f0dd065e3",
+      "queryLogId": "3ef3d308-ac42-453e-bce7-bb7376046c41",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "skill": "การสร้างเนื้อหาวิดีโอ",
+      "completedAt": "2026-01-26T08:13:25.760Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid academic/technical competency (video content production); teachable and assessable via projects in digital media or film courses; directly matches core intent (TikTok content creation)."
+      }
+    },
+    {
+      "hash": "18f621597ba9c3ecd76b3349b7db614659a42350bd9b6abc552a73f9b4d1350c",
+      "queryLogId": "3ef3d308-ac42-453e-bce7-bb7376046c41",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "skill": "การตัดต่อวิดีโอ",
+      "completedAt": "2026-01-26T08:13:25.760Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Clear technical skill (video editing); commonly taught in university multimedia courses and assessable by practical assignments."
+      }
+    },
+    {
+      "hash": "4883af72854274974a1e244b3defc2ea8342024bd219f25c114ed22c854cb712",
+      "queryLogId": "3ef3d308-ac42-453e-bce7-bb7376046c41",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "skill": "การใช้โซเชียลมีเดียเพื่อการตลาด",
+      "completedAt": "2026-01-26T08:13:25.760Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Recognized course topic (Social Media Marketing); conceptually robust, teachable and testable via campaigns and case studies; directly relevant to becoming a TikToker."
+      }
+    },
+    {
+      "hash": "723347f48d856329d2a54aeeda8aeec941e42af5d93ea724c84b7ba20b639c4c",
+      "queryLogId": "3ef3d308-ac42-453e-bce7-bb7376046c41",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "skill": "การวางแผนและการจัดการคอนเทนต์",
+      "completedAt": "2026-01-26T08:13:25.760Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid strategic competency (content strategy/management); appears in curricula (content strategy, digital communications) and assessable through planning projects."
+      }
+    },
+    {
+      "hash": "0578908bd05aac15941755b1cd1f5b8c05466433a9e22c904871458e9a497d1e",
+      "queryLogId": "3ef3d308-ac42-453e-bce7-bb7376046c41",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "skill": "การสื่อสารและการนำเสนอ",
+      "completedAt": "2026-01-26T08:13:25.760Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Broad but academically valid (communication skills); teachable and assessable via presentations and performance tasks; relevant for on-camera presence."
+      }
+    },
+    {
+      "hash": "f372fa33e0479dce66d8c505d20ead42faaa9867584426554d58751f48b0c205",
+      "queryLogId": "3ef3d308-ac42-453e-bce7-bb7376046c41",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "skill": "การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์",
+      "completedAt": "2026-01-26T08:13:25.760Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Appropriate technical/analytical skill (social media analytics, trend analysis); teachable in data analytics/marketing courses and assessable with analytic projects."
+      }
+    },
+    {
+      "hash": "9cf6adb12d07e1b643c898c7d6415cbf00be968e24f270617af04edaf63f557d",
+      "queryLogId": "00e399aa-cf3c-472b-b5be-9a6e86e10637",
+      "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+      "skill": "กฎหมายเบื้องต้น",
+      "completedAt": "2026-01-26T08:13:40.735Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความรู้พื้นฐานทางกฎหมายเป็นขอบข่ายวิชาการที่ชัดเจนและสอนได้ในมหาวิทยาลัย"
+      }
+    },
+    {
+      "hash": "86a9ba2e0310e7a4e289275a724b9fd34fe93a61ad85502b5a01ebc344d37f57",
+      "queryLogId": "00e399aa-cf3c-472b-b5be-9a6e86e10637",
+      "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+      "skill": "การวิเคราะห์และตีความกฎหมาย",
+      "completedAt": "2026-01-26T08:13:40.735Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะหลักของนักกฎหมาย สามารถประเมินผ่านงานเขียน กรณีศึกษา และสอบได้"
+      }
+    },
+    {
+      "hash": "1d4f66d89ddb0158dc18a64776e1f62cf6c5cf41a7c2d7b98f3d1436feade57c",
+      "queryLogId": "00e399aa-cf3c-472b-b5be-9a6e86e10637",
+      "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+      "skill": "การสื่อสารและการเจรจาต่อรอง",
+      "completedAt": "2026-01-26T08:13:40.735Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะวิชาชีพสำคัญสำหรับทนาย ฝึกสอนและประเมินด้วยจำลองสถานการณ์/การนำเสนอ"
+      }
+    },
+    {
+      "hash": "d2e667b11e553f1dc29e14d823e2451a16ae9b4de74ba8b2d7e7ce8895895337",
+      "queryLogId": "00e399aa-cf3c-472b-b5be-9a6e86e10637",
+      "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+      "skill": "จริยธรรมและความรับผิดชอบทางกฎหมาย",
+      "completedAt": "2026-01-26T08:13:40.735Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "จริยธรรมกฎหมายเป็นองค์ประกอบหลักของหลักสูตรนิติศาสตร์และสอนได้/ประเมินได้"
+      }
+    },
+    {
+      "hash": "11cdb4ab05969f94b380f94f44a4e79d7a40cf662896a19535ff3a3c5e664579",
+      "queryLogId": "00e399aa-cf3c-472b-b5be-9a6e86e10637",
+      "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+      "skill": "การเขียนและร่างเอกสารทางกฎหมาย",
+      "completedAt": "2026-01-26T08:13:40.735Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "การร่างเอกสารเป็นทักษะเชิงเทคนิคที่สอนเป็นรายวิชาและประเมินผ่านงานปฏิบัติ"
+      }
+    },
+    {
+      "hash": "00a07f04f3cac45f0b84bf78ec46da30b30693ad3dc9edfb4538f4ce33c285bb",
+      "queryLogId": "00e399aa-cf3c-472b-b5be-9a6e86e10637",
+      "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+      "skill": "การวางแผนและการจัดการเวลา",
+      "completedAt": "2026-01-26T08:13:40.736Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะทั่วไปแต่สอนและประเมินได้ เหมาะกับการเตรียมความพร้อมสู่การประกอบวิชาชีพทนาย"
+      }
+    },
+    {
+      "hash": "0f309d491bdeb01e05260410bcc6d3d227233a6ac310e89058a56e3087d9c35b",
+      "queryLogId": "b3460fa2-c348-4748-b583-4b042886e0ca",
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "skill": "การประกอบคอมพิวเตอร์",
+      "completedAt": "2026-01-26T08:13:52.526Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Direct concept match — practical university-level lab competency in PC building and hardware assembly."
+      }
+    },
+    {
+      "hash": "b57b551cb91f97c4e9a7e51a84a15efbc6715e19430be4ac23758e5f784c50b1",
+      "queryLogId": "b3460fa2-c348-4748-b583-4b042886e0ca",
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+      "completedAt": "2026-01-26T08:13:52.526Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid academic/technical topic covering components and architecture; teachable and assessable."
+      }
+    },
+    {
+      "hash": "77e6461ea0156c5b5eea5bec0da4090073fa8904e17c18069f4b0cbf235a2970",
+      "queryLogId": "b3460fa2-c348-4748-b583-4b042886e0ca",
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "skill": "การติดตั้งและตั้งค่าระบบปฏิบัติการ",
+      "completedAt": "2026-01-26T08:13:52.526Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Appropriate technical competency (OS installation/configuration); common course outcome and assessable."
+      }
+    },
+    {
+      "hash": "3cd3d15b0a6552741066f2eb83751c6df4b270a6e56b5b61c806e81e3dc81f6a",
+      "queryLogId": "b3460fa2-c348-4748-b583-4b042886e0ca",
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "skill": "การวิเคราะห์และแก้ไขปัญหาคอมพิวเตอร์",
+      "completedAt": "2026-01-26T08:13:52.526Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Valid troubleshooting/diagnostics skill; teachable and relevant to assembling and maintaining PCs."
+      }
+    },
+    {
+      "hash": "7d15f6854fa8254f8a4fa2006a86c1ec7c0f5ffb7861f46ae825c5a461f1e152",
+      "queryLogId": "b3460fa2-c348-4748-b583-4b042886e0ca",
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "skill": "ความปลอดภัยของข้อมูลและระบบ",
+      "completedAt": "2026-01-26T08:13:52.526Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "Relevant university-level subject on protecting systems and data; complements hardware/installation skills."
+      }
+    },
+    {
+      "hash": "498779324a7479b492780d839d1951993a0251021f5864010b3128212d234279",
+      "queryLogId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a",
+      "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+      "skill": "การจัดการธุรกิจปศุสัตว์",
+      "completedAt": "2026-01-26T08:14:06.887Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงการจัดการเฉพาะด้าน (agribusiness) ที่เป็นเนื้อหาระดับมหาวิทยาลัย สอนได้และประเมินได้"
+      }
+    },
+    {
+      "hash": "570aa27248f56f31bd80d2e1c1b3e423ccb6943e6d3c45754312f4315072f549",
+      "queryLogId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a",
+      "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+      "skill": "ความรู้ด้านการเลี้ยงสัตว์",
+      "completedAt": "2026-01-26T08:14:06.887Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความรู้/เทคนิคด้านการเลี้ยงสัตว์ (animal husbandry) ซึ่งเป็นขอบข่ายวิชาการและสามารถประเมินผ่านปฏิบัติหรือข้อสอบได้"
+      }
+    },
+    {
+      "hash": "d64077de7114abd4e79b25d2236f37a0c210fef8c4d49bf665700dcc6e286890",
+      "queryLogId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a",
+      "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+      "skill": "การตลาดสำหรับธุรกิจปศุสัตว์",
+      "completedAt": "2026-01-26T08:14:06.887Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "การตลาดเชิงประยุกต์สำหรับภาคปศุสัตว์ เป็นผลลัพธ์การเรียนรู้ที่สอนได้และประเมินได้ในหลักสูตรธุรกิจ/การเกษตร"
+      }
+    },
+    {
+      "hash": "4da40fca366542de20b0add08eeafd6e8efc2009ec8441604598b79583480df0",
+      "queryLogId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a",
+      "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+      "skill": "การวางแผนการเงินและการลงทุน",
+      "completedAt": "2026-01-26T08:14:06.887Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะการเงินเชิงธุรกิจที่เป็นสากลและสอนได้ในบริบทการเริ่มธุรกิจปศุสัตว์ (สามารถประเมินด้วยโครงการ/กรณีศึกษา)"
+      }
+    },
+    {
+      "hash": "5be78f21a79a56d07a3875b49eb709eb6f8771d4df77749d2820da2174288d4a",
+      "queryLogId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a",
+      "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+      "skill": "กฎหมายและข้อบังคับเกี่ยวกับปศุสัตว์",
+      "completedAt": "2026-01-26T08:14:06.887Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "เนื้อหากฎหมายเฉพาะด้านที่เป็นขอบข่ายวิชาการและจำเป็นต่อการดำเนินธุรกิจปศุสัตว์ สอนได้และประเมินได้"
+      }
+    },
+    {
+      "hash": "433d6f956a8f8c57d3770a2aec381bc0f3b23b98982df74426bbf12352185cd5",
+      "queryLogId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a",
+      "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+      "skill": "การใช้เทคโนโลยีในธุรกิจปศุสัตว์",
+      "completedAt": "2026-01-26T08:14:06.888Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะด้านเทคโนโลยี (เช่น IoT, ระบบจัดการฟาร์ม) ที่เป็นความรู้เชิงเทคนิคและสอนได้ในหลักสูตรระดับมหาวิทยาลัย"
+      }
+    },
+    {
+      "hash": "32504edad6dd1c8f63401812d694b43b5538184f36b2038335e09c70a41deca2",
+      "queryLogId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c",
+      "question": "อยากเปิดร้านเหล้า",
+      "skill": "การบริหารธุรกิจร้านอาหารและเครื่องดื่ม",
+      "completedAt": "2026-01-26T08:14:24.288Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงวิชาการ/เชิงเทคนิคที่อยู่ในหลักสูตรบริหารธุรกิจ/การจัดการร้าน; สอนและประเมินได้ และตรงกับการเปิดร้านเหล้า"
+      }
+    },
+    {
+      "hash": "5bce1c5343cc1b541b96ea7d07fb3d375230af8655c3238b38e959f50f4bc153",
+      "queryLogId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c",
+      "question": "อยากเปิดร้านเหล้า",
+      "skill": "กฎหมายและข้อบังคับเกี่ยวกับการขายเครื่องดื่มแอลกอฮอล์",
+      "completedAt": "2026-01-26T08:14:24.288Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ชัดเจนเป็นขอบเขตความรู้เชิงกฎหมายซึ่งสอนในมหาวิทยาลัยได้ และเป็นข้อกำหนดสำคัญสำหรับการเปิดร้านเหล้า"
+      }
+    },
+    {
+      "hash": "27beec294ae888fb1ee54500bbba29e23deaa959af15521d2a615d6673b7b443",
+      "queryLogId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c",
+      "question": "อยากเปิดร้านเหล้า",
+      "skill": "การตลาดและการส่งเสริมการขาย",
+      "completedAt": "2026-01-26T08:14:24.288Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะมาตรฐานระดับมหาวิทยาลัย สามารถประเมินผ่านโครงการ/แผนการตลาด และเกี่ยวข้องกับการดึงลูกค้าเข้าสู่ร้าน"
+      }
+    },
+    {
+      "hash": "5ae33a9b4c693c96d3ba3c17ed47379b3958d3aef49f467ce2ce4c9fd6041175",
+      "queryLogId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c",
+      "question": "อยากเปิดร้านเหล้า",
+      "skill": "การจัดการการเงินและบัญชีสำหรับธุรกิจขนาดเล็ก",
+      "completedAt": "2026-01-26T08:14:24.288Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถทางการเงิน/บัญชีที่เป็นหลักสูตรมหาวิทยาลัยหรือวิชาชีพ ประเมินได้และจำเป็นสำหรับการดำเนินร้าน"
+      }
+    },
+    {
+      "hash": "3e91d80a3128251c410fc6c8a3ec3d0bab9e9d36c1264629a7e6e66f432f0409",
+      "queryLogId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c",
+      "question": "อยากเปิดร้านเหล้า",
+      "skill": "การบริการลูกค้าและการสื่อสาร",
+      "completedAt": "2026-01-26T08:14:24.288Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงสังคมวิชาชีพที่สอนและประเมินได้ในบริบทบริการ ซึ่งสำคัญต่อการดำเนินร้านเหล้า"
+      }
+    },
+    {
+      "hash": "4acd906452a1589b1848420006844fc801d4bd38291127d1f1dde9a3f681bb9e",
+      "queryLogId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c",
+      "question": "อยากเปิดร้านเหล้า",
+      "skill": "การจัดการทรัพยากรมนุษย์",
+      "completedAt": "2026-01-26T08:14:24.288Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะการจัดการบุคคลที่มีในหลักสูตรมหาวิทยาลัย สามารถประเมินได้และเกี่ยวข้องกับการบริหารพนักงานร้าน"
+      }
+    },
+    {
+      "hash": "e076575759055b0d1563351b19db2691bcbefe9c2272aacf199d8501cb75fd98",
+      "queryLogId": "75dd76dc-b23f-4728-b9a4-09621f52a26b",
+      "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+      "skill": "วิศวกรรมปิโตรเลียม",
+      "completedAt": "2026-01-26T08:14:38.053Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ตรงกับแนวคิดหลักของคำถาม เป็นสาขาวิชาระดับมหาวิทยาลัยที่สามารถสอนและประเมินได้"
+      }
+    },
+    {
+      "hash": "9368e4ef42453a9002fd862d9d9f0563e431878f8ac370c2a2d172a0db57722a",
+      "queryLogId": "75dd76dc-b23f-4728-b9a4-09621f52a26b",
+      "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+      "skill": "เทคโนโลยีการขุดเจาะน้ำมันและก๊าซ",
+      "completedAt": "2026-01-26T08:14:38.053Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะทางเทคนิคเชิงวิศวกรรมที่เป็นเนื้อหาหลักในหลักสูตรปิโตรเลียม เรียนและประเมินได้"
+      }
+    },
+    {
+      "hash": "7dfe14f6df716c9a363a4b69907d626cf90b9d6c426fb56f4f56d2a233be1e01",
+      "queryLogId": "75dd76dc-b23f-4728-b9a4-09621f52a26b",
+      "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+      "skill": "การวิเคราะห์และประเมินแหล่งพลังงาน",
+      "completedAt": "2026-01-26T08:14:38.053Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถเชิงวิเคราะห์ที่เป็นผลลัพธ์การเรียนรู้ในหลักสูตรการประเมินแหล่งพลังงาน"
+      }
+    },
+    {
+      "hash": "b86a99f02782d917c7f735bf2092bc6e7efab0904904f9d6a9478e736871ee01",
+      "queryLogId": "75dd76dc-b23f-4728-b9a4-09621f52a26b",
+      "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+      "skill": "ความรู้ด้านวิทยาศาสตร์พื้นฐาน เช่น ฟิสิกส์และเคมี",
+      "completedAt": "2026-01-26T08:14:38.053Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความรู้พื้นฐานที่จำเป็นต่อการเรียนวิศวกรรม เป็นขอบข่ายวิชาการที่สอนและประเมินได้"
+      }
+    },
+    {
+      "hash": "c828712a551430f49467cebdfd852b7b80bc0685d0ed4284738912260c013111",
+      "queryLogId": "75dd76dc-b23f-4728-b9a4-09621f52a26b",
+      "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+      "skill": "ทักษะภาษาอังกฤษทางวิชาการ",
+      "completedAt": "2026-01-26T08:14:38.053Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะรองที่จำเป็นสำหรับการเรียนในต่างประเทศและประเมินได้ผ่านการสอบหรือผลงาน"
+      }
+    },
+    {
+      "hash": "d926a8c79bc146b2f4dc1cece2508d8947dae56287ce69e0c13c7dfe3af3cde7",
+      "queryLogId": "75dd76dc-b23f-4728-b9a4-09621f52a26b",
+      "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+      "skill": "การจัดการโครงการและความปลอดภัยในงานวิศวกรรม",
+      "completedAt": "2026-01-26T08:14:38.053Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "เนื้อหาหลักสูตรที่เกี่ยวกับการบริหารโครงการและความปลอดภัย เป็นทักษะเชิงวิชาการและวิชาชีพ"
+      }
+    },
+    {
+      "hash": "90293c1ab8295de1283ca475c8f0c9e3b3cc1c92c7bfe47f852d6ceb2b1a239d",
+      "queryLogId": "fa617f52-c86b-4b8c-976b-bfdb073f1070",
+      "question": "อยากเรียนภาษาบาลี",
+      "skill": "ภาษาบาลี",
+      "completedAt": "2026-01-26T08:14:59.041Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ความสามารถด้านภาษาโดยตรง ตรงกับความต้องการของผู้ใช้ และเป็นหัวข้อระดับมหาวิทยาลัยที่สอนและประเมินผลได้"
+      }
+    },
+    {
+      "hash": "b6e06ede24750da3bccaeadaed7b4ce0cf217ab38186893e23d2d70ded71535f",
+      "queryLogId": "fa617f52-c86b-4b8c-976b-bfdb073f1070",
+      "question": "อยากเรียนภาษาบาลี",
+      "skill": "ไวยากรณ์ภาษาบาลี",
+      "completedAt": "2026-01-26T08:14:59.041Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเชิงวิชาการเกี่ยวกับโครงสร้างภาษา สามารถสอนเป็นรายวิชาและประเมินได้"
+      }
+    },
+    {
+      "hash": "90936bae65b079bc1564b2473eeb99182034d5847811e6c4e1fc5e35e357572d",
+      "queryLogId": "fa617f52-c86b-4b8c-976b-bfdb073f1070",
+      "question": "อยากเรียนภาษาบาลี",
+      "skill": "การอ่านและแปลภาษาบาลี",
+      "completedAt": "2026-01-26T08:14:59.041Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะปฏิบัติด้านการอ่านและแปล เหมาะกับแบบฝึกหัด งานแปล และการสอบ"
+      }
+    },
+    {
+      "hash": "29eae6739a98257cbb740f6a62ecf018953d96e9846f05c1ec053179dd650ca0",
+      "queryLogId": "fa617f52-c86b-4b8c-976b-bfdb073f1070",
+      "question": "อยากเรียนภาษาบาลี",
+      "skill": "วรรณคดีและวัฒนธรรมบาลี",
+      "completedAt": "2026-01-26T08:14:59.041Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "การศึกษาวรรณคดีและบริบททางวัฒนธรรม เป็นเนื้อหาระดับมหาวิทยาลัยที่เกี่ยวข้องกับการเรียนภาษา"
+      }
+    },
+    {
+      "hash": "9d8da882cdae7cf80c58dc643d5b066b8e47f3ab2a852cbb4669a03f69816d1f",
+      "queryLogId": "fa617f52-c86b-4b8c-976b-bfdb073f1070",
+      "question": "อยากเรียนภาษาบาลี",
+      "skill": "ภาษาสันสกฤตเบื้องต้น",
+      "completedAt": "2026-01-26T08:14:59.041Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะเสริมหรือเปรียบเทียบที่เกี่ยวข้องกับการศึกษาบาลี (รากศัพท์/โครงสร้าง) และสอนเป็นหลักสูตรได้"
+      }
+    },
+    {
+      "hash": "ff65a95b182d33dd9e073eb4ad115b220f98af45e3b093d5629c19df256a47b3",
+      "queryLogId": "fa617f52-c86b-4b8c-976b-bfdb073f1070",
+      "question": "อยากเรียนภาษาบาลี",
+      "skill": "การใช้พจนานุกรมภาษาบาลี",
+      "completedAt": "2026-01-26T08:14:59.041Z",
+      "result": {
+        "verdict": "PASS",
+        "note": "ทักษะปฏิบัติด้านการค้นหาและใช้ศัพท์ เป็นทักษะที่สอนและประเมินผ่านงานปฏิบัติได้ (ไม่ใช่ขั้นตอนเล็กน้อย)"
+      }
+    }
+  ],
+  "lastUpdated": "2026-01-26T08:14:59.041Z",
+  "statistics": {
+    "totalItems": 148,
+    "completedItems": 148,
+    "pendingItems": 0,
+    "completionPercentage": 100
+  }
+}

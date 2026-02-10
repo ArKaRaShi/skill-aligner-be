@@ -1,0 +1,174 @@
+{
+  "questionIds": [
+    "75dd76dc-b23f-4728-b9a4-09621f52a26b-ทักษะภาษาอังกฤษทางวิชาการ"
+  ],
+  "skill": "ทักษะภาษาอังกฤษทางวิชาการ",
+  "retrievedCount": 15,
+  "evaluations": [
+    {
+      "subjectCode": "01355111-68",
+      "subjectName": "ทักษะการฟังและการพูดภาษาอังกฤษ",
+      "relevanceScore": 1,
+      "reason": "Course focuses on general English listening and speaking skills, not specifically academic English skills."
+    },
+    {
+      "subjectCode": "02741597-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Course includes presenting academic work in English, relevant to academic English skills but within environmental science context."
+    },
+    {
+      "subjectCode": "04403697-67",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Course involves academic communication and presentation skills in English, relevant but not comprehensive on academic English language skills."
+    },
+    {
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "relevanceScore": 1,
+      "reason": "Mentions communication skills including language, but not specifically academic English skills."
+    },
+    {
+      "subjectCode": "01420454-66",
+      "subjectName": "พลังงานแสงอาทิตย์",
+      "relevanceScore": 1,
+      "reason": "Includes ability to present academic work in English, but focus is on solar energy content, so academic English is a minor component."
+    },
+    {
+      "subjectCode": "01355131-63",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษเบื้องต้น",
+      "relevanceScore": 3,
+      "reason": "Course explicitly covers comprehensive academic English skills including reading, writing, listening, speaking, translation, analysis, and presentation at a high proficiency level."
+    },
+    {
+      "subjectCode": "01355390-63",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 3,
+      "reason": "Same detailed academic English skills as previous course, indicating comprehensive coverage of academic English skills."
+    },
+    {
+      "subjectCode": "01442697-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Includes presenting research in English and using IT for research, relevant to academic English skills but within nanomaterials context."
+    },
+    {
+      "subjectCode": "01055597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Focuses on preparing and presenting academic research in English, relevant to academic English skills but specialized in research presentation."
+    },
+    {
+      "subjectCode": "02163322-67",
+      "subjectName": "ภาษาศาสตร์ประยุกต์สำหรับครู",
+      "relevanceScore": 1,
+      "reason": "Focuses on applied linguistics for teachers, including analysis of language use, but not directly on academic English skills."
+    },
+    {
+      "subjectCode": "01055591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีอุตสาหกรรมและการจัดการสินค้าสิ่งทอ",
+      "relevanceScore": 1,
+      "reason": "Includes writing and presenting research projects, but focus is on research methodology and industrial technology, so academic English is a minor component."
+    },
+    {
+      "subjectCode": "03754271-67",
+      "subjectName": "ภาษาอังกฤษเพื่องานอาชีพ",
+      "relevanceScore": 1,
+      "reason": "Focuses on English for professional work with vocabulary and phrases, marginally relevant to academic English skills."
+    },
+    {
+      "subjectCode": "01306313-67",
+      "subjectName": "วนวัฒนวิทยาใกล้ธรรมชาติ",
+      "relevanceScore": 1,
+      "reason": "Includes presenting in English related to forestry, but academic English skills are a minor part."
+    },
+    {
+      "subjectCode": "06903391-66",
+      "subjectName": "ทักษะภาษาอังกฤษทางการท่องเที่ยวเชิงสุขภาพ",
+      "relevanceScore": 1,
+      "reason": "Focuses on English skills for health tourism, including academic report writing, marginally relevant to academic English skills."
+    },
+    {
+      "subjectCode": "01605697-67",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 2,
+      "reason": "Includes searching and presenting academic research, relevant to academic English skills but limited scope."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 15,
+    "meanRelevanceScore": 1.6,
+    "totalRelevanceSum": 24,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 8,
+        "macroAverageRate": 53.333333333333336,
+        "microAverageRate": 53.333333333333336,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 13.333333333333334,
+        "microAverageRate": 13.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.542,
+        "at10": 0.782,
+        "at15": 0.83,
+        "atAll": 0.83
+      },
+      "ideal": {
+        "at5": 0.461,
+        "at10": 0.563,
+        "at15": 0.525,
+        "atAll": 0.525
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.6,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.467,
+        "threshold3": 0.133
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.467,
+        "threshold3": 0.133
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 4361,
+  "outputTokens": 539
+}

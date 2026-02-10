@@ -1,0 +1,299 @@
+{
+  "testSetName": "test-set-answer-synthesis-eval-26",
+  "iterationNumber": 1,
+  "entries": [
+    {
+      "hash": "e767a72bdcf64a49f18da5a1d6d306f9ea1fe7283a9d58aedc4618fda640dbd7",
+      "queryLogId": "27553284-019f-4c31-8dbe-b1bfbb5cb4d5",
+      "question": "มีวิชาสอนการบริหารเงินตัวเองไหม",
+      "completedAt": "2026-01-26T15:08:00.557Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "944930a46db3daa893f439b142cce6e3ecbe4f31f0fa3fc5148885ffa287e410",
+      "queryLogId": "a7728000-0818-42b5-a49f-c89f4ee59ab5",
+      "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+      "completedAt": "2026-01-26T15:08:01.682Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "c16e0976ba932807f4d3e2ac8aa4b9ebf6db20def9bfc5068495b8422ed16d9f",
+      "queryLogId": "a5b1ad24-9995-4257-a50d-0d8e7931fbbf",
+      "question": "อยากพัฒนาทักษะการวิเคราะห์งบการเงิน",
+      "completedAt": "2026-01-26T15:08:06.479Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "d5bea8f98a26034bfd89508df13ca42e2ea454ee5534fdf87a7dda763de70b20",
+      "queryLogId": "cd96176f-8e18-4270-9c76-8c6b1cf19594",
+      "question": "มีวิชาเกี่ยวกับ OOP บ้างไหม",
+      "completedAt": "2026-01-26T15:08:00.896Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "3b0c2927c895a54f68947eff21ea3eaa05c83a6a4286d64e8cc08e777b4d6797",
+      "queryLogId": "b41c15f8-2249-4469-9981-71cc1c75b2b4",
+      "question": "การจัดงานอีเว้นตต้องเรียนอะไรบ้าง",
+      "completedAt": "2026-01-26T15:08:20.286Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "ec34fce2c4fa3855f8b5e8d491d4a50c4e6b9aa72802293d79110f4cd40f7e4d",
+      "queryLogId": "dd9ce8ba-20e8-4d4d-b92b-574da63f242b",
+      "question": "การจะทำอาหารไทยได้ ต้องเรียนรู้อะไรบ้าง",
+      "completedAt": "2026-01-26T15:08:23.731Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "479b407b29fd702b55629012b99ca1c7c8cc243fcd80292b744f2a7fb574e411",
+      "queryLogId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4",
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "completedAt": "2026-01-26T15:08:27.761Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "3c111f24fd9223e748d1b6964bdf63f1476896d77cd832ffff7303baa66ff757",
+      "queryLogId": "4ec5b89c-e5c8-46dd-b9cb-628c749cead6",
+      "question": "tiktoker ต้องเรียนอะไรบ้าง",
+      "completedAt": "2026-01-26T15:08:27.876Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "a2342e531968f0ba5242b3bed9a51be6b37a7f82ffc227de075c8c5378ece15c",
+      "queryLogId": "01c601d2-5583-4413-a5c6-5f463efd897c",
+      "question": "อยากพัฒนาตัวเองให้ทำงานสายเทคโนโลยีได้",
+      "completedAt": "2026-01-26T15:08:50.798Z",
+      "result": {
+        "faithfulnessScore": 3,
+        "completenessScore": 5,
+        "passed": false
+      }
+    },
+    {
+      "hash": "b8711b3aca4dbce822954cf9c04d86b72f8c9e30ff680a8ec03a7d1428b4cd6f",
+      "queryLogId": "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370",
+      "question": "อยากใช้เครื่องมือช่วยคิด ช่วยตัดสินใจในชีวิตประจำวัน มีวิชาแนะนำบ้างมั้ย",
+      "completedAt": "2026-01-26T15:08:45.213Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "5700858b7eea90ad429983c67a4dc7888aae04c43863874cdd9ffca665858716",
+      "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "completedAt": "2026-01-26T15:08:52.702Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "aa8db66b5db9f259c69a8944c703fb2fae4a0348a2722b80cb81daa5e029dba6",
+      "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "completedAt": "2026-01-26T15:08:50.038Z",
+      "result": {
+        "faithfulnessScore": 4,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "b5279d5169ae109bc19fb93c4acfa6ee4ca225b4ff781f757cee1abc6c5814f4",
+      "queryLogId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746",
+      "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+      "completedAt": "2026-01-26T15:09:15.837Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "7f826cf4fddb7d8e632e58640855d1e752f5cd10deedc92b64d3bb525060c64c",
+      "queryLogId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3",
+      "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+      "completedAt": "2026-01-26T15:09:21.800Z",
+      "result": {
+        "faithfulnessScore": 4,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "0d8b6a1071e5b66ac98ded336e5dcf459776ae95a3a783efb7bf31a9edecd31c",
+      "queryLogId": "909fa76b-d7a7-41a2-bb83-f67f1eb7c9da",
+      "question": "อยากเอา AI มาประยุกต์ใช้ในการวิเคราะห์รายงานทางการเงิน มีวิชาแนะนำไหม",
+      "completedAt": "2026-01-26T15:09:06.241Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "5e456e791783beb84f133afa15957b90f50b0aa9c250d8a149a62d8f938cfa60",
+      "queryLogId": "654330a8-2559-4273-abb4-36db7f0b31e1",
+      "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+      "completedAt": "2026-01-26T15:09:17.690Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "9bbb4e6a1965edafcc94126aa1ecac0c2a57c27b56d37dafa1453a54aa8f1369",
+      "queryLogId": "a945dd26-d7d4-49a4-ab23-57f3f954c8a0",
+      "question": "อยากทำงานที่ผสมเทคโนโลยีกับความคิดสร้างสรรค์ แต่ไม่อยากเขียนโค้ดเยอะ ควรเรียนอะไรดี",
+      "completedAt": "2026-01-26T15:10:16.693Z",
+      "result": {
+        "faithfulnessScore": 4,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "53327be80944b61c87d5d0f089394708fbc61e7a734196121bec614ce3849e91",
+      "queryLogId": "97b42158-60af-46d3-aa60-049d1243d2ee",
+      "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+      "completedAt": "2026-01-26T15:09:43.011Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "c6e23b4306c006e170d3a1bae8a128d2bde80a1d43c359e4d70059d353588899",
+      "queryLogId": "1e7e132d-31b7-49fe-91dc-c2e0358a1b24",
+      "question": "อยากมีทักษะความเป็นผู้นำ มีวิชาสอนบ้างไหม",
+      "completedAt": "2026-01-26T15:09:37.484Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "5017e0a66f0310fc4421b648816a0d28d7e4857036715c0cf52caec5419233c3",
+      "queryLogId": "3ef3d308-ac42-453e-bce7-bb7376046c41",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "completedAt": "2026-01-26T15:09:34.087Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "c334789481bdf8db39f45bca41d333ac4c537e2bf881c79636d597e5106fda4c",
+      "queryLogId": "00e399aa-cf3c-472b-b5be-9a6e86e10637",
+      "question": "แม่บอกให้เป็นทนาย ทำไงดี",
+      "completedAt": "2026-01-26T15:10:37.057Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "2bb41217df10ba305979cd27d19e1ee1745cd76c2342d8cceaea636dbedc3ccd",
+      "queryLogId": "b3460fa2-c348-4748-b583-4b042886e0ca",
+      "question": "อยากประกอบคอมพิวเตอร์เป็น มีวิชาแนะนำไหม",
+      "completedAt": "2026-01-26T15:10:40.989Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "f1cd00161ab0c003444d4d5d78e4260db8684ad0a4ef62d9d077433c01b628b2",
+      "queryLogId": "acd5b76f-8185-4b10-bb37-bde0ac14c51a",
+      "question": "อยากทำธุรกิจเกี่ยวกับปศุสัตว์",
+      "completedAt": "2026-01-26T15:10:41.379Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "9ac86bd2164f17eef6d8c8f68c9d4f61da4e7ea1ae29c79f6cf158ea88b14418",
+      "queryLogId": "adc6cdc0-e0f6-4006-849b-1d06dff5368c",
+      "question": "อยากเปิดร้านเหล้า",
+      "completedAt": "2026-01-26T15:10:45.390Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "10502743b703b94c65e3a73a71045a588d75edf85c4b58b4228b2e116984a76b",
+      "queryLogId": "75dd76dc-b23f-4728-b9a4-09621f52a26b",
+      "question": "อยากเรียนวิศวปิโตเลียมที่ต่างประเทศ",
+      "completedAt": "2026-01-26T15:11:21.699Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    },
+    {
+      "hash": "6f8b97279e8660fd33b20496fe0d19cb79ee9822cb0ddcf10392dda81cad20ae",
+      "queryLogId": "fa617f52-c86b-4b8c-976b-bfdb073f1070",
+      "question": "อยากเรียนภาษาบาลี",
+      "completedAt": "2026-01-26T15:11:04.037Z",
+      "result": {
+        "faithfulnessScore": 5,
+        "completenessScore": 5,
+        "passed": true
+      }
+    }
+  ],
+  "lastUpdated": "2026-01-26T15:11:21.699Z",
+  "statistics": {
+    "totalQuestions": 26,
+    "completedQuestions": 26,
+    "pendingQuestions": 0,
+    "completionPercentage": 100
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "fa617f52-c86b-4b8c-976b-bfdb073f1070-ภาษาสันสกฤตเบื้องต้น"
+  ],
+  "skill": "ภาษาสันสกฤตเบื้องต้น",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Course is about Chinese business language, not Sanskrit."
+    },
+    {
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Course focuses on basic English listening and speaking, not Sanskrit."
+    },
+    {
+      "subjectCode": "04351113-68",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษระดับต้น",
+      "relevanceScore": 0,
+      "reason": "Course is about English grammar, not Sanskrit."
+    },
+    {
+      "subjectCode": "01396141-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Course is about Chinese business conversation, not Sanskrit."
+    },
+    {
+      "subjectCode": "02702131-68",
+      "subjectName": "โครงสร้างภาษาอังกฤษ I",
+      "relevanceScore": 0,
+      "reason": "Course is about English sentence structure, not Sanskrit."
+    },
+    {
+      "subjectCode": "04351131-68",
+      "subjectName": "การเขียนย่อหน้าภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "Course is about English paragraph writing, not Sanskrit."
+    },
+    {
+      "subjectCode": "03754231-67",
+      "subjectName": "การอ่านภาษาอังกฤษในชีวิตประจำวัน",
+      "relevanceScore": 0,
+      "reason": "Course is about English reading skills, not Sanskrit."
+    },
+    {
+      "subjectCode": "01362573-66",
+      "subjectName": "สัทวิทยาภาษาจีนโบราณ",
+      "relevanceScore": 0,
+      "reason": "Course is about Old Chinese phonology, not Sanskrit."
+    },
+    {
+      "subjectCode": "01420463-66",
+      "subjectName": "ฟิสิกส์ของดาว",
+      "relevanceScore": 0,
+      "reason": "Course is about astrophysics, not Sanskrit."
+    },
+    {
+      "subjectCode": "01362112-63",
+      "subjectName": "ภาษาจีนพื้นฐาน II",
+      "relevanceScore": 0,
+      "reason": "Course is about advanced Chinese, not Sanskrit."
+    },
+    {
+      "subjectCode": "03754221-67",
+      "subjectName": "การออกเสียงภาษาอังกฤษขั้นพื้นฐาน",
+      "relevanceScore": 0,
+      "reason": "Course is about English pronunciation, not Sanskrit."
+    },
+    {
+      "subjectCode": "01396222-67",
+      "subjectName": "การอ่านภาษาจีนเพื่องานอาชีพ II",
+      "relevanceScore": 0,
+      "reason": "Course is about Chinese for professional purposes, not Sanskrit."
+    },
+    {
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Course is about communication for teachers, not Sanskrit."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 13,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2180,
+  "outputTokens": 492
+}

@@ -1,0 +1,24 @@
+{
+  "testSetName": "test-set-answer-synthesis-malform",
+  "iterationNumber": 1,
+  "entries": [
+    {
+      "hash": "c1a8c3d3356205ad6aa7f133869fba282f30341e3211dd6f84e6395342c929a5",
+      "queryLogId": "fbf0dcb4-caa9-4c3e-9d1e-0334f802b2f9",
+      "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+      "completedAt": "2026-01-28T15:55:46.987Z",
+      "result": {
+        "faithfulnessScore": 3,
+        "completenessScore": 5,
+        "passed": false
+      }
+    }
+  ],
+  "lastUpdated": "2026-01-28T15:55:46.987Z",
+  "statistics": {
+    "totalQuestions": 1,
+    "completedQuestions": 1,
+    "pendingQuestions": 0,
+    "completionPercentage": 100
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "testCaseId": "fd7678cc-6adb-4868-95e7-4ac339ea04c3-การใช้ฐานข้อมูลและการจัดการข้อมูล",
+  "question": "อยากลองทำ web app หรือ mobile app มีวิชาแนะนำไหม",
+  "skill": "การใช้ฐานข้อมูลและการจัดการข้อมูล",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 3,
+      "reason": "Course focuses on database design, management, and querying, directly covering the skill of using and managing databases."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "Course includes data import and management as part of data visualization for business, covering data management as a component."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 2,
+      "reason": "Course covers data management and analysis effectively, relevant to data handling though not solely focused on database management."
+    },
+    {
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "relevanceScore": 3,
+      "reason": "Course is about database systems, including database structure, SQL querying, transaction management, and database design, fully covering the skill."
+    },
+    {
+      "subjectCode": "01137522-68",
+      "subjectName": "การบัญชีบริหารเชิงกลยุทธ์",
+      "relevanceScore": 1,
+      "reason": "Course mentions use of information technology for strategic management but does not focus on database or data management."
+    },
+    {
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "relevanceScore": 2,
+      "reason": "Course covers data warehousing and business intelligence systems, including data modeling and analysis, relevant to data management as part of larger systems."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers big data management and tools, relevant to managing large-scale data but not traditional database management."
+    },
+    {
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "relevanceScore": 1,
+      "reason": "Course involves data management in experimental design and statistical analysis, but data management is not a main focus."
+    },
+    {
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "relevanceScore": 0,
+      "reason": "Course is about pigments in art and chemistry, unrelated to database or data management."
+    },
+    {
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "relevanceScore": 0,
+      "reason": "Course covers chemistry in modern life, unrelated to database or data management."
+    },
+    {
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "relevanceScore": 3,
+      "reason": "Course covers database systems and applications, including analysis, design, and creation of relational databases, directly relevant."
+    },
+    {
+      "subjectCode": "01403291-65",
+      "subjectName": "วรรณกรรมและสารสนเทศทางเคมี",
+      "relevanceScore": 1,
+      "reason": "Course includes skills in searching and selecting appropriate databases for chemical information, but not database management itself."
+    },
+    {
+      "subjectCode": "02537599-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Course involves use of IT for information retrieval and presentation in research, but not focused on database or data management."
+    },
+    {
+      "subjectCode": "04256347-66",
+      "subjectName": "การประมวลผลข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers big data processing and management, relevant to data management though focused on large-scale data."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.6428571428571428,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 5,
+        "macroAverageRate": 35.714285714285715,
+        "microAverageRate": 35.714285714285715,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.865,
+        "at10": 0.812,
+        "at15": 0.941,
+        "atAll": 0.941
+      },
+      "ideal": {
+        "at5": 0.785,
+        "at10": 0.633,
+        "at15": 0.598,
+        "atAll": 0.625
+      }
+    },
+    "precision": {
+      "at5": 0.8,
+      "at10": 0.6,
+      "at15": 0.571,
+      "atAll": 0.571
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2803,
+  "outputTokens": 500
+}

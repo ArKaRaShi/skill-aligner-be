@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "bb7d4d89-d4e7-4bb1-b04e-ddd694ba3370-การจัดการความเสี่ยง"
+  ],
+  "skill": "การจัดการความเสี่ยง",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "relevanceScore": 2,
+      "reason": "The course includes managing risks as part of internal control and audit, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "03764426-64",
+      "subjectName": "การจัดการความเสี่ยงโซ่อุปทาน",
+      "relevanceScore": 3,
+      "reason": "The course specifically focuses on supply chain risk management, making it highly relevant."
+    },
+    {
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "relevanceScore": 2,
+      "reason": "Risk assessment in industrial safety is covered, but as part of safety principles, not solely risk management."
+    },
+    {
+      "subjectCode": "01442515-68",
+      "subjectName": "ความปลอดภัยเชิงปฏิบัติการ",
+      "relevanceScore": 2,
+      "reason": "Operational safety includes risk assessment, but it is one aspect of broader safety practices."
+    },
+    {
+      "subjectCode": "03651436-65",
+      "subjectName": "ตัวแบบคณิตศาสตร์ประกันภัย",
+      "relevanceScore": 1,
+      "reason": "Mathematical insurance models involve risk calculation but are not primarily about risk management."
+    },
+    {
+      "subjectCode": "03651232-65",
+      "subjectName": "คณิตศาสตร์ประกันภัยและการบริหารความเสี่ยง",
+      "relevanceScore": 2,
+      "reason": "Insurance and risk analysis are discussed, but as part of insurance principles, not dedicated risk management."
+    },
+    {
+      "subjectCode": "03652143-66",
+      "subjectName": "ความปลอดภัยทางเคมีและการจัดการของเสียทางเคมี",
+      "relevanceScore": 2,
+      "reason": "Chemical safety and hazard management include risk assessment, but within safety context."
+    },
+    {
+      "subjectCode": "04256212-66",
+      "subjectName": "ความรู้ทั่วไปเกี่ยวกับการประกันภัย",
+      "relevanceScore": 1,
+      "reason": "General insurance knowledge involves understanding risks but not focused on risk management techniques."
+    },
+    {
+      "subjectCode": "04401463-65",
+      "subjectName": "สวัสดิศึกษา",
+      "relevanceScore": 1,
+      "reason": "Welfare education covers safety awareness but not specifically risk management."
+    },
+    {
+      "subjectCode": "02741542-65",
+      "subjectName": "หลักการจัดการสิ่งแวดล้อม",
+      "relevanceScore": 2,
+      "reason": "Environmental management includes risk considerations but as part of broader environmental practices."
+    },
+    {
+      "subjectCode": "03760441-64",
+      "subjectName": "การให้บริการความเชื่อมั่นเชิงวิชาชีพ",
+      "relevanceScore": 1,
+      "reason": "Professional assurance services involve risk assessment but are not centered on risk management."
+    },
+    {
+      "subjectCode": "01456355-64",
+      "subjectName": "การจัดการด้านความปลอดภัย",
+      "relevanceScore": 2,
+      "reason": "Security management includes risk considerations as part of security practices."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 1,
+      "reason": "Profit planning and control involve financial risks but are not primarily about risk management."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.6923076923076923,
+    "totalRelevanceSum": 22,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 5,
+        "macroAverageRate": 38.46153846153846,
+        "microAverageRate": 38.46153846153846,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 53.84615384615385,
+        "microAverageRate": 53.84615384615385,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.89,
+        "at10": 0.918,
+        "at15": 0.95,
+        "atAll": 0.95
+      },
+      "ideal": {
+        "at5": 0.694,
+        "at10": 0.639,
+        "at15": 0.557,
+        "atAll": 0.61
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.7,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.615,
+        "threshold3": 0.077
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.615,
+        "threshold3": 0.077
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2852,
+  "outputTokens": 479
+}

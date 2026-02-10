@@ -1,0 +1,2385 @@
+{
+  "queryLogId": "be573eca-6596-418a-888d-f4f0c0d5651d",
+  "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+  "courses": [
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา",
+        "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม",
+        "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "49db0e6b-22f5-4b7f-8d86-44905f491ceb",
+              "name": "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม"
+            }
+          ]
+        },
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "49db0e6b-22f5-4b7f-8d86-44905f491ceb",
+              "name": "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม"
+            },
+            {
+              "id": "f3eab2f8-a240-475f-a927-1b68411d09ca",
+              "name": "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "49db0e6b-22f5-4b7f-8d86-44905f491ceb",
+              "name": "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม"
+            },
+            {
+              "id": "f3eab2f8-a240-475f-a927-1b68411d09ca",
+              "name": "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Explicitly includes understanding and designing data structures and algorithms, directly relevant to solving LeetCode problems."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers problem-solving with programming, data structures, and algorithms, directly relevant to improving Leetcode skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01204512-66",
+      "subjectName": "การออกแบบและการวิเคราะห์ขั้นตอนวิธีคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถวิเคราะห์อัลกอริทึมพื้นฐานได้ ทั้งในด้านความซับซ้อนเชิงเวลา และความถูกต้องของอัลกอริทึม",
+        "สามารถออกแบบอัลกอริทึมที่มีความถูกต้องและมีประสิทธิภาพที่เหมาะสมได้",
+        "สามารถประยุกต์ใช้งานอัลกอริทึมกับปัญหาในชีวิตจริงและปัญหาในงานวิจัยทางสาขาวิศวกรรมคอมพิวเตอร์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "c1b324e8-8e43-401d-b654-8242071f9a9f",
+              "name": "สามารถวิเคราะห์อัลกอริทึมพื้นฐานได้ ทั้งในด้านความซับซ้อนเชิงเวลา และความถูกต้องของอัลกอริทึม"
+            },
+            {
+              "id": "ea1ba5d6-f6a7-437a-a80d-e3a679b541c4",
+              "name": "สามารถออกแบบอัลกอริทึมที่มีความถูกต้องและมีประสิทธิภาพที่เหมาะสมได้"
+            },
+            {
+              "id": "f0ee3a2d-7bd7-43d9-b005-ba93f0bada20",
+              "name": "สามารถประยุกต์ใช้งานอัลกอริทึมกับปัญหาในชีวิตจริงและปัญหาในงานวิจัยทางสาขาวิศวกรรมคอมพิวเตอร์"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c1b324e8-8e43-401d-b654-8242071f9a9f",
+              "name": "สามารถวิเคราะห์อัลกอริทึมพื้นฐานได้ ทั้งในด้านความซับซ้อนเชิงเวลา และความถูกต้องของอัลกอริทึม"
+            },
+            {
+              "id": "ea1ba5d6-f6a7-437a-a80d-e3a679b541c4",
+              "name": "สามารถออกแบบอัลกอริทึมที่มีความถูกต้องและมีประสิทธิภาพที่เหมาะสมได้"
+            },
+            {
+              "id": "f0ee3a2d-7bd7-43d9-b005-ba93f0bada20",
+              "name": "สามารถประยุกต์ใช้งานอัลกอริทึมกับปัญหาในชีวิตจริงและปัญหาในงานวิจัยทางสาขาวิศวกรรมคอมพิวเตอร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches the analysis and design of algorithms, directly relevant to mastering LeetCode problem solving."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on algorithm design and analysis, essential for solving complex Leetcode problems efficiently."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง",
+        "วิเคราะห์ปัญหาง่าย ๆ และออกแบบอัลกอริทึมเพื่อแก้ปัญหาด้วยแนวคิดเชิงตรรกะและโครงสร้างควบคุมในโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3cd2bae5-9525-42d2-bc93-51bcd714fc2f",
+              "name": "วิเคราะห์ปัญหาง่าย ๆ และออกแบบอัลกอริทึมเพื่อแก้ปัญหาด้วยแนวคิดเชิงตรรกะและโครงสร้างควบคุมในโปรแกรมได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "8db17ee0-21b4-47c6-89fe-33fb1601548e",
+              "name": "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "8db17ee0-21b4-47c6-89fe-33fb1601548e",
+              "name": "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3cd2bae5-9525-42d2-bc93-51bcd714fc2f",
+              "name": "วิเคราะห์ปัญหาง่าย ๆ และออกแบบอัลกอริทึมเพื่อแก้ปัญหาด้วยแนวคิดเชิงตรรกะและโครงสร้างควบคุมในโปรแกรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on structured programming principles, essential for solving algorithmic problems on Leetcode."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches structured programming and basic algorithm design, foundational for coding problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "04252535-67",
+      "subjectName": "วิศวกรรมข้อมูลขนาดใหญ่",
+      "outcomes": [
+        "สามารถเลือกใช้โครงสร้างข้อมูลขนาดใหญ่ได้",
+        "สามารถใช้เครื่องมือในการวิเคราะห์ข้อมูลขนาดใหญ่ได้",
+        "สามารถประมวลผลข้อมูลขนาดใหญ่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "02b21c6c-8736-438d-a00f-3d8aacec04f1",
+              "name": "สามารถเลือกใช้โครงสร้างข้อมูลขนาดใหญ่ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers large data structures and analysis tools, which are foundational for understanding data structures used in coding challenges."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on big data engineering, which is not directly relevant to algorithmic problem solving on Leetcode."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "outcomes": [
+        "อธิบายภาพรวมและหลักการพื้นฐานของวิทยาการข้อมูลได้",
+        "แก้ปัญหาด้านวิทยาการข้อมูลเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a5acce29-a5be-4aa2-b483-86b9a53b4f77",
+              "name": "อธิบายภาพรวมและหลักการพื้นฐานของวิทยาการข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ce183532-a06f-4117-a50c-98208bb1456e",
+              "name": "แก้ปัญหาด้านวิทยาการข้อมูลเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Introduces data science principles and problem solving, useful for computational problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic data science course not directly related to algorithmic problem solving or coding challenges."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "จัดการและออกแบบฐานข้อมูลได้",
+        "วิเคราะห์ข้อมูลด้วยฟังก์ชันการคำนวณได้",
+        "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้",
+        "ประยุกต์การสอบถามข้อมูลในการทำงานด้านวิทยาการข้อมูลได้",
+        "สามารถแสดงออกถึงความซื่อสัตย์ และเคารพกฎระเบียบและจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9420d61d-b1b5-448b-9170-2bba3a5d45a6",
+              "name": "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers database querying and design, related to data organization but not directly teaching data structures for coding challenges."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Database querying skills are not directly useful for Leetcode algorithm problems."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01680131-66",
+      "subjectName": "แนวคิดคณิตศาสตร์เพื่อศาสตร์แห่งแผ่นดิน",
+      "outcomes": [
+        "อธิบายข้อมูลทางคณิตศาสตร์ในเชิง บูรณาการศาสตร์ได้",
+        "ประยุกต์ใช้ความรู้คณิตศาสตร์ในการแก้ปัญหาเชิงบูรณาการได้",
+        "นำเสนอโครงงานวิทยาศาสตร์ดเชิงบูรณาการได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "b04e64b1-809f-41fa-8dc3-bf2f1110a172",
+              "name": "ประยุกต์ใช้ความรู้คณิตศาสตร์ในการแก้ปัญหาเชิงบูรณาการได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "It covers mathematical concepts and their application to problem solving, which are foundational for computational problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematics for integrated sciences is too broad and not focused on algorithmic problem solving."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02714101-67",
+      "subjectName": "การคิดเชิงวิพากษ์และการแก้ปัญหา",
+      "outcomes": [
+        "อธิบายข้อเท็จจริงเพื่อสนับสนุนความคิดเห็นและการอ้างเหตุผลของตนเองได้",
+        "นำเสนอทางแก้ปัญหาโดยการใช้เหตุผลได้",
+        "ประเมิน ความเป็นเหตุผล ความคิดเห็นและแนวการอ้างเหตุผลของผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f5dc3b54-163a-4c39-970c-9a491b3f3961",
+              "name": "นำเสนอทางแก้ปัญหาโดยการใช้เหตุผลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "It teaches critical thinking and problem solving, which are essential skills for solving LeetCode problems."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Critical thinking and problem solving is general and not specifically focused on programming or algorithms."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03602422-65",
+      "subjectName": "การวิจัยการดำเนินงานภาคปฏิบัติ",
+      "outcomes": [
+        "สามารถแก้ไขปัญหาด้วยการสร้างแบบจำลองคณิตศาสตร์ที่เหมาะสม",
+        "สามารถวิเคราะห์ตัดสินใจเพื่อประเมินทางเลือกและการตัดสินใจอย่างมีเหตุผลในสถานการณ์ที่มีความไม่แน่นอน",
+        "สามารถเลือกใช้ซอฟท์แวร์สำหรับการตัดสินใจเพื่อหาคำตอบที่เหมาะที่สุดหรือคำตอบโดยประมาณ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "edb43964-b541-4d86-8cf1-1f73faeef931",
+              "name": "สามารถแก้ไขปัญหาด้วยการสร้างแบบจำลองคณิตศาสตร์ที่เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "It covers modeling, decision analysis, and software use for problem solving, relevant to computational problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Operations research modeling and decision making is not directly related to coding problem solving on Leetcode."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01101171-65",
+      "subjectName": "คณิตเศรษฐศาสตร์ I",
+      "outcomes": [
+        "เลือกใช้วิธีการที่เหมาะสมในการแก้ปัญหาระบบสมการเชิงเส้นได้",
+        "ใช้หลักการของแรงค์เพื่อตรวจสอบลักษณะเซตคำตอบของระบบสมการเชิงเส้นได้",
+        "ใช้การดำเนินการตามแถวเพื่อหาอินเวิร์สเมทริกซ์ได้",
+        "ใช้ดีเนอรมินันท์เพื่อจำแนกเมทริกซ์ที่มีอินเวิร์สกับไม่มีอินเวิร์สออกจากกันได้",
+        "ตรวจสอบความต่อเนื่องของฟังก์ชันที่พบในการเรียนทฤษฎีเศรษฐศาสตร์ได้",
+        "หาอนุพันธ์และปริพันธ์ของฟังก์ชันที่พบบ่อยในการเรียนทฤษฎีเศรษฐศาสตร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "312b0cb4-7dc7-4487-9c22-2952a8df6567",
+              "name": "เลือกใช้วิธีการที่เหมาะสมในการแก้ปัญหาระบบสมการเชิงเส้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers linear algebra and calculus concepts that underpin problem solving, relevant as foundational knowledge."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematical economics focuses on linear algebra and calculus in economics context, not directly relevant to Leetcode algorithms."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01304523-66",
+      "subjectName": "กำหนดการเชิงคณิตศาสตร์สำหรับการจัดการทรัพยากรป่าไม้",
+      "outcomes": [
+        "อธิบายหลักการ กระบวนการและบทบาทของกำหนดการเชิงคณิตศาสตร์ในการจัดการทรัพยากรป่าไม้",
+        "สามารถวิเคราะห์ปัญหาโดยอาศัยเทคนิคกำหนดการเชิงคณิตศาสตร์โดยเฉพาะกำหนดการเชิงเส้น (linear programming) และกำหนดการเชิงเป้าประสงค์(goal programming)"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "22b297e1-9b79-4a5e-87de-c11d71f61b28",
+              "name": "สามารถวิเคราะห์ปัญหาโดยอาศัยเทคนิคกำหนดการเชิงคณิตศาสตร์โดยเฉพาะกำหนดการเชิงเส้น (linear programming) และกำหนดการเชิงเป้าประสงค์(goal programming)"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers linear programming and optimization, relevant as foundational knowledge for problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on mathematical programming for forest resource management, unrelated to algorithmic problem solving on Leetcode."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้",
+        "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้",
+        "สามารถเขียนโปรแกรมแบบขับเคลื่อนด้วยเหตุการณ์ที่มีส่วนต่อประสานกราฟิกกับผู้ใช้ตามที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "90f6a86a-dd0e-421e-9699-1d91b4b14109",
+              "name": "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้"
+            },
+            {
+              "id": "ef13bdc3-24c4-42fd-84aa-f9edfe5f1610",
+              "name": "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ef13bdc3-24c4-42fd-84aa-f9edfe5f1610",
+              "name": "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches object-oriented programming principles and implementation, which are foundational for mastering advanced coding skills like solving complex LeetCode problems."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches object-oriented programming and event-driven programming, which are fundamental programming skills useful for solving Leetcode problems."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03607151-67",
+      "subjectName": "เปิดโลกวิทยาการหุ่นยนต์",
+      "outcomes": [
+        "สามารถจำแนกประเภทของหุ่นยนต์และยกตัวอย่างการใช้งานในอุตสาหกรรมได้",
+        "สามารถจำแนกส่วนประกอบพื้นฐานของหุ่นยนต์ตามหน้าที่ได้",
+        "สามารถเลือกใช้กลไกทางกลในการสร้างชิ้นงานอย่างง่ายได้",
+        "สามารถสร้างและเขียนโปรแกรมหุ่นยนต์อย่างง่ายให้ทำงานตามที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "0fc6c159-db67-4f2d-afd0-73b88ee13029",
+              "name": "สามารถสร้างและเขียนโปรแกรมหุ่นยนต์อย่างง่ายให้ทำงานตามที่กำหนดได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "0fc6c159-db67-4f2d-afd0-73b88ee13029",
+              "name": "สามารถสร้างและเขียนโปรแกรมหุ่นยนต์อย่างง่ายให้ทำงานตามที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes programming and robotics, providing foundational skills in programming logic relevant to Leetcode."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on robotics basics and simple robot programming, which is not directly relevant to algorithmic problem solving on Leetcode."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "04256111-66",
+      "subjectName": "คณิตศาสตร์สำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "ประยุกต์บทนิยามและทฤษฎีบท เกี่ยวกับ เซต ฟังก์ชัน  กราฟ การแปลงเชิงเส้น  ระบบสมการเชิงเส้น กับข้อมูลได้อย่างถูกต้อง",
+        "ประยุกต์ใช้โปรแกรมคอมพิวเตอร์ให้เหมาะสมกับ การแก้ปัญหาเกี่ยวกับระบบสมการเชิงเส้น",
+        "สามารถแสดงถึงการตั้งใจและเรียนรู้พัฒนาตนเอง ในการแก้โจทย์แบบฝึกหัดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e6d7f489-aa80-4040-b36b-6a7f284dc998",
+              "name": "ประยุกต์ใช้โปรแกรมคอมพิวเตอร์ให้เหมาะสมกับ การแก้ปัญหาเกี่ยวกับระบบสมการเชิงเส้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides mathematical foundations and problem-solving skills relevant for understanding algorithms and data structures used in LeetCode."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers mathematics relevant to data science including linear algebra and problem solving, providing foundational skills useful for algorithmic challenges."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02201131-66",
+      "subjectName": "การเขียนโปรแกรมและระบบ IoT ทางการเกษตร",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมคอมพิวเตอร์ด้วยภาษาระดับสูง รวมถึงการเขียนใช้งานตัวแปรและฟังก์ชันเงื่อนไขต่าง ๆ",
+        "สามารถประยุกต์ใช้งานระบบ iot และระบบคลาวด์คอมพิวติ้งสำหรับใช้ทางด้านการเกษตรและอุตสาหกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a3e59fb9-83fa-454b-90a9-feacc9f730ab",
+              "name": "สามารถเขียนโปรแกรมคอมพิวเตอร์ด้วยภาษาระดับสูง รวมถึงการเขียนใช้งานตัวแปรและฟังก์ชันเงื่อนไขต่าง ๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "This course involves high-level programming and system integration, which are prerequisites for advanced problem-solving in coding."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches high-level programming and use of variables and functions, which are essential programming skills applicable to Leetcode problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01005372-67",
+      "subjectName": "พื้นฐานการโปรแกรมไมโครคอนโทรลเลอร์เพื่อการเกษตรและไอโอที",
+      "outcomes": [
+        "สามารถเขียนชุดคำสั่งหรือโปรแกรมคอมพิวเตอร์สำหรับการรับค่าจากเซ็นเซอร์ และส่งค่าเพื่อการปิดเปิดอุปกรณ์อิเลคโทรนิกส์ได้",
+        "สามารถเขียนคำสั่ง เพื่อการควบคุม แก้ไข และสั่งการในระบบการปลูกพืชได้",
+        "สามารถออกแบบ ต่อสาย และเดินวงจรเพื่อรับค่าและควบคุมอุปกรณ์ในระบบการผลิตพืชได้",
+        "สามารถเดินวงจรไฟฟ้าได้อย่างปลอดภัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7692e6ad-d01b-4e58-9cef-97e575f0f087",
+              "name": "สามารถเขียนชุดคำสั่งหรือโปรแกรมคอมพิวเตอร์สำหรับการรับค่าจากเซ็นเซอร์ และส่งค่าเพื่อการปิดเปิดอุปกรณ์อิเลคโทรนิกส์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers basic programming for microcontrollers, foundational for understanding programming logic."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on microcontroller programming for agriculture and IoT, which is a niche application not directly relevant to general algorithmic problem solving."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "outcomes": [
+        "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล",
+        "ออกแบบและวิเคราะห์ข้อมูลด้วยโมเดลหลายมิติและ olap",
+        "เข้าใจแนวคิดและบทบาทของธุรกิจอัจฉริยะ",
+        "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ",
+        "บูรณาการธุรกิจอัจฉริยะในระดับองค์กร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cf98039c-a1ec-4081-a108-7e579c4cd22d",
+              "name": "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on data warehouses and business intelligence, not on data structures for algorithmic problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on data warehousing and business intelligence, which is not directly related to algorithmic problem solving on Leetcode."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "outcomes": [
+        "สามารถอธิบายองค์ประกอบพื้นฐานของระบบการจัดการฐานข้อมูลเชิงสัมพันธ์ได้",
+        "สามารถอธิบายแนวคิดพื้นฐานของแบบจำลองข้อมูลเชิงสัมพันธ์ แบบจำลองความสัมพันธ์เอนทิตี, การออกแบบฐานข้อมูลเชิงสัมพันธ์, พีชคณิตเชิงความสัมพันธ์ และ ภาษาสอบถามเชิงโครงสร้างได้",
+        "สามารถออกแบบแบบจำลองความสัมพันธ์เอนทิตีเพื่อแสดงถึงความสัมพันธ์ของข้อมูลที่เป็นพื้นฐานได้",
+        "สามารถปรับปรุงโครงสร้างข้อมูลของฐานข้อมูลที่มีความซํ้าซ้อนให้อยู่ในรูปแบบที่เป็นบรรทัดฐานได้",
+        "สามารถสร้างชุดคำสั่งภาษาสอบถามเชิงโครงสร้างเพื่อใช้ในการจัดการฐานข้อมูลได้",
+        "สามารถอธิบายถึง วัฏจักรฐานข้อมูล ซึ่งประกอบด้วย กระบวนการของการสร้าง การบำรุงรักษา การเพิ่มประสิทธิภาพ ของระบบฐานข้อมูลได้",
+        "สามารถอธิบายถึงกระบวนการจัดการทรานแซคชันและการควบคุมภาวะพร้อมกันได้",
+        "สามารถอธิบายถึงเทคโนโลยีและรูปแบบการเชื่อมต่อฐานข้อมูลแบบต่างๆและสามารถเลือกใช้งานได้",
+        "สามารถอธิบายถึงบทบาทหน้าที่ของผู้ดูแลระบบฐานข้อมูลและการจัดการความปลอดภัยของฐานข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "03721cbc-8212-44e6-8182-66c8f851b0dc",
+              "name": "สามารถอธิบายองค์ประกอบพื้นฐานของระบบการจัดการฐานข้อมูลเชิงสัมพันธ์ได้"
+            },
+            {
+              "id": "0149ac2c-8307-4e23-9664-8a9b97d1437d",
+              "name": "สามารถปรับปรุงโครงสร้างข้อมูลของฐานข้อมูลที่มีความซํ้าซ้อนให้อยู่ในรูปแบบที่เป็นบรรทัดฐานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on database systems and design, which is related but not directly teaching data structures for algorithmic challenges."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers database systems and query languages, which involve programming and logical thinking skills useful for algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "outcomes": [
+        "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ",
+        "ใช้เครื่องมือการวิเคราะห์ข้อมูลประเภทต่างๆ ได้ สอดคล้องกับประเภทของข้อมูล",
+        "ออกแบบแนวทางการวิเคราะห์ข้อมูลสำหรับการบัญชี",
+        "จัดทำรายงานที่ได้จากการวิเคราะห์ข้อมูลเพื่อนำเสนอผู้บริหารและผู้ที่เกี่ยวข้องได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "23cdc4d5-bcef-4657-8470-2beec783e546",
+              "name": "เข้าใจชนิดของวิธีการวิเคราะห์ข้อมูลสำหรับข้อมูลประเภทต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with data analysis and tools, somewhat related to understanding data organization but not specifically about data structures for coding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on data analysis for accounting, which is a specialized domain not directly relevant to Leetcode problem solving."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01420119-66",
+      "subjectName": "ฟิสิกส์อย่างสังเขป",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการพื้นฐานทางฟิสิกส์ได้",
+        "ใช้การคำนวณเพื่อแก้ปัญหาทางฟิสิกส์พื้นฐานได้",
+        "เชื่อมโยงกฎทางฟิสิกส์เพื่ออธิบายปรากฏการณ์ธรรมชาติและสถานการณ์ในชีวิตประจำวันได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "5c3e08f1-dac8-4a5e-a7b7-151bdc8f5b03",
+              "name": "ใช้การคำนวณเพื่อแก้ปัญหาทางฟิสิกส์พื้นฐานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "While it involves calculation and problem solving, it is focused on physics, not on computational problem solving skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers basic physics concepts, unrelated to programming or algorithmic problem solving."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01420117-66",
+      "subjectName": "ฟิสิกส์พื้นฐาน I",
+      "outcomes": [
+        "อธิบายแนวความคิดฟิสิกส์พื้นฐานทาง กลศาสตร์ กลศาสตร์ของไหล และอุณหพลศาสตร์ ได้",
+        "ใช้การคำนวณเพื่อแก้ปัญหาทางฟิสิกส์พื้นฐานได้",
+        "เชื่อมโยงกฎทางฟิสิกส์เพื่ออธิบายปรากฏการณ์ธรรมชาติและสถานการณ์ในชีวิตประจำวันได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "e12d9a51-6809-4b28-baed-a977264a4ae1",
+              "name": "ใช้การคำนวณเพื่อแก้ปัญหาทางฟิสิกส์พื้นฐานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Similar to the above, it emphasizes physics concepts and calculations, not directly on problem solving skills in computing."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Physics courses do not directly relate to improving Leetcode problem-solving skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01420118-66",
+      "subjectName": "ฟิสิกส์พื้นฐาน II",
+      "outcomes": [
+        "อธิบายแนวความคิดฟิสิกส์พื้นฐานทางไฟฟ้าแม่เหล็ก ทัศนศาสตร์ และฟิสิกส์ยุคใหม่ได้",
+        "ใช้การคำนวณเพื่อแก้ปัญหาทางฟิสิกส์พื้นฐานได้",
+        "เชื่อมโยงกฎทางฟิสิกส์เพื่ออธิบายปรากฏการณ์ธรรมชาติและสถานการณ์ในชีวิตประจำวันได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "dd7c7527-1c53-48fb-98d9-f9d2220c31a4",
+              "name": "ใช้การคำนวณเพื่อแก้ปัญหาทางฟิสิกส์พื้นฐานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on physics topics and calculations, not on developing computational problem solving skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Physics content is unrelated to algorithmic problem solving on Leetcode."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01202564-66",
+      "subjectName": "หลักการของวิศวกรรมเชื้อเพลิงชีวภาพ",
+      "outcomes": [
+        "สามารถอธิบายความรู้เกี่ยวกับหลักการของวิศวกรรมเชื้อเพลิงชีวภาพ และระบบที่เกี่ยวข้อง",
+        "สามารถทำการคำนวณทางวิศวกรรม และแก้ปัญหาสำหรับกรณีศึกษา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "f54bfd7c-11ff-433b-8c8f-5021517abca1",
+              "name": "สามารถทำการคำนวณทางวิศวกรรม และแก้ปัญหาสำหรับกรณีศึกษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on biofuel engineering principles and calculations, not on computational problem solving skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Biofuel engineering is irrelevant to coding or algorithmic challenges."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "outcomes": [
+        "อธิบาย",
+        "ประยุกย์ใช้",
+        "ใช้สถิติ",
+        "คำนวณ",
+        "รับผิกชอบ",
+        "ทำงานร่วมกุน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cb0471bd-cb90-4747-affb-9972f60b3059",
+              "name": "คำนวณ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Involves chemistry analysis and statistics, not directly related to computational problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic analytical chemistry does not support Leetcode problem solving."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01420213-66",
+      "subjectName": "ฟิสิกส์เชิงคณิตศาสตร์ I",
+      "outcomes": [
+        "แก้ปัญหาทางฟิสิกส์โดยใช้สมการทางคณิตศาสตร์ได้",
+        "ใช้การคำนวณเชิงคอมพิวเตอร์มาช่วยในการแก้สมการคณิตศาสตร์ที่เกี่ยวข้องกับโจทย์ปัญหาฟิสิกส์ได้",
+        "ปฏิบัติการข้อกำหนด และข้อบังคับของรายวิชา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1f78edbd-2c6a-4d62-9509-a2b77a284a27",
+              "name": "แก้ปัญหาทางฟิสิกส์โดยใช้สมการทางคณิตศาสตร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Uses mathematical equations for physics problems, not directly on computational problem solving skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Mathematical physics focuses on physics problems, not programming or algorithms."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "ประยุกต์ทฤษฎีเพื่อสร้างงานวิจัย",
+        "ออกแบบและทดสอบอุปกรณ์หรือเทคนิคเพื่อสร้างงานวิจัย",
+        "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย",
+        "ปฏิบัติงานภาคสนามในการเก็บข้อมูลงานวิจัย",
+        "บริหารงานวิจัยเพื่อสร้างสรรค์ผลงานวิจัยให้บรรลุวัตถุประสงค์และเป็นไปตามหลักจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "19c55b39-65ae-4726-9dde-94d532e9f709",
+              "name": "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on research and methodology, not on practical problem solving skills for coding challenges."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis work is too general and not specifically focused on coding or algorithms."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01058498-68",
+      "subjectName": "ปัญหาพิเศษ",
+      "outcomes": [
+        "เรียบเรียงกระบวนการวิจัยและข้อค้นพบจากการวิจัยเป็นรายงานวิจัย",
+        "นำเสนอข้อมูลให้เข้าใจได้ง่าย",
+        "แก้ปัญหาโดยใช้กระบวนการคิดอย่างมีเหตุผลตามหลักวิชาการในสาขาวิชาได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "e956ae15-885e-4f53-8026-f23120f5603f",
+              "name": "แก้ปัญหาโดยใช้กระบวนการคิดอย่างมีเหตุผลตามหลักวิชาการในสาขาวิชาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on research report writing and reasoning, not on computational problem solving skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Special problems course emphasizes logical problem solving and reasoning, which can enhance algorithmic thinking for Leetcode."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02204433-65",
+      "subjectName": "การรู้จำรูปแบบ",
+      "outcomes": [
+        "อธิบายแนวคิดพื้นฐานของการรู้จำรูปแบบ และอัลกอริธึมที่เกี่ยวข้องได้อย่างชัดเจน",
+        "เลือกใช้เทคนิคการประมวลผลเบื้องต้น การเลือกและการดึงคุณลักษณะ ให้เหมาะสมกับลักษณะของข้อมูลและปัญหาที่กำหนด",
+        "เปรียบเทียบและประเมินความเหมาะสมของโมเดลการเรียนรู้แบบมีผู้สอน (supervised learning) และไม่มีผู้สอน (unsupervised learning) ต่อปัญหาที่กำหนด",
+        "สื่อสารแนวคิด หลักการ และผลการทดลองจากแบบฝึกหัดหรือโครงงานในรูปแบบที่ชัดเจนและเป็นระบบ ทั้งการพูดและการเขียน",
+        "ทำงานกลุ่มและมีส่วนร่วมในการวางแผน ออกแบบ พัฒนา และนำเสนอระบบรู้จำรูปแบบในบริบทของโครงงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a13a5895-26b7-4c09-bc77-cc563c7092b1",
+              "name": "อธิบายแนวคิดพื้นฐานของการรู้จำรูปแบบ และอัลกอริธึมที่เกี่ยวข้องได้อย่างชัดเจน"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a13a5895-26b7-4c09-bc77-cc563c7092b1",
+              "name": "อธิบายแนวคิดพื้นฐานของการรู้จำรูปแบบ และอัลกอริธึมที่เกี่ยวข้องได้อย่างชัดเจน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to algorithms in pattern recognition, but not directly focused on algorithm analysis or problem solving."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Pattern recognition course covers algorithms and data processing techniques relevant to coding and problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการของการออกแบบการทดลอง",
+        "ใช้วิธีการทางสถิติและการจัดการข้อมูลเพื่อบูรณาการกับการวิจัยที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อวิเคราะห์ความแปรปรวนและการเปรียบเทียบค่าเฉลี่ย",
+        "ทำงานเป็นทีม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1fcf781e-8de5-4bbd-bb4c-a0a08502ec3d",
+              "name": "ใช้โปรแกรมเพื่อวิเคราะห์ความแปรปรวนและการเปรียบเทียบค่าเฉลี่ย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on experimental design and statistical analysis, tangentially related but not directly about algorithms."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Experimental design and statistical analysis are not directly useful for Leetcode algorithm practice."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานและความสำคัญของการวิเคราะห์ข้อมูลในปัญญาประดิษฐ์ได้",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อการเรียนและชีวิตประจำวันได้อย่างเหมาะสม",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาเชิงธุรกิจได้อย่างเหมาะสม",
+        "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้",
+        "วิเคราะห์ผลกระทบของเทคโนโลยีปัญญาประดิษฐ์ต่อสังคมและประเด็นจริยธรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "290697b6-36c7-404b-ac55-b67e92a42cfa",
+              "name": "อธิบายหลักการพื้นฐานและความสำคัญของการวิเคราะห์ข้อมูลในปัญญาประดิษฐ์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers AI principles and application, which are tangentially related but not directly focused on coding skills for Leetcode."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Digital life with AI course teaches AI concepts and applications, which can enable advanced problem solving and coding skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03651441-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ II",
+      "outcomes": [
+        "สร้างตัวแบบการเรียนรู้เชิงสถิติขั้นสูงสำหรับวิเคราะห์ข้อมูลที่มีความซับซ้อนได้",
+        "วิเคราะห์ข้อมูลเชิงธุรกิจโดยใช้ตัวแบบการเรียนรู้เชิงสถิติขั้นสูงได้",
+        "แสดงออกถึงความซื่อสัตย์ เคารพกฎระเบียบและมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "56ac1121-3573-404f-b1ca-7dca4ef7a335",
+              "name": "สร้างตัวแบบการเรียนรู้เชิงสถิติขั้นสูงสำหรับวิเคราะห์ข้อมูลที่มีความซับซ้อนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers statistical learning, which can involve complexity considerations but not specifically focused on algorithm complexity analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on statistical learning for business, not directly related to algorithmic problem solving or coding skills needed for Leetcode."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "06901111-66",
+      "subjectName": "หลักการจัดการธุรกิจเบื้องต้นสำหรับอุตสาหกรรมการท่องเที่ยว",
+      "outcomes": [
+        "สามารถอธิบายความรู้เกี่ยวกับการจัดการธุรกิจเบื้องต้น",
+        "สามารถสรุปองค์ประกอบและโครงสร้างธุรกิจ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "95a5caca-bef6-4151-99cf-b93798b8bfce",
+              "name": "สามารถสรุปองค์ประกอบและโครงสร้างธุรกิจ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to data structures or algorithmic problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic business management for tourism is unrelated to programming or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01007582-65",
+      "subjectName": "สรีรวิทยาหลังการเก็บเกี่ยวของผลไม้ ผักและดอกไม้",
+      "outcomes": [
+        "สามารถให้ข้อมูลองค์ความรู้เกี่ยวกับสรีรวิทยาหลังการเก็บเกี่ยว",
+        "สามารถบูรณาการองค์ความรู้และเทคโนโลยีที่เกี่ยวข้องกับสรีรวิทยาหลังการเก็บเกี่ยวผลิตผลพืชสวน",
+        "สามารถสังเคราะห์ข้อมูลที่เกี่ยวข้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "30a71254-ebbb-4059-9356-6760ce47e3ce",
+              "name": "สามารถสังเคราะห์ข้อมูลที่เกี่ยวข้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to the target skill."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Postharvest physiology of plants is irrelevant to coding or algorithmic challenges."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "เรียบเรียงข้อมูลเพื่อนำเสนอ",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้รูปแบบการนำเสนอที่เหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b32b2452-8d75-44b5-aa7f-7ec018f8c0c4",
+              "name": "เรียบเรียงข้อมูลเพื่อนำเสนอ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "General seminar skills, not related to data structures or coding."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar skills focus on presentation and teamwork, not on coding or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01008553-65",
+      "subjectName": "ข้อมูลทางพันธุกรรมของเชื้อโรคพืชและชีวสารสนเทศศาสตร์",
+      "outcomes": [
+        "อธิบาย สืบค้น และเลือกใช้ข้อมูลทางพันธุกรรมของเชื้อโรคพืช",
+        "วิเคราะห์ความสัมพันธ์ทางพันธุกรรมของเชื้อโรคพืช",
+        "นำเสนอข้อมูลที่ได้จากการประมวลความรู้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1757b74f-2793-425b-a89f-2f3956ef9ca8",
+              "name": "นำเสนอข้อมูลที่ได้จากการประมวลความรู้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to data structures or algorithmic problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Genetic information of plant pathogens and bioinformatics here is too specialized and not directly relevant to general algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "outcomes": [
+        "วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ",
+        "วิเคราะห์ความสัมพันธ์ของส่วนประกอบของภาษาอังกฤษเพื่ออธิบายความกำกวมของภาษา",
+        "ค้นคว้าหาความรู้เพิ่มเติมจากแหล่งข้อมูลทางอินเทอร์เนตมาใช้วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ",
+        "แสดงความรับผิดชอบต่อการเรียนและเคารพระเบียบและจริยธรรมทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "aa38db0f-6727-4b25-b5f9-e065b1adca66",
+              "name": "วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to the target skill."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "English language system analysis is unrelated to coding or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "อธิบายความรู้เกี่ยวกับโภชนศาสตร์สัตว์ในระดับอุตสาหกรรม",
+        "วิเคราะห์ข้อมูลงานวิจัย เพื่อนำเสนออย่างเป็นระบบ",
+        "สืบค้นข้อมูลและเลือกใช้เทคโนโลยีสารสนเทศในการนำเสนอผลงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ba2b6ef3-32e1-4d92-be9b-c01c357675db",
+              "name": "วิเคราะห์ข้อมูลงานวิจัย เพื่อนำเสนออย่างเป็นระบบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to data structures or coding skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Animal nutrition seminar is unrelated to programming or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01603339-65",
+      "subjectName": "ธนาคารเลือดและงานทางห้องปฏิบัติการโรงพยาบาลสัตว์",
+      "outcomes": [
+        "สามารถอธิบายหลักการของงานธนาคารเลือดของสัตว์ได้",
+        "สามารถปฏิบัติงานในงานธนาคารเลือดของสัตว์ได้",
+        "สามารถอธิบายหลักการของานทางห้องปฏิบัติการต่างๆ ในโรงพยาบาลสัตว์ได้",
+        "สามารถปฏิบัติงานทางห้องปฏิบัติการโรงพยาบาลสัตว์ได้",
+        "สามารถอธิบายหลักการทางเซลล์วิทยาได้",
+        "สามารถปฏิบัติงานทางเซลล์วิทยาได้",
+        "สามารถอธิบายหลักการของการผ่าซากสัตว์ได้",
+        "สามารถปฏิบัติงานการผ่าซากสัตว์ได้",
+        "สามารถจัดกลุ่มประเภทของอุปกรณ์ในงานธนาคารเลือด งานทางห้องปฏิบัติการโรงพยาบาลสัตว์ เซลล์วิทยา และ การผ่าซากสัตว์ได้",
+        "สามารถใช้ประเภทของอุปกรณ์ในงานธนาคารเลือด งานทางห้องปฏิบัติการโรงพยาบาลสัตว์ เซลล์วิทยา และ การผ่าซากสัตว์ได้",
+        "สามารถทำงานร่วมกับผู้อื่นโดยอาศัยการทำงานเป็นกลุ่มได้",
+        "สามารถใช้เทคโนโลยีสารสนเทศในการนำเสนอข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e3f9ee59-9f7f-4db3-afe3-d29bebf9e113",
+              "name": "สามารถใช้เทคโนโลยีสารสนเทศในการนำเสนอข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to the target skill."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Blood bank and lab work for animals is irrelevant to coding or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02201596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมเกษตร",
+      "outcomes": [
+        "อธิบายทฤษฎีีของเรื่องที่ศึกษาได้",
+        "ประยุกต์ทฤษฎีเพื่อแก้ปัญหาที่ศึกษาได้",
+        "ทำงานเป็นทีมได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "164ab47d-edb3-49a6-ba01-33481c5100d1",
+              "name": "ประยุกต์ทฤษฎีเพื่อแก้ปัญหาที่ศึกษาได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "The outcomes focus on agricultural engineering theory and teamwork, not on computational problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Special topics in agricultural engineering do not relate to coding or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01999111-67",
+      "subjectName": "ศาสตร์แห่งแผ่นดิน",
+      "outcomes": [
+        "สามารถยกตัวอย่างบทบาทของ มก. ใน การสร้างสรรค์ศาสตร์แห่งแผ่นดิน ต่อสังคมไทยและสังคมโลก",
+        "สามารถบอกเล่าเรื่องราวที่ทำให้เกิดความภาคภูมิใจในฐานะเป็นนิสิต มก.",
+        "สามารถออกแบบและดำเนินงานตามโครงงานได้ด้วยความมุ่งมั่น สร้างสรรค์ สามัคคี",
+        "สามารถทำงานร่วมกับผู้อื่นได้โดยยอมรับคุณค่าของผู้อื่น",
+        "สามารถเสนอแนวทางการแก้ไขปัญหาด้วยทักษะการคิดที่เหมาะสม",
+        "สามารถใช้ระบบสารสนเทศในการค้นหาความรู้และสื่อสารได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การแก้ปัญหาเชิงคำนวณ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ffc80106-843e-4268-98a5-bea7460f23c3",
+              "name": "สามารถเสนอแนวทางการแก้ไขปัญหาด้วยทักษะการคิดที่เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on social sciences and national studies, not on computational problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course about societal roles and projects is unrelated to coding or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01420323-66",
+      "subjectName": "การวัดเชิงควอนตัม",
+      "outcomes": [
+        "เข้าใจความหมายของการวัดเชิงควอนตัม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1ee56f4d-3920-44f1-b16f-2fe696faa409",
+              "name": "เข้าใจความหมายของการวัดเชิงควอนตัม"
+            }
+          ]
+        },
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1ee56f4d-3920-44f1-b16f-2fe696faa409",
+              "name": "เข้าใจความหมายของการวัดเชิงควอนตัม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to algorithms or problem-solving in programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Quantum measurement is unrelated to algorithmic problem solving on Leetcode."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02212572-65",
+      "subjectName": "สถิติประยุกต์สำหรับวิศวกรรมอาหาร",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการวางแผนการทดลอง การรวบรวมข้อมูล การวิเคราะห์ข้อมูลที่ได้ทั้งในเชิงคุณภาพคือ การวิเคราะห์ความแปรปรวน และเชิงปริมาณคือการวิเคราะห์การถดถอย หรือรีเกรชัน",
+        "สามารถใช้โปรแกรมสำเร็จรูปทางสถิติช่วยในการวิเคราะห์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "108fad7e-71b3-40e9-8ef2-07c0b3846f35",
+              "name": "สามารถอธิบายหลักการของการวางแผนการทดลอง การรวบรวมข้อมูล การวิเคราะห์ข้อมูลที่ได้ทั้งในเชิงคุณภาพคือ การวิเคราะห์ความแปรปรวน และเชิงปริมาณคือการวิเคราะห์การถดถอย หรือรีเกรชัน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to algorithm analysis or coding problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Applied statistics for food engineering is not directly relevant to coding or algorithm skills needed for Leetcode."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01051511-64",
+      "subjectName": "การวิเคราะห์ข้อมูลประยุกต์ในการวิจัยเทคโนโลยีชีวภาพ",
+      "outcomes": [
+        "เลือกวิธีการทางสถิติเพื่อใช้ในการดำเนินการวิจัย",
+        "วิเคราะห์ผลการทดลองเพื่อให้ได้ข้อสรุปของการทดลอง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f9839130-2d46-426c-828f-2416c8c83d30",
+              "name": "วิเคราะห์ผลการทดลองเพื่อให้ได้ข้อสรุปของการทดลอง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to algorithms or coding problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Applied data analysis in biotechnology research does not directly teach programming or algorithms for Leetcode."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษษจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a8dea453-a577-4e79-8a70-5ba525edd086",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to algorithms or programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language skills are irrelevant to solving Leetcode problems."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a77f7390-8e4c-4f29-b8f8-8a664ad0d959",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to algorithms or programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language skills are irrelevant to solving Leetcode problems."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "bdcf0b76-0d4d-4326-91ae-e36c4540ea7f",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to algorithms or programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language skills are irrelevant to solving Leetcode problems."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01419499-65",
+      "subjectName": "โครงงานจุลชีววิทยา",
+      "outcomes": [
+        "วางแผนและเขียนข้อเสนอโครงงานจุลชีววิทยาได้ถูกต้อง",
+        "ทำปฏิบัติการทางจุลชีววิทยาได้ถูกต้องตามทฤษฎี หลักการ และวิธีการ",
+        "วิเคราะห์ผลการทดลองได้ถูกต้อง",
+        "เขียนรายงานการทดลองได้ถูกต้องตามหลักการ",
+        "นำเสนอผลการทดลองโดยใช้เทคโนโลยีสารสนเทศและสื่อสารได้ถูกต้องเหมาะสม",
+        "รับผิดชอบต่อตนเองและทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1b9f3296-0658-4b1a-9696-14acd9c88472",
+              "name": "วิเคราะห์ผลการทดลองได้ถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to algorithms or programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Microbiology project skills do not relate to algorithmic problem solving or programming."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01442697-68",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "วิเคราะห์และทำความเข้าใจในกระบวนการในงานวิจัยโดยใช้ความรู้ในสาขาวิชาวัสดุนาโน",
+        "สามารถใช้เทคโนโลยีสารสนเทศต่าง ๆ ช่วยในการสืบค้นข้อมูลเพิ่มเติมได้",
+        "วิเคราะห์ข้อมูลในงานวิจัยเพื่อนำไปสู่บทสรุปได้",
+        "นำเสนองานวิจัยด้วยภาษาอังกฤษได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fd2e2a64-9c8b-486a-b094-893736483b11",
+              "name": "วิเคราะห์ข้อมูลในงานวิจัยเพื่อนำไปสู่บทสรุปได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to algorithm analysis or problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on nanomaterials research is unrelated to coding or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "outcomes": [
+        "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม",
+        "สร้างการคำนวณข้อมูล พารามิเตอร์ตารางและแผนภูมิ เพื่อนำเสนอภาพข้อมูลได้อย่่างเหมาะสม",
+        "วิเคราะห์ข้อมูลขั้นสูงได้",
+        "สร้างแดชบอร์ดและนำเสนอผ่านระบบสารสนเทศได้",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ซื่อสัตย์ ปฎิบัติงานร่วมกับผู้อื่นได้ และมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์อัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fe40af0b-4426-47c6-93fa-f18d1f54ada1",
+              "name": "วิเคราะห์ข้อมูลขั้นสูงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to algorithms or problem solving."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Data visualization and advanced data analysis skills can enable better understanding and presentation of algorithmic data, supporting Leetcode problem solving."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01420242-66",
+      "subjectName": "ปฏิบัติงานอุปกรณ์ II",
+      "outcomes": [
+        "เขียนแบบเชิงกลพื้นฐานได้ เพื่อใช้ออกแบบชิ้นงานที่เป็นวัสดุโลหะ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f9ae58b8-d609-45fc-8371-9155a19335fd",
+              "name": "เขียนแบบเชิงกลพื้นฐานได้ เพื่อใช้ออกแบบชิ้นงานที่เป็นวัสดุโลหะ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on mechanical design with metals, unrelated to programming skills needed for LeetCode."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Basic mechanical drawing for metal materials is unrelated to programming or algorithms."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01420241-66",
+      "subjectName": "ปฏิบัติงานอุปกรณ์ I",
+      "outcomes": [
+        "เขียนแบบเชิงกลพื้นฐานได้ เพื่อใช้ออกแบบชิ้นงานที่เป็นวัสดุ ไม้ และ พลาสติก"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b9cabafa-bd04-4847-87ff-c2055e7236d0",
+              "name": "เขียนแบบเชิงกลพื้นฐานได้ เพื่อใช้ออกแบบชิ้นงานที่เป็นวัสดุ ไม้ และ พลาสติก"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on mechanical design with wood and plastic, unrelated to programming skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on mechanical drawing for materials like wood and plastic, unrelated to algorithmic problem solving or programming skills needed for Leetcode."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม",
+        "สามารถเขียนแบบชิ้นส่วนเครื่องจักรกลเกษตรกลเกษตร",
+        "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้",
+        "สามารถใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f2095218-79fa-4742-86d4-60a015890714",
+              "name": "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม"
+            },
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with engineering drawing and CAD software, unrelated to programming or problem-solving skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course teaches engineering drawing and CAD software, which does not support skills for solving coding problems on Leetcode."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "outcomes": [
+        "สามารถวาดภาพฉายออร์โธกราฟฟิก ภาพสามมิติ และมุมมองช่วยได้",
+        "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้",
+        "สามารถนำเสนอแบบวิศวกรรมและสื่อสารข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on engineering drawing and communication, not programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on engineering drawing and presentation, irrelevant to programming or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายแนวคิดนวัตกรรมผลิตภัณฑ์ทางโภชนาการ",
+        "ระบุชนิดของวัตถุดิบและกระบวนการสำหรับการผลิตผลิตภัณฑ์ทางโภชนาการและสุขภาพ",
+        "ออกแบบผลิตภัณฑ์ทางโภชนาการด้วยความรู้พื้นฐานที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7795086e-5fdc-45b2-a7c6-998a1a38686b",
+              "name": "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7795086e-5fdc-45b2-a7c6-998a1a38686b",
+              "name": "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to programming or algorithmic problem solving."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers innovation in nutritional products, unrelated to programming or algorithmic skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "outcomes": [
+        "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ",
+        "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on CAD and design software, not programming skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Teaches computer-aided design for product design, not relevant to coding or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02738490-61",
+      "subjectName": "สหกิจศึกษา",
+      "outcomes": [
+        "นำความรู้พื้นฐานทางวิทยาศาสตร์ชีวภาพไปใช้ทำโครงงานเดี่ยวได้",
+        "ใช้เครื่องมือที่เกี่ยวข้องกับการทำโครงงานเดี่ยวได้อย่างถูกต้อง",
+        "ประยุกต์ความรู้และทฤษฎีด้านวิทยาศาสตร์ชีวภาพเพื่อการวิจัยและการแก้ปัญหาในการทำโครงงานเดี่ยวได้",
+        "ทำโครงงานเดี่ยวโดยคำนึงถึงหลักจริยธรรม จรรยาบรรณ และความปลอดภัย",
+        "ค้นคว้าหาข้อมูลทางวิชาการที่เกี่ยวข้องกับโครงงานวิจัยได้อย่างเหมาะสม บันทึกผลการ อภิปราย ทดลอง วิเคราะห์ สรุปผลการวิจัยเพื่อนำเสนองานวิจัยเดี่ยว  และเขียนรายงานทางวิชาการได้อย่างถูกต้องตามหลักวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมเชิงวัตถุ",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "cf30b3bd-86b5-4e81-8b03-d02411e9fdf1",
+              "name": "ใช้เครื่องมือที่เกี่ยวข้องกับการทำโครงงานเดี่ยวได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Primarily about scientific research and ethics, not programming skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on biological science research projects, not related to programming or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01475528-64",
+      "subjectName": "การฝึกอบรมและการพัฒนาในองค์การ",
+      "outcomes": [
+        "อธิบายแนวคิด กระบวนการในการฝึกอบรมและธรรมชาติการเรียนรู้ของผู้เข้ารับการฝึกอบรม",
+        "นำความรู้ทางจิตวิทยาไปประยุกต์ใช้กับการฝึกอบรม",
+        "สามารถพัฒนาโปรแกรมหรือสร้างหลักสูตรการฝึกอบรม",
+        "อธิบายความสัมพันธ์ระหว่างการฝึกอบรมกับการพัฒนาองค์การ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d8343f89-85bf-4002-a518-b8e5418ecd41",
+              "name": "สามารถพัฒนาโปรแกรมหรือสร้างหลักสูตรการฝึกอบรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on training and development concepts, not programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers training and development in organizations, unrelated to programming or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "04252459-65",
+      "subjectName": "ฮาร์มอนิกในระบบไฟฟ้ากำลัง",
+      "outcomes": [
+        "สามารถอธิบาย แหล่งกำเนิดฮาร์มอนิก ผลกระทบที่เกิดขึ้น การตรวจวัดปริมาณฮาร์มอนิก ค่ามาตรฐานระดับฮาร์มอนิก และการขจัดฮาร์มอนิก ในระบบไฟฟ้ากำลังได้อย่างถูกต้อง",
+        "สามารถคำนวณปริมาณฮาร์มอนิกในระบบไฟฟ้าได้อย่างถูกต้อง",
+        "อธิบายการแก้ปัญหาฮาร์มอนิกได้อย่างถูกต้อง",
+        "สามารถใช้เครื่องมือและอุปกรณ์ คอมพิวเตอร์ เทคโนโลยีดิจิทัลเพื่อการตรวจวัดและวิเคราะห์ปริมาณฮาร์มอนิกในระบบไฟฟ้ากำลังได้ถูกต้อง",
+        "มีมนุษยสัมพันธ์และสามารถทำงานร่วมกับผู้อื่นได้",
+        "มีวินัย เข้าเรียนตรงเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมภาษา Python หรือ C++",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a50a4cc5-02e8-4fc7-adfe-5223bcd4950c",
+              "name": "อธิบายการแก้ปัญหาฮาร์มอนิกได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Electrical engineering course unrelated to programming skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on electrical power harmonics, irrelevant to programming or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "02801112-67",
+      "subjectName": "โครงสร้างไวยากรณ์ภาษาอังกฤษ II",
+      "outcomes": [
+        "สามารถอธิบายรูปแบบและวิธีการใช้โครงสร้างไวยากรณ์ภาษาอังกฤษที่มีความซับซ้อนได้",
+        "สามารถสรุปไวยากรณ์และนำเสนอโดยใช้เทคโนโลยีสารสนเทศในการนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "88c6cfb0-1346-4e63-a213-42ebc1f1f0d7",
+              "name": "สามารถอธิบายรูปแบบและวิธีการใช้โครงสร้างไวยากรณ์ภาษาอังกฤษที่มีความซับซ้อนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on English grammar, unrelated to the target skill."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Teaches English grammar structures, not related to programming or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "outcomes": [
+        "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์",
+        "อธิบายความสัมพันธ์ระหว่างโครงสร้าง น้ำหนักโมเลกุล และสมบัติของพอลิเมอร์",
+        "อธิบายปฏิกิริยาพอลิเมอไรเซชันและกลไก",
+        "อธิบายวิธีการสังเคราะห์และกลไกการเกิดพอลิเมอไรเซชันร่วม",
+        "อธิบายกระบวนการเตรียมและสมบัติของเทอร์โมพลาสติกและเทอร์โมเซต",
+        "เชื่อมโยงความสัมพันธ์ระหว่างสมบัติของพอลิเมอร์และกระบวนการขึ้นรูปพอลิเมอร์ให้เหมาะสมกับผลิตภัณฑ์",
+        "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ",
+        "แสดงออกถึงความรับผิดชอบ ความมีวินัย และตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ca6b5ff6-af33-45ca-8a2d-8676241cf1d1",
+              "name": "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์"
+            },
+            {
+              "id": "7d8bd149-c483-44c5-8074-8f461e19d4d8",
+              "name": "อธิบายความสัมพันธ์ระหว่างโครงสร้าง น้ำหนักโมเลกุล และสมบัติของพอลิเมอร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Chemistry course unrelated to algorithm complexity."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Covers polymer chemistry, unrelated to programming or algorithmic problem solving."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01420441-66",
+      "subjectName": "อิเล็กทรอนิกส์กายภาพ",
+      "outcomes": [
+        "เข้าใจสมบัติทางกายภาพของสารกึ่งตัวนำเบื้องต้น",
+        "เข้าใจกระบวนการนำไฟฟ้าของสารกึ่งตัวนำ",
+        "เข้าใจสมบัติทางไฟฟ้าของรอยต่อ pn",
+        "สามารถอธิบายการทำงานของอุปกรณ์สารกึ่งตัวนำที่มีรอยต่อ pn"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "71bcb113-c831-47c8-9ba7-095d86faeaad",
+              "name": "เข้าใจสมบัติทางกายภาพของสารกึ่งตัวนำเบื้องต้น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Electronics physics unrelated to algorithm analysis."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on physical electronics and semiconductor properties, unrelated to algorithm problem solving or coding skills needed for Leetcode."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากแก้โจทย์ Leetcode ได้โหดๆ มีวิชาแนะนำป่าว",
+      "subjectCode": "01401472-66",
+      "subjectName": "ชีววิทยาโมเลกุลของพืช",
+      "outcomes": [
+        "อธิบายกระบวนการของพืชในระดับโมเลกุล",
+        "อธิบายความหลากหลายของพืชในระดับโมเลกุล",
+        "วิพากษ์วิจารณ์งานวิจัยทางด้านพืชในระดับโมเลกุล",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "สืบค้นข้อมูลและประยุกต์ใช้เทคโนโลยีในระดับโมเลกุล"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวิเคราะห์ความซับซ้อนของอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "9b5ca47b-8bcc-42c5-8d8f-42534a05d142",
+              "name": "อธิบายความหลากหลายของพืชในระดับโมเลกุล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Biology course unrelated to algorithm complexity."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers molecular biology of plants, which has no direct or enabling relevance to solving coding problems on Leetcode."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1858,
+      "outputTokens": 343
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2143,
+      "outputTokens": 389
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1952,
+      "outputTokens": 317
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2004,
+      "outputTokens": 338
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1659,
+      "outputTokens": 320
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2064,
+      "outputTokens": 347
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 825,
+      "outputTokens": 82
+    }
+  ]
+}

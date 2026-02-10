@@ -1,0 +1,2512 @@
+{
+  "queryLogId": "1fe15613-3060-4d9e-94dc-bd9a63e9911f",
+  "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+  "courses": [
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03603251-65",
+      "subjectName": "ระบบฐานข้อมูล",
+      "outcomes": [
+        "สามารถอธิบายองค์ประกอบพื้นฐานของระบบการจัดการฐานข้อมูลเชิงสัมพันธ์ได้",
+        "สามารถอธิบายแนวคิดพื้นฐานของแบบจำลองข้อมูลเชิงสัมพันธ์ แบบจำลองความสัมพันธ์เอนทิตี, การออกแบบฐานข้อมูลเชิงสัมพันธ์, พีชคณิตเชิงความสัมพันธ์ และ ภาษาสอบถามเชิงโครงสร้างได้",
+        "สามารถออกแบบแบบจำลองความสัมพันธ์เอนทิตีเพื่อแสดงถึงความสัมพันธ์ของข้อมูลที่เป็นพื้นฐานได้",
+        "สามารถปรับปรุงโครงสร้างข้อมูลของฐานข้อมูลที่มีความซํ้าซ้อนให้อยู่ในรูปแบบที่เป็นบรรทัดฐานได้",
+        "สามารถสร้างชุดคำสั่งภาษาสอบถามเชิงโครงสร้างเพื่อใช้ในการจัดการฐานข้อมูลได้",
+        "สามารถอธิบายถึง วัฏจักรฐานข้อมูล ซึ่งประกอบด้วย กระบวนการของการสร้าง การบำรุงรักษา การเพิ่มประสิทธิภาพ ของระบบฐานข้อมูลได้",
+        "สามารถอธิบายถึงกระบวนการจัดการทรานแซคชันและการควบคุมภาวะพร้อมกันได้",
+        "สามารถอธิบายถึงเทคโนโลยีและรูปแบบการเชื่อมต่อฐานข้อมูลแบบต่างๆและสามารถเลือกใช้งานได้",
+        "สามารถอธิบายถึงบทบาทหน้าที่ของผู้ดูแลระบบฐานข้อมูลและการจัดการความปลอดภัยของฐานข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "03721cbc-8212-44e6-8182-66c8f851b0dc",
+              "name": "สามารถอธิบายองค์ประกอบพื้นฐานของระบบการจัดการฐานข้อมูลเชิงสัมพันธ์ได้"
+            },
+            {
+              "id": "f05a0b88-a5e5-4451-9cc2-3dc1e11876b4",
+              "name": "สามารถอธิบายถึงเทคโนโลยีและรูปแบบการเชื่อมต่อฐานข้อมูลแบบต่างๆและสามารถเลือกใช้งานได้"
+            },
+            {
+              "id": "9a909b14-222a-4e9a-bdc9-3249927e6b59",
+              "name": "สามารถอธิบายถึงบทบาทหน้าที่ของผู้ดูแลระบบฐานข้อมูลและการจัดการความปลอดภัยของฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Provides comprehensive knowledge on database design, query languages, and management, directly relevant to the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Database systems are a fundamental skill that enhances coding capabilities and software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "outcomes": [
+        "สามารถวิเคราะห์ ออกแบบ และสร้างฐานข้อมูลเชิงสัมพันธ์ได้อย่างถูกต้องตามหลักการ ตรงกับความต้องการของผู้ใช้",
+        ".สามารถนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูลได้",
+        "สามารถแสดงออกถึงความมุ่งมั่น ในการปฏิบัติงานกลุ่มได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "0d1b88bb-cb0e-4cd9-bbf8-f0e89deff66e",
+              "name": "สามารถวิเคราะห์ ออกแบบ และสร้างฐานข้อมูลเชิงสัมพันธ์ได้อย่างถูกต้องตามหลักการ ตรงกับความต้องการของผู้ใช้"
+            },
+            {
+              "id": "1e8d79c2-0fa6-41e4-a351-7a8a10793e63",
+              "name": ".สามารถนำเสนอโปรแกรมประยุกต์ที่ใช้ฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on designing and implementing relational databases, directly relevant to the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Designing and building relational databases directly supports coding and application development skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02204171-65",
+      "subjectName": "การเขียนโปรแกรมเชิงโครงสร้าง",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง",
+        "วิเคราะห์ปัญหาง่าย ๆ และออกแบบอัลกอริทึมเพื่อแก้ปัญหาด้วยแนวคิดเชิงตรรกะและโครงสร้างควบคุมในโปรแกรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "8db17ee0-21b4-47c6-89fe-33fb1601548e",
+              "name": "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "8db17ee0-21b4-47c6-89fe-33fb1601548e",
+              "name": "อธิบายหลักการพื้นฐานของการเขียนโปรแกรมเชิงโครงสร้าง และองค์ประกอบของโปรแกรมคอมพิวเตอร์ได้อย่างถูกต้อง"
+            },
+            {
+              "id": "3cd2bae5-9525-42d2-bc93-51bcd714fc2f",
+              "name": "วิเคราะห์ปัญหาง่าย ๆ และออกแบบอัลกอริทึมเพื่อแก้ปัญหาด้วยแนวคิดเชิงตรรกะและโครงสร้างควบคุมในโปรแกรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Teaches structured programming principles, which are essential for understanding and implementing data structures and algorithms."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Structured programming is a core coding skill essential for advancing programming expertise."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "04256355-66",
+      "subjectName": "โปรแกรมประยุกต์การเรียนรู้ของเครื่อง",
+      "outcomes": [
+        "สามารถเลือกขั้นตอนวิธีการเรียนรู้ของเครื่องแบบไม่มีผู้สอนเพื่อแก้ปัญหาได้",
+        "สามารถเลือกขั้นตอนวิธีการเรียนรู้ของเครื่องแบบมีผู้สอนเพื่อแก้ปัญหาได้",
+        "สามารถวิเคราะห์ผลการทดลองได้",
+        "สามารถพัฒนาแบบจำลองจากกรณีศึกษาได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "9c29c72e-4b15-4b8a-b9bf-38cacd92c89e",
+              "name": "สามารถวิเคราะห์ผลการทดลองได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Covers machine learning applications, which involve testing and debugging models, directly relevant to the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Machine learning applications provide advanced coding skills and new areas for software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายความสำคัญในการนำเอาตัวแบบกระบวนการพัฒนาซอฟต์แวร์ไปใช้ในโครงงานทางซอฟต์แวร์ได้",
+        "สามารถระบุความต้องการที่ผู้มีส่วนเกี่ยวข้องต้องการให้เกิดขึ้นในซอฟต์แวร์ได้",
+        "สามารถวิเคราะห์สิ่งที่เกิดขึ้นภายในกระบวนการทางธุรกิจของผู้ว่าจ้างได้",
+        "สามารถออกแบบโครงสร้างซอฟต์แวร์เพื่อตอบสนองต่อความต้องการของผู้ว่าจ้างได้",
+        "สามารถนำต้นแบบกระบวนพัฒนาซอฟต์แวร์แบบร่วมสมัยมาใช้ในโครงการพัฒนาซอฟต์แวร์ได้",
+        "รับรู้ถึงความสำคัญในกระบวนการทวนสอบซอฟต์แวร์",
+        "สามารถพัฒนาซอฟต์แวร์ที่ตรงต่อความต้องการของผู้ว่าจ้างได้",
+        "สามารถอธิบายความแตกต่างในรูปแบบของการบำรุงรักษาซอฟต์แวร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "4fb2b0a3-4fe6-4dac-b492-c60d6673ad13",
+              "name": "รับรู้ถึงความสำคัญในกระบวนการทวนสอบซอฟต์แวร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on software development processes, including testing and debugging, directly aligned with the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Software engineering teaches essential development processes and project management for coders."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "04252522-67",
+      "subjectName": "ปัญญาประดิษฐ์และโครงข่ายประสาทเทียม",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดสมัยใหม่ในปัญญาประดิษฐ์และโครงข่ายประสาทเทียม และการประยุกต์ใช้งานได้",
+        "สามารถออกแบบและพัฒนาเทคนิคปัญญาประดิษฐ์ และโครงข่ายประสาทเทียมตามข้อกำหนดในโลกแห่งความเป็นจริงได้",
+        "สามารถกำหนดปัญหาจริง เลือก และนำแบบจำลองปัญญาประดิษฐ์ที่เกี่ยวข้องไปใช้ในการแก้ปัญหาระบบอัจฉริยะ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "d74c4063-adc3-485a-be95-49f76ec61e6e",
+              "name": "สามารถอธิบายแนวคิดสมัยใหม่ในปัญญาประดิษฐ์และโครงข่ายประสาทเทียม และการประยุกต์ใช้งานได้"
+            },
+            {
+              "id": "d72364cd-f393-4377-8297-bbf0fad197a6",
+              "name": "สามารถกำหนดปัญหาจริง เลือก และนำแบบจำลองปัญญาประดิษฐ์ที่เกี่ยวข้องไปใช้ในการแก้ปัญหาระบบอัจฉริยะ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Directly teaches AI concepts and practical application, highly relevant for AI skill development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Artificial intelligence and neural networks expand coding skills into cutting-edge technology fields."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "outcomes": [
+        "จัดการและออกแบบฐานข้อมูลได้",
+        "วิเคราะห์ข้อมูลด้วยฟังก์ชันการคำนวณได้",
+        "ใช้ภาษาควบคุมข้อมูล และสอบถามข้อมูลได้",
+        "ประยุกต์การสอบถามข้อมูลในการทำงานด้านวิทยาการข้อมูลได้",
+        "สามารถแสดงออกถึงความซื่อสัตย์ และเคารพกฎระเบียบและจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "สามารถเรียนรู้สิ่งใหม่จากการค้นคว้าเพิ่มเติมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            }
+          ]
+        },
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1346f2dd-fb46-442f-b3d3-b5a5666e8cac",
+              "name": "จัดการและออกแบบฐานข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches querying and managing databases, which are foundational for database management skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Structured query language and data querying skills empower coders to handle data effectively."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "outcomes": [
+        "จัดการข้อมูลขนาดใหญ่โดยคำนึงถึงความเป็นส่วนตัวและความปลอดภัยของข้อมูลได้",
+        "เลือกใช้เครื่องมือสำหรับจัดการข้อมูลขนาดใหญ่ ได้อย่างเหมาะสม",
+        "แสดงออกถึงความรับผิดชอบ ซื่อสัตย์  และเรียนรู้ด้วยตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d2444935-65f8-43e5-8648-847de57d088f",
+              "name": "จัดการข้อมูลขนาดใหญ่โดยคำนึงถึงความเป็นส่วนตัวและความปลอดภัยของข้อมูลได้"
+            },
+            {
+              "id": "2b37a5a4-1559-4aec-a17c-b07dce99b46d",
+              "name": "เลือกใช้เครื่องมือสำหรับจัดการข้อมูลขนาดใหญ่ ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers big data management with focus on security and tools, relevant as a prerequisite for advanced database skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Big data management skills are valuable for coders working with large-scale data applications."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02201131-66",
+      "subjectName": "การเขียนโปรแกรมและระบบ IoT ทางการเกษตร",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมคอมพิวเตอร์ด้วยภาษาระดับสูง รวมถึงการเขียนใช้งานตัวแปรและฟังก์ชันเงื่อนไขต่าง ๆ",
+        "สามารถประยุกต์ใช้งานระบบ iot และระบบคลาวด์คอมพิวติ้งสำหรับใช้ทางด้านการเกษตรและอุตสาหกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a3e59fb9-83fa-454b-90a9-feacc9f730ab",
+              "name": "สามารถเขียนโปรแกรมคอมพิวเตอร์ด้วยภาษาระดับสูง รวมถึงการเขียนใช้งานตัวแปรและฟังก์ชันเงื่อนไขต่าง ๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches high-level programming and system integration, which are foundational for advanced programming skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on IoT in agriculture, which assumes a specific niche not stated by the user."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03607131-67",
+      "subjectName": "การโปรแกรมคอมพิวเตอร์สำหรับการประยุกต์ทางด้านหุ่นยนต์",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการโปรแกรมเชิงวัตถุได้",
+        "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้",
+        "สามารถเขียนโปรแกรมแบบขับเคลื่อนด้วยเหตุการณ์ที่มีส่วนต่อประสานกราฟิกกับผู้ใช้ตามที่กำหนดได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ef13bdc3-24c4-42fd-84aa-f9edfe5f1610",
+              "name": "สามารถเขียนโปรแกรมโดยใช้หลักการโปรแกรมเชิงวัตถุตามที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers object-oriented programming and event-driven programming, which are relevant for advanced programming."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Object-oriented programming and event-driven programming are key coding skills for advancement."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01204214-65",
+      "subjectName": "ปฏิบัติการการแก้ปัญหา",
+      "outcomes": [
+        "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา",
+        "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม",
+        "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "37290cd8-2494-4474-8201-d0b170d6482a",
+              "name": "สามารถเขียนโปรแกรมประยุกต์เพื่อใช้ในการแก้ปัญหา"
+            }
+          ]
+        },
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "49db0e6b-22f5-4b7f-8d86-44905f491ceb",
+              "name": "สามารถอธิบายแนวคิดทักษะพื้นฐานของโครงสร้างข้อมูลและอัลกอริทึม"
+            },
+            {
+              "id": "f3eab2f8-a240-475f-a927-1b68411d09ca",
+              "name": "สามารถวิเคราะห์และออกแบบอัลกอริทึมพื้นฐานในการแก้ปัญหา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on problem-solving and algorithms, essential for advanced programming."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course teaches programming, data structures, and algorithms which are core skills for coding advancement."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "04252535-67",
+      "subjectName": "วิศวกรรมข้อมูลขนาดใหญ่",
+      "outcomes": [
+        "สามารถเลือกใช้โครงสร้างข้อมูลขนาดใหญ่ได้",
+        "สามารถใช้เครื่องมือในการวิเคราะห์ข้อมูลขนาดใหญ่ได้",
+        "สามารถประมวลผลข้อมูลขนาดใหญ่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "70c2b229-5b34-4117-b308-d4ecaee7dbb8",
+              "name": "สามารถประมวลผลข้อมูลขนาดใหญ่ได้"
+            }
+          ]
+        },
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "02b21c6c-8736-438d-a00f-3d8aacec04f1",
+              "name": "สามารถเลือกใช้โครงสร้างข้อมูลขนาดใหญ่ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves big data tools and analysis, which require advanced programming skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Big data engineering skills enable handling large datasets, a valuable tool for coding and software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01605698-67",
+      "subjectName": "ปัญหาพิเศษ",
+      "outcomes": [
+        "อธิบายความรู้และทฤษฎีการวิจัยขั้นสูงที่ใช้ในการทำงานวิจัยได้",
+        "เลือกเทคโนโลยีขั้นสูงมาใช้กับการวิจัยด้านสุขภาพสัตว์ได้",
+        "สร้างผลงานวิชาการจากงานวิจัยที่ทำได้",
+        "นำเสนอผลงานวิจัยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "445ad6d1-6175-4799-ad75-4121ca2b249e",
+              "name": "อธิบายความรู้และทฤษฎีการวิจัยขั้นสูงที่ใช้ในการทำงานวิจัยได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves research and advanced technology, which can require advanced programming skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on advanced research in animal health, irrelevant to general coding skill enhancement."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03602222-65",
+      "subjectName": "การออกแบบการทดลองเชิงวิศวกรรม",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานของการออกแบบการทดลองได้อย่างถูกต้อง",
+        "เลือกแผนการทดลองได้อย่างเหมาะสมกับปัญหาและวัตถุประสค์ของการทดลอง",
+        "วิเคราะห์ข้อมูลและนำเสนอผลการวิเคราะห์การทดลองได้อย่างถูกต้อง",
+        "ประยุกต์ใช้โปรแกรมสำเร็จรูปในการวิเคราะห์ข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "3e9950cf-de43-4dd6-aa48-9fd9749475e0",
+              "name": "เลือกแผนการทดลองได้อย่างเหมาะสมกับปัญหาและวัตถุประสค์ของการทดลอง"
+            },
+            {
+              "id": "ab621d92-65db-4459-a668-0a397b4710a3",
+              "name": "วิเคราะห์ข้อมูลและนำเสนอผลการวิเคราะห์การทดลองได้อย่างถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers experimental design and data analysis with software, foundational knowledge useful for understanding testing methodologies."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Experimental design in engineering is not directly relevant to coding skill development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02537691-68",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงในทางวิจัยและพัฒนาการเกษตร",
+      "outcomes": [
+        "ค้นคว้าข้อมูลที่ทันสมัยด้วยเทคโนโลยีดิจิทัล",
+        "ออกแบบการทดลองงานวิจัยวิทยาศาสตร์เชิงบูรณาการ",
+        "เลือกวิธีการทางสถิติที่เหมาะสมเพื่อการวางแผนการทดลอง วิเคราะห์และแปลผลได้",
+        "เรียบเรียง นำเสนอผลงานวิจัยได้อย่างมีแบบแผนทั้งในรูปรายงานเชิงวิธีการและแบบปากเปล่า"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ee707b3d-d83c-465f-b892-6db0debfc824",
+              "name": "ออกแบบการทดลองงานวิจัยวิทยาศาสตร์เชิงบูรณาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes designing experiments and statistical analysis, relevant as foundational knowledge for testing and debugging."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Advanced research methods in agricultural R&D are not related to coding skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02537591-68",
+      "subjectName": "ระเบียบวิธีวิจัยทางด้านวิจัยและพัฒนาการเกษตร",
+      "outcomes": [
+        "เทคโนโลยีสารสนเทศในการสืบค้นข้อมูลและทบทวนวรรณกรรมที่เกี่ยวข้องเพื่อติดตามความก้าวหน้าทางเทคโนโลยีใหม่ ๆ ที่เกี่ยวข้องและวิพากษ์งานวิจัยได้อย่างสร้างสรรค์",
+        "แก้ไขปัญหาโดยวิธีการวิจัยได้อย่างเหมาะสมบนพื้นฐานของจริยธรรมการวิจัย",
+        "สื่อสารองค์ความรู้ผ่านกระบวนความคิดตามกระบวนการวิจัยอย่างเป็นระบบในรูปแบบการนำเสนอที่เป็นทางการและไม่เป็นทางการได้",
+        "ใช้โปรแกรมคอมพิวเตอร์ในการวิเคราะห์ผลการทดลองทางสถิติ และแปลผลการวิเคราะห์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "f9ac7ece-6914-455c-b2c1-2b425e7befc3",
+              "name": "ใช้โปรแกรมคอมพิวเตอร์ในการวิเคราะห์ผลการทดลองทางสถิติ และแปลผลการวิเคราะห์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes data analysis and research design, useful as foundational knowledge for testing and debugging."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Research methods in agricultural development lack direct relevance to coding skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02201599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "ประยุกต์ทฤษฎีเพื่อสร้างงานวิจัย",
+        "ออกแบบและทดสอบอุปกรณ์หรือเทคนิคเพื่อสร้างงานวิจัย",
+        "วิเคราะห์และแก้ปัญหาด้วยกระบวนการวิจัย",
+        "ปฏิบัติงานภาคสนามในการเก็บข้อมูลงานวิจัย",
+        "บริหารงานวิจัยเพื่อสร้างสรรค์ผลงานวิจัยให้บรรลุวัตถุประสงค์และเป็นไปตามหลักจรรยาบรรณทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e305b99c-2540-4382-8514-06801891603d",
+              "name": "ออกแบบและทดสอบอุปกรณ์หรือเทคนิคเพื่อสร้างงานวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Research design and analysis are foundational skills relevant to understanding testing and debugging processes."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis work focused on research management and ethics, not directly enhancing coding skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายทฤษฎีหลักการและกระบวนการ  วิศวกรรมซอฟต์แวร์ให้เหมาะสมกับผู้ใช้งานได",
+        "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้",
+        "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7b90c13c-c6a8-4cb8-b5d6-e880eb36c8c0",
+              "name": "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers software development and creating websites, which are relevant prerequisites for web and app development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Software engineering course directly relates to coding and software development skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "outcomes": [
+        "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ",
+        "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7e109823-63c2-4eec-b716-4a2c4a0f0a44",
+              "name": "สามารถใช้โปรแกรมการออกแบบงานสองมิติและสามมิติ"
+            },
+            {
+              "id": "676cf83e-a0ce-49e2-b007-f4ef213a0ce1",
+              "name": "สร้างและนำเสนองานออกแบบในโปรแกรมทั้ง 2 มิติและ3 มิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Involves computer-aided design, which can be relevant for UI/UX design in web and app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Computer-aided product design focuses on design software, not coding skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03610111-66",
+      "subjectName": "เปิดโลกวิศวกรรมดิจิทัลและอิเล็กทรอนิกส์อัจฉริยะ",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดพื้นฐานของระบบปัญญาประดิษฐ์ ตลอดจน ระบบอินเตอร์เน็ทของสรรพสิ่งที่ใช้อยู่ในปัจจุบันได้",
+        "สามารถใช้เครื่องมือปัญญาประดิษฐ์ในการทำงานเบื้องต้นได้",
+        "สามารถสร้างโปรแกรมควบคุมระบบอัตโนมัติอย่างง่ายโดยใช้ไมโครคอมพิวเตอร์ได้",
+        "สามารถทำงานเป็นหมู่คณะได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "2913f587-42e7-48d8-aea4-01ccb5d53505",
+              "name": "สามารถอธิบายแนวคิดพื้นฐานของระบบปัญญาประดิษฐ์ ตลอดจน ระบบอินเตอร์เน็ทของสรรพสิ่งที่ใช้อยู่ในปัจจุบันได้"
+            },
+            {
+              "id": "f5a98356-69b8-4401-b63b-ae5e745fd7ec",
+              "name": "สามารถใช้เครื่องมือปัญญาประดิษฐ์ในการทำงานเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches basic AI concepts and tools, which are foundational for applying AI skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on digital engineering and AI introduces programming and AI tools, useful for coding skill expansion."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "outcomes": [
+        "อธิบายหลักการพื้นฐานและความสำคัญของการวิเคราะห์ข้อมูลในปัญญาประดิษฐ์ได้",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อการเรียนและชีวิตประจำวันได้อย่างเหมาะสม",
+        "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาเชิงธุรกิจได้อย่างเหมาะสม",
+        "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้",
+        "วิเคราะห์ผลกระทบของเทคโนโลยีปัญญาประดิษฐ์ต่อสังคมและประเด็นจริยธรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "290697b6-36c7-404b-ac55-b67e92a42cfa",
+              "name": "อธิบายหลักการพื้นฐานและความสำคัญของการวิเคราะห์ข้อมูลในปัญญาประดิษฐ์ได้"
+            },
+            {
+              "id": "f116f6de-12a5-4a9c-890c-65edf5ac4243",
+              "name": "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อการเรียนและชีวิตประจำวันได้อย่างเหมาะสม"
+            },
+            {
+              "id": "f4c59672-4e32-4e90-b229-349cf4b3ca26",
+              "name": "เลือกใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาเชิงธุรกิจได้อย่างเหมาะสม"
+            },
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        },
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c53bfce1-6c96-446b-914e-eea96e5c74bd",
+              "name": "สร้างแอปพลิเคชันที่ประยุกต์ใช้ปัญญาประดิษฐ์อย่างง่ายได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides understanding of AI principles and application development, relevant for advancing coding skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers AI concepts and application development, useful for coding skill advancement."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01204561-66",
+      "subjectName": "ปัญญาประดิษฐ์ขั้นสูง",
+      "outcomes": [
+        "สามารถประยุกต์ใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาที่เหมาะสมได้",
+        "สามารถออกแบบและวิเคราะห์ระบบปัญญาประดิษฐ์ที่ชาญฉลาดได้",
+        "สามารถให้ความเห็นเกี่ยวกับงานวิจัยทางด้านเทคโนโลยีปัญญาประดิษฐ์ที่เป็นปัจจุบัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "472fa051-ec27-4164-9033-a46c53245197",
+              "name": "สามารถประยุกต์ใช้เทคโนโลยีปัญญาประดิษฐ์เพื่อแก้ปัญหาที่เหมาะสมได้"
+            },
+            {
+              "id": "a02c6b38-9647-4eca-9088-e76f33d882af",
+              "name": "สามารถออกแบบและวิเคราะห์ระบบปัญญาประดิษฐ์ที่ชาญฉลาดได้"
+            },
+            {
+              "id": "b860949d-aab7-4917-94f6-38a7475659ce",
+              "name": "สามารถให้ความเห็นเกี่ยวกับงานวิจัยทางด้านเทคโนโลยีปัญญาประดิษฐ์ที่เป็นปัจจุบัน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on advanced AI application and system design, useful for deepening AI application skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Advanced AI course enabling deeper technical skills relevant to coding and software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01204512-66",
+      "subjectName": "การออกแบบและการวิเคราะห์ขั้นตอนวิธีคอมพิวเตอร์",
+      "outcomes": [
+        "สามารถวิเคราะห์อัลกอริทึมพื้นฐานได้ ทั้งในด้านความซับซ้อนเชิงเวลา และความถูกต้องของอัลกอริทึม",
+        "สามารถออกแบบอัลกอริทึมที่มีความถูกต้องและมีประสิทธิภาพที่เหมาะสมได้",
+        "สามารถประยุกต์ใช้งานอัลกอริทึมกับปัญหาในชีวิตจริงและปัญหาในงานวิจัยทางสาขาวิศวกรรมคอมพิวเตอร์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "c1b324e8-8e43-401d-b654-8242071f9a9f",
+              "name": "สามารถวิเคราะห์อัลกอริทึมพื้นฐานได้ ทั้งในด้านความซับซ้อนเชิงเวลา และความถูกต้องของอัลกอริทึม"
+            },
+            {
+              "id": "ea1ba5d6-f6a7-437a-a80d-e3a679b541c4",
+              "name": "สามารถออกแบบอัลกอริทึมที่มีความถูกต้องและมีประสิทธิภาพที่เหมาะสมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers algorithm analysis and design, which are foundational for understanding data structures and algorithms."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on algorithm design and analysis, fundamental for improving coding skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "04256347-66",
+      "subjectName": "การประมวลผลข้อมูลขนาดใหญ่เบื้องต้น",
+      "outcomes": [
+        "สามารถวิเคราะห์ และสร้างข้อมูลขนาดใหญ่ได้ถูกต้องตามหลักการ",
+        "สามารถจัดการข้อมูลขนาดใหญ่ได้",
+        "สามารถแสดงออกถึงความมุ่งมั่น ตั้งใจ ในการปฏิบัติงานกลุ่มได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "9754f0a9-d6b2-4445-b6d7-3730cb80c8cd",
+              "name": "สามารถจัดการข้อมูลขนาดใหญ่ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on big data processing, which is related but not directly about database management skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches big data processing skills, an enabling tool for coding in data-related fields."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "outcomes": [
+        "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ",
+        "เลือกใช้ฟังก์ชันในการวิเคราะห์ข้อมูลได้อย่างเหมาะสมและถูกต้อง",
+        "เลือกรูปแบบการนำเสนอข้อมูลได้อย่างเหมาะสม",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ด้วยความรับผิดชอบ ซื่อสัตย์ และปฎิบัติงานร่วมกับผู้อื่นได้ มีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "84b67e5d-9f9b-45fb-8a17-c60f5eb856df",
+              "name": "จัดการและวิเคราะห์ข้อมูลได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Centers on data analysis and visualization, tangential to database management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Data analysis and visualization skills complement coding and software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "outcomes": [
+        "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม",
+        "สร้างการคำนวณข้อมูล พารามิเตอร์ตารางและแผนภูมิ เพื่อนำเสนอภาพข้อมูลได้อย่่างเหมาะสม",
+        "วิเคราะห์ข้อมูลขั้นสูงได้",
+        "สร้างแดชบอร์ดและนำเสนอผ่านระบบสารสนเทศได้",
+        "แสดงออกถึงความมุ่งมั่นตั้งใจในงานที่ได้รับมอบหมาย ซื่อสัตย์ ปฎิบัติงานร่วมกับผู้อื่นได้ และมีจรรยาบรรณเกี่ยวกับการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศ",
+        "เรียนรู้เพิ่มเติมนอกเหนือจากในบทเรียนและ พัฒนาตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "607d6284-5f60-4f1d-b70f-20c41e69fa56",
+              "name": "นำเข้าข้อมูลและจัดการข้อมูลได้อย่างเหมาะสม"
+            }
+          ]
+        },
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "fe40af0b-4426-47c6-93fa-f18d1f54ada1",
+              "name": "วิเคราะห์ข้อมูลขั้นสูงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with data visualization and business intelligence, not core database management skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Data visualization for business supports coding skills in data presentation and dashboard creation."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02204462-65",
+      "subjectName": "คลังข้อมูลและระบบธุรกิจอัจฉริยะ",
+      "outcomes": [
+        "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล",
+        "ออกแบบและวิเคราะห์ข้อมูลด้วยโมเดลหลายมิติและ olap",
+        "เข้าใจแนวคิดและบทบาทของธุรกิจอัจฉริยะ",
+        "ประยุกต์ใช้ระบบสนับสนุนการตัดสินใจเพื่อธุรกิจ",
+        "บูรณาการธุรกิจอัจฉริยะในระดับองค์กร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cf98039c-a1ec-4081-a108-7e579c4cd22d",
+              "name": "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล"
+            }
+          ]
+        },
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cf98039c-a1ec-4081-a108-7e579c4cd22d",
+              "name": "อธิบายโครงสร้างและหลักการของระบบคลังข้อมูล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to data warehousing and BI, but not specifically about database management skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Data warehousing and business intelligence provide context and tools relevant to coding in data systems."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02731281-65",
+      "subjectName": "วิทยาการข้อมูลขั้นพื้นฐานสำหรับคณิตศาสตร์ประยุกต์",
+      "outcomes": [
+        "อธิบายภาพรวมและหลักการพื้นฐานของวิทยาการข้อมูลได้",
+        "แก้ปัญหาด้านวิทยาการข้อมูลเบื้องต้นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "ce183532-a06f-4117-a50c-98208bb1456e",
+              "name": "แก้ปัญหาด้านวิทยาการข้อมูลเบื้องต้นได้"
+            }
+          ]
+        },
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a5acce29-a5be-4aa2-b483-86b9a53b4f77",
+              "name": "อธิบายภาพรวมและหลักการพื้นฐานของวิทยาการข้อมูลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Provides basic data science concepts, tangential to database management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Basic data science course offers foundational knowledge useful for coding expansion."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "04253371-65",
+      "subjectName": "การควบคุมแบบตรรกะและระบบอัตโนมัติ",
+      "outcomes": [
+        "อธิบาย (explain) หลักการทำงาน โครงสร้าง และส่วนประกอบสำคัญของพีแอลซี ตลอดจนระบุประเภทและหน้าที่ของอุปกรณ์อินพุตและเอาต์พุตที่ใช้ในงานอุตสาหกรรมได้อย่างถูกต้อง",
+        "เขียน (write) โปรแกรมควบคุมอัตโนมัติเบื้องต้นโดยใช้ภาษาแลดเดอร์บนซอฟต์แวร์สำหรับพีแอลซีแต่ละรุ่นได้อย่างมีประสิทธิภาพ เพื่อควบคุมการทำงานของระบบทางกลได้",
+        "เชื่อมต่อ (connect) และตั้งค่าพีแอลซีกับอุปกรณ์อินพุต/เอาต์พุตและคอมพิวเตอร์ เพื่อดาวน์โหลด/อัปโหลดโปรแกรม รวมถึงสามารถใช้ซอฟต์แวร์ hmi ในการออกแบบหน้าจอควบคุมและเชื่อมโยงกับพีแอลซีได้อย่างถูกต้อง",
+        "วิเคราะห์ (analyze) และ แก้ไขปัญหา (troubleshoot) การทำงานของโปรแกรมแลดเดอร์และการเชื่อมต่อของระบบควบคุมอัตโนมัติที่ใช้พีแอลซีได้อย่างเป็นระบบ เพื่อหาสาเหตุและแก้ไขข้อผิดพลาดที่เกิดขึ้น",
+        "ออกแบบ (design) และ ประยุกต์ใช้ (apply) พีแอลซีและ hmi เพื่อควบคุมและเฝ้าระวังกระบวนการทางกลหรือระบบอัตโนมัติขนาดเล็กได้อย่างบูรณาการ โดยคำนึงถึงความปลอดภัยและประสิทธิภาพการทำงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "936c3a6d-9b56-42aa-9367-a40bb75d6ae9",
+              "name": "เขียน (write) โปรแกรมควบคุมอัตโนมัติเบื้องต้นโดยใช้ภาษาแลดเดอร์บนซอฟต์แวร์สำหรับพีแอลซีแต่ละรุ่นได้อย่างมีประสิทธิภาพ เพื่อควบคุมการทำงานของระบบทางกลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers automation control and PLC programming, tangentially related but not core to advanced programming skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on PLC and industrial automation programming, which is niche and less relevant for general coding skill advancement."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02201568-66",
+      "subjectName": "การวางแผนและการวิเคราะห์ผลการทดลอง",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการของการออกแบบการทดลอง",
+        "ใช้วิธีการทางสถิติและการจัดการข้อมูลเพื่อบูรณาการกับการวิจัยที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อวิเคราะห์ความแปรปรวนและการเปรียบเทียบค่าเฉลี่ย",
+        "ทำงานเป็นทีม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "1fcf781e-8de5-4bbd-bb4c-a0a08502ec3d",
+              "name": "ใช้โปรแกรมเพื่อวิเคราะห์ความแปรปรวนและการเปรียบเทียบค่าเฉลี่ย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on experimental design and statistical analysis, which are tangential to debugging and testing programming skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Experimental design and statistical analysis skills can enhance coding in research and data analysis contexts."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03760441-64",
+      "subjectName": "การให้บริการความเชื่อมั่นเชิงวิชาชีพ",
+      "outcomes": [
+        "สามารถประเมินความเสี่ยงในการให้บริการความเชื่อมัี่นได้",
+        "สามารถจัดทำแผนการตรวจสอบบัญชีและโปรแกรมการตรวจสอบบัญชี",
+        "สามารถประยุกต์เทคนิคการตรวจสอบบัญชีในการจััดทำกระดาษทำการ",
+        "สามารถเขียนรายงานการตรวจสอบบัญชีได้ถูกต้อง ตามมาตรฐานการสอบบัญชี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d52e5860-fab7-4f18-bca5-24272fcac634",
+              "name": "สามารถจัดทำแผนการตรวจสอบบัญชีและโปรแกรมการตรวจสอบบัญชี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Auditing and assurance involve testing processes but are not directly related to programming debugging skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on professional assurance and auditing, unrelated to coding skills or software development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02198232-67",
+      "subjectName": "เทคโนโลยีเพื่อการจัดการเรียนรู้",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎีที่เกี่ยวข้องกับสื่อ นวัตกรรม และเทคโนโลยีสารสนเทศเพื่อการเรียนรู้",
+        "ใช้เทคโนโลยีเพื่อประโยชน์ทางด้านการพัฒนาคุณภาพการจัดเรียนรู้",
+        "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า",
+        "รวบรวมและใช้เทคโนโลยีดิจิทัลเพื่อการเรียนรู้ในรูปแบบออนไลน์ ออนไซด์ และผสมผสาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d86b7675-633d-4720-bb4d-bf623b1bf64e",
+              "name": "ออกแบบสื่อเพื่อการจัดการเรียนรู้ที่ง่ายต่อการใช้งาน และคุ้มค่า"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to educational technology, sharing tools and digital resources, but not directly about web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about educational technology and learning management, not directly related to coding or programming skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "outcomes": [
+        "บอกขั้นตอนการสมัครงานและการจัดเตรียมข้อมูล สำหรับสมัครงานได้",
+        "จัดทำร่างข้อเสนอโครงงานสหกิจศึกษาได้",
+        "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม",
+        "ปฏิบัติงานร่วมกับผู้อื่นได้ด้วยความมุ่งมั่น สามัคคี และเคารพกฎระเบียบ",
+        "แสดงออกถึงการมีบุคลิกภาพที่ดี สื่อสารกับผู้อื่นได้อย่างชัดเจน ตรงประเด็น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "2c00b903-7dd2-40aa-b16e-2a70f6489448",
+              "name": "เลือกใช้ซอฟแวร์ในการสืบค้นและนำเสนอข้อมูล ได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on career preparation and soft skills, not directly on web or app development skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course prepares for cooperative education and job application skills, not technical coding skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "outcomes": [
+        "อธิบายองค์ประกอบของพลเมืองดิจิทัลได้",
+        "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้",
+        "ออกแบบสร้างชิ้นงานดิจิทัลได้",
+        "มีความรับผิดชอบต่อตนเองและสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "cb239c78-2dd2-4dce-850a-f1bfa0cd7ae7",
+              "name": "ใช้เทคโนโลยีดิจิทัลและสารสนเทศได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers digital citizenship and responsible use of technology, tangentially related but not specific to web/app development skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers digital citizenship and use of digital technology, which is foundational and relevant for someone expanding coding skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "outcomes": [
+        "อธิบายความรู้เกี่ยวกับหลักการใช้ปัญญาประดิษฐ์เพื่อหาความต้องการโภชนะให้สอดคล้องกับความต้องการของร่างกายสัตว์และการผลิตอาหารสัตว์",
+        "อธิบายความรู้เกี่ยวกับการพยากรณ์ราคาวัตถุดิบอาหารสัตว์ และผลิตภัณฑ์เพื่อการวางแผนการผลิตสำหรับอุตสาหกรรมทางด้าน   ปศุสัตว์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c581efe1-b837-4b46-b3cf-d2de27a56cec",
+              "name": "อธิบายความรู้เกี่ยวกับหลักการใช้ปัญญาประดิษฐ์เพื่อหาความต้องการโภชนะให้สอดคล้องกับความต้องการของร่างกายสัตว์และการผลิตอาหารสัตว์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Specific to animal science applications of AI, tangential to general AI application skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course applies AI in animal science, too specialized and assumes a niche unrelated to general coding skill development."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01023512-68",
+      "subjectName": "การคำนวณสูตรอาหารสัตว์อุตสาหกรรม",
+      "outcomes": [
+        "เชื่อมโยงข้อมูลทางโภชนศาสตร์สัตว์ในการสร้างสูตรอาหารสัตว์กระเพาะเดี่ยวและสัตว์กระเพาะรวม",
+        "พัฒนาสูตรอาหารสัตว์โดยใช้เครื่องมือการคำนวณที่ทันสมัย",
+        "รวบรวมและวิเคราะห์ข้อมูลด้านโภชนศาสตร์สัตว์อย่างเป็นระบบโดยใช้ปัญญาประดิษฐ์",
+        "สามารถสร้างสูตรอาหารสัตว์ที่ปลอดภัย  ลดผลกระทบต่อสังคมและสิ่งแวดล้อม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "99c4c909-4ab7-40c4-8ffa-a52e987078c5",
+              "name": "รวบรวมและวิเคราะห์ข้อมูลด้านโภชนศาสตร์สัตว์อย่างเป็นระบบโดยใช้ปัญญาประดิษฐ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Uses AI for specific calculations in animal nutrition, tangential to general AI application skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on animal feed formulation using AI, irrelevant to general coding skill enhancement."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02204433-65",
+      "subjectName": "การรู้จำรูปแบบ",
+      "outcomes": [
+        "อธิบายแนวคิดพื้นฐานของการรู้จำรูปแบบ และอัลกอริธึมที่เกี่ยวข้องได้อย่างชัดเจน",
+        "เลือกใช้เทคนิคการประมวลผลเบื้องต้น การเลือกและการดึงคุณลักษณะ ให้เหมาะสมกับลักษณะของข้อมูลและปัญหาที่กำหนด",
+        "เปรียบเทียบและประเมินความเหมาะสมของโมเดลการเรียนรู้แบบมีผู้สอน (supervised learning) และไม่มีผู้สอน (unsupervised learning) ต่อปัญหาที่กำหนด",
+        "สื่อสารแนวคิด หลักการ และผลการทดลองจากแบบฝึกหัดหรือโครงงานในรูปแบบที่ชัดเจนและเป็นระบบ ทั้งการพูดและการเขียน",
+        "ทำงานกลุ่มและมีส่วนร่วมในการวางแผน ออกแบบ พัฒนา และนำเสนอระบบรู้จำรูปแบบในบริบทของโครงงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a13a5895-26b7-4c09-bc77-cc563c7092b1",
+              "name": "อธิบายแนวคิดพื้นฐานของการรู้จำรูปแบบ และอัลกอริธึมที่เกี่ยวข้องได้อย่างชัดเจน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Involves algorithms and pattern recognition, which are related but not directly teaching core data structures and algorithms."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on pattern recognition teaches algorithms and techniques relevant to coding and software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01403291-65",
+      "subjectName": "วรรณกรรมและสารสนเทศทางเคมี",
+      "outcomes": [
+        "เข้าใจและสามารถแยกแยะประเภทของข้อมูลในระบบเอกสารเคมี",
+        "เข้าใจและมีทักษะในการค้นคว้าหาข้อมูล และสามารถเลือกใช้ฐานข้อมูลที่เหมาะสม",
+        "เข้าใจหลักการวิจัยทางวิทยาศาสตร์ และจรรยาบรรณทางการวิจัย รู้จักการเขียนรายงานและการอ้างอิงในรูปแบบที่เหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "49966e26-b165-44b1-bac2-a08400fa256d",
+              "name": "เข้าใจและมีทักษะในการค้นคว้าหาข้อมูล และสามารถเลือกใช้ฐานข้อมูลที่เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to database management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about chemical literature and research ethics, unrelated to coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03757112-65",
+      "subjectName": "องค์การและการจัดการ",
+      "outcomes": [
+        "ปฏิบัติตนอย่างมีความมุ่งมั่นในการเรียน มีความซื่อสัตย์ และเคารพกฎระเบียบ ข้อบังคับของสังคม",
+        "เข้าใจ และสามารถอธิบายความรู้พื้นฐานทางการจัดการ",
+        "แสวงหาความรู้จากแหล่งข้อมูลหลากหลาย เพื่อให้เท่าทันต่อปัญหาหรือการเปลี่ยนแปลงของสภาพแวดล้อม",
+        "สามารถทำงานเป็นทีม อย่างมีความรับผิดชอบต่อตนเองและสังคม",
+        "สามารถใช้เทคโนโลยีในการแสวงหาความรู้และการสื่อสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการฐานข้อมูล",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "994854dc-8cf7-4b57-a975-afd245f632b6",
+              "name": "เข้าใจ และสามารถอธิบายความรู้พื้นฐานทางการจัดการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on management and organizational skills, not on database management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on organization and management includes teamwork and technology use, useful for career expansion beyond coding."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานในการเขียนแบบทางวิศวกรรม",
+        "สามารถเขียนแบบชิ้นส่วนเครื่องจักรกลเกษตรกลเกษตร",
+        "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้",
+        "สามารถใช้คอมพิวเตอร์สำหรับการออกแบบและการเขียนแบบทางวิศวกรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b44f78f7-bee2-4e78-85b5-8f3dc970855b",
+              "name": "สามารถใช้ซอฟต์แวร์คอมพิวเตอร์ช่วยเขียนแบบเบื้องต้นได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on engineering drawing and CAD software, unrelated to programming skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on engineering drawing and CAD software, not directly related to coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "outcomes": [
+        "บอกความหมายคำศัพท์โดยอาศัยบริบท",
+        "อ่านจับใจความสำคัญของบทอ่านที่มีเนื้อหาไม่ซับซ้อน",
+        "เขียนประโยคความเดียว ความรวม ความซ้อนได้",
+        "เขียนย่อหน้าในระดับพื้นฐานได้อย่างครบถ้วนตามองค์ประกอบ",
+        "แสดงออกถึงความรับผิดชอบและความมุ่งมั่นผ่านการเข้าชั้น เรียนและการมีส่วนร่วมในชั้นเรียน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "26c5a720-6b3f-4a61-9bd9-44dc68f0d9a9",
+              "name": "เขียนย่อหน้าในระดับพื้นฐานได้อย่างครบถ้วนตามองค์ประกอบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language skills are not directly related to programming skill development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Improving English reading and writing skills can enhance coding documentation and communication, which are valuable for a coder's growth."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "outcomes": [
+        "สามารถวาดภาพฉายออร์โธกราฟฟิก ภาพสามมิติ และมุมมองช่วยได้",
+        "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้",
+        "สามารถนำเสนอแบบวิศวกรรมและสื่อสารข้อมูลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d5700e19-8857-410b-ab08-cfcd6522811f",
+              "name": "สามารถใช้ซอฟต์แวร์เขียนแบบทางวิศวกรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to engineering drawing and CAD, not programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Engineering drawing skills are unrelated to coding or software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03601524-66",
+      "subjectName": "ระเบียบวิธีใช้คอมพิวเตอร์ในระบบไฟฟ้ากำลัง",
+      "outcomes": [
+        "สามารถอธิบายการแก้ปัญหาที่เกิดขึ้นในระบบไฟฟ้ากำลังผ่านการใช้คอมพิวเตอร์",
+        "สามารถวิเคราะห์ระบบไฟฟ้ามีความสำคัญต่อการแก้ปัญหาที่เกิดขึ้นในระบบไฟฟ้ากำลัง",
+        "สามารถเสนอปรับปรุงทักษะการใช้โปรแกรมคอมพิวเตอร์ที่สอดคล้องกับมาตรฐานของอุปกรณ์ไฟฟ้าในปัจจุบัน",
+        "สามารถใช้โปรแกรมสำเร็จรูปในการวิเคราะห์และแก้ไขปัญหาที่เกี่ยวข้องกับการป้องกันระบบไฟฟ้ากำลังขั้นสูงได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3f1242a0-491e-4a7a-9860-203ac338288f",
+              "name": "สามารถใช้โปรแกรมสำเร็จรูปในการวิเคราะห์และแก้ไขปัญหาที่เกี่ยวข้องกับการป้องกันระบบไฟฟ้ากำลังขั้นสูงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focused on power systems and computer analysis in electrical engineering, unrelated to programming skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Computer methods in power systems focus on electrical engineering, not general coding skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03601523-66",
+      "subjectName": "การป้องกันระบบไฟฟ้ากำลังขั้นสูง",
+      "outcomes": [
+        "สามารถอธิบายหลักการของการป้องกันระบบไฟฟ้ากำลังขั้นสูงได้",
+        "สามารถวิเคราะห์วิธีการป้องกันระบบไฟฟ้าขั้นสูงได้",
+        "สามารถเสนอวิธีการป้องกันระบบไฟฟ้ากำลังขั้นสูงได้ ในกรณีต่างๆได้",
+        "สามารถใช้โปรแกรมสำเร็จรูปในการวิเคราะห์และแก้ไขปัญหาที่เกี่ยวข้องกับการป้องกันระบบไฟฟ้ากำลังขั้นสูงได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d83f81e9-ebe9-4768-bc59-3978c973de6f",
+              "name": "สามารถใช้โปรแกรมสำเร็จรูปในการวิเคราะห์และแก้ไขปัญหาที่เกี่ยวข้องกับการป้องกันระบบไฟฟ้ากำลังขั้นสูงได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to power system protection, not programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Advanced power system protection is specialized electrical engineering, not relevant to general coding skill development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "outcomes": [
+        "เขียนงานเขียนภาษาไทยที่กำหนดตามรูปแบบและหลักการเขียนได้",
+        "สืบค้นข้อมูลและอ้างอิงแหล่งข้อมูลที่ใช้ประกอบการเขียนได้อย่างถูกต้องเหมาะสม",
+        "มีความรับผิดชอบต่อตนเองและผู้อื่น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "029b4afd-16cf-4672-9bec-dd8d002bc728",
+              "name": "เขียนงานเขียนภาษาไทยที่กำหนดตามรูปแบบและหลักการเขียนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Language writing skills are not related to programming."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Practical Thai writing skills improve communication and documentation abilities useful for coders."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01058452-68",
+      "subjectName": "นวัตกรรมผลิตภัณฑ์ทางโภชนาการสำหรับอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายแนวคิดนวัตกรรมผลิตภัณฑ์ทางโภชนาการ",
+        "ระบุชนิดของวัตถุดิบและกระบวนการสำหรับการผลิตผลิตภัณฑ์ทางโภชนาการและสุขภาพ",
+        "ออกแบบผลิตภัณฑ์ทางโภชนาการด้วยความรู้พื้นฐานที่เกี่ยวข้อง",
+        "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "7795086e-5fdc-45b2-a7c6-998a1a38686b",
+              "name": "ใช้โปรแกรมเพื่อกำหนดสูตรของผลิตภัณฑ์ทางโภชนาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to food innovation and nutrition, not programming."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Nutrition product innovation is unrelated to coding or software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "outcomes": [
+        "ออกแบบหัวข้อศึกษาค้นคว้าเชิงบูรณาการข้ามศาสตร์",
+        "วิเคราะห์และแก้ไขปัญหาด้วย องค์ความรู้เชิงบูรณาการ",
+        "เรียบเรียงเขียนเป็นรายงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การเขียนโปรแกรมขั้นสูง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "5ad86bfe-e450-4300-bdcf-06ab489e9556",
+              "name": "เรียบเรียงเขียนเป็นรายงาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on interdisciplinary research and report writing, not programming."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Special problems course involving integrated problem solving and report writing can develop analytical and coding-related skills."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01419499-65",
+      "subjectName": "โครงงานจุลชีววิทยา",
+      "outcomes": [
+        "วางแผนและเขียนข้อเสนอโครงงานจุลชีววิทยาได้ถูกต้อง",
+        "ทำปฏิบัติการทางจุลชีววิทยาได้ถูกต้องตามทฤษฎี หลักการ และวิธีการ",
+        "วิเคราะห์ผลการทดลองได้ถูกต้อง",
+        "เขียนรายงานการทดลองได้ถูกต้องตามหลักการ",
+        "นำเสนอผลการทดลองโดยใช้เทคโนโลยีสารสนเทศและสื่อสารได้ถูกต้องเหมาะสม",
+        "รับผิดชอบต่อตนเองและทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1b9f3296-0658-4b1a-9696-14acd9c88472",
+              "name": "วิเคราะห์ผลการทดลองได้ถูกต้อง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Related to microbiology research projects, not relevant to programming testing and debugging skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Microbiology project course is unrelated to coding skill enhancement."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01600141-65",
+      "subjectName": "ชีวเคมีทางสุขภาพสัตว์",
+      "outcomes": [
+        "สามารถบรรยาย/อธิบายโครงสร้าง หน้าที่ และเมแทบอลิซึมของสารชีวโมเลกุลในสัตว์",
+        "สามารถปฏิบัติตามการทดลอง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3e85351e-70be-4baf-bf69-e1d93104d9f7",
+              "name": "สามารถปฏิบัติตามการทดลอง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Biochemistry in animals is unrelated to programming testing and debugging skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Animal health biochemistry is unrelated to coding or software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01448214-68",
+      "subjectName": "ปฏิบัติการทางวัสดุ I",
+      "outcomes": [
+        "ดำเนินการทดลองศึกษาโครงสร้าง สมบัติทางกายภาพและเคมีของวัสดุด้วยเทคนิคต่าง ๆ ได้",
+        "วิเคราะห์ข้อมูลและทำรายงานสรุปผลการทดลองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d47a3c52-12d6-4b81-95a3-052db5f1ecba",
+              "name": "วิเคราะห์ข้อมูลและทำรายงานสรุปผลการทดลองได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Material science experiments are not directly related to programming testing and debugging."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Materials science lab is unrelated to coding or software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "03601543-66",
+      "subjectName": "อินเวอร์เตอร์กำลัง",
+      "outcomes": [
+        "สามารถอธิบายความสำคัญของอินเวอร์เตอร์",
+        "สามารถวิเคราะห์ความผิดเพี้ยนฮาร์มอนิกของอินเวอร์เตอร์",
+        "สามารถเสนอวิธีการนำลดความผิดเพี้ยนฮาร์มอนิกของอินเวอร์เตอร์",
+        "สามารถใช้โปรแกรมสำเร็จรูปในการวิเคราะห์อินเวอร์เตอร์และระบบอิเล็กทรอนิกส์อื่นๆ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "864ff02f-1889-47ab-aa35-6b52a757864c",
+              "name": "สามารถใช้โปรแกรมสำเร็จรูปในการวิเคราะห์อินเวอร์เตอร์และระบบอิเล็กทรอนิกส์อื่นๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Electrical engineering course unrelated to programming testing and debugging."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on power inverters and electronics analysis, unrelated to coding skills or software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01419487-65",
+      "subjectName": "จุลชีววิทยาเพื่อการเกษตร",
+      "outcomes": [
+        "อธิบายความสัมพันธ์ของจุลินทรีย์กับพืชในรูปแบบต่างๆ",
+        "อธิบายประโยชน์ ผลกระทบ และการศึกษาเกี่ยวกับจุลินทรีย์ที่เกี่ยวข้องกับการเพาะปลูกพืช สัตว์น้ำ และปศุสัตว์",
+        "ปฏิบัติการและวิเคราะห์ผลการทดลองด้านการนำจุลินทรีย์ที่มีประโยชน์ (beneficial microbes) ไปใช้ในการเพาะปลูกพืชได้ถูกต้องตามทฤษฏีและวิธีการ",
+        "เขียนรายงานการทดลองได้ถูกต้องตามหลักวิชาการ",
+        "นำเสนอผลการทดลองโดยใช้เทคโนโลยีสารสนเทศและสื่อสารได้ถูกต้อง เหมาะสม",
+        "รับผิดชอบต่อตนเองและทำงานร่วมกับผู้อื่นได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ad5122e9-b6fe-471d-8e5e-afdf8bbba9f0",
+              "name": "นำเสนอผลการทดลองโดยใช้เทคโนโลยีสารสนเทศและสื่อสารได้ถูกต้อง เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Microbiology for agriculture is unrelated to programming testing and debugging."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about microbiology for agriculture, no connection to coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "outcomes": [
+        "อธิบายเกี่ยวกับเคมีที่มีอิทธิพลต่องานศิลปะ",
+        "มีทักษะการคิดวิเคราะห์ วิพากษ์ บูรณาการองค์ความรู้ รวมถึงเชื่อมโยงข้อมูลที่ได้อย่างเหมาะสม",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on art and chemistry, unrelated to web or app development skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers chemistry in art, irrelevant to coding or software development skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "outcomes": [
+        "อธิบายวิทยาศาสตร์/เคมีที่เกี่ยวข้องในชีวิตประจำวันได้",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม",
+        "เชื่อมโยงประเด็นที่เกี่ยวกับเคมีที่มีในสิ่งรอบ ๆ ตัว นำไปสู่การให้ความเห็นอย่างมีวิจารณญาณได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Deals with chemistry in daily life, not relevant to web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course covers general chemistry in daily life, not related to coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "04201373-65",
+      "subjectName": "เคมีพอลิเมอร์",
+      "outcomes": [
+        "อธิบายแนวคิดพื้นฐานทางพอลิเมอร์",
+        "อธิบายความสัมพันธ์ระหว่างโครงสร้าง น้ำหนักโมเลกุล และสมบัติของพอลิเมอร์",
+        "อธิบายปฏิกิริยาพอลิเมอไรเซชันและกลไก",
+        "อธิบายวิธีการสังเคราะห์และกลไกการเกิดพอลิเมอไรเซชันร่วม",
+        "อธิบายกระบวนการเตรียมและสมบัติของเทอร์โมพลาสติกและเทอร์โมเซต",
+        "เชื่อมโยงความสัมพันธ์ระหว่างสมบัติของพอลิเมอร์และกระบวนการขึ้นรูปพอลิเมอร์ให้เหมาะสมกับผลิตภัณฑ์",
+        "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ",
+        "แสดงออกถึงความรับผิดชอบ ความมีวินัย และตรงต่อเวลา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "0360bc86-0ff2-4de2-b2a5-c3a58f29c203",
+              "name": "นำเสนอความก้าวหน้าของการใช้งานพอลิเมอร์ประเภทต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on polymers and chemistry, unrelated to web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on polymer chemistry, unrelated to coding or software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02747443-65",
+      "subjectName": "นวัตกรรมและการออกแบบบริการในธุรกิจการบิน",
+      "outcomes": [
+        "อธิบายการเปลี่ยนแปลงของนวัตกรรมและการออกแบบบริการ",
+        "นำเสนอนวัตกรรมและการออกแบบบริการในธุรกิจการบินผ่านระบบสารสนเทศที่ทันสมัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c0cbdc62-a0f4-4365-a28e-db3a469fb6bc",
+              "name": "อธิบายการเปลี่ยนแปลงของนวัตกรรมและการออกแบบบริการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on service innovation in aviation, not related to web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course about innovation and service design in aviation business, no direct link to coding skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01202699-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "พัฒนาองค์ความรู้ใหม่หรือผลิตภัณฑ์ใหม่",
+        "สามารถเข้าใจบทความวิจัยและสังเคราะห์ความรู้ที่ได้รับจากการศึกษาก่อนหน้านี้ โดยใช้เทคโนโลยีสารสนเทศ",
+        "แก้ปัญหาหรือวิเคราะห์ปัญหาทางวิศวกรรมที่เกิดขึ้นในอุตสาหกรรมหรือปัญหาการวิจัยที่ถูกต้อง",
+        "สามารถทำงานวิจัยได้อย่างเป็นอิสระ โดยมีจริยธรรมที่ดี",
+        "สามารถสื่อสารผลงานได้ดี ทั้งการเขียนผลการวิจัยและนำเสนอสิ่งที่ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "30ae034f-0d90-44c7-85ef-003fe91e5dab",
+              "name": "พัฒนาองค์ความรู้ใหม่หรือผลิตภัณฑ์ใหม่"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Research thesis, not specifically related to web or app development skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Thesis course involves research, problem solving, and use of information technology, which can enhance coding and analytical skills."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02738453-66",
+      "subjectName": "เศรษฐกิจบีซีจี",
+      "outcomes": [
+        "นำความรู้และทักษะทางวิทยาศาสตร์และสาขาที่เกี่ยวข้อง มาศึกษา วิจัยและแก้ปัญหาโมเดลเศรษฐกิจบีซีจีได้",
+        "ติดตามข้อมูล องค์ความรู้ทางด้านโมเดลเศรษฐกิจบีซีจี สามารถพิจารณา ตรวจสอบความถูกต้องของข้อมูล นำไปประยุกต์ได้เหมาะสมกับสถานการณ์จริง",
+        "สื่อสารและนำเสนอความคิดเห็นเกี่ยวกับโครงการวิจัยได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "09e7e10d-ae3d-43bf-99fb-c7540c00f524",
+              "name": "สื่อสารและนำเสนอความคิดเห็นเกี่ยวกับโครงการวิจัยได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on economic models, unrelated to web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on BCG economy model, unrelated to coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01058111-68",
+      "subjectName": "หลักนวัตกรรมอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายลักษณะของอุตสาหกรรมเกษตรและห่วงโซ่อุปทาน",
+        "อธิบายวิธีการพัฒนานวัตกรรมและตัวอย่างเครื่องมือสำหรับใช้ออกแบบนวัตกรรม",
+        "อธิบายหลักการของแนวคิดการพัฒนาอย่างยั่งยืนและตัวอย่างการใช้เทคโนโลยีในอุตสาหกรรมเกษตรโดยอ้างอิงแนวคิดเศรษฐกิจหมุนเวียนและอุตสาหกรรมสีเขียว",
+        "เข้าเรียนและส่งงานตรงเวลา โดยไม่มีการคัดลอกผลงานผู้อื่น"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "19298d4f-aedb-46ca-9742-8f4a617652d2",
+              "name": "อธิบายวิธีการพัฒนานวัตกรรมและตัวอย่างเครื่องมือสำหรับใช้ออกแบบนวัตกรรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centered on agricultural innovation, not relevant to web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on agricultural industrial innovation, no direct relevance to coding skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "outcomes": [
+        "เลือกหัวข้อที่สนใจทางพฤกษศาสตร์",
+        "รวบรวมเอกสารงานวิจัยที่เกี่ยวข้องและสรุปข้อมูลที่เกี่ยวข้อง",
+        "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์",
+        "ใช้เครื่องมือและอุปกรณ์ทางพฤกษศาสตร์ได้",
+        "วิเคราะห์ผล และเรียบเรียงงานวิจัยทางพฤกษศาสตร์ได้",
+        "เข้าใจและสามารถปฏิบัติตามจรรยาบรรณงานวิจัยได้",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การพัฒนาเว็บและแอปพลิเคชัน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "f713c9f3-85d9-463d-9149-7359640031a1",
+              "name": "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Botanical project work, unrelated to web or app development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on botanical research project, unrelated to coding or software development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01474511-65",
+      "subjectName": "จิตวิทยาประยุกต์ในชุมชน",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดทฤษฎีด้านจิตวิทยา",
+        "สามารถนำความรู้ไปประยุกต์ใช้ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "779753f2-e09d-4ef7-bb11-35a85bbe8c4c",
+              "name": "สามารถนำความรู้ไปประยุกต์ใช้ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to AI application skills; focuses on psychology."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on applied psychology in community is unrelated to coding skills or programming."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "outcomes": [
+        "ประยุกต์องค์ความรู้ไปสู่การปฏิบัติการไปใช้ในสถานการณ์จริง",
+        "มีทักษะในการปฏิบัติการได้ถูกต้อง",
+        "มีทักษะในสื่อสารทั้งด้านภาษาและเทคโนโลยี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การประยุกต์ใช้ปัญญาประดิษฐ์",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "b91c73e6-7d8b-4298-a3cb-e3edde503380",
+              "name": "ประยุกต์องค์ความรู้ไปสู่การปฏิบัติการไปใช้ในสถานการณ์จริง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to AI application skills; focuses on rehabilitation science."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Internship in rehabilitation science focuses on practical skills in health, not programming or coding."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษษจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a8dea453-a577-4e79-8a70-5ba525edd086",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to data structures and algorithms; focuses on Chinese language and culture for business."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language course is unrelated to coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01396211-67",
+      "subjectName": "ภาษาจีนธุรกิจ III",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a77f7390-8e4c-4f29-b8f8-8a664ad0d959",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to data structures and algorithms; focuses on Chinese language and culture for business."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language course is unrelated to coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01396312-67",
+      "subjectName": "ภาษาจีนธุรกิจ VI",
+      "outcomes": [
+        "วิเคราะห์โครงสร้างและหลักไวยากรณ์",
+        "สื่อสารด้วยภาษาจีนให้เหมาะสมกับสถานการณ์ทางธุรกิจได้",
+        "อธิบายวัฒนธรรมจีนที่เกี่ยวข้องกับการทำธุรกิจได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "bdcf0b76-0d4d-4326-91ae-e36c4540ea7f",
+              "name": "วิเคราะห์โครงสร้างและหลักไวยากรณ์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to data structures and algorithms; focuses on Chinese language and culture for business."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Business Chinese language course is unrelated to coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01355131-68",
+      "subjectName": "ระบบภาษาอังกฤษ",
+      "outcomes": [
+        "วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ",
+        "วิเคราะห์ความสัมพันธ์ของส่วนประกอบของภาษาอังกฤษเพื่ออธิบายความกำกวมของภาษา",
+        "ค้นคว้าหาความรู้เพิ่มเติมจากแหล่งข้อมูลทางอินเทอร์เนตมาใช้วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ",
+        "แสดงความรับผิดชอบต่อการเรียนและเคารพระเบียบและจริยธรรมทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "aa38db0f-6727-4b25-b5f9-e065b1adca66",
+              "name": "วิเคราะห์ระบบและโครงสร้างพื้นฐานในภาษาอังกฤษ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to data structures and algorithms; focuses on English language systems."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "English language system course does not provide direct or enabling skills for coding advancement."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01402512-65",
+      "subjectName": "โครงสร้างและการทำหน้าที่ของชีวโมเลกุล",
+      "outcomes": [
+        "ระบุและอธิบายโครงสร้างและหน้าที่ของสารชีวโมเลกุล",
+        "เชื่อมโยงความสัมพันธ์ระหว่างโครงสร้างและหน้าที่ของสารชีวโมเลกุล",
+        "อธิบายกระบวนการการสร้างและสลายสารชีวโมเลกุล",
+        "วิเคราะห์และแปลผลการทดลองและงานวิจัยที่เกี่ยวข้องกับสารชีวโมเลกุลได้",
+        "ใช้เทคโนโลยีสื่อสารสนเทศเพื่อการสื่อสารได้",
+        "นำเสนอรายงานหรือโครงการค้นคว้าแบบปากเปล่าได้",
+        "รับผิดชอบ เข้าเรียนและส่งงานในเวลาที่กำหนด",
+        "ร่วมมือกับผู้อื่นในการทำงานร่วมกัน เป็นผู้นำหรือผู้ตามที่ดี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "โครงสร้างข้อมูลและอัลกอริทึม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "73c62db2-67d9-40bc-bfc9-5f489109eb4b",
+              "name": "ระบุและอธิบายโครงสร้างและหน้าที่ของสารชีวโมเลกุล"
+            },
+            {
+              "id": "1f2a72ab-3496-4c5a-bd43-f0028ee0051e",
+              "name": "เชื่อมโยงความสัมพันธ์ระหว่างโครงสร้างและหน้าที่ของสารชีวโมเลกุล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to data structures and algorithms; focuses on biochemistry."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on biomolecular structure is unrelated to coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "เป็นคนชอบเขียนโค้ด ถ้าอยากต่อยอดต้องมีทักษะอะไรเพิ่ม มีวิชาแนะนำไหม",
+      "subjectCode": "01008591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางโรคพืช",
+      "outcomes": [
+        "เลือกใช้วิธีการและวางแผนการทดลองศึกษาเชื้อสาเหตุโรคพืชแต่ละกลุ่ม",
+        "เลือกใช้วิธีการทางสถิติเพื่อวิเคราะห์ผลการทดลองด้วยโปรแกรมทางสถิติ",
+        "นำเสนอโครงร่างวิทยานิพนธ์ที่เกี่ยวข้องกับโรคพืช",
+        "เตรียมต้นฉบับเพื่อการตีพิมพ์งานวิจัยทางโรคพืชทั้งระดับชาติและนานาชาติ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การทดสอบและดีบักโปรแกรม",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a6ceb304-1fd9-4ada-852a-c16743be4d28",
+              "name": "เลือกใช้วิธีการทางสถิติเพื่อวิเคราะห์ผลการทดลองด้วยโปรแกรมทางสถิติ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Not found in LLM response"
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Research methods in plant pathology focus on biology and statistics, not coding or programming skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2256,
+      "outputTokens": 312
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1906,
+      "outputTokens": 316
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2285,
+      "outputTokens": 316
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2153,
+      "outputTokens": 339
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1851,
+      "outputTokens": 310
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2211,
+      "outputTokens": 323
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1536,
+      "outputTokens": 246
+    }
+  ]
+}

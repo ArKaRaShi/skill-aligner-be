@@ -1,0 +1,98 @@
+{
+  "queryLogId": "97b42158-60af-46d3-aa60-049d1243d2ee",
+  "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+  "comparison": {
+    "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+    "skills": [
+      {
+        "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+        "systemSkill": "เทคโนโลยีดนตรี",
+        "systemReason": "เกี่ยวข้องกับการใช้เทคโนโลยีในการสร้างและผลิตดนตรี",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Direct match for 'music technology'—an academic, teachable competency combining music and tech.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+        "systemSkill": "การผลิตเสียงและดนตรีดิจิทัล",
+        "systemReason": "ทักษะในการบันทึกและปรับแต่งเสียงดนตรีด้วยเครื่องมือดิจิทัล",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid university-level skill (sound production / digital music); technical and assessable via projects/labs.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+        "systemSkill": "การเขียนโปรแกรมสำหรับดนตรี",
+        "systemReason": "การใช้โปรแกรมมิ่งเพื่อสร้างหรือควบคุมเสียงดนตรี",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Clear technical competency (audio/programming for music); teachable and directly bridges tech + music.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+        "systemSkill": "การออกแบบเสียง",
+        "systemReason": "การสร้างและปรับแต่งเสียงเพื่อใช้ในงานดนตรีและสื่อมัลติมีเดีย",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Recognized technical/creative discipline in audio production; suitable for university coursework and assessment.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเรียนเทค + ดนตรีผสมกัน มีวิชามั้ยอะ",
+        "systemSkill": "ทฤษฎีดนตรี",
+        "systemReason": "ความรู้พื้นฐานเกี่ยวกับโครงสร้างและองค์ประกอบของดนตรีที่จำเป็นสำหรับการประยุกต์ใช้เทคโนโลยี",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Fundamental musical competency (music theory); teachable and often included in tech+music curricula though less technical.",
+        "agreementType": "AGREE"
+      }
+    ],
+    "overall": {
+      "conceptPreserved": true,
+      "agreementCount": 5,
+      "disagreementCount": 0,
+      "totalSkills": 5
+    }
+  },
+  "judgeResult": {
+    "result": {
+      "skills": [
+        {
+          "skill": "เทคโนโลยีดนตรี",
+          "verdict": "PASS",
+          "note": "Direct match for 'music technology'—an academic, teachable competency combining music and tech."
+        },
+        {
+          "skill": "การผลิตเสียงและดนตรีดิจิทัล",
+          "verdict": "PASS",
+          "note": "Valid university-level skill (sound production / digital music); technical and assessable via projects/labs."
+        },
+        {
+          "skill": "การเขียนโปรแกรมสำหรับดนตรี",
+          "verdict": "PASS",
+          "note": "Clear technical competency (audio/programming for music); teachable and directly bridges tech + music."
+        },
+        {
+          "skill": "การออกแบบเสียง",
+          "verdict": "PASS",
+          "note": "Recognized technical/creative discipline in audio production; suitable for university coursework and assessment."
+        },
+        {
+          "skill": "ทฤษฎีดนตรี",
+          "verdict": "PASS",
+          "note": "Fundamental musical competency (music theory); teachable and often included in tech+music curricula though less technical."
+        }
+      ],
+      "overall": {
+        "conceptPreserved": true,
+        "summary": "The skills appropriately reflect the user's intent to study music combined with technology, listing several university-level, teachable competencies (one foundational music theory item complements the more technical entries)."
+      }
+    },
+    "tokenUsage": [
+      {
+        "model": "openai/gpt-5-mini",
+        "inputTokens": 716,
+        "outputTokens": 1222
+      }
+    ]
+  },
+  "evaluatedAt": "2026-01-26T08:12:53.629Z"
+}

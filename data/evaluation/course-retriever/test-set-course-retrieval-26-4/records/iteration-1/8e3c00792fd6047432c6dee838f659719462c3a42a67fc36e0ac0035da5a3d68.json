@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "b3460fa2-c348-4748-b583-4b042886e0ca-ฮาร์ดแวร์คอมพิวเตอร์"
+  ],
+  "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "Course focuses on computer architecture including hardware design and system components, directly covering computer hardware comprehensively."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course is about engineering drawing and software, no mention of computer hardware."
+    },
+    {
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "relevanceScore": 1,
+      "reason": "Mentions computer equipment and software use in context of Thai music, but hardware is not a main focus."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Focuses on engineering drawing and software tools, no direct coverage of computer hardware."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "Preparation for cooperative education, no content related to computer hardware."
+    },
+    {
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 0,
+      "reason": "Software engineering course focused on software development processes, no hardware content."
+    },
+    {
+      "subjectCode": "04252459-65",
+      "subjectName": "ฮาร์มอนิกในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "Course about harmonics in power electrical systems, unrelated to computer hardware."
+    },
+    {
+      "subjectCode": "04256132-66",
+      "subjectName": "การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Programming for data science, no mention of hardware topics."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 0,
+      "reason": "Software engineering focused on software and web development, no hardware content."
+    },
+    {
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "relevanceScore": 0,
+      "reason": "Database systems and applications, no hardware coverage."
+    },
+    {
+      "subjectCode": "02201211-66",
+      "subjectName": "การใช้คอมพิวเตอร์ช่วยในการออกแบบทางวิศวกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Computer-aided design for agricultural engineering, no direct relation to computer hardware."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.36363636363636365,
+    "totalRelevanceSum": 4,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 9,
+        "macroAverageRate": 81.81818181818181,
+        "microAverageRate": 81.81818181818181,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.964,
+        "at10": 0.964,
+        "at15": 0.964,
+        "atAll": 0.964
+      },
+      "ideal": {
+        "at5": 0.396,
+        "at10": 0.257,
+        "at15": 0.199,
+        "atAll": 0.242
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.4,
+        "threshold2": 0.2,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.2,
+        "threshold2": 0.1,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.182,
+        "threshold2": 0.091,
+        "threshold3": 0.091
+      },
+      "atAll": {
+        "threshold1": 0.182,
+        "threshold2": 0.091,
+        "threshold3": 0.091
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2366,
+  "outputTokens": 329
+}

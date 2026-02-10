@@ -1,0 +1,138 @@
+{
+  "testCaseId": "a7728000-0818-42b5-a49f-c89f4ee59ab5-การออกแบบกราฟิก",
+  "question": "มีวิชาที่สอนเกี่ยวกับการการทำแบรนด์ไหม",
+  "skill": "การออกแบบกราฟิก",
+  "retrievedCount": 12,
+  "evaluations": [
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 2,
+      "reason": "Course covers design using 2D and 3D programs, which relates to graphic design but focuses on product design rather than graphic design specifically."
+    },
+    {
+      "subjectCode": "01241311-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม III",
+      "relevanceScore": 0,
+      "reason": "Course focuses on landscape architecture design, unrelated to graphic design."
+    },
+    {
+      "subjectCode": "01242121-67",
+      "subjectName": "ปฏิบัติการออกแบบภาพและวัตถุ",
+      "relevanceScore": 2,
+      "reason": "Course involves designing images and objects and composing art elements, which is fairly relevant to graphic design."
+    },
+    {
+      "subjectCode": "01401497-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 0,
+      "reason": "Seminar course about presentation skills without mention of graphic design."
+    },
+    {
+      "subjectCode": "03651221-65",
+      "subjectName": "การวิเคราะห์และการสร้างภาพข้อมูล",
+      "relevanceScore": 1,
+      "reason": "Course involves data visualization and presentation formats, marginally related to graphic design."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 0,
+      "reason": "Course focuses on data analysis for accounting, unrelated to graphic design."
+    },
+    {
+      "subjectCode": "01352215-66",
+      "subjectName": "การออกแบบกราฟิกเพื่อการสื่อสาร",
+      "relevanceScore": 3,
+      "reason": "Course explicitly about graphic design for communication, covering production of graphic works and design principles."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 0,
+      "reason": "Course about engineering drawing, not graphic design."
+    },
+    {
+      "subjectCode": "01247111-64",
+      "subjectName": "ปฏิบัติการออกแบบเชิงนิเวศ I",
+      "relevanceScore": 1,
+      "reason": "Course includes basic design and art elements but focuses on ecological design, marginally related."
+    },
+    {
+      "subjectCode": "01999034-67",
+      "subjectName": "ศิลปวิจักษณ์",
+      "relevanceScore": 1,
+      "reason": "Course on art criticism and aesthetics, marginally related to graphic design concepts."
+    },
+    {
+      "subjectCode": "04403597-67",
+      "subjectName": "สัมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar includes design and presentation skills, marginally related to graphic design."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 0,
+      "reason": "Course about food preparation and decoration, unrelated to graphic design."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 12,
+    "meanRelevanceScore": 0.9166666666666666,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 41.666666666666664,
+        "microAverageRate": 41.666666666666664,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 33.333333333333336,
+        "microAverageRate": 33.333333333333336,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 2,
+        "macroAverageRate": 16.666666666666668,
+        "microAverageRate": 16.666666666666668,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 8.333333333333334,
+        "microAverageRate": 8.333333333333334,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.557,
+        "at10": 0.735,
+        "at15": 0.776,
+        "atAll": 0.776
+      },
+      "ideal": {
+        "at5": 0.383,
+        "at10": 0.365,
+        "at15": 0.299,
+        "atAll": 0.344
+      }
+    },
+    "precision": {
+      "at5": 0.4,
+      "at10": 0.3,
+      "at15": 0.25,
+      "atAll": 0.25
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2215,
+  "outputTokens": 372
+}

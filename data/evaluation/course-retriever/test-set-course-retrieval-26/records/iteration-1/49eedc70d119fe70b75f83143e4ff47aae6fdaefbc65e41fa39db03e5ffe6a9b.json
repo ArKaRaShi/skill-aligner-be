@@ -1,0 +1,168 @@
+{
+  "testCaseId": "5c5fb47c-66ad-4a6d-9ff3-4a082f4de746-ทักษะการสื่อสารทางธุรกิจ",
+  "question": "อยากเรียนภาษาจีนหรือภาษาเวียดนามที่เอาไปใช้ทำธุรกิจได้ มีวิชาไหนที่ช่วยเปรียบเทียบหรือปูพื้นฐานได้บ้าง",
+  "skill": "ทักษะการสื่อสารทางธุรกิจ",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "02303561-68",
+      "subjectName": "การฝึกงานทางวิทยาศาสตร์การฟื้นฟูและการเคลื่อนไหว",
+      "relevanceScore": 1,
+      "reason": "Course mentions communication skills generally but not specifically business communication."
+    },
+    {
+      "subjectCode": "04403697-67",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Course focuses on communication and presentation skills in academic context, marginally relevant to business communication."
+    },
+    {
+      "subjectCode": "02303533-68",
+      "subjectName": "ชีวกลศาสตร์ประยุกต์สำหรับวิเคราะห์การเคลื่อนไหวของมนุษย์",
+      "relevanceScore": 1,
+      "reason": "Includes communication and presentation skills related to technology and movement analysis, marginally relevant to business communication."
+    },
+    {
+      "subjectCode": "01396242-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ IV",
+      "relevanceScore": 3,
+      "reason": "Course is specifically about business Chinese conversation, directly covering business communication skills."
+    },
+    {
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "relevanceScore": 1,
+      "reason": "Covers communication concepts in mass media, not specifically business communication."
+    },
+    {
+      "subjectCode": "03602433-65",
+      "subjectName": "วิศวกรรมการซ่อมบำรุง",
+      "relevanceScore": 2,
+      "reason": "Includes effective communication and leadership skills for maintenance engineering teams, relevant as a distinct component of business communication."
+    },
+    {
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "relevanceScore": 1,
+      "reason": "Mentions coordination and teamwork skills but does not focus on business communication explicitly."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 3,
+      "reason": "Business Chinese conversation course, highly relevant to business communication skills."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 3,
+      "reason": "Business Chinese conversation course, highly relevant to business communication skills."
+    },
+    {
+      "subjectCode": "01396142-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ II",
+      "relevanceScore": 3,
+      "reason": "Business Chinese conversation course, highly relevant to business communication skills."
+    },
+    {
+      "subjectCode": "03763321-64",
+      "subjectName": "การสื่อสารในธุรกิจโรงแรม",
+      "relevanceScore": 3,
+      "reason": "Course specifically focuses on communication in hotel business, directly relevant to business communication skills."
+    },
+    {
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "relevanceScore": 1,
+      "reason": "Mentions clear communication with coworkers and supervisors but not specifically business communication."
+    },
+    {
+      "subjectCode": "01681311-66",
+      "subjectName": "การประกอบกิจการยุคใหม่",
+      "relevanceScore": 3,
+      "reason": "Includes communication skills for entrepreneurs and business model presentation, highly relevant to business communication."
+    },
+    {
+      "subjectCode": "01396212-67",
+      "subjectName": "ภาษาจีนธุรกิจ IV",
+      "relevanceScore": 3,
+      "reason": "Business Chinese language course focusing on communication in business contexts, highly relevant."
+    },
+    {
+      "subjectCode": "01058153-68",
+      "subjectName": "แรงบันดาลใจและทักษะสำคัญสำหรับผู้ประกอบการอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Focuses on teamwork and leadership skills, communication mentioned but not specifically business communication."
+    },
+    {
+      "subjectCode": "01058261-68",
+      "subjectName": "การสร้างและการจัดการแบรนด์",
+      "relevanceScore": 3,
+      "reason": "Focuses on communication strategies in marketing and brand management, highly relevant to business communication skills."
+    },
+    {
+      "subjectCode": "04402332-65",
+      "subjectName": "การยศาสตร์",
+      "relevanceScore": 0,
+      "reason": "Course is about ergonomics with no connection to business communication."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 1.9411764705882353,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 41.1764705882353,
+        "microAverageRate": 41.1764705882353,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 8,
+        "macroAverageRate": 47.05882352941177,
+        "microAverageRate": 47.05882352941177,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.431,
+        "at10": 0.594,
+        "at15": 0.745,
+        "atAll": 0.784
+      },
+      "ideal": {
+        "at5": 0.431,
+        "at10": 0.555,
+        "at15": 0.596,
+        "atAll": 0.589
+      }
+    },
+    "precision": {
+      "at5": 0.2,
+      "at10": 0.5,
+      "at15": 0.533,
+      "atAll": 0.529
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3190,
+  "outputTokens": 514
+}

@@ -1,0 +1,50 @@
+{
+  "totalLowQuality": 0,
+  "totalSamples": 2,
+  "lowQualityRate": 0,
+  "byFaithfulnessReason": {
+    "completelyFalse": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 1: Completely False (hallucinations)",
+      "examples": []
+    },
+    "mostlyFalse": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 2: Mostly False (major errors)",
+      "examples": []
+    },
+    "mixed": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 3: Mixed (some supported, some not)",
+      "examples": []
+    }
+  },
+  "byCompletenessReason": {
+    "fail": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 1: Fail (just lists codes)",
+      "examples": []
+    },
+    "weak": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 2: Weak (very little explanation)",
+      "examples": []
+    },
+    "descriptiveOnly": {
+      "count": 0,
+      "percentage": 0,
+      "description": "Score 3: Descriptive Only (lists facts)",
+      "examples": []
+    }
+  },
+  "insights": {
+    "systemStrength": "All answers passed evaluation",
+    "systemWeakness": "No weaknesses identified",
+    "recommendation": "Continue monitoring for edge cases"
+  }
+}

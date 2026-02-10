@@ -1,0 +1,138 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-เทคนิคการปรุงอาหารไทย"
+  ],
+  "skill": "เทคนิคการปรุงอาหารไทย",
+  "retrievedCount": 9,
+  "evaluations": [
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 1,
+      "reason": "The course focuses on international cuisine and food presentation, with no specific mention of Thai cooking techniques."
+    },
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Includes general food preparation and presentation skills, which may encompass Thai cooking techniques as part of broader culinary skills."
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "Focuses on food sources, nutrition, and food processing, with no direct reference to Thai cooking techniques."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Centered on agricultural product processing engineering, unrelated to cooking techniques."
+    },
+    {
+      "subjectCode": "01017412-66",
+      "subjectName": "การผลิตขนมไทย",
+      "relevanceScore": 3,
+      "reason": "Specifically dedicated to Thai dessert production, directly related to Thai cooking techniques."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural product development, not cooking techniques."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Covers beverage preparation, which may include some Thai beverages but is not specifically about Thai cooking techniques."
+    },
+    {
+      "subjectCode": "04181541-65",
+      "subjectName": "การตรวจวัดคุณภาพอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Deals with food quality analysis, not cooking techniques."
+    },
+    {
+      "subjectCode": "04181525-65",
+      "subjectName": "เทคโนโลยีการอาหารขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on advanced food technology research techniques, not cooking techniques."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 9,
+    "meanRelevanceScore": 0.7777777777777778,
+    "totalRelevanceSum": 7,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 55.55555555555556,
+        "microAverageRate": 55.55555555555556,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 2,
+        "macroAverageRate": 22.22222222222222,
+        "microAverageRate": 22.22222222222222,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 11.11111111111111,
+        "microAverageRate": 11.11111111111111,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.659,
+        "at10": 0.723,
+        "at15": 0.723,
+        "atAll": 0.723
+      },
+      "ideal": {
+        "at5": 0.387,
+        "at10": 0.276,
+        "at15": 0.214,
+        "atAll": 0.294
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.444,
+        "threshold2": 0.222,
+        "threshold3": 0.111
+      },
+      "at15": {
+        "threshold1": 0.444,
+        "threshold2": 0.222,
+        "threshold3": 0.111
+      },
+      "atAll": {
+        "threshold1": 0.444,
+        "threshold2": 0.222,
+        "threshold3": 0.111
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 1816,
+  "outputTokens": 396
+}

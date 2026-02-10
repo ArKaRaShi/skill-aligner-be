@@ -1,0 +1,204 @@
+{
+  "questionIds": [
+    "fa617f52-c86b-4b8c-976b-bfdb073f1070-ภาษาบาลี"
+  ],
+  "skill": "ภาษาบาลี",
+  "retrievedCount": 20,
+  "evaluations": [
+    {
+      "subjectCode": "01362571-66",
+      "subjectName": "ภาษาศาสตร์ภาษาจีน",
+      "relevanceScore": 0,
+      "reason": "Course is Chinese linguistics (ภาษาจีน); no mention of Pali (ภาษาบาลี)."
+    },
+    {
+      "subjectCode": "02198213-67",
+      "subjectName": "ภาษาเพื่อการสื่อสารสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "General communication for teachers; outcomes do not mention Pali (ภาษาบาลี)."
+    },
+    {
+      "subjectCode": "01357115-68",
+      "subjectName": "ภาษาเยอรมันพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "Basic German course (ภาษาเยอรมัน); no Pali content."
+    },
+    {
+      "subjectCode": "03652141-66",
+      "subjectName": "เคมีวิเคราะห์เบื้องต้น",
+      "relevanceScore": 0,
+      "reason": "Analytical chemistry course; unrelated to languages or Pali."
+    },
+    {
+      "subjectCode": "03652241-66",
+      "subjectName": "หลักการทางเคมีวิเคราะห์ด้วยเครื่องมือ",
+      "relevanceScore": 0,
+      "reason": "Principles of instrumental analytical chemistry; no Pali content."
+    },
+    {
+      "subjectCode": "03754221-67",
+      "subjectName": "การออกเสียงภาษาอังกฤษขั้นพื้นฐาน",
+      "relevanceScore": 0,
+      "reason": "English pronunciation course; does not cover Pali."
+    },
+    {
+      "subjectCode": "01356115-68",
+      "subjectName": "ภาษาฝรั่งเศสพื้นฐาน I",
+      "relevanceScore": 0,
+      "reason": "Basic French course (ภาษาฝรั่งเศส); no Pali content."
+    },
+    {
+      "subjectCode": "01362112-63",
+      "subjectName": "ภาษาจีนพื้นฐาน II",
+      "relevanceScore": 0,
+      "reason": "Basic Chinese course (ภาษาจีน); no Pali content."
+    },
+    {
+      "subjectCode": "01396112-67",
+      "subjectName": "ภาษาจีนธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Chinese for business (ภาษาจีนธุรกิจ); no mention of Pali."
+    },
+    {
+      "subjectCode": "01242113-67",
+      "subjectName": "พื้นฐานการออกแบบภาพและวัตถุ",
+      "relevanceScore": 0,
+      "reason": "Design fundamentals course; focuses on visual design, not Pali language."
+    },
+    {
+      "subjectCode": "01362201-67",
+      "subjectName": "ภาษาจีน III",
+      "relevanceScore": 0,
+      "reason": "Chinese III (ภาษาจีน III); outcomes pertain to Chinese, not Pali."
+    },
+    {
+      "subjectCode": "01362101-67",
+      "subjectName": "ภาษาจีน I",
+      "relevanceScore": 0,
+      "reason": "Chinese I (ภาษาจีน I); no Pali content."
+    },
+    {
+      "subjectCode": "01362102-67",
+      "subjectName": "ภาษาจีน II",
+      "relevanceScore": 0,
+      "reason": "Chinese II (ภาษาจีน II); does not cover Pali."
+    },
+    {
+      "subjectCode": "01362301-67",
+      "subjectName": "ภาษาจีน V",
+      "relevanceScore": 0,
+      "reason": "Chinese V (ภาษาจีน V); outcomes are Chinese-focused, not Pali."
+    },
+    {
+      "subjectCode": "01362202-67",
+      "subjectName": "ภาษาจีน IV",
+      "relevanceScore": 0,
+      "reason": "Chinese IV (ภาษาจีน IV); no indication of Pali instruction."
+    },
+    {
+      "subjectCode": "01355121-68",
+      "subjectName": "ทักษะการอ่านและการเขียนภาษาอังกฤษ",
+      "relevanceScore": 0,
+      "reason": "English reading and writing skills; unrelated to Pali language."
+    },
+    {
+      "subjectCode": "01357353-68",
+      "subjectName": "การล่ามภาษาเยอรมัน",
+      "relevanceScore": 0,
+      "reason": "German interpreting (การล่ามภาษาเยอรมัน); focuses on German, not Pali."
+    },
+    {
+      "subjectCode": "03654111-67",
+      "subjectName": "สุนทรียศาสตร์ทางการกีฬา",
+      "relevanceScore": 0,
+      "reason": "Aesthetics in sports; while it mentions language use, it does not specify Pali."
+    },
+    {
+      "subjectCode": "01150112-67",
+      "subjectName": "ภาษาและวัฒนธรรมสำหรับครู",
+      "relevanceScore": 0,
+      "reason": "Language and culture for teachers; outcomes are general and do not mention Pali."
+    },
+    {
+      "subjectCode": "01396411-67",
+      "subjectName": "ภาษาจีนเพื่อการทดสอบวัดระดับความรู้",
+      "relevanceScore": 0,
+      "reason": "Chinese test preparation (HSK vocabulary); no reference to Pali."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 20,
+    "meanRelevanceScore": 0,
+    "totalRelevanceSum": 0,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 20,
+        "macroAverageRate": 100,
+        "microAverageRate": 100,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0,
+        "at15": 0,
+        "atAll": 0
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0,
+        "threshold2": 0,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-5-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2956,
+  "outputTokens": 1369
+}

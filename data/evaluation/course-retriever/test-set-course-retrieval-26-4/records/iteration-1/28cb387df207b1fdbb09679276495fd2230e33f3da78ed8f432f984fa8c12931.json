@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การใช้เครื่องปรุงและวัตถุดิบไทย"
+  ],
+  "skill": "การใช้เครื่องปรุงและวัตถุดิบไทย",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Course covers selection and preparation of various food ingredients including purchasing and handling, which likely includes Thai ingredients as part of general food preparation."
+    },
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 1,
+      "reason": "Focuses on international cuisine (Eastern and Western) with ingredient selection, but Thai ingredients are not specifically emphasized."
+    },
+    {
+      "subjectCode": "01058371-68",
+      "subjectName": "มาตรฐานและกฎหมายสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "Covers standards and laws related to agricultural raw materials, which may include Thai ingredients but not focused on their use or preparation."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 0,
+      "reason": "Focuses on beverage preparation, not on Thai ingredients or seasoning use."
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "Focuses on global food sources and nutrition, not on Thai ingredients or seasoning use."
+    },
+    {
+      "subjectCode": "03654112-67",
+      "subjectName": "สมุนไพรไทยให้คุณ",
+      "relevanceScore": 1,
+      "reason": "Focuses on Thai herbs for health and product development, related to Thai ingredients but not specifically on culinary seasoning use."
+    },
+    {
+      "subjectCode": "01017412-66",
+      "subjectName": "การผลิตขนมไทย",
+      "relevanceScore": 2,
+      "reason": "Focuses on Thai dessert production, involving Thai ingredients and their correct use in cooking."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on engineering and processing of agricultural products, not on culinary use of Thai ingredients."
+    },
+    {
+      "subjectCode": "02727496-65",
+      "subjectName": "เรื่องเฉพาะทางพฤกษนวัตกรรม",
+      "relevanceScore": 2,
+      "reason": "Focuses on selection and use of plant-based ingredients with nutritional value, including cultural food practices, which may include Thai ingredients."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on product development in agricultural industry, not on culinary use of Thai ingredients."
+    },
+    {
+      "subjectCode": "01023514-68",
+      "subjectName": "วัตถุดิบอาหารสัตว์",
+      "relevanceScore": 0,
+      "reason": "Focuses on animal feed ingredients, unrelated to culinary use of Thai ingredients or seasoning."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.8181818181818182,
+    "totalRelevanceSum": 9,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 45.45454545454545,
+        "microAverageRate": 45.45454545454545,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 27.272727272727273,
+        "microAverageRate": 27.272727272727273,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.616,
+        "at10": 0.875,
+        "at15": 0.875,
+        "atAll": 0.875
+      },
+      "ideal": {
+        "at5": 0.354,
+        "at10": 0.349,
+        "at15": 0.27,
+        "atAll": 0.329
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.6,
+        "threshold2": 0.3,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.545,
+        "threshold2": 0.273,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.545,
+        "threshold2": 0.273,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2395,
+  "outputTokens": 393
+}

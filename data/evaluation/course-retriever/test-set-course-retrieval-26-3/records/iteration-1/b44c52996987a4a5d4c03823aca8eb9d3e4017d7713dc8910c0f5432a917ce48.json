@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "4ec5b89c-e5c8-46dd-b9cb-628c749cead6-การวิเคราะห์ข้อมูลโซเชียลมีเดีย"
+  ],
+  "skill": "การวิเคราะห์ข้อมูลโซเชียลมีเดีย",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "02717112-67",
+      "subjectName": "การเมืองไทยร่วมสมัย",
+      "relevanceScore": 1,
+      "reason": "The course focuses on Thai politics and media literacy, with only a brief mention of media sources, not specifically on social media data analysis."
+    },
+    {
+      "subjectCode": "01600497-65",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "The course covers research and data analysis broadly, but does not specify social media data analysis as a primary focus."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 2,
+      "reason": "The course involves data visualization and analysis, which could include social media data, but it is not explicitly stated as a primary objective."
+    },
+    {
+      "subjectCode": "01137515-68",
+      "subjectName": "การวิเคราะห์งบการเงินและการประเมินมูลค่ากิจการ",
+      "relevanceScore": 1,
+      "reason": "The course discusses financial analysis and technology use, but not specifically social media data analysis."
+    },
+    {
+      "subjectCode": "04256121-66",
+      "subjectName": "การวิเคราะห์ข้อมูลเชิงสถิติ",
+      "relevanceScore": 2,
+      "reason": "Statistical data analysis is covered, which can be applied to social media data, but social media analysis is not explicitly highlighted."
+    },
+    {
+      "subjectCode": "03600014-67",
+      "subjectName": "การแก้ปัญหาเชิงสร้างสรรค์และทักษะการคิดเชิงวิพากษ์",
+      "relevanceScore": 1,
+      "reason": "Focuses on creative problem solving and critical thinking, with a mention of analyzing information credibility, but not specifically social media data analysis."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "The seminar involves research and information technology, but social media data analysis is not a primary focus."
+    },
+    {
+      "subjectCode": "03760363-64",
+      "subjectName": "การวิเคราะห์ข้อมูลสำหรับการบัญชี",
+      "relevanceScore": 2,
+      "reason": "The course involves data analysis for accounting, which may include social media data, but it is not explicitly stated."
+    },
+    {
+      "subjectCode": "01352231-66",
+      "subjectName": "หลักการโฆษณา",
+      "relevanceScore": 1,
+      "reason": "Advertising data analysis is discussed, but not specifically social media data analysis."
+    },
+    {
+      "subjectCode": "01442697-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Research data analysis in nanomaterials is covered, but not social media data analysis."
+    },
+    {
+      "subjectCode": "02747498-65",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Business aviation research and statistics are discussed, but social media data analysis is not a primary focus."
+    },
+    {
+      "subjectCode": "01396241-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ III",
+      "relevanceScore": 1,
+      "reason": "Business Chinese conversation analysis is covered, but not social media data analysis."
+    },
+    {
+      "subjectCode": "01396342-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ VI",
+      "relevanceScore": 1,
+      "reason": "Similar to above, focuses on language and cultural understanding, not social media data analysis."
+    },
+    {
+      "subjectCode": "01396142-67",
+      "subjectName": "สนทนาภาษาจีนธุรกิจ II",
+      "relevanceScore": 1,
+      "reason": "Language analysis for business communication, not social media data analysis."
+    },
+    {
+      "subjectCode": "01401455-66",
+      "subjectName": "การตอบสนองทางสรีรวิทยาต่อฮอร์โมนพืช",
+      "relevanceScore": 2,
+      "reason": "Plant hormone response analysis involves data analysis, which could include social media data, but it is not explicitly stated."
+    },
+    {
+      "subjectCode": "01401351-66",
+      "subjectName": "สรีรวิทยาเบื้องต้นของพืช",
+      "relevanceScore": 1,
+      "reason": "Plant physiology experiments and data analysis are discussed, but not social media data analysis."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.25,
+    "totalRelevanceSum": 20,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 12,
+        "macroAverageRate": 75,
+        "microAverageRate": 75,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.696,
+        "at10": 0.809,
+        "at15": 0.868,
+        "atAll": 0.872
+      },
+      "ideal": {
+        "at5": 0.434,
+        "at10": 0.422,
+        "at15": 0.416,
+        "atAll": 0.413
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 1,
+        "threshold2": 0.3,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 1,
+        "threshold2": 0.267,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 1,
+        "threshold2": 0.25,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2763,
+  "outputTokens": 758
+}

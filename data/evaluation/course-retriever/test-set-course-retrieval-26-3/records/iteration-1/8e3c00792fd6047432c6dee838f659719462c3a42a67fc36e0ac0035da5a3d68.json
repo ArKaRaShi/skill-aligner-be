@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "b3460fa2-c348-4748-b583-4b042886e0ca-ฮาร์ดแวร์คอมพิวเตอร์"
+  ],
+  "skill": "ฮาร์ดแวร์คอมพิวเตอร์",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "02204241-65",
+      "subjectName": "สถาปัตยกรรมคอมพิวเตอร์",
+      "relevanceScore": 3,
+      "reason": "The course 'สถาปัตยกรรมคอมพิวเตอร์' directly focuses on computer hardware architecture, which is a core aspect of the skill 'ฮาร์ดแวร์คอมพิวเตอร์'. The learning outcomes emphasize hardware design, analysis, and architecture, making it highly relevant."
+    },
+    {
+      "subjectCode": "03604111-65",
+      "subjectName": "การเขียนแบบทางวิศวกรรม",
+      "relevanceScore": 1,
+      "reason": "The course 'การเขียนแบบทางวิศวกรรม' involves engineering drawing and software, which may relate to hardware design but is not specifically focused on computer hardware itself. It is only marginally relevant."
+    },
+    {
+      "subjectCode": "01385181-65",
+      "subjectName": "ดนตรีไทยกับคอมพิวเตอร์",
+      "relevanceScore": 0,
+      "reason": "The course 'ดนตรีไทยกับคอมพิวเตอร์' pertains to Thai music and computers, which is unrelated to computer hardware."
+    },
+    {
+      "subjectCode": "02201112-66",
+      "subjectName": "การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น",
+      "relevanceScore": 1,
+      "reason": "The course 'การเขียนแบบวิศวกรรมและการใช้โปรแกรมเขียนแบบเบื้องต้น' involves engineering drawing and software, which might touch on hardware design tools but is not directly about computer hardware hardware itself."
+    },
+    {
+      "subjectCode": "03651390-65",
+      "subjectName": "การเตรียมความพร้อมสหกิจศึกษา",
+      "relevanceScore": 0,
+      "reason": "The course 'การเตรียมความพร้อมสหกิจศึกษา' focuses on internship preparation, not on computer hardware."
+    },
+    {
+      "subjectCode": "03603341-65",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 0,
+      "reason": "The course 'วิศวกรรมซอฟต์แวร์' is about software engineering, which is related to software development rather than hardware."
+    },
+    {
+      "subjectCode": "04252459-65",
+      "subjectName": "ฮาร์มอนิกในระบบไฟฟ้ากำลัง",
+      "relevanceScore": 0,
+      "reason": "The course 'ฮาร์มอนิกในระบบไฟฟ้ากำลัง' deals with harmonics in power systems, which is electrical engineering but not specifically about computer hardware."
+    },
+    {
+      "subjectCode": "04256132-66",
+      "subjectName": "การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล",
+      "relevanceScore": 1,
+      "reason": "The course 'การเขียนโปรแกรมคอมพิวเตอร์สำหรับวิทยาการข้อมูล' involves programming for data science, which is software-focused and only tangentially related to hardware."
+    },
+    {
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "relevanceScore": 0,
+      "reason": "The course 'วิศวกรรมซอฟต์แวร์' again focuses on software engineering, not hardware."
+    },
+    {
+      "subjectCode": "04256141-66",
+      "subjectName": "ระบบฐานข้อมูลและการประยุกต์",
+      "relevanceScore": 0,
+      "reason": "The course 'ระบบฐานข้อมูลและการประยุกต์' is about databases, which is software-related, not hardware."
+    },
+    {
+      "subjectCode": "02201211-66",
+      "subjectName": "การใช้คอมพิวเตอร์ช่วยในการออกแบบทางวิศวกรรมเกษตร",
+      "relevanceScore": 1,
+      "reason": "The course 'การใช้คอมพิวเตอร์ช่วยในการออกแบบทางวิศวกรรมเกษตร' involves computer-aided design, which may include hardware aspects but is primarily about design tools rather than hardware itself."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.6363636363636364,
+    "totalRelevanceSum": 7,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 54.54545454545455,
+        "microAverageRate": 54.54545454545455,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 36.36363636363637,
+        "microAverageRate": 36.36363636363637,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.821,
+        "at10": 0.885,
+        "at15": 0.941,
+        "atAll": 0.941
+      },
+      "ideal": {
+        "at5": 0.459,
+        "at10": 0.321,
+        "at15": 0.265,
+        "atAll": 0.322
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.2,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.4,
+        "threshold2": 0.1,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.455,
+        "threshold2": 0.091,
+        "threshold3": 0.091
+      },
+      "atAll": {
+        "threshold1": 0.455,
+        "threshold2": 0.091,
+        "threshold3": 0.091
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2366,
+  "outputTokens": 705
+}

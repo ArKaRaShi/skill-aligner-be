@@ -1,0 +1,111 @@
+{
+  "queryLogId": "3ef3d308-ac42-453e-bce7-bb7376046c41",
+  "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+  "comparison": {
+    "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+    "skills": [
+      {
+        "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+        "systemSkill": "การสร้างเนื้อหาวิดีโอ",
+        "systemReason": "ทักษะสำคัญในการผลิตวิดีโอที่น่าสนใจสำหรับแพลตฟอร์ม TikTok",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid academic/technical competency (video content production); teachable and assessable via projects in digital media or film courses; directly matches core intent (TikTok content creation).",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+        "systemSkill": "การตัดต่อวิดีโอ",
+        "systemReason": "ช่วยให้วิดีโอมีความน่าสนใจและมืออาชีพ",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Clear technical skill (video editing); commonly taught in university multimedia courses and assessable by practical assignments.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+        "systemSkill": "การใช้โซเชียลมีเดียเพื่อการตลาด",
+        "systemReason": "เข้าใจวิธีโปรโมตและเพิ่มผู้ติดตามบน TikTok",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Recognized course topic (Social Media Marketing); conceptually robust, teachable and testable via campaigns and case studies; directly relevant to becoming a TikToker.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+        "systemSkill": "การวางแผนและการจัดการคอนเทนต์",
+        "systemReason": "ช่วยวางแผนเนื้อหาให้สม่ำเสมอและตรงกลุ่มเป้าหมาย",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Valid strategic competency (content strategy/management); appears in curricula (content strategy, digital communications) and assessable through planning projects.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+        "systemSkill": "การสื่อสารและการนำเสนอ",
+        "systemReason": "ทักษะในการสื่อสารที่ดีช่วยดึงดูดผู้ชมและสร้างความสัมพันธ์",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Broad but academically valid (communication skills); teachable and assessable via presentations and performance tasks; relevant for on-camera presence.",
+        "agreementType": "AGREE"
+      },
+      {
+        "question": "อยากเป็น tiktoker ต้องการทักษะอะไรบ้าง มีวิชาสอนอะไรแนวนี้บ้าง",
+        "systemSkill": "การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์",
+        "systemReason": "ช่วยติดตามและปรับเนื้อหาให้เข้ากับเทรนด์ปัจจุบัน",
+        "judgeVerdict": "PASS",
+        "judgeNote": "Appropriate technical/analytical skill (social media analytics, trend analysis); teachable in data analytics/marketing courses and assessable with analytic projects.",
+        "agreementType": "AGREE"
+      }
+    ],
+    "overall": {
+      "conceptPreserved": true,
+      "agreementCount": 6,
+      "disagreementCount": 0,
+      "totalSkills": 6
+    }
+  },
+  "judgeResult": {
+    "result": {
+      "skills": [
+        {
+          "skill": "การสร้างเนื้อหาวิดีโอ",
+          "verdict": "PASS",
+          "note": "Valid academic/technical competency (video content production); teachable and assessable via projects in digital media or film courses; directly matches core intent (TikTok content creation)."
+        },
+        {
+          "skill": "การตัดต่อวิดีโอ",
+          "verdict": "PASS",
+          "note": "Clear technical skill (video editing); commonly taught in university multimedia courses and assessable by practical assignments."
+        },
+        {
+          "skill": "การใช้โซเชียลมีเดียเพื่อการตลาด",
+          "verdict": "PASS",
+          "note": "Recognized course topic (Social Media Marketing); conceptually robust, teachable and testable via campaigns and case studies; directly relevant to becoming a TikToker."
+        },
+        {
+          "skill": "การวางแผนและการจัดการคอนเทนต์",
+          "verdict": "PASS",
+          "note": "Valid strategic competency (content strategy/management); appears in curricula (content strategy, digital communications) and assessable through planning projects."
+        },
+        {
+          "skill": "การสื่อสารและการนำเสนอ",
+          "verdict": "PASS",
+          "note": "Broad but academically valid (communication skills); teachable and assessable via presentations and performance tasks; relevant for on-camera presence."
+        },
+        {
+          "skill": "การวิเคราะห์ข้อมูลและเทรนด์ออนไลน์",
+          "verdict": "PASS",
+          "note": "Appropriate technical/analytical skill (social media analytics, trend analysis); teachable in data analytics/marketing courses and assessable with analytic projects."
+        }
+      ],
+      "overall": {
+        "conceptPreserved": true,
+        "summary": "The list well preserves the core intent (skills needed to be a TikToker) and maps to university-level, teachable competencies across content creation, editing, marketing, strategy, communication, and analytics."
+      }
+    },
+    "tokenUsage": [
+      {
+        "model": "openai/gpt-5-mini",
+        "inputTokens": 752,
+        "outputTokens": 1024
+      }
+    ]
+  },
+  "evaluatedAt": "2026-01-26T08:13:25.761Z"
+}

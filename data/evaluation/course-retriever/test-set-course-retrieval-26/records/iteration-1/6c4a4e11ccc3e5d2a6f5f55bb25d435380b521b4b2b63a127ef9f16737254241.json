@@ -1,0 +1,168 @@
+{
+  "testCaseId": "654330a8-2559-4273-abb4-36db7f0b31e1-การชำระเงินออนไลน์และความปลอดภัย",
+  "question": "อยากเปิดร้านค้าออนไลน์ หรือทำเว็บไซต์ E-commerce มีวิชาอะไรแนะนำบ้าง",
+  "skill": "การชำระเงินออนไลน์และความปลอดภัย",
+  "retrievedCount": 17,
+  "evaluations": [
+    {
+      "subjectCode": "03601534-66",
+      "subjectName": "การประสานสัมพันธ์ฉนวน",
+      "relevanceScore": 0,
+      "reason": "Course focuses on electrical insulation coordination, no mention of online payment or security."
+    },
+    {
+      "subjectCode": "01420361-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น I",
+      "relevanceScore": 0,
+      "reason": "Course is about basic astronomy, unrelated to online payment or security."
+    },
+    {
+      "subjectCode": "01420362-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น II",
+      "relevanceScore": 0,
+      "reason": "Course is about basic astronomy, unrelated to online payment or security."
+    },
+    {
+      "subjectCode": "03651343-65",
+      "subjectName": "การสร้างภาพข้อมูลสำหรับธุรกิจ",
+      "relevanceScore": 0,
+      "reason": "Course covers data visualization for business, no indication of online payment or security topics."
+    },
+    {
+      "subjectCode": "01006246-64",
+      "subjectName": "หลักการตัดเย็บ",
+      "relevanceScore": 0,
+      "reason": "Course is about sewing principles, unrelated to online payment or security."
+    },
+    {
+      "subjectCode": "01074541-68",
+      "subjectName": "การตลาดมุ่งเป้าและกลยุทธ์ราคาสำหรับธุรกิจเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Course includes pricing strategy which may marginally relate to payment concepts but does not cover online payment or security directly."
+    },
+    {
+      "subjectCode": "01451121-65",
+      "subjectName": "ภูมิศาสตร์มนุษย์",
+      "relevanceScore": 0,
+      "reason": "Course covers human geography, no relation to online payment or security."
+    },
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 1,
+      "reason": "Course on digital citizenship includes use of digital technology but does not specifically cover online payment or security."
+    },
+    {
+      "subjectCode": "01358511-66",
+      "subjectName": "ภาษาญี่ปุ่นระดับบัณฑิตศึกษา",
+      "relevanceScore": 0,
+      "reason": "Course is advanced Japanese language, no relation to online payment or security."
+    },
+    {
+      "subjectCode": "03604281-65",
+      "subjectName": "การฝึกงานโรงงาน",
+      "relevanceScore": 0,
+      "reason": "Course is about factory internship and safety, unrelated to online payment or security."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 0,
+      "reason": "Course is about practical Thai writing, no relation to online payment or security."
+    },
+    {
+      "subjectCode": "01017212-66",
+      "subjectName": "สุขาภิบาลอาหารและความปลอดภัยอาหาร",
+      "relevanceScore": 0,
+      "reason": "Course covers food sanitation and safety, unrelated to online payment or security."
+    },
+    {
+      "subjectCode": "03651342-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ I",
+      "relevanceScore": 0,
+      "reason": "Course covers statistical learning for business, no mention of online payment or security."
+    },
+    {
+      "subjectCode": "03651441-65",
+      "subjectName": "การเรียนรู้เชิงสถิติสำหรับธุรกิจ II",
+      "relevanceScore": 0,
+      "reason": "Advanced statistical learning for business, no mention of online payment or security."
+    },
+    {
+      "subjectCode": "03651442-65",
+      "subjectName": "การจัดการข้อมูลขนาดใหญ่เบื้องต้น",
+      "relevanceScore": 2,
+      "reason": "Course covers big data management including data privacy and security, which relates fairly to online payment security though not specifically about payment systems."
+    },
+    {
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "relevanceScore": 1,
+      "reason": "Course on internal audit and control includes risk management which marginally relates to security but not specifically online payment."
+    },
+    {
+      "subjectCode": "03651341-65",
+      "subjectName": "การสอบถามข้อมูลเชิงโครงสร้างสำหรับวิทยาการข้อมูล",
+      "relevanceScore": 0,
+      "reason": "Course on structured query for data science, no mention of online payment or security."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 17,
+    "meanRelevanceScore": 0.29411764705882354,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 13,
+        "macroAverageRate": 76.47058823529412,
+        "microAverageRate": 76.47058823529412,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 3,
+        "macroAverageRate": 17.647058823529413,
+        "microAverageRate": 17.647058823529413,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 5.882352941176471,
+        "microAverageRate": 5.882352941176471,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0,
+        "at10": 0.189,
+        "at15": 0.329,
+        "atAll": 0.398
+      },
+      "ideal": {
+        "at5": 0,
+        "at10": 0.049,
+        "at15": 0.067,
+        "atAll": 0.074
+      }
+    },
+    "precision": {
+      "at5": 0,
+      "at10": 0,
+      "at15": 0.067,
+      "atAll": 0.059
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3143,
+  "outputTokens": 535
+}

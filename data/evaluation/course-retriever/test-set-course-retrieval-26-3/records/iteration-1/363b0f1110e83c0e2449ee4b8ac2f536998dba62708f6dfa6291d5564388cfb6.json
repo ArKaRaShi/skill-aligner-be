@@ -1,0 +1,180 @@
+{
+  "questionIds": [
+    "acd5b76f-8185-4b10-bb37-bde0ac14c51a-การใช้เทคโนโลยีในธุรกิจปศุสัตว์"
+  ],
+  "skill": "การใช้เทคโนโลยีในธุรกิจปศุสัตว์",
+  "retrievedCount": 16,
+  "evaluations": [
+    {
+      "subjectCode": "01004212-64",
+      "subjectName": "การจำแนกแมลงและความหลากหลาย",
+      "relevanceScore": 2,
+      "reason": "Includes 'ใช้เทคโนโลยี' in the outcomes, but the course primarily focuses on insect classification and biodiversity, not specifically on technology in livestock business."
+    },
+    {
+      "subjectCode": "01603356-65",
+      "subjectName": "เทคนิคปฏิบัติการทางการพยาบาลสัตว์เลี้ยง",
+      "relevanceScore": 3,
+      "reason": "Mentions 'ใช้เทคโนโลยีสารสนเทศ' explicitly as a learning outcome, directly related to technology in animal healthcare, which can be linked to livestock business."
+    },
+    {
+      "subjectCode": "01603344-65",
+      "subjectName": "การพยาบาลสัตว์เฉพาะทาง",
+      "relevanceScore": 1,
+      "reason": "Mentions 'เทคโนโลยีสารสนเทศ' but in the context of animal nursing, not specifically in livestock business."
+    },
+    {
+      "subjectCode": "01023511-68",
+      "subjectName": "วิทยาศาสตร์โภชนศาสตร์สัตว์",
+      "relevanceScore": 0,
+      "reason": "No mention of technology in the outcomes; focus is on animal nutrition science."
+    },
+    {
+      "subjectCode": "01605698-67",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 1,
+      "reason": "Mentions 'เทคโนโลยีขั้นสูง' in research, but not specifically in the context of livestock business technology."
+    },
+    {
+      "subjectCode": "01605699-67",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 1,
+      "reason": "Similar to above, mentions 'เทคโนโลยีขั้นสูง' in research, not specifically in livestock business."
+    },
+    {
+      "subjectCode": "01023597-68",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Mentions 'เทคโนโลยีสารสนเทศ' in seminar context, not specifically in livestock business."
+    },
+    {
+      "subjectCode": "01603334-65",
+      "subjectName": "โรคสำคัญในสัตว์เลี้ยงเพื่อการพยาบาลสัตว์",
+      "relevanceScore": 2,
+      "reason": "Mentions 'ใช้เทคโนโลยีสารสนเทศ' in disease management, which can be relevant to livestock business."
+    },
+    {
+      "subjectCode": "01002111-68",
+      "subjectName": "วิทยาศาสตร์และเทคโนโลยีด้านสัตว์",
+      "relevanceScore": 1,
+      "reason": "Mentions 'เทคโนโลยีในการผลิตสัตว์' but in a broader scientific context, not specifically in business application."
+    },
+    {
+      "subjectCode": "01603119-65",
+      "subjectName": "สัตว์เลี้ยงแสนรักเพื่อสังคมน่าอยู่",
+      "relevanceScore": 1,
+      "reason": "Mentions 'ความต้องการพื้นฐานของสัตว์เลี้ยง' and related topics, not specifically about technology in livestock business."
+    },
+    {
+      "subjectCode": "01204161-65",
+      "subjectName": "ชีวิตดิจิทัลที่ขับเคลื่อนด้วยเอไอ",
+      "relevanceScore": 0,
+      "reason": "Focuses on digital life and AI principles, not specifically on technology in livestock business."
+    },
+    {
+      "subjectCode": "01025333-64",
+      "subjectName": "ปฏิบัติการเกษตรเขตร้อน",
+      "relevanceScore": 2,
+      "reason": "Mentions 'ฝึกทักษะปฏิบัติด้านการวิเคราะห์ทางเคมี' and related skills, which can involve technology, but not explicitly about technology in livestock business."
+    },
+    {
+      "subjectCode": "01004331-64",
+      "subjectName": "แมลงที่มีโทษและแมลงที่มีประโยชน์",
+      "relevanceScore": 0,
+      "reason": "Focuses on insect pests and beneficial insects, unrelated to livestock business technology."
+    },
+    {
+      "subjectCode": "01023541-68",
+      "subjectName": "การประยุกต์ปัญญาประดิษฐ์สำหรับสัตวศาสตร์",
+      "relevanceScore": 2,
+      "reason": "Mentions 'การประยุกต์ปัญญาประดิษฐ์' for animal science, which can be applied in livestock business."
+    },
+    {
+      "subjectCode": "01242321-67",
+      "subjectName": "ปฏิบัติการออกแบบทางนวัตกรรมเทคโนโลยี",
+      "relevanceScore": 1,
+      "reason": "Focuses on design and innovation technology, not specifically on technology in livestock business."
+    },
+    {
+      "subjectCode": "01605523-67",
+      "subjectName": "พันธุวิศวกรรมทางเทคโนโลยีสุขภาพสัตว์",
+      "relevanceScore": 3,
+      "reason": "Mentions 'เทคโนโลยีทางพันธุวิศวกรรม' related to animal health, directly relevant to technology in livestock business."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 16,
+    "meanRelevanceScore": 1.3125,
+    "totalRelevanceSum": 21,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 18.75,
+        "microAverageRate": 18.75,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 7,
+        "macroAverageRate": 43.75,
+        "microAverageRate": 43.75,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 4,
+        "macroAverageRate": 25,
+        "microAverageRate": 25,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 2,
+        "macroAverageRate": 12.5,
+        "microAverageRate": 12.5,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.635,
+        "at10": 0.706,
+        "at15": 0.777,
+        "atAll": 0.848
+      },
+      "ideal": {
+        "at5": 0.54,
+        "at10": 0.491,
+        "at15": 0.455,
+        "atAll": 0.476
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.8,
+        "threshold2": 0.4,
+        "threshold3": 0.2
+      },
+      "at10": {
+        "threshold1": 0.9,
+        "threshold2": 0.3,
+        "threshold3": 0.1
+      },
+      "at15": {
+        "threshold1": 0.8,
+        "threshold2": 0.333,
+        "threshold3": 0.067
+      },
+      "atAll": {
+        "threshold1": 0.813,
+        "threshold2": 0.375,
+        "threshold3": 0.125
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3309,
+  "outputTokens": 848
+}

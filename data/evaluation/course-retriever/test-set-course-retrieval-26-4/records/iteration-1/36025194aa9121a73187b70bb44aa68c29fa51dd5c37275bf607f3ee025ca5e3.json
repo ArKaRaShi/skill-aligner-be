@@ -1,0 +1,162 @@
+{
+  "questionIds": [
+    "a945dd26-d7d4-49a4-ab23-57f3f954c8a0-การออกแบบกราฟิกดิจิทัล"
+  ],
+  "skill": "การออกแบบกราฟิกดิจิทัล",
+  "retrievedCount": 13,
+  "evaluations": [
+    {
+      "subjectCode": "01999013-67",
+      "subjectName": "พลเมืองดิจิทัล",
+      "relevanceScore": 2,
+      "reason": "Course includes 'ออกแบบสร้างชิ้นงานดิจิทัลได้' indicating some digital design work, relevant to digital graphic design but not comprehensive."
+    },
+    {
+      "subjectCode": "01241313-66",
+      "subjectName": "การออกแบบร่างองค์ประกอบงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 1,
+      "reason": "Focuses on landscape architecture design; mentions digital media presentation but not digital graphic design itself."
+    },
+    {
+      "subjectCode": "01241312-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม IV",
+      "relevanceScore": 1,
+      "reason": "Similar to above, landscape architecture focus with digital media presentation; digital graphic design is marginally relevant."
+    },
+    {
+      "subjectCode": "01241412-66",
+      "subjectName": "การออกแบบภูมิสถาปัตยกรรม VI",
+      "relevanceScore": 1,
+      "reason": "Landscape architecture design with digital media presentation; digital graphic design is only a minor component."
+    },
+    {
+      "subjectCode": "01242241-67",
+      "subjectName": "คอมพิวเตอร์เพื่อการออกแบบผลิตภัณฑ์",
+      "relevanceScore": 2,
+      "reason": "Covers use of 2D and 3D design software, which is fairly relevant to digital graphic design skills."
+    },
+    {
+      "subjectCode": "01241261-66",
+      "subjectName": "กระบวนการวิเคราะห์ในงานภูมิสถาปัตยกรรม",
+      "relevanceScore": 1,
+      "reason": "Focus on analysis in landscape architecture with digital presentation; digital graphic design is marginally mentioned."
+    },
+    {
+      "subjectCode": "01386551-66",
+      "subjectName": "การบูรณาการและการสร้างสรรค์ทางดนตรี",
+      "relevanceScore": 0,
+      "reason": "Focuses on music creation and digital technology in music, unrelated to digital graphic design."
+    },
+    {
+      "subjectCode": "03609161-65",
+      "subjectName": "เปิดโลกวิศวกรรมระบบการผลิตดิจิทัล",
+      "relevanceScore": 0,
+      "reason": "Focus on digital production engineering systems, no relation to digital graphic design."
+    },
+    {
+      "subjectCode": "01150363-67",
+      "subjectName": "การฝึกปฏิบัติวิชาชีพในสถานศึกษา III : การฝึกปฏิบัติการจัดการเรียนรู้ในวิชาเฉพาะ",
+      "relevanceScore": 1,
+      "reason": "Mentions use of digital technology in teaching design but not digital graphic design specifically."
+    },
+    {
+      "subjectCode": "01350102-67",
+      "subjectName": "เล่าเรื่องด้วยภาพ",
+      "relevanceScore": 2,
+      "reason": "Focuses on storytelling with images and creating digital media works, fairly relevant to digital graphic design."
+    },
+    {
+      "subjectCode": "01386555-66",
+      "subjectName": "โปรแกรมคอมพิวเตอร์เพื่อการประพันธ์เพลง",
+      "relevanceScore": 0,
+      "reason": "Focus on music composition software, unrelated to digital graphic design."
+    },
+    {
+      "subjectCode": "01058391-68",
+      "subjectName": "โครงงานพัฒนานวัตกรรมผลิตภัณฑ์",
+      "relevanceScore": 1,
+      "reason": "Mentions digital technology for presentation but focuses on product innovation, marginal relevance."
+    },
+    {
+      "subjectCode": "01242121-67",
+      "subjectName": "ปฏิบัติการออกแบบภาพและวัตถุ",
+      "relevanceScore": 3,
+      "reason": "Directly focuses on design and composition of images and objects, core to digital graphic design skill."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 13,
+    "meanRelevanceScore": 1.1538461538461537,
+    "totalRelevanceSum": 15,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 46.15384615384615,
+        "microAverageRate": 46.15384615384615,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 23.076923076923077,
+        "microAverageRate": 23.076923076923077,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 1,
+        "macroAverageRate": 7.6923076923076925,
+        "microAverageRate": 7.6923076923076925,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.666,
+        "at10": 0.687,
+        "at15": 0.818,
+        "atAll": 0.818
+      },
+      "ideal": {
+        "at5": 0.49,
+        "at10": 0.409,
+        "at15": 0.377,
+        "atAll": 0.413
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.8,
+        "threshold2": 0.3,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.769,
+        "threshold2": 0.308,
+        "threshold3": 0.077
+      },
+      "atAll": {
+        "threshold1": 0.769,
+        "threshold2": 0.308,
+        "threshold3": 0.077
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-mini",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2526,
+  "outputTokens": 443
+}

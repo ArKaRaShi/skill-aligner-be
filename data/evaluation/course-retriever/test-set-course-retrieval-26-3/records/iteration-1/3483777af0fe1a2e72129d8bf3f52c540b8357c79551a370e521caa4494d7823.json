@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "b41c15f8-2249-4469-9981-71cc1c75b2b4-การจัดการความเสี่ยงและความปลอดภัย"
+  ],
+  "skill": "การจัดการความเสี่ยงและความปลอดภัย",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "03760341-64",
+      "subjectName": "หลักการตรวจสอบภายในและการควบคุมภายใน",
+      "relevanceScore": 2,
+      "reason": "The course covers risk assessment and management as part of internal controls, which relates to managing risks but is not solely focused on risk management and safety."
+    },
+    {
+      "subjectCode": "03764426-64",
+      "subjectName": "การจัดการความเสี่ยงโซ่อุปทาน",
+      "relevanceScore": 3,
+      "reason": "The course explicitly focuses on risk management within the supply chain, directly aligning with the skill of managing risks and safety."
+    },
+    {
+      "subjectCode": "04401463-65",
+      "subjectName": "สวัสดิศึกษา",
+      "relevanceScore": 1,
+      "reason": "The course discusses safety concepts and accident prevention, which are related but not the primary focus of risk management and safety."
+    },
+    {
+      "subjectCode": "03651232-65",
+      "subjectName": "คณิตศาสตร์ประกันภัยและการบริหารความเสี่ยง",
+      "relevanceScore": 2,
+      "reason": "The course involves insurance risk concepts and risk analysis in insurance, which relates to risk management but is specialized in insurance context."
+    },
+    {
+      "subjectCode": "03602331-65",
+      "subjectName": "ความปลอดภัยในอุตสาหกรรม",
+      "relevanceScore": 3,
+      "reason": "The course explicitly addresses safety principles, risk assessment, and accident prevention in industry, directly relevant to managing risks and safety."
+    },
+    {
+      "subjectCode": "01442515-68",
+      "subjectName": "ความปลอดภัยเชิงปฏิบัติการ",
+      "relevanceScore": 2,
+      "reason": "The course involves risk assessment and management in laboratories, which is a specific application of risk management and safety."
+    },
+    {
+      "subjectCode": "01456355-64",
+      "subjectName": "การจัดการด้านความปลอดภัย",
+      "relevanceScore": 2,
+      "reason": "The course covers security management, which includes safety and security aspects, related to risk management but not solely focused on it."
+    },
+    {
+      "subjectCode": "03651436-65",
+      "subjectName": "ตัวแบบคณิตศาสตร์ประกันภัย",
+      "relevanceScore": 2,
+      "reason": "The course involves mathematical modeling in insurance, which relates to risk quantification but not directly to safety management."
+    },
+    {
+      "subjectCode": "01420361-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น I",
+      "relevanceScore": 0,
+      "reason": "The course is about astronomy, unrelated to risk management and safety."
+    },
+    {
+      "subjectCode": "01420362-66",
+      "subjectName": "ดาราศาสตร์เบื้องต้น II",
+      "relevanceScore": 0,
+      "reason": "Same as above, astronomy course unrelated to the skill."
+    },
+    {
+      "subjectCode": "02193311-67",
+      "subjectName": "การจัดการความปลอดภัยในสถานศึกษาและชุมชน",
+      "relevanceScore": 3,
+      "reason": "The course explicitly addresses safety management in educational and community settings, directly relevant to managing risks and safety."
+    },
+    {
+      "subjectCode": "04252534-67",
+      "subjectName": "การออกแบบและการบริหารเครือข่ายขั้นสูง",
+      "relevanceScore": 2,
+      "reason": "The course involves network design and management, which may include security aspects but is not primarily about risk management and safety."
+    },
+    {
+      "subjectCode": "03760431-64",
+      "subjectName": "การวางแผนและการควบคุมกำไร",
+      "relevanceScore": 2,
+      "reason": "The course covers profit planning and control, which is related to financial risk but not directly about safety risk management."
+    },
+    {
+      "subjectCode": "03652143-66",
+      "subjectName": "ความปลอดภัยทางเคมีและการจัดการของเสียทางเคมี",
+      "relevanceScore": 3,
+      "reason": "The course explicitly addresses chemical safety and waste management, directly relevant to managing risks and safety."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 1.9285714285714286,
+    "totalRelevanceSum": 27,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 2,
+        "macroAverageRate": 14.285714285714286,
+        "microAverageRate": 14.285714285714286,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 1,
+        "macroAverageRate": 7.142857142857143,
+        "microAverageRate": 7.142857142857143,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 7,
+        "macroAverageRate": 50,
+        "microAverageRate": 50,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 4,
+        "macroAverageRate": 28.571428571428573,
+        "microAverageRate": 28.571428571428573,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.758,
+        "at10": 0.723,
+        "at15": 0.889,
+        "atAll": 0.889
+      },
+      "ideal": {
+        "at5": 0.725,
+        "at10": 0.618,
+        "at15": 0.631,
+        "atAll": 0.659
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.8,
+        "threshold3": 0.4
+      },
+      "at10": {
+        "threshold1": 0.8,
+        "threshold2": 0.7,
+        "threshold3": 0.2
+      },
+      "at15": {
+        "threshold1": 0.857,
+        "threshold2": 0.786,
+        "threshold3": 0.286
+      },
+      "atAll": {
+        "threshold1": 0.857,
+        "threshold2": 0.786,
+        "threshold3": 0.286
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 3107,
+  "outputTokens": 596
+}

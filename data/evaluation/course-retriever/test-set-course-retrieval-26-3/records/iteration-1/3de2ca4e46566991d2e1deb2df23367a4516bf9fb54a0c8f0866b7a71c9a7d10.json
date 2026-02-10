@@ -1,0 +1,168 @@
+{
+  "questionIds": [
+    "00e399aa-cf3c-472b-b5be-9a6e86e10637-การเขียนและร่างเอกสารทางกฎหมาย"
+  ],
+  "skill": "การเขียนและร่างเอกสารทางกฎหมาย",
+  "retrievedCount": 14,
+  "evaluations": [
+    {
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 1,
+      "reason": "The course covers basic legal principles and laws related to individuals, but does not focus on legal document writing or drafting."
+    },
+    {
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "relevanceScore": 2,
+      "reason": "Includes understanding and interpreting general laws, which may relate to legal drafting, but it is not the primary focus."
+    },
+    {
+      "subjectCode": "01603121-65",
+      "subjectName": "จรรยาบรรณและกฎหมายทางการพยาบาลสัตว์",
+      "relevanceScore": 1,
+      "reason": "Focuses on ethics and law in veterinary nursing, not on legal document writing."
+    },
+    {
+      "subjectCode": "01203521-66",
+      "subjectName": "กฎหมายและการจัดการสัญญาก่อสร้าง",
+      "relevanceScore": 2,
+      "reason": "Deals with legal and contractual management in construction, which may involve some document drafting, but not the main theme."
+    },
+    {
+      "subjectCode": "01475595-64",
+      "subjectName": "การศึกษาค้นคว้าอิสระ",
+      "relevanceScore": 1,
+      "reason": "Centered on independent research and report writing, not specifically on legal document drafting."
+    },
+    {
+      "subjectCode": "04181591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีการอาหาร",
+      "relevanceScore": 1,
+      "reason": "Focuses on research methodology in food technology, not on legal writing."
+    },
+    {
+      "subjectCode": "01361102-67",
+      "subjectName": "การเขียนภาษาไทยเชิงปฏิบัติ",
+      "relevanceScore": 1,
+      "reason": "Emphasizes Thai language writing skills, not legal document drafting."
+    },
+    {
+      "subjectCode": "02741591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางวิทยาศาสตร์และเทคโนโลยีสิ่งแวดล้อม",
+      "relevanceScore": 2,
+      "reason": "Covers research planning and report writing in science and environmental technology, which may include some document drafting, but not specifically legal documents."
+    },
+    {
+      "subjectCode": "01387597-66",
+      "subjectName": "สัมมนา",
+      "relevanceScore": 1,
+      "reason": "Seminar skills in philosophy and religion, unrelated to legal document writing."
+    },
+    {
+      "subjectCode": "01362562-66",
+      "subjectName": "การสอนไวยากรณ์จีน",
+      "relevanceScore": 0,
+      "reason": "The course is about Chinese grammar teaching, unrelated to legal document writing."
+    },
+    {
+      "subjectCode": "01202691-66",
+      "subjectName": "ระเบียบวิธีวิจัยขั้นสูงทางวิศวกรรมเคมี",
+      "relevanceScore": 0,
+      "reason": "Research methodology in chemical engineering, not related to legal document drafting."
+    },
+    {
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "relevanceScore": 0,
+      "reason": "Thesis in materials science, not related to legal writing."
+    },
+    {
+      "subjectCode": "01442591-68",
+      "subjectName": "ระเบียบวิธีวิจัยทางวิทยาการวัสดุนาโน",
+      "relevanceScore": 0,
+      "reason": "Research methodology in nanoscience, not related to legal document drafting."
+    },
+    {
+      "subjectCode": "01006498-64",
+      "subjectName": "ปัญหาพิเศษ",
+      "relevanceScore": 0,
+      "reason": "Special problems course, not related to legal writing."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 14,
+    "meanRelevanceScore": 0.8571428571428571,
+    "totalRelevanceSum": 12,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 5,
+        "macroAverageRate": 35.714285714285715,
+        "microAverageRate": 35.714285714285715,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 6,
+        "macroAverageRate": 42.857142857142854,
+        "microAverageRate": 42.857142857142854,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 3,
+        "macroAverageRate": 21.428571428571427,
+        "microAverageRate": 21.428571428571427,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.79,
+        "at10": 0.882,
+        "at15": 0.882,
+        "atAll": 0.882
+      },
+      "ideal": {
+        "at5": 0.453,
+        "at10": 0.413,
+        "at15": 0.32,
+        "atAll": 0.335
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 1,
+        "threshold2": 0.4,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.9,
+        "threshold2": 0.3,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.643,
+        "threshold2": 0.214,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.643,
+        "threshold2": 0.214,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2487,
+  "outputTokens": 541
+}

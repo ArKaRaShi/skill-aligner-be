@@ -1,0 +1,2577 @@
+{
+  "queryLogId": "d70fb21b-c337-425b-8b11-3ee2018f3fc4",
+  "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+  "courses": [
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475531-64",
+      "subjectName": "จิตวิทยาองค์การ",
+      "outcomes": [
+        "สามารถอธิบายแนวคิดทฤษฎี และงานวิจัย ที่เกี่ยวข้องกับตัวแปรทางจิตวิทยา ในระดับ บุคคล กลุ่ม และ องค์การ",
+        "สามารถสรุปงานวิจัยที่เกี่ยวข้องกับจิตวิทยาองค์การ",
+        "ความรู้ที่เกี่ยวข้องกับตัวแปรทางจิตวิทยาในระดับ บุคคล กลุ่ม และองค์การไปประยุกต์ใช้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "c920ee38-da6b-4313-8e03-d858b862b8b1",
+              "name": "สามารถอธิบายแนวคิดทฤษฎี และงานวิจัย ที่เกี่ยวข้องกับตัวแปรทางจิตวิทยา ในระดับ บุคคล กลุ่ม และ องค์การ"
+            },
+            {
+              "id": "86b5ab73-affa-4ff6-8917-8c38e79cad14",
+              "name": "สามารถสรุปงานวิจัยที่เกี่ยวข้องกับจิตวิทยาองค์การ"
+            },
+            {
+              "id": "b7e464e8-e8dd-4416-84f8-dbb4badd56d4",
+              "name": "ความรู้ที่เกี่ยวข้องกับตัวแปรทางจิตวิทยาในระดับ บุคคล กลุ่ม และองค์การไปประยุกต์ใช้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly covers organizational psychology concepts, theories, and research, directly related to understanding HR skills and organizational psychology."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers organizational psychology relevant to HR understanding of individual and group behavior in organizations."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475522-64",
+      "subjectName": "จิตวิทยาบุคลากร",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎี และกระบวนการที่เกี่ยวข้องกับจิตวิทยาบุคลากร",
+        "สามารถประยุกต์ใช้ความรู้เกี่ยวกับจิตวิทยาบุคลากรไปใช้ในการทำงานและการพัฒนาการทำงานในสภาพแวดล้อมการทำงานที่เป็นจริง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "37ff5a83-6e4b-41b0-8319-fa5fd3c006b8",
+              "name": "อธิบายแนวคิด ทฤษฎี และกระบวนการที่เกี่ยวข้องกับจิตวิทยาบุคลากร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Directly related to personnel psychology, essential for HR roles, covering concepts and applications relevant to HR skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on personnel psychology, directly related to HR skills and workforce development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475536-64",
+      "subjectName": "จิตวิทยาการจัดการความขัดแย้งในองค์การ",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎีทางจิตวิทยาเกี่ยวกับความขัดแย้งในองค์การ",
+        "วิเคราะห์พฤติกรรมของตนเองและพฤติกรรมของผู้อื่น เมื่อเกิดความขัดแย้งและ/หรือเมื่อต้องเจรจาต่อรอง",
+        "เสริมสร้างทักษะในการจัดการความขัดแย้งและการเจรจาต่อรองในองค์การ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "83da3c56-6e4c-4716-86d5-821b99cddc36",
+              "name": "อธิบายแนวคิด ทฤษฎีทางจิตวิทยาเกี่ยวกับความขัดแย้งในองค์การ"
+            }
+          ]
+        },
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "83da3c56-6e4c-4716-86d5-821b99cddc36",
+              "name": "อธิบายแนวคิด ทฤษฎีทางจิตวิทยาเกี่ยวกับความขัดแย้งในองค์การ"
+            },
+            {
+              "id": "05be5d2d-8e03-474d-9cf3-b3c182dc6e73",
+              "name": "วิเคราะห์พฤติกรรมของตนเองและพฤติกรรมของผู้อื่น เมื่อเกิดความขัดแย้งและ/หรือเมื่อต้องเจรจาต่อรอง"
+            },
+            {
+              "id": "709bff08-768e-4b49-8f95-9043bf5d1653",
+              "name": "เสริมสร้างทักษะในการจัดการความขัดแย้งและการเจรจาต่อรองในองค์การ"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "709bff08-768e-4b49-8f95-9043bf5d1653",
+              "name": "เสริมสร้างทักษะในการจัดการความขัดแย้งและการเจรจาต่อรองในองค์การ"
+            }
+          ]
+        },
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "709bff08-768e-4b49-8f95-9043bf5d1653",
+              "name": "เสริมสร้างทักษะในการจัดการความขัดแย้งและการเจรจาต่อรองในองค์การ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches conflict management skills, directly related to the target skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches conflict management and negotiation skills essential for HR roles."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "03764322-64",
+      "subjectName": "การเจรจาต่อรองเพื่อการจัดการโลจิสติกส์",
+      "outcomes": [
+        "สามารถอธิบายความสำคัญของการเจรจาต่อรองเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง",
+        "สามารถอธิบายหลักการเจรจาต่อรองพื้นฐานเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง",
+        "สามารถเข้าใจและนำเสนอความรู้ด้านการเจรจาต่อรองเบื้องต้นเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง",
+        "สามารถสื่อสารและทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ",
+        "สามารถประยุกต์ใช้ความรู้ในการเจรจาต่อรองเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "de109259-6e07-4a1f-8b27-c8f647a3f4b3",
+              "name": "สามารถเข้าใจและนำเสนอความรู้ด้านการเจรจาต่อรองเบื้องต้นเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง"
+            },
+            {
+              "id": "f3ac4f94-78bb-4cd5-a480-773cef3f6f52",
+              "name": "สามารถประยุกต์ใช้ความรู้ในการเจรจาต่อรองเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง"
+            }
+          ]
+        },
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "de109259-6e07-4a1f-8b27-c8f647a3f4b3",
+              "name": "สามารถเข้าใจและนำเสนอความรู้ด้านการเจรจาต่อรองเบื้องต้นเพื่อการจัดการโลจิสติกส์ได้อย่างถูกต้อง"
+            },
+            {
+              "id": "1245abef-5c1f-4a6e-b88f-3f0ab261727a",
+              "name": "สามารถสื่อสารและทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses explicitly on negotiation skills relevant to the target skill."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Negotiation for logistics management is too specialized and not directly relevant to HR."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01132222-65",
+      "subjectName": "การจัดการทรัพยากรมนุษย์",
+      "outcomes": [
+        "อธิบายหลักการ แนวคิด และหน้าที่ของการจัดการทรัพยากรมนุษย์ได้อย่างถูกต้อง",
+        "วิเคราะห์ปัญหาเกี่ยวกับการจัดการทรัพยากรมนุษย์และนำเสนอแนวทางที่เหมาะสมได้",
+        "ทำงานร่วมกับผู้อื่นในบทบาทของผู้นำหรือผู้ตามได้อย่างเหมาะสม และแสดงออกถึงความเข้าใจวัฒนธรรมองค์กร",
+        "สร้างแนวคิดหรือกิจกรรม hr ที่สะท้อนความคิดริเริ่มสร้างสรรค์ และตอบสนองต่อการเปลี่ยนแปลงในองค์กร",
+        "ใช้เทคโนโลยีสารสนเทศในการสื่อสาร/นำเสนอข้อมูล hr ได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "0ce6282e-7fc2-4b67-ae0b-1faabc87e50f",
+              "name": "วิเคราะห์ปัญหาเกี่ยวกับการจัดการทรัพยากรมนุษย์และนำเสนอแนวทางที่เหมาะสมได้"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "e2490851-2615-4d58-a01f-f4ea98bfe7ae",
+              "name": "อธิบายหลักการ แนวคิด และหน้าที่ของการจัดการทรัพยากรมนุษย์ได้อย่างถูกต้อง"
+            },
+            {
+              "id": "0ce6282e-7fc2-4b67-ae0b-1faabc87e50f",
+              "name": "วิเคราะห์ปัญหาเกี่ยวกับการจัดการทรัพยากรมนุษย์และนำเสนอแนวทางที่เหมาะสมได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "e2490851-2615-4d58-a01f-f4ea98bfe7ae",
+              "name": "อธิบายหลักการ แนวคิด และหน้าที่ของการจัดการทรัพยากรมนุษย์ได้อย่างถูกต้อง"
+            },
+            {
+              "id": "0ce6282e-7fc2-4b67-ae0b-1faabc87e50f",
+              "name": "วิเคราะห์ปัญหาเกี่ยวกับการจัดการทรัพยากรมนุษย์และนำเสนอแนวทางที่เหมาะสมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "This course explicitly teaches human resource management, directly aligning with the target skill of HR management."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Directly covers human resource management principles and practices."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475528-64",
+      "subjectName": "การฝึกอบรมและการพัฒนาในองค์การ",
+      "outcomes": [
+        "อธิบายแนวคิด กระบวนการในการฝึกอบรมและธรรมชาติการเรียนรู้ของผู้เข้ารับการฝึกอบรม",
+        "นำความรู้ทางจิตวิทยาไปประยุกต์ใช้กับการฝึกอบรม",
+        "สามารถพัฒนาโปรแกรมหรือสร้างหลักสูตรการฝึกอบรม",
+        "อธิบายความสัมพันธ์ระหว่างการฝึกอบรมกับการพัฒนาองค์การ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "9c9f088b-8a7c-422e-8311-79593d17ade7",
+              "name": "อธิบายความสัมพันธ์ระหว่างการฝึกอบรมกับการพัฒนาองค์การ"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "9c9f088b-8a7c-422e-8311-79593d17ade7",
+              "name": "อธิบายความสัมพันธ์ระหว่างการฝึกอบรมกับการพัฒนาองค์การ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Specifically teaches training and development, core HR functions directly relevant to HR skill development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on training and development, a key HR function."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01352111-66",
+      "subjectName": "หลักนิเทศศาสตร์",
+      "outcomes": [
+        "อธิบายระดับการสื่อสาร",
+        "อธิบายแนวคิด ทฤษฎี การสื่อสารมวลชน เบื้องต้น",
+        "ประยุกต์แนวคิดด้านการสื่อสารเพื่ออธิบาย การสื่อสารในสื่อมวลชนได้",
+        "สามารถนําจริยธรรมของสื่อมวลชนมาใช้เพื่อ การสื่อสาร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "c72d4a74-01b4-4f16-8ffd-a20cbb462532",
+              "name": "อธิบายระดับการสื่อสาร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Covers communication theories and mass communication, directly relevant to communication skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Communication principles are foundational skills for HR professionals."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "04351141-68",
+      "subjectName": "การฟังและการพูดภาษาอังกฤษเพื่อการสื่อสารเบื้องต้น",
+      "outcomes": [
+        "ใช้คำศัพท์และโครงสร้างประโยคพื้นฐานเพื่อสร้างประโยคที่ถูกต้องและเข้าใจได้",
+        "แสดงความคิดเห็นและแลกเปลี่ยนข้อมูลในสถานการณ์ที่กำหนดได้",
+        "สื่อสารเนื้อหาได้อย่างชัดเจนและถูกต้อง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 3,
+          "learningOutcomes": [
+            {
+              "id": "085ae5a6-8090-4bef-9bef-991fef1bc678",
+              "name": "แสดงความคิดเห็นและแลกเปลี่ยนข้อมูลในสถานการณ์ที่กำหนดได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 3,
+        "action": "KEEP",
+        "reason": "Focuses on fundamental communication skills in English, highly relevant."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Basic English communication skills support HR communication needs."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "04354111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "outcomes": [
+        "สามารถอธิบายหลักพื้นฐานเกี่ยวกับกฎหมายได้",
+        "สามารถอธิบายกฎหมายเกี่ยวกับบุคคลได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "37754a5d-82de-48b6-9178-74e61927aa9e",
+              "name": "สามารถอธิบายหลักพื้นฐานเกี่ยวกับกฎหมายได้"
+            },
+            {
+              "id": "53ce7aa1-1a75-4408-a5f8-264a0ed0fd98",
+              "name": "สามารถอธิบายกฎหมายเกี่ยวกับบุคคลได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches fundamental legal principles related to labor law, which are prerequisites for understanding specific labor regulations."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Basic legal knowledge is important for HR compliance and employee relations."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01453111-68",
+      "subjectName": "หลักพื้นฐานเกี่ยวกับกฎหมาย",
+      "outcomes": [
+        "สามารถอธิบายหลักพื้นฐานเกี่ยวกับกฎหมาย และกฎหมายว่าด้วยบุคคล",
+        "สามารถตีความและปรับใช้หลักทั่วไปของกฎหมายแพ่ง และกฎหมายบุคคลตามข้อเท็จจริงในกรณีศึกษาได้อย่างถูกต้อง",
+        "แสดงออกถึงความรับผิดชอบ ความซื่อสัตย์ ตามจรรยาบรรณวิชาชีพนักกฎหมาย ผ่านการทำกิจกรรมและการทำงานตามที่ได้รับมอบหมาย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a6439f4e-fb95-4ab6-bba0-8bc1596dc31e",
+              "name": "สามารถอธิบายหลักพื้นฐานเกี่ยวกับกฎหมาย และกฎหมายว่าด้วยบุคคล"
+            },
+            {
+              "id": "0e85c4ee-1d0e-432b-b4f5-eadcdbaa9c2f",
+              "name": "แสดงออกถึงความรับผิดชอบ ความซื่อสัตย์ ตามจรรยาบรรณวิชาชีพนักกฎหมาย ผ่านการทำกิจกรรมและการทำงานตามที่ได้รับมอบหมาย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides foundational legal knowledge including interpretation and application of civil and personal law, relevant for understanding labor law context."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Provides foundational legal knowledge relevant to HR responsibilities."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01453113-68",
+      "subjectName": "ประวัติศาสตร์กฎหมาย",
+      "outcomes": [
+        "สามารถอธิบายวิวัฒนาการ ประวัติศาสตร์ของกฎหมาย และบ่อเกิดของกฎหมายได้",
+        "สามารถอธิบายประวัติความเป็นมาของกฎหมายไทยได้",
+        "แสดงออกถึงความรับผิดชอบ ความซื่อสัตย์ตามจรรยาบรรณวิชาชีพนักกฎหมาย ผ่านการทำกิจกรรมและการทำงานตามที่ได้รับมอบหมาย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d2c8c7a1-fb5d-4318-b307-905c1cde001b",
+              "name": "สามารถอธิบายประวัติความเป็นมาของกฎหมายไทยได้"
+            },
+            {
+              "id": "351cb66f-ceb5-43de-acfc-4b3141ad7795",
+              "name": "แสดงออกถึงความรับผิดชอบ ความซื่อสัตย์ตามจรรยาบรรณวิชาชีพนักกฎหมาย ผ่านการทำกิจกรรมและการทำงานตามที่ได้รับมอบหมาย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides historical context of law, which can deepen understanding of labor law development and principles."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on legal history, not directly relevant to HR skills or knowledge."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475535-64",
+      "subjectName": "จิตวิทยาการเปลี่ยนแปลงและการพัฒนา",
+      "outcomes": [
+        "อธิบายแนวคิดและทฤษฎีทางจิตวิทยาในการเปลี่ยนแปลงและพัฒนาองค์การ",
+        "วิเคราะห์ปัจจัยและแนวทางในการเปลี่ยนแปลงและพัฒนาองค์การ",
+        "ประยุกต์ใช้จิตวิทยาเพื่อการเปลี่ยนแปลงและการพัฒนาองค์การ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "a65fb275-d77e-40e6-9d6d-6f7f76ee07ad",
+              "name": "อธิบายแนวคิดและทฤษฎีทางจิตวิทยาในการเปลี่ยนแปลงและพัฒนาองค์การ"
+            },
+            {
+              "id": "0dafbfda-900b-4597-9ac2-53425eeaa78a",
+              "name": "ประยุกต์ใช้จิตวิทยาเพื่อการเปลี่ยนแปลงและการพัฒนาองค์การ"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "e282727c-e4ec-475a-9335-16988e755771",
+              "name": "วิเคราะห์ปัจจัยและแนวทางในการเปลี่ยนแปลงและพัฒนาองค์การ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches psychological concepts related to organizational change and development, which are relevant for HR skill development, but not directly about HR skills themselves."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers psychology of organizational change and development, relevant for HR roles managing change."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475533-64",
+      "subjectName": "จิตวิทยาการจูงใจในองค์การ",
+      "outcomes": [
+        "อธิบายแนวคิดและทฤษฎีเกี่ยวกับการจูงใจ",
+        "สาธิตการนำความรู้ด้านจิตวิทยาไปใช้ในการจูงใจในองค์การ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d55a1a1c-02f9-4b04-af22-ab5f281fe0c8",
+              "name": "สาธิตการนำความรู้ด้านจิตวิทยาไปใช้ในการจูงใจในองค์การ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on motivation theories and their application in organizations, important for HR but not a direct skill for HR practitioners."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches motivation psychology in organizations, a core HR competency."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475537-64",
+      "subjectName": "จิตวิทยาการทำงานเป็นทีม",
+      "outcomes": [
+        "อธิบายถึงแนวความคิด หลักการ และทฤษฎีที่เกี่ยวข้องกับจิตวิทยาในการทำงานเป็นทีม",
+        "ประยุกต์ใช้หลักการ วิธีการ และเทคนิคต่างๆ ทางจิตวิทยาไปใช้ในการพัฒนาตนและเพิ่มประสิทธิผลในทีมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "b2a3019f-cd22-4f30-b998-0992328d2f98",
+              "name": "อธิบายถึงแนวความคิด หลักการ และทฤษฎีที่เกี่ยวข้องกับจิตวิทยาในการทำงานเป็นทีม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers team psychology and application, relevant for HR team management but not a core HR skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on team psychology and improving team effectiveness, important for HR."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475591-64",
+      "subjectName": "ระเบียบวิธีวิจัยทางจิตวิทยาอุตสาหกรรมและองค์การ",
+      "outcomes": [
+        "อธิบายขั้นตอนการวิจัย และระเบียบวิธีการวิจัยทางจิตวิทยา",
+        "นำแนวคิด ทฤษฎีทางจิตวิทยาอุตสาหกรรมและองค์การไปใช้ในการออกแบบการวิจัย",
+        "ดำเนินการวิจัย สรุปผล เขียนรายงาน และนำเสนองานวิจัยได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "3937ae3c-c6b5-4a27-88c9-2023309c66e2",
+              "name": "นำแนวคิด ทฤษฎีทางจิตวิทยาอุตสาหกรรมและองค์การไปใช้ในการออกแบบการวิจัย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches research methodology in organizational psychology, foundational for HR research skills but not HR practice itself."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Teaches research methods in industrial and organizational psychology, useful for HR analytics and evidence-based practices."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475529-64",
+      "subjectName": "จิตวิทยาการปรึกษาทางธุรกิจ",
+      "outcomes": [
+        "อธิบายแนวคิดและหลักการเกี่ยวกับจิตวิทยาการปรึกษาทางธุรกิจได้",
+        "สามารถนำเสนอแนวทางในการนำความรู้เรื่องจิตวิทยาการปรึกษาทางธุรกิจไปใช้ในองค์การได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "487d038c-be33-48c9-b568-b5608e041999",
+              "name": "สามารถนำเสนอแนวทางในการนำความรู้เรื่องจิตวิทยาการปรึกษาทางธุรกิจไปใช้ในองค์การได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers business counseling psychology, relevant for HR advisory roles but not core HR skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers business consulting psychology, applicable to HR consulting and organizational development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475538-64",
+      "subjectName": "จิตวิทยาอุตสาหกรรมและองค์การข้ามวัฒนธรรม",
+      "outcomes": [
+        "อธิบายพฤติกรรมการทำงานของบุคคลต่างวัฒนธรรมได้",
+        "ประยุกต์ความรู้ทางจิตวิทยาอุตสาหกรรมและองค์การไปใช้ในการบริหารจัดการและพัฒนาศักยภาพของบุคคลในที่ทำงานท่ามกลางความแตกต่างทางวัฒนธรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d9e1a879-bcba-40a0-af1c-2b6520678247",
+              "name": "ประยุกต์ความรู้ทางจิตวิทยาอุตสาหกรรมและองค์การไปใช้ในการบริหารจัดการและพัฒนาศักยภาพของบุคคลในที่ทำงานท่ามกลางความแตกต่างทางวัฒนธรรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on cross-cultural organizational psychology, useful for HR in multicultural settings but not a primary HR skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Focuses on cross-cultural industrial and organizational psychology, relevant for managing diverse workforces in HR."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475532-64",
+      "subjectName": "จิตวิทยาสังคมประยุกต์ในการทำงาน",
+      "outcomes": [
+        "อธิบายแนวคิด ทฤษฎีทางจิตวิทยาสังคม พฤติกรรมทางสังคมระดับบุคคล ระหว่างบุคคล และระดับกลุ่มในองค์การ",
+        "นำความรู้ทางจิตวิทยาสังคมไปใช้กับชีวิตส่วนตัวและชีวิตการทำงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "674deec6-f672-4c23-a7b9-c9f5a15e45a5",
+              "name": "นำความรู้ทางจิตวิทยาสังคมไปใช้กับชีวิตส่วนตัวและชีวิตการทำงาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Applies social psychology to work life, relevant for HR understanding social dynamics but not a core HR skill."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Applies social psychology to work settings, important for understanding workplace behavior in HR."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01118541-64",
+      "subjectName": "การจัดการโครงการเพื่อการพัฒนาทรัพยากร",
+      "outcomes": [
+        "อธิบายและพัฒนาโครงการเพื่อนำไปบริหารจัดการจัดการทรัพยากรธรรมชาติและสิ่งแวดล้อม",
+        "เลือกใช้ทฤษฎีและหลักการในจัดการโครงการได้",
+        "ทำงานเป็นทีมและสามารถแก้ไขข้อขัดแย้งและลำดับความสำคัญในการบริหารจัดการโครงการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d5eff837-4955-4312-bdfa-e07dfd85661a",
+              "name": "ทำงานเป็นทีมและสามารถแก้ไขข้อขัดแย้งและลำดับความสำคัญในการบริหารจัดการโครงการ"
+            }
+          ]
+        },
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3f8a412b-a5a6-47f1-9eaa-03bf800b85e3",
+              "name": "อธิบายและพัฒนาโครงการเพื่อนำไปบริหารจัดการจัดการทรัพยากรธรรมชาติและสิ่งแวดล้อม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Includes conflict resolution as part of project management, foundational knowledge relevant to managing conflicts."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on project management for natural resources, unrelated to HR skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01118531-64",
+      "subjectName": "นโยบายและปัจจัยเชิงสถาบันเพื่อการจัดการทรัพยากร",
+      "outcomes": [
+        "อธิบายปัญหาการใช้ทรัพยากรธรรมชาติที่เกี่ยวโยงกับสภาพเศรษฐกิจและสังคม สถาบันต่างๆ ที่เกี่ยวข้อง",
+        "ใช้ทฤษฎีทางด้านเศรษฐศาสตร์และสังคมศาสตร์เพื่อศึกษาความสัมพันธ์ระหว่างทรัพยากรธรรมชาติและระบบเศรษฐกิจและสังคม",
+        "ทำงานเป็นทีมและสามารถแก้ไขข้อขัดแย้งและลำดับความสำคัญในการบริหารจัดการโครงการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "673b858f-cd22-4e99-8b12-d7fbeaa3eaf6",
+              "name": "ทำงานเป็นทีมและสามารถแก้ไขข้อขัดแย้งและลำดับความสำคัญในการบริหารจัดการโครงการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Covers conflict resolution in resource management contexts, foundational for understanding conflict dynamics."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on policies and institutional factors for resource management, not relevant to HR."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01387519-66",
+      "subjectName": "ปัญหาและทฤษฎีจริยศาสตร์",
+      "outcomes": [
+        "สามารถจำแนกปัญหาและทฤษฎีจริยศาสตร์ได้",
+        "สามารถอธิบายความเชื่อมโยงของจริยศาสตร์ในประเด็นจริยปรัชญาและจริยศาสตร์ประยุกต์ได้",
+        "วิเคราะห์ข้อโต้แย้งในจริยศาสตร์ได้",
+        "นำเสนอประเด็นเกี่ยวกับการวิจัยในจริยศาสตร์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "3488cdb5-8be9-40f6-9a51-d460c2b83d9b",
+              "name": "วิเคราะห์ข้อโต้แย้งในจริยศาสตร์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides theoretical background on ethics and morality, foundational for understanding conflict resolution."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Ethics is a foundational aspect relevant to HR for handling workplace moral issues and decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "06901112-66",
+      "subjectName": "การจัดการทรัพยากรมนุษย์เพื่ออุตสาหกรรมท่องเที่ยวเชิงวัฒนธรรมและสุขภาพ",
+      "outcomes": [
+        "สามารถอธิบายลักษณะเฉพาะของการบริหารทรัพยากร มนุษย์ในอุตสาหกรรมท่องเที่ยวเชิงวัฒนธรรมและสุขภาพได้อย่างถูกต้อง",
+        "สามารถสรุประบบการทำงานของงานบริหารทรัพยากร มนุษย์และการพัฒนาทรัพยากรมนุษย์ในอุตสาหกรรมท่องเที่ยว เชิงวัฒนธรรมและสุขภาพได้อย่างถูกต้อง",
+        "สามารถบอกขั้นตอนในการวางแผนการบริหารงาน ทรัพยากรมนุษย์ภายใต้ความรับผิดชอบของฝ่ายบริหารทรัพยากรมนุษย์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "7e6febb4-22b1-44d3-8d94-b29478796a1c",
+              "name": "สามารถอธิบายลักษณะเฉพาะของการบริหารทรัพยากร มนุษย์ในอุตสาหกรรมท่องเที่ยวเชิงวัฒนธรรมและสุขภาพได้อย่างถูกต้อง"
+            },
+            {
+              "id": "452dec0d-027f-4b61-843b-8ce3750ebc49",
+              "name": "สามารถสรุประบบการทำงานของงานบริหารทรัพยากร มนุษย์และการพัฒนาทรัพยากรมนุษย์ในอุตสาหกรรมท่องเที่ยว เชิงวัฒนธรรมและสุขภาพได้อย่างถูกต้อง"
+            },
+            {
+              "id": "ec4070aa-b432-4890-ac36-6d7bdea2e463",
+              "name": "สามารถบอกขั้นตอนในการวางแผนการบริหารงาน ทรัพยากรมนุษย์ภายใต้ความรับผิดชอบของฝ่ายบริหารทรัพยากรมนุษย์ได้"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "ec4070aa-b432-4890-ac36-6d7bdea2e463",
+              "name": "สามารถบอกขั้นตอนในการวางแผนการบริหารงาน ทรัพยากรมนุษย์ภายใต้ความรับผิดชอบของฝ่ายบริหารทรัพยากรมนุษย์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides specific knowledge on HR in cultural and health tourism industries, which is a specialized area within HR, foundational for understanding HR in niche sectors."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Directly related to HR management in a specific industry, providing relevant HR knowledge and skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475523-64",
+      "subjectName": "การปฏิบัติงานของมนุษย์",
+      "outcomes": [
+        "อธิบายข้อกำจัดและความสามารถในพฤติกรรมการทำงานของมนุษย์",
+        "วิเคราะห์ปฏิสัมพันธ์ของพฤติกรรมมนุษย์กับปัจจัยที่เกี่ยวข้อง รวมถึงข้อผิดพลาดของมนุษย์และอุบัติเหตุ และการควบคุมสภาพแวดล้อมที่ซับซ้อนได้",
+        "นำเสนอแนวทางในการพัฒนาประสิทธิภาพการปฏิบัติงานของมนุษย์"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "5559faa6-5f81-4c74-9755-10388c997224",
+              "name": "อธิบายข้อกำจัดและความสามารถในพฤติกรรมการทำงานของมนุษย์"
+            },
+            {
+              "id": "59a81e76-abd7-46f5-90a9-b90c30ea555f",
+              "name": "นำเสนอแนวทางในการพัฒนาประสิทธิภาพการปฏิบัติงานของมนุษย์"
+            }
+          ]
+        },
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "59a81e76-abd7-46f5-90a9-b90c30ea555f",
+              "name": "นำเสนอแนวทางในการพัฒนาประสิทธิภาพการปฏิบัติงานของมนุษย์"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Focuses on human behavior and performance, which are foundational to effective HR practices, though not directly teaching HR management skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Understanding human behavior and work performance is essential for HR roles."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02052531-68",
+      "subjectName": "การพัฒนามนุษย์และองค์การภาคการเกษตร",
+      "outcomes": [
+        "สามารถวิเคราะห์เพื่อนำไปสู่การกำหนดนโยบายด้านการพัฒนาทรัพยากรมนุษย์ทั้งในระดับจุลภาคและมหภาค",
+        "สามารถประเมินความต้องการของชุมชน และสามารถออกแบบโครงการพัฒนาทรัพยากรมนุษย์ในองค์การภาคเกษตรเชิงนวัตกรรม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "5de144f2-207f-43c2-9991-57a1eecccaab",
+              "name": "สามารถวิเคราะห์เพื่อนำไปสู่การกำหนดนโยบายด้านการพัฒนาทรัพยากรมนุษย์ทั้งในระดับจุลภาคและมหภาค"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Deals with human development and organizational policies, relevant foundational knowledge for HR but not specific to HR management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on agricultural sector HR development, which is a niche not implied by the question."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475539-64",
+      "subjectName": "จิตวิทยาเพื่อจิตวิญญาณในสถานที่ทำงาน",
+      "outcomes": [
+        "อธิบายความสำคัญ ความหมาย แนวคิดทฤษฎี และงานวิจัยที่เกี่ยวข้องกับเรื่องจิตวิทยากับจิตวิญญาณในสถานที่ทำงาน และแนวทางในการพัฒนาจิตวิญญาณในสถานที่ทำงาน",
+        "สามารถวางแผนโดยนำความรู้ที่เกี่ยวกับจิตวิทยาไปใช้ในการพัฒนาจิตวิญญาณในสถานที่ทำงาน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "207d9d5c-3624-44b7-b35c-ab5b4a363278",
+              "name": "สามารถวางแผนโดยนำความรู้ที่เกี่ยวกับจิตวิทยาไปใช้ในการพัฒนาจิตวิญญาณในสถานที่ทำงาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides psychological insights relevant for HR personnel development and workplace well-being."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers workplace psychology and spiritual well-being, useful for HR in employee welfare and development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02198113-67",
+      "subjectName": "จิตวิทยาเพื่อการเรียนรู้และการจัดการเรียนรู้",
+      "outcomes": [
+        "อธิบายทฤษฎีจิตวิทยาพื้นฐาน จิตวิทยาพัฒนาการ จิตวิทยาการศึกษา จิตวิทยาการเรียนรู้ และจิตวิทยาการให้คำปรึกษา",
+        "เขียนแผนการจัดการเรียนรู้ที่ส่งเสริมการเรียนรู้ของผู้เรียนที่หลากหลาย",
+        "ออกแบบและบริหารจัดการเรียนรู้บริบทในชีวิตจริง บูรณาการแนวคิดปรัชญาเศรษฐกิจพอเพียง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d51aed2c-2121-4b01-9a6b-6c7568b72fec",
+              "name": "เขียนแผนการจัดการเรียนรู้ที่ส่งเสริมการเรียนรู้ของผู้เรียนที่หลากหลาย"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Provides psychological principles for learning and management, useful for HR personnel development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Psychology of learning and management supports HR functions in training and development."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01150241-67",
+      "subjectName": "จิตวิทยาการศึกษาและการแนะแนวสำหรับครู",
+      "outcomes": [
+        "อธิบายหลักการและแนวคิดในกลุ่มจิตวิทยาการศึกษา จิตวิทยาพัฒนาการ จิตวิทยาการแนะแนว และจิตวิทยาการปรึกษา",
+        "วิเคราะห์กรณีศึกษาเกี่ยวกับจิตวิทยาการศึกษา การจัดการชั้นเรียน จิตวิทยาการแนะแนว และจิตวิทยาการปรึกษา",
+        "ประยุกต์ความรู้จากจิตวิทยาการศึกษา จิตวิทยาพัฒนาการมาใช้ในบริการแนะแนวและบริการให้การปรึกษา",
+        "ใช้เทคโนโลยีสารสนเทศในการให้คำปรึกษา",
+        "สาธิตกระบวนการให้การปรึกษา",
+        "ออกแบบการจัดกิจกรรมแนะแนวในโรงเรียน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 2,
+          "learningOutcomes": [
+            {
+              "id": "d1e8403c-e6d5-4f78-bece-4e1c4ba8a50a",
+              "name": "สาธิตกระบวนการให้การปรึกษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 2,
+        "action": "KEEP",
+        "reason": "Teaches counseling and communication skills relevant to interpersonal negotiation."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Educational psychology and counseling skills are valuable for HR in employee guidance and support."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "04354131-68",
+      "subjectName": "หลักกฎหมายมหาชน",
+      "outcomes": [
+        "สามารถอธิบายความหมายของกฎหมายมหาชนได้",
+        "สามารถแบ่งแยกกฎหมายมหาชนประเภทต่าง ๆ ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3e45f4ae-7ad6-4c23-9a5b-1ccf1a0cc6f7",
+              "name": "สามารถอธิบายความหมายของกฎหมายมหาชนได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Covers public law, which is related but not directly focused on labor law, serving as shared category knowledge."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Public law is not directly relevant to general HR skills or knowledge."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02197531-68",
+      "subjectName": "กฎหมาย นโยบายและกลยุทธ์ทางการบริหารการศึกษา",
+      "outcomes": [
+        "วิเคราะห์นโยบายการศึกษาชาติสู่การวางแผนเชิงกลยุทธ์และแผนปฏิบัติการประจำที่สอดคล้องกับบริบทขององค์การทางการศึกษาได้",
+        "กำหนดนโยบายและออกแบบการบริหารแผนกลยุทธ์และการประกันคุณภาพการศึกษาเพื่อนำไปสู่การปฏิบัติให้สอดคล้องกับบริบทของสถานศึกษาได้",
+        "แสดงออกถึงจรรยาบรรณวิชาชีพ คุณธรรม จริยธรรมในการใช้กฎหมายทางการศึกษา"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c72f77a7-162f-4b75-a332-e9895253a581",
+              "name": "แสดงออกถึงจรรยาบรรณวิชาชีพ คุณธรรม จริยธรรมในการใช้กฎหมายทางการศึกษา"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Deals with educational policy and law, sharing some legal context but not specific to labor law."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Covers policy, strategy, and ethics in administration, relevant for HR management roles."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01475597-64",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "ได้ค้นคว้าหาหัวข้อทางจิตวิทยาอุตสาหกรรมและองค์การที่ตนเองสนใจเพื่อพัฒนาเป็นวิทยานิพนธ์/การศึกษาค้นคว้าอิสระ",
+        "นำเสนอและอภิปรายในหัวข้อจิตวิทยาอุตสาหกรรมและองค์การ",
+        "ทบทวนความเข้าใจและเสริมสร้างประสบการณ์เกี่ยวกับจิตวิทยาอุตสาหกรรมและองค์การ",
+        "แลกเปลี่ยนเรียนรู้และนำเสนอความก้าวหน้าในการทำวิจัยประกอบการศึกษา",
+        "โครงการสัมมนาบริการวิชาการเพื่อแลกเปลี่ยนเรียนรู้และนำเสนอประเด็นทางจิตวิทยาและองค์การ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "จิตวิทยาองค์กร",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "94914858-b661-4a3a-930d-4691798156a1",
+              "name": "นำเสนอและอภิปรายในหัวข้อจิตวิทยาอุตสาหกรรมและองค์การ"
+            },
+            {
+              "id": "20d40174-eac4-446b-a61b-de2637d0623c",
+              "name": "ทบทวนความเข้าใจและเสริมสร้างประสบการณ์เกี่ยวกับจิตวิทยาอุตสาหกรรมและองค์การ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on research presentation and discussion in industrial and organizational psychology, not directly on HR skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Seminar on industrial and organizational psychology enhances HR knowledge and research skills."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01203521-66",
+      "subjectName": "กฎหมายและการจัดการสัญญาก่อสร้าง",
+      "outcomes": [
+        "สามารถประมวลหลักกฎหมาย และสัญญาก่อสร้าง สามารถนำไปประยุกต์ใช้ในการทำงานได้อย่างมีประสิทธิภาพ",
+        "สามารถวิเคราะห์ปัญหา และนำเสนอแนวทางในการป้องกันแก้ไขปัญหาลดข้อขัดแย้งในการบริหารงานก่อสร้างกับทีมงานโครงการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "86e9f6e0-0f76-4332-941a-a0d45b5c1cc5",
+              "name": "สามารถวิเคราะห์ปัญหา และนำเสนอแนวทางในการป้องกันแก้ไขปัญหาลดข้อขัดแย้งในการบริหารงานก่อสร้างกับทีมงานโครงการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "While it covers conflict resolution in contract management, it is tangential to the broader skill of managing conflicts in general."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on construction law and contract management, unrelated to HR skills or knowledge."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02198112-67",
+      "subjectName": "ค่านิยมและคุณลักษณะความเป็นครู",
+      "outcomes": [
+        "อธิบายความสำคัญความจำเป็นของคุณธรรมและจริยธรรมที่มีต่อวิชาชีพครู จิตวิญญาณความเป็นครูต่อการประกอบวิชาชีพและการพัฒนาผู้เรียนได้",
+        "วิเคราะห์ ตัดสินใจ และแก้ไขปัญหาเชิงจริยธรรมอย่างมีเหตุผลในสถานการณ์ต่างๆ",
+        "อธิบายแนวทางการจัดการเรียนรู้สำหรับผู้เรียนที่มีความแตกต่างและหลากหลายทางวัฒนธรรม",
+        "ระบุแนวทางกระตุ้นการเรียนรู้และความคิดสร้างสรรค์ของผู้เรียน เพื่อส่งเสริมให้เกิดการพัฒนานวัตกร",
+        "วิเคราะห์สภาพบริบทและสถานการณ์ในโรงเรียนร่วมกับการประเมินตนเอง เพื่อเสนอแนวทางพัฒนาวิชาชีพและการเรียนรู้ตลอดชีวิต"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a5e2b55b-d333-4265-8b76-33f177ef31ac",
+              "name": "วิเคราะห์ ตัดสินใจ และแก้ไขปัญหาเชิงจริยธรรมอย่างมีเหตุผลในสถานการณ์ต่างๆ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on ethics and values in teaching, tangential to conflict management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about teacher values and ethics, not relevant to HR roles."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01468597-65",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "ประยุกต์ความรู้ความเข้าใจในประเด็นการบริหารและพัฒนาสังคม",
+        "ออกแบบนโยบายสาธารณะ และยุทธศาสตร์การบริหารและพัฒนาสังคม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d0e3bb79-aed0-4ca0-b4a7-0a9a622f151a",
+              "name": "ประยุกต์ความรู้ความเข้าใจในประเด็นการบริหารและพัฒนาสังคม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on social management and policy design, shared category but not directly related to HR skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on social management and policy design is not directly related to HR skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01203522-66",
+      "subjectName": "ความเป็นผู้นำและการบริหารในงานก่อสร้าง",
+      "outcomes": [
+        "สามารถรับฟังข้อวิพากษ์และพัฒนาตนเองได้อย่างต่อเนื่องลดข้อขัดแย้งและโน้มน้าวผู้ร่วมงานได้ดี",
+        "สามารถบริหารคนให้ทำงานได้เต็มศักยภาพ สามารถเป็นผู้นำและผู้ตามที่ดีในการทำงานร่วมกับผู้อื่น",
+        "สามารถวิเคราะห์ปัญหาที่ต้องแก้ไขปรับปรุงและตัดสินใจได้อย่างมีประสิทธิภาพ สามารถเข้าใจและพัฒนายุทธศาสตร์องค์กรได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "247e3d67-c41c-430a-b90f-009e2675ad19",
+              "name": "สามารถบริหารคนให้ทำงานได้เต็มศักยภาพ สามารถเป็นผู้นำและผู้ตามที่ดีในการทำงานร่วมกับผู้อื่น"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Leadership and management in construction, related to management but not specific to HR skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course on leadership and management includes relevant skills for HR such as people management and conflict resolution."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01394699-64",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "พัฒนาองค์ความรู้ใหม่หรือมุมองใหม่ในสาขาวิชาผ่านกระบวนการวิจัยที่มีความเข้มงวดทางวิชาการและเป็นที่ ยอมรับในระดับชาติหรือนานาชาติ",
+        "ออกแบบและดำเนินการวิจัยเชิงลึกได้อย่างถูกต้องตามวิธีวิทยาในหัวข้อที่ดำเนินการวิจัย",
+        "ปฏิบัติตามหลักการวิจัยที่ถูกต้อง ซื่อสัตย์ โปร่งใส และเคารพสิทธิของผู้มีส่วนเกี่ยวข้องในงานวิจัยทุกขั้นตอน",
+        "บริหารจัดการงานวิจัยอย่างเป็นระบบตามหลักการวิจัยและหลักจริยธรรมทางวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c1b4c693-44c6-42a4-8d49-07904610971f",
+              "name": "บริหารจัดการงานวิจัยอย่างเป็นระบบตามหลักการวิจัยและหลักจริยธรรมทางวิชาการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Research methodology and knowledge development, foundational but not directly teaching HR skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course focused on research methodology, not specific to HR skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "04402332-65",
+      "subjectName": "การยศาสตร์",
+      "outcomes": [
+        "มีทักษะในการประเมินท่าทางการทำงาน",
+        "สามารถออกแบบสถานีงานและสภาพแวดล้อมให้เหมาะสมกับสรีรระร่างกายของแต่ละบุคคล เพื่อลดอาการบาดเจ็บและความผิดปกติของระบบกระดูกโครงร่างกล้ามเนื้อได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a550a9e3-745c-4d2b-a52f-81f8aeb806da",
+              "name": "มีทักษะในการประเมินท่าทางการทำงาน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Ergonomics and workplace design, related to workplace safety and comfort but not core HR management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Ergonomics course is not directly relevant to HR core skills or knowledge."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "03760201-64",
+      "subjectName": "การบัญชีเพื่อการจัดการธุรกิจ",
+      "outcomes": [
+        "อธิบายความหมาย แนวคิด หลักการ และความสำคัญของการบัญชีเพื่อการจัดการ รูปแบบกระบวนการผลิต และประเภทต้นทุน",
+        "สามารถคำนวณต้นทุนผลิตภัณฑ์  จัดทำงบต้นทุนผลิต และงบกำไรขาดทุนเพื่อใช้ในการบริหารจัดการ",
+        "สามารถการจัดทำงบประมาณของธุรกิจผลิต",
+        "สามารถนำข้อมูลต้นทุนมาวิเคราะห์เพื่อใช้ในการวางแผน ควบคุม ประเมินผลปฏิบัติงาน และการตัดสินใจลงทุน",
+        "มีทักษะในการประสานงานกับผู้อื่น  การทำงานร่วมกับผู้อื่นได้อย่างมีความรับผิดชอบ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การบริหารทรัพยากรมนุษย์",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "a4b536ae-a2a7-40b2-9861-c0737c6fee34",
+              "name": "มีทักษะในการประสานงานกับผู้อื่น  การทำงานร่วมกับผู้อื่นได้อย่างมีความรับผิดชอบ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Management accounting, useful for business management but not directly related to HR skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Management accounting course teaches skills useful for HR in budgeting and financial decision-making."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01150111-67",
+      "subjectName": "ความเป็นครูมืออาชีพ",
+      "outcomes": [
+        "อธิบายปรัชญา แนวคิด ทฤษฎีพื้นฐานของการจัดการศึกษาที่จำเป็นสำหรับครูได้",
+        "อธิบายความสำคัญของวิชาชีพครู มาตรฐานวิชาชีพครู องค์กรทางวิชาชีพ และกฎหมายที่เกี่ยวข้องกับวิชาชีพตามการเปลี่ยนแปลงได้อย่างเท่าทัน",
+        "ระบุบทบาทหน้าที่ และภาระงานของครูที่เป็นแบบอย่างที่ดีในวิชาชีพได้",
+        "แสดงออกถึงพฤติกรรมที่สะท้อนถึงการมีคุณธรรม จริยธรรม และจรรยาบรรณที่จำเป็นสำหรับการประกอบวิชาชีพครูได้",
+        "วางแผนแนวทางการพัฒนาวิชาชีพของตนเองได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c89b615f-344b-40d6-9363-918688607886",
+              "name": "วางแผนแนวทางการพัฒนาวิชาชีพของตนเองได้"
+            }
+          ]
+        },
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c89b615f-344b-40d6-9363-918688607886",
+              "name": "วางแผนแนวทางการพัฒนาวิชาชีพของตนเองได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on teaching professionalism and ethics for teachers, not directly on HR planning and development skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Professional teaching course is specific to teaching profession, not HR."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "03601599-66",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "รู้จักมาตรฐานและอ้างอิงผลงานวิจัยอย่างถูกต้องตามหลักวิชาการ",
+        "มีทักษะในการวิเคราะห์วิจารณ์ผลงานการทางวิชาการ และกระบวนวิจัยอย่างมีระบบ",
+        "มีความสามารถในการค้นคว้าและประยุกต์วางแผนงานวิจัยเพื่อเรียนรู้และพัฒนาตนเอง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "3d0fcde1-f6c6-4507-a031-07d5ebc51f02",
+              "name": "มีความสามารถในการค้นคว้าและประยุกต์วางแผนงานวิจัยเพื่อเรียนรู้และพัฒนาตนเอง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Research methodology and analysis skills, useful for HR research but not directly for HR planning and development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis course on research skills is not directly related to HR."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "03601597-66",
+      "subjectName": "สัมมนา",
+      "outcomes": [
+        "รู้จักมาตรฐานและอ้างอิงผลงานวิจัยอย่างถูกต้องตามหลักวิชาการ",
+        "มีทักษะในการวิเคราะห์วิจารณ์ผลงานการทางวิชาการ และกระบวนวิจัยอย่างมีระบบ",
+        "มีความสามารถในการค้นคว้าและประยุกต์วางแผนงานวิจัยเพื่อเรียนรู้และพัฒนาตนเอง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "aa624b05-e7aa-4329-821e-8fe8dca9a175",
+              "name": "มีความสามารถในการค้นคว้าและประยุกต์วางแผนงานวิจัยเพื่อเรียนรู้และพัฒนาตนเอง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Similar to the above, focuses on research skills rather than practical HR planning and development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Seminar on research skills is not directly relevant to HR."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01352221-66",
+      "subjectName": "หลักการประชาสัมพันธ์",
+      "outcomes": [
+        "อธิบายหลักการและวัตถุประสงค์ของการ ประชาสัมพันธ์ได้",
+        "อธิบายทฤษฎีที่เกี่ยวข้องกับการประชา สัมพันธ์ได้",
+        "วิเคราะห์ปัญหาและกําหนดแผนงาน ประชาสัมพันธ์ได้",
+        "อธิบายจริยธรรมและจรรยาบรรณของ นักประชาสัมพันธ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6532894d-6e5b-462e-bb28-f08c7f11af2b",
+              "name": "วิเคราะห์ปัญหาและกําหนดแผนงาน ประชาสัมพันธ์ได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Related to communication skills, which are useful in HR but not core to HR planning and development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers principles, ethics, and communication skills relevant to HR roles, especially in public relations and internal communication."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "03764424-64",
+      "subjectName": "การเป็นผู้ประกอบการในธุรกิจโลจิสติกส์",
+      "outcomes": [
+        "สามารถอธิบายหลักการพื้นฐานด้านการบริหารจัดการธุรกิจโลจิสติกส์เพื่อเป็นพื้นฐานการเป็นผู้ประกอบการธุรกิจโลจิสติกส์ได้",
+        "สามารถอธิบายทฤษฏีด้านกลยุทธ์เพื่อสร้างความได้เปรียบในธุรกิจโลจิสติกส์อย่างเป็นระบบ",
+        "สามารถประยุกต์แนวคิดเพื่อวิเคราะห์และแก้ไขปัญหาธุรกิจของกรณีศึกษาได้",
+        "สามารถทำงานเป็นทีมในการวางแผนธุรกิจและนำเสนองานอย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "bf6e6df9-7bdc-43cf-b2d3-c701cf00de4d",
+              "name": "สามารถทำงานเป็นทีมในการวางแผนธุรกิจและนำเสนองานอย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Focuses on logistics entrepreneurship, tangentially related but not directly on HR planning and development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on logistics business management, unrelated to HR skills or knowledge."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02739321-64",
+      "subjectName": "วิศวกรรมซอฟต์แวร์",
+      "outcomes": [
+        "สามารถอธิบายทฤษฎีหลักการและกระบวนการ  วิศวกรรมซอฟต์แวร์ให้เหมาะสมกับผู้ใช้งานได",
+        "สามารถพัฒนาซอฟต์แวร์หรือสร้างสรรค์ผลงานใน  รูปแบบเว็บไซต์ได้",
+        "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "165ea99c-043c-4b5c-847e-499cd3c7ac78",
+              "name": "สามารถสื่อสาร พร้อมทั้งนำเสนอผลงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes communication in software development but not specifically focused on negotiation skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Software engineering is not relevant to HR core skills or enabling tools."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01401499-66",
+      "subjectName": "โครงงานพฤกษศาสตร์",
+      "outcomes": [
+        "เลือกหัวข้อที่สนใจทางพฤกษศาสตร์",
+        "รวบรวมเอกสารงานวิจัยที่เกี่ยวข้องและสรุปข้อมูลที่เกี่ยวข้อง",
+        "ออกแบบและทดลองตามแนวทางการวิจัยทางพฤกษศาสตร์",
+        "ใช้เครื่องมือและอุปกรณ์ทางพฤกษศาสตร์ได้",
+        "วิเคราะห์ผล และเรียบเรียงงานวิจัยทางพฤกษศาสตร์ได้",
+        "เข้าใจและสามารถปฏิบัติตามจรรยาบรรณงานวิจัยได้",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "838322e1-1a5f-402b-aac2-120253823c8f",
+              "name": "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes communication and presentation skills but not specifically negotiation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Botany project course unrelated to HR skills or knowledge."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01401399-66",
+      "subjectName": "การฝึกงานทางพฤกษศาสตร์",
+      "outcomes": [
+        "ประยุกต์ความรู้ทางพฤกษศาสตร์ไปใช้ในการปฏิบัติงานได้",
+        "ใช้เครื่องมือและอุปกรณ์ในทางพฤกษศาสตร์ได้",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c053a2ac-b5fc-4a02-a16c-0dab99484ef2",
+              "name": "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes communication and teamwork, but not specifically negotiation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Botany internship unrelated to HR skills or knowledge."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "04404222-67",
+      "subjectName": "หลักอนามัยสิ่งแวดล้อม",
+      "outcomes": [
+        "สามารถอธิบายความสำคัญของงานอนามัยสิ่งแวดล้อม",
+        "สามารถอธิบายหลักการจัดการน้ำสะอาดการสุขาภิบาลอาหาร มลพิษทางอากาศ การจัดการขยะและของเสียอันตราย การควบคุมแมลงและสัตว์นำโรค การสุขาภิบาลอาหาร การสุขาภิบาลที่พักอาศัย เหตุรำคาญ",
+        "สามารถตรวจวิเคราะห์ด้านอนามัยสิ่งแวดล้อมในชุมชนและสถานประกอบการได้",
+        "สามารถสื่อสาร และการทำงานเป็นทีมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "c2a9edeb-190d-442a-a357-a82f73c28a82",
+              "name": "สามารถสื่อสาร และการทำงานเป็นทีมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes communication and teamwork, but not specifically negotiation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Environmental health course is not relevant to HR skills or knowledge."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02738463-61",
+      "subjectName": "นิติวิทยาศาสตร์ทางชีววิทยา",
+      "outcomes": [
+        "อธิบายความรู้พื้นฐานเกี่ยวกับบริบทของชีววิทยาที่เกี่ยวข้องกับด้านนิติวิทยาศาสตร์ได้",
+        "ประยุกต์ความรู้และทฤษฎีทางชีววิทยาในด้านต่าง ๆ เพื่อนำไปใช้ในการสืบสวนทางนิติวิทยาศาสตร์ได้",
+        "ใช้ความรู้ทางชีววิทยาในการทำงานด้านนิติวิทยาศาสตร์ โดยมีมีจิตสำนึกด้านคุณธรรม จริยธรรม จรรยาบรรณในการทำงาน และมีความรับผิดชอบต่อสังคม",
+        "สามารถสื่อสารในการทำงานร่วมกัน และนำเสนอความคิดเห็นอย่างมีเหตุผล",
+        "ศึกษาค้นคว้าองค์ความรู้ใหม่เกี่ยวกับการนำเทคนิคทางชีววิทยาทั้งพื้นฐานและขั้นสูงที่สามารถนำมานำไปใช้ในการสืบสวนทางนิติวิทยาศาสตร์ และนำมาเสนอให้ผู้อื่นได้อย่างถูกต้องตามหลักวิชาการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "6dffcdd9-09ab-4a12-8105-4fb0239fe2ae",
+              "name": "สามารถสื่อสารในการทำงานร่วมกัน และนำเสนอความคิดเห็นอย่างมีเหตุผล"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes communication but not specifically negotiation skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Forensic biology is unrelated to HR domain or enabling skills."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01203592-66",
+      "subjectName": "การฝึกงานด้านวิศวกรรมโยธา",
+      "outcomes": [
+        "แสดงออกถึงการเคารพกฎระเบียบและค่านิยมอันดีงามของสังคม จรรยาบรรณวิชาชีพ และทำงานด้วยความเอาใจใส่ร่วมกับผู้อื่นได้ดี",
+        "สามารถวิเคราะห์ปัญหาในภาคปฏิบัติ และนำหลักทฤษฏีมาประยุกต์ใช้ในการออกแบบพัฒนางานวิจัยเพื่อแก้ปัญหาในงานวิศวกรรมโยธา",
+        "สามารถสื่อสาร เสนอความคิดเห็น กับผู้อื่นที่ร่วมงานได้ดี"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "b7f214ff-64f2-4d40-8e91-711750cd4d1d",
+              "name": "สามารถสื่อสาร เสนอความคิดเห็น กับผู้อื่นที่ร่วมงานได้ดี"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes communication and teamwork but not specifically negotiation."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Includes ethics, communication, and teamwork skills applicable to HR roles."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01420454-66",
+      "subjectName": "พลังงานแสงอาทิตย์",
+      "outcomes": [
+        "สามารถอธิบายดาราศาสตร์ของดวงอาทิตย์ พร้อมความหมายของคำศัพท์สำคัญที่เกี่ยวข้อง",
+        "สามารถอธิบายกระบวนการตกกระทบของรังสีจากดวงอาทิตย์บนพื้นโลกและปัจจัยที่มีผลต่อปริมาณรังสี",
+        "สามารถนำเสนอแนวคิดและสมการที่ใช้ในการคำนวณรังสีจากดวงอาทิตย์",
+        "สามารถอธิบายกระบวนการนำพลังงานแสงอาทิตย์มาใช้ในรูปความร้อน และในรูปไฟฟ้า",
+        "สามารถออกแบบระบบการใช้พลังงานแสงอาทิตย์ในรูปความร้อน และรูปไฟฟ้าอย่างง่าย",
+        "สามารถประเมินความคุ้มค่าในการติดตั้งระบบพลังงานแสงอาทิตย์เป็นไฟฟ้าอย่างคร่าว ๆ",
+        "สามารถทำงานเป็นทีมได้",
+        "สามารถใช้เทคโนโลยีในการค้นคว้าหาความรู้ด้วยตนเอง",
+        "สามารถพูดสื่อสาร นำเสนองานทางวิชาการได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "23d10461-88b6-47d5-b6a6-6a145ca5c670",
+              "name": "สามารถพูดสื่อสาร นำเสนองานทางวิชาการได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes communication and teamwork but not specifically negotiation."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Solar energy course unrelated to HR skills or knowledge."
+      },
+      "agreement": false,
+      "agreementType": "EXPLORATORY_DELTA"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01058399-68",
+      "subjectName": "การฝึกงาน",
+      "outcomes": [
+        "อธิบายความรู้ใหม่ที่เกี่ยวข้องกับนวัตกรรมและเทคโนโลยีอุตสาหกรรมเกษตร",
+        "มีความรับผิดชอบ ตรงต่อเวลา และความอดทน",
+        "ปฏิบัติงานร่วมกับผู้อื่นตามหน้าที่ที่ได้รับมอบหมาย",
+        "สื่อสารกับผู้ร่วมงานและหัวหน้างานได้ชัดเจน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 1,
+          "learningOutcomes": [
+            {
+              "id": "d3fd44ce-bddc-483c-8fbf-b7f9e73c3b6f",
+              "name": "สื่อสารกับผู้ร่วมงานและหัวหน้างานได้ชัดเจน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 1,
+        "action": "KEEP",
+        "reason": "Includes communication and responsibility but not specifically negotiation."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Internship course develops responsibility, communication, and teamwork skills relevant to HR."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_KEEP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01352212-66",
+      "subjectName": "วาทวิทยาเพื่องานนิเทศศาสตร์",
+      "outcomes": [
+        "สื่อสารด้วยการพูดให้อยู่หลักจริยธรรมทางวิชาชีพ",
+        "สามารถนาหลักวาทวิทยามาอธิบายจุดแข็ง จุดอ่อนการพูดของบุคคลสาธารณะ และเสนอแนะปรับปรุงแนวทางการพูดของตนเองได้",
+        "สามารถวิเคราะห์สถานการณ์ เขียนบท และพูดในโอกาสต่างๆ ต่อหน้าสาธารณชนได้ เช่น พูดพูดสุนทรพจน์ พูดทางสื่อมวลชน และสื่อใหม่ ให้บรรลุวัตถุประสงค์",
+        "สามารถพัฒนาบุคลิกภาพในการสื่อสารของตนได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ccb95854-78d1-4120-84c6-a9f51c60e420",
+              "name": "สื่อสารด้วยการพูดให้อยู่หลักจริยธรรมทางวิชาชีพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on communication skills and rhetoric, unrelated to legal or labor law knowledge."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course teaches communication skills essential for HR roles, including public speaking and ethical communication."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01456254-64",
+      "subjectName": "การป้องกันอาชญากรรม",
+      "outcomes": [
+        "อธิบายความหมาย ขอบข่าย และความเป็นมาของการป้องกันอาชญากรรมได้",
+        "อธิบายแนวคิดและวิวัฒนาการในการป้องกันอาชญากรรม ทฤษฎีการป้องกันอาชญากรรมได้",
+        "อธิบายประเภท และแบบรูปการป้องกันอาชญากรรมได้",
+        "อธิบายการป้องกันอาชญากรรมโดยตนเอง ครอบครัว ชุมชนและสังคมได้",
+        "อธิบายพระราชบัญญัติที่เกี่ยวข้องกับการป้องกันอาชญากรรมได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "16608158-5636-4bc3-95fc-cf96dc0ef26f",
+              "name": "อธิบายพระราชบัญญัติที่เกี่ยวข้องกับการป้องกันอาชญากรรมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Centers on crime prevention, not directly related to labor law or HR skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on crime prevention, which is not relevant to HR skills or knowledge."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01150341-67",
+      "subjectName": "การศึกษาสำหรับบุคคลที่มีความต้องการจำเป็นพิเศษ",
+      "outcomes": [
+        "อธิบายปรัชญา ประวัติความเป็นมา กฎหมาย ความสำคัญและประเภทความบกพร่องของบุคคลที่มีความต้องการจำเป็นพิเศษ",
+        "วิเคราะห์บทบาท หน้าที่ของครู ผู้ปกครอง หน่วยงานที่เกี่ยวข้องในการทำงานร่วมกันเพื่อดูแลช่วยเหลือบุคคลที่มีความต้องการจำเป็นพิเศษ",
+        "จำแนกประเภทของบุคคลที่มีความต้องการจำเป็นพิเศษ",
+        "อธิบายหลักการ วิธีการช่วยเหลือและการใช้เทคโนโลยีสารสนเทศสำหรับบุคคลที่มีความต้องการจำเป็นพิเศษ",
+        "วิเคราะห์ปัจจัยจากสภาพทางสังคมที่มีผลกระทบต่อจิตใจของบุคคลที่มีความต้องการจำเป็นพิเศษ",
+        "ออกแบบกิจกรรมการเรียนรู้ให้สอดคล้องกับเนื้อหาวิชาที่สอนและบุคคลที่มีความต้องการจำเป็นพิเศษให้พร้อมรับสภาวการณ์เปลี่ยนแปลงของโลกยุคปัจจุบัน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "3799aede-a4fa-49d1-bb1b-178631942526",
+              "name": "อธิบายปรัชญา ประวัติความเป็นมา กฎหมาย ความสำคัญและประเภทความบกพร่องของบุคคลที่มีความต้องการจำเป็นพิเศษ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on special needs education, unrelated to labor law or HR skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers understanding and supporting individuals with special needs, relevant for inclusive HR practices."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02201598-66",
+      "subjectName": "ปัญหาพิเศษ",
+      "outcomes": [
+        "ระบุปัญหาที่ทำการศึกษาได้",
+        "วางแผนการศึกษาหรือทดลองเพื่อค้นหาคำตอบของปัญหาได้",
+        "ประยุกต์ทฤษฎีทางวิศวกรรมเกษตรในการศึกษาเพื่อค้นหาคำตอบของปัญหาได้",
+        "ปฏิบัติงานตามหลักจรรยาบรรณแห่งวิชาชีพวิศวกรรม",
+        "ทำงานเป็นทีมได้อย่างมีประสิทธิภาพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "39ddba5d-cb45-4966-ae6e-981bb8e4f824",
+              "name": "ปฏิบัติงานตามหลักจรรยาบรรณแห่งวิชาชีพวิศวกรรม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on special problems and engineering, unrelated to labor law."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course is about agricultural engineering problem-solving, unrelated to HR."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01058371-68",
+      "subjectName": "มาตรฐานและกฎหมายสำหรับอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายความสำคัญของมาตรฐานและกฎหมายที่เกี่ยวข้องกับอุตสาหกรรมเกษตร",
+        "อธิบายมาตรฐานประเทศไทยและสากลแกี่ยวกับวัตถุดิบและผลิตภัณฑ์ อุตสาหกรรมเกษตร",
+        "นำเสนอมาตรฐานและกฎหมายที่เกี่ยวข้องกับผลิตภัณฑ์อุตสาหกรรมเกษตร"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "290ac650-528a-4975-8422-989a5d03a568",
+              "name": "นำเสนอมาตรฐานและกฎหมายที่เกี่ยวข้องกับผลิตภัณฑ์อุตสาหกรรมเกษตร"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Pertains to agricultural standards and law, not labor law."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course focuses on agricultural industry standards and laws, not relevant to HR."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01017324-66",
+      "subjectName": "การวิเคราะห์อาหารและโภชนาการ",
+      "outcomes": [
+        "อธิบายแนวทางนำความรู้ที่ได้ไปต่อยอดในวิชาที่สูงขึ้นและนำไปประกอบวิชาชีพอย่างถูกต้อง",
+        "วิเคราะห์และประยุกต์ความรู้ในด้านการวิเคราะห์อาหารและโภชนาการได้อย่างเป็นระบบตามจรรยาบรรณวิชาชีพ",
+        "ปฏิบัติงานร่วมกับผู้อื่นได้อย่างเหมาะสมบนพื้นฐานของคุณธรรมจริยธรรม และจรรยาบรรณวิชาชีพ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "กฎหมายแรงงาน",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "1a4f50f5-edd8-4ab5-990c-c0156a7e4f2c",
+              "name": "ปฏิบัติงานร่วมกับผู้อื่นได้อย่างเหมาะสมบนพื้นฐานของคุณธรรมจริยธรรม และจรรยาบรรณวิชาชีพ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Focuses on food analysis and nutrition, unrelated to labor law."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on food analysis and nutrition is unrelated to HR skills or knowledge."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01442699-68",
+      "subjectName": "วิทยานิพนธ์",
+      "outcomes": [
+        "สืบค้น วิเคราะห์ ประมวลข้อมูล รวมถึงระบุวัตถุประสงค์ กระบวนการในการแก้ปัญหา และข้อสรุปของงานวิจัยทางด้านวัสดุศาสตร์ในหัวข้อที่สนใจและเกี่ยวข้องกับหัวข้องานวิจัยของนิสิต",
+        "เขียนและนำเสนอโครงร่างวิทยานิพนธ์ได้",
+        "วางแผน ดำเนินงานวิจัย และแก้ไขปัญหาระหว่างการวิจัยได้",
+        "ประมวล วิเคราะห์ อภิปราย และสรุปผลการดำเนินงานวิทยานิพนธ์ในรูปแบบของเล่มวิทยานิพนธ์และร่างบทความวิจัยได้",
+        "นำเสนอผลงานวิทยานิพนธ์ได้",
+        "ปฏิบัติงานวิจัยตามหลักจรรยาบรรณนักวิจัย"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "e8564a36-e9b7-46f7-9268-1c9dba596c12",
+              "name": "วางแผน ดำเนินงานวิจัย และแก้ไขปัญหาระหว่างการวิจัยได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to conflict management skills; focuses on research methodology."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Thesis research skills in materials science are not directly relevant to HR."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02804215-67",
+      "subjectName": "การเงินเบื้องต้นสำหรับธุรกิจสายการบิน",
+      "outcomes": [
+        "อธิบายความเป็นมาของการเงินธุรกิจการบิน และการดำเนินงานของธุรกิจสายการบิน การขนส่งสินค้าทางอากาศ และหน่วยงานที่เกี่ยวข้อง",
+        "วิเคราะห์ประเด็นปัญหา และการแก้ปัญหาด้านการเงินธุรกิจเบื้องต้นตามสถานการณ์อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "2b37d44d-f1a5-4f5b-9e1e-cc568b6d87e7",
+              "name": "วิเคราะห์ประเด็นปัญหา และการแก้ปัญหาด้านการเงินธุรกิจเบื้องต้นตามสถานการณ์อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Financial course unrelated to conflict management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on airline business finance is not relevant to HR."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01999034-67",
+      "subjectName": "ศิลปวิจักษณ์",
+      "outcomes": [
+        "อธิบายแนวคิดเรื่องความงามในศิลปะแขนงต่างๆ",
+        "ถ่ายทอดความหลากหลาย บทบาท และคุณค่าของความงามของศิลปะ",
+        "อธิบายแสดงทรรศนะเกี่ยวกับความงามต่อศิลปะแขนงต่างๆได้",
+        "ค้นคว้าข้อมูลจากแหล่งข้อมูลที่หลากหลายเพื่อใช้วิเคราะห์และวิจารณ์ศิลปะแขนง",
+        "แสดงออกซึ่งความรับผิดชอบ ความตรงต่อเวลา และจรรยาบรรณของนักวิชาการ",
+        "ทำงานร่วมกับผู้อื่นได้อย่างราบรื่น สามารถแก้ปัญหาที่เกิดขึ้นจากการทำงานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "11d08c42-68b9-4138-a1e4-9acc5d2fd9ec",
+              "name": "ทำงานร่วมกับผู้อื่นได้อย่างราบรื่น สามารถแก้ปัญหาที่เกิดขึ้นจากการทำงานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to conflict management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course on art criticism does not relate to HR skills or knowledge."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01999111-68",
+      "subjectName": "เกษตรศาสตร์สร้างศาสตร์แห่งแผ่นดิน",
+      "outcomes": [
+        "อธิบายแนวคิดเกษตรศาสตร์สร้างศาสตร์แห่งแผ่นดิน เอกลักษณ์และอัตลักษณ์ของมหาวิทยาลัย รวมถึงบทบาทของมหาวิทยาลัยเกษตรศาสตร์ ต่อสังคมไทยและสังคมโลกได้",
+        "บอกเล่าเรื่องราวที่ทำให้เกิดความภาคภูมิใจในฐานะเป็นนิสิตมหาวิทยาลัยเกษตรศาสตร์",
+        "นำเสนอแนวทางการแก้ไขปัญหาในบริบทที่หลากหลายด้วยทักษะการคิดที่เหมาะสมได้",
+        "นำเสนอผลงานในรูปแบบที่หลากหลายโดยผ่านระบบสารสนเทศ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ff136e61-cbfd-4580-aa9f-ef50165b2dc3",
+              "name": "นำเสนอแนวทางการแก้ไขปัญหาในบริบทที่หลากหลายด้วยทักษะการคิดที่เหมาะสมได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to conflict management skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Course about agricultural science and university identity is not relevant to HR."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01999111-67",
+      "subjectName": "ศาสตร์แห่งแผ่นดิน",
+      "outcomes": [
+        "สามารถยกตัวอย่างบทบาทของ มก. ใน การสร้างสรรค์ศาสตร์แห่งแผ่นดิน ต่อสังคมไทยและสังคมโลก",
+        "สามารถบอกเล่าเรื่องราวที่ทำให้เกิดความภาคภูมิใจในฐานะเป็นนิสิต มก.",
+        "สามารถออกแบบและดำเนินงานตามโครงงานได้ด้วยความมุ่งมั่น สร้างสรรค์ สามัคคี",
+        "สามารถทำงานร่วมกับผู้อื่นได้โดยยอมรับคุณค่าของผู้อื่น",
+        "สามารถเสนอแนวทางการแก้ไขปัญหาด้วยทักษะการคิดที่เหมาะสม",
+        "สามารถใช้ระบบสารสนเทศในการค้นหาความรู้และสื่อสารได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การจัดการความขัดแย้ง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "ffc80106-843e-4268-98a5-bea7460f23c3",
+              "name": "สามารถเสนอแนวทางการแก้ไขปัญหาด้วยทักษะการคิดที่เหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to conflict management skills."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Course covers teamwork, problem-solving, and communication skills relevant to HR roles."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "03601596-66",
+      "subjectName": "เรื่องเฉพาะทางวิศวกรรมไฟฟ้าและอิเล็กทรอนิกส์",
+      "outcomes": [
+        "สามารถวิเคราะห์และประยุกต์ใช้ความรู้ที่ได้ กับปัญหาจริงในวิศวกรรมไฟฟ้าและอิเล็กทรอนิกส์",
+        "สามารถติดตามและอธิบายความก้าวหน้าทางเทคโนโลยี ในหัวข้อวิศวกรรมเฉพาะด้าน",
+        "มีความสามารถในการค้นคว้าและประยุกต์วางแผนงานวิจัยเพื่อเรียนรู้และพัฒนาตนเอง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c23d832a-fcde-40f8-83f6-b6d0c2f49a89",
+              "name": "มีความสามารถในการค้นคว้าและประยุกต์วางแผนงานวิจัยเพื่อเรียนรู้และพัฒนาตนเอง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to HR planning and personnel development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Focuses on electrical engineering, unrelated to HR skills or knowledge."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "03601591-66",
+      "subjectName": "ระเบียบวิธีวิจัยทางด้านวิศวกรรมไฟฟ้าและอิเล็กทรอนิกส์",
+      "outcomes": [
+        "รู้จักมาตรฐานและอ้างอิงผลงานวิจัยอย่างถูกต้องตามหลักวิชาการ",
+        "มีทักษะในการวิเคราะห์วิจารณ์ผลงานการทางวิชาการ และกระบวนวิจัยอย่างมีระบบ",
+        "มีความสามารถในการค้นคว้าและประยุกต์วางแผนงานวิจัยเพื่อเรียนรู้และพัฒนาตนเอง"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "13ca3b91-57d5-4667-81f3-28725d51bc4f",
+              "name": "มีความสามารถในการค้นคว้าและประยุกต์วางแผนงานวิจัยเพื่อเรียนรู้และพัฒนาตนเอง"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to HR planning and development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Research methods in electrical engineering are not relevant to HR competencies."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "04181591-65",
+      "subjectName": "ระเบียบวิธีวิจัยทางเทคโนโลยีการอาหาร",
+      "outcomes": [
+        "วางแผนการวิจัยและเลือกใช้การวิเคราะห์ทางสถิติได้อย่างเหมาะสม",
+        "พัฒนาโครงร่างวิทยานิพนธ์ได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "8c46f7d5-0f01-4c49-b327-4f194509cb9b",
+              "name": "วางแผนการวิจัยและเลือกใช้การวิเคราะห์ทางสถิติได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to HR planning and personnel development."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Research methods in food technology do not relate to HR skills or knowledge."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01058362-68",
+      "subjectName": "การจัดการระบบบริการและผลิตสำหรับนวัตกรรมอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายขอบเขตของการจัดการการปฏิบัติการและความได้เปรียบในการแข่งขัน",
+        "ใช้วิธีที่เกี่ยวข้องกับการผลิต และระบบการควบคุมสินค้าคงคลัง เพื่อจัดการความสามารถในการผลิตและความต้องการสินค้า รวมถึงเชื่อมโยงกลยุทธ์ปฏิบัติการที่หลากหลายเพื่อสร้างความได้เปรียบในการแข่งขัน",
+        "ออกแบบและพัฒนาโครงการปรับปรุงการจัดการวัตถุดิบ การวางแผนการผลิต และระบบการควบคุมสินค้าคงคลัง รวมถึงระบบปฏิบัติงานบริการ"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การวางแผนและพัฒนาบุคลากร",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "d0aac020-6f5e-4ff8-b263-1dd2b93f5978",
+              "name": "ออกแบบและพัฒนาโครงการปรับปรุงการจัดการวัตถุดิบ การวางแผนการผลิต และระบบการควบคุมสินค้าคงคลัง รวมถึงระบบปฏิบัติงานบริการ"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to HR planning and personnel development."
+      },
+      "judge": {
+        "verdict": "PASS",
+        "reason": "Management of operations and services can provide useful foundational knowledge for HR management."
+      },
+      "agreement": false,
+      "agreementType": "CONSERVATIVE_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02728102-67",
+      "subjectName": "สารสีในงานศิลปะ",
+      "outcomes": [
+        "อธิบายเกี่ยวกับเคมีที่มีอิทธิพลต่องานศิลปะ",
+        "มีทักษะการคิดวิเคราะห์ วิพากษ์ บูรณาการองค์ความรู้ รวมถึงเชื่อมโยงข้อมูลที่ได้อย่างเหมาะสม",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "69bc8fca-da46-417f-92d9-5ad40a6ce632",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to communication and negotiation skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Art chemistry is unrelated to HR skills or knowledge."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "02728101-67",
+      "subjectName": "เคมีในชีวิตสมัยใหม่",
+      "outcomes": [
+        "อธิบายวิทยาศาสตร์/เคมีที่เกี่ยวข้องในชีวิตประจำวันได้",
+        "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม",
+        "เชื่อมโยงประเด็นที่เกี่ยวกับเคมีที่มีในสิ่งรอบ ๆ ตัว นำไปสู่การให้ความเห็นอย่างมีวิจารณญาณได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "fcaf25d4-4266-4432-9af7-57f693eef73e",
+              "name": "สื่อสารและปรับใช้สารสนเทศได้อย่างเหมาะสม"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to communication and negotiation skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "General chemistry topics are not relevant to HR competencies."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01401463-66",
+      "subjectName": "ชีววิทยาวิวัฒนาการของพืช",
+      "outcomes": [
+        "อธิบายทฤษฎี หลักฐาน ปัจจัยทางวิวัฒนาการ แนวโน้มของวิวัฒนาการและสาเหตุการสูญพันธุ์ กระบวนการวิวัฒนาการ วิวัฒนาการและความหลากหลายของพืชดอก  และวิวัฒนาการของระบบนิเวศของพืชได้",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "c8b9374a-d825-4e2b-b456-34f83baa2c8d",
+              "name": "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to communication and negotiation skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Plant evolutionary biology is unrelated to HR skills or knowledge."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01401442-66",
+      "subjectName": "พรรณไม้น้ำ",
+      "outcomes": [
+        "อธิบายลักษณะทางพฤกษศาสตร์ และความสำคัญของพรรณไม้น้ำได้",
+        "จำแนกกลุ่มของพรรณไม้น้ำตามลักษณะนิเวศได้",
+        "ยอมรับความคิดเห็นของผู้อื่น และปฏิบัติงานตามที่ได้รับมอบหมายได้อย่างมีประสิทธิภาพ",
+        "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "20c29788-ecf3-428c-86aa-319d07fb798d",
+              "name": "สืบค้นข้อมูล สื่อสาร และนำเสนองานได้"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to communication and negotiation skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Aquatic plants study is irrelevant to HR roles."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    },
+    {
+      "question": "อยากทำ hr ต้องมีทักษะอะไรบ้าง มีวิชาอะไรเกี่ยวข้อง",
+      "subjectCode": "01058223-68",
+      "subjectName": "เทคโนโลยีการแปรรูปที่ใช้ความร้อนทางอุตสาหกรรมเกษตร",
+      "outcomes": [
+        "อธิบายหลักการของเทคโนโลยีการแปรรูปที่ใช้ความร้อนที่สำคัญในอุตสาหกรรมเกษตร",
+        "อธิบายนวัตกรรมเทคโนโลยีการแปรรูปที่ใช้ความร้อนในอุตสาหกรรมเกษตร",
+        "คำนวณค่าพารามิเตอร์ที่สำคัญในการฆ่าเชื้อด้วยกระบวนการให้ความร้อน",
+        "สื่อสารผ่านการนำเสนอหน้าชั้นเรียน"
+      ],
+      "matchedSkills": [
+        {
+          "skill": "การสื่อสารและการเจรจาต่อรอง",
+          "score": 0,
+          "learningOutcomes": [
+            {
+              "id": "a4f23303-adf8-47df-9355-095421874d02",
+              "name": "สื่อสารผ่านการนำเสนอหน้าชั้นเรียน"
+            }
+          ]
+        }
+      ],
+      "system": {
+        "score": 0,
+        "action": "DROP",
+        "reason": "Unrelated to communication and negotiation skills."
+      },
+      "judge": {
+        "verdict": "FAIL",
+        "reason": "Food processing technology is unrelated to HR skills or knowledge."
+      },
+      "agreement": true,
+      "agreementType": "BOTH_DROP"
+    }
+  ],
+  "tokenUsage": [
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1937,
+      "outputTokens": 285
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 1771,
+      "outputTokens": 320
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2160,
+      "outputTokens": 323
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2153,
+      "outputTokens": 312
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2291,
+      "outputTokens": 298
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2404,
+      "outputTokens": 305
+    },
+    {
+      "model": "openai/gpt-4.1-mini",
+      "inputTokens": 2010,
+      "outputTokens": 286
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "iterationNumber": 1,
+    "totalIncorrectClassifications": 1,
+    "incorrectRecords": [
+      {
+        "question": "แปลเอกสารต้องใช้ทักษะอะไรบ้าง?",
+        "expectedClassification": "relevant",
+        "actualClassification": "irrelevant",
+        "reasoning": "The question asks about skills needed for translating documents, which is a language skill but does not specify a particular academic or professional course or concept. It is more about a practical ability rather than a teachable academic subject.",
+        "isCorrect": false,
+        "metadata": {
+          "model": "openai/gpt-4.1-nano",
+          "hashedSystemPrompt": "ba558bfedf387faa5ef53d0b9228c8c8461a27bf76bb05e056506299db854a12",
+          "userPrompt": "\nClassify the following user question.\n\nUser Question:\nแปลเอกสารต้องใช้ทักษะอะไรบ้าง?\n",
+          "promptVersion": "v18",
+          "timestamp": "2026-02-02T09:00:42.965Z"
+        }
+      }
+    ],
+    "timestamp": "2026-02-02T09:00:42.979Z"
+  }
+]

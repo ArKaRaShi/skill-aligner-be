@@ -1,0 +1,150 @@
+{
+  "questionIds": [
+    "dd9ce8ba-20e8-4d4d-b92b-574da63f242b-การใช้เครื่องปรุงและวัตถุดิบไทย"
+  ],
+  "skill": "การใช้เครื่องปรุงและวัตถุดิบไทย",
+  "retrievedCount": 11,
+  "evaluations": [
+    {
+      "subjectCode": "01017111-66",
+      "subjectName": "หลักการจัดเตรียมและการประกอบอาหาร",
+      "relevanceScore": 2,
+      "reason": "Includes 'เลือกซื้อวัตถุดิบ' and 'เก็บรักษาวัตถุดิบอาหาร' which relate to Thai ingredients, but not explicitly focused on using Thai ingredients."
+    },
+    {
+      "subjectCode": "01017318-66",
+      "subjectName": "อาหารนานาชาติ",
+      "relevanceScore": 1,
+      "reason": "Mentions 'เลือกใช้วัตถุดิบ' and 'จัดเสิร์ฟอาหาร' but not specifically Thai ingredients."
+    },
+    {
+      "subjectCode": "01058371-68",
+      "subjectName": "มาตรฐานและกฎหมายสำหรับอุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on standards and laws for agriculture, not on using Thai ingredients."
+    },
+    {
+      "subjectCode": "01017317-66",
+      "subjectName": "การจัดเตรียมเครื่องดื่ม",
+      "relevanceScore": 1,
+      "reason": "Includes 'เลือกใช้อุปกรณ์และส่วนผสม' but not specifically Thai ingredients."
+    },
+    {
+      "subjectCode": "01999011-67",
+      "subjectName": "อาหารเพื่อมนุษยชาติ",
+      "relevanceScore": 0,
+      "reason": "Covers food sources and nutrition broadly, not specifically Thai ingredients."
+    },
+    {
+      "subjectCode": "03654112-67",
+      "subjectName": "สมุนไพรไทยให้คุณ",
+      "relevanceScore": 1,
+      "reason": "Mentions 'เลือกใช้สมุนไพรไทย' which relates to Thai herbs, but not specifically about using Thai ingredients in cooking."
+    },
+    {
+      "subjectCode": "01017412-66",
+      "subjectName": "การผลิตขนมไทย",
+      "relevanceScore": 1,
+      "reason": "Includes 'ผลิตขนมไทย' which involves Thai desserts, but not explicitly about using Thai ingredients."
+    },
+    {
+      "subjectCode": "02201532-66",
+      "subjectName": "วิศวกรรมแปรสภาพผลิตผลเกษตรขั้นสูง",
+      "relevanceScore": 0,
+      "reason": "Focuses on agricultural processing engineering, not on Thai ingredients."
+    },
+    {
+      "subjectCode": "02727496-65",
+      "subjectName": "เรื่องเฉพาะทางพฤกษนวัตกรรม",
+      "relevanceScore": 0,
+      "reason": "Deals with plant-based foods and innovations, but not specifically about Thai ingredients."
+    },
+    {
+      "subjectCode": "04181551-65",
+      "subjectName": "การพัฒนาผลิตภัณฑ์อุตสาหกรรมเกษตร",
+      "relevanceScore": 0,
+      "reason": "Focuses on product development in agriculture, not on Thai ingredients."
+    },
+    {
+      "subjectCode": "01023514-68",
+      "subjectName": "วัตถุดิบอาหารสัตว์",
+      "relevanceScore": 0,
+      "reason": "Concerns animal feed ingredients, not Thai culinary ingredients."
+    }
+  ],
+  "metrics": {
+    "totalCourses": 11,
+    "meanRelevanceScore": 0.5454545454545454,
+    "totalRelevanceSum": 6,
+    "perClassDistribution": {
+      "score0": {
+        "relevanceScore": 0,
+        "count": 6,
+        "macroAverageRate": 54.54545454545455,
+        "microAverageRate": 54.54545454545455,
+        "label": "irrelevant"
+      },
+      "score1": {
+        "relevanceScore": 1,
+        "count": 4,
+        "macroAverageRate": 36.36363636363637,
+        "microAverageRate": 36.36363636363637,
+        "label": "slightly_relevant"
+      },
+      "score2": {
+        "relevanceScore": 2,
+        "count": 1,
+        "macroAverageRate": 9.090909090909092,
+        "microAverageRate": 9.090909090909092,
+        "label": "fairly_relevant"
+      },
+      "score3": {
+        "relevanceScore": 3,
+        "count": 0,
+        "macroAverageRate": 0,
+        "microAverageRate": 0,
+        "label": "highly_relevant"
+      }
+    },
+    "ndcg": {
+      "proxy": {
+        "at5": 0.776,
+        "at10": 0.95,
+        "at15": 0.95,
+        "atAll": 0.95
+      },
+      "ideal": {
+        "at5": 0.346,
+        "at10": 0.275,
+        "at15": 0.213,
+        "atAll": 0.259
+      }
+    },
+    "precision": {
+      "at5": {
+        "threshold1": 0.6,
+        "threshold2": 0.2,
+        "threshold3": 0
+      },
+      "at10": {
+        "threshold1": 0.5,
+        "threshold2": 0.1,
+        "threshold3": 0
+      },
+      "at15": {
+        "threshold1": 0.455,
+        "threshold2": 0.091,
+        "threshold3": 0
+      },
+      "atAll": {
+        "threshold1": 0.455,
+        "threshold2": 0.091,
+        "threshold3": 0
+      }
+    }
+  },
+  "llmModel": "openai/gpt-4.1-nano",
+  "llmProvider": "OpenRouter",
+  "inputTokens": 2395,
+  "outputTokens": 444
+}
