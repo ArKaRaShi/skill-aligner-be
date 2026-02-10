@@ -13,7 +13,7 @@
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
   },
-  "transformIgnorePatterns": ["node_modules/(?!(uuid|@openrouter)/)"],
+  "transformIgnorePatterns": ["node_modules/(?!(uuid|@openrouter|p-limit|yocto-queue)/)"],
   "collectCoverage": true,
   "collectCoverageFrom": [
     "<rootDir>/src/**/*.{ts,js}",
