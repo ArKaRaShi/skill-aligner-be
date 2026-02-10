@@ -63,10 +63,6 @@ export class OpenRouterEmbeddingProvider extends BaseEmbeddingClient {
     const embedding = response.data[0].embedding as number[];
     const metadata = this.buildMetadata(text, promptTokens, totalTokens);
 
-    this.logger.debug(
-      'Successfully generated embedding for single text input.',
-    );
-
     return { vector: embedding, metadata };
   }
 
