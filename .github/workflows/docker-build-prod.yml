@@ -29,5 +29,6 @@ jobs:
           target: runtime-prod
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/carreer-skill-aligner-be-prod:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/carreer-skill-aligner-be-prod:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/skill-aligner:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/skill-aligner:${{ github.sha }}
+
