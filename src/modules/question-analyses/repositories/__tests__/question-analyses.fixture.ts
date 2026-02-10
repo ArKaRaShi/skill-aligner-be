@@ -5,7 +5,6 @@ import type { Identifier } from 'src/shared/contracts/types/identifier';
 import type { LlmInfo } from 'src/shared/contracts/types/llm-info.type';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
-import { v4 as uuidv4 } from 'uuid';
 
 import { PrismaQuestionAnalyticsRepository } from '../prisma-question-analytics.repository';
 import { PrismaQuestionLogAnalysisRepository } from '../prisma-question-log-analysis.repository';
@@ -134,7 +133,6 @@ export async function insertQuestionLogAnalysisWithEntities({
       llm: (llm ?? null) as any,
       entities: {
         create: entities.map((entity) => ({
-          id: uuidv4(),
           type: entity.type,
           name: entity.name,
           normalizedLabel: entity.normalizedLabel,
