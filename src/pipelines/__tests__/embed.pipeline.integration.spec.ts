@@ -7,7 +7,6 @@ import {
 } from 'src/shared/adapters/embedding/constants/embedding-models.constant';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
-import { v4 as uuidv4 } from 'uuid';
 
 import { parseVector } from 'src/modules/course/repositories/helpers/vector.helper';
 
@@ -70,7 +69,6 @@ describe('EmbedPipeline (Integration)', () => {
     // Arrange
     const campus = await prisma.campus.create({
       data: {
-        id: uuidv4(),
         code: 'CMP1',
         nameTh: 'Campus',
         nameEn: 'Campus',
@@ -79,7 +77,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const faculty = await prisma.faculty.create({
       data: {
-        id: uuidv4(),
         code: 'FAC1',
         nameTh: 'Faculty',
         nameEn: 'Faculty',
@@ -89,7 +86,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const course = await prisma.course.create({
       data: {
-        id: uuidv4(),
         campusId: campus.id,
         facultyId: faculty.id,
         subjectCode: 'TEST101',
@@ -100,7 +96,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const clo = await prisma.courseLearningOutcome.create({
       data: {
-        id: uuidv4(),
         courseId: course.id,
         cloNo: 1,
         originalCloName: 'Original outcome',
@@ -114,7 +109,6 @@ describe('EmbedPipeline (Integration)', () => {
     // First create the vector record without the embedding
     const vector = await prisma.courseLearningOutcomeVector.create({
       data: {
-        id: uuidv4(),
         embeddedText: clo.cleanedCloName,
         metadata: {},
       },
@@ -182,7 +176,6 @@ describe('EmbedPipeline (Integration)', () => {
     // Arrange
     const campus = await prisma.campus.create({
       data: {
-        id: uuidv4(),
         code: 'CMP2',
         nameTh: 'Campus 2',
         nameEn: 'Campus 2',
@@ -191,7 +184,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const faculty = await prisma.faculty.create({
       data: {
-        id: uuidv4(),
         code: 'FAC2',
         nameTh: 'Faculty 2',
         nameEn: 'Faculty 2',
@@ -201,7 +193,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const course = await prisma.course.create({
       data: {
-        id: uuidv4(),
         campusId: campus.id,
         facultyId: faculty.id,
         subjectCode: 'TEST102',
@@ -212,7 +203,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const clo = await prisma.courseLearningOutcome.create({
       data: {
-        id: uuidv4(),
         courseId: course.id,
         cloNo: 1,
         originalCloName: 'Original outcome 2',
@@ -282,7 +272,6 @@ describe('EmbedPipeline (Integration)', () => {
     // Arrange
     const campus = await prisma.campus.create({
       data: {
-        id: uuidv4(),
         code: 'CMP5',
         nameTh: 'Campus 5',
         nameEn: 'Campus 5',
@@ -291,7 +280,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const faculty = await prisma.faculty.create({
       data: {
-        id: uuidv4(),
         code: 'FAC5',
         nameTh: 'Faculty 5',
         nameEn: 'Faculty 5',
@@ -301,7 +289,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const course = await prisma.course.create({
       data: {
-        id: uuidv4(),
         campusId: campus.id,
         facultyId: faculty.id,
         subjectCode: 'TEST105',
@@ -312,7 +299,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const clo = await prisma.courseLearningOutcome.create({
       data: {
-        id: uuidv4(),
         courseId: course.id,
         cloNo: 1,
         originalCloName: 'Original outcome 5',
@@ -326,7 +312,6 @@ describe('EmbedPipeline (Integration)', () => {
     // First create the vector record with only 1536 embedding and its metadata
     const vector = await prisma.courseLearningOutcomeVector.create({
       data: {
-        id: uuidv4(),
         embeddedText: clo.cleanedCloName,
         metadata: {
           vector_1536: {
@@ -438,7 +423,6 @@ describe('EmbedPipeline (Integration)', () => {
     // Arrange
     const campus = await prisma.campus.create({
       data: {
-        id: uuidv4(),
         code: 'CMP3',
         nameTh: 'Campus 3',
         nameEn: 'Campus 3',
@@ -447,7 +431,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const faculty = await prisma.faculty.create({
       data: {
-        id: uuidv4(),
         code: 'FAC3',
         nameTh: 'Faculty 3',
         nameEn: 'Faculty 3',
@@ -457,7 +440,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const course = await prisma.course.create({
       data: {
-        id: uuidv4(),
         campusId: campus.id,
         facultyId: faculty.id,
         subjectCode: 'TEST103',
@@ -468,7 +450,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const clo = await prisma.courseLearningOutcome.create({
       data: {
-        id: uuidv4(),
         courseId: course.id,
         cloNo: 1,
         originalCloName: 'Original outcome 3',
@@ -482,7 +463,6 @@ describe('EmbedPipeline (Integration)', () => {
     // First create the vector record without the embedding
     const vector = await prisma.courseLearningOutcomeVector.create({
       data: {
-        id: uuidv4(),
         embeddedText: clo.cleanedCloName,
         metadata: {},
       },
@@ -550,7 +530,6 @@ describe('EmbedPipeline (Integration)', () => {
     // Arrange
     const campus = await prisma.campus.create({
       data: {
-        id: uuidv4(),
         code: 'CMP7',
         nameTh: 'Campus 7',
         nameEn: 'Campus 7',
@@ -559,7 +538,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const faculty = await prisma.faculty.create({
       data: {
-        id: uuidv4(),
         code: 'FAC7',
         nameTh: 'Faculty 7',
         nameEn: 'Faculty 7',
@@ -569,7 +547,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const course = await prisma.course.create({
       data: {
-        id: uuidv4(),
         campusId: campus.id,
         facultyId: faculty.id,
         subjectCode: 'TEST107',
@@ -580,7 +557,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const clo = await prisma.courseLearningOutcome.create({
       data: {
-        id: uuidv4(),
         courseId: course.id,
         cloNo: 1,
         originalCloName: 'Original outcome 7',
@@ -648,7 +624,6 @@ describe('EmbedPipeline (Integration)', () => {
     // Arrange
     const campus = await prisma.campus.create({
       data: {
-        id: uuidv4(),
         code: 'CMP8',
         nameTh: 'Campus 8',
         nameEn: 'Campus 8',
@@ -657,7 +632,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const faculty = await prisma.faculty.create({
       data: {
-        id: uuidv4(),
         code: 'FAC8',
         nameTh: 'Faculty 8',
         nameEn: 'Faculty 8',
@@ -667,7 +641,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const course = await prisma.course.create({
       data: {
-        id: uuidv4(),
         campusId: campus.id,
         facultyId: faculty.id,
         subjectCode: 'TEST108',
@@ -678,7 +651,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const clo = await prisma.courseLearningOutcome.create({
       data: {
-        id: uuidv4(),
         courseId: course.id,
         cloNo: 1,
         originalCloName: 'Original outcome 8',
@@ -692,7 +664,6 @@ describe('EmbedPipeline (Integration)', () => {
     // Seed vector with only 768 embedding and metadata
     const vector = await prisma.courseLearningOutcomeVector.create({
       data: {
-        id: uuidv4(),
         embeddedText: clo.cleanedCloName,
         metadata: {
           vector_768: {
@@ -800,7 +771,6 @@ describe('EmbedPipeline (Integration)', () => {
     // Arrange
     const campus = await prisma.campus.create({
       data: {
-        id: uuidv4(),
         code: 'CMP4',
         nameTh: 'Campus 4',
         nameEn: 'Campus 4',
@@ -809,7 +779,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const faculty = await prisma.faculty.create({
       data: {
-        id: uuidv4(),
         code: 'FAC4',
         nameTh: 'Faculty 4',
         nameEn: 'Faculty 4',
@@ -819,7 +788,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const course = await prisma.course.create({
       data: {
-        id: uuidv4(),
         campusId: campus.id,
         facultyId: faculty.id,
         subjectCode: 'TEST104',
@@ -830,7 +798,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const clo = await prisma.courseLearningOutcome.create({
       data: {
-        id: uuidv4(),
         courseId: course.id,
         cloNo: 1,
         originalCloName: 'Original outcome 4',
@@ -881,7 +848,6 @@ describe('EmbedPipeline (Integration)', () => {
     // Arrange
     const campus = await prisma.campus.create({
       data: {
-        id: uuidv4(),
         code: 'CMP6',
         nameTh: 'Campus 6',
         nameEn: 'Campus 6',
@@ -890,7 +856,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const faculty = await prisma.faculty.create({
       data: {
-        id: uuidv4(),
         code: 'FAC6',
         nameTh: 'Faculty 6',
         nameEn: 'Faculty 6',
@@ -900,7 +865,6 @@ describe('EmbedPipeline (Integration)', () => {
 
     const course = await prisma.course.create({
       data: {
-        id: uuidv4(),
         campusId: campus.id,
         facultyId: faculty.id,
         subjectCode: 'TEST106',
@@ -917,7 +881,6 @@ describe('EmbedPipeline (Integration)', () => {
     for (let i = 1; i <= 25; i++) {
       const clo = await prisma.courseLearningOutcome.create({
         data: {
-          id: uuidv4(),
           courseId: course.id,
           cloNo: i,
           originalCloName: `Original outcome ${i}`,

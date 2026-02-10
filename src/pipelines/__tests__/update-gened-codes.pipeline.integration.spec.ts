@@ -4,21 +4,14 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AppConfigService } from 'src/shared/kernel/config/app-config.service';
 import { PrismaService } from 'src/shared/kernel/database/prisma.service';
 import { FileHelper } from 'src/shared/utils/file';
-import { v4 as uuidv4 } from 'uuid';
 
 import { ProcessedGenEdRow } from 'src/modules/course/pipelines/types/raw-gened-row.type';
 
 import { UpdateGenEdCodesPipeline } from '../update-gened-codes.pipeline';
 
 // Mock data for testing
-const MOCK_CAMPUS_ID = uuidv4();
-const MOCK_FACULTY_ID = uuidv4();
-const MOCK_COURSE64_ID = uuidv4();
-const MOCK_COURSE67_ID = uuidv4();
-const MOCK_COURSE_BASE_ID = uuidv4();
-const MOCK_COURSE65_ID = uuidv4();
-const MOCK_COURSE66_ID = uuidv4();
-const MOCK_COURSE68_ID = uuidv4();
+let campusId: string;
+let facultyId: string;
 
 const mockGenEdData: ProcessedGenEdRow[] = [
   {
@@ -96,36 +89,35 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
 
   async function seedTestData() {
     // Create campus
-    await prisma.campus.create({
+    const campus = await prisma.campus.create({
       data: {
-        id: MOCK_CAMPUS_ID,
         code: 'CAMPUS1',
         nameTh: 'วิทยาเขต 1',
         nameEn: 'Campus 1',
       },
     });
+    campusId = campus.id;
 
     // Create faculty
-    await prisma.faculty.create({
+    const faculty = await prisma.faculty.create({
       data: {
-        id: MOCK_FACULTY_ID,
         code: 'FACULTY1',
         nameTh: 'คณะ 1',
         nameEn: 'Faculty 1',
         campus: {
           connect: {
-            id: MOCK_CAMPUS_ID,
+            id: campus.id,
           },
         },
       },
     });
+    facultyId = faculty.id;
 
     // Create courses with different suffixes to test the BE year range (64-68)
     await prisma.course.create({
       data: {
-        id: MOCK_COURSE64_ID,
-        campusId: MOCK_CAMPUS_ID,
-        facultyId: MOCK_FACULTY_ID,
+        campusId,
+        facultyId,
         subjectCode: 'GENED101-64',
         subjectName: 'General Education 101',
         isGenEd: false,
@@ -134,9 +126,8 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
 
     await prisma.course.create({
       data: {
-        id: MOCK_COURSE67_ID,
-        campusId: MOCK_CAMPUS_ID,
-        facultyId: MOCK_FACULTY_ID,
+        campusId,
+        facultyId,
         subjectCode: 'GENED102-67',
         subjectName: 'General Education 102',
         isGenEd: false,
@@ -145,9 +136,8 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
 
     await prisma.course.create({
       data: {
-        id: MOCK_COURSE65_ID,
-        campusId: MOCK_CAMPUS_ID,
-        facultyId: MOCK_FACULTY_ID,
+        campusId,
+        facultyId,
         subjectCode: 'GENED101-65',
         subjectName: 'General Education 101',
         isGenEd: false,
@@ -156,9 +146,8 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
 
     await prisma.course.create({
       data: {
-        id: MOCK_COURSE66_ID,
-        campusId: MOCK_CAMPUS_ID,
-        facultyId: MOCK_FACULTY_ID,
+        campusId,
+        facultyId,
         subjectCode: 'GENED101-66',
         subjectName: 'General Education 101',
         isGenEd: false,
@@ -168,9 +157,8 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
     // Create a separate course for GENED101-67
     await prisma.course.create({
       data: {
-        id: uuidv4(),
-        campusId: MOCK_CAMPUS_ID,
-        facultyId: MOCK_FACULTY_ID,
+        campusId,
+        facultyId,
         subjectCode: 'GENED101-67',
         subjectName: 'General Education 101',
         isGenEd: false,
@@ -179,9 +167,8 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
 
     await prisma.course.create({
       data: {
-        id: MOCK_COURSE68_ID,
-        campusId: MOCK_CAMPUS_ID,
-        facultyId: MOCK_FACULTY_ID,
+        campusId,
+        facultyId,
         subjectCode: 'GENED101-68',
         subjectName: 'General Education 101',
         isGenEd: false,
@@ -190,9 +177,8 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
 
     await prisma.course.create({
       data: {
-        id: MOCK_COURSE_BASE_ID,
-        campusId: MOCK_CAMPUS_ID,
-        facultyId: MOCK_FACULTY_ID,
+        campusId,
+        facultyId,
         subjectCode: 'GENED104',
         subjectName: 'General Education 104',
         isGenEd: false,
@@ -257,9 +243,8 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
       // Create a course with GENED104-66 suffix to test (within BE range 64-68)
       await prisma.course.create({
         data: {
-          id: uuidv4(),
-          campusId: MOCK_CAMPUS_ID,
-          facultyId: MOCK_FACULTY_ID,
+          campusId,
+          facultyId,
           subjectCode: 'GENED104-66',
           subjectName: 'General Education 104',
           isGenEd: false,
@@ -315,9 +300,8 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
       // Create additional courses for GENED103
       await prisma.course.create({
         data: {
-          id: uuidv4(),
-          campusId: MOCK_CAMPUS_ID,
-          facultyId: MOCK_FACULTY_ID,
+          campusId,
+          facultyId,
           subjectCode: 'GENED103-64',
           subjectName: 'General Education 103',
           isGenEd: false,
@@ -326,9 +310,8 @@ describe('UpdateGenEdCodesPipeline (Integration)', () => {
 
       await prisma.course.create({
         data: {
-          id: uuidv4(),
-          campusId: MOCK_CAMPUS_ID,
-          facultyId: MOCK_FACULTY_ID,
+          campusId,
+          facultyId,
           subjectCode: 'GENED103-67',
           subjectName: 'General Education 103',
           isGenEd: false,

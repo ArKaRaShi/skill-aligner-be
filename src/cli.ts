@@ -3,9 +3,11 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { EmbedPipeline } from './pipelines/embed.pipeline';
 import { EmbedPipelineV2 } from './pipelines/embed.pipeline.v2';
+import { EmbedPipelineV3 } from './pipelines/embed.pipeline.v3';
 import { InspectEmbeddingsPipeline } from './pipelines/inspect-embeddings.pipeline';
 import { SeedCampusAndFacultyPipeline } from './pipelines/seed-campus-and-faculty.pipeline';
 import { SeedCourseAndLoPipeline } from './pipelines/seed-course-and-lo.pipeline';
+import { SeedCourseAndLoPipelineV2 } from './pipelines/seed-course-and-lo.pipeline.v2';
 import { UpdateGenEdCodesPipeline } from './pipelines/update-gened-codes.pipeline';
 
 async function bootstrap() {
@@ -18,7 +20,7 @@ async function bootstrap() {
 
   if (!pipelineType) {
     console.error(
-      'Please specify a pipeline type: embed, embed-v2, inspect-embeddings, seed-course-lo, seed-campus-faculty, or update-gened-codes',
+      'Please specify a pipeline type: embed, embed-v2, embed-v3, inspect-embeddings, seed-course-lo, seed-course-lo-v2, seed-campus-faculty, or update-gened-codes',
     );
     console.log(
       'Usage: bunx ts-node --require tsconfig-paths/register src/cli.ts <pipeline-type> [dimension] [options...]',
@@ -29,9 +31,15 @@ async function bootstrap() {
       '  embed-v2 - Embed course learning outcomes with combined faculty+course+LO text',
     );
     console.log(
+      '  embed-v3 - Embed CLOs with deduplication and batch processing (1536 only)',
+    );
+    console.log(
       '  inspect-embeddings - Inspect 1536-dimensional embeddings and compute similarity',
     );
     console.log('  seed-course-lo - Seed courses and learning outcomes');
+    console.log(
+      '  seed-course-lo-v2 - Seed courses using batch createMany (faster)',
+    );
     console.log('  seed-campus-faculty - Seed campuses and faculties');
     console.log(
       '  update-gened-codes - Update GenEd course codes based on processed data',
@@ -47,6 +55,9 @@ async function bootstrap() {
       '  bunx ts-node --require tsconfig-paths/register src/cli.ts embed-v2 1536',
     );
     console.log(
+      '  bunx ts-node --require tsconfig-paths/register src/cli.ts embed-v3',
+    );
+    console.log(
       '  bunx ts-node --require tsconfig-paths/register src/cli.ts inspect-embeddings "machine learning"',
     );
     await appContext.close();
@@ -60,6 +71,9 @@ async function bootstrap() {
     } else if (pipelineType === 'embed-v2') {
       const pipeline = appContext.get(EmbedPipelineV2);
       await pipeline.embedCourseLearningOutcomes(dimension);
+    } else if (pipelineType === 'embed-v3') {
+      const pipeline = appContext.get(EmbedPipelineV3);
+      await pipeline.embedCourseLearningOutcomes();
     } else if (pipelineType === 'inspect-embeddings') {
       const pipeline = appContext.get(InspectEmbeddingsPipeline);
       const queryText = args[1] || 'machine learning algorithms';
@@ -69,6 +83,16 @@ async function bootstrap() {
       await pipeline.execute({
         deleteExisting: args.includes('--delete'),
         seeds: !args.includes('--no-seed'),
+      });
+    } else if (pipelineType === 'seed-course-lo-v2') {
+      const pipeline = appContext.get(SeedCourseAndLoPipelineV2);
+      const batchSizeIndex = args.indexOf('--batch-size');
+      const batchSize =
+        batchSizeIndex !== -1 ? Number(args[batchSizeIndex + 1]) : 100;
+      await pipeline.execute({
+        deleteExisting: args.includes('--delete'),
+        seeds: !args.includes('--no-seed'),
+        batchSize,
       });
     } else if (pipelineType === 'seed-campus-faculty') {
       const pipeline = appContext.get(SeedCampusAndFacultyPipeline);
@@ -103,6 +127,8 @@ bootstrap();
 // bunx ts-node --require tsconfig-paths/register src/cli.ts inspect-embeddings "data analysis"
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-course-lo
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-course-lo --delete --no-seed
+// bunx ts-node --require tsconfig-paths/register src/cli.ts seed-course-lo-v2
+// bunx ts-node --require tsconfig-paths/register src/cli.ts seed-course-lo-v2 --batch-size 50
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-campus-faculty
 // bunx ts-node --require tsconfig-paths/register src/cli.ts seed-campus-faculty --delete --no-seed
 // bunx ts-node --require tsconfig-paths/register src/cli.ts update-gened-codes
