@@ -24,10 +24,10 @@ export class SwaggerSetup {
     }
 
     const config = new DocumentBuilder()
-      .setTitle(options.title ?? 'Carreer Skill Aligner API')
+      .setTitle(options.title ?? 'Skill Aligner API')
       .setDescription(
         options.description ??
-          'API documentation for Career Skill Aligner application',
+          'API documentation for Skill Aligner application',
       )
       .setVersion(options.version ?? '1.0')
       .build();
