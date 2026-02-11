@@ -1,6 +1,5 @@
 import { Controller, Get, HttpCode, HttpStatus, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Throttle } from '@nestjs/throttler';
 
 import { SuccessResponseDto } from 'src/shared/contracts/api/base.response.dto';
 
@@ -10,7 +9,6 @@ import { CampusWithFacultiesResponseDto } from './dto/responses/campuses-with-fa
 import { GetCampusesUseCase } from './use-cases/get-campuses.use-case';
 
 @Controller('campuses')
-@Throttle({ default: { limit: 5, ttl: 60000 } })
 @ApiTags('Campuses')
 export class CampusController {
   constructor(private readonly getCampusesUseCase: GetCampusesUseCase) {}

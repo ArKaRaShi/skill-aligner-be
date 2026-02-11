@@ -1,4 +1,5 @@
 import { ConfigService } from '@nestjs/config';
+import { minutes } from '@nestjs/throttler';
 
 import { AppConfigDefault } from '../app-config.constant';
 import { AppConfigService } from '../app-config.service';
@@ -94,7 +95,7 @@ describe('AppConfigService', () => {
         DATABASE_URL:
           'postgresql://user:password@localhost:5432/testdb?schema=public',
         DIRECT_URL: 'postgresql://user:password@localhost:5432/testdb',
-        THROTTLE_TTL_MS: 120000,
+        THROTTLE_TTL_MS: minutes(2),
         THROTTLE_LIMIT: 5,
         OPENAI_API_KEY: 'openai-key',
         OPENROUTER_API_KEY: 'openrouter-key',

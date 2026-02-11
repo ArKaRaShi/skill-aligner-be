@@ -1,3 +1,5 @@
+import { minutes } from '@nestjs/throttler';
+
 export const AppConfigDefault = {
   NODE_ENV: 'development',
   APP_DEBUG: true,
@@ -6,7 +8,7 @@ export const AppConfigDefault = {
   DATABASE_URL: '',
   DIRECT_URL: '',
 
-  THROTTLE_TTL_MS: 60_000,
+  THROTTLE_TTL_MS: minutes(1),
   THROTTLE_LIMIT: 60,
 
   OPENAI_API_KEY: '',

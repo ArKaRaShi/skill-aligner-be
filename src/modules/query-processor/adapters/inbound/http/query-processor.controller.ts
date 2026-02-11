@@ -7,7 +7,7 @@ import {
   Post,
   Res,
 } from '@nestjs/common';
-import { Throttle } from '@nestjs/throttler';
+import { minutes, Throttle } from '@nestjs/throttler';
 
 import { Response } from 'express';
 import { I_SSE_EMITTER_FACTORY_TOKEN } from 'src/shared/adapters/sse/sse-emitter.factory';
@@ -48,7 +48,7 @@ export class QueryProcessorController {
   ) {}
 
   @Post('/query-processor/answer-question')
-  @Throttle({ default: { limit: 5, ttl: 60000 } })
+  @Throttle({ default: { limit: 5, ttl: minutes(1) } })
   @HttpCode(HttpStatus.OK)
   async answerQuestion(
     @Body() body: AnswerQuestionRequestDto,
@@ -76,7 +76,7 @@ export class QueryProcessorController {
   }
 
   @Post('/query-processor/answer-question-stream')
-  @Throttle({ default: { limit: 5, ttl: 60000 } })
+  @Throttle({ default: { limit: 5, ttl: minutes(1) } })
   @HttpCode(HttpStatus.OK)
   async answerQuestionStream(
     @Body() body: AnswerQuestionStreamRequestDto,
@@ -102,7 +102,7 @@ export class QueryProcessorController {
   }
 
   @Post('/query-processor/expand-skills')
-  @Throttle({ default: { limit: 5, ttl: 60000 } })
+  @Throttle({ default: { limit: 5, ttl: minutes(1) } })
   @HttpCode(HttpStatus.OK)
   async expandSkills(
     @Body() body: ExpandSkillsRequestDto,
@@ -143,7 +143,7 @@ export class QueryProcessorController {
   }
 
   @Post('/query-processor/classify-question')
-  @Throttle({ default: { limit: 5, ttl: 60000 } })
+  @Throttle({ default: { limit: 5, ttl: minutes(1) } })
   @HttpCode(HttpStatus.OK)
   async classifyQuestion(
     @Body() body: ClassifyQuestionRequestDto,
