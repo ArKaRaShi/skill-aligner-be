@@ -309,7 +309,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         learning_outcome: lo.cleanedName,
       }));
 
-      const encodedLoList = JSON.stringify(minimalLearningOutcomes, null, 2);
+      const encodedLoList = JSON.stringify(minimalLearningOutcomes);
 
       const { getUserPrompt, systemPrompt } =
         this.filterLoPromptFactory.getPrompts('v2');
