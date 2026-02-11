@@ -8,6 +8,7 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import { Throttle } from '@nestjs/throttler';
 
 import { SuccessResponseDto } from 'src/shared/contracts/api/base.response.dto';
 import type { Identifier } from 'src/shared/contracts/types/identifier';
@@ -23,6 +24,7 @@ import { CourseSearchResponseMapper } from './mappers/course-search-response.map
  * Controller for course-related operations
  */
 @Controller()
+@Throttle({ default: { limit: 5, ttl: 60000 } })
 export class CourseController {
   constructor(
     private readonly logCourseClickUseCase: LogCourseClickUseCase,

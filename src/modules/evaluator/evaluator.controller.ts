@@ -1,5 +1,6 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { ApiBody } from '@nestjs/swagger';
+import { Throttle } from '@nestjs/throttler';
 
 import { SuccessResponseDto } from 'src/shared/contracts/api/base.response.dto';
 
@@ -10,6 +11,7 @@ import { QuestionSetCreatorService } from './shared/services/question-set-creato
 import { CollapsedIterationMetrics } from './shared/types/test-result.type';
 
 @Controller('evaluator')
+@Throttle({ default: { limit: 5, ttl: 60000 } })
 export class EvaluatorController {
   constructor(
     private readonly questionSetCreatorService: QuestionSetCreatorService,

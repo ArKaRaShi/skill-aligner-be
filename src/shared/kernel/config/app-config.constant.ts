@@ -4,11 +4,18 @@ export const AppConfigDefault = {
   PORT: 3001,
 
   DATABASE_URL: '',
+  DIRECT_URL: '',
+
+  THROTTLE_TTL_MS: 60_000,
+  THROTTLE_LIMIT: 60,
 
   OPENAI_API_KEY: '',
 
   OPENROUTER_API_KEY: '',
   OPENROUTER_BASE_URL: 'https://openrouter.ai/api/v1',
+
+  ZAI_BASE_URL: 'https://api.z.ai/api/paas/v4/',
+  ZAI_API_KEY: '',
 
   EMBEDDING_MODEL: 'e5-base', // Model-first: specify model, router resolves provider
   EMBEDDING_PROVIDER: 'local', // Deprecated: Use EMBEDDING_MODEL instead

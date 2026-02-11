@@ -8,6 +8,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
+import { Throttle } from '@nestjs/throttler';
 
 import { SuccessResponseDto } from 'src/shared/contracts/api/base.response.dto';
 
@@ -20,6 +21,7 @@ import { QueryLogsListResponseDto } from '../dto/responses/query-logs-list-respo
 import { QueryLogResponseMapper } from '../mappers/query-log-response.mapper';
 
 @Controller('query-logs')
+@Throttle({ default: { limit: 5, ttl: 60000 } })
 @ApiTags('Query Logs')
 export class QueryLoggingController {
   constructor(

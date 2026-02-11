@@ -22,5 +22,6 @@
       "src/*": ["src/*"],
       "test/*": ["test/*"]
     }
-  }
+  },
+  "exclude": ["scripts"]
 }

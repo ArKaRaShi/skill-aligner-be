@@ -1,7 +1,7 @@
 {
   "moduleFileExtensions": ["js", "json", "ts"],
   "rootDir": "..",
-  "roots": ["<rootDir>/src", "<rootDir>/prisma"],
+  "roots": ["<rootDir>/test", "<rootDir>/src", "<rootDir>/prisma"],
   "moduleNameMapper": {
     "^src/(.*)$": "<rootDir>/src/$1",
     "^prisma/(.*)$": "<rootDir>/prisma/$1"
@@ -10,11 +10,17 @@
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
   },
-  "transformIgnorePatterns": ["node_modules/(?!(uuid|@openrouter)/)"],
+  "transformIgnorePatterns": [
+    "node_modules/(?!(uuid|@openrouter|p-limit|yocto-queue)/)",
+    "node_modules/@nestjs",
+    "node_modules/@types/supertest",
+    "node_modules/zod"
+  ],
   "setupFilesAfterEnv": ["<rootDir>/test/jest-e2e.setup.ts"],
   "collectCoverage": true,
   "collectCoverageFrom": [
     "<rootDir>/src/**/*.{ts,js}",
+    "!<rootDir>/src/playground*.{ts,js}",
     "!<rootDir>/src/pipelines-v2/**",
     "!<rootDir>/src/**/*.spec.{ts,js}",
     "!<rootDir>/src/**/*.module.{ts,js}",

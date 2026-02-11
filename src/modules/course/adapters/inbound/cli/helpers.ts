@@ -87,9 +87,9 @@ export function parseArgsArray(args: string[]): CliArgs {
  * @returns Formatted string with percentage and visual bar
  *
  * @example
- * getSimilarityBar(85) // "85.0% ███████████████████"
+ * getSimilarityBar(85)  // "85.0% ████████"
  * getSimilarityBar(0)   // "0.0% "
- * getSimilarityBar(100) // "100.0% ██████████████████████████"
+ * getSimilarityBar(100) // "100.0% ██████████"
  */
 export function getSimilarityBar(score: number): string {
   const blocks = Math.floor(score / 10);
