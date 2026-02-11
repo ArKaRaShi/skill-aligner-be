@@ -29,6 +29,23 @@ export const appConfigValidationSchema = Joi.object({
     'any.required': `"DATABASE_URL" is a required field`,
   }),
 
+  DIRECT_URL: Joi.string().uri().optional().messages({
+    'string.base': `"DIRECT_URL" should be a type of 'text'`,
+    'string.uri': `"DIRECT_URL" must be a valid URI`,
+  }),
+
+  THROTTLE_TTL_MS: Joi.number()
+    .default(AppConfigDefault.THROTTLE_TTL_MS)
+    .messages({
+      'number.base': `"THROTTLE_TTL_MS" should be a type of 'number'`,
+    }),
+
+  THROTTLE_LIMIT: Joi.number()
+    .default(AppConfigDefault.THROTTLE_LIMIT)
+    .messages({
+      'number.base': `"THROTTLE_LIMIT" should be a type of 'number'`,
+    }),
+
   OPENAI_API_KEY: Joi.string().optional().messages({
     'string.base': `"OPENAI_API_KEY" should be a type of 'text'`,
   }),
@@ -44,6 +61,18 @@ export const appConfigValidationSchema = Joi.object({
       'string.base': `"OPENROUTER_BASE_URL" should be a type of 'text'`,
       'string.uri': `"OPENROUTER_BASE_URL" must be a valid URI`,
     }),
+
+  ZAI_BASE_URL: Joi.string()
+    .uri()
+    .default(AppConfigDefault.ZAI_BASE_URL)
+    .messages({
+      'string.base': `"ZAI_BASE_URL" should be a type of 'text'`,
+      'string.uri': `"ZAI_BASE_URL" must be a valid URI`,
+    }),
+
+  ZAI_API_KEY: Joi.string().optional().allow('').messages({
+    'string.base': `"ZAI_API_KEY" should be a type of 'text'`,
+  }),
 
   SEMANTICS_API_BASE_URL: Joi.string()
     .uri()

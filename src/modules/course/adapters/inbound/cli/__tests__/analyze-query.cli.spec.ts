@@ -232,22 +232,22 @@ describe('analyze-query.cli', () => {
 
     it('should return correct blocks for 50% score', () => {
       const result = getSimilarityBar(50);
-      expect(result).toBe('50.0% ██████████');
+      expect(result).toBe('50.0% █████');
     });
 
     it('should return full bar for 100% score', () => {
       const result = getSimilarityBar(100);
-      expect(result).toBe('100.0% ██████████████████████████');
+      expect(result).toBe('100.0% ██████████');
     });
 
     it('should floor the score for block calculation', () => {
       const result = getSimilarityBar(85.7);
-      expect(result).toBe('85.7% ███████████████████');
+      expect(result).toBe('85.7% ████████');
     });
 
     it('should format score with one decimal place', () => {
       const result = getSimilarityBar(73.456);
-      expect(result).toBe('73.5% ███████████████');
+      expect(result).toBe('73.5% ███████');
     });
 
     it('should handle edge case of 0.1%', () => {
@@ -257,7 +257,7 @@ describe('analyze-query.cli', () => {
 
     it('should handle edge case of 99.9%', () => {
       const result = getSimilarityBar(99.9);
-      expect(result).toBe('99.9% ██████████████████████████');
+      expect(result).toBe('99.9% █████████');
     });
 
     it('should handle negative scores gracefully', () => {
@@ -267,7 +267,7 @@ describe('analyze-query.cli', () => {
 
     it('should handle scores above 100 gracefully', () => {
       const result = getSimilarityBar(150);
-      expect(result).toBe('150.0% ██████████████████████████████████');
+      expect(result).toBe('150.0% ███████████████');
     });
   });
 });

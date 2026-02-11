@@ -5,10 +5,12 @@ import { Response } from 'express';
 import { I_SSE_EMITTER_FACTORY_TOKEN } from 'src/shared/adapters/sse/sse-emitter.factory';
 import { ISseEmitter } from 'src/shared/contracts/sse/i-sse-emitter.contract';
 
-import { AnswerQuestionStreamUseCase } from '../../../../use-cases/answer-question-stream.use-case';
-import { AnswerQuestionUseCase } from '../../../../use-cases/answer-question.use-case';
-import { AnswerQuestionRequestDto } from '../dto/requests/answer-question.request.dto';
-import { QueryProcessorController } from '../query-processor.controller';
+import { AnswerQuestionStreamUseCase } from '../../../../../use-cases/answer-question-stream.use-case';
+import { AnswerQuestionUseCase } from '../../../../../use-cases/answer-question.use-case';
+import { ClassifyQuestionUseCase } from '../../../../../use-cases/classify-question.use-case';
+import { ExpandSkillsUseCase } from '../../../../../use-cases/expand-skills.use-case';
+import { AnswerQuestionRequestDto } from '../../dto/requests/answer-question.request.dto';
+import { QueryProcessorController } from '../../query-processor.controller';
 
 describe('QueryProcessorController - SSE Error Handling', () => {
   let controller: QueryProcessorController;
@@ -38,6 +40,12 @@ describe('QueryProcessorController - SSE Error Handling', () => {
     const mockAnswerQuestionUseCase = {
       execute: jest.fn(),
     } as any;
+    const mockClassifyQuestionUseCase = {
+      execute: jest.fn(),
+    } as any;
+    const mockExpandSkillsUseCase = {
+      execute: jest.fn(),
+    } as any;
 
     const module: TestingModule = await Test.createTestingModule({
       controllers: [QueryProcessorController],
@@ -49,6 +57,14 @@ describe('QueryProcessorController - SSE Error Handling', () => {
         {
           provide: AnswerQuestionUseCase,
           useValue: mockAnswerQuestionUseCase,
+        },
+        {
+          provide: ClassifyQuestionUseCase,
+          useValue: mockClassifyQuestionUseCase,
+        },
+        {
+          provide: ExpandSkillsUseCase,
+          useValue: mockExpandSkillsUseCase,
         },
         {
           provide: I_SSE_EMITTER_FACTORY_TOKEN,
