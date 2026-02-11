@@ -1,6 +1,5 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { Logger, PinoLogger } from 'nestjs-pino';
 
@@ -9,6 +8,7 @@ import { CampusModule } from './modules/campus/campus.module';
 import { EvaluatorModule } from './modules/evaluator/evaluator.module';
 import { QueryProcessorModule } from './modules/query-processor/query-processor.module';
 import { AppConfigService } from './shared/kernel/config/app-config.service';
+import { SwaggerSetup } from './shared/kernel/swagger';
 
 function logEnvironmentVariables(
   appConfigService: AppConfigService,
@@ -71,28 +71,12 @@ async function bootstrap() {
     }),
   );
 
-  // TODO: move swagger setup to its own module
-  const config = new DocumentBuilder()
-    .setTitle('Carreer Skill Aligner API')
-    .setDescription('API documentation for Career Skill Aligner application')
-    .setVersion('1.0')
-    .build();
-
-  const documentFactory = () =>
-    SwaggerModule.createDocument(app, config, {
-      include: [AppModule, QueryProcessorModule, CampusModule, EvaluatorModule],
-    });
-  SwaggerModule.setup('/swagger', app, documentFactory, {
-    swaggerOptions: {
-      tagsSorter: 'alpha',
-      operationsSorter: 'method',
-    },
-    jsonDocumentUrl: '/swagger/swagger.json',
-    useGlobalPrefix: true,
+  SwaggerSetup.setup(app, appConfigService, {
+    include: [AppModule, QueryProcessorModule, CampusModule, EvaluatorModule],
   });
 
   app.enableCors({
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000', 'https://skill-aligner-fe.vercel.app'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   });
 

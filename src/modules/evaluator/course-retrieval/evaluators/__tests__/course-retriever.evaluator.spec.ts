@@ -15,11 +15,6 @@ import {
 } from '../../types/course-retrieval.types';
 import { CourseRetrieverEvaluator } from '../course-retriever.evaluator';
 
-// Mock @toon-format/toon to avoid ESM import issues
-jest.mock('@toon-format/toon', () => ({
-  encode: jest.fn((data: unknown) => JSON.stringify(data)),
-}));
-
 describe('CourseRetrieverEvaluator', () => {
   let _evaluator: CourseRetrieverEvaluator;
   let llmRouter: jest.Mocked<ILlmRouterService>;

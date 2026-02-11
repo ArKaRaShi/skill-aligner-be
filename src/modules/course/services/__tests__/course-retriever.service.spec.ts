@@ -23,10 +23,6 @@ import {
 } from '../../types/course.type';
 import { CourseRetrieverService } from '../course-retriever.service';
 
-jest.mock('@toon-format/toon', () => ({
-  encode: jest.fn((data) => JSON.stringify(data)),
-}));
-
 const baseDate = new Date('2024-01-01T00:00:00.000Z');
 
 const buildLearningOutcome = (

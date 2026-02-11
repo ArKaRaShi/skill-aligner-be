@@ -1,7 +1,6 @@
 import { ClassSerializerInterceptor, Module } from '@nestjs/common';
 import { APP_FILTER, APP_INTERCEPTOR, Reflector } from '@nestjs/core';
 
-import { AppController } from './app.controller';
 import {
   CampusModule,
   CourseModule,
@@ -17,12 +16,14 @@ import {
   AllExceptionFilter,
   AppExceptionFilter,
 } from './shared/kernel/exception';
-import { LoggerModule } from './shared/kernel/logger/logger.module';
+import { LoggerModule } from './shared/kernel/logger';
+import { ThrottlingModule } from './shared/kernel/throttling';
 
 @Module({
   imports: [
     AppConfigModule,
     LoggerModule.register(),
+    ThrottlingModule,
     ...CommonSecondaryAdapterModules,
     CourseModule,
     CampusModule,
@@ -33,7 +34,7 @@ import { LoggerModule } from './shared/kernel/logger/logger.module';
 
     PipelineModule,
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [
     { provide: APP_FILTER, useClass: AllExceptionFilter },
     { provide: APP_FILTER, useClass: AppExceptionFilter },

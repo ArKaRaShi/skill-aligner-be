@@ -7,7 +7,7 @@ import tseslint from 'typescript-eslint';
 
 export default defineConfig(
   {
-    ignores: ['eslint.config.mjs'],
+    ignores: ['eslint.config.mjs', 'scripts/**'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
@@ -56,10 +56,12 @@ export default defineConfig(
   },
   {
     // Query logging module - intentional flexible JSONB storage
+    // Exclude test files - they already have more relaxed rules
     files: [
       'src/modules/query-logging/**/*.ts',
       'src/shared/utils/llm-metadata.builder.ts',
     ],
+    ignores: ['**/*.spec.ts', '**/*.test.ts', '**/__tests__/**/*.ts'],
     rules: {
       '@typescript-eslint/no-unsafe-assignment': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',

@@ -11,6 +11,14 @@ export class AppConfigService {
     return this.configService.get('NODE_ENV') ?? AppConfigDefault.NODE_ENV;
   }
 
+  get isProduction(): boolean {
+    return this.nodeEnv === 'production';
+  }
+
+  get isDevelopment(): boolean {
+    return this.nodeEnv === 'development';
+  }
+
   get appDebug(): boolean {
     return this.configService.get('APP_DEBUG') ?? AppConfigDefault.APP_DEBUG;
   }
@@ -22,6 +30,24 @@ export class AppConfigService {
   get databaseUrl(): string {
     return (
       this.configService.get('DATABASE_URL') ?? AppConfigDefault.DATABASE_URL
+    );
+  }
+
+  get directUrl(): string {
+    return this.configService.get('DIRECT_URL') ?? AppConfigDefault.DIRECT_URL;
+  }
+
+  get throttleTtlMs(): number {
+    return (
+      this.configService.get<number>('THROTTLE_TTL_MS') ??
+      AppConfigDefault.THROTTLE_TTL_MS
+    );
+  }
+
+  get throttleLimit(): number {
+    return (
+      this.configService.get<number>('THROTTLE_LIMIT') ??
+      AppConfigDefault.THROTTLE_LIMIT
     );
   }
 
@@ -43,6 +69,19 @@ export class AppConfigService {
     return (
       this.configService.get<string>('OPENROUTER_BASE_URL') ??
       AppConfigDefault.OPENROUTER_BASE_URL
+    );
+  }
+
+  get zaiBaseUrl(): string {
+    return (
+      this.configService.get<string>('ZAI_BASE_URL') ??
+      AppConfigDefault.ZAI_BASE_URL
+    );
+  }
+
+  get zaiApiKey(): string {
+    return (
+      this.configService.get('ZAI_API_KEY') ?? AppConfigDefault.ZAI_API_KEY
     );
   }
 

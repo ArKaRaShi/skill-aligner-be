@@ -1,6 +1,5 @@
 import { Inject, Injectable, Logger, Optional } from '@nestjs/common';
 
-import { encode } from '@toon-format/toon';
 import {
   I_LLM_ROUTER_SERVICE_TOKEN,
   ILlmRouterService,
@@ -310,7 +309,7 @@ export class CourseRetrieverService implements ICourseRetrieverService {
         learning_outcome: lo.cleanedName,
       }));
 
-      const encodedLoList = encode(minimalLearningOutcomes);
+      const encodedLoList = JSON.stringify(minimalLearningOutcomes);
 
       const { getUserPrompt, systemPrompt } =
         this.filterLoPromptFactory.getPrompts('v2');
